@@ -1,0 +1,38 @@
+@import "../../../scss/customTheme.scss";
+
+.tab-container {
+  display: flex;
+  justify-content: space-between;
+  .tab-list {
+    max-width: 50%;
+  }
+
+  ol {
+    list-style: none;
+    counter-reset: ingredients-counter;
+    padding: 16px;
+  }
+  ol li {
+    counter-increment: ingredients-counter;
+    display: flex;
+    font-size: 0.8rem;
+    align-items: center;
+  }
+  ol li::before {
+    content: counter(ingredients-counter) ".";
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-right: 1rem;
+    color: $mtm_green_color;
+  }
+}
+
+.tab-img-wrapper {
+  padding: 1em;
+  max-width: 50%;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}

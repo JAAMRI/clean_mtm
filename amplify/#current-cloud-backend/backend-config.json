@@ -1,0 +1,8 @@
+{
+	"auth": {
+		"knorrmealsthatmatter667ee627": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}

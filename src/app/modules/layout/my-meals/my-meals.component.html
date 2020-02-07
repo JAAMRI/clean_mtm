@@ -1,0 +1,52 @@
+<div [class]="isMobile ? 'mobile-my-meals-page' : 'my-meals-page'">
+  <div class="title">
+    MEAL PLAN
+  </div>
+  <p class='my-meals-subheader'>
+    {{!isMobile ? 'When your meal plan is ready, click grocery list to shop ingredients' : 'When your meal plan is ready, click grocery list to shop ingredients'}}
+  </p>
+  <ng-container *ngIf='mealPlan.length === 0'>
+    <p class='no-items-text'>No items found</p>
+  </ng-container>
+
+
+  <div class="my-meals-container">
+    <ngx-slick-carousel [class]="!isWeb ? 'mobile-carousel' : 'carousel'" #slickModal="slick-carousel"
+      [ngClass]="{'disable-next-button': disableNextButton}" (beforeChange)='setCarouselChanging($event)'
+      [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let meal of mealPlan" class="slide">
+        <app-my-meal-item (favouriteToggled)='updateFavourites($event)' (remove)='removeFromMealPlan($event)'
+          (wasClicked)='visitMealDetailPage($event)' [favourited]='favouriteMealIds?.includes(meal.id)'
+          [mealItem]='meal'>
+        </app-my-meal-item>
+
+      </div>
+    </ngx-slick-carousel>
+  </div>
+
+  <!-- <pre>{{filteredMealPlan$ | async | json}}</pre> -->
+
+  <div class="my-meals-action-buttons">
+    <div class="route-buttons">
+      <button aria-label="Select meals" mat-flat-button class='select-meals-button' routerLink='/mtm/discover'
+        (click)="adobeDtbTracking.page_tracking('SELECT MEALS','/mtm/discover')">
+        <mat-icon>chevron_left</mat-icon>
+        SELECT MEALS
+      </button>
+      <button aria-label="View grocery list" mat-flat-button class='grocery-list-button' routerLink='/mtm/grocery-list'
+        (click)="adobeDtbTracking.page_tracking('GROCERY LIST','/mtm/grocery-list')">
+        GROCERY LIST
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+    <button aria-label="Save meal plan" *ngIf="!accountService.loggedIn" mat-flat-button class='save-meal-plan-button'
+      (click)='promptUserForAuth()'>
+      SAVE MEAL PLAN
+    </button>
+    <button aria-label="View favourites" *ngIf="accountService.loggedIn" mat-flat-button class='save-meal-plan-button'
+      (click)='viewFavourites()'>
+      View Favourites
+    </button>
+
+  </div>
+</div>

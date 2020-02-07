@@ -1,0 +1,13 @@
+<div class="tab-container">
+  <div [class]="isMobile ? 'mobile-tab-list' : 'tab-list'">
+    <ol>
+      <li *ngFor='let val of data'>
+        <p [innerHtml]='val.description'></p>
+      </li>
+    </ol>
+  </div>
+  
+ <div class="tab-img-wrapper" *ngIf='!isMobile'>
+   <img alt="Instruction image" src="/assets/static_images/Instruction_image.jpg">
+ </div>
+</div>

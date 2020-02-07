@@ -1,0 +1,13 @@
+<div class="grocery-list-page">
+  <h1 class='title'> GROCERY LIST </h1>
+  <div *ngIf="!isMealPlanEmpty" class="grocery-container" [innerHtml]='groceryListWidget | safeHtml'></div>
+  <ng-container *ngIf='isMealPlanEmpty'>
+    <p class='no-items-text'>
+      <!--No meals found -->
+    </p>
+    <button aria-label="Select meals" mat-raised-button class='add-meal-button' color='primary'
+      routerLink='/mtm/discover' (click)="adobeDtbTracking.page_tracking('SELECT MEALS','/mtm/discover')">
+      SELECT MEALS
+    </button>
+  </ng-container>
+</div>

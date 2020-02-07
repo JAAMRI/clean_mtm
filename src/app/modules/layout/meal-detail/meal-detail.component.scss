@@ -1,0 +1,270 @@
+@import "../../../../scss/customTheme.scss";
+@import "../../../../scss/variables.scss";
+
+.mat-dialog-container {
+  overflow: unset;
+}
+.recipe-page {
+  font-family: avenir;
+  max-width: 80vw;
+  max-height: 80vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  -ms-overflow-x: hidden;
+  position: relative;
+  padding: 1em;
+}
+
+.mobile-recipe-page{
+  font-family: avenir;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  -ms-overflow-x: hidden;
+}
+
+.close-button {
+  position: -webkit-sticky;
+  position: sticky;
+  // position:absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  color: $mtm_dark_green_color;
+  //  width:100%;
+  button{
+    float:right;
+    // position:sticky;
+  }
+}
+
+
+.headers {
+  margin-top: 2em;
+  .header {
+    font-size: 2em;
+    margin-top: unset;
+    text-align: center;
+    align-self: end;
+    font-family: flavour;
+    color: $mtm_dark_green_color;
+  }
+  .subheader {
+    color: $mtm_dark_green_color;
+    text-align: center;
+    font-family: avenir;
+    width: 75%;
+    margin: auto;
+  }
+}
+
+.meal-recipe {
+  padding: 2em 8em 1em 8em;
+  background-color: $light_beige;
+}
+.mobile-meal-recipe {
+  padding: 0 4px;
+  background-color: $light_beige;
+}
+.meal-summary-mobile {
+  padding-top: 1em;
+  .img-wrapper {
+    display: flex;
+    width: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .meal-subheader {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0;
+    p {
+      margin: unset;
+      font-size: 1em;
+    }
+  }
+  .action-buttons {
+    justify-self: start;
+    text-align: right;
+    .add-button {
+      color: $mtm_green_color;
+    }
+    .added {
+      opacity: 0.5;
+    }
+  }
+}
+.meal-summary-desktop {
+  margin: 2em 0;
+  .summary-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    .text-wrapper {
+      h3 {
+        margin: unset;
+      }
+      .meal-description {
+        font-family: avenir;
+        padding-right: 1em;
+        margin: unset;
+      }
+    }
+    .action-wrapper {
+      .img-wrapper {
+        height: 35vh;
+        width: 100%;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+      .meal-subheader {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+        .send-to-email-button {
+          background-color: $darker_beige;
+          color: $mtm_dark_green_color;
+        }
+        .cta-wrapper {
+          display: flex;
+          .social-media-icons {
+            img {
+              height: 24px;
+              margin: 4px;
+            }
+          }
+          .action-buttons {
+            justify-self: start;
+            text-align: right;
+            margin-left: 1em;
+            .add-button {
+              color: $mtm_green_color;
+            }
+            .added {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.meal-tabs-container {
+  height: 100%;
+  .mat-tab-group {
+    height: 100%;
+  }
+  .mat-tab-label-content {
+    color: $mtm_dark_green_color;
+    font-family: 500;
+  }
+  .mat-tab-header {
+    border-bottom: unset;
+  }
+  .mat-tab-label-active {
+    background-color: $darker_beige;
+  }
+  .mat-tab-body-wrapper {
+    background-color: $darker_beige;
+    height: 100%;
+  }
+  .mat-ink-bar {
+    display: none;
+  }
+  .mat-tab-label {
+    height: 24px;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+.scroll-to-bottom-button-wrapper {
+  display: flex;
+  justify-content: center;
+  button {
+    bottom: 0;
+    margin-top: 1em;
+    z-index: 1;
+  }
+}
+
+.other-recommended-meals {
+  background-color: $mtm_green_color;
+  color: $light_beige;
+  text-align: center;
+  padding: 1em;
+  .text-wrapper {
+    h1{
+      font-family: flavour;
+    }
+  }
+}
+.meal-details-footer {
+  height: 40vh;
+  background-image: url("/assets/static_images/Desktop_Footer_Image.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  position: relative;
+  padding-bottom: 3em;
+  .meal-details-footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .text-wrapper {
+      color: $light_beige;
+      p {
+        font-family: avenir;
+        text-align: center;
+        padding: 0 1em;
+      }
+    }
+    .logo-wrapper {
+      position: absolute;
+      bottom: 2em;
+      left: 1em;
+      height: 10vh;
+      width: 10vh;
+      img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .meal-detail-action-button {
+      button {
+        background-color: $mtm_green_color;
+        color: $light_beige;
+      }
+    }
+    .scroll-to-top-button-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      button {
+        position: absolute;
+        bottom: 1em;
+        right: 3em;
+      }
+    }
+  }
+}
+.scroll-button {
+  color: $mtm_light_green_color !important;
+  background-color: $light_beige !important;
+  border: 1px solid $mtm_light_green_color !important;
+}
+
+*:focus {
+  outline: 0;
+  outline: none;
+}

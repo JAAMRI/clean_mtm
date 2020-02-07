@@ -1,0 +1,96 @@
+@import "../../../scss/customTheme.scss";
+@import "../../../scss/variables.scss";
+.meal {
+  height: 350px;
+  position: relative;
+}
+.recommended-meal {
+  height: 300px;
+  position: relative;
+}
+.meal-item {
+  max-width: 400px;
+  position: relative;
+  padding: unset;
+  height: 100%;
+  margin: 0.5em;
+  cursor: pointer;
+  box-shadow: unset !important;
+  background-color: $light_beige;
+  .meal-title {
+    font-family: flavour;
+    text-align: center;
+    font-size: 1.25em;
+    height: 32px;
+    margin: 0;
+  }
+  .meal-description {
+    font-family: avenir;
+    text-align: center;
+    margin: unset;
+    font-size: 0.8rem;
+  }
+  .mat-card-image {
+    height: 20vh;
+    margin: 0 0 16px 0;
+    width: unset;
+    min-height: 175px;
+    max-height: 200px;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    box-shadow: $mtm-box-shadow;
+  }
+  .remove {
+    color: $light_beige;
+    mat-icon {
+      color: $light_beige !important;
+    }
+  }
+  .active:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 20vh;
+    min-height: 175px;
+    max-height: 200px;
+    bottom: 0;
+    background-color: rgba($mtm_light_green_color, 0.5);
+  }
+
+  .meal-toolbar-icons {
+    width: 100%;
+    position: absolute;
+    top: 8px;
+    .favourite-icons {
+      cursor: pointer;
+      .favourite-icon {
+        color: transparent;
+        transform: scale(1.5);
+        position: absolute;
+        right: 8px;
+      }
+      .favourite-border-icon {
+        color: $light_beige;
+        z-index: 2;
+        right: 8px;
+        position: absolute;
+        transform: scale(1.5);
+      }
+    }
+    .favourited {
+      color: $mtm_light_green_color !important;
+    }
+  }
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    button {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}

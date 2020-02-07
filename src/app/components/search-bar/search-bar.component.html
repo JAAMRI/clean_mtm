@@ -1,0 +1,5 @@
+<mat-form-field floatLabel='never' class='search-wrapper'>
+    <mat-icon matPrefix class="search-icon">search</mat-icon>
+    <input matInput type="search" class="search-input" placeholder='SEARCH ALL RECIPES' [formControl]='searchFormControl'>
+    <mat-spinner matSuffix diameter='20' *ngIf='loading'></mat-spinner>
+</mat-form-field>

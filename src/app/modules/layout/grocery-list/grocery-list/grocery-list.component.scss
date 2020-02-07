@@ -1,0 +1,22 @@
+@import '../../../../../scss/customTheme.scss';
+
+.grocery-list-page{
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 96px);
+    min-height: calc(100vh - 96px);
+    .title{
+        text-align: center;
+        margin-bottom: unset;
+        color: $mtm_dark_green_color;
+        font-weight: bold;
+    }
+    .grocery-container{
+        overflow: auto;
+        flex: 1;
+        .cc-mealplan-details-container{
+            height: 100%;
+        }
+    }
+}

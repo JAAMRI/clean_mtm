@@ -1,0 +1,52 @@
+<div [class]="recommendedMeal ? 'recommended-meal' : 'meal'">
+  <mat-card class='meal-item'>
+    <div mat-card-image [style.backgroundImage]="'url('+mealItem.image+')'" (click)='viewMealDetail()'>
+      <div [class.active]='inMealPlan'></div>
+    </div>
+    <div class="meal-toolbar-icons">
+      <div class="favourite-icons">
+        <mat-icon class='favourite-icon' [class.favourited]='favourited' (click)='toggleFavorite($event)'>
+          favorite
+        </mat-icon>
+        <mat-icon class='favourite-border-icon' (click)='toggleFavorite($event)'>
+          favorite_border
+        </mat-icon>
+      </div>
+    </div>
+    <mat-card-content>
+      <p class='meal-title'>{{mealItem.title | truncate:24}}</p>
+      <ng-container *ngIf='!recommendedMeal'>
+        <!-- <ng-container *ngIf='!mealItem.mainIngredient'>
+          <p class='meal-description'><strong>Cuisine:</strong> Lorem ipsum dolor sit amet.</p>
+          <p class='meal-description'><strong>Instructions:</strong> Lorem ipsum dolor sit</p>
+        </ng-container> -->
+
+        <p *ngIf='mealItem.servings' class='meal-description'><strong>{{mealItem.servings}}</strong></p>
+
+        <!-- <p *ngIf='mealItem.mainIngredient' class='meal-description'><strong>Main ingredient:</strong>
+          {{mealItem.mainIngredient}}</p> -->
+
+        <p class='meal-description'>
+          <ng-container *ngIf='mealItem.cookTime'>
+            <strong>Cook time:</strong>
+            {{mealItem.cookTime > 60 ? (mealItem.cookTime / 60 | floor )+ 'H ' + mealItem.cookTime % 60 : mealItem.cookTime}}
+            Min -
+          </ng-container>
+          <ng-container *ngIf='mealItem.prepTime'>
+            <strong>Prep time:</strong>
+            {{mealItem.prepTime}} Min
+          </ng-container>
+        </p>
+      </ng-container>
+
+    </mat-card-content>
+    <mat-card-actions *ngIf='!recommendedMeal'>
+      <button aria-label="Add to Meal Plan" *ngIf='!inMealPlan' mat-flat-button color='primary' (click)='addToMealPlan()'>
+        <mat-icon>add</mat-icon> ADD TO MEAL PLAN
+      </button>
+      <button aria-label="Remove from Meal Plan" mat-flat-button color='warn' class='remove' *ngIf='inMealPlan' (click)='removeFromMealPlan()'>
+        <mat-icon>remove</mat-icon> REMOVE FROM MEAL PLAN
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

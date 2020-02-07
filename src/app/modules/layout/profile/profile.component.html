@@ -1,0 +1,69 @@
+<div [class]="!isWeb ? 'mobile-profile-page' : 'profile-page'">
+  <div [class]="!isWeb ? 'mobile-profile-tabs' : 'profile-tabs'">
+    <mat-tab-group (selectedTabChange)="adobeDtbTracking.anchor_link_tab($event.index, 'profile page','')">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon svgIcon='avatar'></mat-icon> PERSONAL INFO
+        </ng-template>
+        <app-personal-info [onProfilePage]='true' [isMobile]='isHandsetPortrait || isHandsetLandscape'>
+        </app-personal-info>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon svgIcon='security'></mat-icon> SECURITY
+        </ng-template>
+        <app-change-password [isMobile]='isHandsetPortrait || isHandsetLandscape'></app-change-password>
+      </mat-tab>
+      <!-- <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon svgIcon='feedback'></mat-icon> NOTIFICATIONS
+        </ng-template>
+        <div class="notifications-tab">
+          <form [formGroup]='notificationsForm'>
+            <p> WOULD YOU LIKE TO HEAR FROM US?
+            </p>
+            <mat-checkbox formControlName="opt_in" *ngIf="opt_in_modify == true"
+              (change)="this.adobeDtbTracking.checkbox($event)">
+              YES! I want to be among the first to learn about the exciting offers, product offers and more from
+              Knorr and other
+              <a href="#">Unilever brands <sup>*</sup></a> by electronic messages and postal mail. Occasionally, this
+              may
+              include
+              co-promotions with carefully selected partners.
+              <br><br>
+              For further information, please refer to our <a href="#">privacy notice</a>.
+              <br>
+              You can unsubscribe at any time or update your email preferences <a target="_blank"
+                href="https://secure.unilevercanada.com/en_ca/remove.aspx">here</a>
+            </mat-checkbox>
+
+            <span *ngIf="opt_in_modify == false">
+              YES! I want to be among the first to learn about the exciting offers, product offers and more from
+              Knorr and other
+              <a href="#">Unilever brands <sup>*</sup></a> by electronic messages and postal mail. Occasionally, this
+              may
+              include
+              co-promotions with carefully selected partners.
+              <br><br>
+              For further information, please refer to our <a href="#">privacy notice</a>.
+              <br>
+              You can unsubscribe at any time or update your email preferences <a target="_blank"
+                href="https://secure.unilevercanada.com/en_ca/remove.aspx">here</a>
+            </span>
+
+
+            <div class="action-buttons">
+              <button aria-label="Opt In if you'd like to hear from us" class='save-button' matSuffix mat-flat-button
+                *ngIf="opt_in_modify == true" (click)="optInUpdate()">
+                SAVE
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </mat-tab> -->
+    </mat-tab-group>
+  </div>
+
+</div>

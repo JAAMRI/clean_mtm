@@ -1,0 +1,44 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/index.html"
+        ],
+        "versionedFiles":[
+          "/*.css", 
+          "/*.js"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/icon?family=Material+Icons"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**"
+        ]
+      }
+    }
+  ],
+  "dataGroups":[
+    {
+      "name": "recipes",
+      "urls": [
+        "https://d41925m51l.execute-api.us-east-1.amazonaws.com/production/recipes"
+      ],
+      "cacheConfig": {
+        "maxSize": 12,
+        "maxAge": "7d",
+        "timeout": "10s",
+        "strategy": "freshness"
+      }
+    }
+  ]
+}

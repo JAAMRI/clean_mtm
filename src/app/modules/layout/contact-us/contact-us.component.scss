@@ -1,0 +1,68 @@
+@import "../../../../scss/customTheme.scss";
+
+.contact-us-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  .contact-us-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    h1 {
+      margin-top: unset;
+      color: $mtm_green_color;
+    }
+    h2 {
+      font-family: avenir;
+      color: $mtm_dark_green_color;
+    }
+    p {
+      font-family: avenir;
+      color: $mtm_dark_green_color;
+      margin: 0;
+    }
+  }
+  .contact-us-accordion {
+    margin-top: 1em;
+    mat-accordion {
+      mat-panel-title {
+        mat-icon {
+          padding-right: 1em;
+        }
+        align-items: center;
+      }
+      mat-panel-description {
+        margin-right: unset;
+        .mat-button {
+          padding: unset;
+        }
+      }
+      .no-expand {
+        pointer-events: none;
+        .action-button {
+          pointer-events: all !important;
+        }
+      }
+      .contact-us-description {
+        font-family: avenir;
+        .phone-number {
+          color: $mtm_dark_green_color;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+.contact-us-align .mat-expansion-panel-header-description {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+.live-chat {
+  padding: 2em;
+}

@@ -1,0 +1,18 @@
+$flavour-font-path: '/assets/fonts/flavour.regular.ttf';
+$font-family-flavour: 'flavour';
+
+
+$avenir-font-path: '/assets/fonts/avenir_ttf/Avenir-Medium-09.ttf';
+$font-family-avenir: 'avenir';
+
+@font-face {
+    font-family: $font-family-flavour;
+    font-display: swap;
+    src: url($flavour-font-path) format("truetype");
+}
+
+@font-face {
+    font-family: $font-family-avenir;
+    font-display: swap;
+    src: url($avenir-font-path) format("truetype");
+}

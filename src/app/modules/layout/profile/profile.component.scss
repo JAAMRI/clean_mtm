@@ -1,0 +1,65 @@
+@import "../../../../scss/customTheme.scss";
+
+.profile-page {
+  height: calc(100% - 96px); // height subtracting toolbar
+  min-height: calc(100vh - 96px); // height subrating toolbar (landscape)
+  background-color: $light_beige;
+  margin-top: 4em;
+}
+.mobile-profile-page {
+  height: calc(100% - 40px); // height subtracting mobil toolbar
+  min-height: calc(100vh - 40px); // height subrating toolbar (landscape)
+  background-color: $light_beige;
+  margin-top: 2em;
+}
+
+.mobile-profile-tabs {
+  width: 90%;
+  margin: auto;
+}
+
+.profile-tabs {
+  width: 65%;
+  margin: auto;
+}
+
+mat-tab-group {
+  mat-tab-body {
+    overflow: unset !important;
+    .mat-tab-body-content {
+      margin-top: 3em;
+    }
+    .mat-tab-labels {
+      justify-content: center;
+      .mat-tab-label {
+        width: 100%;
+      }
+    }
+  }
+}
+.notifications-tab{
+  margin-top: 1em;
+  p{
+    margin: 8px;
+  }
+  mat-checkbox{
+    .mat-checkbox-label {
+      white-space: normal;
+    }
+    .mat-checkbox-inner-container {
+      margin: 8px;
+    }
+  }
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .save-button {
+      min-width: 150px;
+      width:70%;
+      background-color: $darker_beige;
+      color: $mtm_dark_green_color;
+      margin: 1em auto;
+    }
+  }
+}

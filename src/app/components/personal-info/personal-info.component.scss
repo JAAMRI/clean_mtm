@@ -1,0 +1,172 @@
+@import "../../../scss/customTheme.scss";
+
+.personal-info-page{
+  .personal-info-back-button {
+    top: 0;
+    left: 0;
+    color: $light_beige;
+    padding: unset;
+  }
+  .personal-info-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    .input-fields {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 0 4em;
+      mat-form-field {
+        input {
+          font-family: avenir;
+        }
+        mat-icon {
+          &.prefix-icon{
+            margin-right: 1em;
+          }
+          height: 100%;
+        }
+        mat-datepicker-toggle {
+          margin-right: 1.5em;
+        }
+        .mat-button-wrapper {
+          color: $mtm_dark_green_color !important;
+        }
+      }
+    }
+    mat-checkbox {
+      color: $light_beige;
+      font-family: avenir;
+      font-size: 14px;
+      .small-font{
+        padding: 0.5em 0;
+        display: block;
+      }
+      .view-more-button {
+        font-style: italic;
+        text-decoration: underline;
+      }
+      .mat-checkbox-frame {
+        border-color: $light_beige;
+      }
+      .mat-checkbox-label {
+        white-space: normal;
+        line-height: 20px;
+      }
+      .mat-checkbox-inner-container {
+        margin: 8px;
+      }
+    }
+    a {
+      color: $light_beige;
+    }
+  
+    p {
+      color: $light_beige;
+      margin: 1em 0 1em 1em;
+    }
+    .signup-div{
+      mat-checkbox{
+        font-size:70%;
+        line-height:50%;
+        overflow: scroll;
+      }
+      
+    }
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      .save-button {
+        min-width: 150px;
+        width:70%;
+        background-color: $darker_beige;
+        color: $mtm_dark_green_color;
+        margin: 1em auto;
+        mat-icon {
+          color: $mtm_dark_green_color;
+        }
+        .spinner-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .spinner {
+            margin-right: 4px;
+          }
+        }
+      }
+      .signout-button {
+        min-width: 150px;
+        width:70%;
+        background-color: $darker_beige;
+        color: $mtm_dark_green_color;
+        margin: 1em auto;
+        mat-icon {
+          color: $mtm_dark_green_color;
+        }
+        .spinner-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .spinner {
+            margin-right: 4px;
+          }
+        }
+      }
+      .submit-button {
+        background-color: $darker_beige;
+        margin: 1em;
+        mat-icon {
+          color: $mtm_dark_green_color;
+        }
+        .spinner-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .spinner {
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.account-dialog {
+  input {
+    font-family: avenir;
+    color: $light_beige;
+  }
+  mat-icon{
+    color: $light_beige;
+  }
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: $light_beige !important;
+  }
+
+  .mat-form-field-label {
+    color: $light_beige !important;
+  }
+
+  .mat-form-field-ripple {
+    background-color: $light_beige !important;
+  }
+
+  .mat-datepicker-toggle-default-icon {
+    color: $light_beige;
+  }
+}
+.small-font{
+  padding: 0.5em 0;
+  display: block;
+  color: $light_beige;
+  font-family: avenir;
+  font-size: 11.2px;
+  margin-left:32px;
+  // float:right;
+  word-wrap: break-word;
+}
+
+.passwordError{
+font-size:14px;
+}

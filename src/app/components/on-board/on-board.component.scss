@@ -1,0 +1,83 @@
+@import '../../../scss/customTheme.scss';
+
+app-on-board{
+    height: 100%;
+    .on-board-content{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &.mobile-align{
+            justify-content: center;
+        }
+        .on-board-title{
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: unset;
+        }
+        .on-board-subtitle{
+            font-family: avenir;
+            display: block;
+            font-size: 1.5em;
+            margin: 4px;
+            text-align: center;
+        }
+        .on-board-mobile-title{
+            font-size: 1.5em;
+            text-align: center;
+            margin-bottom: unset;
+        }
+        .on-board-mobile-subtitle{
+            font-family: avenir;
+            display: block;
+            font-size: 1em;
+            text-align: center;
+            margin: 4px;
+        }
+        .on-board-text{
+            display: flex;
+            text-align: center;
+            padding: 1em;
+            .get-started{
+                font-size: 1.25em;
+                color: $light_beige;
+                text-decoration: none;
+                cursor: pointer;
+                padding: 0px 5px 0px 5px;
+                .underline{
+                    text-decoration: underline;
+                }
+                &.web-view-font{
+                    font-size: 2em;
+                    margin-top: 1em;
+                }
+            }
+            .underline{
+                text-decoration: underline;
+            }
+            .login{
+                padding-top: 16px;
+                color: $light_beige;
+                cursor: pointer;
+                text-decoration: none;
+                &.web-view-font{
+                    font-size: 1.25em;
+                }
+            }
+        }
+        .expand-more-button-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 20vh;
+            .scroll-button {
+              color: $mtm_light_green_color !important;
+              background-color: $light_beige !important;
+            }
+          }
+          
+    }
+}

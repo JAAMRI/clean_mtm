@@ -1,0 +1,19 @@
+{
+    "uat": {
+        "awscloudformation": {
+            "AuthRoleName": "knorrmealsthatmatter-uat-20190619181339-authRole",
+            "UnauthRoleArn": "arn:aws:iam::375635246671:role/knorrmealsthatmatter-uat-20190619181339-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::375635246671:role/knorrmealsthatmatter-uat-20190619181339-authRole",
+            "Region": "ca-central-1",
+            "DeploymentBucketName": "knorrmealsthatmatter-uat-20190619181339-deployment",
+            "UnauthRoleName": "knorrmealsthatmatter-uat-20190619181339-unauthRole",
+            "StackName": "knorrmealsthatmatter-uat-20190619181339",
+            "StackId": "arn:aws:cloudformation:ca-central-1:375635246671:stack/knorrmealsthatmatter-uat-20190619181339/7d9a0940-92df-11e9-b0b3-02a400d26a4e"
+        },
+        "categories": {
+            "auth": {
+                "knorrmealsthatmatter0972d16b0972d16b": {}
+            }
+        }
+    }
+}

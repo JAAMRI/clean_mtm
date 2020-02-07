@@ -1,0 +1,101 @@
+@import "../../../scss/customTheme.scss";
+
+.layout-container {
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .toolbar {
+    display: flex;
+    .edit-button {
+      color: $mtm_green_color;
+    }
+    .deactivate {
+      cursor: default;
+      pointer-events: none;
+    }
+    .logo{
+      height: 40px;
+      width: 40px;
+      cursor: pointer;
+      img{
+        height: 100%;
+        width: 100%;
+        margin-top: 4px;
+      }
+    }
+  }
+  .is-mobile .meals {
+    position: fixed;
+    // z-index: 2;
+  }
+  .sidenav-container {
+    flex: 1;
+  }
+  .is-mobile .sidenav-container {
+    flex: 1 0 auto;
+  }
+
+  mat-sidenav-container {
+    margin-top: 0 !important;
+    background-color: $light_beige;
+    mat-sidenav {
+      top: 0 !important;
+      background-color: $mtm_green_color;
+      padding: 16px;
+      overflow: unset;
+      width: 100%;
+      .menu-toolbar {
+        display: flex;
+        justify-content: space-between;
+        button {
+          color: $light_beige;
+        }
+      }
+      mat-nav-list {
+        padding: 16px;
+        .page-item {
+          color: $light_beige;
+          font-family: flavour;
+          font-size: 1.25em;
+          height: 36px;
+        }
+        .active {
+          color: $mtm_light_green_color;
+        }
+      }
+      .bottom-wrapper {
+        bottom: 0;
+        width: 100%;
+      }
+    }
+    mat-sidenav-content {
+      overflow: unset;
+    }
+  }
+
+  .desktop-view {
+    height: 100%;
+    .desktop-nav {
+      display: flex;
+      .call-to-actions {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+      background-color: $light_beige;
+      .tabs {
+        img {
+          height: 30px;
+          width: 30px;
+        }
+      }
+      a {
+        &.active {
+          color: $mtm_light_green_color;
+        }
+        padding: 0 8px !important;
+      }
+    }
+  }
+}

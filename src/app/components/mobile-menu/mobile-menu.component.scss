@@ -1,0 +1,45 @@
+@import "../../../scss/customTheme.scss";
+
+.mobile-toolbar-wrapper {
+  .menu-toolbar {
+    display: flex;
+    justify-content: space-between;
+    button {
+      color: $light_beige;
+    }
+    .toolbar-start{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  mat-nav-list {
+    padding: 16px;
+    .page-item {
+      color: $light_beige;
+      font-family: flavour;
+      font-size: 1.25em;
+      height: 36px;
+    }
+    .active {
+      color: $mtm_light_green_color;
+    }
+    .adchoices {
+      height: 32px;
+      margin-top: 1em;
+      img {
+        height: 100%;
+      }
+    }
+  }
+  .bottom-wrapper {
+    bottom: 0;
+    width: 100%;
+  }
+  .logo {
+    cursor: pointer;
+    img {
+      height: 40px;
+      width: 40px;
+    }
+  }
+}

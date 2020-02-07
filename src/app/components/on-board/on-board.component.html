@@ -1,0 +1,21 @@
+<div class="on-board-content" [class.mobile-align]='!isWeb'>
+  <h1 [class]='isWeb ? "on-board-title" : "on-board-mobile-title"'>
+    PLAN. PURCHASE. PLATE
+  </h1>
+  <h4 [class]='isWeb ? "on-board-subtitle" : "on-board-mobile-subtitle"'>The all-in-one meal preparation tool</h4>
+  <div class="on-board-text">
+    <a class='get-started underline' routerLink="/mtm/discover" [class.web-view-font]='isWeb'
+      (click)="adobeDtbTracking.page_tracking('SELECT MEALS','/mtm/discover')">
+      START
+    </a>
+    <span class="get-started" [class.web-view-font]='isWeb' *ngIf="!accountService.loggedIn"> OR </span>
+    <a *ngIf="!accountService.loggedIn" class='get-started underline' [class.web-view-font]='isWeb'
+      (click)='emitRouteToLogin()'>
+      SIGN IN</a>
+  </div>
+  <div (click)='scrollToHowItWorks()' class="expand-more-button-wrapper">
+    <button aria-label="Expand" class='scroll-button' mat-mini-fab>
+      <mat-icon>expand_more</mat-icon>
+    </button>
+  </div>
+</div>

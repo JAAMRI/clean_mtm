@@ -1,0 +1,61 @@
+<mat-toolbar class='desktop-nav'>
+  <a routerLink='/' class="logo-desktop-wrapper" (click)="adobeDtbTracking.page_tracking('HOME','/')">
+    <img alt="Meals That Matter Logo" src="/assets/static_images/MTM_Final_LOGO_4c.svg">
+  </a>
+  <div class="call-to-actions">
+    <div class="tabs">
+      <a [class.active]='activePage === "/mtm/discover"' mat-button routerLink='/mtm/discover'
+        (click)="adobeDtbTracking.page_tracking('>SELECT MEALS','/mtm/discover')">SELECT
+        MEALS</a>
+      <a [class.active]='activePage === "/mtm/favourites"' mat-button routerLink='/mtm/favourites'
+        (click)="adobeDtbTracking.page_tracking('FAVOURITES','/mtm/favourites')">FAVOURITES</a>
+      <a [class.active]='activePage === "/mtm/my-meals"' mat-button routerLink='/mtm/my-meals'
+        (click)="adobeDtbTracking.page_tracking('MEAL PLAN','/mtm/my-meals')">MEAL PLAN</a>
+      <a [class.active]='activePage === "/mtm/grocery-list"' mat-button routerLink='/mtm/grocery-list'
+        (click)="adobeDtbTracking.page_tracking('GROCERY LIST','/mtm/grocery-list')">GROCERY
+        LIST</a>
+    </div>
+    <div class="actions">
+      <a mat-button [matMenuTriggerFor]="profileMenu" *ngIf="accountService.loggedIn">My Account</a>
+      <mat-menu #profileMenu="matMenu">
+        <a mat-menu-item routerLink='/mtm/profile'
+          (click)="adobeDtbTracking.page_tracking('View Profile','/mtm/profile')">View
+          Profile</a>
+        <a mat-menu-item (click)="signOut()">Sign Out</a>
+      </mat-menu>
+      <a mat-button *ngIf="!accountService.loggedIn" (click)='authControl()'>Already a Member?</a>
+
+      <!-- <a mat-button routerLink='/mtm/contact-us'
+        (click)="adobeDtbTracking.page_tracking('CONTACT US','/mtm/contact-us')">CONTACT
+        US</a> -->
+      <a mat-button [matMenuTriggerFor]="contactMenu">Help Center</a>
+      <mat-menu #contactMenu="matMenu">
+        <a mat-menu-item routerLink='/mtm/contact-us'
+          (click)="adobeDtbTracking.page_tracking('CONTACT US','/mtm/contact-us')">CONTACT
+          US</a>
+        <a mat-menu-item routerLink='/mtm/faqs' (click)="adobeDtbTracking.page_tracking('FAQs','/mtm/faqs')">FAQs</a>
+      </mat-menu>
+    </div>
+  </div>
+
+</mat-toolbar>
+
+<!-- 
+-----
+<a mat-button [matMenuTriggerFor]="profileMenu" *ngIf="accountService.loggedIn">
+    My account
+</a>
+<mat-menu #profileMenu="matMenu">
+  <a mat-menu-item routerLink='/mtm/profile' >View My Profile</a> -->
+<!-- <a mat-menu-item  (click)="signOut()">Sign Out</a>
+</mat-menu>
+
+<a mat-button *ngIf="!accountService.loggedIn" (click)='authControl()'>Already a Member?</a>
+
+
+<a mat-button [matMenuTriggerFor]="contactMenu">Contact us</a>
+<mat-menu #contactMenu="matMenu">
+  <a mat-menu-item [href]="getEmailContent('Meals that Matter Question')">Meals that Matter Question?</a>
+  <a mat-menu-item [href]="getEmailContent('Meals that Matter Concern')">Meals that Matter Concern?</a>
+  <a mat-menu-item [href]="getEmailContent('Meals that Matter Feedback')">Meals that Matter Feedback?</a>
+</mat-menu> -->

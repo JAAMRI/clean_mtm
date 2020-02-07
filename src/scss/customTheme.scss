@@ -1,0 +1,56 @@
+// MTM Brand Palette
+$MTMBrandPalette: (
+  50: #e2ece7,
+  100: #b6cec2,
+  200: #86ae9a,
+  300: #568e71,
+  400: #317552,
+  500: #0d5d34,
+  //Used as accent color
+    600: #0b552f,
+  700: #11924a,
+  // Used as mtm light green colors
+    800: #074121,
+  900: #033015,
+  //Used as primary color
+    A100: #69ff96,
+  A200: #36ff73,
+  A400: #03ff4f,
+  A700: #00e846,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #fffef9,
+    //Background color used in mymealplan page
+      500: #f0eee3,
+    //Background color used in add a meal button and full recipe page ingredient section
+      600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+@import "~@angular/material/theming";
+@include mat-core();
+
+$primary: mat-palette($MTMBrandPalette, 700);
+$accent: mat-palette($MTMBrandPalette, 500);
+$warn: mat-palette($mat-red, 400);
+
+$customTheme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($customTheme);
+
+//Color Variables
+$mtm_light_green_color: mat-color($MTMBrandPalette, 700);
+$mtm_green_color: mat-color($MTMBrandPalette, 500);
+$mtm_dark_green_color: mat-color($MTMBrandPalette, 900);
+$light_beige: mat-contrast($MTMBrandPalette, 400);
+$darker_beige: mat-contrast($MTMBrandPalette, 500);
