@@ -12,7 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 import { PipesModule } from '../../../app/pipes/pipes.module';
 import { PersonalInfoComponent } from './personal-info.component';
-import { MatTooltipModule } from '@angular/material';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({

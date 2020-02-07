@@ -12,7 +12,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { PersonalInfoModule } from '../../personal-info/personal-info.module';
 import { UserFormComponent } from './user-form.component';
 import { ForgotPasswordModule } from '../../forgot-password/forgot-password.module';
-import { MatTooltipModule } from '@angular/material';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [UserFormComponent],
