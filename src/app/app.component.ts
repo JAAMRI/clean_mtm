@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   footerHeight: number;
   isHandsetLandscape: boolean;
   stylesToBeLoaded: boolean = false;
-  // loadHotjar: Promise<any>;
+  loadHotjar: Promise<any>;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any, @Inject(DOCUMENT) private document: any, private router: Router, private cdr: ChangeDetectorRef,
     private breakpointObserver: BreakpointObserver,
