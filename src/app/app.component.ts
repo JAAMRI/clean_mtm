@@ -96,7 +96,7 @@ export class AppComponent implements OnInit {
     this.completeSubscription();
   }
 
-  insertAdChoice() {
+  insertAdChoice() {return;
     //AdChoice
     (function () {
       var ev = document.createElement('script'); ev.type = 'text/javascript'; ev.async = true; ev.setAttribute('data-ev-tag-pid', '20844'); ev.setAttribute('data-ev-tag-ocid', '6368');
