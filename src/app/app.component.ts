@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
   footerHeight: number;
   isHandsetLandscape: boolean;
   stylesToBeLoaded: boolean = false;
-  loadHotjar: Promise<any>;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any, @Inject(DOCUMENT) private document: any, private router: Router, private cdr: ChangeDetectorRef,
     private breakpointObserver: BreakpointObserver,
@@ -52,7 +51,6 @@ export class AppComponent implements OnInit {
     this.insertAdChoice();
     this.facebookImplementation();
     this.adobeImplementation();
-    // this.hotjarImplementation();
   }
 
   isLoggedIn() {
@@ -188,36 +186,6 @@ export class AppComponent implements OnInit {
     let facebookNoScript = `<img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=194312168116213&ev=PageView&noscript=1&ngsw-bypass" />`;
 
-    // this.loadHotjar = new Promise((resolve) => {
-    //   let node = document.createElement('script');
-    //   node.type = 'text/javascript';
-    //   node.async = true;
-    //   node.charset = 'utf-8';
-    //   try {
-    //     node.appendChild(document.createTextNode(facebook));
-    //     document.getElementsByTagName('head')[0].appendChild(node);
-    //   } catch (e) {
-    //     node.text = facebook;
-    //     document.body.appendChild(node);
-    //   }
-
-    // });
-    // this.loadHotjar = new Promise((resolve) => {
-    //   let nodeNoScript = document.createElement('noscript');
-    //   // nodeNoScript.type = 'text/javascript';
-    //   // nodeNoScript.async = true;
-    //   // nodeNoScript.charset = 'utf-8';
-    //   try {
-    //     nodeNoScript.appendChild(document.createTextNode(facebookNoScript));
-    //     document.getElementsByTagName('head')[0].appendChild(nodeNoScript);
-    //   } catch (e) {
-    //     // nodeNoScript.text = facebookNoScript;
-    //     let text = document.createTextNode(facebookNoScript);
-    //     nodeNoScript.appendChild(text);
-    //     // document.body.appendChild(nodeNoScript);
-    //   }
-
-    // });
   }
 
   adobeImplementation() {
@@ -295,60 +263,6 @@ export class AppComponent implements OnInit {
     digitalData.sitespeed.applicationID="TWH Serverless";            
     digitalData.sitespeed.licenseKey="c56e25f85d8c251a54948d7305d04012a2e5NRAL";        
     digitalData.sitespeed.locale="en_CA";`;
-
-    this.loadHotjar = new Promise((resolve) => {
-      let node = document.createElement('script');
-      node.type = 'text/javascript';
-      node.async = true;
-      node.charset = 'utf-8';
-      try {
-        node.appendChild(document.createTextNode(adobetext));
-        document.getElementsByTagName('head')[0].appendChild(node);
-      } catch (e) {
-        node.text = adobetext;
-        document.body.appendChild(node);
-      }
-
-    });
-    this.loadHotjar = new Promise((resolve) => {
-      let nodeAdobeScript = document.createElement('script');
-      nodeAdobeScript.type = 'text/javascript';
-      nodeAdobeScript.async = true;
-      nodeAdobeScript.charset = 'utf-8';
-      nodeAdobeScript.src = '//assets.adobedtm.com/launch-EN0ed0003810f9435a8566fef4c9d7b320.min.js?ngsw-bypas';
-      try {
-        // nodeAdobeScript.appendChild(document.createTextNode(adobetext));
-        document.getElementsByTagName('head')[0].appendChild(nodeAdobeScript);
-      } catch (e) {
-        // node.text = adobetext;
-        document.body.appendChild(nodeAdobeScript);
-      }
-    });
-  }
-  hotjarImplementation() {
-    // let currentMinute = new Date().getMinutes();
-    let currentDay = new Date().getDay();
-    // load hotjar only if user is on site within first 10 minutes of each hour
-    // currently running on only wednesday and thursday 
-    if (currentDay == 3 || currentDay == 4) {
-      let hotJarScript = "(function(h,o,t,j,a,r){ h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)}; h._hjSettings={hjid:1561752,hjsv:6};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1; r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv; a.appendChild(r); })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');";
-      this.loadHotjar = new Promise((resolve) => {
-        let node = document.createElement('script');
-        node.type = 'text/javascript';
-        node.async = true;
-        node.charset = 'utf-8';
-        try {
-          node.appendChild(document.createTextNode(hotJarScript));
-          document.getElementsByTagName('head')[0].appendChild(node);
-        } catch (e) {
-          node.text = hotJarScript;
-          document.body.appendChild(node);
-        }
-
-      });
-
-    }
-    // console.log(currentMinute);
   }
 
 }
