@@ -16,7 +16,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 import { AccountService } from '../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { SeoService } from '../../../../app/services/seo.service';
-smoothscroll.polyfill();
+// smoothscroll.polyfill();
 @Component({
   selector: 'app-meal-detail',
   templateUrl: './meal-detail.component.html',

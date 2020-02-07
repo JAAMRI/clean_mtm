@@ -9,31 +9,31 @@ const LayoutRoutes: Routes = [
         children: [
             {
                 path: 'contact-us',
-                loadChildren: './contact-us/contact-us.module#ContactUsModule'
+                loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule)
             }, {
                 path: 'discover',
-                loadChildren: './discover-meals/discover-meals.module#DiscoverMealsModule'
+                loadChildren: () => import('./discover-meals/discover-meals.module').then(m => m.DiscoverMealsModule)
             },
             {
                 path: 'favourites',
-                loadChildren: './favourites/favourites.module#FavouritesModule'
+                loadChildren: () => import('./favourites/favourites.module').then(m => m.FavouritesModule)
             },
             {
                 path: 'my-meals',
-                loadChildren: './my-meals/my-meals.module#MyMealsModule'
+                loadChildren: () => import('./my-meals/my-meals.module').then(m => m.MyMealsModule)
             },
             {
                 path: 'grocery-list',
-                loadChildren: './grocery-list/grocery-list.module#GroceryListModule'
+                loadChildren: () => import('./grocery-list/grocery-list.module').then(m => m.GroceryListModule)
             },
             {
                 path: 'profile',
                 canActivate: [AuthGuard],
-                loadChildren: './profile/profile.module#ProfileModule'
+                loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
             },
             {
                 path: 'faqs',
-                loadChildren: './faq/faq.module#FaqModule'
+                loadChildren: () => import('./faq/faq.module').then(m => m.FaqModule)
             },
             {
                 path: '**', redirectTo: '/'

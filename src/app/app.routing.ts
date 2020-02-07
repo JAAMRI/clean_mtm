@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'mtm',
-    loadChildren: './modules/layout/layout.module#LayoutModule'
+    loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule)
   },
   
 

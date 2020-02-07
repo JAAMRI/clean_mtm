@@ -6,7 +6,7 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import smoothscroll from 'smoothscroll-polyfill';
+// import smoothscroll from 'smoothscroll-polyfill';
 import { BREAKPOINTS } from '../../../app/utilities/breakpoints';
 import { scrollToTop } from '../../../app/utilities/helper-functions';
 import { UserFormComponent } from '../../components/dialogs/user-form/user-form.component';
@@ -15,7 +15,7 @@ import { SeoService } from '../../../app/services/seo.service';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
 
 // use this to scroll on safari
-smoothscroll.polyfill();
+// smoothscroll.polyfill();
 
 @Component({
   selector: 'app-home',

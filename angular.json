@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -30,9 +31,8 @@
               "src/manifest.json"
             ],
             "styles": [
-              {
+              {"inject":false,
                 "input": "src/scss/styles.scss",
-                "lazy": true,
                 "bundleName": "lazyloadedstyles"
               },
               "node_modules/slick-carousel/slick/slick.scss",
@@ -69,6 +69,10 @@
                   "type": "initial",
                   "maximumWarning": "4mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ],
               "serviceWorker": true
@@ -88,6 +92,10 @@
                   "type": "initial",
                   "maximumWarning": "4mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ],
               "serviceWorker": true
@@ -119,9 +127,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              {
+              {"inject":false,
                 "input": "src/scss/styles.scss",
-                "lazy": true,
                 "bundleName": "lazyloadedstyles"
               }
             ],
@@ -161,7 +168,8 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
-            },
+            ,              "optimization": true
+},
             "uat": {
               "fileReplacements": [
                 {
@@ -169,7 +177,8 @@
                   "with": "src/environments/environment.uat.ts"
                 }
               ]
-            },
+            ,              "optimization": true
+},
             "serverless": {
               "fileReplacements": [
                 {
@@ -177,7 +186,8 @@
                   "with": "src/environments/environment.serverless.ts"
                 }
               ]
-            }
+            ,              "optimization": true
+}
           }
         }
       }

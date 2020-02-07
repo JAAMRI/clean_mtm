@@ -9,7 +9,7 @@ const FavouritesRoutes: Routes = [
   },
   {
     path: ':id',
-    loadChildren: '../meal-detail/meal-detail.module#MealDetailModule'
+    loadChildren: () => import('../meal-detail/meal-detail.module').then(m => m.MealDetailModule)
   },
 
 ];
