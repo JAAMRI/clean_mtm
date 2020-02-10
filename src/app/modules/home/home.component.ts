@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation, ViewContainerRef, TemplateRef, ComponentFactoryResolver, Type } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer, Title } from '@angular/platform-browser';
@@ -13,6 +13,7 @@ import { UserFormComponent } from '../../components/dialogs/user-form/user-form.
 import { CarouselData } from './home-carousel-helper';
 import { SeoService } from '../../../app/services/seo.service';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
+import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 
 // use this to scroll on safari
 // smoothscroll.polyfill();
@@ -31,6 +32,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   isWeb: boolean;
   carouselData = CarouselData;
   @ViewChild('howitworks', { static: true }) howItWorks: ElementRef;
+
+  howItWorksComponent: Type<HowItWorksComponent>;
 
   slideConfig = {
     "slidesToShow": 3,
@@ -55,9 +58,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   ]; // icons
 
+  @ViewChild(TemplateRef, { read: ViewContainerRef })
+  private viewContainerRef: ViewContainerRef;
+
   constructor(private router: Router, private breakpointObserver: BreakpointObserver,
     private dialog: MatDialog,
-    private matIconRegistry: MatIconRegistry, private sanitizer: DomSanitizer, private seo: SeoService, private title: Title, public adobeDtbTracking: AdobeDtbTracking
+    private matIconRegistry: MatIconRegistry, 
+    private sanitizer: DomSanitizer, 
+    private seo: SeoService, private title: Title, 
+    public adobeDtbTracking: AdobeDtbTracking,
+    private readonly componentFactoryResolver: ComponentFactoryResolver
   ) {
     this.observeBreakpoints();
     this.createStepIcons();
@@ -82,6 +92,43 @@ export class HomeComponent implements OnInit, OnDestroy {
     },
       1000);
 
+    this.lazyLoadComponents();
+
+  }//end ngOnInit
+
+  lazyLoadComponents(){
+    // this.howItWorksComponent = (await import("./how-it-works/how-it-works.component")).HowItWorksComponent;
+    import("./how-it-works/how-it-works.component").then( 
+      ({HowItWorksComponent}) => {
+        const component = this.componentFactoryResolver.resolveComponentFactory(
+          HowItWorksComponent
+        );
+        const componentRef = this.viewContainerRef.createComponent(
+          component
+        );
+        this.howItWorksComponent = HowItWorksComponent;
+        componentRef.instance.isMobile = this.isMobile;
+      }
+    );
+    // const componentRef = this.howItWorksTemplateViewContainerRef.createComponent(
+    //   this.howItWorksComponent
+    // );
+    // this.howItWorksComponent['isMobile'] = true;
+    // this.howItWorksTemplateViewContainerRef.createComponent(this.howItWorksComponent).instance
+  }
+
+  private lazyLoadHowItWorks(isMobile: any): void {
+    import('./how-it-works/how-it-works.component').then(
+      ({ HowItWorksComponent }) => {
+        const component = this.componentFactoryResolver.resolveComponentFactory(
+          HowItWorksComponent
+        );
+        // const componentRef = this.howItWorksTemplateViewContainerRef.createComponent(
+        //   component
+        // );
+        // componentRef.instance.isMobile = isMobile;
+      }
+    );
   }
 
   scrollIntoView() {
