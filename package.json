@@ -1,27 +1,13 @@
 {
-  "name": "mtm-pwa-front-end",
+  "name": "test2",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && gzipper --verbose ./dist/browser",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "compile:server": "webpack --config webpack.server.config.js --progress --colors",
-    "serve:ssr": "node dist/server",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && gzipper --verbose ./dist/browser && ng run mtm-pwa-front-end:server:production",
-    "build:browser:prod": "ng build --prod",
-    "build:browser:serverless": "ng build --prod  --base-href /production/",
-    "build:serverless": "npm run build:browser:serverless && npm run build:server:serverless",
-    "build:prod": "npm run build:browser:prod && npm run build:server:prod",
-    "server": "node local.js",
-    "build:prod:deploy": "npm run build:prod && npm run deploy",
-    "build:serverless:deploy": "npm run build:serverless && npm run deploy",
-    "deploy": "serverless deploy",
-    "build:server:prod": "ng run mtm-pwa-front-end:server && webpack --config webpack.server.config.js --progress --colors",
-    "build:server:serverless": "ng run mtm-pwa-front-end:server:serverless && webpack --config webpack.server.config.js --progress --colors"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
