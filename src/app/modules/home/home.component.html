@@ -7,8 +7,8 @@
     </div>
   </section>
   <div class="desktop-content" #howitworks>
-    <ng-template [ngComponentOutlet]="howItWorksComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
-    <!-- <section class='how-it-works'>
+    <!-- <ng-template [ngComponentOutlet]="howItWorksComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template> -->
+    <section class='how-it-works'>
       <h1>HOW IT WORKS!</h1>
       <div [class]="isMobile ? 'how-it-works-column' : 'how-it-works-row'">
         <ng-container *ngFor='let step of steps; let last=last'>
@@ -20,7 +20,7 @@
           <mat-icon class='icon arrow-right' *ngIf='!(last || isMobile)' [svgIcon]='"right-arrow"'></mat-icon>
         </ng-container>
       </div>
-    </section> -->
+    </section>
     <section class='product-benefits'>
       <div class="text-wrapper">
         <h1>WHY YOU'LL LOVE THIS</h1>
