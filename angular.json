@@ -148,7 +148,7 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/server",
-            "main": "src/main.server.ts",
+            "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
@@ -160,6 +160,32 @@
                 }
               ]
             }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "mtm-pwa-front-end:build",
+            "serverTarget": "mtm-pwa-front-end:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mtm-pwa-front-end:build:production",
+              "serverTarget": "mtm-pwa-front-end:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "mtm-pwa-front-end:build:production",
+            "serverTarget": "mtm-pwa-front-end:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }
