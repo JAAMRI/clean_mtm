@@ -8,6 +8,25 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
+//Added to solve window not defined issue
+const domino = require("domino");
+const fs = require("fs");
+const path = require("path");
+const templateA = fs
+  .readFileSync(path.join("dist/browser", "index.html"))
+  .toString();
+const win = domino.createWindow(templateA);
+win.Object = Object;
+win.Math = Math;
+
+global["window"] = win;
+global["document"] = win.document;
+global["branch"] = null;
+global["object"] = win.object;
+global['HTMLElement'] = win.HTMLElement;
+global['navigator'] = win.navigator;
+//End Added to solve window not defined issue
+
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
   const server = express();
