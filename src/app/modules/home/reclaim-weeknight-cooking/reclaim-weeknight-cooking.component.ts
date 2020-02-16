@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AdobeDtbTracking } from 'src/app/services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-reclaim-weeknight-cooking',
@@ -9,7 +10,9 @@ export class ReclaimWeeknightCookingComponent implements OnInit {
 
   @Input() isMobile: any;
 
-  constructor() { }
+  constructor(
+    public adobeDtbTracking: AdobeDtbTracking,
+  ) { }
 
   ngOnInit(): void {
   }
