@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation, ViewContainerRef, TemplateRef, ComponentFactoryResolver, Type } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation, ViewContainerRef, TemplateRef, ComponentFactoryResolver, Type, AfterViewInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer, Title } from '@angular/platform-browser';
@@ -24,7 +24,7 @@ import { HowItWorksComponent } from './how-it-works/how-it-works.component';
   styleUrls: ['./home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   unsubscribeAll = new Subject();
   onLandingPage: boolean;
@@ -91,10 +91,11 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.adobeDtbTracking.page_load("home page");
     },
       1000);
-
-    this.lazyLoadComponents();
-
   }//end ngOnInit
+
+  ngAfterViewInit(){
+    this.lazyLoadComponents();
+  }
 
   lazyLoadComponents(){
     // this.howItWorksComponent = (await import("./how-it-works/how-it-works.component")).HowItWorksComponent;

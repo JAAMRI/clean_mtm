@@ -11,9 +11,10 @@ import { ForgotPasswordModule } from '../../components/forgot-password/forgot-pa
 import { OnBoardModule } from '../../components/on-board/on-board.module';
 import { HomeComponent } from './home.component';
 import { HomeRouting } from './home.routing';
+import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, HowItWorksComponent],
   imports: [
     CommonModule,
     HomeRouting,
@@ -25,7 +26,8 @@ import { HomeRouting } from './home.routing';
     MatDialogModule,
     UserFormModule,
     ForgotPasswordModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    MatIconModule
   ]
 })
 export class HomeModule { }
