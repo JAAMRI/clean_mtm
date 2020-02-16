@@ -11,7 +11,7 @@ import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.se
 export class YouWillLoveThisComponent implements OnInit {
 
   @Input() isMobile: any;
-  isWeb = false;
+  isWeb = false;//This needs to come dynamically from parent component
 
   slideConfig = {
     "slidesToShow": 3,

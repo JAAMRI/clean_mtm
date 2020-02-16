@@ -14,6 +14,7 @@ import { SeoService } from '../../../app/services/seo.service';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { YouWillLoveThisComponent } from './you-will-love-this/you-will-love-this.component';
+import { ReclaimWeeknightCookingComponent } from './reclaim-weeknight-cooking/reclaim-weeknight-cooking.component';
 
 // use this to scroll on safari
 // smoothscroll.polyfill();
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   howItWorksComponent: Type<HowItWorksComponent>;
   youWillLoveThisComponent: Type<YouWillLoveThisComponent>;
+  reclaimWeeknightCookingComponent: Type<ReclaimWeeknightCookingComponent>;
 
 
   @ViewChild(TemplateRef, { read: ViewContainerRef })
@@ -95,6 +97,15 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         componentRef.instance.isMobile = this.isMobile;
       }
     );
+    //Load ReclaimWeeknightCooking component
+    import("./reclaim-weeknight-cooking/reclaim-weeknight-cooking.component").then( 
+      ({ReclaimWeeknightCookingComponent}) => {
+        const component = this.componentFactoryResolver.resolveComponentFactory( ReclaimWeeknightCookingComponent );
+        const componentRef = this.viewContainerRef.createComponent( component );
+        this.reclaimWeeknightCookingComponent = ReclaimWeeknightCookingComponent;
+        componentRef.instance.isMobile = this.isMobile;
+      }
+    );
   }
 
   scrollIntoView() {
@@ -147,11 +158,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         this.promptUserForAuth();
       }
     });
-  }
-
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    this.adobeDtbTracking.anchor_link('CTA LABEL Home Page');
   }
 
   scrollToHowItWorks(smooth: boolean = true) {

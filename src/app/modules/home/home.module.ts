@@ -13,9 +13,10 @@ import { HomeComponent } from './home.component';
 import { HomeRouting } from './home.routing';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { YouWillLoveThisComponent } from './you-will-love-this/you-will-love-this.component';
+import { ReclaimWeeknightCookingComponent } from './reclaim-weeknight-cooking/reclaim-weeknight-cooking.component';
 
 @NgModule({
-  declarations: [HomeComponent, HowItWorksComponent, YouWillLoveThisComponent],
+  declarations: [HomeComponent, HowItWorksComponent, YouWillLoveThisComponent, ReclaimWeeknightCookingComponent],
   imports: [
     CommonModule,
     HomeRouting,

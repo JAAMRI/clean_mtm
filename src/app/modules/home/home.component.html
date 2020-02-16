@@ -9,6 +9,7 @@
   <div class="desktop-content" #howitworks>
     <ng-template [ngComponentOutlet]="howItWorksComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
     <ng-template [ngComponentOutlet]="youWillLoveThisComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
+    <ng-template [ngComponentOutlet]="reclainWeeknightCookingComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
     <button (click)="lload()">Load</button>
     <!-- <section class='product-benefits'>
       <div class="text-wrapper">
@@ -36,7 +37,7 @@
           (click)="adobeDtbTracking.page_tracking('>SELECT MEALS','/mtm/discover')">GET STARTED</button>
       </div>
     </section> -->
-    <section class='main-footer'>
+    <!-- <section class='main-footer'>
       <div class="main-footer-wrapper">
         <div class="text-wrapper">
           <h1>RECLAIM WEEKNIGHT COOKING.</h1>
@@ -54,6 +55,6 @@
           </button>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </div>
