@@ -6,14 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent
-    // loadChildren: './modules/home/home.module#HomeModule'
   },
   {
     path: 'mtm',
     loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule)
   },
   
-
   { path: '**', redirectTo: '', pathMatch: 'full' },
 
 ];
