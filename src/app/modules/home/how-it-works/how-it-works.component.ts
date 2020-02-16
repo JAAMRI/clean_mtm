@@ -27,21 +27,21 @@ export class HowItWorksComponent implements OnInit, AfterViewInit {
   @Input() isMobile: any;
 
   constructor(
-    // private matIconRegistry: MatIconRegistry, 
-    // private sanitizer: DomSanitizer, 
+    private matIconRegistry: MatIconRegistry, 
+    private sanitizer: DomSanitizer, 
   ) {}
 
   createStepIcons() {
-    // this.steps.forEach((step) => {
-    //   this.matIconRegistry.addSvgIcon(step.name, this.sanitizer.bypassSecurityTrustResourceUrl(step.icon));
-    // });
-    // this.matIconRegistry.addSvgIcon('right-arrow', this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/right-arrow.svg'));
+    this.steps.forEach((step) => {
+      this.matIconRegistry.addSvgIcon(step.name, this.sanitizer.bypassSecurityTrustResourceUrl(step.icon));
+    });
+    this.matIconRegistry.addSvgIcon('right-arrow', this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/right-arrow.svg'));
     // creating step icons for carousel
 
   }
 
   ngOnInit(): void {
-    // this.createStepIcons();
+    this.createStepIcons();
   }
 
   ngAfterViewInit(){

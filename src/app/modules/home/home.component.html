@@ -8,21 +8,9 @@
   </section>
   <div class="desktop-content" #howitworks>
     <ng-template [ngComponentOutlet]="howItWorksComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
-
-    <!-- <section class='how-it-works'>
-      <h1>HOW IT WORKS!</h1>
-      <div [class]="isMobile ? 'how-it-works-column' : 'how-it-works-row'">
-        <ng-container *ngFor='let step of steps; let last=last'>
-          <div class="hiw-icon-container">
-            <mat-icon class='icon' [class.grocery-list-icon]="step.name === 'VIEW GROCERY LIST'" [svgIcon]='step.name'>
-            </mat-icon>
-            <p>{{step.name}}</p>
-          </div>
-          <mat-icon class='icon arrow-right' *ngIf='!(last || isMobile)' [svgIcon]='"right-arrow"'></mat-icon>
-        </ng-container>
-      </div>
-    </section> -->
-    <section class='product-benefits'>
+    <ng-template [ngComponentOutlet]="youWillLoveThisComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
+    <button (click)="lload()">Load</button>
+    <!-- <section class='product-benefits'>
       <div class="text-wrapper">
         <h1>WHY YOU'LL LOVE THIS</h1>
         <p>
@@ -47,7 +35,7 @@
         <button aria-label="Get started" mat-raised-button routerLink="/mtm/discover"
           (click)="adobeDtbTracking.page_tracking('>SELECT MEALS','/mtm/discover')">GET STARTED</button>
       </div>
-    </section>
+    </section> -->
     <section class='main-footer'>
       <div class="main-footer-wrapper">
         <div class="text-wrapper">

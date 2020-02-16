@@ -1,0 +1,27 @@
+<section class='product-benefits'>
+    <div class="text-wrapper">
+      <h1>WHY YOU'LL LOVE THIS</h1>
+      <p>
+        {{!isMobile ? 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.' : 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.'}}
+      </p>
+    </div>
+    <div class="product-carousel">
+      <ngx-slick-carousel [class]='isWeb ? "carousel" : "mobile-carousel"' #slickModal="slick-carousel"
+        [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let item of carouselData" class="slide">
+          <mat-card class='meal-item'>
+            <img [alt]="item.title" mat-card-image [src]='item.img' [alt]='item.header' />
+            <mat-card-content>
+              <p class='meal-title'>{{item.header}}</p>
+              <p class='meal-body'>{{item.body}}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+    <div class="action-button">
+      <button aria-label="Get started" mat-raised-button routerLink="/mtm/discover"
+        (click)="adobeDtbTracking.page_tracking('>SELECT MEALS','/mtm/discover')">GET STARTED</button>
+        <!-- <button aria-label="Get started" mat-raised-button routerLink="/mtm/discover">GET STARTED</button> -->
+    </div>
+</section>

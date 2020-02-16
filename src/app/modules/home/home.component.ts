@@ -10,10 +10,10 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { BREAKPOINTS } from '../../../app/utilities/breakpoints';
 import { scrollToTop } from '../../../app/utilities/helper-functions';
 import { UserFormComponent } from '../../components/dialogs/user-form/user-form.component';
-import { CarouselData } from './home-carousel-helper';
 import { SeoService } from '../../../app/services/seo.service';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
+import { YouWillLoveThisComponent } from './you-will-love-this/you-will-love-this.component';
 
 // use this to scroll on safari
 // smoothscroll.polyfill();
@@ -30,33 +30,11 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   onLandingPage: boolean;
   isMobile: boolean;
   isWeb: boolean;
-  carouselData = CarouselData;
   @ViewChild('howitworks', { static: true }) howItWorks: ElementRef;
 
   howItWorksComponent: Type<HowItWorksComponent>;
+  youWillLoveThisComponent: Type<YouWillLoveThisComponent>;
 
-  slideConfig = {
-    "slidesToShow": 3,
-    "slidesToScroll": 1,
-    "nextArrow": "<div class='nav-btn next-slide'></div>",
-    "prevArrow": "<div class='nav-btn prev-slide'></div>",
-    "infinite": true
-  }; // slide config for carousel
-
-  steps = [
-    {
-      icon: 'assets/static_images/noun_recipes_1132517.svg',
-      name: 'BROWSE OUR RECIPES',
-    },
-    {
-      icon: 'assets/static_images/noun_Browser_83393.svg',
-      name: 'CREATE MEAL PLAN',
-    },
-    {
-      icon: 'assets/static_images/noun_Shopping Cart_2776002.svg',
-      name: 'SHOP YOUR MEAL PLAN'
-    }
-  ]; // icons
 
   @ViewChild(TemplateRef, { read: ViewContainerRef })
   private viewContainerRef: ViewContainerRef;
@@ -70,9 +48,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     private readonly componentFactoryResolver: ComponentFactoryResolver
   ) {
     this.observeBreakpoints();
-    this.createStepIcons();
     this.scrollIntoView();
-
   }
 
   ngOnInit() {
@@ -94,40 +70,29 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }//end ngOnInit
 
   ngAfterViewInit(){
-    this.lazyLoadComponents();
+    // this.lazyLoadComponents();
   }
 
+  lload(){
+    this.lazyLoadComponents();
+  }
   lazyLoadComponents(){
-    // this.howItWorksComponent = (await import("./how-it-works/how-it-works.component")).HowItWorksComponent;
+    //Load HowItWorks component
     import("./how-it-works/how-it-works.component").then( 
       ({HowItWorksComponent}) => {
-        const component = this.componentFactoryResolver.resolveComponentFactory(
-          HowItWorksComponent
-        );
-        const componentRef = this.viewContainerRef.createComponent(
-          component
-        );
+        const component = this.componentFactoryResolver.resolveComponentFactory( HowItWorksComponent );
+        const componentRef = this.viewContainerRef.createComponent( component );
         this.howItWorksComponent = HowItWorksComponent;
         componentRef.instance.isMobile = this.isMobile;
       }
     );
-    // const componentRef = this.howItWorksTemplateViewContainerRef.createComponent(
-    //   this.howItWorksComponent
-    // );
-    // this.howItWorksComponent['isMobile'] = true;
-    // this.howItWorksTemplateViewContainerRef.createComponent(this.howItWorksComponent).instance
-  }
-
-  private lazyLoadHowItWorks(isMobile: any): void {
-    import('./how-it-works/how-it-works.component').then(
-      ({ HowItWorksComponent }) => {
-        const component = this.componentFactoryResolver.resolveComponentFactory(
-          HowItWorksComponent
-        );
-        // const componentRef = this.howItWorksTemplateViewContainerRef.createComponent(
-        //   component
-        // );
-        // componentRef.instance.isMobile = isMobile;
+    //Load YouWillLoveThis component
+    import("./you-will-love-this/you-will-love-this.component").then( 
+      ({YouWillLoveThisComponent}) => {
+        const component = this.componentFactoryResolver.resolveComponentFactory( YouWillLoveThisComponent );
+        const componentRef = this.viewContainerRef.createComponent( component );
+        this.youWillLoveThisComponent = YouWillLoveThisComponent;
+        componentRef.instance.isMobile = this.isMobile;
       }
     );
   }
@@ -166,17 +131,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         const isMobileLandscape = this.breakpointObserver.isMatched('(max-width: 959px)');
         this.isMobile = isMobilePortrait || isMobileLandscape;
         this.isWeb = this.breakpointObserver.isMatched('(min-width: 960px)');
-        this.slideConfig = { ...this.slideConfig, 'slidesToShow': this.isWeb ? 3 : (this.isMobile ? 1 : 2) };
       });
-  }
-
-  createStepIcons() {
-    this.steps.forEach((step) => {
-      this.matIconRegistry.addSvgIcon(step.name, this.sanitizer.bypassSecurityTrustResourceUrl(step.icon));
-    });
-    this.matIconRegistry.addSvgIcon('right-arrow', this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/right-arrow.svg'));
-    // creating step icons for carousel
-
   }
 
   watchRoute() {

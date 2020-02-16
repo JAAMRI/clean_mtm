@@ -24,7 +24,7 @@ export class AdobeDtbTracking {
         // digitalData.event.push(ev);
     }
 
-    page_tracking(name, url) {
+    page_tracking(name, url) {return;
         // // @ts-ignore
         // fbq('track', 'ViewContent ' + name + ' ' + url);
         // var ev = {};

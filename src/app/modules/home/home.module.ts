@@ -12,9 +12,10 @@ import { OnBoardModule } from '../../components/on-board/on-board.module';
 import { HomeComponent } from './home.component';
 import { HomeRouting } from './home.routing';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
+import { YouWillLoveThisComponent } from './you-will-love-this/you-will-love-this.component';
 
 @NgModule({
-  declarations: [HomeComponent, HowItWorksComponent],
+  declarations: [HomeComponent, HowItWorksComponent, YouWillLoveThisComponent],
   imports: [
     CommonModule,
     HomeRouting,
