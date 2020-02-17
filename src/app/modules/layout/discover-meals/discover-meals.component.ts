@@ -48,13 +48,11 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
   favouriteMealIds: any = [];
 
   pageStart: number = 0;
-  pageSize: number = 12;//If you change this value, please change it in the search function in the meal service as well
+  pageSize: number = 6;//If you change this value, please change it in the search function in the meal service as well
   theEnteredSearchQuery: string = "";
   totalResults: number = 0;
   mealPlanIds = {};
   mealPlan: any[] = [];
-
-
 
   slideConfig: any = {
     "slidesToScroll": 1,
@@ -252,7 +250,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
     this.meals = [];
     this.totalResults = 0;
     this.pageStart = 0;
-    this.pageSize = 12;
+    this.pageSize = 6;
     // this.currentSlide = 0;
     // this.numberOfSlides = 0;
   }
