@@ -10,51 +10,5 @@
     <ng-template [ngComponentOutlet]="howItWorksComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
     <ng-template [ngComponentOutlet]="youWillLoveThisComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
     <ng-template [ngComponentOutlet]="reclaimWeeknightCookingComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
-    <button (click)="lload()">Load</button>
-    <!-- <section class='product-benefits'>
-      <div class="text-wrapper">
-        <h1>WHY YOU'LL LOVE THIS</h1>
-        <p>
-          {{!isMobile ? 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.' : 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.'}}
-        </p>
-      </div>
-      <div class="product-carousel">
-        <ngx-slick-carousel [class]='isWeb ? "carousel" : "mobile-carousel"' #slickModal="slick-carousel"
-          [config]="slideConfig">
-          <div ngxSlickItem *ngFor="let item of carouselData" class="slide">
-            <mat-card class='meal-item'>
-              <img [alt]="item.title" mat-card-image [src]='item.img' [alt]='item.header' />
-              <mat-card-content>
-                <p class='meal-title'>{{item.header}}</p>
-                <p class='meal-body'>{{item.body}}</p>
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </ngx-slick-carousel>
-      </div>
-      <div class="action-button">
-        <button aria-label="Get started" mat-raised-button routerLink="/mtm/discover"
-          (click)="adobeDtbTracking.page_tracking('>SELECT MEALS','/mtm/discover')">GET STARTED</button>
-      </div>
-    </section> -->
-    <!-- <section class='main-footer'>
-      <div class="main-footer-wrapper">
-        <div class="text-wrapper">
-          <h1>RECLAIM WEEKNIGHT COOKING.</h1>
-          <p>
-            {{!isMobile ? 'With Meals That Matter, cooking is an easier, more manageable part of your busy routine. See how a little food prep and planning gives you a head start in the kitchen today.' : 'With Meals That Matter, cooking is an easier, more manageable part of your busy routine.'}}
-          </p>
-        </div>
-        <div class="action-button">
-          <button aria-label="Get started" mat-raised-button routerLink="/mtm/discover"
-            (click)="adobeDtbTracking.page_tracking('>SELECT MEALS','/mtm/discover')">GET STARTED</button>
-        </div>
-        <div class="scroll-to-top-button-wrapper">
-          <button aria-label="Scroll back to top" class='scroll-button' mat-mini-fab (click)='scrollToTop()'>
-            <mat-icon>expand_less</mat-icon>
-          </button>
-        </div>
-      </div>
-    </section> -->
   </div>
 </div>

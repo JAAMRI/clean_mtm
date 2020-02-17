@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }//end ngOnInit
 
   ngAfterViewInit(){
-    // this.lazyLoadComponents();
+    this.lazyLoadComponents();
   }
 
   lload(){
