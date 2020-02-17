@@ -1,8 +1,8 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation, ViewContainerRef, TemplateRef, ComponentFactoryResolver, Type, AfterViewInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer, Title } from '@angular/platform-browser';
+// import { MatIconRegistry } from '@angular/material/icon';
+import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
@@ -43,8 +43,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver,
     private dialog: MatDialog,
-    private matIconRegistry: MatIconRegistry, 
-    private sanitizer: DomSanitizer, 
+    // private matIconRegistry: MatIconRegistry, 
+    // private sanitizer: DomSanitizer, 
     private seo: SeoService, private title: Title, 
     public adobeDtbTracking: AdobeDtbTracking,
     private readonly componentFactoryResolver: ComponentFactoryResolver
