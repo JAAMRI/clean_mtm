@@ -18,10 +18,10 @@ export class MobileMenuComponent implements OnInit {
   @Output() close = new EventEmitter();
   currentRoute: string;
   menuPages: MenuPage[] = [
-    { name: 'SELECT MEALS', route: '/mtm/discover', },
-    { name: `FAVOURITES`, route: '/mtm/favourites', }, // TODO when favourites page is created
-    { name: `MEAL PLAN`, route: '/mtm/my-meals' },
-    { name: 'GROCERY LIST', route: '/mtm/grocery-list' },
+    { name: 'SELECT MEALS', route: '/recipes/discover', },
+    { name: `FAVOURITES`, route: '/recipes/favourites', }, // TODO when favourites page is created
+    { name: `MEAL PLAN`, route: '/recipes/my-meals' },
+    { name: 'GROCERY LIST', route: '/recipes/grocery-list' },
     { name: 'ABOUT', route: '/about' },
   ];
   unsubscribeAll = new Subject();

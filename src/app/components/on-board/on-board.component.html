@@ -4,8 +4,8 @@
   </h1>
   <h4 [class]='isWeb ? "on-board-subtitle" : "on-board-mobile-subtitle"'>The all-in-one meal preparation tool</h4>
   <div class="on-board-text">
-    <a class='get-started underline' routerLink="/mtm/discover" [class.web-view-font]='isWeb'
-      (click)="adobeDtbTracking.page_tracking('SELECT MEALS','/mtm/discover')">
+    <a class='get-started underline' routerLink="/recipes/discover" [class.web-view-font]='isWeb'
+      (click)="adobeDtbTracking.page_tracking('SELECT MEALS','/recipes/discover')">
       START
     </a>
     <span class="get-started" [class.web-view-font]='isWeb' *ngIf="!accountService.loggedIn"> OR </span>

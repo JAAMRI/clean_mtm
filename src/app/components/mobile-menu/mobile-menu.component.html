@@ -23,26 +23,26 @@
   <div class="bottom-wrapper">
     <mat-nav-list>
       <!-- <ng-container *ngIf='isLoggedIn'>
-        <a mat-list-item class='page-item' [class.active]='currentRoute === "/mtm/profile"'>MY ACCOUNT</a>
+        <a mat-list-item class='page-item' [class.active]='currentRoute === "/recipes/profile"'>MY ACCOUNT</a>
         <a mat-list-item class='page-item' routerLink='/'>SIGN OUT</a>
       </ng-container> -->
       <a *ngIf='!accountService.loggedIn' mat-list-item class='page-item' (click)='authControl()'>Sign In</a>
       <a *ngIf='accountService.loggedIn' mat-list-item class='page-item' [matMenuTriggerFor]="profileMenu">My
         Account</a>
       <mat-menu #profileMenu="matMenu">
-        <a mat-menu-item class='page-item' routerLink='/mtm/profile'
-          (click)="closeMobileMenu('PROFILE','/mtm/profile')">View
+        <a mat-menu-item class='page-item' routerLink='/recipes/profile'
+          (click)="closeMobileMenu('PROFILE','/recipes/profile')">View
           Profile</a>
         <a mat-menu-item (click)="signOut()">Sign Out</a>
 
       </mat-menu>
-      <!-- <a mat-list-item class='page-item' routerLink='/mtm/contact-us'
-        (click)="closeMobileMenu('CONTACT US','/mtm/contact-us')">CONTACT US</a> -->
+      <!-- <a mat-list-item class='page-item' routerLink='/recipes/contact-us'
+        (click)="closeMobileMenu('CONTACT US','/recipes/contact-us')">CONTACT US</a> -->
       <a mat-list-item class='page-item' [matMenuTriggerFor]="contactMenu">Help Center</a>
       <mat-menu #contactMenu="matMenu">
-        <a mat-menu-item class='page-item' routerLink='/mtm/contact-us'
-          (click)="closeMobileMenu('CONTACT US','/mtm/contact-us')">CONTACT US</a>
-        <a mat-menu-item class='page-item' routerLink='/mtm/faqs' (click)="closeMobileMenu('FAQs','/mtm/faqs')">FAQs</a>
+        <a mat-menu-item class='page-item' routerLink='/recipes/contact-us'
+          (click)="closeMobileMenu('CONTACT US','/recipes/contact-us')">CONTACT US</a>
+        <a mat-menu-item class='page-item' routerLink='/recipes/faqs' (click)="closeMobileMenu('FAQs','/recipes/faqs')">FAQs</a>
       </mat-menu>
     </mat-nav-list>
   </div>

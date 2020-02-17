@@ -103,7 +103,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
       title: 'Choose Your Weekly Meals | Meals That Matter',
       description: 'Choose your meals for the week and take your meal prep to the next level. Select from a wide range of amazing recipes, curated by our Knorr Chefs.',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
-      slug: '/mtm/discover'
+      slug: '/recipes/discover'
     })
   }
 
@@ -290,14 +290,14 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
   }
 
   visitMealPlan() {
-    this.router.navigate(['/mtm/my-meals']);
-    this.adobeDtbTracking.page_tracking('MEAL PLAN', '/mtm/my-meals');
+    this.router.navigate(['/recipes/my-meals']);
+    this.adobeDtbTracking.page_tracking('MEAL PLAN', '/recipes/my-meals');
   }
 
   visitMealDetailPage(meal: any) {
     if (!this.carouselIsChanging) {
       const mealTitle = meal.title as string;
-      this.router.navigate([`/mtm/discover/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
+      this.router.navigate([`/recipes/discover/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
 
     }
     this.carouselIsChanging = false;
@@ -305,7 +305,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
   }
   promptMealDetailComponent(id: string) {
     // if carousel is not being slided
-    // this.router.navigate([`/mtm/${id}`]);
+    // this.router.navigate([`/recipes/${id}`]);
     const ref = this.dialog.open(MealDetailComponent, {
       panelClass: 'recipe-dialog-container',
       backdropClass: 'faded-backdrop',
@@ -326,7 +326,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
     ref.afterClosed().toPromise().then((newDialog: string) => {
       if (!newDialog) {
         // if no new dialog is openning
-        this.router.navigate(['/mtm/discover'], { queryParams: {} })
+        this.router.navigate(['/recipes/discover'], { queryParams: {} })
       }
     })
 

@@ -4,36 +4,36 @@
   </a>
   <div class="call-to-actions">
     <div class="tabs">
-      <a [class.active]='activePage === "/mtm/discover"' mat-button routerLink='/mtm/discover'
-        (click)="adobeDtbTracking.page_tracking('>SELECT MEALS','/mtm/discover')">SELECT
+      <a [class.active]='activePage === "/recipes/discover"' mat-button routerLink='/recipes/discover'
+        (click)="adobeDtbTracking.page_tracking('>SELECT MEALS','/recipes/discover')">SELECT
         MEALS</a>
-      <a [class.active]='activePage === "/mtm/favourites"' mat-button routerLink='/mtm/favourites'
-        (click)="adobeDtbTracking.page_tracking('FAVOURITES','/mtm/favourites')">FAVOURITES</a>
-      <a [class.active]='activePage === "/mtm/my-meals"' mat-button routerLink='/mtm/my-meals'
-        (click)="adobeDtbTracking.page_tracking('MEAL PLAN','/mtm/my-meals')">MEAL PLAN</a>
-      <a [class.active]='activePage === "/mtm/grocery-list"' mat-button routerLink='/mtm/grocery-list'
-        (click)="adobeDtbTracking.page_tracking('GROCERY LIST','/mtm/grocery-list')">GROCERY
+      <a [class.active]='activePage === "/recipes/favourites"' mat-button routerLink='/recipes/favourites'
+        (click)="adobeDtbTracking.page_tracking('FAVOURITES','/recipes/favourites')">FAVOURITES</a>
+      <a [class.active]='activePage === "/recipes/my-meals"' mat-button routerLink='/recipes/my-meals'
+        (click)="adobeDtbTracking.page_tracking('MEAL PLAN','/recipes/my-meals')">MEAL PLAN</a>
+      <a [class.active]='activePage === "/recipes/grocery-list"' mat-button routerLink='/recipes/grocery-list'
+        (click)="adobeDtbTracking.page_tracking('GROCERY LIST','/recipes/grocery-list')">GROCERY
         LIST</a>
     </div>
     <div class="actions">
       <a mat-button [matMenuTriggerFor]="profileMenu" *ngIf="accountService.loggedIn">My Account</a>
       <mat-menu #profileMenu="matMenu">
-        <a mat-menu-item routerLink='/mtm/profile'
-          (click)="adobeDtbTracking.page_tracking('View Profile','/mtm/profile')">View
+        <a mat-menu-item routerLink='/recipes/profile'
+          (click)="adobeDtbTracking.page_tracking('View Profile','/recipes/profile')">View
           Profile</a>
         <a mat-menu-item (click)="signOut()">Sign Out</a>
       </mat-menu>
       <a mat-button *ngIf="!accountService.loggedIn" (click)='authControl()'>Already a Member?</a>
 
-      <!-- <a mat-button routerLink='/mtm/contact-us'
-        (click)="adobeDtbTracking.page_tracking('CONTACT US','/mtm/contact-us')">CONTACT
+      <!-- <a mat-button routerLink='/recipes/contact-us'
+        (click)="adobeDtbTracking.page_tracking('CONTACT US','/recipes/contact-us')">CONTACT
         US</a> -->
       <a mat-button [matMenuTriggerFor]="contactMenu">Help Center</a>
       <mat-menu #contactMenu="matMenu">
-        <a mat-menu-item routerLink='/mtm/contact-us'
-          (click)="adobeDtbTracking.page_tracking('CONTACT US','/mtm/contact-us')">CONTACT
+        <a mat-menu-item routerLink='/recipes/contact-us'
+          (click)="adobeDtbTracking.page_tracking('CONTACT US','/recipes/contact-us')">CONTACT
           US</a>
-        <a mat-menu-item routerLink='/mtm/faqs' (click)="adobeDtbTracking.page_tracking('FAQs','/mtm/faqs')">FAQs</a>
+        <a mat-menu-item routerLink='/recipes/faqs' (click)="adobeDtbTracking.page_tracking('FAQs','/recipes/faqs')">FAQs</a>
       </mat-menu>
     </div>
   </div>
@@ -46,7 +46,7 @@
     My account
 </a>
 <mat-menu #profileMenu="matMenu">
-  <a mat-menu-item routerLink='/mtm/profile' >View My Profile</a> -->
+  <a mat-menu-item routerLink='/recipes/profile' >View My Profile</a> -->
 <!-- <a mat-menu-item  (click)="signOut()">Sign Out</a>
 </mat-menu>
 

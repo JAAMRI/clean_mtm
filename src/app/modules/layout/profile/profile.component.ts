@@ -47,7 +47,7 @@ export class ProfileComponent {
       title: 'MealsThatMatter – Profile',
       description: 'View your profile.',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
-      slug: '/mtm/profile'
+      slug: '/recipes/profile'
     })
   }
 

@@ -8,7 +8,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'mtm',
+    path: 'recipes',
     loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule)
   },
   

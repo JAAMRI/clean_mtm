@@ -74,7 +74,7 @@ export class FavouritesComponent implements OnInit {
       title: 'Favorite Recipes & Dishes | Meals That Matter',
       description: 'View your favorite recipes and dishes as selected by yourself here.',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
-      slug: '/mtm/favourites'
+      slug: '/recipes/favourites'
     })
   }
 
@@ -151,7 +151,7 @@ export class FavouritesComponent implements OnInit {
   visitMealDetailPage(meal: any) {
     if (!this.carouselIsChanging) {
       const mealTitle = meal.title as string;
-      this.router.navigate([`/mtm/favourites/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
+      this.router.navigate([`/recipes/favourites/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
     }
     this.carouselIsChanging = false;
 
@@ -175,7 +175,7 @@ export class FavouritesComponent implements OnInit {
     }
     ref.afterClosed().toPromise().then((newDialog: string) => {
       if (!newDialog) {
-        this.router.navigate(['/mtm/favourites'], { queryParams: {} })
+        this.router.navigate(['/recipes/favourites'], { queryParams: {} })
 
       }
     })

@@ -78,7 +78,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
       title: 'MealsThatMatter – My Meal Plan',
       description: 'View my meal plan',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
-      slug: '/mtm/my-meals'
+      slug: '/recipes/my-meals'
     })
   }
 
@@ -182,13 +182,13 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   visitMealDetailPage(meal: any) {
     if (!this.carouselIsChanging) {
       const mealTitle = meal.title as string;
-      this.router.navigate([`/mtm/my-meals/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
+      this.router.navigate([`/recipes/my-meals/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
     }
     this.carouselIsChanging = false;
   }
   promptMealDetailComponent(id: string) {
     // if carousel is not being slided
-    // this.router.navigate([`/mtm/${id}`]);
+    // this.router.navigate([`/recipes/${id}`]);
     const ref = this.dialog.open(MealDetailComponent, {
       panelClass: 'recipe-dialog-container',
       backdropClass: 'faded-backdrop',
@@ -212,7 +212,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     ref.afterClosed().toPromise().then((newDialog: string) => {
       if (!newDialog) {
 
-        this.router.navigate(['/mtm/my-meals'], { queryParams: {} })
+        this.router.navigate(['/recipes/my-meals'], { queryParams: {} })
       }
     })
 
@@ -251,7 +251,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   }
 
   viewFavourites() {
-    this.router.navigate(['/mtm/favourites']);
+    this.router.navigate(['/recipes/favourites']);
     this.adobeDtbTracking.page_tracking('FAVOURITES', '/mtmfavourites');
   }
 
