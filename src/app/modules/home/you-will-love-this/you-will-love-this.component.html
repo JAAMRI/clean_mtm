@@ -2,11 +2,11 @@
     <div class="text-wrapper">
       <h1>WHY YOU'LL LOVE THIS</h1>
       <p>
-        {{!isMobile ? 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.' : 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.'}}
+        {{!responsiveness.isMobile ? 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.' : 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.'}}
       </p>
     </div>
     <div class="product-carousel">
-      <ngx-slick-carousel [class]='isWeb ? "carousel" : "mobile-carousel"' #slickModal="slick-carousel"
+      <ngx-slick-carousel [class]='responsiveness.isWeb ? "carousel" : "mobile-carousel"' #slickModal="slick-carousel"
         [config]="slideConfig">
         <div ngxSlickItem *ngFor="let item of carouselData" class="slide">
           <mat-card class='meal-item'>
