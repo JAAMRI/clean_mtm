@@ -10,8 +10,7 @@ import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.se
 })
 export class YouWillLoveThisComponent implements OnInit {
 
-  @Input() isMobile: any;
-  isWeb = false;//This needs to come dynamically from parent component
+  @Input() responsiveness: any;
 
   slideConfig = {
     "slidesToShow": 3,
@@ -28,9 +27,7 @@ export class YouWillLoveThisComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.slideConfig = { ...this.slideConfig, 'slidesToShow': this.isWeb ? 3 : (this.isMobile ? 1 : 2) };
-    this.slideConfig = { ...this.slideConfig, 'slidesToShow': this.isMobile ? 1 : 3 };
-
+    this.slideConfig = { ...this.slideConfig, 'slidesToShow': this.responsiveness.isWeb ? 3 : (this.responsiveness.isMobile ? 1 : 2) };
   }
 
 }

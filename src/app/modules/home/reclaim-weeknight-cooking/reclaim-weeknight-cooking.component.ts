@@ -8,7 +8,7 @@ import { AdobeDtbTracking } from 'src/app/services/adobe_dtb_tracking.service';
 })
 export class ReclaimWeeknightCookingComponent implements OnInit {
 
-  @Input() isMobile: any;
+  @Input() responsiveness: any;
 
   constructor(
     public adobeDtbTracking: AdobeDtbTracking,

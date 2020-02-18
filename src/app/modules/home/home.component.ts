@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         const component = this.componentFactoryResolver.resolveComponentFactory( HowItWorksComponent );
         const componentRef = this.viewContainerRef.createComponent( component );
         this.howItWorksComponent = HowItWorksComponent;
-        componentRef.instance.isMobile = this.isMobile;
+        componentRef.instance.responsiveness = {isMobile: this.isMobile, isWeb: this.isWeb};
       }
     );
     //Load YouWillLoveThis component
@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         const component = this.componentFactoryResolver.resolveComponentFactory( YouWillLoveThisComponent );
         const componentRef = this.viewContainerRef.createComponent( component );
         this.youWillLoveThisComponent = YouWillLoveThisComponent;
-        componentRef.instance.isMobile = this.isMobile;
+        componentRef.instance.responsiveness = {isMobile: this.isMobile, isWeb: this.isWeb};
       }
     );
     //Load ReclaimWeeknightCooking component
@@ -95,7 +95,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         const component = this.componentFactoryResolver.resolveComponentFactory( ReclaimWeeknightCookingComponent );
         const componentRef = this.viewContainerRef.createComponent( component );
         this.reclaimWeeknightCookingComponent = ReclaimWeeknightCookingComponent;
-        componentRef.instance.isMobile = this.isMobile;
+        componentRef.instance.responsiveness = {isMobile: this.isMobile, isWeb: this.isWeb};
       }
     );
   }

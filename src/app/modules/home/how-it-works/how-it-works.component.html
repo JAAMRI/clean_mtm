@@ -1,13 +1,13 @@
 <section class='how-it-works'>
     <h1>HOW IT WORKS!</h1>
-    <div [class]="isMobile ? 'how-it-works-column' : 'how-it-works-row'">
+    <div [class]="responsiveness.isMobile ? 'how-it-works-column' : 'how-it-works-row'">
       <ng-container *ngFor='let step of steps; let last=last'>
         <div class="hiw-icon-container">
           <mat-icon class='icon' [class.grocery-list-icon]="step.name === 'VIEW GROCERY LIST'" [svgIcon]='step.name'>
           </mat-icon>
           <p>{{step.name}}</p>
         </div>
-        <mat-icon class='icon arrow-right' *ngIf='!(last || isMobile)' [svgIcon]='"right-arrow"'></mat-icon>
+        <mat-icon class='icon arrow-right' *ngIf='!(last || responsiveness.isMobile)' [svgIcon]='"right-arrow"'></mat-icon>
       </ng-container>
     </div>
 </section>

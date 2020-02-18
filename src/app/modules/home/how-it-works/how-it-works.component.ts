@@ -24,7 +24,7 @@ export class HowItWorksComponent implements OnInit, AfterViewInit {
     }
   ]; // icons
 
-  @Input() isMobile: any;
+  @Input() responsiveness: any;
 
   constructor(
     private matIconRegistry: MatIconRegistry, 
