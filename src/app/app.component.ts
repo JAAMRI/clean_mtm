@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    if (environment.production == true) { this.loadjscssfile("../lazyloadedstyles.css", "css") }//If production, lazyload main css
+    if (environment.production == true || environment.uat == true) { this.loadjscssfile("../lazyloadedstyles.css", "css") }//If production or uat, lazyload main css
     else { this.loadjscssfile("../lazyloadedstyles.js", "js") }
     this.stylesToBeLoaded = true;
     this.insertAdChoice();
