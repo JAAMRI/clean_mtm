@@ -1,12 +1,11 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation, ViewContainerRef, TemplateRef, ComponentFactoryResolver, Type, AfterViewInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-// import { MatIconRegistry } from '@angular/material/icon';
 import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-// import smoothscroll from 'smoothscroll-polyfill';
+import * as smoothscroll from "smoothscroll-polyfill";
 import { BREAKPOINTS } from '../../../app/utilities/breakpoints';
 import { scrollToTop } from '../../../app/utilities/helper-functions';
 import { UserFormComponent } from '../../components/dialogs/user-form/user-form.component';
@@ -17,7 +16,7 @@ import { YouWillLoveThisComponent } from './you-will-love-this/you-will-love-thi
 import { ReclaimWeeknightCookingComponent } from './reclaim-weeknight-cooking/reclaim-weeknight-cooking.component';
 
 // use this to scroll on safari
-// smoothscroll.polyfill();
+smoothscroll.polyfill();
 
 @Component({
   selector: 'app-home',
@@ -43,8 +42,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver,
     private dialog: MatDialog,
-    // private matIconRegistry: MatIconRegistry, 
-    // private sanitizer: DomSanitizer, 
     private seo: SeoService, private title: Title, 
     public adobeDtbTracking: AdobeDtbTracking,
     private readonly componentFactoryResolver: ComponentFactoryResolver
@@ -56,7 +53,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit() {
     scrollToTop();
     this.onLandingPage = (this.router.url === '/'); // check if we are on landing page which is /
-    setTimeout(() => this.watchRoute()); // skip 1 cycle to let route come into place
     this.title.setTitle('Meal Prep  & Weekly Meal Planner | Meals That Matter'); //updating page title
     this.seo.generateTags({ //updating seo
       title: 'Meal Prep  & Weekly Meal Planner | Meals That Matter',
@@ -65,19 +61,15 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       slug: ''
     });
 
-    setTimeout(() => {
-      this.adobeDtbTracking.page_load("home page");
-    },
-      1000);
+    
   }//end ngOnInit
 
   ngAfterViewInit(){
-    this.lazyLoadComponents();
+    this.lazyLoadComponents();//Load components dynamically
+    setTimeout(() => this.watchRoute()); // skip 1 cycle to let route come into place
+    setTimeout(() => {this.adobeDtbTracking.page_load("home page");},1000);
   }
 
-  lload(){
-    this.lazyLoadComponents();
-  }
   lazyLoadComponents(){
     //Load HowItWorks component
     import("./how-it-works/how-it-works.component").then( 
@@ -123,6 +115,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     this.router.url === '/login' ? this.promptUserForAuth() : this.router.navigate(['/login']);
     // if user is already on login and clicked button, show auth, else route to login and router will show auth
   }
+
   promptUserForAuth() {
     const authDialog = this.dialog.open(UserFormComponent, {
       panelClass: 'email-dialog-container',

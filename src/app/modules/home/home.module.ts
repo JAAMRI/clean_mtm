@@ -28,8 +28,7 @@ import { ReclaimWeeknightCookingComponent } from './reclaim-weeknight-cooking/re
     MatDialogModule,
     UserFormModule,
     ForgotPasswordModule,
-    SlickCarouselModule,
-    MatIconModule
+    SlickCarouselModule
   ]
 })
 export class HomeModule { }
