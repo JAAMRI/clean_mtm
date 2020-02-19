@@ -46,16 +46,18 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    this.stylesToBeLoaded = true;
     if (environment.production == true || environment.uat == true) {
       this.loadjscssfile("../lazyloadedstyles.css", "css");
       this.insertAdChoice();
-      this.facebookImplementation();
-      this.adobeImplementation();
     }//If production or uat, lazyload main css
     else {
       this.loadjscssfile("../lazyloadedstyles.js", "js");
     }
-    this.stylesToBeLoaded = true;
+    if(environment.production){
+      this.facebookImplementation();
+      this.adobeImplementation();
+    }
 
   }
 
@@ -332,7 +334,5 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
-
 
 }

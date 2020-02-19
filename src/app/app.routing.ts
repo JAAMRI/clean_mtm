@@ -11,6 +11,7 @@ const routes: Routes = [
     path: 'recipes',
     loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule)
   },
+  { path: 'MTM', redirectTo: 'recipes', pathMatch: 'prefix'},//Redirect all MTM requests to recipes
   { path: 'mtm', redirectTo: 'recipes', pathMatch: 'prefix'},//Redirect all MTM requests to recipes
   { path: '**', redirectTo: '', pathMatch: 'full' },
 
