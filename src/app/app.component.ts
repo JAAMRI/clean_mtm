@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   footerHeight: number;
   isHandsetLandscape: boolean;
   stylesToBeLoaded: boolean = false;
+  loadScript: Promise<any>;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any, @Inject(DOCUMENT) private document: any, private router: Router, private cdr: ChangeDetectorRef,
     private breakpointObserver: BreakpointObserver,
@@ -45,12 +46,17 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    if (environment.production == true || environment.uat == true) { this.loadjscssfile("../lazyloadedstyles.css", "css") }//If production or uat, lazyload main css
-    else { this.loadjscssfile("../lazyloadedstyles.js", "js") }
+    if (environment.production == true || environment.uat == true) {
+      this.loadjscssfile("../lazyloadedstyles.css", "css");
+      this.insertAdChoice();
+      this.facebookImplementation();
+      this.adobeImplementation();
+    }//If production or uat, lazyload main css
+    else {
+      this.loadjscssfile("../lazyloadedstyles.js", "js");
+    }
     this.stylesToBeLoaded = true;
-    this.insertAdChoice();
-    this.facebookImplementation();
-    this.adobeImplementation();
+
   }
 
   isLoggedIn() {
@@ -96,7 +102,8 @@ export class AppComponent implements OnInit {
     this.completeSubscription();
   }
 
-  insertAdChoice() {return;
+  insertAdChoice() {
+    // return;
     //AdChoice
     (function () {
       var ev = document.createElement('script'); ev.type = 'text/javascript'; ev.async = true; ev.setAttribute('data-ev-tag-pid', '20844'); ev.setAttribute('data-ev-tag-ocid', '6368');
@@ -173,18 +180,49 @@ export class AppComponent implements OnInit {
 
   facebookImplementation() {
     let facebook = `!function (f, b, e, v, n, t, s) {if (f.fbq) return; n = f.fbq = function () {n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js?ngsw-bypass');
-    fbq('init', '194312168116213');
-    fbq('track', 'PageView');`;
+    };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+    n.queue = []; t = b.createElement(e); t.async = !0;
+    t.src = v; s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+  }(window, document, 'script',
+    'https://connect.facebook.net/en_US/fbevents.js?ngsw-bypass');
+  fbq('init', '194312168116213');
+  fbq('track', 'PageView');`;
 
     let facebookNoScript = `<img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=194312168116213&ev=PageView&noscript=1&ngsw-bypass" />`;
+  src="https://www.facebook.com/tr?id=194312168116213&ev=PageView&noscript=1&ngsw-bypass" />`;
+
+    this.loadScript = new Promise((resolve) => {
+      let node = document.createElement('script');
+      node.type = 'text/javascript';
+      node.async = true;
+      node.charset = 'utf-8';
+      try {
+        node.appendChild(document.createTextNode(facebook));
+        document.getElementsByTagName('head')[0].appendChild(node);
+      } catch (e) {
+        node.text = facebook;
+        document.body.appendChild(node);
+      }
+
+    });
+    this.loadScript = new Promise((resolve) => {
+      let nodeNoScript = document.createElement('noscript');
+      // nodeNoScript.type = 'text/javascript';
+      // nodeNoScript.async = true;
+      // nodeNoScript.charset = 'utf-8';
+      try {
+        nodeNoScript.appendChild(document.createTextNode(facebookNoScript));
+        document.getElementsByTagName('head')[0].appendChild(nodeNoScript);
+      } catch (e) {
+        // nodeNoScript.text = facebookNoScript;
+        let text = document.createTextNode(facebookNoScript);
+        nodeNoScript.appendChild(text);
+        // document.body.appendChild(nodeNoScript);
+      }
+
+    });
 
   }
 
@@ -238,6 +276,7 @@ export class AppComponent implements OnInit {
       },
       promotion: []
     }
+    digitalData.sitespeed={},
     digitalData.siteInfo.channel = channelVal;
     digitalData.page.category.primaryCategory = channelVal;
     digitalData.trackingInfo = {};
@@ -260,9 +299,40 @@ export class AppComponent implements OnInit {
     digitalData.page.attributes.localBrand = 'Meals That Matter';
     digitalData.trackingInfo.tool[0].id = "UA-144474007-1";
     digitalData.event * [];
-    digitalData.sitespeed.applicationID="TWH Serverless";            
-    digitalData.sitespeed.licenseKey="c56e25f85d8c251a54948d7305d04012a2e5NRAL";        
+    digitalData.sitespeed.applicationID="563695753";            
+    digitalData.sitespeed.licenseKey="NRJS-19deeb4a3c4c9f2dca5";        
     digitalData.sitespeed.locale="en_CA";`;
+
+    this.loadScript = new Promise((resolve) => {
+      let node = document.createElement('script');
+      node.type = 'text/javascript';
+      node.async = true;
+      node.charset = 'utf-8';
+      try {
+        node.appendChild(document.createTextNode(adobetext));
+        document.getElementsByTagName('head')[0].appendChild(node);
+      } catch (e) {
+        node.text = adobetext;
+        document.body.appendChild(node);
+      }
+
+    });
+    this.loadScript = new Promise((resolve) => {
+      let nodeAdobeScript = document.createElement('script');
+      nodeAdobeScript.type = 'text/javascript';
+      nodeAdobeScript.async = true;
+      nodeAdobeScript.charset = 'utf-8';
+      nodeAdobeScript.src = '//assets.adobedtm.com/launch-EN0ed0003810f9435a8566fef4c9d7b320.min.js?ngsw-bypas';
+      try {
+        // nodeAdobeScript.appendChild(document.createTextNode(adobetext));
+        document.getElementsByTagName('head')[0].appendChild(nodeAdobeScript);
+      } catch (e) {
+        // node.text = adobetext;
+        document.body.appendChild(nodeAdobeScript);
+      }
+    });
   }
+
+
 
 }
