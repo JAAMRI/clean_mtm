@@ -1,7 +1,7 @@
 User-agent: * 
 
 # Sitemap files
-Sitemap: https://www.mealsthatmatter.com/assets/seo/sitemap.xml
+Sitemap: https://www.mealsthatmatter.com/sitemap.xml
 
 
 
