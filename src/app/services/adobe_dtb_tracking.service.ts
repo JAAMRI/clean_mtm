@@ -23,8 +23,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': "Other" }; ev.subcategory = 'Read';
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -46,8 +44,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': "Custom" };
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -69,8 +65,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': ctConstants.referral };
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -107,8 +101,6 @@ export class AdobeDtbTracking {
             ev.subcategory = 'Interest';
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -130,8 +122,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': ctConstants.other };
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -153,8 +143,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': ctConstants.other }; ev.subcategory = 'Lead';
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -178,8 +166,6 @@ export class AdobeDtbTracking {
             ev.subcategory = 'Interest';
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -201,8 +187,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': ctConstants.custom };
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -246,8 +230,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': ctConstants.custom };
             // @ts-ignores
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -269,8 +251,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': ctConstants.custom };
             // @ts-ignores
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
     update_information() {
@@ -291,8 +271,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': ctConstants.custom }; ev.subcategory = 'Others';
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
     checkbox(value) {
@@ -302,8 +280,6 @@ export class AdobeDtbTracking {
             } else {
                 this.tagging_optout();
             }
-        } else {
-            return;
         }
     }
     tagging_optin() {
@@ -324,8 +300,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': ctConstants.conversion }; ev.subcategory = 'Lead';
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -347,8 +321,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': ctConstants.custom };
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -370,8 +342,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': ctConstants.other };
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -393,8 +363,6 @@ export class AdobeDtbTracking {
             ev.category = { 'primaryCategory': ctConstants.referral }; ev.subcategory = 'Lead';
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 
@@ -418,8 +386,6 @@ export class AdobeDtbTracking {
             digitalData.page.attributes.contentType = "SEARCH TYPE"
             // @ts-ignore
             digitalData.event.push(ev);
-        } else {
-            return;
         }
     }
 }
