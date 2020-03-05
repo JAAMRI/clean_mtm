@@ -54,11 +54,11 @@ export class AppComponent implements OnInit {
     else {
       this.loadjscssfile("../lazyloadedstyles.js", "js");
     }
-    this.facebookImplementation();
 
     if (environment.production) {
+      this.facebookImplementation();
 
-      this.adobeImplementation();
+      // this.adobeImplementation();
     }
 
   }

@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 export class AdobeDtbTracking {
     apiHost = environment.host;
     page_load(name) {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent ' + name);
         var ev = {};
@@ -23,13 +23,11 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': "Other" }; ev.subcategory = 'Read';
         // @ts-ignore
         digitalData.event.push(ev);
-        //     } else {
-        //     return;
-        // }
+        } 
     }
 
     page_tracking(name, url) {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent ' + name + ' ' + url);
         var ev = {};
@@ -46,13 +44,11 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': "Custom" };
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     social_media_tracking(name, url) {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent' + name + ', ' + url);
         var ev = {};
@@ -69,13 +65,11 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.referral };
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     password_reset(val: string) {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', 'password reset on' + val);
         // @ts-ignore
@@ -107,13 +101,11 @@ export class AdobeDtbTracking {
         ev.subcategory = 'Interest';
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     first_time_user(val) {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', val);
         var ev = {};
@@ -130,13 +122,11 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.other };
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     returning_user() {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', 'Returning User sign in');
         var ev = {};
@@ -153,13 +143,11 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.other }; ev.subcategory = 'Lead';
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     signout() {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', 'Rerouting to Home Page on signout');
         var ev = {};
@@ -178,13 +166,11 @@ export class AdobeDtbTracking {
         ev.subcategory = 'Interest';
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     anchor_link(val) {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', val);
         var ev = {};
@@ -201,13 +187,11 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.custom };
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     anchor_link_tab(val, from_file, meal_title) {
-        // if (environment.production) {
+         if (environment.production) {
         if (from_file == "profile page") {
             if (!isNaN(val)) {
                 if (val == 0) {
@@ -246,13 +230,11 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.custom };
         // @ts-ignores
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     anchor_link_meal(val, meal_title) {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', val + meal_title);
         var ev = {};
@@ -269,12 +251,10 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.custom };
         // @ts-ignores
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
     update_information() {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', 'Updating User Information on Profile');
         var ev = {};
@@ -291,23 +271,19 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.custom }; ev.subcategory = 'Others';
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
     checkbox(value) {
-        // if (environment.production) {
+         if (environment.production) {
         if (value.checked) {
             this.tagging_optin();
         } else {
             this.tagging_optout();
         }
-        // } else {
-        //     return;
-        // }
+               }
     }
     tagging_optin() {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', 'CompleteRegistration');
         var ev = {};
@@ -324,13 +300,11 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.conversion }; ev.subcategory = 'Lead';
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     tagging_optout() {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', 'BRAND OPTOUT/CORPORATE OPTOUT');
         var ev = {};
@@ -347,13 +321,11 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.custom };
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     contact_us(val) {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', 'CONTACT US Using:' + val);
         var ev = {};
@@ -370,13 +342,11 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.other };
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     sharing_meal_by_email(title) {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', 'Sharing ' + title + ' by Email');
         var ev = {};
@@ -393,13 +363,11 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.referral }; ev.subcategory = 'Lead';
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 
     search_query(query, size) {
-        // if (environment.production) {
+         if (environment.production) {
         // @ts-ignore
         fbq('track', query);
         var ev = {};
@@ -418,8 +386,6 @@ export class AdobeDtbTracking {
         digitalData.page.attributes.contentType = "SEARCH TYPE"
         // @ts-ignore
         digitalData.event.push(ev);
-        // } else {
-        //     return;
-        // }
+               }
     }
 }
