@@ -36,6 +36,10 @@ const LayoutRoutes: Routes = [
                 loadChildren: () => import('./faq/faq.module').then(m => m.FaqModule)
             },
             {
+                path: ':id',
+                loadChildren: () => import('./meal-detail/meal-detail.module').then(m => m.MealDetailModule)
+            },
+            {
                 path: '**', redirectTo: '/'
             }
         ],

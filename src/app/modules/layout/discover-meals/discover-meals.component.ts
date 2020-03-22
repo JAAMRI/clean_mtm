@@ -294,8 +294,9 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
 
   visitMealDetailPage(meal: any) {
     if (!this.carouselIsChanging) {
-      const mealTitle = meal.title as string;
-      this.router.navigate([`/recipes/discover/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
+      // const mealTitle = meal.title as string;
+      this.promptMealDetailComponent(meal.id);
+      // this.router.navigate([`/recipes/discover/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
 
     }
     this.carouselIsChanging = false;
@@ -307,7 +308,6 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
     const ref = this.dialog.open(MealDetailComponent, {
       panelClass: 'recipe-dialog-container',
       backdropClass: 'faded-backdrop',
-      data: { id, parentComponent: 'discover' }
     });
     ref.componentInstance.dialogParams = {
       onAddOrRemoveMealPlan: (fromDialog: any) => {

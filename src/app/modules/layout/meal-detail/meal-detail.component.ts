@@ -12,7 +12,6 @@ import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { MockCarousel } from '../../../../app/utilities/mock-carousel';
 import { environment } from '../../../../environments/environment';
 import { MealService } from '../../../../app/services/meal.service';
-import smoothscroll from 'smoothscroll-polyfill';
 import { AccountService } from '../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { SeoService } from '../../../../app/services/seo.service';
@@ -37,7 +36,6 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   favouriteMealIds = '';
   carouselIsChanging: boolean;
   emailContent: string;
-  parentComponent: string;
   slideConfig = {
     "slidesToShow": 3,
     "slidesToScroll": 1,
@@ -69,12 +67,20 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     scrollToTop();
-    this.seo.updateTag({ rel: 'canonical', href: 'https://www.mealsthatmatter.com' + this.router.url });
-    this.parentComponent = this.data.parentComponent;
-    this.getMealById(this.data.id)
+    this.updateSeoTag()
+    if (this.data.id) {
+      // coming from dialog
+      this.getMealById(this.data.id)
+    } else {
+      this.getMealById
+    }
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
     }
+  }
+
+  updateSeoTag() {
+    this.seo.updateTag({ rel: 'canonical', href: 'https://www.mealsthatmatter.com' + this.router.url });
   }
 
   watchAuthState() {

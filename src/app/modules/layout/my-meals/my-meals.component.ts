@@ -192,7 +192,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     const ref = this.dialog.open(MealDetailComponent, {
       panelClass: 'recipe-dialog-container',
       backdropClass: 'faded-backdrop',
-      data: { id, parentComponent: 'my-meals' },
     });
     ref.componentInstance.dialogParams = {
       onAddOrRemoveMealPlan: (fromDialog: any) => {
