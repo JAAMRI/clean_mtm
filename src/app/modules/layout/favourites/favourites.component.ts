@@ -160,6 +160,7 @@ export class FavouritesComponent implements OnInit {
     const ref = this.dialog.open(MealDetailComponent, {
       panelClass: 'recipe-dialog-container',
       backdropClass: 'faded-backdrop',
+      data: { id }
     });
     ref.componentInstance.dialogParams = {
       onAddOrRemoveMealPlan: (fromDialog: any) => {//Action coming from dialog

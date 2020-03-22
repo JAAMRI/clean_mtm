@@ -308,6 +308,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
     const ref = this.dialog.open(MealDetailComponent, {
       panelClass: 'recipe-dialog-container',
       backdropClass: 'faded-backdrop',
+      data: { id }
     });
     ref.componentInstance.dialogParams = {
       onAddOrRemoveMealPlan: (fromDialog: any) => {

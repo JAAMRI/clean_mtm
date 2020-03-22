@@ -3,7 +3,7 @@ import { Component, ElementRef, Inject, OnDestroy, OnInit, Optional, ViewChild, 
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, first } from 'rxjs/operators';
 import { UserFormComponent } from '../../../../app/components/dialogs/user-form/user-form.component';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
@@ -65,21 +65,35 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.observeBreakpoints();
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     scrollToTop();
     this.updateSeoTag()
-    if (this.data.id) {
-      // coming from dialog
-      this.getMealById(this.data.id)
-    } else {
-      this.getMealById
-    }
+    console.log('gettingMealId')
+    this.mealId = await this.getMealId();
+    this.getMealById()
+  
+  
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
     }
   }
 
-  updateSeoTag() {
+  async getMealId(): Promise<string> {
+    // this function is used to determine if this component is rendered in a dialog or a landing page.
+    // need to get mealId based on this
+    console.log('this.daya')
+    console.log(this.data)
+    if (this.data && this.data.mealId) {
+      // coming from dialog
+      console.log('in here mealId ', this.data.mealId)
+      return this.data.mealId 
+    } else {
+      const routeParams = await this.route.paramMap.pipe(first()).toPromise();
+      return routeParams.get('id');
+    }
+  }
+
+  updateSeoTag(): void {
     this.seo.updateTag({ rel: 'canonical', href: 'https://www.mealsthatmatter.com' + this.router.url });
   }
 
@@ -89,8 +103,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     })
   }
 
-  async getMealById(id: string) {
-    this.mealId = id;
+  async getMealById() {
     this.loading = true;
     if (!this.mealId) {
       // route to 404
