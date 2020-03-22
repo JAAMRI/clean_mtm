@@ -30,8 +30,8 @@
       <a *ngIf='accountService.loggedIn' mat-list-item class='page-item' [matMenuTriggerFor]="profileMenu">My
         Account</a>
       <mat-menu #profileMenu="matMenu">
-        <a mat-menu-item class='page-item' routerLink='/recipes/profile'
-          (click)="closeMobileMenu('PROFILE','/recipes/profile')">View
+        <a mat-menu-item class='page-item' routerLink='/profile'
+          (click)="closeMobileMenu('PROFILE','/profile')">View
           Profile</a>
         <a mat-menu-item (click)="signOut()">Sign Out</a>
 
@@ -40,9 +40,9 @@
         (click)="closeMobileMenu('CONTACT US','/recipes/contact-us')">CONTACT US</a> -->
       <a mat-list-item class='page-item' [matMenuTriggerFor]="contactMenu">Help Center</a>
       <mat-menu #contactMenu="matMenu">
-        <a mat-menu-item class='page-item' routerLink='/recipes/contact-us'
-          (click)="closeMobileMenu('CONTACT US','/recipes/contact-us')">CONTACT US</a>
-        <a mat-menu-item class='page-item' routerLink='/recipes/faqs' (click)="closeMobileMenu('FAQs','/recipes/faqs')">FAQs</a>
+        <a mat-menu-item class='page-item' routerLink='/contact-us'
+          (click)="closeMobileMenu('CONTACT US','/contact-us')">CONTACT US</a>
+        <a mat-menu-item class='page-item' routerLink='/faqs' (click)="closeMobileMenu('FAQs','/faqs')">FAQs</a>
       </mat-menu>
     </mat-nav-list>
   </div>

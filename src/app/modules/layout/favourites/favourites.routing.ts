@@ -7,10 +7,6 @@ const FavouritesRoutes: Routes = [
     component: FavouritesComponent,
 
   },
-  {
-    path: ':id',
-    loadChildren: () => import('../meal-detail/meal-detail.module').then(m => m.MealDetailModule)
-  },
 
 ];
 

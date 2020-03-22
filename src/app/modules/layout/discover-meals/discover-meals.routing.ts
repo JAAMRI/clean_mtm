@@ -6,10 +6,7 @@ const DiscoverMealsRoutes: Routes = [
     path: '',
     component: DiscoverMealsComponent,
   },
-  {
-    path: ':id',
-    loadChildren: () => import('../meal-detail/meal-detail.module').then(m => m.MealDetailModule)
-  },
+ 
 
 ];
 

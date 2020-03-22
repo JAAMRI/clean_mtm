@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SharedService } from '../../../../app/shared/shared.service';
+import { SharedService } from '../../shared/shared.service';
 import { embedChatWidget } from './live-chat-helper';
-import { SeoService } from '../../../../app/services/seo.service';
+import { SeoService } from '../../services/seo.service';
 import { Title } from '@angular/platform-browser';
-import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
+import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-contact-us',

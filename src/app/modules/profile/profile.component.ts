@@ -5,13 +5,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer, Title } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { PreferencesService } from '../../../../app/services/preferences/preferences.service';
-import { BREAKPOINTS } from '../../../../app/utilities/breakpoints';
+import { PreferencesService } from '../../services/preferences/preferences.service';
+import { BREAKPOINTS } from '../../utilities/breakpoints';
 import { ProfileIcons } from './profile-icons';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Auth } from 'aws-amplify';
-import { SeoService } from '../../../../app/services/seo.service';
-import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
+import { SeoService } from '../../services/seo.service';
+import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-profile',

@@ -1,5 +1,4 @@
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuardService as AuthGuard } from '../../../app/services/account/auth-guard.service';
 import { LayoutComponent } from './layout.component';
 
 const LayoutRoutes: Routes = [
@@ -8,9 +7,6 @@ const LayoutRoutes: Routes = [
         component: LayoutComponent,
         children: [
             {
-                path: 'contact-us',
-                loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule)
-            }, {
                 path: 'discover',
                 loadChildren: () => import('./discover-meals/discover-meals.module').then(m => m.DiscoverMealsModule)
             },
@@ -26,15 +22,7 @@ const LayoutRoutes: Routes = [
                 path: 'grocery-list',
                 loadChildren: () => import('./grocery-list/grocery-list.module').then(m => m.GroceryListModule)
             },
-            {
-                path: 'profile',
-                canActivate: [AuthGuard],
-                loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
-            },
-            {
-                path: 'faqs',
-                loadChildren: () => import('./faq/faq.module').then(m => m.FaqModule)
-            },
+
             {
                 path: ':id',
                 loadChildren: () => import('./meal-detail/meal-detail.module').then(m => m.MealDetailModule)
