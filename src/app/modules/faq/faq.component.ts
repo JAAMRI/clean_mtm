@@ -25,7 +25,7 @@ export class FaqComponent implements OnInit {
       title: 'FAQs - Meals That Matter',
       description: 'Frequently Asked Questions MTM',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
-      slug: '/recipes/faqs'
+      slug: '/faqs'
     })
   }
   scrollToTop() {

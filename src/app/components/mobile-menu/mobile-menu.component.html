@@ -23,7 +23,7 @@
   <div class="bottom-wrapper">
     <mat-nav-list>
       <!-- <ng-container *ngIf='isLoggedIn'>
-        <a mat-list-item class='page-item' [class.active]='currentRoute === "/recipes/profile"'>MY ACCOUNT</a>
+        <a mat-list-item class='page-item' [class.active]='currentRoute === "//profile"'>MY ACCOUNT</a>
         <a mat-list-item class='page-item' routerLink='/'>SIGN OUT</a>
       </ng-container> -->
       <a *ngIf='!accountService.loggedIn' mat-list-item class='page-item' (click)='authControl()'>Sign In</a>
@@ -36,8 +36,8 @@
         <a mat-menu-item (click)="signOut()">Sign Out</a>
 
       </mat-menu>
-      <!-- <a mat-list-item class='page-item' routerLink='/recipes/contact-us'
-        (click)="closeMobileMenu('CONTACT US','/recipes/contact-us')">CONTACT US</a> -->
+      <!-- <a mat-list-item class='page-item' routerLink='//contact-us'
+        (click)="closeMobileMenu('CONTACT US','//contact-us')">CONTACT US</a> -->
       <a mat-list-item class='page-item' [matMenuTriggerFor]="contactMenu">Help Center</a>
       <mat-menu #contactMenu="matMenu">
         <a mat-menu-item class='page-item' routerLink='/contact-us'
