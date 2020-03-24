@@ -60,7 +60,6 @@ export class AppComponent implements OnInit {
 
     if (environment.production) {
       this.facebookImplementation();
-
       this.adobeImplementation();
     }
 
