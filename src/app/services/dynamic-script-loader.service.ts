@@ -6,7 +6,8 @@ interface Scripts {
 }
 
 export const ScriptStore: Scripts[] = [
-  { name: 'adobe-tracking', src: '../scripts/adobe-tracking.js' },
+  { name: 'adobe-tracking', src: '../../assets/scripts/adobe-tracking.js' },
+  { name: 'adobe-tracking-min', src: '//assets.adobedtm.com/launch-EN0ed0003810f9435a8566fef4c9d7b320.min.js' }
 ];
 
 declare var document: any;
@@ -39,20 +40,20 @@ export class DynamicScriptLoaderService {
         script.type = 'text/javascript';
         script.src = this.scripts[name].src;
         if (script.readyState) {  //IE
-            script.onreadystatechange = () => {
-                if (script.readyState === "loaded" || script.readyState === "complete") {
-                    script.onreadystatechange = null;
-                    this.scripts[name].loaded = true;
-                    resolve({script: name, loaded: true, status: 'Loaded'});
-                }
-            };
+          script.onreadystatechange = () => {
+            if (script.readyState === "loaded" || script.readyState === "complete") {
+              script.onreadystatechange = null;
+              this.scripts[name].loaded = true;
+              resolve({ script: name, loaded: true, status: 'Loaded' });
+            }
+          };
         } else {  //Others
-            script.onload = () => {
-                this.scripts[name].loaded = true;
-                resolve({script: name, loaded: true, status: 'Loaded'});
-            };
+          script.onload = () => {
+            this.scripts[name].loaded = true;
+            resolve({ script: name, loaded: true, status: 'Loaded' });
+          };
         }
-        script.onerror = (error: any) => resolve({script: name, loaded: false, status: 'Loaded'});
+        script.onerror = (error: any) => resolve({ script: name, loaded: false, status: 'Loaded' });
         document.getElementsByTagName('head')[0].appendChild(script);
       } else {
         resolve({ script: name, loaded: true, status: 'Already Loaded' });

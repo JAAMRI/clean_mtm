@@ -234,7 +234,7 @@ export class AppComponent implements OnInit {
   }
 
   adobeImplementation() {
-    this.dynamicScriptLoader.load('adobe-tracking').then((data: any) => {
+    this.dynamicScriptLoader.load('adobe-tracking', 'adobe-tracking-min').then((data: any) => {
       console.log('Adobe tracking loaded successfully');
     }).catch(console.error)
   }
