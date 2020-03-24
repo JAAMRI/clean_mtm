@@ -30,7 +30,7 @@ export class ContactUsComponent implements OnInit {
       title: 'Contact Us | Meals That Matter',
       description: 'Get in touch with us, we’d love to hear from you!',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
-      slug: '//contact-us'
+      slug: '/contact-us'
     })
   }
 
@@ -41,7 +41,7 @@ export class ContactUsComponent implements OnInit {
 
   startLiveChat(event: any) {
     event.stopPropagation();
-    this.router.navigate(['//contact-us/live-chat'])
+    this.router.navigate(['/contact-us/live-chat'])
   }
 
 }
