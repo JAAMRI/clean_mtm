@@ -228,5 +228,8 @@
       }
     }
   },
-  "defaultProject": "mtm-pwa-front-end"
+  "defaultProject": "mtm-pwa-front-end",
+  "cli": {
+    "analytics": false
+  }
 }
