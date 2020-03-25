@@ -15,6 +15,7 @@ import { SharedModule } from './shared/shared.module';
 import { SharedService } from './shared/shared.service';
 import { HomeModule } from './modules/home/home.module';
 import { SeoService } from './services/seo.service';
+import { DynamicScriptLoaderService } from './services/dynamic-script-loader.service';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { SeoService } from './services/seo.service';
   providers: [
     MealService,
     SeoService,
+    DynamicScriptLoaderService,
     // AmplifyService,
     AccountService,
     SharedService
