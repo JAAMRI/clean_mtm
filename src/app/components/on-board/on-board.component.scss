@@ -12,6 +12,13 @@ app-on-board{
         &.mobile-align{
             justify-content: center;
         }
+        .expand-more-button-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 20vh;
+          }
         .on-board-title{
             font-size: 2.5em;
             text-align: center;
