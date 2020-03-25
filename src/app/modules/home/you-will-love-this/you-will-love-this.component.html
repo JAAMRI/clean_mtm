@@ -2,15 +2,15 @@
     <div class="text-wrapper">
       <h1>WHY YOU'LL LOVE THIS</h1>
       <p>
-        {{!responsiveness.isMobile ? 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.' : 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.'}}
+        {{!isMobile ? 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.' : 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.'}}
       </p>
     </div>
     <div class="product-carousel">
-      <ngx-slick-carousel [class]='responsiveness.isWeb ? "carousel" : "mobile-carousel"' #slickModal="slick-carousel"
+      <ngx-slick-carousel [class]='isWeb ? "carousel" : "mobile-carousel"' #slickModal="slick-carousel"
         [config]="slideConfig">
         <div ngxSlickItem *ngFor="let item of carouselData" class="slide">
           <mat-card class='meal-item'>
-            <img [alt]="item.title" mat-card-image [src]='item.img' [alt]='item.header' />
+            <img [alt]="item.header" mat-card-image [src]='item.img' [alt]='item.header' />
             <mat-card-content>
               <p class='meal-title'>{{item.header}}</p>
               <p class='meal-body'>{{item.body}}</p>

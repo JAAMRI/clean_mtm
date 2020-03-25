@@ -1,21 +1,20 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, ElementRef, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation, Output } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, ElementRef, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { first, takeUntil } from 'rxjs/operators';
 import { UserFormComponent } from '../../../../app/components/dialogs/user-form/user-form.component';
+import { AccountService } from '../../../../app/services/account/account.service';
+import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
+import { MealService } from '../../../../app/services/meal.service';
+import { SeoService } from '../../../../app/services/seo.service';
 import { BREAKPOINTS } from '../../../../app/utilities/breakpoints';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { MockCarousel } from '../../../../app/utilities/mock-carousel';
 import { environment } from '../../../../environments/environment';
-import { MealService } from '../../../../app/services/meal.service';
-import smoothscroll from 'smoothscroll-polyfill';
-import { AccountService } from '../../../../app/services/account/account.service';
-import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
-import { SeoService } from '../../../../app/services/seo.service';
 // smoothscroll.polyfill();
 @Component({
   selector: 'app-meal-detail',
@@ -37,7 +36,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   favouriteMealIds = '';
   carouselIsChanging: boolean;
   emailContent: string;
-  parentComponent: string;
+  inDialog = false;
   slideConfig = {
     "slidesToShow": 3,
     "slidesToScroll": 1,
@@ -67,14 +66,32 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.observeBreakpoints();
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     scrollToTop();
-    this.seo.updateTag({ rel: 'canonical', href: 'https://www.mealsthatmatter.com' + this.router.url });
-    this.parentComponent = this.data.parentComponent;
-    this.getMealById(this.data.id)
+    this.updateSeoTag()
+    this.mealId = await this.getMealId();
+    this.getMealById()
+
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
     }
+  }
+
+  async getMealId(): Promise<string> {
+    // this function is used to determine if this component is rendered in a dialog or a landing page.
+    // need to get mealId based on this
+    if (this.data && this.data.id) {
+      // coming from dialog
+      this.inDialog = true;
+      return this.data.id
+    } else {
+      const routeParams = await this.route.paramMap.pipe(first()).toPromise();
+      const mealId = routeParams.get('id');
+    }
+  }
+
+  updateSeoTag(): void {
+    this.seo.updateTag({ rel: 'canonical', href: 'https://www.mealsthatmatter.com' + this.router.url });
   }
 
   watchAuthState() {
@@ -83,19 +100,20 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     })
   }
 
-  async getMealById(id: string) {
-    this.mealId = id;
+  async getMealById() {
     this.loading = true;
-    if (!this.mealId) {
-      // route to 404
-    } else {
+    try {
       // this.buildRecipeWidget(); recipe widget
       this.meal = await this.mealService.getMealById(this.mealId).toPromise();
+      
       this.loading = false;
       this.currentMealPlan = await this.mealPlanService.getMealPlan();
       this.getFavouriteMeals();
       this.checkIfMealInMealPlan();
       this.getEmailContent();
+    } catch (error) {
+      this.router.navigate(['/recipes'])
+
     }
   }
 
@@ -109,9 +127,8 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   getEmailContent() {
-    const currentRoute = this.router.url;
-    const host = `https://${environment.production ? 'www.mealsthatmatter.com' : 'localhost:4200'}`;
-    const body = "Hi, Thought you would love this recipe from Meals That Matter. " + encodeURIComponent(host + currentRoute);
+    const host = `${environment.production ? 'https://www.mealsthatmatter.com' : 'http://localhost:4200'}`;
+    const body = "Hi, Thought you would love this recipe from Meals That Matter. " + encodeURIComponent(`${host}/recipes/${this.mealId}`);
     this.emailContent = `mailto:?body=${body}&subject=${this.meal.title}`;
   }
 

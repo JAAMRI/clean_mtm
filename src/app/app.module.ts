@@ -29,6 +29,7 @@ import { DynamicScriptLoaderService } from './services/dynamic-script-loader.ser
     ToolbarModule,
     HttpClientModule,
     HomeModule,
+    ToolbarModule,
     // AmplifyAngularModule,
     // environment.production ?
       // [] : 

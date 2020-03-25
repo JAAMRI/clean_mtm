@@ -9,7 +9,6 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FavouriteMealModule } from '../../../../app/components/favourite-meal/favourite-meal.module';
 import { MyMealItemModule } from '../../../../app/components/my-meal-item/my-meal-item.module';
 import { SearchBarModule } from '../../../../app/components/search-bar/search-bar.module';
-import { MealDetailModule } from '../meal-detail/meal-detail.module';
 import { FavouritesComponent } from './favourites.component';
 import { FavouritesRouting } from './favourites.routing';
 
@@ -27,7 +26,6 @@ import { FavouritesRouting } from './favourites.routing';
     ScrollingModule,
     SlickCarouselModule,
     FavouriteMealModule,
-    MealDetailModule
   ]
 })
 export class FavouritesModule { }

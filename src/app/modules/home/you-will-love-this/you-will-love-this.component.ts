@@ -10,7 +10,8 @@ import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.se
 })
 export class YouWillLoveThisComponent implements OnInit {
 
-  @Input() responsiveness: any;
+  @Input() isMobile: boolean;
+  @Input() isWeb: boolean;
 
   slideConfig = {
     "slidesToShow": 3,
@@ -27,7 +28,7 @@ export class YouWillLoveThisComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.slideConfig = { ...this.slideConfig, 'slidesToShow': this.responsiveness.isWeb ? 3 : (this.responsiveness.isMobile ? 1 : 2) };
+    this.slideConfig = { ...this.slideConfig, 'slidesToShow': this.isWeb ? 3 : (this.isMobile ? 1 : 2) };
   }
 
 }

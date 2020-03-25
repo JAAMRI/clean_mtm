@@ -49,7 +49,7 @@
           {{vitamin.name + ' ' + vitamin.value + '' + vitamin.unit}}
         </span>
         <!-- this is a hack to get border bottom all the way across -->
-        <span class='vitamin-entry' *ngIf='last && last % 2 !== 0'></span> 
+        <span class='vitamin-entry' *ngIf='last && (i % 2 !== 0)'></span> 
 
       </ng-container>
     </div>

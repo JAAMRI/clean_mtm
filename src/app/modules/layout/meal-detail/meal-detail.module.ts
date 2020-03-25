@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -13,6 +13,7 @@ import { NutritionTableModule } from '../../../../app/components/nutrition-table
 import { SharedModule } from '../../../../app/shared/shared.module';
 import { MealTabModule } from '../../../../app/components/meal-tab/meal-tab.module';
 import { MealDetailComponent } from './meal-detail.component';
+import { MealDetailRouting } from './meal-detail.routing';
 
 @NgModule({
   declarations: [MealDetailComponent],
@@ -22,10 +23,10 @@ import { MealDetailComponent } from './meal-detail.component';
     MatIconModule,
     MatCardModule,
     MatDialogModule,
+    MealDetailRouting,
     MatTabsModule,
     MealTabModule,
-    MatDialogModule,
-    FavouriteMealModule, // import this to use this componnet for recommended meals
+    FavouriteMealModule, // import this to use this component for recommended meals
     NutritionTableModule,
     SlickCarouselModule,
     MatProgressSpinnerModule,
@@ -33,6 +34,8 @@ import { MealDetailComponent } from './meal-detail.component';
     SharedModule
   ],
   entryComponents: [MealDetailComponent],
-  exports: [MealDetailComponent]
+  exports: [MealDetailComponent],
+  providers: [{ provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: [] },]
 })
 export class MealDetailModule { }

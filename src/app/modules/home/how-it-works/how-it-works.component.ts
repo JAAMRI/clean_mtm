@@ -1,13 +1,13 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-how-it-works',
   templateUrl: './how-it-works.component.html',
-  styleUrls: ['./how-it-works.component.css']
+  styleUrls: ['./how-it-works.component.scss']
 })
-export class HowItWorksComponent implements OnInit, AfterViewInit {
+export class HowItWorksComponent implements OnInit {
 
   steps = [
     {
@@ -24,7 +24,7 @@ export class HowItWorksComponent implements OnInit, AfterViewInit {
     }
   ]; // icons
 
-  @Input() responsiveness: any;
+  @Input() isMobile: boolean;
 
   constructor(
     private matIconRegistry: MatIconRegistry, 
@@ -42,10 +42,6 @@ export class HowItWorksComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.createStepIcons();
-  }
-
-  ngAfterViewInit(){
-    // console.log("This is " + this.isMobile);
   }
 
 }

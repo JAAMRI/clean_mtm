@@ -5,11 +5,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
-import { PersonalInfoModule } from '../../../components/personal-info/personal-info.module';
+import { PersonalInfoModule } from '../../components/personal-info/personal-info.module';
 import { ProfileComponent } from './profile.component';
 import { ProfileRouting } from './profile.routing';
-import { ChangePasswordModule } from '../../../../app/components/change-password/change-password.module';
-import { FeedbackModule } from '../../../../app/components/feedback/feedback.module';
+import { ChangePasswordModule } from '../../components/change-password/change-password.module';
+import { FeedbackModule } from '../../components/feedback/feedback.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({

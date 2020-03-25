@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AdobeDtbTracking } from 'src/app/services/adobe_dtb_tracking.service';
 
 @Component({
@@ -6,16 +6,13 @@ import { AdobeDtbTracking } from 'src/app/services/adobe_dtb_tracking.service';
   templateUrl: './reclaim-weeknight-cooking.component.html',
   styleUrls: ['./reclaim-weeknight-cooking.component.scss']
 })
-export class ReclaimWeeknightCookingComponent implements OnInit {
+export class ReclaimWeeknightCookingComponent  {
 
-  @Input() responsiveness: any;
+  @Input() isMobile: boolean;
 
   constructor(
     public adobeDtbTracking: AdobeDtbTracking,
   ) { }
-
-  ngOnInit(): void {
-  }
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -63,7 +63,6 @@ export class FavouritesComponent implements OnInit {
     },
       5000);
     this.getFavouriteMeals();
-    this.watchRouteForRecipePrompt();
     this.getMealPlan();
     scrollToTop();
     if (!this.accountService.loggedIn) {
@@ -81,14 +80,6 @@ export class FavouritesComponent implements OnInit {
   watchAuthState() {
     this.accountService.authStateChanged.subscribe((event) => {
       this.ngOnInit()
-    })
-  }
-
-  watchRouteForRecipePrompt() {
-    this.route.queryParams.pipe(takeUntil(this.unsubscribeAll)).subscribe((params) => {
-      if (params.id) {
-        this.promptMealDetailComponent(params.id)
-      }
     })
   }
 
@@ -150,8 +141,9 @@ export class FavouritesComponent implements OnInit {
 
   visitMealDetailPage(meal: any) {
     if (!this.carouselIsChanging) {
-      const mealTitle = meal.title as string;
-      this.router.navigate([`/recipes/favourites/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
+      // const mealTitle = meal.title as string;
+      // this.router.navigate([`/recipes/favourites/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
+      this.promptMealDetailComponent(meal.id);
     }
     this.carouselIsChanging = false;
 
@@ -160,7 +152,7 @@ export class FavouritesComponent implements OnInit {
     const ref = this.dialog.open(MealDetailComponent, {
       panelClass: 'recipe-dialog-container',
       backdropClass: 'faded-backdrop',
-      data: { id, parentComponent: 'favourites' }
+      data: { id }
     });
     ref.componentInstance.dialogParams = {
       onAddOrRemoveMealPlan: (fromDialog: any) => {//Action coming from dialog
