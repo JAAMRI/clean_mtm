@@ -68,7 +68,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
       5000);
 
     this.getFavouriteMeals();
-    this.watchRouteForRecipePrompt()
     scrollToTop();
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
@@ -85,14 +84,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   watchAuthState() {
     this.accountService.authStateChanged.subscribe((event) => {
       this.ngOnInit()
-    })
-  }
-
-  watchRouteForRecipePrompt() {
-    this.route.queryParams.pipe(takeUntil(this.unsubscribeAll)).subscribe((params) => {
-      if (params.id) {
-        this.promptMealDetailComponent(params.id)
-      }
     })
   }
 
@@ -181,8 +172,9 @@ export class MyMealsComponent implements OnInit, OnDestroy {
 
   visitMealDetailPage(meal: any) {
     if (!this.carouselIsChanging) {
-      const mealTitle = meal.title as string;
-      this.router.navigate([`/recipes/my-meals/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
+      // const mealTitle = meal.title as string;
+      // this.router.navigate([`/recipes/my-meals/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
+      this.promptMealDetailComponent(meal.id)
     }
     this.carouselIsChanging = false;
   }
@@ -192,7 +184,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     const ref = this.dialog.open(MealDetailComponent, {
       panelClass: 'recipe-dialog-container',
       backdropClass: 'faded-backdrop',
-      data: { id, parentComponent: 'my-meals' },
+      data: { id },
     });
     ref.componentInstance.dialogParams = {
       onAddOrRemoveMealPlan: (fromDialog: any) => {

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SharedService } from '../../../../app/shared/shared.service';
-import { SeoService } from '../../../../app/services/seo.service';
+import { SharedService } from '../../shared/shared.service';
+import { SeoService } from '../../services/seo.service';
 import { Title } from '@angular/platform-browser';
-import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
+import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-faq',
@@ -25,7 +25,7 @@ export class FaqComponent implements OnInit {
       title: 'FAQs - Meals That Matter',
       description: 'Frequently Asked Questions MTM',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
-      slug: '/recipes/faqs'
+      slug: '/faqs'
     })
   }
   scrollToTop() {

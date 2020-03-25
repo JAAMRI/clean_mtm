@@ -73,7 +73,7 @@ export class MealService {
   // }
 
   /** GET meal by id. Will 404 if id not found */
-  getMealById(id: any): Observable<any> {
+  getMealById(id: any) {
     const body = new URLSearchParams();
     body.set('fieldset', "all");
     body.set('fields', "recipe_id, related_recipes, title, nutrients_legacy, description, comments, cook_time, ready_time, prep_time, wait_time, total_time, calculated_nutrients_per_serving, creation_time, yield, assets");
@@ -103,7 +103,7 @@ export class MealService {
           }))
         }
       }),
-      catchError(handleError('searchMeals', [])));
+      );
   }
 
   /**

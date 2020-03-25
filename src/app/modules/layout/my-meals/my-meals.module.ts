@@ -27,7 +27,6 @@ import { MealDetailModule } from '../meal-detail/meal-detail.module';
     UserFormModule,
     ScrollingModule,
     SlickCarouselModule,
-    MealDetailModule
   ],
 })
 export class MyMealsModule { }
