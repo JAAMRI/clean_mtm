@@ -22,9 +22,9 @@ export class MealService {
     body.set('page_start', page_start.toString())
     body.set('page_size', page_size.toString())
     body.set('lang', "en-CA")
-      // body.set('fields', "recipe_id, title, nutrients_legacy, description, comments, cook_time, ready_time, prep_time, wait_time, total_time, calculated_nutrients_per_serving, creation_time, yield, assets");
-      body.set('fields', "recipe_id, main_ingredient, cuisines, methods, ingredients, related_recipes, title, nutrients_legacy, description, comments, cook_time, ready_time, prep_time, wait_time, total_time, calculated_nutrients_per_serving, creation_time, yield, assets")
-      body.set('q', (query ? query : "")); //either search query if exists or search user preferences
+    // body.set('fields', "recipe_id, title, nutrients_legacy, description, comments, cook_time, ready_time, prep_time, wait_time, total_time, calculated_nutrients_per_serving, creation_time, yield, assets");
+    body.set('fields', "recipe_id, main_ingredient, cuisines, methods, ingredients, related_recipes, title, nutrients_legacy, description, comments, cook_time, ready_time, prep_time, wait_time, total_time, calculated_nutrients_per_serving, creation_time, yield, assets")
+    body.set('q', (query ? query : "")); //either search query if exists or search user preferences
     // body.set('fieldset', "all");
     body.set('p_has_asset', "[[\"image\"]]");
     // body.set('p_has_rank', "yes");
@@ -83,6 +83,9 @@ export class MealService {
     };
     return this.http.post(environment.host + this.recipesUrl + `/${id}`, body.toString(), options).pipe(
       map((meal: any) => {
+        if (!meal.data) {
+          throw new Error('Meal does not exist')
+        }
         return {
           id: meal.data.recipe_id,
           title: meal.data.title,
@@ -102,8 +105,8 @@ export class MealService {
             image: recipe.assets.image.default[0].url,
           }))
         }
-      }),
-      );
+      }))
+
   }
 
   /**

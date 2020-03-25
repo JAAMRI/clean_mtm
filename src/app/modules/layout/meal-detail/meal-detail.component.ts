@@ -87,6 +87,10 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     } else {
       const routeParams = await this.route.paramMap.pipe(first()).toPromise();
       const mealId = routeParams.get('id');
+      console.log(mealId)
+      if (mealId) {
+        return mealId;
+      }
     }
   }
 
@@ -105,14 +109,15 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     try {
       // this.buildRecipeWidget(); recipe widget
       this.meal = await this.mealService.getMealById(this.mealId).toPromise();
-      
+      console.log(this.meal)
       this.loading = false;
       this.currentMealPlan = await this.mealPlanService.getMealPlan();
       this.getFavouriteMeals();
       this.checkIfMealInMealPlan();
       this.getEmailContent();
     } catch (error) {
-      this.router.navigate(['/recipes'])
+ 
+      this.router.navigate(['/recipes/discover'])
 
     }
   }
