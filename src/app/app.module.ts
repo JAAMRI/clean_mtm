@@ -28,6 +28,7 @@ import { SeoService } from './services/seo.service';
     ToolbarModule,
     HttpClientModule,
     HomeModule,
+    ToolbarModule,
     // AmplifyAngularModule,
     // environment.production ?
       // [] : 

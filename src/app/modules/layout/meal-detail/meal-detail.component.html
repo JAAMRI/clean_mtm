@@ -1,5 +1,7 @@
-<div *ngIf='meal && !loading' [class]="isMobile ? 'mobile-recipe-page' : 'recipe-page'" #topOfPage>
-  <div class="close-button">
+<div *ngIf='meal && !loading' 
+  [class]="inDialog ? (isMobile ? 'mobile-recipe-page' : 'recipe-page') + ' dialog' : ''" 
+  #topOfPage>
+  <div class="close-button" *ngIf='inDialog'>
     <button mat-icon-button mat-dialog-close>
       <mat-icon>close</mat-icon>
     </button>
