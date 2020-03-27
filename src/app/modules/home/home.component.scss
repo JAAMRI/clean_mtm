@@ -43,9 +43,9 @@ mat-sidenav-container {
       position: absolute;
       top: 0;
       z-index: 2;
-      color: $mtm_dark_green_color;
-      padding: 1em;
-      transform: scale(1.25);
+      color: $light_beige;
+      background-color: $mtm_light_green_color;
+      margin: 1em;
     }
     .home-page {
       height: 100%;
