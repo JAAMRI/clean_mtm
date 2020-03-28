@@ -37,8 +37,18 @@
                 "input": "src/scss/styles.scss",
                 "bundleName": "lazyloadedstyles"
               },
-              "node_modules/slick-carousel/slick/slick.scss",
-              "node_modules/slick-carousel/slick/slick-theme.scss"
+              {
+                "inject": false,
+                "input": "node_modules/slick-carousel/slick/slick.scss",
+                "bundleName": "carousellazyloadedstyles"
+              },
+              {
+                "inject": false,
+                "input": "node_modules/slick-carousel/slick/slick-theme.scss",
+                "bundleName": "carouselslicklazyloadedstyles"
+              },
+              "node_modules/slick-carousel/slick/slick-theme.scss",
+              "node_modules/slick-carousel/slick/slick.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
