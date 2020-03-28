@@ -26,9 +26,9 @@ export class AppComponent implements OnInit {
   stylesToBeLoaded: boolean = false;
   loadScript: Promise<any>;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: any, 
-  private dynamicScriptLoader: DynamicScriptLoaderService,
-  @Inject(DOCUMENT) private document: any, private router: Router, private cdr: ChangeDetectorRef,
+  constructor(@Inject(PLATFORM_ID) private platformId: any,
+    private dynamicScriptLoader: DynamicScriptLoaderService,
+    @Inject(DOCUMENT) private document: any, private router: Router, private cdr: ChangeDetectorRef,
     private breakpointObserver: BreakpointObserver,
     // private amplifyService: AmplifyService,
     public accountService: AccountService,
@@ -60,9 +60,10 @@ export class AppComponent implements OnInit {
 
     if (environment.production) {
       this.facebookImplementation();
+    }
+    if (environment.production || environment.uat) {
       this.adobeImplementation();
     }
-
   }
 
   isLoggedIn() {
