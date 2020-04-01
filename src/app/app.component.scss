@@ -26,7 +26,12 @@ footer {
         font-size: 14px;
         cursor: pointer;
       }
+      .footer-text {
+        font-family: avenir;
+        font-size: 10px;
+      }
     }
+    
     .footer-container {
       display: flex;
       justify-content: space-between;
@@ -37,7 +42,6 @@ footer {
         flex: 1;
         justify-content: space-between;
         align-items: center;
-        max-width: 600px;
         a {
           text-decoration: unset;
           color: $mtm_dark_green_color;
@@ -49,12 +53,9 @@ footer {
         }
        
       }
-      .footer-text {
-        font-family: avenir;
-        font-size: 10px;
-        width: 40%;
-      }
+    
       .footer-social-icons {
+        margin-left: 2em;
         img {
           margin: 0 4px;
           cursor: pointer !important;

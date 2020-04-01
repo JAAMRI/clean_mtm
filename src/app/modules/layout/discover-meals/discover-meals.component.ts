@@ -1,23 +1,22 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { AccountService } from '../../../../app/services/account/account.service';
+import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
 import { PreferencesService } from '../../../../app/services/preferences/preferences.service';
+import { SeoService } from '../../../../app/services/seo.service';
 import { SPELLING_ERROR } from '../../../../app/utilities/global-constants';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { UserFormComponent } from '../../../components/dialogs/user-form/user-form.component';
 import { MealService } from '../../../services/meal.service';
 import { BREAKPOINTS } from '../../../utilities/breakpoints';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
-import { AccountService } from '../../../../app/services/account/account.service';
-import { Location } from '@angular/common';
-import { SeoService } from '../../../../app/services/seo.service';
-import { Title } from '@angular/platform-browser';
-import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-discover-meals',
@@ -68,7 +67,6 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
     private preferencesService: PreferencesService,
     private mealService: MealService, private breakpointObserver: BreakpointObserver,
     private accountService: AccountService,
-    private location: Location,
     private seo: SeoService,
     private title: Title,
     public adobeDtbTracking: AdobeDtbTracking

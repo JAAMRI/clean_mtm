@@ -4,22 +4,15 @@
 </div>
 <footer class="app-footer" #footer>
         <div class="footer-body" *ngIf='!(isPortrait || isHandsetLandscape)'>
-                <div class="footer-wrapper">
-                        <a rel="noopener" href="https://www.knorr.com/ca/en/home.html" target="_blank"
-                                (click)="adobeDtbTracking.page_tracking('Visit Knorr', 'https://www.knorr.com/ca/en/home.html')">Visit
-                                Knorr</a>
-                        <a rel="noopener" href="https://www.hellmanns.com/ca/en/home.html" target="_blank"
-                                (click)="adobeDtbTracking.page_tracking('Visit Hellmanns', 'https://www.hellmanns.com/ca/en/home.html')">Visit
-                                Hellmann's</a>
-                </div>
                 <div class="footer-container">
-                        <p class='footer-text'>This website is intended for Canadian consumers of products and services
-                                of
-                                Unilever Canada Inc.
-                                This website is not intended for consumers outside Canada.
-                        </p>
                         <div class="footer-compliance-row">
                                 <img class='unilever-logo' src="/assets/static_images/unilever.png" alt="Unilever logo">
+                                <a rel="noopener" href="https://www.knorr.com/ca/en/home.html" target="_blank"
+                                        (click)="adobeDtbTracking.page_tracking('Visit Knorr', 'https://www.knorr.com/ca/en/home.html')">Visit
+                                        Knorr</a>
+                                <a rel="noopener" href="https://www.hellmanns.com/ca/en/home.html" target="_blank"
+                                        (click)="adobeDtbTracking.page_tracking('Visit Hellmanns', 'https://www.hellmanns.com/ca/en/home.html')">Visit
+                                        Hellmann's</a>
                                 <!-- <a routerLink='/'>About us</a> -->
                                 <a rel="noopener" href="https://www.unilever.ca/legal.html" target="_blank"
                                         (click)="adobeDtbTracking.page_tracking('Terms of use', 'https://www.unilever.ca/legal.html')">Terms
@@ -62,6 +55,13 @@
 
                         </div>
 
+                </div>
+                <div class="footer-wrapper">
+                        <p class='footer-text'>This website is intended for Canadian consumers of products and services
+                                of
+                                Unilever Canada Inc.
+                                This website is not intended for consumers outside Canada.
+                        </p>
                 </div>
         </div>
         <div class="mobile-footer-container" *ngIf='isPortrait || isHandsetLandscape'>
