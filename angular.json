@@ -24,6 +24,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "serviceWorker": true,
             "assets": [
               "src/splashscreens",
               "src/assets",
@@ -67,6 +68,7 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
+              "ngswConfigPath": "./ngsw-config.json",
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -74,8 +76,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "7.5mb"
+                  "maximumWarning": "8mb",
+                  "maximumError": "9mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -102,8 +104,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "7.5mb"
+                  "maximumWarning": "8mb",
+                  "maximumError": "9mb"
                 },
                 {
                   "type": "anyComponentStyle",
