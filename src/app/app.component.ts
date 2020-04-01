@@ -50,6 +50,8 @@ export class AppComponent implements OnInit {
     this.stylesToBeLoaded = true;
     if (environment.production == true || environment.uat == true) {
       this.loadjscssfile("../lazyloadedstyles.css", "css");
+      this.loadjscssfile("../carousellazyloadedstyles.css", "css");
+      this.loadjscssfile("../carouselslicklazyloadedstyles.css", "css");
       this.insertAdChoice();
     }//If production or uat, lazyload main css
     else {
