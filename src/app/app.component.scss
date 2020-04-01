@@ -12,42 +12,58 @@ footer {
   background-color: $darker_beige;
   color: $mtm_dark_green_color;
   font-family: avenir;
-  .footer-container {
-    padding: 1em;
+  .footer-body{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .footer-compliance-row {
-      margin: 1em 0;
+    flex-direction: column;
+    padding: 1em;
+    .footer-wrapper{
       display: flex;
-      flex: 1;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 600px;
-      a {
+      justify-content: space-evenly;
+      text-decoration: unset;
+      a{
         text-decoration: unset;
         color: $mtm_dark_green_color;
-        font-size: 12px;
+        font-size: 14px;
         cursor: pointer;
       }
-      .unilever-logo {
-        height: 40px;
-      }
     }
-    .footer-text {
-      font-family: avenir;
-      font-size: 10px;
-      width: 40%;
-    }
-    .footer-social-icons {
-      img {
-        margin: 0 4px;
-        cursor: pointer !important;
-      }
+    .footer-container {
       display: flex;
-    }
-    img {
-      height: 32px;
+      justify-content: space-between;
+      align-items: center;
+      .footer-compliance-row {
+        margin: 1em 0;
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 600px;
+        a {
+          text-decoration: unset;
+          color: $mtm_dark_green_color;
+          font-size: 12px;
+          cursor: pointer;
+        }
+        .unilever-logo {
+          height: 40px;
+        }
+       
+      }
+      .footer-text {
+        font-family: avenir;
+        font-size: 10px;
+        width: 40%;
+      }
+      .footer-social-icons {
+        img {
+          margin: 0 4px;
+          cursor: pointer !important;
+        }
+        display: flex;
+      }
+      img {
+        height: 32px;
+      }
     }
   }
   .mobile-footer-container {
@@ -69,6 +85,12 @@ footer {
       }
       .unilever-logo {
         height: 40px;
+      }
+      &.backlinks{
+        justify-content: space-evenly;
+        a{
+          font-size: 14px;
+        }
       }
     }
     .footer-text {
