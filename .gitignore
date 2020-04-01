@@ -38,3 +38,5 @@ yarn-error.log
 .bazelrc.user
 .serverless
 .serverless/*
+node_modules/
+dist/
