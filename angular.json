@@ -24,6 +24,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "serviceWorker": true,
             "assets": [
               "src/splashscreens",
               "src/assets",
@@ -67,6 +68,7 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
+              "ngswConfigPath": "./ngsw-config.json",
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
