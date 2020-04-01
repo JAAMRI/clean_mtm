@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-// import { AmplifyAngularModule } from 'aws-amplify-angular';
-// import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRouting } from './app.routing';
@@ -30,7 +28,6 @@ import { DynamicScriptLoaderService } from './services/dynamic-script-loader.ser
     HttpClientModule,
     HomeModule,
     ToolbarModule,
-    // AmplifyAngularModule,
     // environment.production ?
       // [] : 
       // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {

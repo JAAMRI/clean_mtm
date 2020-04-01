@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatHorizontalStepper } from '@angular/material/stepper';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { PersonalInfoComponent } from '../../personal-info/personal-info.component';
-import { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 import { AccountService } from '../../../../app/services/account/account.service';
 import { PreferencesService } from '../../../../app/services/preferences/preferences.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';

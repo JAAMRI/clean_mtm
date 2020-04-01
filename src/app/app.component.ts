@@ -1,16 +1,15 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { AfterViewChecked, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { ChangeDetectorRef, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-// import { AmplifyService } from 'aws-amplify-angular';
+import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { AccountService } from './services/account/account.service';
-import { BREAKPOINTS } from './utilities/breakpoints';
-import { Auth } from 'aws-amplify';
 import { environment } from '../environments/environment';
-import { isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { AccountService } from './services/account/account.service';
 import { AdobeDtbTracking } from './services/adobe_dtb_tracking.service';
 import { DynamicScriptLoaderService } from './services/dynamic-script-loader.service';
+import { BREAKPOINTS } from './utilities/breakpoints';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +29,6 @@ export class AppComponent implements OnInit {
     private dynamicScriptLoader: DynamicScriptLoaderService,
     @Inject(DOCUMENT) private document: any, private router: Router, private cdr: ChangeDetectorRef,
     private breakpointObserver: BreakpointObserver,
-    // private amplifyService: AmplifyService,
     public accountService: AccountService,
     public adobeDtbTracking: AdobeDtbTracking
   ) { }
@@ -52,8 +50,6 @@ export class AppComponent implements OnInit {
     this.stylesToBeLoaded = true;
     if (environment.production == true || environment.uat == true) {
       this.loadjscssfile("../lazyloadedstyles.css", "css");
-      this.loadjscssfile("../carousellazyloadedstyles.css", "css");
-      this.loadjscssfile("../carouselslicklazyloadedstyles.css", "css");
       this.insertAdChoice();
     }//If production or uat, lazyload main css
     else {

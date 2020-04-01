@@ -9,7 +9,7 @@ import { PreferencesService } from '../../services/preferences/preferences.servi
 import { BREAKPOINTS } from '../../utilities/breakpoints';
 import { ProfileIcons } from './profile-icons';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 import { SeoService } from '../../services/seo.service';
 import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
 

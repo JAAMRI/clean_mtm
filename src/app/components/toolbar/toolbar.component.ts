@@ -5,7 +5,7 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { UserFormComponent } from '../dialogs/user-form/user-form.component';
 import { AccountService } from '../../../app/services/account/account.service';
-import { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { BREAKPOINTS } from '../../utilities/breakpoints';
