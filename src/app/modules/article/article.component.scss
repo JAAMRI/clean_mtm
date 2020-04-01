@@ -1,0 +1,22 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/customTheme.scss';
+
+.article-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .article{
+        width: 65vw;
+        background-color: white;
+        padding: 4em;
+        h1{
+            text-align: center;
+            color: $mtm_light_green_color;
+            font-size: 3em;
+        }
+        p{
+            font-family: Vinyl,Tahoma;
+            font-size: 0.75em;
+        }
+    }
+}

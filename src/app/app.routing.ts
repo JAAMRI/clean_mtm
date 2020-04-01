@@ -30,6 +30,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/faq/faq.module').then(m => m.FaqModule)
   },
   {
+    path: 'article',
+    component: ToolbarComponent,
+    loadChildren: () => import('./modules/article/article.module').then(m => m.ArticleModule)
+  },
+  {
     path: 'contact-us',
     component: ToolbarComponent,
 
