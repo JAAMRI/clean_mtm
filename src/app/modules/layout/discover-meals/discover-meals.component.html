@@ -12,7 +12,9 @@
     {{!isMobile ? 'Browse recipes to add to your meal plan.' : 'Browse recipes to add to your meal plan.'}}
   </p>
 
-  <div class='no-items-wrapper' *ngIf='theEnteredSearchQuery && meals && meals?.length === 0 && !loading'>
+  <!-- <div class='no-items-wrapper' *ngIf='theEnteredSearchQuery && meals && meals?.length === 0 && !loading'>
+    DID YOU MEAN BOX
+
     <p>Maybe try the following</p>
     <p>
       <mat-icon>check</mat-icon> Use short keywords in your search
@@ -20,7 +22,7 @@
     <p>
       <mat-icon>check</mat-icon> Try not to use too long phrases
     </p>
-  </div>
+  </div> -->
   <p class='loading-text' *ngIf='loading'>Loading...</p>
 
   <div class="discover-meals-container">

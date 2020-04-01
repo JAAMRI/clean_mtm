@@ -1,75 +1,76 @@
-@import '../../../scss/customTheme.scss';
+@import "../../../scss/customTheme.scss";
 
-app-on-board{
+app-on-board {
     height: 100%;
-    .on-board-content{
+    .on-board-content {
         height: 100%;
         width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        &.mobile-align{
-            justify-content: center;
-        }
+        position: relative;
         .expand-more-button-wrapper {
             display: flex;
             justify-content: center;
             flex-direction: column;
             align-items: center;
-            height: 20vh;
-          }
-        .on-board-title{
+        }
+        .on-board-text-wrapper {
+            position: absolute;
+            bottom: 2em;
+        }
+        .on-board-title {
             font-size: 2.5em;
             text-align: center;
             margin-bottom: unset;
         }
-        .on-board-subtitle{
+        .on-board-subtitle {
             font-family: avenir;
             display: block;
             font-size: 1.5em;
-            margin: 4px;
+            margin: 4px 1em;
             text-align: center;
         }
-        .on-board-mobile-title{
+        .on-board-mobile-title {
             font-size: 1.5em;
             text-align: center;
             margin-bottom: unset;
         }
-        .on-board-mobile-subtitle{
+        .on-board-mobile-subtitle {
             font-family: avenir;
             display: block;
             font-size: 1em;
             text-align: center;
-            margin: 4px;
+            margin: 4px 1em;
         }
-        .on-board-text{
+        .on-board-text {
             display: flex;
             text-align: center;
             padding: 1em;
-            .get-started{
+            margin-bottom: 1em;
+            .get-started {
                 font-size: 1.25em;
                 color: $light_beige;
                 text-decoration: none;
                 cursor: pointer;
                 padding: 0px 5px 0px 5px;
-                .underline{
+                .underline {
                     text-decoration: underline;
                 }
-                &.web-view-font{
+                &.web-view-font {
                     font-size: 2em;
                     margin-top: 1em;
                 }
             }
-            .underline{
+            .underline {
                 text-decoration: underline;
             }
-            .login{
+            .login {
                 padding-top: 16px;
                 color: $light_beige;
                 cursor: pointer;
                 text-decoration: none;
-                &.web-view-font{
+                &.web-view-font {
                     font-size: 1.25em;
                 }
             }
@@ -79,12 +80,10 @@ app-on-board{
             justify-content: center;
             flex-direction: column;
             align-items: center;
-            height: 20vh;
             .scroll-button {
-              color: $mtm_light_green_color !important;
-              background-color: $light_beige !important;
+                color: $mtm_light_green_color !important;
+                background-color: $light_beige !important;
             }
-          }
-          
+        }
     }
 }

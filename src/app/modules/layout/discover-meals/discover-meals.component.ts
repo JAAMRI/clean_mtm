@@ -132,6 +132,8 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
         //Check if did_you_mean
         if (meals.hasOwnProperty("did_you_mean") && meals.hasOwnProperty("did_you_mean_results") && meals.data.length === 0) {
           this.didYouMean = meals.did_you_mean;
+          // if did you mean exists, still search for those results
+          this.searchMeals(this.didYouMean);
         }
         //Reset page start
         this.pageStart = pageStart;
@@ -236,7 +238,6 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
     } else {
       this.theEnteredSearchQuery = query;
     }
-    this.didYouMean = null;
     this.resetAllGlobalValues();
     this.getMeals(this.pageStart, this.pageSize, query);
     if (query != "") {
