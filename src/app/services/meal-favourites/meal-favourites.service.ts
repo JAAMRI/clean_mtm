@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 import { catchError, map } from 'rxjs/operators';
 import { handleError } from '../../../app/utilities/helper-functions';
 import { environment } from '../../../environments/environment';

@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 import { UserFormComponent } from '../dialogs/user-form/user-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AccountService } from '../../../app/services/account/account.service';
-import { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
 
 @Component({
