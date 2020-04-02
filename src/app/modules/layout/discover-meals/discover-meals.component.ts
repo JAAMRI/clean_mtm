@@ -154,7 +154,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
         // get favourite meals
         this.getFavouriteMeals();
         //Add Query to preferences
-        if (this.theEnteredSearchQuery && theMeals.length > 0) {
+        if (this.theEnteredSearchQuery && theMeals && theMeals.length > 0) {
           this.addToPreferences(this.theEnteredSearchQuery);
         }
 

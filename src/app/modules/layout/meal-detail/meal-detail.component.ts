@@ -86,10 +86,14 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       return this.data.id
     } else {
       const routeParams = await this.route.paramMap.pipe(first()).toPromise();
-      const mealId = routeParams.get('id');
-      console.log(mealId)
-      if (mealId) {
-        return mealId;
+      const param = routeParams.get('id');
+
+      if (param) {
+        const paramArray = param.split('-');
+        const mealId = paramArray[paramArray.length -1];
+        if (mealId) {
+          return mealId;
+        }
       }
     }
   }
@@ -109,17 +113,25 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     try {
       // this.buildRecipeWidget(); recipe widget
       this.meal = await this.mealService.getMealById(this.mealId).toPromise();
-      console.log(this.meal)
       this.loading = false;
       this.currentMealPlan = await this.mealPlanService.getMealPlan();
       this.getFavouriteMeals();
       this.checkIfMealInMealPlan();
       this.getEmailContent();
+      this.logMealLocation()
+      
     } catch (error) {
  
       this.router.navigate(['/recipes/discover'])
 
     }
+  }
+
+  logMealLocation() {
+    const host = `${environment.production ? 'https://www.mealsthatmatter.com' : 'http://localhost:4200'}`;
+    const mealTitle = this.meal.title.split(' ').join('_');
+    const location = `RECIPE LOCATION: ${host}/recipes/${mealTitle}-${this.mealId}`;
+    console.log(location);
   }
 
   async getFavouriteMeals() {
@@ -133,7 +145,9 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   getEmailContent() {
     const host = `${environment.production ? 'https://www.mealsthatmatter.com' : 'http://localhost:4200'}`;
-    const body = "Hi, Thought you would love this recipe from Meals That Matter. " + encodeURIComponent(`${host}/recipes/${this.mealId}`);
+    const mealTitle = this.meal.title.split(' ').join('_');
+    const location = `${host}/recipes/${mealTitle}-${this.mealId}`;
+    const body = "Hi, Thought you would love this recipe from Meals That Matter. " + encodeURIComponent(location);
     this.emailContent = `mailto:?body=${body}&subject=${this.meal.title}`;
   }
 
