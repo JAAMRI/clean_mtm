@@ -1,13 +1,12 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { AccountService } from './services/account/account.service';
-import { AdobeDtbTracking } from './services/adobe_dtb_tracking.service';
 import { DynamicScriptLoaderService } from './services/dynamic-script-loader.service';
 import { BREAKPOINTS } from './utilities/breakpoints';
 
@@ -19,18 +18,20 @@ import { BREAKPOINTS } from './utilities/breakpoints';
 export class AppComponent implements OnInit {
   unsubscribeAll = new Subject();
   isPortrait: boolean;
-  @ViewChild('footer', { static: true }) footer: ElementRef;
+  @ViewChild('footerContainer', { read: ViewContainerRef }) footerContainer: ViewContainerRef;
   footerHeight: number;
   isHandsetLandscape: boolean;
-  stylesToBeLoaded: boolean = false;
   loadScript: Promise<any>;
+  stylesToBeLoaded: boolean = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private dynamicScriptLoader: DynamicScriptLoaderService,
-    @Inject(DOCUMENT) private document: any, private router: Router, private cdr: ChangeDetectorRef,
+    @Inject(DOCUMENT) private document: any,
     private breakpointObserver: BreakpointObserver,
     public accountService: AccountService,
-    public adobeDtbTracking: AdobeDtbTracking
+    private cdr: ChangeDetectorRef,
+    private componentFactoryResolver: ComponentFactoryResolver
+
   ) { }
 
   ngOnInit() {
@@ -47,7 +48,9 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.stylesToBeLoaded = true;
+
+    this.loadFooter();
+    this.loadFontIcons();
     if (environment.production == true || environment.uat == true) {
       this.loadjscssfile("../lazyloadedstyles.css", "css");
       this.loadjscssfile("../carousellazyloadedstyles.css", "css");
@@ -58,13 +61,28 @@ export class AppComponent implements OnInit {
       this.loadjscssfile("../lazyloadedstyles.js", "js");
     }
 
-    if (environment.production) {
-    }
     if (environment.production || environment.uat) {
       this.facebookImplementation();
       this.adobeImplementation();
     }
   }
+
+  loadFontIcons() {
+    this.stylesToBeLoaded = true;
+    this.cdr.detectChanges();
+  }
+
+  loadFooter() {
+    import("./modules/footer/footer.component").then(
+      ({ FooterComponent }) => {
+        const component = this.componentFactoryResolver.resolveComponentFactory(FooterComponent);
+        const componentRef = this.footerContainer.createComponent(component);
+        componentRef.instance.isHandsetLandscape = this.isHandsetLandscape;
+        componentRef.instance.isPortrait = this.isPortrait;
+      }
+    );
+  }
+
 
   isLoggedIn() {
     Auth.currentAuthenticatedUser({
@@ -84,12 +102,6 @@ export class AppComponent implements OnInit {
     //   });
   }
 
-  ngAfterViewChecked() {
-    // set footer offset height for sticky and detect changes
-    this.footerHeight = this.footer.nativeElement.offsetHeight;
-    this.cdr.detectChanges();
-
-  }
 
   observeBreakpoints() {
     this.breakpointObserver.observe(BREAKPOINTS).pipe(takeUntil

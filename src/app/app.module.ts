@@ -14,16 +14,20 @@ import { SharedService } from './shared/shared.service';
 import { HomeModule } from './modules/home/home.module';
 import { SeoService } from './services/seo.service';
 import { DynamicScriptLoaderService } from './services/dynamic-script-loader.service';
+import { FooterComponent } from './modules/footer/footer.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRouting,
+    CommonModule,
     ToolbarModule,
     HttpClientModule,
     HomeModule,

@@ -4,7 +4,8 @@
 
   </mat-sidenav>
   <mat-sidenav-content>
-    <button class='menu-button' aria-label="Open menu" [class.deactivate]='snav.opened' mat-icon-button (click)="snav.toggle()">
+    <button class='menu-button' aria-label="Open menu" [class.deactivate]='snav.opened' mat-icon-button
+      (click)="snav.toggle()">
       <mat-icon *ngIf='!snav.opened'>menu</mat-icon>
     </button>
 
@@ -16,12 +17,9 @@
           </div>
         </div>
       </section>
-      <div class="desktop-content" #howitworks>
-        <!-- each component here is a section of the home page with inputs determine the media of the app -->
-        <app-how-it-works [isMobile]='isMobile'></app-how-it-works>
-        <app-you-will-love-this [isMobile]='isMobile' [isWeb]='isWeb'></app-you-will-love-this>
-        <app-reclaim-weeknight-cooking [isMobile]='isMobile'></app-reclaim-weeknight-cooking>
-      </div>
+      <div #howItWorksContainer> </div>
+      <div #youWillLoveThisContainer> </div>
+      <div  #reclaimWeeknightCookingContainer> </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

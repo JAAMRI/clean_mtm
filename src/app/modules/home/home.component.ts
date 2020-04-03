@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { AfterViewInit, Component, ComponentFactoryResolver, ElementRef, OnDestroy, OnInit, TemplateRef, Type, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, ElementRef, OnDestroy, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
@@ -11,9 +11,6 @@ import { SeoService } from '../../../app/services/seo.service';
 import { BREAKPOINTS } from '../../../app/utilities/breakpoints';
 import { scrollToTop } from '../../../app/utilities/helper-functions';
 import { UserFormComponent } from '../../components/dialogs/user-form/user-form.component';
-import { HowItWorksComponent } from './how-it-works/how-it-works.component';
-import { ReclaimWeeknightCookingComponent } from './reclaim-weeknight-cooking/reclaim-weeknight-cooking.component';
-import { YouWillLoveThisComponent } from './you-will-love-this/you-will-love-this.component';
 
 // use this to scroll on safari
 smoothscroll.polyfill();
@@ -31,18 +28,13 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   isMobile: boolean;
   isWeb: boolean;
   @ViewChild('howitworks', { static: true }) howItWorks: ElementRef;
-
-  howItWorksComponent: Type<HowItWorksComponent>;
-  youWillLoveThisComponent: Type<YouWillLoveThisComponent>;
-  reclaimWeeknightCookingComponent: Type<ReclaimWeeknightCookingComponent>;
-
-
-  @ViewChild(TemplateRef, { read: ViewContainerRef })
-  private viewContainerRef: ViewContainerRef;
+  @ViewChild('howItWorksContainer', { read: ViewContainerRef }) howItWorksContainer: ViewContainerRef;
+  @ViewChild('youWillLoveThisContainer', { read: ViewContainerRef }) youWillLoveThisContainer: ViewContainerRef;
+  @ViewChild('reclaimWeeknightCookingContainer', { read: ViewContainerRef }) reclaimWeeknightCookingContainer: ViewContainerRef;
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver,
     private dialog: MatDialog,
-    private seo: SeoService, private title: Title, 
+    private seo: SeoService, private title: Title,
     public adobeDtbTracking: AdobeDtbTracking,
     private readonly componentFactoryResolver: ComponentFactoryResolver
   ) {
@@ -60,13 +52,41 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: ''
     });
-
-    
   }//end ngOnInit
 
-  ngAfterViewInit(){
+
+  ngAfterViewInit() {
+    this.lazyLoadComponents()
     setTimeout(() => this.watchRoute()); // skip 1 cycle to let route come into place
-    setTimeout(() => {this.adobeDtbTracking.page_load("home page");},1000);
+    setTimeout(() => { this.adobeDtbTracking.page_load("home page"); }, 1000);
+  }
+
+  lazyLoadComponents() {
+    //Load HowItWorks component
+    import("./how-it-works/how-it-works.component").then(
+      ({ HowItWorksComponent }) => {
+        const component = this.componentFactoryResolver.resolveComponentFactory(HowItWorksComponent);
+        const componentRef = this.howItWorksContainer.createComponent(component);
+        componentRef.instance.isMobile = this.isMobile;
+      }
+    );
+    //Load YouWillLoveThis component
+    import("./you-will-love-this/you-will-love-this.component").then(
+      ({ YouWillLoveThisComponent }) => {
+        const component = this.componentFactoryResolver.resolveComponentFactory(YouWillLoveThisComponent);
+        const componentRef = this.youWillLoveThisContainer.createComponent(component);
+        componentRef.instance.isMobile = this.isMobile;
+        componentRef.instance.isWeb = this.isWeb;
+      }
+    );
+    //Load ReclaimWeeknightCooking component
+    import("./reclaim-weeknight-cooking/reclaim-weeknight-cooking.component").then(
+      ({ ReclaimWeeknightCookingComponent }) => {
+        const component = this.componentFactoryResolver.resolveComponentFactory(ReclaimWeeknightCookingComponent);
+        const componentRef = this.reclaimWeeknightCookingContainer.createComponent(component);
+        componentRef.instance.isMobile = this.isMobile;
+      }
+    );
   }
 
 
