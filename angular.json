@@ -40,25 +40,42 @@
             "styles": [
               {
                 "inject": false,
+                "lazy": true,
+
                 "input": "src/scss/styles.scss",
                 "bundleName": "lazyloadedstyles"
               },
               {
                 "inject": false,
+                "lazy": true,
                 "input": "node_modules/slick-carousel/slick/slick.scss",
                 "bundleName": "carousellazyloadedstyles"
               },
               {
                 "inject": false,
+                "lazy": true,
+
                 "input": "node_modules/slick-carousel/slick/slick-theme.scss",
                 "bundleName": "carouselslicklazyloadedstyles"
-              },
-              "node_modules/slick-carousel/slick/slick-theme.scss",
-              "node_modules/slick-carousel/slick/slick.scss"
+              }
+            
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/slick-carousel/slick/slick.min.js"
+              {
+                "inject": false,
+                "lazy": true,
+
+                "input": "node_modules/jquery/dist/jquery.min.js",
+                "bundleName": "jquery"
+              },
+              {
+                "inject": false,
+                "lazy": true,
+
+                "input": "node_modules/slick-carousel/slick/slick.min.js",
+                "bundleName": "carouselslicklazyloadedjs"
+              }
+        
             ]
           },
           "configurations": {

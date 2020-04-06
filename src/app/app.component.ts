@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   isHandsetLandscape: boolean;
   loadScript: Promise<any>;
   stylesToBeLoaded: boolean = false;
+  loadCarousel = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private dynamicScriptLoader: DynamicScriptLoaderService,
@@ -47,18 +48,25 @@ export class AppComponent implements OnInit {
     }
   }
 
-  ngAfterViewInit() {
-
+  async ngAfterViewInit() {
     this.loadFooter();
     this.loadFontIcons();
     if (environment.production == true || environment.uat == true) {
-      this.loadjscssfile("../lazyloadedstyles.css", "css");
-      this.loadjscssfile("../carousellazyloadedstyles.css", "css");
-      this.loadjscssfile("../carouselslicklazyloadedstyles.css", "css");
+      await this.loadjscssfile("../jquery.js", "js");
+      await this.loadjscssfile("../carouselslicklazyloadedjs.js", "js");
+      this.loadCarousel = true; // load router outlet after js has been loaded
+      await this.loadjscssfile("../lazyloadedstyles.css", "css");
+      await this.loadjscssfile("../carousellazyloadedstyles.css", "css");
+      await this.loadjscssfile("../carouselslicklazyloadedstyles.css", "css");
       this.insertAdChoice();
     }//If production or uat, lazyload main css
     else {
-      this.loadjscssfile("../lazyloadedstyles.js", "js");
+      await this.loadjscssfile("../jquery.js", "js");
+      await this.loadjscssfile("../carouselslicklazyloadedjs.js", "js");
+      this.loadCarousel = true; // load router outlet after js has been loaded
+      await this.loadjscssfile("../lazyloadedstyles.js", "js");
+      await this.loadjscssfile("../carousellazyloadedstyles.js", "js");
+      await this.loadjscssfile("../carouselslicklazyloadedstyles.js", "js");
     }
 
     if (environment.production || environment.uat) {
@@ -169,32 +177,37 @@ export class AppComponent implements OnInit {
     // end AdChoice
   }
 
-  loadjscssfile(filename: string, filetype: string) {
-
-    var thefileref;
+  async loadjscssfile(filename: string, filetype: string) {
+    // return asynchronously
     if (filetype == "js") { //if filename is a external JavaScript file
-      let fileref = document.createElement('script')
-      fileref.setAttribute("type", "text/javascript")
-      fileref.setAttribute("src", filename)
-      thefileref = fileref
+      return new Promise(resolve => {
+        let fileref = document.createElement('script')
+        fileref.setAttribute("type", "text/javascript")
+        fileref.setAttribute("src", filename)
+        fileref.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+      });
 
     } else if (filetype == "css") { //if filename is an external CSS file
-      let fileref = document.createElement("link")
-      fileref.setAttribute("as", "style")
-      if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 || navigator.userAgent.toLowerCase().indexOf('msie') > -1 || navigator.appVersion.indexOf('Trident/') > -1) {//Do not use preload if using Firefox or Internet explorer
-        fileref.setAttribute("rel", "stylesheet")
+      return new Promise(resolve => {
+        let fileref = document.createElement("link")
+        fileref.setAttribute("as", "style")
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 || navigator.userAgent.toLowerCase().indexOf('msie') > -1 || navigator.appVersion.indexOf('Trident/') > -1) {//Do not use preload if using Firefox or Internet explorer
+          fileref.setAttribute("rel", "stylesheet")
+          fileref.onload = resolve
 
-      } else {
-        fileref.setAttribute("rel", "preload")
-        fileref.onload = () => { fileref.rel = "stylesheet" };
+        } else {
+          fileref.setAttribute("rel", "preload")
+          fileref.onload = () => { console.log('loaded'); fileref.setAttribute('rel', 'stylesheet'); resolve() };
+  
+        }
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", filename)
+        document.getElementsByTagName("head")[0].appendChild(fileref)
 
-      }
-      fileref.setAttribute("type", "text/css")
-      fileref.setAttribute("href", filename)
-      thefileref = fileref
+      })
     }
-    if (typeof thefileref != "undefined")
-      document.getElementsByTagName("head")[0].appendChild(thefileref)
+
   }
 
   facebookImplementation() {
