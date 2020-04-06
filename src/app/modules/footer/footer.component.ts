@@ -19,11 +19,11 @@ export class FooterComponent implements AfterViewInit {
     private cdref: ChangeDetectorRef
   ) { }
 
-// lazy loaded component
+  // lazy loaded component
   ngAfterViewInit() {
     if (this.height !== this.footer.nativeElement.offsetHeight) {
       // set the height of the footer so app container can scroll over it after the view is init.
-      setTimeout(() =>  this.height= this.footer.nativeElement.offsetHeight, 0);
+      setTimeout(() => this.height = this.footer.nativeElement.offsetHeight, 0);
       // do this to get rid of ngafterviewinitchecked error
     }
   }
