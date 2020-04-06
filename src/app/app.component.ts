@@ -198,7 +198,7 @@ export class AppComponent implements OnInit {
 
         } else {
           fileref.setAttribute("rel", "preload")
-          fileref.onload = () => { console.log('loaded'); fileref.setAttribute('rel', 'stylesheet'); resolve() };
+          fileref.onload = () => { fileref.setAttribute('rel', 'stylesheet'); resolve() };
   
         }
         fileref.setAttribute("type", "text/css")
