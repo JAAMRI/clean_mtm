@@ -96,11 +96,11 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     // this.matIconRegistry.addSvgIcon('mtmbread',
     //   this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/bread.svg'));
     this.matIconRegistry.addSvgIcon('mtmbread',
-      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/noun_Bread_1454657.svg'));
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/carbs.svg'));
     this.matIconRegistry.addSvgIcon('mtmblob',
-      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/Fats.svg'));
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/fats.svg'));
     this.matIconRegistry.addSvgIcon('mtmfire',
-      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/shutterstock_695381968_Calories.svg'));
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/calories.svg'));
   }
 
   async getMealPlan() {

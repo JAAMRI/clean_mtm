@@ -31,12 +31,12 @@ export class ChangePasswordComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       newPassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
       confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)])
-    }, { validator: this.MustMatch('newPassword', 'confirmPassword') })
+    }, { validator: this.mustMatch('newPassword', 'confirmPassword') })
     // use this validator to match passwords
   }
 
   // Used for password match validation
-  MustMatch(controlName: string, matchingControlName: string) {
+  mustMatch(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];

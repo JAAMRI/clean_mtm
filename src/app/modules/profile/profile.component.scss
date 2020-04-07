@@ -1,10 +1,12 @@
 @import "../../../scss/customTheme.scss";
 
 .profile-page {
-  height: calc(100% - 96px); // height subtracting toolbar
-  min-height: calc(100vh - 96px); // height subrating toolbar (landscape)
+  height: calc(100% - 64px); // height subtracting toolbar
+  min-height: calc(100vh - 64px); // height subrating toolbar (landscape)
   background-color: $light_beige;
   margin-top: 4em;
+  position: relative;
+  z-index: 1;
 }
 .mobile-profile-page {
   height: calc(100% - 40px); // height subtracting mobil toolbar
