@@ -3,7 +3,7 @@ import { ArticleComponent } from './article.component';
 
 const ArticleRoutes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: ArticleComponent,
   },
 
