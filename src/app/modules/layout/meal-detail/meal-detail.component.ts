@@ -157,9 +157,16 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   visitMealDetailPage(meal: any) {
     if (!this.carouselIsChanging) {
-      this.router.navigate([], { relativeTo: this.route, queryParams: { id: meal.id, recipe: meal.title.split(',').join('').split(' ').join('-').split('&').join('and') }, queryParamsHandling: 'merge' })
+      if (this.inDialog) {
+        this.mealId = meal.id;
+        this.getMealById();
+      } else {
+        this.mealId = meal.id;
+        this.router.navigate(['/recipes', meal.title.split(',').join('').split(' ').join('-').split('&').join('and') + '-' + meal.id]);
+        this.getMealById();
+        this.scrollToTop()
+      }
 
-      this.dialogRef.close('newDialog')
       // new dialog opening
 
     }

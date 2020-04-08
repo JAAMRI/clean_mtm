@@ -6,9 +6,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: calc(100% - 64px); // height subrating toolbar
+    min-height: calc(100vh - 64px); 
     position: relative;
     background-color: $light_beige;
     z-index: 1;
+    margin-top: 2em;
     .background{
         background-image: url("/assets/static_images/articles/what-and-what-not-to-freeze.jpg");
         background-repeat: no-repeat;

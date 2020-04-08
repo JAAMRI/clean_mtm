@@ -4,18 +4,18 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer, Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AccountService } from '../../../../app/services/account/account.service';
+import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
+import { SeoService } from '../../../../app/services/seo.service';
 import { BREAKPOINTS } from '../../../../app/utilities/breakpoints';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { UserFormComponent } from '../../../components/dialogs/user-form/user-form.component';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
-import { SeoService } from '../../../../app/services/seo.service';
-import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-my-meals',
@@ -45,7 +45,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
 
 
   constructor(private router: Router, private snackbar: MatSnackBar,
-    private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
     private mealPlanService: MealPlanService,
     private mealFavouritesService: MealFavouritesService,

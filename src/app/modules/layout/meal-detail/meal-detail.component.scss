@@ -10,7 +10,8 @@
   overflow-x: hidden;
   -ms-overflow-x: hidden;
   position: relative;
-  padding: 1em;
+  z-index: 1;
+  background-color: $light_beige;
   &.dialog{
     max-width: 80vw;
     max-height: 80vh;

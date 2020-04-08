@@ -12,7 +12,7 @@
     {{!isMobile ? 'Browse recipes to add to your meal plan.' : 'Browse recipes to add to your meal plan.'}}
   </p>
 
-  <div class='no-items-wrapper' *ngIf='!didYouMean && meals && meals?.length === 0 && !loading'>
+  <div class='no-items-wrapper' *ngIf='!didYouMean && meals?.length === 0 && !loading && requestedMeals'>
     
       <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
   </div>

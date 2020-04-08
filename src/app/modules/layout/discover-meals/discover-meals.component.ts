@@ -52,6 +52,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
   totalResults: number = 0;
   mealPlanIds = {};
   mealPlan: any[] = [];
+  requestedMeals = false;
 
   slideConfig: any = {
     "slidesToScroll": 1,
@@ -81,7 +82,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
     },
       5000);
 
-    await this.getPreferences();
+    this.preferences = await this.getPreferences();
     this.watchRouteForRecipePrompt()
     if (this.preferences.split(' ').length > 0) {//Randomize preferences if multiple preferences
       this.preferences = this.shuffleArray(this.preferences.split(' ')).join(' ');
@@ -119,13 +120,14 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
   }
 
   async getPreferences() {
-    this.preferences = await this.preferencesService.getPreferences();
+    return await this.preferencesService.getPreferences();
   }
 
   getMeals(pageStart?: number, pageSize?: number, query = "") {
     //Show spinner while loading
     this.loading = true;
     this.mealService.getMeals(pageStart, pageSize, query).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals) => {
+      this.requestedMeals = true; // a flag to know whether meals were requested
       if (meals) {
         //Check if did_you_mean
         if (meals.hasOwnProperty("did_you_mean") && meals.hasOwnProperty("did_you_mean_results") && meals.data.length === 0) {
@@ -141,7 +143,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
         let theMeals = this.mapResults(meals);
         // Populate meals
         if (pageStart < this.totalResults) {
-          if (this.meals.length === this.pageStart) {//Avoid multiple push with same server response
+          if (this.meals && (this.meals.length === this.pageStart)) {//Avoid multiple push with same server response
             this.meals.push(...theMeals.slice(0, pageSize + 1)); // -1 for index, grabbing meals from api and appending it to meals
           }
         }

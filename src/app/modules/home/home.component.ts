@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   onLandingPage: boolean;
   isMobile: boolean;
   isWeb: boolean;
-  @ViewChild('howitworks', { static: true }) howItWorks: ElementRef;
+  @ViewChild('howItWorks', { static: true }) howItWorks: ElementRef;
   @ViewChild('howItWorksContainer', { read: ViewContainerRef }) howItWorksContainer: ViewContainerRef;
   @ViewChild('youWillLoveThisContainer', { read: ViewContainerRef }) youWillLoveThisContainer: ViewContainerRef;
   @ViewChild('reclaimWeeknightCookingContainer', { read: ViewContainerRef }) reclaimWeeknightCookingContainer: ViewContainerRef;

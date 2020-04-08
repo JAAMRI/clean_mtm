@@ -2,9 +2,14 @@
 
 .faq-page {
     display: flex;
+    height: calc(100% - 64px); // height subrating toolbar
+    min-height: calc(100vh - 64px); 
     flex-direction: column;
     align-items: center;
     padding: 1em;
+    position: relative;
+    background-color: $light_beige;
+    z-index: 1;
     .faq-copy {
         display: flex;
         flex-direction: column;
