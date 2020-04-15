@@ -88,12 +88,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
 
   registerIcons() {
     // register mtm icons to use for meal plan
-    // this.matIconRegistry.addSvgIcon('mtmburger', this.sanitizer.bypassSecurityTrustResourceUrl
-    //   ('/assets/static_images/my-meals-icons/burger.svg'));
-    // this.matIconRegistry.addSvgIcon('mtmblob',
-    //   this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/cloud.svg'));
-    // this.matIconRegistry.addSvgIcon('mtmbread',
-    //   this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/bread.svg'));
     this.matIconRegistry.addSvgIcon('mtmbread',
       this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/carbs.svg'));
     this.matIconRegistry.addSvgIcon('mtmblob',

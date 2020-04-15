@@ -1,7 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { ChangeDetectorRef, Component, ComponentFactoryResolver, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild, ViewContainerRef } from '@angular/core';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -34,6 +33,16 @@ export class AppComponent implements OnInit {
     private componentFactoryResolver: ComponentFactoryResolver
 
   ) { }
+
+
+  @HostListener('window:beforeinstallprompt', ['$event'])
+  onbeforeinstallprompt(e) {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    e.prompt(); // prompot user to add to homescreen
+  }
+
 
   ngOnInit() {
     this.isLoggedIn();
@@ -73,6 +82,8 @@ export class AppComponent implements OnInit {
       this.facebookImplementation();
       this.adobeImplementation();
     }
+
+
   }
 
   loadFontIcons() {
@@ -199,7 +210,7 @@ export class AppComponent implements OnInit {
         } else {
           fileref.setAttribute("rel", "preload")
           fileref.onload = () => { fileref.setAttribute('rel', 'stylesheet'); resolve() };
-  
+
         }
         fileref.setAttribute("type", "text/css")
         fileref.setAttribute("href", filename)
