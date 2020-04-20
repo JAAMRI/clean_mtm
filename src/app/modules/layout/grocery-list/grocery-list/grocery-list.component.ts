@@ -27,6 +27,7 @@ export class GroceryListComponent implements OnInit {
 
   constructor(private mealPlanService: MealPlanService,
     private sharedService: SharedService,
+ 
     breakpointObserver: BreakpointObserver,
     private seo: SeoService,
     private title: Title,

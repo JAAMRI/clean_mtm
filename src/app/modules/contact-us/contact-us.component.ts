@@ -5,6 +5,7 @@ import { embedChatWidget } from './live-chat-helper';
 import { SeoService } from '../../services/seo.service';
 import { Title } from '@angular/platform-browser';
 import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
+import { DynamicScriptLoaderService } from '../../services/dynamic-script-loader.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -13,7 +14,9 @@ import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
 })
 export class ContactUsComponent implements OnInit {
 
-  constructor(private router: Router, private sharedService: SharedService, private seo: SeoService, private title: Title, public adobeDtbTracking: AdobeDtbTracking) { }
+  constructor(private router: Router, 
+    private dynamicScriptLoader: DynamicScriptLoaderService,
+    private sharedService: SharedService, private seo: SeoService, private title: Title, public adobeDtbTracking: AdobeDtbTracking) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -22,7 +25,9 @@ export class ContactUsComponent implements OnInit {
       5000);
 
     if (!this.sharedService.chatPageVisited) {
+      this.dynamicScriptLoader.loadScript('sales-force-live-agent');
       embedChatWidget();
+
       this.sharedService.chatPageVisited = true
     }
     this.title.setTitle('Contact Us | Meals That Matter'); //updating page title

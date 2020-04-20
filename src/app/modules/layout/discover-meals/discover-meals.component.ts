@@ -81,7 +81,6 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
       this.adobeDtbTracking.page_load("discover meals page");
     },
       5000);
-
     this.preferences = await this.getPreferences();
     this.watchRouteForRecipePrompt()
     if (this.preferences.split(' ').length > 0) {//Randomize preferences if multiple preferences
