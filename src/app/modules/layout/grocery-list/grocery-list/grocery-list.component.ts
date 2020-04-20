@@ -9,6 +9,7 @@ import { SharedService } from '../../../../../app/shared/shared.service';
 import { SeoService } from '../../../../../app/services/seo.service';
 import { Title } from '@angular/platform-browser';
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
+import { DynamicScriptLoaderService } from '../../../../services/dynamic-script-loader.service';
 
 @Component({
   selector: 'app-grocery-list',
@@ -27,6 +28,8 @@ export class GroceryListComponent implements OnInit {
 
   constructor(private mealPlanService: MealPlanService,
     private sharedService: SharedService,
+    private dynamicScriptLoader: DynamicScriptLoaderService,
+ 
     breakpointObserver: BreakpointObserver,
     private seo: SeoService,
     private title: Title,
@@ -44,6 +47,7 @@ export class GroceryListComponent implements OnInit {
       5000);
 
     if (!this.sharedService.groceryListPageVisited) {
+      this.dynamicScriptLoader.loadScript('sales-force-live-agent');
       embedWidget();
       this.sharedService.groceryListPageVisited = true
     }
