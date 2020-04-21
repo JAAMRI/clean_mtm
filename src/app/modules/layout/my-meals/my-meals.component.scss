@@ -3,12 +3,14 @@
   display: none;
 }
 .my-meals-page {
-  height: calc(100% - 96px); // height subrating toolbar
-  min-height: calc(100vh - 96px); // height subrating toolbar (landscape)
+  height: calc(100% - 64px); // height subrating toolbar
+  min-height: calc(100vh - 64px); // height subrating toolbar (landscape)
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: $light_beige;
+  position: relative;
+  z-index: 1;
 }
 .mobile-my-meals-page {
   height: calc(100% - 40px); // height subrating toolbar

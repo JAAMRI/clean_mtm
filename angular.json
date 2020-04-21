@@ -18,12 +18,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "sourceMap": {
+              "scripts": true,
+              "styles": true,
+              "vendor": true
+            },
             "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "serviceWorker": true,
             "assets": [
               "src/splashscreens",
               "src/assets",
@@ -34,15 +40,42 @@
             "styles": [
               {
                 "inject": false,
+                "lazy": true,
+
                 "input": "src/scss/styles.scss",
                 "bundleName": "lazyloadedstyles"
               },
-              "node_modules/slick-carousel/slick/slick.scss",
-              "node_modules/slick-carousel/slick/slick-theme.scss"
+              {
+                "inject": false,
+                "lazy": true,
+                "input": "node_modules/slick-carousel/slick/slick.scss",
+                "bundleName": "carousellazyloadedstyles"
+              },
+              {
+                "inject": false,
+                "lazy": true,
+
+                "input": "node_modules/slick-carousel/slick/slick-theme.scss",
+                "bundleName": "carouselslicklazyloadedstyles"
+              }
+            
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/slick-carousel/slick/slick.min.js"
+              {
+                "inject": false,
+                "lazy": true,
+
+                "input": "node_modules/jquery/dist/jquery.min.js",
+                "bundleName": "jquery"
+              },
+              {
+                "inject": false,
+                "lazy": true,
+
+                "input": "node_modules/slick-carousel/slick/slick.min.js",
+                "bundleName": "carouselslicklazyloadedjs"
+              }
+        
             ]
           },
           "configurations": {
@@ -57,6 +90,7 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
+              "ngswConfigPath": "./ngsw-config.json",
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -64,8 +98,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "7.5mb"
+                  "maximumWarning": "8mb",
+                  "maximumError": "9mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -92,8 +126,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "7.5mb"
+                  "maximumWarning": "8mb",
+                  "maximumError": "9mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -107,7 +141,12 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mtm-pwa-front-end:build"
+            "browserTarget": "mtm-pwa-front-end:build",
+            "sourceMap": {
+              "scripts": true,
+              "styles": true,
+              "vendor": true
+            }
           },
           "configurations": {
             "production": {
@@ -228,5 +267,8 @@
       }
     }
   },
-  "defaultProject": "mtm-pwa-front-end"
+  "defaultProject": "mtm-pwa-front-end",
+  "cli": {
+    "analytics": false
+  }
 }

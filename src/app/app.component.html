@@ -1,111 +1,13 @@
-<div class="app-container" [style.marginBottom.px]='footerHeight'>
-        <router-outlet>
+<div class="app-container">
+        <router-outlet *ngIf='loadCarousel'>
         </router-outlet>
 </div>
-<footer class="app-footer" #footer>
-        <div class="footer-container" *ngIf='!(isPortrait || isHandsetLandscape)'>
-                <p class='footer-text'>This website is intended for Canadian consumers of products and services
-                        of
-                        Unilever Canada Inc.
-                        This website is not intended for consumers outside Canada.
-                </p>
-                <div class="footer-compliance-row">
-                        <img class='unilever-logo' src="/assets/static_images/unilever.png" alt="Unilever logo">
-                        <!-- <a routerLink='/'>About us</a> -->
-                        <a rel="noopener" href="https://www.unilever.ca/legal.html" target="_blank"
-                                (click)="adobeDtbTracking.page_tracking('Terms of use', 'https://www.unilever.ca/legal.html')">Terms
-                                of
-                                use</a>
-                        <a rel="noopener"
-                                href="https://www.unilevernotices.com/canada/english/privacy-notice/notice.html"
-                                target="_blank"
-                                (click)="adobeDtbTracking.page_tracking('Privacy
-                                Notice', 'https://www.unilevernotices.com/canada/english/privacy-notice/notice.html')">Privacy
-                                Notice</a>
-                        <a routerLink="/recipes/faqs" (click)="adobeDtbTracking.page_tracking('FAQs', '/recipes/faqs')">FAQs</a>
-                        <!-- adChoice  -->
-                        <a id="_bapw-link" href="#" target="_blank" style="text-decoration:none !important">
-                                <img alt="Adchoices" id="_bapw-icon"
-                                        style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;" />
-                                <span style="vertical-align:middle !important">AdChoices</span>
-                        </a>
-                        <!-- end adChoice -->
-                </div>
-                <div class='footer-social-icons'>
-                        <a target="_blank" rel="noopener"
-                                href="https://www.amazon.ca/Unilever-Canada-Meals-that-MatterTM/dp/B07L2B32LQ/ref=pd_lutyp_crtyp_simh_1_1/147-4269172-2761155?_encoding=UTF8&pd_rd_i=B07L2B32LQ&pd_rd_r=a1999550-45b9-4e0a-a10f-8c3a8645e9c9&pd_rd_w=qkIEK&pd_rd_wg=IQyFU&pf_rd_p=d219e352-c0b8-4f3c-978b-56743d208e51&pf_rd_r=JXTW3Y2XS877YPZQ09YF&psc=1&refRID=JXTW3Y2XS877YPZQ09YF"
-                                (click)="adobeDtbTracking.social_media_tracking('Amazon Alexa', 'https://www.amazon.ca/Unilever-Canada-Meals-that-MatterTM/dp/B07L2B32LQ/ref=pd_lutyp_crtyp_simh_1_1/147-4269172-2761155?_encoding=UTF8&pd_rd_i=B07L2B32LQ&pd_rd_r=a1999550-45b9-4e0a-a10f-8c3a8645e9c9&pd_rd_w=qkIEK&pd_rd_wg=IQyFU&pf_rd_p=d219e352-c0b8-4f3c-978b-56743d208e51&pf_rd_r=JXTW3Y2XS877YPZQ09YF&psc=1&refRID=JXTW3Y2XS877YPZQ09YF')">
-                                <img class='alexa-skill' src="/assets/icons/MTM-favicon-72x72.png" alt="Alexa logo">
 
-                        </a>
-                        <a rel="noopener" href="https://www.facebook.com/MealsThatMatterCanada/" target="_blank"
-                                (click)="adobeDtbTracking.social_media_tracking('Facebook', 'https://www.facebook.com/MealsThatMatterCanada/')">
-                                <img src="/assets/static_images/facebook.png" alt="Facebook logo">
-                        </a>
-                        <a rel="noopener" href="https://www.instagram.com/mealsthatmatter/" target="_blank"
-                                (click)="adobeDtbTracking.social_media_tracking('Instagram', 'https://www.instagram.com/mealsthatmatter/')"><img
-                                        src="/assets/static_images/instagram.png" alt="Instagram logo"></a>
+<!-- lazy load footer  -->
+<div #footerContainer></div>
 
-                        <a rel="noopener" href="https://www.pinterest.ca/MealsThatMatterCA/" target="_blank"
-                                (click)="adobeDtbTracking.social_media_tracking('Pinterest', 'https://www.pinterest.ca/MealsThatMatterCA/')"><img
-                                        src="/assets/static_images/pinterest.png" alt="Pinterest logo"></a>
-
-                </div>
-        </div>
-        <div class="mobile-footer-container" *ngIf='isPortrait || isHandsetLandscape'>
-                <div class="footer-compliance-row">
-                        <a rel="noopener" href="https://www.unilever.ca/legal.html" target="_blank"
-                                (click)="adobeDtbTracking.page_tracking('Terms of use', 'https://www.unilever.ca/legal.html')">Terms
-                                of use</a>
-                        <a rel="noopener"
-                                href="https://www.unilevernotices.com/canada/english/privacy-notice/notice.html"
-                                target="_blank"
-                                (click)="adobeDtbTracking.page_tracking('Privacy
-                                Notice', 'https://www.unilevernotices.com/canada/english/privacy-notice/notice.html')">Privacy
-                                Notice</a>
-                        <!-- <a routerLink='/'>About us</a> -->
-                        <a routerLink="/recipes/faqs" (click)="adobeDtbTracking.page_tracking('FAQs', '/recipes/faqs')">FAQs</a>
-                </div>
-                <div class='footer-compliance-row'>
-                        <!-- adChoice  -->
-                        <a id="_bapw-link" href="#" target="_blank" style="text-decoration:none !important">
-                                <img alt="Adchoices" id="_bapw-icon"
-                                        style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;" />
-                                <span style="vertical-align:middle !important">AdChoices</span>
-                        </a>
-                        <!-- end adChoice -->
-                        <img class='unilever-logo' src="/assets/static_images/unilever.png" alt="Unilever logo">
-
-                </div>
-                <div class="footer-social-icons ">
-                        <a rel="noopener" href="https://www.facebook.com/MealsThatMatterCanada/" target="_blank">
-                                <img src="/assets/static_images/facebook.png" alt="Facebook logo"
-                                        (click)="adobeDtbTracking.social_media_tracking('Facebook', 'https://www.facebook.com/MealsThatMatterCanada/')">
-                        </a>
-                        <a rel="noopener" href="https://www.instagram.com/mealsthatmatter/" target="_blank"
-                                (click)="adobeDtbTracking.social_media_tracking('Instagram', 'https://www.instagram.com/mealsthatmatter/')"><img
-                                        src="/assets/static_images/instagram.png" alt="Instagram logo"></a>
-
-                        <a rel="noopener" href="https://www.pinterest.ca/MealsThatMatterCA/" target="_blank"><img
-                                        src="/assets/static_images/pinterest.png" alt="Pinterest logo"
-                                        (click)="adobeDtbTracking.social_media_tracking('Pinterest', 'https://www.pinterest.ca/MealsThatMatterCA/')"></a>
-                        <a target="_blank" rel="noopener"
-                                href="https://www.amazon.ca/Unilever-Canada-Meals-that-MatterTM/dp/B07L2B32LQ/ref=pd_lutyp_crtyp_simh_1_1/147-4269172-2761155?_encoding=UTF8&pd_rd_i=B07L2B32LQ&pd_rd_r=a1999550-45b9-4e0a-a10f-8c3a8645e9c9&pd_rd_w=qkIEK&pd_rd_wg=IQyFU&pf_rd_p=d219e352-c0b8-4f3c-978b-56743d208e51&pf_rd_r=JXTW3Y2XS877YPZQ09YF&psc=1&refRID=JXTW3Y2XS877YPZQ09YF"
-                                (click)="adobeDtbTracking.social_media_tracking('Amazon Alexa', 'https://www.amazon.ca/Unilever-Canada-Meals-that-MatterTM/dp/B07L2B32LQ/ref=pd_lutyp_crtyp_simh_1_1/147-4269172-2761155?_encoding=UTF8&pd_rd_i=B07L2B32LQ&pd_rd_r=a1999550-45b9-4e0a-a10f-8c3a8645e9c9&pd_rd_w=qkIEK&pd_rd_wg=IQyFU&pf_rd_p=d219e352-c0b8-4f3c-978b-56743d208e51&pf_rd_r=JXTW3Y2XS877YPZQ09YF&psc=1&refRID=JXTW3Y2XS877YPZQ09YF')">
-                                <img class='alexa-skill' src="/assets/icons/MTM-favicon-72x72.png" alt="Alexa logo">
-
-                        </a>
-                </div>
-                <p class='footer-text'>This website is intended for Canadian consumers of products and services
-                        of
-                        Unilever Canada Inc.
-                        This website is not intended for consumers outside Canada.
-                </p>
-        </div>
-</footer>
 <!-- Load files -->
-<div *ngIf="stylesToBeLoaded">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
-        <!-- <link rel="stylesheet" href="lazyloadedstyles.css"> -->
-</div>
+<link *ngIf="stylesToBeLoaded" rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
+<!-- <link rel="stylesheet" href="lazyloadedstyles.css"> -->
 <!-- end load files -->

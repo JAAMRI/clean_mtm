@@ -1,14 +1,25 @@
-<div class="home-page">
-  <section [class]="isMobile ? 'mobile-wrapper' : 'main-wrapper'">
-    <div class="component-wrapper">
-      <div class="home-content" [class.desktop]='isWeb'>
-        <app-on-board (scroll)='scrollToHowItWorks()' (login)='routeToLogin()'></app-on-board>
-      </div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #snav mode="over" [class]="isMobile ? 'mobile-nav' : 'web-nav'" [fixedInViewport]="true">
+    <app-mobile-menu (close)='snav.close()'></app-mobile-menu>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button class='menu-button' aria-label="Open menu" [class.deactivate]='snav.opened' mat-icon-button
+      (click)="snav.toggle()">
+      <mat-icon *ngIf='!snav.opened'>menu</mat-icon>
+    </button>
+
+    <div class="home-page">
+      <section [class]="isMobile ? 'mobile-wrapper' : 'main-wrapper'">
+        <div class="component-wrapper">
+          <div class="home-content" [class.desktop]='isWeb'>
+            <app-on-board (scroll)='scrollToHowItWorks()' (login)='routeToLogin()'></app-on-board>
+          </div>
+        </div>
+      </section>
+      <div #howItWorks> <div #howItWorksContainer></div></div>
+      <div #youWillLoveThisContainer> </div>
+      <div  #reclaimWeeknightCookingContainer> </div>
     </div>
-  </section>
-  <div class="desktop-content" #howitworks>
-    <ng-template [ngComponentOutlet]="howItWorksComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
-    <ng-template [ngComponentOutlet]="youWillLoveThisComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
-    <ng-template [ngComponentOutlet]="reclaimWeeknightCookingComponent" *ngtemplateoutlet="{isMobile: true}"></ng-template>
-  </div>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

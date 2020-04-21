@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { AccountService } from '../account/account.service';
-import { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 
 @Injectable({
   providedIn: 'root'

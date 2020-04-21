@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-// import { AmplifyAngularModule } from 'aws-amplify-angular';
-// import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRouting } from './app.routing';
@@ -15,20 +13,25 @@ import { SharedModule } from './shared/shared.module';
 import { SharedService } from './shared/shared.service';
 import { HomeModule } from './modules/home/home.module';
 import { SeoService } from './services/seo.service';
+import { DynamicScriptLoaderService } from './services/dynamic-script-loader.service';
+import { FooterComponent } from './modules/footer/footer.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRouting,
+    CommonModule,
     ToolbarModule,
     HttpClientModule,
     HomeModule,
-    // AmplifyAngularModule,
+    ToolbarModule,
     // environment.production ?
       // [] : 
       // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
@@ -41,6 +44,7 @@ import { SeoService } from './services/seo.service';
   providers: [
     MealService,
     SeoService,
+    DynamicScriptLoaderService,
     // AmplifyService,
     AccountService,
     SharedService

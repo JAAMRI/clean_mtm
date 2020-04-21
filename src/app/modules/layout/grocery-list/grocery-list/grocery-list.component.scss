@@ -1,11 +1,16 @@
 @import '../../../../../scss/customTheme.scss';
 
 .grocery-list-page{
-    padding: 0 16px;
+    height: calc(100% - 64px);
+    min-height: calc(100vh - 64px);
+
     display: flex;
+
     flex-direction: column;
-    height: calc(100% - 96px);
-    min-height: calc(100vh - 96px);
+
+    background-color: #fffef9;
+    position: relative;
+    z-index: 1;
     .title{
         text-align: center;
         margin-bottom: unset;
@@ -17,6 +22,14 @@
         flex: 1;
         .cc-mealplan-details-container{
             height: 100%;
+        }
+    }
+    .button-wrapper{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        button{
+            width: 300px;
         }
     }
 }

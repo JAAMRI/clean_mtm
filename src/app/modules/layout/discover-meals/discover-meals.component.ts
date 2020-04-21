@@ -1,23 +1,22 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { AccountService } from '../../../../app/services/account/account.service';
+import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
 import { PreferencesService } from '../../../../app/services/preferences/preferences.service';
+import { SeoService } from '../../../../app/services/seo.service';
 import { SPELLING_ERROR } from '../../../../app/utilities/global-constants';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { UserFormComponent } from '../../../components/dialogs/user-form/user-form.component';
 import { MealService } from '../../../services/meal.service';
 import { BREAKPOINTS } from '../../../utilities/breakpoints';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
-import { AccountService } from '../../../../app/services/account/account.service';
-import { Location } from '@angular/common';
-import { SeoService } from '../../../../app/services/seo.service';
-import { Title } from '@angular/platform-browser';
-import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-discover-meals',
@@ -53,6 +52,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
   totalResults: number = 0;
   mealPlanIds = {};
   mealPlan: any[] = [];
+  requestedMeals = false;
 
   slideConfig: any = {
     "slidesToScroll": 1,
@@ -68,7 +68,6 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
     private preferencesService: PreferencesService,
     private mealService: MealService, private breakpointObserver: BreakpointObserver,
     private accountService: AccountService,
-    private location: Location,
     private seo: SeoService,
     private title: Title,
     public adobeDtbTracking: AdobeDtbTracking
@@ -82,8 +81,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
       this.adobeDtbTracking.page_load("discover meals page");
     },
       5000);
-
-    await this.getPreferences();
+    this.preferences = await this.getPreferences();
     this.watchRouteForRecipePrompt()
     if (this.preferences.split(' ').length > 0) {//Randomize preferences if multiple preferences
       this.preferences = this.shuffleArray(this.preferences.split(' ')).join(' ');
@@ -121,17 +119,20 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
   }
 
   async getPreferences() {
-    this.preferences = await this.preferencesService.getPreferences();
+    return await this.preferencesService.getPreferences();
   }
 
   getMeals(pageStart?: number, pageSize?: number, query = "") {
     //Show spinner while loading
     this.loading = true;
     this.mealService.getMeals(pageStart, pageSize, query).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals) => {
+      this.requestedMeals = true; // a flag to know whether meals were requested
       if (meals) {
         //Check if did_you_mean
         if (meals.hasOwnProperty("did_you_mean") && meals.hasOwnProperty("did_you_mean_results") && meals.data.length === 0) {
           this.didYouMean = meals.did_you_mean;
+          // if did you mean exists, still search for those results
+          this.searchMeals(this.didYouMean);
         }
         //Reset page start
         this.pageStart = pageStart;
@@ -141,7 +142,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
         let theMeals = this.mapResults(meals);
         // Populate meals
         if (pageStart < this.totalResults) {
-          if (this.meals.length === this.pageStart) {//Avoid multiple push with same server response
+          if (this.meals && (this.meals.length === this.pageStart)) {//Avoid multiple push with same server response
             this.meals.push(...theMeals.slice(0, pageSize + 1)); // -1 for index, grabbing meals from api and appending it to meals
           }
         }
@@ -154,7 +155,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
         // get favourite meals
         this.getFavouriteMeals();
         //Add Query to preferences
-        if (this.theEnteredSearchQuery && theMeals.length > 0) {
+        if (this.theEnteredSearchQuery && theMeals && theMeals.length > 0) {
           this.addToPreferences(this.theEnteredSearchQuery);
         }
 
@@ -236,7 +237,6 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
     } else {
       this.theEnteredSearchQuery = query;
     }
-    this.didYouMean = null;
     this.resetAllGlobalValues();
     this.getMeals(this.pageStart, this.pageSize, query);
     if (query != "") {
@@ -294,8 +294,9 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
 
   visitMealDetailPage(meal: any) {
     if (!this.carouselIsChanging) {
-      const mealTitle = meal.title as string;
-      this.router.navigate([`/recipes/discover/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
+      // const mealTitle = meal.title as string;
+      this.promptMealDetailComponent(meal.id);
+      // this.router.navigate([`/recipes/discover/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
 
     }
     this.carouselIsChanging = false;
@@ -307,7 +308,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
     const ref = this.dialog.open(MealDetailComponent, {
       panelClass: 'recipe-dialog-container',
       backdropClass: 'faded-backdrop',
-      data: { id, parentComponent: 'discover' }
+      data: { id }
     });
     ref.componentInstance.dialogParams = {
       onAddOrRemoveMealPlan: (fromDialog: any) => {

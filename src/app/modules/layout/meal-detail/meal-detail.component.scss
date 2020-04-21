@@ -6,13 +6,16 @@
 }
 .recipe-page {
   font-family: avenir;
-  max-width: 80vw;
-  max-height: 80vh;
   overflow: scroll;
   overflow-x: hidden;
   -ms-overflow-x: hidden;
   position: relative;
-  padding: 1em;
+  z-index: 1;
+  background-color: $light_beige;
+  &.dialog{
+    max-width: 80vw;
+    max-height: 80vh;
+  }
 }
 
 .mobile-recipe-page{
@@ -267,4 +270,8 @@
 *:focus {
   outline: 0;
   outline: none;
+}
+
+mat-spinner{
+  margin: auto;
 }

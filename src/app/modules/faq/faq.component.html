@@ -11,6 +11,42 @@
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         <mat-icon>question_answer</mat-icon>
+                        Can I purchase my meal plan online?
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        <button aria-label="Expand accordion" mat-icon-button>
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p class='faq-description'>If you live in Ontario, you may be able to purchase your meal plan online
+                    through Metro online grocery. Visit <a href="https://www.metro.ca/en/online-grocery"
+                        target="_blank">www.metro.ca/en/online-grocery</a> to find out if they have pickup or
+                    delivery in your area*
+                </p>
+                <p class="faq-description">
+                    If you live in BC, you may be able to purchase your meal plan online through Save on Foods online
+                    grocery. Visit
+                    <a href="https://www.saveonfoods.com/shop-online-how-it-works/#" target="_blank">
+                        https://www.saveonfoods.com/shop-online-how-it-works/#
+                    </a>
+                     To find out if they have pickup or delivery
+                    in your area*
+                </p>
+                <p class='faq-description'>If you live outsite of Ontario or BC, stay tuned! We are always working on
+                    improving our service.
+                </p>
+                <small class="faq-description">
+                    *Due to COVID-19 there is higher than normal volume on grocery delivery right now, therefore
+                    delivery times may be impacted through Metro & Save on Foods.
+                </small>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <mat-accordion class="faq-align">
+            <mat-expansion-panel (closed)="panelOpenState = false" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>question_answer</mat-icon>
                         How do I build my meal plan?
                     </mat-panel-title>
                     <mat-panel-description>
@@ -168,29 +204,7 @@
                 </p>
             </mat-expansion-panel>
         </mat-accordion>
-        <mat-accordion class="faq-align">
-            <mat-expansion-panel (closed)="panelOpenState = false" hideToggle>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <mat-icon>question_answer</mat-icon>
-                        Can I purchase my meal plan online?
-                    </mat-panel-title>
-                    <mat-panel-description>
-                        <button aria-label="Expand accordion" mat-icon-button>
-                            <mat-icon>add</mat-icon>
-                        </button>
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-                <p class='faq-description'>If you live in Ontario, you may be able to purchase your meal plan online
-                    through Metro online grocery. Visit <a href="https://www.metro.ca/en/online-grocery"
-                        target="_blank">www.metro.ca/en/online-grocery</a> to find out if they have pickup or
-                    delivery in your area.
-                </p>
-                <p class='faq-description'>If you live outsite of Ontario, stay tuned! We are always working on
-                    improving our service.
-                </p>
-            </mat-expansion-panel>
-        </mat-accordion>
+
         <mat-accordion class="faq-align">
             <mat-expansion-panel (closed)="panelOpenState = false" hideToggle>
                 <mat-expansion-panel-header>

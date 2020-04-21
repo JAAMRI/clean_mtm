@@ -1,183 +1,117 @@
 @import "../../../scss/customTheme.scss";
 @import "../../../scss/variables.scss";
 
-.home-page {
-  height: 100%;
-  .mobile-wrapper {
-    height: 80vh;
-    position: relative;
 
-    background-image: url("/assets/static_images/MTM_Mobile_Homepage_Image_1125x2436.jpg");
-    background-size: cover;
-  }
-  .main-wrapper {
-    height: 80vh;
-    position: relative;
-
-    background-image: url("/assets/static_images/MTM_Desktop_Homepage_Image_1920x1080.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .component-wrapper {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    .home-content {
-      display: flex;
-      background-color: $mtm_light_green_color;
-      color: $light_beige;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      max-width: 300px;
-      width: 70%;
-      height: 35vh;
-      min-height: 200px;
-      &.desktop {
-        height: 37vh;
-        width: 40vw;
-        max-width: unset;
-        
-
-      }
-    }
-
-    .close-button {
-      display: flex;
-      align-self: flex-end;
-    }
-  }
-
-  // mat form fields
-  .mat-form-field-appearance-legacy .mat-form-field-underline {
-    background: $light_beige !important;
-  }
-  .mat-form-field-label {
-    color: $light_beige !important;
-  }
-
-  .mat-form-field-ripple {
-    background-color: $light_beige !important;
-  }
-}
-.how-it-works {
-  text-align: center;
-  background-color: $darker_beige;
-  padding: 1em;
-  .how-it-works-row {
-    display: flex;
-    justify-content: center;
-    margin-top: 1em;
-  }
-  .how-it-works-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 1em;
-  }
-  .icon {
-    margin: 2em 2.5em 0 2.5em;
-  }
-  .hiw-icon-container {
-    color: $mtm_light_green_color;
-    .icon {
-      transform: scale(3);
-    }
-    .grocery-list-icon {
-      transform: scale(6);
-    }
-    p {
-      margin-top: 3em;
-    }
-  }
-
-  .arrow-right {
-    // margin: 4em 4em 0 4em;
-    margin: 2em 3em 2em 3em;
-    color: $mtm_light_green_color;
-  }
-}
-
-.product-benefits {
-  min-height: 50vh;
-  padding: 1em 2em;
-  position: relative;
+mat-sidenav-container {
+  margin-top: 0 !important;
   background-color: $light_beige;
-  .text-wrapper {
-    text-align: center;
-    p {
-      font-family: avenir;
-      margin: auto;
-      width: 65%;
+  mat-sidenav {
+    top: 0 !important;
+    background-color: $mtm_green_color !important;
+    padding: 16px;
+    overflow: unset;
+    &.mobile-nav{
+      width: 100%;
     }
-  }
-  .product-carousel {
-    margin: auto;
-    padding: 2em 0;
-    mat-card {
-      margin: 0.5em;
-      padding: unset;
-      img {
-        margin: unset;
-        width: 100%;
-        object-fit: cover;
-      }
-      mat-card-content {
-        padding: unset;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $darker_beige;
-        flex-direction: column;
-        p.meal-title {
-          text-align: center;
-          font-family: flavour;
-          font-size: 1.5em;
-          width: 65%;
-          margin-top:7%;
-        }
-        p.meal-body{
-          text-align: center;
-          font-size: 1em;
-          font-family: avenir;
-          width: 80%;
-          margin: auto;
-        }
+    .menu-toolbar {
+      display: flex;
+      justify-content: space-between;
+      button {
+        color: $light_beige;
       }
     }
+    mat-nav-list {
+      padding: 16px;
+      .page-item {
+        color: $light_beige;
+        font-family: flavour;
+        font-size: 1.25em;
+        height: 36px;
+      }
+      .active {
+        color: $mtm_light_green_color;
+      }
+    }
+    .bottom-wrapper {
+      bottom: 0;
+      width: 100%;
+    }
   }
-}
-
-
-
-.main-footer {
-  .main-footer-wrapper {
-    background-image: url("/assets/static_images/Desktop_Footer_Image.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    min-height: 40vh;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    position: relative;
-    .text-wrapper {
-      text-align: center;
+  mat-sidenav-content {
+    overflow: unset;
+    .menu-button {
+      position: absolute;
+      top: 0;
+      z-index: 2;
       color: $light_beige;
-      p {
-        font-family: avenir;
-        width: 65%;
-        margin: auto;
+      background-color: $mtm_light_green_color;
+      margin: 1em;
+    }
+    .home-page {
+      height: 100%;
+      .mobile-wrapper {
+        height: 80vh;
+        position: relative;
+    
+        background-image: url("/assets/static_images/MTM_Mobile_Homepage_Image_1125x2436.jpg");
+        background-size: cover;
+      }
+      .main-wrapper {
+        height: 80vh;
+        position: relative;
+    
+        background-image: url("/assets/static_images/MTM_Desktop_Homepage_Image_1920x1080.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      
+      .component-wrapper {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .home-content {
+          display: flex;
+          background-color: $mtm_light_green_color;
+          color: $light_beige;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          max-width: 300px;
+          width: 70%;
+          height: 250px;
+          &.desktop {
+            height: 37vh;
+            width: 40vw;
+            max-width: unset;
+            
+    
+          }
+        }
+    
+        .close-button {
+          display: flex;
+          align-self: flex-end;
+        }
+      }
+    
+      // mat form fields
+      .mat-form-field-appearance-legacy .mat-form-field-underline {
+        background: $light_beige !important;
+      }
+      .mat-form-field-label {
+        color: $light_beige !important;
+      }
+    
+      .mat-form-field-ripple {
+        background-color: $light_beige !important;
       }
     }
   }
 }
+
 .scroll-to-top-button-wrapper {
   display: flex;
   justify-content: flex-end;
@@ -187,13 +121,7 @@
     right: 3em;
   }
 }
-.expand-more-button-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  height: 20vh;
-}
+
 .scroll-button {
   color: $mtm_light_green_color !important;
   background-color: $light_beige !important;

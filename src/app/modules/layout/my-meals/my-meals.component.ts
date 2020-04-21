@@ -4,18 +4,18 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer, Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AccountService } from '../../../../app/services/account/account.service';
+import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
+import { SeoService } from '../../../../app/services/seo.service';
 import { BREAKPOINTS } from '../../../../app/utilities/breakpoints';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { UserFormComponent } from '../../../components/dialogs/user-form/user-form.component';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
-import { SeoService } from '../../../../app/services/seo.service';
-import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-my-meals',
@@ -45,7 +45,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
 
 
   constructor(private router: Router, private snackbar: MatSnackBar,
-    private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
     private mealPlanService: MealPlanService,
     private mealFavouritesService: MealFavouritesService,
@@ -68,7 +67,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
       5000);
 
     this.getFavouriteMeals();
-    this.watchRouteForRecipePrompt()
     scrollToTop();
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
@@ -88,28 +86,14 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     })
   }
 
-  watchRouteForRecipePrompt() {
-    this.route.queryParams.pipe(takeUntil(this.unsubscribeAll)).subscribe((params) => {
-      if (params.id) {
-        this.promptMealDetailComponent(params.id)
-      }
-    })
-  }
-
   registerIcons() {
     // register mtm icons to use for meal plan
-    // this.matIconRegistry.addSvgIcon('mtmburger', this.sanitizer.bypassSecurityTrustResourceUrl
-    //   ('/assets/static_images/my-meals-icons/burger.svg'));
-    // this.matIconRegistry.addSvgIcon('mtmblob',
-    //   this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/cloud.svg'));
-    // this.matIconRegistry.addSvgIcon('mtmbread',
-    //   this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/bread.svg'));
     this.matIconRegistry.addSvgIcon('mtmbread',
-      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/noun_Bread_1454657.svg'));
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/carbs.svg'));
     this.matIconRegistry.addSvgIcon('mtmblob',
-      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/Fats.svg'));
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/fats.svg'));
     this.matIconRegistry.addSvgIcon('mtmfire',
-      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/shutterstock_695381968_Calories.svg'));
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/my-meals-icons/calories.svg'));
   }
 
   async getMealPlan() {
@@ -181,8 +165,9 @@ export class MyMealsComponent implements OnInit, OnDestroy {
 
   visitMealDetailPage(meal: any) {
     if (!this.carouselIsChanging) {
-      const mealTitle = meal.title as string;
-      this.router.navigate([`/recipes/my-meals/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
+      // const mealTitle = meal.title as string;
+      // this.router.navigate([`/recipes/my-meals/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
+      this.promptMealDetailComponent(meal.id)
     }
     this.carouselIsChanging = false;
   }
@@ -192,7 +177,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     const ref = this.dialog.open(MealDetailComponent, {
       panelClass: 'recipe-dialog-container',
       backdropClass: 'faded-backdrop',
-      data: { id, parentComponent: 'my-meals' },
+      data: { id },
     });
     ref.componentInstance.dialogParams = {
       onAddOrRemoveMealPlan: (fromDialog: any) => {

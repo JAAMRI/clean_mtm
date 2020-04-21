@@ -1,10 +1,16 @@
-@import "../../../../scss/customTheme.scss";
+@import "../../../scss/customTheme.scss";
 
 .contact-us-page {
   display: flex;
   flex-direction: column;
+  height: calc(100% - 64px); // height subrating toolbar
+  min-height: calc(100vh - 64px); 
   align-items: center;
   padding: 1em;
+  background-color: $light_beige;
+
+  position: relative;
+    z-index: 1;
   .contact-us-copy {
     display: flex;
     flex-direction: column;

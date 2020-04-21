@@ -12,14 +12,9 @@
     {{!isMobile ? 'Browse recipes to add to your meal plan.' : 'Browse recipes to add to your meal plan.'}}
   </p>
 
-  <div class='no-items-wrapper' *ngIf='theEnteredSearchQuery && meals && meals?.length === 0 && !loading'>
-    <p>Maybe try the following</p>
-    <p>
-      <mat-icon>check</mat-icon> Use short keywords in your search
-    </p>
-    <p>
-      <mat-icon>check</mat-icon> Try not to use too long phrases
-    </p>
+  <div class='no-items-wrapper' *ngIf='!didYouMean && meals?.length === 0 && !loading && requestedMeals'>
+    
+      <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
   </div>
   <p class='loading-text' *ngIf='loading'>Loading...</p>
 

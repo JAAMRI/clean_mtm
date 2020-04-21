@@ -4,25 +4,17 @@
 .meal {
   padding: 16px;
 }
+
+.meal-title{
+  text-align: center;
+}
 .meal-card {
   margin: 0.5em;
   cursor: pointer;
   padding: unset;
   box-shadow: unset !important;
   background-color: $light_beige;
-  .meal-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    transform: translate(-50%, -50%);
-    color: $light_beige;
-    padding: 0 1em;
-    font-weight: 600;
-    text-transform: capitalize;
-    text-align: center;
-    font-size: 1.25em;
-  }
+  
   .mat-card-image {
     min-height: 175px;
     max-height: 200px;

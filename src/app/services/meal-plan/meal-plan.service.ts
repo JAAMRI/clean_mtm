@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { handleError } from '../../../app/utilities/helper-functions';
 import { AccountService } from '../account/account.service';
-import { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 
 
 @Injectable({

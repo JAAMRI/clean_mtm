@@ -6,10 +6,7 @@ const MyMealsRoutes: Routes = [
     path: '',
     component: MyMealsComponent,
   },
-  {
-    path: ':id',
-    loadChildren: () => import('../meal-detail/meal-detail.module').then(m => m.MealDetailModule)
-  },
+
 
 ];
 

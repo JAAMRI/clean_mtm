@@ -14,6 +14,8 @@ import { HomeRouting } from './home.routing';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { YouWillLoveThisComponent } from './you-will-love-this/you-will-love-this.component';
 import { ReclaimWeeknightCookingComponent } from './reclaim-weeknight-cooking/reclaim-weeknight-cooking.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MobileMenuModule } from '../../components/mobile-menu/mobile-menu.module';
 
 @NgModule({
   declarations: [HomeComponent, HowItWorksComponent, YouWillLoveThisComponent, ReclaimWeeknightCookingComponent],
@@ -28,7 +30,9 @@ import { ReclaimWeeknightCookingComponent } from './reclaim-weeknight-cooking/re
     MatDialogModule,
     UserFormModule,
     ForgotPasswordModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    MatSidenavModule,
+    MobileMenuModule
   ]
 })
 export class HomeModule { }
