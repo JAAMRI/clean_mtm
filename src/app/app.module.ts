@@ -16,7 +16,22 @@ import { SeoService } from './services/seo.service';
 import { DynamicScriptLoaderService } from './services/dynamic-script-loader.service';
 import { FooterComponent } from './modules/footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { UrlSerializer } from '@angular/router';
+// StandardUrlSerializer 
+import { DefaultUrlSerializer, UrlTree } from "@angular/router";
 
+export class StandardUrlSerializer implements UrlSerializer {
+    private _defaultUrlSerializer: DefaultUrlSerializer = new DefaultUrlSerializer();
+
+    parse(url: string): UrlTree {
+       url = url.replace(/\(/g, "").replace(/\)/g, "");
+       return this._defaultUrlSerializer.parse(url);
+    }
+
+    serialize(tree: UrlTree): string {
+       return this._defaultUrlSerializer.serialize(tree);
+    }
+}
 
 @NgModule({
   declarations: [
@@ -47,8 +62,13 @@ import { CommonModule } from '@angular/common';
     DynamicScriptLoaderService,
     // AmplifyService,
     AccountService,
-    SharedService
+    SharedService,
+      {
+         provide: UrlSerializer,
+         useClass: StandardUrlSerializer
+      }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
