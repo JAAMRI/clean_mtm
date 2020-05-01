@@ -1,0 +1,33 @@
+@import "../../../scss/customTheme.scss";
+
+.download-page {
+    display: flex;
+    height: calc(100% - 64px); // height subrating toolbar
+    min-height: calc(100vh - 64px); 
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: $light_beige;
+    z-index: 1;
+    .logo-desktop-wrapper {
+        height: 20vh;
+        width: 20vh;
+    }
+    .title {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        color: $mtm_light_green_color;
+        padding: 2em 0;
+        h1{
+            margin: unset;
+        }
+    }
+    .action-button{
+        width: 200px;
+        font-size: 1.5em;
+        padding: 4px;
+    }
+}

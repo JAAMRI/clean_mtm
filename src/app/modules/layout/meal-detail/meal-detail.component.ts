@@ -67,6 +67,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   async ngOnInit() {
+    console.log('on iinit')
     scrollToTop();
     this.updateSeoTag()
     this.mealId = await this.getMealId();
@@ -89,6 +90,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       const param = routeParams.get('id');
 
       if (param) {
+     
         const paramArray = param.split('-');
         const mealId = paramArray[paramArray.length -1];
         if (mealId) {
@@ -129,7 +131,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   logMealLocation() {
     const host = `${environment.production ? 'https://www.mealsthatmatter.com' : (environment.uat ? 'https://uat.mealsthatmatter.com' : 'http://localhost:4200')}`;
-    const mealTitle = this.meal.title.split(',').join('').split(' ').join('-').split('&').join('and');
+    const mealTitle = this.meal.title.split(',').join('').split('(').join('').split(')').join('').split(' ').join('-').split('&').join('and');
     const location = `RECIPE LOCATION: ${host}/recipes/${mealTitle}-${this.mealId}`;
     console.log(location);
   }
@@ -145,7 +147,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   getEmailContent() {
     const host = `${environment.production ? 'https://www.mealsthatmatter.com' : (environment.uat ? 'https://uat.mealsthatmatter.com' : 'http://localhost:4200')}`;
-    const mealTitle = this.meal.title.split(',').join('').split(' ').join('-').split('&').join('and');
+    const mealTitle = this.meal.title.split(',').join('').split('(').join('').split(')').join('').split(' ').join('-').split('&').join('and');
     const location = `${host}/recipes/${mealTitle}-${this.mealId}`;
     const body = "Hi, Thought you would love this recipe from Meals That Matter. " + encodeURIComponent(location);
     this.emailContent = `mailto:?body=${body}&subject=${this.meal.title}`;

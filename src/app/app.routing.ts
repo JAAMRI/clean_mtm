@@ -35,6 +35,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/article/article.module').then(m => m.ArticleModule)
   },
   {
+    path: 'download',
+    component: ToolbarComponent,
+    loadChildren: () => import('./modules/download/download.module').then(m => m.DownloadModule)
+  },
+  {
     path: 'contact-us',
     component: ToolbarComponent,
 

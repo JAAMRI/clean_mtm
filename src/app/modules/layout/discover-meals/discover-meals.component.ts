@@ -133,6 +133,8 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
           this.didYouMean = meals.did_you_mean;
           // if did you mean exists, still search for those results
           this.searchMeals(this.didYouMean);
+        } else if (!meals.did_you_mean){
+          this.didYouMean = null;
         }
         //Reset page start
         this.pageStart = pageStart;
