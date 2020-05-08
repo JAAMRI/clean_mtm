@@ -81,6 +81,7 @@ export class AppComponent implements OnInit {
     if (environment.production || environment.uat) {
       this.facebookImplementation();
       this.adobeImplementation();
+      this.newRelicImplementation();
     }
 
 
@@ -272,6 +273,12 @@ export class AppComponent implements OnInit {
   adobeImplementation() {
     this.dynamicScriptLoader.load('adobe-tracking', 'adobe-tracking-min').then((data: any) => {
       console.log('Adobe tracking loaded successfully');
+    }).catch(console.error)
+  }
+
+  newRelicImplementation() {
+    this.dynamicScriptLoader.load('new-relic').then((data: any) => {
+      console.log('New Relic loaded successfully');
     }).catch(console.error)
   }
 

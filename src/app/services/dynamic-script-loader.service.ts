@@ -6,9 +6,10 @@ interface Scripts {
 }
 
 export const ScriptStore: Scripts[] = [
+  { name: 'new-relic', src: '../../assets/scripts/new-relic.js' },
   { name: 'adobe-tracking', src: '../../assets/scripts/adobe-tracking.js' },
   { name: 'adobe-tracking-min', src: '//assets.adobedtm.com/launch-EN0ed0003810f9435a8566fef4c9d7b320.min.js' },
-  {name: 'sales-force-live-agent', src: 'https://c.la1-c2-lo2.salesforceliveagent.com/content/g/js/47.0/deployment.js'}
+  {name: 'sales-force-live-agent', src: 'https://c.la1-c2-lo2.salesforceliveagent.com/content/g/js/47.0/deployment.js'},
 ];
 
 declare var document: any;

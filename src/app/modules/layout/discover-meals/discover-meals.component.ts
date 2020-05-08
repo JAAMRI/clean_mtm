@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -24,7 +24,7 @@ import { MealDetailComponent } from '../meal-detail/meal-detail.component';
   styleUrls: ['./discover-meals.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class DiscoverMealsComponent implements OnInit, OnDestroy {
+export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   meals: any[] = [];
   userMealPlan$: Observable<any>;
@@ -33,6 +33,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
   favouriteMeals: any = []
   preferences: string = '';
   loading = false;
+  viewLoaded: boolean = false;
   searchQuery: string;
   didYouMean: string;
   unsubscribeAll = new Subject();
@@ -70,6 +71,7 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
     private accountService: AccountService,
     private seo: SeoService,
     private title: Title,
+    private cdr: ChangeDetectorRef,
     public adobeDtbTracking: AdobeDtbTracking
   ) {
     this.observeBreakpoints()
@@ -101,6 +103,11 @@ export class DiscoverMealsComponent implements OnInit, OnDestroy {
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/recipes/discover'
     })
+  }
+
+  ngAfterViewInit() {
+    this.viewLoaded = true;
+    this.cdr.detectChanges();
   }
 
   watchAuthState() {

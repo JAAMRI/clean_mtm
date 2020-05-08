@@ -18,7 +18,7 @@
   </div>
   <p class='loading-text' *ngIf='loading'>Loading...</p>
 
-  <div class="discover-meals-container">
+  <div *ngIf='viewLoaded' class="discover-meals-container">
     <!-- <mat-progress-bar mode="indeterminate" *ngIf='loadingMeals'></mat-progress-bar> -->
     <ngx-slick-carousel [class]="!isWeb ? 'mobile-carousel' : 'carousel'" #slickModal="slick-carousel"
       [ngClass]="{'disable-next-button': disableNextButton}" (beforeChange)='setCarouselChanging()'
