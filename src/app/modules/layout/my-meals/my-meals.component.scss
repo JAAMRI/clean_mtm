@@ -20,6 +20,14 @@
   justify-content: center;
   background-color: $light_beige;
 }
+.button-wrapper{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  button{
+      width: 300px;
+  }
+}
 .title {
   font-size: 2em;
   text-align: center;

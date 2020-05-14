@@ -7,6 +7,13 @@
   </p>
   <ng-container *ngIf='mealPlan.length === 0'>
     <p class='no-items-text'>No items found</p>
+    <div class="button-wrapper">
+
+      <button aria-label="Select meals" mat-raised-button color='primary'
+        routerLink='/recipes/discover' (click)="adobeDtbTracking.page_tracking('SELECT MEALS','/recipes/discover')">
+        SELECT MEALS
+      </button>
+    </div>
   </ng-container>
 
 
@@ -33,7 +40,8 @@
         <mat-icon>chevron_left</mat-icon>
         SELECT MEALS
       </button>
-      <button aria-label="View grocery list" mat-flat-button class='grocery-list-button' routerLink='/recipes/grocery-list'
+      <button aria-label="View grocery list" mat-flat-button class='grocery-list-button'
+        routerLink='/recipes/grocery-list'
         (click)="adobeDtbTracking.page_tracking('GROCERY LIST','/recipes/grocery-list')">
         GROCERY LIST
         <mat-icon>chevron_right</mat-icon>

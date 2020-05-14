@@ -9,7 +9,13 @@
     <mat-icon>favorite_border</mat-icon>
     <h2>Save your favourites</h2>
     <p>When you find something you like, use the heart to save your favourites and you can find it again here.</p>
+    <div class="button-wrapper">
+      <button aria-label="Select meals" mat-raised-button color='primary'
+      routerLink='/recipes/discover' (click)="adobeDtbTracking.page_tracking('SELECT MEALS','/recipes/discover')">
+      SELECT MEALS
+    </button>
 
+    </div>
   </div>
 
   <div class="my-meals-container">
