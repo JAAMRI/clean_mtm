@@ -28,4 +28,5 @@ import { FavouritesRouting } from './favourites.routing';
     FavouriteMealModule,
   ]
 })
+
 export class FavouritesModule { }
