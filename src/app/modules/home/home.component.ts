@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   ngAfterViewInit() {
-    this.lazyLoadComponents()
+    // this.lazyLoadComponents()
     setTimeout(() => this.watchRoute()); // skip 1 cycle to let route come into place
     setTimeout(() => { this.adobeDtbTracking.page_load("home page"); }, 1000);
   }

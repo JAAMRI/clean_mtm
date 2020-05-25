@@ -10,8 +10,9 @@
 html,
 body {
   background: $light_beige;
-  font-family: flavour;
+  font-family: filson;
   margin: unset;
+  height: 100%;
 }
 
 mat-icon {
@@ -23,7 +24,7 @@ button {
   .mat-spinner circle {
     stroke: $light_beige;
   }
-  font-family: flavour !important;
+  font-family: filson !important;
 }
 mat-dialog-container{
   overflow: unset;

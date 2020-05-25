@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
   }
 
   async ngAfterViewInit() {
-    this.loadFooter();
+    // this.loadFooter();
     this.loadFontIcons();
     if (environment.production == true || environment.uat == true) {
       await this.loadjscssfile("../jquery.js", "js");

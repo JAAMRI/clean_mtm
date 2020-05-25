@@ -49,8 +49,3 @@ $customTheme: mat-light-theme($primary, $accent, $warn);
 @include angular-material-theme($customTheme);
 
 //Color Variables
-$mtm_light_green_color: mat-color($MTMBrandPalette, 700);
-$mtm_green_color: mat-color($MTMBrandPalette, 500);
-$mtm_dark_green_color: mat-color($MTMBrandPalette, 900);
-$light_beige: mat-contrast($MTMBrandPalette, 400);
-$darker_beige: mat-contrast($MTMBrandPalette, 500);
