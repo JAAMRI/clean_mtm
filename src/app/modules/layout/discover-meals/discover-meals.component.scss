@@ -14,20 +14,15 @@
 .mobile-discover-meals-page {
   height: calc(100% - 40px - 2em); // height subtracting mobil toolbar
   min-height: calc(100vh - 40px - 2em); // height subrating toolbar (landscape)
-  display: flex;
   padding: 1em 0;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   background-color: $light_beige;
 }
 .search {
   width: 100%;
 }
 .title {
-  font-size: 2em;
-  align-self: center;
-  color: $mtm_dark_green_color;
-  font-weight: bold;
+  padding: 1em 3em 0 3em;
 }
 .subheader {
   text-align: center;

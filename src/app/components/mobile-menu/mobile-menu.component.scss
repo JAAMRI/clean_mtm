@@ -1,33 +1,41 @@
 @import "../../../scss/variables.scss";
 
-.mobile-toolbar-wrapper {
+.mobile-menu {
+  padding: 1em;
   .menu-toolbar {
     display: flex;
     justify-content: space-between;
-    button {
-      color: $light_beige;
-    }
-    .toolbar-start{
-      display: flex;
-      justify-content: center;
-    }
+  }
+  .mat-list-item-content{
+    padding: unset !important;
   }
   mat-nav-list {
-    padding: 16px;
+  
     .page-item {
-      color: $light_beige;
-      font-family: flavour;
-      font-size: 1.25em;
-      height: 36px;
+      font-family: filson;
+      height: 32px;
+
     }
     .active {
       color: $mtm_light_green_color;
     }
-    .adchoices {
-      height: 32px;
+  
+  }
+  .auth-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 0;
+    button{
+      width: 100%;
+    }
+    .sign-in-btn-wrapper{
+      text-align: center;
+      display: flex;
+      flex-direction: column;
       margin-top: 1em;
-      img {
-        height: 100%;
+      small{
+        font-size: 8px;
       }
     }
   }

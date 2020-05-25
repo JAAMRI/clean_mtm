@@ -237,7 +237,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
 
   viewFavourites() {
     this.router.navigate(['/recipes/favourites']);
-    this.adobeDtbTracking.page_tracking('FAVOURITES', '/mtmfavourites');
+    this.adobeDtbTracking.pageTracking('FAVOURITES', '/mtmfavourites');
   }
 
 }

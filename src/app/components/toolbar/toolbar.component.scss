@@ -40,6 +40,7 @@
   flex-direction: column;
   .toolbar {
     display: flex;
+
     .edit-button {
       color: $mtm_green_color;
     }
@@ -47,11 +48,11 @@
       cursor: default;
       pointer-events: none;
     }
-    .logo{
-      height: 40px;
-      width: 40px;
+    .logo {
+      height: 48px;
+      width: calc(100% - 64px);
       cursor: pointer;
-      img{
+      img {
         height: 100%;
         width: 100%;
         margin-top: 4px;
@@ -132,4 +133,3 @@
     }
   }
 }
-

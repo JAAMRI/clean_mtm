@@ -5,10 +5,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SearchBarModule } from '../../../../app/components/search-bar/search-bar.module';
 import { UserFormModule } from '../../../components/dialogs/user-form/user-form.module';
-import { MyMealItemModule } from '../../../components/my-meal-item/my-meal-item.module';
+import { MealItemModule } from '../../../components/meal-item/meal-item.module';
 import { MyMealsComponent } from './my-meals.component';
 import { MyMealsRouting } from './my-meals.routing';
 
@@ -17,7 +16,7 @@ import { MyMealsRouting } from './my-meals.routing';
   imports: [
     CommonModule,
     MyMealsRouting,
-    MyMealItemModule,
+    MealItemModule,
     MatIconModule,
     MatButtonModule,
     SearchBarModule,
@@ -25,7 +24,6 @@ import { MyMealsRouting } from './my-meals.routing';
     MatSnackBarModule,
     UserFormModule,
     ScrollingModule,
-    SlickCarouselModule,
   ],
 })
 export class MyMealsModule { }

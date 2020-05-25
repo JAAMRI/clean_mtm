@@ -4,6 +4,11 @@
   height: 100%;
 
   mat-sidenav-container {
+    @media(max-width:1024px) {
+      mat-sidenav{
+        width: 100%;
+      }
+    }
     mat-sidenav-content {
       overflow: unset;
       .menu-button {

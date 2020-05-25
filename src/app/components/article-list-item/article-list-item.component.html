@@ -1,0 +1,10 @@
+<div class="article-list-item">
+    <div class="img-wrapper">
+        <img [src]="article.image" [alt]="article.title">
+    </div>
+    <div class="article-content">
+        <h2>{{article.title}}</h2>
+        <p>{{article.content | truncate:60}}</p>
+        <p>Read time: {{article.readTime}}</p>
+    </div>
+</div>

@@ -12,16 +12,16 @@ export class MtmSliderComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
-    this.scrollToMiddle()
+    // this.scrollToMiddle()
   }
 
-  scrollToMiddle() {
-    setTimeout(() => {
-      this.slider.nativeElement.scrollLeft = (this.slider.nativeElement.clientWidth /2);
+  // scrollToMiddle() {
+  //   setTimeout(() => {
+  //     this.slider.nativeElement.scrollLeft = (this.slider.nativeElement.clientWidth /2);
 
-    }, 1000);
+  //   }, 1000);
 
-  }
+  // }
 
 
 }

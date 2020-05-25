@@ -1,6 +1,7 @@
 <div [class]="isMobile ? 'mobile-my-meals-page' : 'my-meals-page'">
-  <div class="title">
-    MEAL PLAN
+  <div class="copy">
+    <h1>MEAL PLAN</h1>
+    <p>Click <strong>NEXT</strong> when you're ready, to shop ingredients in your Grocery List. Click <mat-icon>remove</mat-icon> to remove recipes.</p>
   </div>
   <p class='my-meals-subheader'>
     {{!isMobile ? 'When your meal plan is ready, click grocery list to shop ingredients' : 'When your meal plan is ready, click grocery list to shop ingredients'}}
@@ -9,8 +10,8 @@
     <p class='no-items-text'>No items found</p>
     <div class="button-wrapper">
 
-      <button aria-label="Select meals" mat-raised-button color='primary'
-        routerLink='/recipes/discover' (click)="adobeDtbTracking.page_tracking('SELECT MEALS','/recipes/discover')">
+      <button aria-label="Select meals" mat-raised-button color='primary' routerLink='/recipes/discover'
+        (click)="adobeDtbTracking.pageTracking('SELECT MEALS','/recipes/discover')">
         SELECT MEALS
       </button>
     </div>
@@ -18,17 +19,13 @@
 
 
   <div class="my-meals-container">
-    <ngx-slick-carousel [class]="!isWeb ? 'mobile-carousel' : 'carousel'" #slickModal="slick-carousel"
-      [ngClass]="{'disable-next-button': disableNextButton}" (beforeChange)='setCarouselChanging($event)'
-      [config]="slideConfig">
-      <div ngxSlickItem *ngFor="let meal of mealPlan" class="slide">
-        <app-my-meal-item (favouriteToggled)='updateFavourites($event)' (remove)='removeFromMealPlan($event)'
-          (wasClicked)='visitMealDetailPage($event)' [favourited]='favouriteMealIds?.includes(meal.id)'
-          [mealItem]='meal'>
-        </app-my-meal-item>
 
-      </div>
-    </ngx-slick-carousel>
+    <app-meal-item *ngFor="let meal of mealPlan" (favouriteToggled)='updateFavourites($event)'
+      (remove)='removeFromMealPlan($event)' (wasClicked)='visitMealDetailPage($event)'
+      parent='my-meals'
+      [favourited]='favouriteMealIds?.includes(meal.id)' [mealItem]='meal'>
+    </app-meal-item>
+
   </div>
 
   <!-- <pre>{{filteredMealPlan$ | async | json}}</pre> -->
@@ -36,13 +33,13 @@
   <div class="my-meals-action-buttons">
     <div class="route-buttons">
       <button aria-label="Select meals" mat-flat-button class='select-meals-button' routerLink='/recipes/discover'
-        (click)="adobeDtbTracking.page_tracking('SELECT MEALS','/recipes/discover')">
+        (click)="adobeDtbTracking.pageTracking('SELECT MEALS','/recipes/discover')">
         <mat-icon>chevron_left</mat-icon>
         SELECT MEALS
       </button>
       <button aria-label="View grocery list" mat-flat-button class='grocery-list-button'
         routerLink='/recipes/grocery-list'
-        (click)="adobeDtbTracking.page_tracking('GROCERY LIST','/recipes/grocery-list')">
+        (click)="adobeDtbTracking.pageTracking('GROCERY LIST','/recipes/grocery-list')">
         GROCERY LIST
         <mat-icon>chevron_right</mat-icon>
       </button>
