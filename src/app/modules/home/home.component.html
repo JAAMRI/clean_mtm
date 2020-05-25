@@ -11,11 +11,15 @@
       <section class="on-board-content">
         <app-on-board (scroll)='scrollToHowItWorks()' (login)='routeToLogin()'></app-on-board>
       </section>
-      <div #howItWorks>
-        <div #howItWorksContainer></div>
-      </div>
-      <div #youWillLoveThisContainer> </div>
-      <div #reclaimWeeknightCookingContainer> </div>
+      <section class="how-it-works">
+        <app-how-it-works></app-how-it-works>
+      </section>
+      <section class="you-will-love-this">
+        <app-you-will-love-this></app-you-will-love-this>
+      </section>
+      <section class="reclaim-weeknight-cooking">
+        <app-reclaim-weeknight-cooking></app-reclaim-weeknight-cooking>
+      </section>    
       <div class="get-started-button-wrapper">
         <button mat-flat-button color='primary'>GET STARTED</button>
       </div>

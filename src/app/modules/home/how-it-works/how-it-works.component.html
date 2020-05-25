@@ -1,13 +1,33 @@
 <section class='how-it-works'>
-    <h1>Easy as 1-2-3</h1>
-    <div [class]="isMobile ? 'how-it-works-column' : 'how-it-works-row'">
-      <ng-container *ngFor='let step of steps; let last=last'>
-        <div class="hiw-icon-container">
-          <mat-icon class='icon' [class.grocery-list-icon]="step.name === 'VIEW GROCERY LIST'" [svgIcon]='step.name'>
-          </mat-icon>
-          <p>{{step.name}}</p>
-        </div>
-        <mat-icon class='icon arrow-right' *ngIf='!(last || isMobile)' [svgIcon]='"right-arrow"'></mat-icon>
-      </ng-container>
-    </div>
+  <div class="copy">
+    <h1>HOW IT WORKS</h1>
+    <p>Select delicious recipes.</p>
+    <p>Create instant grocery lists.</p>
+    <p>Delivered straight to your door</p>
+    <img [src]="stockImage" alt="Trulli" height="150">
+  </div>
+  <div class="browse-our-recipes">
+    <h3>BROWSE OUR RECIPES</h3>
+    <p>A litle taste of 500+ chef curated recipes. Register to explore them all.</p>
+    <app-mtm-slider>
+      <img *ngFor='let item of steps' [src]="stockImage" alt="Trulli" height="150">
+    </app-mtm-slider>
+  </div>
+  <div class="create-meal-plan">
+    <h3>CREATE MEAL PLAN</h3>
+    <p>Add recipes from around the world to your 'Meal Plan'. Make cooking an adventure with deliciously diverse meals.
+    </p>
+    <img [src]="stockImage" alt="Trulli" height="150">
+
+  </div>
+  <div class="shop-your-meal-plan">
+    <h3>SHOP YOUR MEAL PLAN</h3>
+    <p>Get ingredients delivered fron your preferred grocery store to save on expensive meal kit fees.</p>
+  </div>
+  <div class="watch-how-to-video">
+    <h3>WATCH HOW TO VIDEO</h3>
+    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
+    </iframe>
+  </div>
+
 </section>

@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { AdobeDtbTracking } from 'src/app/services/adobe_dtb_tracking.service';
+import { Component } from '@angular/core';
+import { STOCK_IMAGE } from '../../../utilities/global-constants';
 
 @Component({
   selector: 'app-reclaim-weeknight-cooking',
@@ -7,16 +7,11 @@ import { AdobeDtbTracking } from 'src/app/services/adobe_dtb_tracking.service';
   styleUrls: ['./reclaim-weeknight-cooking.component.scss']
 })
 export class ReclaimWeeknightCookingComponent  {
-
-  @Input() isMobile: boolean;
+  stockImage = STOCK_IMAGE;
 
   constructor(
-    public adobeDtbTracking: AdobeDtbTracking,
   ) { }
 
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 
   
 }

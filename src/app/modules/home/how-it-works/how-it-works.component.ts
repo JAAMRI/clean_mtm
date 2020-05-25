@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { STOCK_IMAGE } from '../../../utilities/global-constants';
 
 @Component({
   selector: 'app-how-it-works',
@@ -8,7 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./how-it-works.component.scss']
 })
 export class HowItWorksComponent implements OnInit {
-
+  stockImage = STOCK_IMAGE;
   steps = [
     {
       icon: 'assets/static_images/noun_recipes_1132517.svg',

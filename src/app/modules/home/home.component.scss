@@ -4,7 +4,6 @@
   height: 100%;
 
   mat-sidenav-container {
-    height: 100%;
     mat-sidenav-content {
       overflow: unset;
       .menu-button {
@@ -18,11 +17,12 @@
     }
 
     .get-started-button-wrapper {
-      position: absolute;
+      position: fixed;
       bottom: 0;
       display: flex;
       width: 100%;
       justify-content: center;
+      background-color: yellow;
       button {
         margin: 1em;
       }

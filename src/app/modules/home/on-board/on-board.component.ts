@@ -1,9 +1,9 @@
-import { Component, ViewEncapsulation, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { Component, EventEmitter, OnDestroy, Output, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { BREAKPOINTS } from '../../../app/utilities/breakpoints';
-import { AccountService } from '../../../app/services/account/account.service';
-import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
+import { AccountService } from '../../../services/account/account.service';
+import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
+import { BREAKPOINTS } from '../../../utilities/breakpoints';
 
 @Component({
   selector: 'app-on-board',
