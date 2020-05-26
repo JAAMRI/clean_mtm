@@ -4,7 +4,7 @@
   .personal-info-back-button {
     top: 0;
     left: 0;
-    color: $light_beige;
+    color: $mtm_white;
     padding: unset;
   }
   .personal-info-form {
@@ -34,7 +34,7 @@
       }
     }
     mat-checkbox {
-      color: $light_beige;
+      color: $mtm_white;
       font-family: avenir;
       font-size: 14px;
       .small-font{
@@ -46,7 +46,7 @@
         text-decoration: underline;
       }
       .mat-checkbox-frame {
-        border-color: $light_beige;
+        border-color: $mtm_white;
       }
       .mat-checkbox-label {
         white-space: normal;
@@ -57,11 +57,11 @@
       }
     }
     a {
-      color: $light_beige;
+      color: $mtm_white;
     }
   
     p {
-      color: $light_beige;
+      color: $mtm_white;
       margin: 1em 0 1em 1em;
     }
     .signup-div{
@@ -79,7 +79,7 @@
       .save-button {
         min-width: 150px;
         width:70%;
-        background-color: $darker_beige;
+        background-color: $mtm_grey;
         color: $mtm_dark_green_color;
         margin: 1em auto;
         mat-icon {
@@ -97,7 +97,7 @@
       .signout-button {
         min-width: 150px;
         width:70%;
-        background-color: $darker_beige;
+        background-color: $mtm_grey;
         color: $mtm_dark_green_color;
         margin: 1em auto;
         mat-icon {
@@ -113,7 +113,7 @@
         }
       }
       .submit-button {
-        background-color: $darker_beige;
+        background-color: $mtm_grey;
         margin: 1em;
         mat-icon {
           color: $mtm_dark_green_color;
@@ -135,31 +135,31 @@
 .account-dialog {
   input {
     font-family: avenir;
-    color: $light_beige;
+    color: $mtm_white;
   }
   mat-icon{
-    color: $light_beige;
+    color: $mtm_white;
   }
   .mat-form-field-appearance-legacy .mat-form-field-underline {
-    background-color: $light_beige !important;
+    background-color: $mtm_white !important;
   }
 
   .mat-form-field-label {
-    color: $light_beige !important;
+    color: $mtm_white !important;
   }
 
   .mat-form-field-ripple {
-    background-color: $light_beige !important;
+    background-color: $mtm_white !important;
   }
 
   .mat-datepicker-toggle-default-icon {
-    color: $light_beige;
+    color: $mtm_white;
   }
 }
 .small-font{
   padding: 0.5em 0;
   display: block;
-  color: $light_beige;
+  color: $mtm_white;
   font-family: avenir;
   font-size: 11.2px;
   margin-left:32px;

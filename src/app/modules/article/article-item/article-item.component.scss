@@ -8,7 +8,7 @@
     height: calc(100% - 64px); // height subrating toolbar
     min-height: calc(100vh - 64px); 
     position: relative;
-    background-color: $light_beige;
+    background-color: $mtm_white;
     z-index: 1;
     margin-top: 2em;
     .background{
@@ -28,7 +28,7 @@
             @media(max-width: 1024px) {
                 width: 100%;
             }
-            background-color: rgba($light_beige, 0.7);
+            background-color: rgba($mtm_white, 0.7);
             margin-bottom: 1em;
             h1{
                 color: $mtm_dark_green_color;

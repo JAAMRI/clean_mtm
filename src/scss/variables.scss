@@ -3,8 +3,12 @@
 $imgdir: "/assets/static_images";
 $mtm-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
   0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-$mtm_light_green_color: mat-color($MTMBrandPalette, 700);
+$mtm_light_green_color: mat-color($MTMBrandPalette, 600);
 $mtm_green_color: mat-color($MTMBrandPalette, 500);
-$mtm_dark_green_color: mat-color($MTMBrandPalette, 900);
-$light_beige: mat-contrast($MTMBrandPalette, 400);
-$darker_beige: mat-contrast($MTMBrandPalette, 500);
+$mtm_dark_green_color: mat-color($MTMBrandPalette, 700);
+$mtm_grey: mat-contrast($MTMBrandPalette, 500);
+$mtm_light_grey: mat-contrast($MTMBrandPalette, 600);
+$mtm_white: mat-contrast($MTMBrandPalette, 400);
+$mtm_black: mat-contrast($MTMBrandPalette, A100);
+$mtm_headline_color: $mtm_black;
+$mtm_body_color: mat-contrast($MTMBrandPalette, A200);

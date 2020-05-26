@@ -6,7 +6,7 @@
   padding: unset;
   min-width: 250px;
   cursor: pointer;
-  background-color: $darker_beige;
+  background-color: $mtm_grey;
   .img-wrapper {
     position: relative;
     img {
@@ -18,7 +18,7 @@
       position: absolute;
       bottom: -8px;
       left: 8px;
-      background-color: $light_beige;
+      background-color: $mtm_white;
       color: $mtm_light_green_color;
       width: 24px;
       height: 24px;
@@ -31,7 +31,7 @@
       position: absolute;
       top: -8px;
       right: 8px;
-      background-color: $light_beige;
+      background-color: $mtm_white;
       color: $mtm_light_green_color;
       width: 24px;
       height: 24px;
@@ -45,7 +45,7 @@
       top: -8px;
       right: 8px;
       background-color: red;
-      color: $light_beige;
+      color: $mtm_white;
       width: 24px;
       height: 24px;
       mat-icon {
@@ -66,9 +66,9 @@
   }
 
   .remove {
-    color: $light_beige;
+    color: $mtm_white;
     mat-icon {
-      color: $light_beige !important;
+      color: $mtm_white !important;
     }
   }
   .active:before {

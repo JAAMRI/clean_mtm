@@ -1,15 +1,13 @@
 // MTM Brand Palette
 $MTMBrandPalette: (
-  50: #e2ece7,
-  100: #b6cec2,
+  50: #023119,
+  100: #414042,
   200: #86ae9a,
   300: #568e71,
   400: #317552,
-  500: #0d5d34,
-  //Used as accent color
-    600: #0b552f,
-  700: #11924a,
-  // Used as mtm light green colors
+  500: #ebebeb,  //Used as accent color
+    600: #05c758, // light green
+  700: #047940, // used a primary color
     800: #074121,
   900: #033015,
   //Used as primary color
@@ -22,16 +20,16 @@ $MTMBrandPalette: (
     100: #000000,
     200: #000000,
     300: #ffffff,
-    400: #fffef9,
+    400: #ffffff,
     //Background color used in mymealplan page
-      500: #f0eee3,
+      500: #ebebeb,
     //Background color used in add a meal button and full recipe page ingredient section
-      600: #ffffff,
+      600: #f1f2f2,
     700: #ffffff,
     800: #ffffff,
     900: #ffffff,
-    A100: #000000,
-    A200: #000000,
+    A100: #023119,
+    A200: #414042,
     A400: #000000,
     A700: #000000
   )

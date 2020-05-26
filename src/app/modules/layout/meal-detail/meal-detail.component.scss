@@ -11,7 +11,7 @@
   -ms-overflow-x: hidden;
   position: relative;
   z-index: 1;
-  background-color: $light_beige;
+  background-color: $mtm_white;
   &.dialog{
     max-width: 80vw;
     max-height: 80vh;
@@ -64,11 +64,11 @@
 
 .meal-recipe {
   padding: 2em 8em 1em 8em;
-  background-color: $light_beige;
+  background-color: $mtm_white;
 }
 .mobile-meal-recipe {
   padding: 0 4px;
-  background-color: $light_beige;
+  background-color: $mtm_white;
 }
 .meal-summary-mobile {
   padding-top: 1em;
@@ -132,7 +132,7 @@
         justify-content: space-between;
         margin-top: 8px;
         .send-to-email-button {
-          background-color: $darker_beige;
+          background-color: $mtm_grey;
           color: $mtm_dark_green_color;
         }
         .cta-wrapper {
@@ -172,10 +172,10 @@
     border-bottom: unset;
   }
   .mat-tab-label-active {
-    background-color: $darker_beige;
+    background-color: $mtm_grey;
   }
   .mat-tab-body-wrapper {
-    background-color: $darker_beige;
+    background-color: $mtm_grey;
     height: 100%;
   }
   .mat-ink-bar {
@@ -201,7 +201,7 @@
 
 .other-recommended-meals {
   background-color: $mtm_green_color;
-  color: $light_beige;
+  color: $mtm_white;
   text-align: center;
   padding: 1em;
   .text-wrapper {
@@ -225,7 +225,7 @@
     align-items: center;
     height: 100%;
     .text-wrapper {
-      color: $light_beige;
+      color: $mtm_white;
       p {
         font-family: avenir;
         text-align: center;
@@ -247,7 +247,7 @@
     .meal-detail-action-button {
       button {
         background-color: $mtm_green_color;
-        color: $light_beige;
+        color: $mtm_white;
       }
     }
     .scroll-to-top-button-wrapper {
@@ -263,7 +263,7 @@
 }
 .scroll-button {
   color: $mtm_light_green_color !important;
-  background-color: $light_beige !important;
+  background-color: $mtm_white !important;
   border: 1px solid $mtm_light_green_color !important;
 }
 

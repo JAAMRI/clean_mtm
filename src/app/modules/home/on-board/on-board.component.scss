@@ -2,11 +2,13 @@
 
 .on-board-content{
     height: 100vh;
+    background-image: url('/assets/static_images/Homepage_Image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 1em;
     .logo-wrapper{
         height: 25vh;
         width: 25vh;

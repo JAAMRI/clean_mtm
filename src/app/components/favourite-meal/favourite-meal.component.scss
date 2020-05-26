@@ -13,7 +13,7 @@
   cursor: pointer;
   padding: unset;
   box-shadow: unset !important;
-  background-color: $light_beige;
+  background-color: $mtm_white;
   
   .mat-card-image {
     min-height: 175px;
@@ -34,14 +34,14 @@
     min-height: 175px;
     max-height: 200px;
     bottom: 0;
-    background-color: rgba($light_beige, 0.5);
+    background-color: rgba($mtm_white, 0.5);
   }
 
   .remove {
-    color: $light_beige;
+    color: $mtm_white;
     width: 100%;
     mat-icon {
-      color: $light_beige !important;
+      color: $mtm_white !important;
     }
   }
 
@@ -54,7 +54,7 @@
     display: flex;
     justify-content: space-between;
     .active-icon {
-      color: $light_beige;
+      color: $mtm_white;
       // z-index: 2;
     }
     .favourite-icons {
@@ -66,7 +66,7 @@
         right: 0;
       }
       .favourite-border-icon {
-        color: $light_beige;
+        color: $mtm_white;
         z-index: 2;
         right: 0;
         position: absolute;
