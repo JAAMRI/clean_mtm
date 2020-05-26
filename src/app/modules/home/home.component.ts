@@ -56,37 +56,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   ngAfterViewInit() {
-    this.lazyLoadComponents()
     setTimeout(() => this.watchRoute()); // skip 1 cycle to let route come into place
     setTimeout(() => { this.adobeDtbTracking.page_load("home page"); }, 1000);
-  }
-
-  lazyLoadComponents() {
-    //Load HowItWorks component
-    import("./how-it-works/how-it-works.component").then(
-      ({ HowItWorksComponent }) => {
-        const component = this.componentFactoryResolver.resolveComponentFactory(HowItWorksComponent);
-        const componentRef = this.howItWorksContainer.createComponent(component);
-        componentRef.instance.isMobile = this.isMobile;
-      }
-    );
-    //Load YouWillLoveThis component
-    import("./you-will-love-this/you-will-love-this.component").then(
-      ({ YouWillLoveThisComponent }) => {
-        const component = this.componentFactoryResolver.resolveComponentFactory(YouWillLoveThisComponent);
-        const componentRef = this.youWillLoveThisContainer.createComponent(component);
-        componentRef.instance.isMobile = this.isMobile;
-        componentRef.instance.isWeb = this.isWeb;
-      }
-    );
-    //Load ReclaimWeeknightCooking component
-    import("./reclaim-weeknight-cooking/reclaim-weeknight-cooking.component").then(
-      ({ ReclaimWeeknightCookingComponent }) => {
-        const component = this.componentFactoryResolver.resolveComponentFactory(ReclaimWeeknightCookingComponent);
-        const componentRef = this.reclaimWeeknightCookingContainer.createComponent(component);
-        componentRef.instance.isMobile = this.isMobile;
-      }
-    );
   }
 
 

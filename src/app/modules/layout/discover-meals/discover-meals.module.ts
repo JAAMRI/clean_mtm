@@ -14,6 +14,7 @@ import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.se
 import { UserFormModule } from '../../../components/dialogs/user-form/user-form.module';
 import { DiscoverMealsComponent } from './discover-meals.component';
 import { DiscoverMealsRouting } from './discover-meals.routing';
+import { MtmSliderModule } from '../../../components/mtm-slider/mtm-slider.module';
 
 @NgModule({
   declarations: [DiscoverMealsComponent],
@@ -27,9 +28,9 @@ import { DiscoverMealsRouting } from './discover-meals.routing';
     MatProgressBarModule,
     ScrollingModule,
     MatIconModule,
-    SlickCarouselModule,
     UserFormModule,
-    MatDialogModule
+    MatDialogModule,
+    MtmSliderModule
   ],
   providers: [
     MealFavouritesService,

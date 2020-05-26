@@ -1,4 +1,4 @@
-@import "../../../../scss/customTheme.scss";
+@import "../../../../scss/variables.scss";
 @import "../../../../scss/variables.scss";
 
 .discover-meals-page {
@@ -7,27 +7,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $light_beige;
+  background-color: $mtm_white;
   position: relative;
   z-index: 1;
 }
 .mobile-discover-meals-page {
   height: calc(100% - 40px - 2em); // height subtracting mobil toolbar
   min-height: calc(100vh - 40px - 2em); // height subrating toolbar (landscape)
-  display: flex;
   padding: 1em 0;
-  flex-direction: column;
-  align-items: center;
-  background-color: $light_beige;
+  text-align: center;
+  background-color: $mtm_white;
 }
 .search {
   width: 100%;
 }
 .title {
-  font-size: 2em;
-  align-self: center;
-  color: $mtm_dark_green_color;
-  font-weight: bold;
+  padding: 1em 3em 0 3em;
 }
 .subheader {
   text-align: center;
@@ -75,7 +70,7 @@
   padding: 1em;
   .next-button {
     color: $mtm_green_color !important;
-    background-color: $darker_beige !important;
+    background-color: $mtm_grey !important;
     font-family: flavour;
   }
 }

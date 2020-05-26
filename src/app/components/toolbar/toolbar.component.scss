@@ -1,4 +1,4 @@
-@import "../../../scss/customTheme.scss";
+@import "../../../scss/variables.scss";
 
 .desktop-nav {
   display: flex;
@@ -7,7 +7,7 @@
     justify-content: space-between;
     width: 100%;
   }
-  background-color: $light_beige;
+  background-color: $mtm_white;
   .tabs {
     margin-left: 1em;
     img {
@@ -40,6 +40,7 @@
   flex-direction: column;
   .toolbar {
     display: flex;
+
     .edit-button {
       color: $mtm_green_color;
     }
@@ -47,11 +48,11 @@
       cursor: default;
       pointer-events: none;
     }
-    .logo{
-      height: 40px;
-      width: 40px;
+    .logo {
+      height: 48px;
+      width: calc(100% - 64px);
       cursor: pointer;
-      img{
+      img {
         height: 100%;
         width: 100%;
         margin-top: 4px;
@@ -71,7 +72,7 @@
 
   mat-sidenav-container {
     margin-top: 0 !important;
-    background-color: $light_beige;
+    background-color: $mtm_white;
     mat-sidenav {
       top: 0 !important;
       background-color: $mtm_green_color;
@@ -82,13 +83,13 @@
         display: flex;
         justify-content: space-between;
         button {
-          color: $light_beige;
+          color: $mtm_white;
         }
       }
       mat-nav-list {
         padding: 16px;
         .page-item {
-          color: $light_beige;
+          color: $mtm_white;
           font-family: flavour;
           font-size: 1.25em;
           height: 36px;
@@ -116,7 +117,7 @@
         justify-content: space-between;
         width: 100%;
       }
-      background-color: $light_beige;
+      background-color: $mtm_white;
       .tabs {
         img {
           height: 30px;
@@ -132,4 +133,3 @@
     }
   }
 }
-

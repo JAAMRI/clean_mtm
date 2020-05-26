@@ -1,4 +1,4 @@
-@import "../../../../scss/customTheme.scss";
+@import "../../../../scss/variables.scss";
 
 .mat-dialog-container {
   overflow: unset;
@@ -29,10 +29,10 @@
       padding: 2em;
       bottom: 0;
       font-size: 2em;
-      color: $light_beige;
+      color: $mtm_white;
       text-shadow: 2px 2px black;
       a {
-        color: $light_beige !important;
+        color: $mtm_white !important;
       }
     }
   }
@@ -52,7 +52,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    color: $light_beige;
+    color: $mtm_white;
   }
   mat-horizontal-stepper {
     background: unset;
@@ -70,13 +70,13 @@
         font-size: 0.75em;
         text-align: center;
         font-family: avenir;
-        color: $light_beige;
+        color: $mtm_white;
       }
       .create-account-wrapper {
         display: flex;
         flex-direction: column;
         h2 {
-          color: $light_beige;
+          color: $mtm_white;
           font-family: flavour;
         }
         button {
@@ -86,7 +86,7 @@
       mat-form-field {
         input {
           font-family: avenir;
-          color: $light_beige;
+          color: $mtm_white;
         }
       }
       .auth-form {
@@ -95,12 +95,12 @@
           display: flex;
           flex-direction: column;
           h2 {
-            color: $light_beige;
+            color: $mtm_white;
             font-family: flavour;
             margin: unset;
           }
           .forgot-button {
-            color: $light_beige;
+            color: $mtm_white;
             font-family: avenir;
             text-align: left;
             padding: 0.5em 0;
@@ -126,32 +126,32 @@
 .auth-container {
   mat-form-field {
     input {
-      caret-color: $light_beige !important;
+      caret-color: $mtm_white !important;
     }
     mat-icon {
       &.prefix-icon {
         margin-right: 1em;
       }
-      color: $light_beige;
+      color: $mtm_white;
       height: 100%;
     }
     .mat-form-field-required-marker {
-      color: $light_beige !important;
+      color: $mtm_white !important;
     }
   }
   .mat-form-field-appearance-legacy .mat-form-field-underline {
-    background-color: $light_beige !important;
+    background-color: $mtm_white !important;
   }
 
   .mat-form-field-label {
-    color: $light_beige !important;
+    color: $mtm_white !important;
   }
 
   .mat-form-field-ripple {
-    background-color: $light_beige !important;
+    background-color: $mtm_white !important;
   }
 
   .mat-datepicker-toggle-default-icon {
-    color: $light_beige;
+    color: $mtm_white;
   }
 }

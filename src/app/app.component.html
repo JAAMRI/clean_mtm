@@ -1,10 +1,11 @@
 <div class="app-container">
         <router-outlet *ngIf='loadCarousel'>
         </router-outlet>
+        <app-footer></app-footer>
 </div>
 
 <!-- lazy load footer  -->
-<div #footerContainer></div>
+<!-- <div #footerContainer></div> -->
 
 <!-- Load files -->
 <link *ngIf="stylesToBeLoaded" rel="stylesheet"

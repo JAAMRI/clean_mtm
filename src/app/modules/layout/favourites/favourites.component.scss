@@ -1,4 +1,4 @@
-@import "../../../../scss/customTheme.scss";
+@import "../../../../scss/variables.scss";
 .cc-side-drawer-anchor {
   display: none;
 }
@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: $light_beige;
+  background-color: $mtm_white;
   position: relative;
   z-index: 1;
 }
@@ -18,14 +18,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: $light_beige;
+  background-color: $mtm_white;
 }
-.title {
-  font-size: 2em;
+.copy {
   text-align: center;
-  margin-bottom: 16px;
-  font-weight: bold;
-  color: $mtm_dark_green_color;
+
 }
 .my-meals-subheader {
   text-align: center;
@@ -50,6 +47,7 @@
     margin: unset;
   }
 }
+
 .button-wrapper{
   display: flex;
   justify-content: center;
@@ -81,7 +79,7 @@
     grid-gap: 0.5em;
   }
   .add-meal-item {
-    background-color: $darker_beige;
+    background-color: $mtm_grey;
     display: flex;
     height: 20vh;
     flex-direction: column;
@@ -111,12 +109,12 @@
   grid-gap: 0.5em;
   button{
     color: $mtm_green_color !important;
-    background-color: $darker_beige !important;
+    background-color: $mtm_grey !important;
   }
 }
 .save-meal-plan-button {
   color: $mtm_green_color !important;
-  background-color: $darker_beige !important;
+  background-color: $mtm_grey !important;
 }
 
 *:focus {

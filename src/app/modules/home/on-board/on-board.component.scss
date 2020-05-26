@@ -1,0 +1,20 @@
+@import "../../../../scss/variables.scss";
+
+.on-board-content{
+    height: 100vh;
+    background-image: url('/assets/static_images/Homepage_Image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .logo-wrapper{
+        height: 25vh;
+        width: 25vh;
+    }
+    .copy{
+        text-align: center;
+        padding: 1em;
+    }
+}

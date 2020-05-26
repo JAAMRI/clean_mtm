@@ -1,4 +1,4 @@
-@import "../../../scss/customTheme.scss";
+@import "../../../scss/variables.scss";
 
 .contact-us-page {
   display: flex;
@@ -7,7 +7,7 @@
   min-height: calc(100vh - 64px); 
   align-items: center;
   padding: 1em;
-  background-color: $light_beige;
+  background-color: $mtm_white;
 
   position: relative;
     z-index: 1;

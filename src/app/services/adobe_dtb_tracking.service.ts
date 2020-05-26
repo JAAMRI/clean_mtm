@@ -26,7 +26,7 @@ export class AdobeDtbTracking {
         } 
     }
 
-    page_tracking(name, url) {
+    pageTracking(name: string, url: string) {
          if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent ' + name + ' ' + url);

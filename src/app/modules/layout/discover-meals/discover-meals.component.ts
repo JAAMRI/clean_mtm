@@ -298,7 +298,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   visitMealPlan() {
     this.router.navigate(['/recipes/my-meals']);
-    this.adobeDtbTracking.page_tracking('MEAL PLAN', '/recipes/my-meals');
+    this.adobeDtbTracking.pageTracking('MEAL PLAN', '/recipes/my-meals');
   }
 
   visitMealDetailPage(meal: any) {

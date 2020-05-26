@@ -1,4 +1,4 @@
-@import "../../../scss/customTheme.scss";
+@import "../../../scss/variables.scss";
 
 .faq-page {
     display: flex;
@@ -8,7 +8,7 @@
     align-items: center;
     padding: 1em;
     position: relative;
-    background-color: $light_beige;
+    background-color: $mtm_white;
     z-index: 1;
     .faq-copy {
         display: flex;

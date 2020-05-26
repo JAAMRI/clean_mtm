@@ -1,51 +1,41 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { IArticle } from '../../interfaces/article';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss']
 })
-export class ArticleComponent implements OnInit, OnDestroy {
+export class ArticleComponent  {
 
-  unsubscribeAll = new Subject();
-  articles: string[] = ['what-and-what-not-to-freeze'];
-  showArticle: boolean = false;
+  constructor(private router: Router) {
 
-
-  constructor(private route: ActivatedRoute, private router: Router) { }
-
-  ngOnInit(): void {
-    this.loadArticleBasedOffRoute()
   }
 
-  loadArticleBasedOffRoute(): void {
-    this.route.params.pipe(takeUntil(this.unsubscribeAll)).subscribe((params: ParamMap) => {
-      //  watch route and load article depending on route id
-      if (params['id']) {
-        const article = params['id'];
-        if (this.articles.includes(article)) {
-          this.loadArticle(article);
-        } else {
-          this.router.navigate(['/recipes/discover']);
-        }
-      } else {
-        this.router.navigate(['/recipes/discover']);
+  mockArticles: IArticle[] = [
+    {
+      title: 'Lorem Ipsum',
+      content: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque aliquid dolorem harum soluta nemo id nobis velit, facilis nesciunt temporibus.',
+      readTime: '8min',
+      image: '/assets/static_images/articles/what-and-what-not-to-freeze.jpg'
+    },
+    {
+      title: 'Lorem Ipsum',
+      content: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque aliquid dolorem harum soluta nemo id nobis velit, facilis nesciunt temporibus.',
+      readTime: '8min',
+      image: '/assets/static_images/articles/what-and-what-not-to-freeze.jpg'
+    },
+    {
+      title: 'Lorem Ipsum',
+      content: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque aliquid dolorem harum soluta nemo id nobis velit, facilis nesciunt temporibus.',
+      readTime: '8min',
+      image: '/assets/static_images/articles/what-and-what-not-to-freeze.jpg'
+    },
+  ]
 
-      }
-    })
-  }
-
-  loadArticle(article: string) {
-    // initially just show the 'what-and-what-not-to-freeze article until there are more
-    this.showArticle = true;
-  }
-
-  ngOnDestroy() {
-    this.unsubscribeAll.next();
-    this.unsubscribeAll.complete();
+  routeToArticle(title: string) {
+    this.router.navigate([this.router.url, title])
   }
 
 }

@@ -1,6 +1,9 @@
 <div [class]="isMobile ? 'mobile-discover-meals-page' : 'discover-meals-page'">
   <div class="title">
-    SELECT MEALS
+    <h1>
+      SELECT MEALS
+    </h1>
+    <p>See delicious meals you like? <br/> Click <mat-icon>add</mat-icon> to add them to your 'Meal Plan' now. Or, click <mat-icon>favorite_border</mat-icon> to save it to your favourites for later.</p>
   </div>
   <div class="search">
     <app-search-bar [searchQuery]='searchQuery' (search)='searchMeals($event)'></app-search-bar>
@@ -9,28 +12,20 @@
     </p>
   </div>
   <p class='subheader' *ngIf='!didYouMean'>
-    {{!isMobile ? 'Browse recipes to add to your meal plan.' : 'Browse recipes to add to your meal plan.'}}
   </p>
 
   <div class='no-items-wrapper' *ngIf='!didYouMean && meals?.length === 0 && !loading && requestedMeals'>
-    
-      <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
+
+    <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
   </div>
   <p class='loading-text' *ngIf='loading'>Loading...</p>
 
-  <div *ngIf='viewLoaded' class="discover-meals-container">
-    <!-- <mat-progress-bar mode="indeterminate" *ngIf='loadingMeals'></mat-progress-bar> -->
-    <ngx-slick-carousel [class]="!isWeb ? 'mobile-carousel' : 'carousel'" #slickModal="slick-carousel"
-      [ngClass]="{'disable-next-button': disableNextButton}" (beforeChange)='setCarouselChanging()'
-      [config]="slideConfig" (afterChange)='checkCarouselItemsRemaining($event)'>
-      <div ngxSlickItem *ngFor="let meal of meals" class="slide">
-        <app-meal-item (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
-          (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'
-          (favouriteToggled)='updateFavourites($event)' [favourited]='favouriteMealIds[meal.id]'>
-        </app-meal-item>
-      </div>
-    </ngx-slick-carousel>
-  </div>
+  <app-mtm-slider *ngIf='viewLoaded'>
+    <app-meal-item *ngFor="let meal of meals" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
+      (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'
+      (favouriteToggled)='updateFavourites($event)' [favourited]='favouriteMealIds[meal.id]'>
+    </app-meal-item>
+  </app-mtm-slider>
   <div class="discover-action-buttons">
     <button aria-label="Show meal plan page" mat-flat-button class='next-button' (click)='visitMealPlan()'>
       VIEW MEAL PLAN

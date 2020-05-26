@@ -1,11 +1,8 @@
-@import "../../../../scss/customTheme.scss";
+@import "../../../../scss/variables.scss";
 @import "../../../../scss/variables.scss";
 
 .product-benefits {
-  min-height: 50vh;
-  padding: 1em 2em;
-  position: relative;
-  background-color: $light_beige;
+  background-color: $mtm_white;
   .text-wrapper {
     text-align: center;
     p {
@@ -14,39 +11,30 @@
       width: 65%;
     }
   }
-  .product-carousel {
-    margin: auto;
-    padding: 2em 0;
-    mat-card {
-      margin: 0.5em;
+
+  mat-card {
+    padding: unset;
+    img {
+      margin: unset;
+      width: 100%;
+      min-width: 200px;
+      object-fit: cover;
+    }
+    mat-card-content {
       padding: unset;
-      img {
-        margin: unset;
-        width: 100%;
-        object-fit: cover;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $mtm_grey;
+      flex-direction: column;
+      p.meal-title {
+        text-align: center;
+        font-size: 1.5em;
       }
-      mat-card-content {
-        padding: unset;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $darker_beige;
-        flex-direction: column;
-        p.meal-title {
-          text-align: center;
-          font-family: flavour;
-          font-size: 1.5em;
-          width: 65%;
-          margin-top: 7%;
-        }
-        p.meal-body {
-          text-align: center;
-          font-size: 1em;
-          font-family: avenir;
-          width: 80%;
-          margin: auto;
-        }
+      p.meal-body {
+        text-align: center;
+        font-size: 1em;
       }
     }
   }

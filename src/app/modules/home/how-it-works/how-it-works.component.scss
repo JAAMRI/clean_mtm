@@ -1,41 +1,14 @@
-@import "../../../../scss/customTheme.scss";
+@import "../../../../scss/variables.scss";
 @import "../../../../scss/variables.scss";
 
 .how-it-works {
-    text-align: center;
-    background-color: $darker_beige;
+  text-align: center;
+  background-color: $mtm_grey;
+  .copy {
     padding: 1em;
-    .how-it-works-row {
-      display: flex;
-      justify-content: center;
-      margin-top: 1em;
-    }
-    .how-it-works-column {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-top: 1em;
-    }
-    .icon {
-      margin: 2em 2.5em 0 2.5em;
-    }
-    .hiw-icon-container {
-      color: $mtm_light_green_color;
-      .icon {
-        transform: scale(3);
-      }
-      .grocery-list-icon {
-        transform: scale(6);
-      }
-      p {
-        margin-top: 3em;
-      }
-    }
-  
-    .arrow-right {
-      // margin: 4em 4em 0 4em;
-      margin: 2em 3em 2em 3em;
-      color: $mtm_light_green_color;
+    p {
+      margin: unset;
     }
   }
   
+}

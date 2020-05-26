@@ -1,49 +1,40 @@
-<div class="mobile-toolbar-wrapper">
+<div class="mobile-menu">
   <div class="menu-toolbar">
-    <div class='toolbar-start'>
-      <button aria-label="Close menu" mat-icon-button (click)="closeMobileMenu('', '')">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <a routerLink='/' class="logo">
-        <img alt="Favorite icon" src="/assets/static_images/MTM_Favicon_4c_2.svg">
-      </a>
-    </div>
+    <button aria-label="Close menu" mat-icon-button (click)="closeMobileMenu('', '')">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a routerLink='/' class="logo">
+      <img alt="Favorite icon" src="/assets/static_images/MTM_Favicon_4c_2.svg">
+    </a>
     <button aria-label="Close menu" mat-icon-button class='close-button' (click)="closeMobileMenu('HOME', '/')">
       <mat-icon>close</mat-icon>
     </button>
   </div>
-  <mat-nav-list class='menu-list'>
-    <div *ngFor="let page of menuPages">
-      <a class='page-item' mat-list-item [class.active]='page.active' [routerLink]='page.route'
-        [fragment]="page.route === '/about' ? 'howitworks' : ''" (click)="closeMobileMenu(page.name, page.route)">
-        {{page.name}}
-      </a>
+  <div class="auth-section" *ngIf='!loggedIn'>
+    <button mat-flat-button color='primary' (click)='promptUserForAuth()'>REGISTER</button>
+    <div class="sign-in-btn-wrapper">
+      <small>Already have an account?</small>
+      <button mat-flat-button (click)='promptUserForAuth()'>SIGN IN</button>
     </div>
+  </div>
+  <div class="auth-section" *ngIf='loggedIn'>
+    <button mat-flat-button color='primary'>MY ACCOUNT</button>
+
+  </div>
+  <mat-nav-list *ngIf='loggedIn' class='menu-list'>
+    <a *ngFor="let page of authenticatedPages" class='page-item' mat-list-item [class.active]='page.active'
+      [routerLink]='page.route' 
+      (click)="closeMobileMenu(page.name, page.route)">
+      {{page.name}}
+    </a>
   </mat-nav-list>
   <div class="bottom-wrapper">
-    <mat-nav-list>
-      <!-- <ng-container *ngIf='isLoggedIn'>
-        <a mat-list-item class='page-item' [class.active]='currentRoute === "//profile"'>MY ACCOUNT</a>
-        <a mat-list-item class='page-item' routerLink='/'>SIGN OUT</a>
-      </ng-container> -->
-      <a *ngIf='!accountService.loggedIn' mat-list-item class='page-item' (click)='authControl()'>Sign In</a>
-      <a *ngIf='accountService.loggedIn' mat-list-item class='page-item' [matMenuTriggerFor]="profileMenu">My
-        Account</a>
-      <mat-menu #profileMenu="matMenu">
-        <a mat-menu-item class='page-item' routerLink='/profile'
-          (click)="closeMobileMenu('PROFILE','/profile')">View
-          Profile</a>
-        <a mat-menu-item (click)="signOut()">Sign Out</a>
-
-      </mat-menu>
-      <!-- <a mat-list-item class='page-item' routerLink='//contact-us'
-        (click)="closeMobileMenu('CONTACT US','//contact-us')">CONTACT US</a> -->
-      <a mat-list-item class='page-item' [matMenuTriggerFor]="contactMenu">Help Center</a>
-      <mat-menu #contactMenu="matMenu">
-        <a mat-menu-item class='page-item' routerLink='/contact-us'
-          (click)="closeMobileMenu('CONTACT US','/contact-us')">CONTACT US</a>
-        <a mat-menu-item class='page-item' routerLink='/faqs' (click)="closeMobileMenu('FAQs','/faqs')">FAQs</a>
-      </mat-menu>
+    <mat-nav-list class='menu-list'>
+      <a *ngFor="let page of menuPages" class='page-item' mat-list-item [class.active]='page.active'
+        [routerLink]='page.route' [fragment]="page.route === '/about' ? 'howitworks' : ''"
+        (click)="closeMobileMenu(page.name, page.route)">
+        {{page.name}}
+      </a>
     </mat-nav-list>
   </div>
 </div>
