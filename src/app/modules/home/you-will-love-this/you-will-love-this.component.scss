@@ -1,5 +1,4 @@
 @import "../../../../scss/variables.scss";
-@import "../../../../scss/variables.scss";
 
 .product-benefits {
   background-color: $mtm_white;
@@ -12,30 +11,21 @@
     }
   }
 
-  mat-card {
-    padding: unset;
-    img {
-      margin: unset;
-      width: 100%;
-      min-width: 200px;
-      object-fit: cover;
-    }
-    mat-card-content {
-      padding: unset;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: $mtm_grey;
-      flex-direction: column;
-      p.meal-title {
-        text-align: center;
-        font-size: 1.5em;
+  .meal-item{
+    .img-wrapper{
+      img{
+        object-fit: cover;
       }
-      p.meal-body {
-        text-align: center;
-        font-size: 1em;
+    }
+    .content{
+      .meal-title{
+
+      }
+      .meal-body{
+        
       }
     }
   }
+
+
 }
