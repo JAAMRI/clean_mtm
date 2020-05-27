@@ -13,17 +13,23 @@
 
   .meal-item{
     .img-wrapper{
+      height: 200px;
+      width: 300px;
+      border-radius: 4px;
       img{
         object-fit: cover;
+        height: 100%;
+        width: 100%;
       }
     }
     .content{
+      background-color: $mtm_grey;
+      text-align: center;
+      padding: 1em;
       .meal-title{
-
+        margin-top: unset;
       }
-      .meal-body{
-        
-      }
+    
     }
   }
 

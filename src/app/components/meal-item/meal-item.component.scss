@@ -16,15 +16,26 @@
     }
     .favourite-button {
       position: absolute;
+      bottom: -15px;
+      z-index: 2;
+      left: 8px;
+      color: $mtm_light_green_color;
+      width: 32px;
+      height: 32px;
+      font-size: 20px;
+      margin-top: -2px;
+    }
+    .favourite-border-button {
+      position: absolute;
       bottom: -8px;
       left: 8px;
-      background-color: $mtm_white;
-      color: $mtm_light_green_color;
-      width: 24px;
-      height: 24px;
+      background-color: $mtm_white !important;
+      color: $mtm_dark_green_color;
+      width: 32px;
+      height: 32px;
       mat-icon {
-        font-size: 16px;
-        margin-top: -6px;
+        font-size: 20px;
+        margin-top: -2px;
       }
     }
     .add-button {
@@ -33,11 +44,11 @@
       right: 8px;
       background-color: $mtm_white;
       color: $mtm_light_green_color;
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
       mat-icon {
-        font-size: 16px;
-        margin-top: -8px;
+        font-size: 20px;
+        margin-top: -4px;
       }
     }
     .remove-button {
@@ -46,11 +57,11 @@
       right: 8px;
       background-color: red;
       color: $mtm_white;
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
       mat-icon {
-        font-size: 16px;
-        margin-top: -8px;
+        font-size: 20px;
+        margin-top: -4px;
       }
     }
   }
@@ -83,35 +94,34 @@
     bottom: 0;
     background-color: rgba($mtm_light_green_color, 0.5);
   }
-  .macros-container{
-    h2{
+  .macros-container {
+    h2 {
       color: $mtm_light_green_color;
     }
-    .macros-wrapper{
+    .macros-wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      .macro{
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          font-family: avenir;
-          font-size: 10px;
-          mat-icon{
-              margin-bottom: 1em;
-              &.blob{
-                  transform: scale(1.6);
-              }
-              &.bread{
-                  transform: scale(2.5);
-              }
-              &.burger{
-                  transform: scale(1.7);
-  
-              }
+      .macro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: avenir;
+        font-size: 10px;
+        mat-icon {
+          margin-bottom: 1em;
+          &.blob {
+            transform: scale(1.6);
           }
+          &.bread {
+            transform: scale(2.5);
+          }
+          &.burger {
+            transform: scale(1.7);
+          }
+        }
       }
-  }
+    }
   }
 }
 
