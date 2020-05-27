@@ -136,16 +136,14 @@
     </div>
 
     <div class="recommended-carousel">
-      <ngx-slick-carousel [class]="!isWeb ? 'mobile-carousel recipe-page-carousel' : 'carousel recipe-page-carousel'"
-        #slickModal="slick-carousel" [config]="slideConfig" (beforeChange)='setCarouselChanging($event)'>
-        <div ngxSlickItem *ngFor="let recipe of meal?.relatedRecipes" class="slide">
-          <!-- Use this componnet for recommended meals viewer -->
-          <app-favourite-meal [recommendedMeal]='true' (favouriteToggled)='updateFavourites($event)'
-            (wasClicked)='visitMealDetailPage($event)' [favourited]='favouriteMealIds?.includes(recipe.id)'
-            [mealItem]='recipe'>
-          </app-favourite-meal>
-        </div>
-      </ngx-slick-carousel>
+  
+      <app-mtm-slider>
+        <app-meal-item *ngFor="let recipe of meal?.relatedRecipes"  [recommendedMeal]='true' (favouriteToggled)='updateFavourites($event)'
+          (wasClicked)='visitMealDetailPage($event)' [favourited]='favouriteMealIds?.includes(recipe.id)'
+          [mealItem]='recipe'>
+        </app-meal-item>
+
+      </app-mtm-slider>
     </div>
   </section>
   <section class='meal-details-footer'>

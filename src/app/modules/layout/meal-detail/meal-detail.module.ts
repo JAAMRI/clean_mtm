@@ -6,14 +6,14 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { UserFormModule } from '../../../../app/components/dialogs/user-form/user-form.module';
-import { FavouriteMealModule } from '../../../../app/components/favourite-meal/favourite-meal.module';
 import { NutritionTableModule } from '../../../../app/components/nutrition-table/nutrition-table.module';
 import { SharedModule } from '../../../../app/shared/shared.module';
 import { MealTabModule } from '../../../../app/components/meal-tab/meal-tab.module';
 import { MealDetailComponent } from './meal-detail.component';
 import { MealDetailRouting } from './meal-detail.routing';
+import { MtmSliderModule } from '../../../components/mtm-slider/mtm-slider.module';
+import { MealItemModule } from '../../../components/meal-item/meal-item.module';
 
 @NgModule({
   declarations: [MealDetailComponent],
@@ -26,12 +26,12 @@ import { MealDetailRouting } from './meal-detail.routing';
     MealDetailRouting,
     MatTabsModule,
     MealTabModule,
-    FavouriteMealModule, // import this to use this component for recommended meals
     NutritionTableModule,
-    SlickCarouselModule,
     MatProgressSpinnerModule,
     UserFormModule,
-    SharedModule
+    SharedModule,
+    MtmSliderModule,
+    MealItemModule
   ],
   entryComponents: [MealDetailComponent],
   exports: [MealDetailComponent],

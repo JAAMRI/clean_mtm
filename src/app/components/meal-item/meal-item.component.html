@@ -6,7 +6,7 @@
     <button class='remove-button' mat-mini-fab *ngIf='inMealPlan' (click)='removeFromMealPlan($event)'>
       <mat-icon>remove</mat-icon>
     </button>
-    <img [src]="mealItem.image" [alt]="mealItem.title">
+    <img [class.active]='inMealPlan' [src]="mealItem.image" [alt]="mealItem.title">
       <mat-icon class='favourite-button' *ngIf='favourited' (click)='toggleFavorite($event)'>favorite</mat-icon>
     <button class='favourite-border-button' mat-mini-fab (click)='toggleFavorite($event)'>
       <mat-icon>favorite_border</mat-icon>
@@ -15,18 +15,20 @@
   </div>
   <div class="meal-content">
     <h3 class='meal-title'>{{mealItem.title}}</h3>
-    <p *ngIf='mealItem.servings'><strong>{{mealItem.servings}}</strong></p>
-    <p class='meal-description'>
-      <ng-container *ngIf='mealItem.cookTime'>
-        <strong>Cook time:</strong>
-        {{mealItem.cookTime > 60 ? (mealItem.cookTime / 60 | floor )+ 'H ' + mealItem.cookTime % 60 : mealItem.cookTime}}
-        Min -
-      </ng-container>
-      <ng-container *ngIf='mealItem.prepTime'>
-        <strong>Prep time:</strong>
-        {{mealItem.prepTime}} Min
-      </ng-container>
-    </p>
+    <div class="meal-description" *ngIf='parent !== "favourites"'>
+      <p *ngIf='mealItem.servings'><strong>{{mealItem.servings}}</strong></p>
+      <p class='meal-description'>
+        <ng-container *ngIf='mealItem.cookTime'>
+          <strong>Cook time:</strong>
+          {{mealItem.cookTime > 60 ? (mealItem.cookTime / 60 | floor )+ 'H ' + mealItem.cookTime % 60 : mealItem.cookTime}}
+          Min -
+        </ng-container>
+        <ng-container *ngIf='mealItem.prepTime'>
+          <strong>Prep time:</strong>
+          {{mealItem.prepTime}} Min
+        </ng-container>
+      </p>
+    </div>
     <div class="macros-container" *ngIf='parent === "my-meals"'>
       <h2>NUTRITIONAL FACTS</h2>
       <div class="macros-wrapper">

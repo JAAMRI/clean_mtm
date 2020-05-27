@@ -20,10 +20,10 @@
     </div>
   </div>
 
-  <div class="my-meals-container">
+  <div class="favourites-container">
 
     <app-meal-item *ngFor="let meal of favouriteMeals" (add)='addToMealPlan($event)'
-      (remove)='removeFromMealPlan($event)' [inMealPlan]='mealPlanIds[meal.id]'
+      (remove)='removeFromMealPlan($event)' [inMealPlan]='mealPlanIds[meal.id]' parent='favourites'
       (wasClicked)='visitMealDetailPage($event)' (favouriteToggled)='updateFavourites($event)' [mealItem]='meal'>
     </app-meal-item>
 
