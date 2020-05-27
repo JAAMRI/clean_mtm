@@ -17,6 +17,7 @@ import { UserFormComponent } from '../../../components/dialogs/user-form/user-fo
 import { MealService } from '../../../services/meal.service';
 import { BREAKPOINTS } from '../../../utilities/breakpoints';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
+import { FilterComponent } from '../../../components/dialogs/filter/filter.component';
 
 @Component({
   selector: 'app-discover-meals',
@@ -264,32 +265,10 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     // this.numberOfSlides = 0;
   }
 
-  async searchMeals_backup(q?: string) {
-    // this.loading = true;
-    // const startAt = (this.meals.length || 0) + 1;
-
-    // this.mealService.searchMeals(q, this.preferences, startAt, this.requestAmount).toPromise().then((res) => {
-    //   if (res.didYouMean && res.meals.length == 0) {
-    //     this.didYouMean = res.didYouMean;
-    //     this.meals = [];
-    //     //Reset Search Query
-    //     this.searchQuery = "";
-    //   } else {
-    //     if (res.meals && res.meals.length > 0) {
-    //       this.didYouMean = null;
-    //       this.meals = res.meals
-
-    //       if (!this.preferences.includes(`${q}|`)) {
-    //         this.preferences += `${q}|`
-    //         this.preferencesService.savePreferences(this.preferences)
-    //       }
-    //     } else {
-    //       this.meals = []
-    //     }
-    //   }
-    //   this.loading = false;
-    // })
+  renderFilterDialog() {
+    this.dialog.open(FilterComponent)
   }
+
 
   setSearchQuery() {
     this.searchQuery = this.didYouMean;

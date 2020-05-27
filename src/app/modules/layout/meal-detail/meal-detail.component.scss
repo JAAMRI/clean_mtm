@@ -94,7 +94,7 @@
     justify-self: start;
     text-align: right;
     .add-button {
-      color: $mtm_green_color;
+      color: $mtm_dark_green_color;
     }
     .added {
       opacity: 0.5;
@@ -148,7 +148,7 @@
             text-align: right;
             margin-left: 1em;
             .add-button {
-              color: $mtm_green_color;
+              color: $mtm_dark_green_color;
             }
             .added {
               opacity: 0.5;
@@ -200,7 +200,7 @@
 }
 
 .other-recommended-meals {
-  background-color: $mtm_green_color;
+  background-color: $mtm_dark_green_color;
   color: $mtm_white;
   text-align: center;
   padding: 1em;
@@ -246,7 +246,7 @@
     }
     .meal-detail-action-button {
       button {
-        background-color: $mtm_green_color;
+        background-color: $mtm_dark_green_color;
         color: $mtm_white;
       }
     }

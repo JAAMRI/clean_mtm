@@ -1,0 +1,23 @@
+<div class="filter-dialog">
+    <div class="filter-header">
+        <img src="/assets/static_images/MTM_Favicon_4c_2.svg" alt="">
+        <button mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="copy">
+        <h1>FILTER RECIPES</h1>
+        <p>Select the filters below to narrow down your search.</p>
+    </div>
+    <div class="clear-button-wrapper">
+        <button mat-button color="primary" (click)='clear()'>Clear all selections</button>
+    </div>
+    <div class="filters">
+        <div (click)='setActiveFilter(filter.id)' class="filter-wrapper" [class.active]='filter.id === activeFilter' *ngFor='let filter of filters'>
+            <strong>
+                {{filter.name}}
+            </strong>
+        </div>
+    </div>
+</div>
+

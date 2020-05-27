@@ -15,6 +15,7 @@ import { UserFormModule } from '../../../components/dialogs/user-form/user-form.
 import { DiscoverMealsComponent } from './discover-meals.component';
 import { DiscoverMealsRouting } from './discover-meals.routing';
 import { MtmSliderModule } from '../../../components/mtm-slider/mtm-slider.module';
+import { FilterModule } from '../../../components/dialogs/filter/filter.module';
 
 @NgModule({
   declarations: [DiscoverMealsComponent],
@@ -30,7 +31,8 @@ import { MtmSliderModule } from '../../../components/mtm-slider/mtm-slider.modul
     MatIconModule,
     UserFormModule,
     MatDialogModule,
-    MtmSliderModule
+    MtmSliderModule,
+    FilterModule
   ],
   providers: [
     MealFavouritesService,

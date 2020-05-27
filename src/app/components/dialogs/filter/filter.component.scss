@@ -1,0 +1,52 @@
+@import "../../../../scss/variables.scss";
+
+.mat-dialog-container {
+    padding: 16px;
+    .filter-dialog {
+        @media (max-width: 767px) {
+            height: 100vh;
+            .filter-header {
+                display: flex;
+                padding: 0 1em;
+                img {
+                    flex: 1;
+                    height: 48px;
+                    width: 48px;
+                }
+                button {
+                    flex: 0;
+                }
+            }
+        }
+
+        @media (min-width: 768px) {
+            .close-button {
+                display: none;
+            }
+        }
+        .copy {
+            text-align: center;
+            padding: 0 1em;
+        }
+        .clear-button-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            button {
+                text-decoration: underline;
+            }
+        }
+        .filters {
+            .filter-wrapper {
+                padding: 1em;
+                &.active {
+                    background-color: $mtm_grey;
+                    color: $mtm_dark_green_color;
+                }
+            }
+        }
+    }
+}
+
+.cdk-overlay-pane {
+    max-width: unset !important;
+}

@@ -11,8 +11,11 @@
       <a class='did-you-mean' (click)='setSearchQuery()'>{{didYouMean}}?</a>
     </p>
   </div>
-  <p class='subheader' *ngIf='!didYouMean'>
-  </p>
+  <div class="filter">
+    <p>Filter Recipes</p>
+    <button mat-icon-button (click)='renderFilterDialog()'><mat-icon>filter_list</mat-icon></button>
+    
+  </div>
 
   <div class='no-items-wrapper' *ngIf='!didYouMean && meals?.length === 0 && !loading && requestedMeals'>
 

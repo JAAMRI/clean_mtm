@@ -10,6 +10,17 @@
     position: relative;
     height: 250px;
     width: 100%;
+    &.active:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 250px;
+
+      bottom: 0;
+      background-color: rgba($mtm_black, 0.5);
+    }
     
     img {
       object-fit: cover;
@@ -114,18 +125,7 @@
   }
 }
 
-.active:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 20vh;
-  min-height: 175px;
-  max-height: 200px;
-  bottom: 0;
-  background-color: rgba($mtm_light_green_color, 0.5);
-}
+
 
 *:focus {
   outline: 0;

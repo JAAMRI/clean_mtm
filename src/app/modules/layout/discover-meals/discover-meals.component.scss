@@ -21,6 +21,16 @@
 .search {
   width: 100%;
 }
+
+.filter{
+  p{
+    margin: unset;
+  }
+  mat-icon{
+    font-size: 32px;
+    cursor: pointer;
+  }
+}
 .title {
   padding: 1em 3em 0 3em;
 }
@@ -44,7 +54,7 @@
   background-color: lightgray;
   padding: 0.5em 1em 1em 1em;
   mat-icon {
-    color: $mtm_green_color;
+    color: $mtm_dark_green_color;
   }
 }
 .loading-text {
@@ -69,7 +79,7 @@
   width: 100%;
   padding: 1em;
   .next-button {
-    color: $mtm_green_color !important;
+    color: $mtm_dark_green_color !important;
     background-color: $mtm_grey !important;
     font-family: flavour;
   }

@@ -42,7 +42,7 @@
     display: flex;
 
     .edit-button {
-      color: $mtm_green_color;
+      color: $mtm_dark_green_color;
     }
     .deactivate {
       cursor: default;
@@ -75,7 +75,7 @@
     background-color: $mtm_white;
     mat-sidenav {
       top: 0 !important;
-      background-color: $mtm_green_color;
+      background-color: $mtm_dark_green_color;
       padding: 16px;
       overflow: unset;
       width: 100%;

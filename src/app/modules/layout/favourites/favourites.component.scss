@@ -39,7 +39,7 @@
   font-family: avenir;
   padding: 1em;
   mat-icon{
-    color: $mtm_green_color;
+    color: $mtm_dark_green_color;
     transform: scale(2)
   }
   p{
@@ -80,12 +80,12 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.5em;
   button{
-    color: $mtm_green_color !important;
+    color: $mtm_dark_green_color !important;
     background-color: $mtm_grey !important;
   }
 }
 .save-meal-plan-button {
-  color: $mtm_green_color !important;
+  color: $mtm_dark_green_color !important;
   background-color: $mtm_grey !important;
 }
 
