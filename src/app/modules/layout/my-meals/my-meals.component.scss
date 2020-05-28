@@ -55,6 +55,7 @@
 .my-meals-container {
   display: grid;
   grid-gap: 1em;
+  justify-content: center;
   .virtual-scroll {
     width: 100%;
     height: 100%;

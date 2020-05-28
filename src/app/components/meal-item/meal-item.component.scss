@@ -97,6 +97,7 @@
   .macros-container {
     h2 {
       color: $mtm_light_green_color;
+      margin: 4px;
     }
     .macros-wrapper {
       display: grid;
@@ -111,13 +112,13 @@
         mat-icon {
           margin-bottom: 1em;
           &.blob {
-            transform: scale(1.6);
+            transform: scale(1.2);
           }
           &.bread {
-            transform: scale(2.5);
+            transform: scale(2.0);
           }
           &.burger {
-            transform: scale(1.7);
+            transform: scale(1.2);
           }
         }
       }
