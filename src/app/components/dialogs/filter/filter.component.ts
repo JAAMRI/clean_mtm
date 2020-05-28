@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-filter',
@@ -11,7 +12,7 @@ export class FilterComponent implements OnInit {
   filters = [];
   activeFilter = 0;
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<FilterComponent>) { }
 
   ngOnInit(): void {
     this.getFilters()
@@ -25,6 +26,7 @@ export class FilterComponent implements OnInit {
 
   setActiveFilter(id: number) {
     this.activeFilter = id === this.activeFilter ? 0 : id;
+    this.dialogRef.close();
   }
 
   clear() {

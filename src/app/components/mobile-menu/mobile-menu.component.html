@@ -14,7 +14,7 @@
     <button mat-flat-button color='primary' (click)='promptUserForAuth()'>REGISTER</button>
     <div class="sign-in-btn-wrapper">
       <small>Already have an account?</small>
-      <button mat-flat-button (click)='promptUserForAuth()'>SIGN IN</button>
+      <button mat-flat-button class='sign-in-button' (click)='promptUserForAuth()'>SIGN IN</button>
     </div>
   </div>
   <div class="auth-section" *ngIf='loggedIn'>
