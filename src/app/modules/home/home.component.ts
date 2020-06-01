@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
@@ -24,8 +24,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   unsubscribeAll = new Subject();
   onLandingPage: boolean;
+  @ViewChild('howItWorks') howItWorks: ElementRef;
 
- 
+
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver,
     private dialog: MatDialog,
@@ -81,6 +82,11 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         this.promptUserForAuth();
       }
     });
+  }
+
+  scrollToHowItWorks() {
+    this.howItWorks.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    // scroll down to how it works when clicking on button
   }
 
   ngOnDestroy() {
