@@ -6,6 +6,7 @@ const LayoutRoutes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
+
             {
                 path: 'discover',
                 loadChildren: () => import('./discover-meals/discover-meals.module').then(m => m.DiscoverMealsModule)

@@ -90,6 +90,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   getStarted() {
     const route = this.accountService.loggedIn ? '/recipes/discover' : '/auth';
+    console.log(route);
     this.router.navigate([route])
   }
 

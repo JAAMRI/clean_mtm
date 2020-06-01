@@ -2,13 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Auth from '@aws-amplify/auth';
-import { Breadcrumb } from '../../components/breadcrumbs/breadcrumbs.component';
-import { PersonalInfoComponent } from '../../components/personal-info/personal-info.component';
-import { AccountService } from '../../services/account/account.service';
-import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
-import { MealFavouritesService } from '../../services/meal-favourites/meal-favourites.service';
-import { MealPlanService } from '../../services/meal-plan/meal-plan.service';
-import { PreferencesService } from '../../services/preferences/preferences.service';
+import { Breadcrumb } from '../../../components/breadcrumbs/breadcrumbs.component';
+import { PersonalInfoComponent } from '../../../components/personal-info/personal-info.component';
+import { AccountService } from '../../../services/account/account.service';
+import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
+import { MealFavouritesService } from '../../../services/meal-favourites/meal-favourites.service';
+import { MealPlanService } from '../../../services/meal-plan/meal-plan.service';
+import { PreferencesService } from '../../../services/preferences/preferences.service';
 
 @Component({
   selector: 'app-auth',

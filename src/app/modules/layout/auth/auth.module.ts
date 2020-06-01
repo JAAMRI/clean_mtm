@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ToolbarModule } from '../../components/toolbar/toolbar.module';
+import { ToolbarModule } from '../../../components/toolbar/toolbar.module';
 import { AuthComponent } from './auth.component';
 import { AuthRouting } from './auth.routing';
 import { LoginComponent } from './login/login.component';

@@ -95,20 +95,6 @@ export class FavouritesComponent implements OnInit {
     })
   }
 
-  promptUserForAuth() {
-    const dialogRef = this.dialog.open(UserFormComponent, {
-      panelClass: 'email-dialog-container',
-      backdropClass: 'faded-backdrop',
-      data: { isMobile: !this.isWeb }
-    });
-
-    dialogRef.afterClosed().subscribe(res => {
-      if (res) {
-        this.snackbar.open('Your preferences have been saved!', null, { duration: 3000 });
-      }
-    });
-  }
-
   async addToMealPlan(meal: any) {
     // add to mealplan
     this.mealPlan.push(meal);

@@ -328,11 +328,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   //       });
   //////
   promptUserForAuth() {
-    this.dialog.open(UserFormComponent, {
-      panelClass: 'email-dialog-container',
-      backdropClass: 'faded-backdrop',
-      data: { isMobile: !this.isWeb }
-    });
+    this.router.navigate(['/auth']);
   }
 
   async addToMealPlan(mealId: any) {
@@ -356,7 +352,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   updateFavourites(favouriteMeal: any) {
     if (!this.accountService.loggedIn) {
-      this.promptUserForAuth()
+      // this.promptUserForAuth()
     }
     if (this.favouriteMeals.find((meal: any) => meal.id == favouriteMeal.id)) {
       this.removeFromFavourites(favouriteMeal)

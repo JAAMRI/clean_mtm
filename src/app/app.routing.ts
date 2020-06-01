@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './services/account/auth-guard.service';
+import { LayoutComponent } from './modules/layout/layout.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,11 @@ const routes: Routes = [
 
     loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   },
-  { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
+  {
+    path: 'auth',
+    component: LayoutComponent,
+    loadChildren: () => import('./modules/layout/auth/auth.module').then(m => m.AuthModule)
+  },
 
   {
     path: 'faqs',

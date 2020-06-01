@@ -1,12 +1,10 @@
-import { Component, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { MenuPage } from '../../../app/interfaces/menu-page';
-import { takeUntil, filter } from 'rxjs/operators';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { UserFormComponent } from '../dialogs/user-form/user-form.component';
-import { MatDialog } from '@angular/material/dialog';
-import { AccountService } from '../../../app/services/account/account.service';
 import Auth from '@aws-amplify/auth';
+import { Subject } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
+import { MenuPage } from '../../../app/interfaces/menu-page';
+import { AccountService } from '../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
 import { AuthenticatedPages, MenuPages } from './mobile-menu-pages';
 
@@ -26,7 +24,6 @@ export class MobileMenuComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private dialog: MatDialog,
     public accountService: AccountService,
     public adobeDtbTracking: AdobeDtbTracking
   ) { }

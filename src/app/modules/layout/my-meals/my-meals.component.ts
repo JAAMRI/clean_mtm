@@ -139,7 +139,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
 
   async updateFavourites(favouriteMeal: any) {
     if (!this.accountService.loggedIn) {
-      this.promptUserForAuth()
+      // this.promptUserForAuth()
     }
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
       await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove')
