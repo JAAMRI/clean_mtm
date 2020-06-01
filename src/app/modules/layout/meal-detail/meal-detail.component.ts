@@ -195,12 +195,12 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.loading = true
     this.topOfPage.nativeElement.scrollIntoView();
     setTimeout(() => this.loading = false, 1);
-    this.adobeDtbTracking.anchor_link_meal('CTA LABEL, back to top on: ', this.meal.title);
+    this.adobeDtbTracking.anchorLink_meal('CTA LABEL, back to top on: ', this.meal.title);
   }
 
   scrollDown() {
     this.recommendedMeals.nativeElement.scrollIntoView({ behavior: 'smooth' });
-    this.adobeDtbTracking.anchor_link_meal('CTA LABEL, scroll down to bottom wrapper: ', this.meal.title);
+    this.adobeDtbTracking.anchorLink_meal('CTA LABEL, scroll down to bottom wrapper: ', this.meal.title);
   }
 
   promptUserForAuth() {
@@ -217,7 +217,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.inMealPlan = true;
     await this.mealPlanService.saveMealPlan(this.currentMealPlan, this.meal.id, 'add')
     this.dialogParams.onAddOrRemoveMealPlan({ 'meal': this.meal, 'action': 'add' });
-    this.adobeDtbTracking.anchor_link_meal('Adding to Meal Plan: ', this.meal.title);
+    this.adobeDtbTracking.anchorLink_meal('Adding to Meal Plan: ', this.meal.title);
   }
 
   async removeFromMealPlan() {
@@ -226,7 +226,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.currentMealPlan = this.currentMealPlan.filter((m) => m).filter((meal) => meal.id !== this.meal.id)
     this.inMealPlan = false;
     this.dialogParams.onAddOrRemoveMealPlan({ 'meal': this.meal, 'action': 'remove' });
-    this.adobeDtbTracking.anchor_link_meal('Removing From Meal Plan: ', this.meal.title);
+    this.adobeDtbTracking.anchorLink_meal('Removing From Meal Plan: ', this.meal.title);
   }
 
   async updateFavourites(favouriteMeal: any) {
@@ -247,13 +247,13 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   removeFavourite(favouriteMeal: any) {
     this.favouriteMealIds = this.favouriteMealIds.replace(favouriteMeal.id + '|', '');
-    this.adobeDtbTracking.anchor_link_meal('Removing from Favourite: ', this.meal.title);
+    this.adobeDtbTracking.anchorLink_meal('Removing from Favourite: ', this.meal.title);
   }
 
   addFavourite(favouriteMeal: any) {
     this.favouriteMeals.push(favouriteMeal)
     this.favouriteMealIds += (favouriteMeal.id + '|');
-    this.adobeDtbTracking.anchor_link_meal('Adding to Favourite: ', this.meal.title);
+    this.adobeDtbTracking.anchorLink_meal('Adding to Favourite: ', this.meal.title);
   }
 
   observeBreakpoints() {

@@ -1,12 +1,11 @@
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home.component';
+import { AuthComponent } from './auth.component';
 
 const HomeRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: AuthComponent,
   },
-  {path: 'auth', loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule)}
 
 ];
 

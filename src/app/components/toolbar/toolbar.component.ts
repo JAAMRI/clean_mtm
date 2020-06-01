@@ -84,7 +84,7 @@ export class ToolbarComponent implements OnInit {
 
   authControl() {
     this.accountService.loggedIn ? this.router.navigate(['/']) : this.promptUserForAuth();
-    this.adobeDtbTracking.anchor_link('Sign In popup on navigation');
+    this.adobeDtbTracking.anchorLink('Sign In popup on navigation');
   }
 
   promptUserForAuth() {

@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 
 export class AdobeDtbTracking {
     apiHost = environment.host;
-    page_load(name) {
+    pageLoad(name) {
          if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent ' + name);
@@ -47,7 +47,7 @@ export class AdobeDtbTracking {
                }
     }
 
-    social_media_tracking(name, url) {
+    socialMediaTracking(name, url) {
          if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent' + name + ', ' + url);
@@ -68,7 +68,7 @@ export class AdobeDtbTracking {
                }
     }
 
-    password_reset(val: string) {
+    passwordReset(val: string) {
          if (environment.production) {
         // @ts-ignore
         fbq('track', 'password reset on' + val);
@@ -104,7 +104,7 @@ export class AdobeDtbTracking {
                }
     }
 
-    first_time_user(val) {
+    firstTimeUser(val) {
          if (environment.production) {
         // @ts-ignore
         fbq('track', val);
@@ -125,7 +125,7 @@ export class AdobeDtbTracking {
                }
     }
 
-    returning_user() {
+    returningUser() {
          if (environment.production) {
         // @ts-ignore
         fbq('track', 'Returning User sign in');
@@ -169,7 +169,7 @@ export class AdobeDtbTracking {
                }
     }
 
-    anchor_link(val) {
+    anchorLink(val) {
          if (environment.production) {
         // @ts-ignore
         fbq('track', val);
@@ -190,70 +190,9 @@ export class AdobeDtbTracking {
                }
     }
 
-    anchor_link_tab(val, from_file, meal_title) {
-         if (environment.production) {
-        if (from_file == "profile page") {
-            if (!isNaN(val)) {
-                if (val == 0) {
-                    val = "PERSONAL INFO TAB on profile page";
-                } else if (val == 1) {
-                    val = "SECURITY TAB on profile page";
-                } else if (val == 2) {
-                    val = "NOTIFICATIONS TAB on profile page";
-                }
-            }
-        } else if (from_file == "meal detail") {
-            if (!isNaN(val)) {
-                if (val == 0) {
-                    val = "INGREDIENTS TAB for: " + meal_title;
-                } else if (val == 1) {
-                    val = "INSTRUCTIONS TAB for: " + meal_title;
-                } else if (val == 2) {
-                    val = "NUTRITION TAB for: " + meal_title;
-                }
-            }
 
-        }
-        // @ts-ignore
-        fbq('track', val);
-        var ev = {};
-        // @ts-ignore
-        ev.eventInfo = {
-            // @ts-ignore
-            'type': ctConstants.trackEvent,
-            // @ts-ignore
-            'eventAction': ctConstants.anchorLinkClicked,
-            'eventLabel': val,
-            'eventValue': 1
-        };
-        // @ts-ignore
-        ev.category = { 'primaryCategory': ctConstants.custom };
-        // @ts-ignores
-        digitalData.event.push(ev);
-               }
-    }
 
-    anchor_link_meal(val, meal_title) {
-         if (environment.production) {
-        // @ts-ignore
-        fbq('track', val + meal_title);
-        var ev = {};
-        // @ts-ignore
-        ev.eventInfo = {
-            // @ts-ignore
-            'type': ctConstants.trackEvent,
-            // @ts-ignore
-            'eventAction': ctConstants.anchorLinkClicked,
-            'eventLabel': val + meal_title,
-            'eventValue': 1
-        };
-        // @ts-ignore
-        ev.category = { 'primaryCategory': ctConstants.custom };
-        // @ts-ignores
-        digitalData.event.push(ev);
-               }
-    }
-    update_information() {
+    updateInformation() {
          if (environment.production) {
         // @ts-ignore
         fbq('track', 'Updating User Information on Profile');
@@ -273,7 +212,7 @@ export class AdobeDtbTracking {
         digitalData.event.push(ev);
                }
     }
-    checkbox(value) {
+    checkbox(value: any) {
          if (environment.production) {
         if (value.checked) {
             this.tagging_optin();
@@ -282,7 +221,7 @@ export class AdobeDtbTracking {
         }
                }
     }
-    tagging_optin() {
+    taggingOptin() {
          if (environment.production) {
         // @ts-ignore
         fbq('track', 'CompleteRegistration');
@@ -303,7 +242,7 @@ export class AdobeDtbTracking {
                }
     }
 
-    tagging_optout() {
+    taggingOptout() {
          if (environment.production) {
         // @ts-ignore
         fbq('track', 'BRAND OPTOUT/CORPORATE OPTOUT');
@@ -324,7 +263,7 @@ export class AdobeDtbTracking {
                }
     }
 
-    contact_us(val) {
+    contactUs(val) {
          if (environment.production) {
         // @ts-ignore
         fbq('track', 'CONTACT US Using:' + val);
@@ -345,7 +284,7 @@ export class AdobeDtbTracking {
                }
     }
 
-    sharing_meal_by_email(title) {
+    sharingMealByEmail(title) {
          if (environment.production) {
         // @ts-ignore
         fbq('track', 'Sharing ' + title + ' by Email');
@@ -366,7 +305,7 @@ export class AdobeDtbTracking {
                }
     }
 
-    search_query(query, size) {
+    searchQuery(query, size) {
          if (environment.production) {
         // @ts-ignore
         fbq('track', query);

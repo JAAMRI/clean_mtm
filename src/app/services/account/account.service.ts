@@ -24,13 +24,6 @@ export class AccountService {
     this.authStateChanged.next()
   }
 
-  updateAccount(accountProps: any) {
-    // USE THIS FUNCTION TO UPDATE ACCOUNT INFO TO BACKEND
-    // return this.http.put(this.apiHost + this.accountEndpoint, accountProps).pipe(catchError((error) => of(error))).toPromise();
-
-  }
-
-
 
 
 }

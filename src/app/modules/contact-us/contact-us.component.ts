@@ -20,7 +20,7 @@ export class ContactUsComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.adobeDtbTracking.page_load("contact us page");
+      this.adobeDtbTracking.pageLoad("contact us page");
     },
       5000);
 
@@ -41,7 +41,7 @@ export class ContactUsComponent implements OnInit {
 
   stopPropogation(event: any) {
     event.stopPropagation();
-    this.adobeDtbTracking.contact_us('Email');
+    this.adobeDtbTracking.contactUs('Email');
   }
 
   startLiveChat(event: any) {

@@ -12,16 +12,16 @@
         <app-on-board (scroll)='scrollToHowItWorks()' (login)='routeToLogin()'></app-on-board>
       </section>
       <section #howItWorks class="how-it-works">
-        <app-how-it-works></app-how-it-works>
+        <app-how-it-works (navigate)='checkAuth($event)'></app-how-it-works>
       </section>
       <section class="you-will-love-this">
-        <app-you-will-love-this></app-you-will-love-this>
+        <app-you-will-love-this (navigate)='checkAuth()'></app-you-will-love-this>
       </section>
       <section class="reclaim-weeknight-cooking">
-        <app-reclaim-weeknight-cooking></app-reclaim-weeknight-cooking>
+        <app-reclaim-weeknight-cooking (navigate)='checkAuth()'></app-reclaim-weeknight-cooking>
       </section>    
       <div class="get-started-button-wrapper">
-        <button mat-flat-button color='primary'>GET STARTED</button>
+        <button mat-flat-button color='primary' (click)='checkAuth()'>GET STARTED</button>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

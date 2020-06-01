@@ -62,7 +62,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getMealPlan();
     setTimeout(() => {
-      this.adobeDtbTracking.page_load("meal plan page");
+      this.adobeDtbTracking.pageLoad("meal plan page");
     },
       5000);
 

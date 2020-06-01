@@ -53,7 +53,7 @@ export class ProfileComponent {
 
   ngOnInit() {
     setTimeout(() => {
-      this.adobeDtbTracking.page_load("profile page");
+      this.adobeDtbTracking.pageLoad("profile page");
     },
       5000);
     this.setOptInAttribute();
@@ -92,9 +92,9 @@ export class ProfileComponent {
     let user = await Auth.currentAuthenticatedUser();
 
     if (opt_in) {
-      this.adobeDtbTracking.tagging_optin();
+      this.adobeDtbTracking.taggingOptin();
     } else {
-      this.adobeDtbTracking.tagging_optout();
+      this.adobeDtbTracking.taggingOptout();
     }
     let result = await Auth.updateUserAttributes(user, { 'custom:opt_in': opt_in.toString() })
       .then(res => {

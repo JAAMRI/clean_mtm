@@ -1,26 +1,25 @@
-import { Component, OnInit, ViewEncapsulation, Inject, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Breadcrumb } from '../../components/breadcrumbs/breadcrumbs.component';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { PersonalInfoComponent } from '../../components/personal-info/personal-info.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { UserFormComponent } from '../../components/dialogs/user-form/user-form.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatHorizontalStepper } from '@angular/material/stepper';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { PersonalInfoComponent } from '../../personal-info/personal-info.component';
+import { AccountService } from '../../services/account/account.service';
+import { MealPlanService } from '../../services/meal-plan/meal-plan.service';
+import { PreferencesService } from '../../services/preferences/preferences.service';
+import { MealFavouritesService } from '../../services/meal-favourites/meal-favourites.service';
+import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
 import Auth from '@aws-amplify/auth';
-import { AccountService } from '../../../../app/services/account/account.service';
-import { PreferencesService } from '../../../../app/services/preferences/preferences.service';
-import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
-import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
-import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
-import { Breadcrumb } from '../../breadcrumbs/breadcrumbs.component';
 
 @Component({
-  selector: 'app-user-form',
-  templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  selector: 'app-auth',
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.scss']
 })
-export class UserFormComponent implements OnInit {
+export class AuthComponent implements OnInit {
+
   email: string;
-  isMobile: boolean = true;
   signUpFormStep1 = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email])
   });
@@ -28,7 +27,6 @@ export class UserFormComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   })
-  @ViewChild('stepper', { static: true }) stepper: MatHorizontalStepper;
   // the stepper is in the form: sign in: 0, create account: 1, forgot password: 2
   @ViewChild("appPersonalInfo", { static: false }) private appPersonalInfo: PersonalInfoComponent;
 
@@ -171,6 +169,7 @@ export class UserFormComponent implements OnInit {
         this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
       });
   }
+
 
 
 }

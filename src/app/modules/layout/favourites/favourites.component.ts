@@ -59,7 +59,7 @@ export class FavouritesComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.adobeDtbTracking.page_load("favourite meals page");
+      this.adobeDtbTracking.pageLoad("favourite meals page");
     },
       5000);
     this.getFavouriteMeals();

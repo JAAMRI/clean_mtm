@@ -10,6 +10,7 @@ import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.servi
 import { SeoService } from '../../../app/services/seo.service';
 import { scrollToTop } from '../../../app/utilities/helper-functions';
 import { UserFormComponent } from '../../components/dialogs/user-form/user-form.component';
+import { AccountService } from '../../services/account/account.service';
 
 // use this to scroll on safari
 smoothscroll.polyfill();
@@ -28,7 +29,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-  constructor(private router: Router, private breakpointObserver: BreakpointObserver,
+  constructor(private router: Router, 
+    private accountService: AccountService,
     private dialog: MatDialog,
     private seo: SeoService, private title: Title,
     public adobeDtbTracking: AdobeDtbTracking,
@@ -50,7 +52,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => this.watchRoute()); // skip 1 cycle to let route come into place
-    setTimeout(() => { this.adobeDtbTracking.page_load("home page"); }, 1000);
+    setTimeout(() => { this.adobeDtbTracking.pageLoad("home page"); }, 1000);
   }
 
   routeToLogin() {
@@ -82,6 +84,20 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         this.promptUserForAuth();
       }
     });
+  }
+
+  checkAuth(recipeLink?: string) {
+    if (this.accountService.loggedIn) {
+      this.routeToRecipes(recipeLink);
+    } else {
+      this.promptUserForAuth()
+    }
+
+  }
+
+  routeToRecipes(recipeLink?: string) {
+    const route = recipeLink || '/recipes/discover';
+    this.router.navigate([route]);
   }
 
   scrollToHowItWorks() {

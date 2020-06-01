@@ -168,7 +168,7 @@ export class PersonalInfoComponent implements OnInit {
       .catch(err => {
         this.snackBar.open(err.message, null, { duration: 3000 });//Show err message
       });
-    this.adobeDtbTracking.update_information();
+    this.adobeDtbTracking.updateInformation();
   }
 
   signOut() {

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { environment } from '../../../../environments/environment';
+import { Router } from '@angular/router';
+import { FeaturedRecipes } from './featured-recipes';
 
 @Component({
   selector: 'app-how-it-works',
@@ -7,37 +9,18 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./how-it-works.component.scss']
 })
 export class HowItWorksComponent implements OnInit {
+  @Output() navigate = new EventEmitter();
 
-  recipes = [
-    {
-      link: `/recipes/Ancho-Steak-Tacos-169023`,
-      image: '/assets/static_images/home-page/featured-recipes/tacos.jpg',
-    },
-    {
-      link: `/recipes/Grilled-Eggplant-Caprese-Salad-95881`,
-      image: '/assets/static_images/home-page/featured-recipes/eggplant.jpg',
-    },
-    {
-      link: `/recipes/The-Great-Canadian-Burger-108568`,
-      image: '/assets/static_images/home-page/featured-recipes/burger.jpg'
-    },
-    {
-      link: `/recipes/Grilled-Herb-Rubbed-Chicken-99319`,
-      image: '/assets/static_images/home-page/featured-recipes/chicken.png'
-    },
-    {
-      link: `/recipes/Spinach-and-Kale-Salad-188777`,
-      image: '/assets/static_images/home-page/featured-recipes/spinach.jpg'
-    },
-
-  ]; // icons
-
-
-  constructor(
+  recipes = FeaturedRecipes;
+  constructor( 
     
   ) {}
 
   ngOnInit(): void {
+  }
+
+  emitNavigation(recipeLink: string) {
+    this.navigate.emit(recipeLink);
   }
 
 }

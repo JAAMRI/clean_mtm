@@ -10,7 +10,7 @@
     <h1>BROWSE OUR RECIPES</h1>
     <p>A little taste of 500+ chef curated recipes. Register to explore them all.</p>
     <app-mtm-slider>
-      <a class='carousel-img-wrapper' *ngFor='let recipe of recipes' [routerLink]='recipe.link'>
+      <a class='carousel-img-wrapper' *ngFor='let recipe of recipes' (click)='emitNavigation(recipe.link)'>
         <img class='carousel-image' [src]="recipe.image" alt="recipe">
       </a>
     </app-mtm-slider>

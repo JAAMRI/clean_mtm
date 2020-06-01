@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { STOCK_IMAGE } from '../../../utilities/global-constants';
 
 @Component({
@@ -8,9 +8,14 @@ import { STOCK_IMAGE } from '../../../utilities/global-constants';
 })
 export class ReclaimWeeknightCookingComponent  {
   stockImage = STOCK_IMAGE;
+  @Output() navigate: EventEmitter<void> = new EventEmitter();
 
   constructor(
   ) { }
+
+  emitNavigation() {
+    this.navigate.emit();
+  }
 
 
   

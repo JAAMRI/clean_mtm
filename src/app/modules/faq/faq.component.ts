@@ -17,7 +17,7 @@ export class FaqComponent implements OnInit {
   ngOnInit() {
     this.scrollToTop();
     setTimeout(() => {
-      this.adobeDtbTracking.page_load("faq page");
+      this.adobeDtbTracking.pageLoad("faq page");
     },
       5000);
     this.title.setTitle('FAQs - Meals That Matter'); //updating page title

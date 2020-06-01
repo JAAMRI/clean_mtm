@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import Auth from '@aws-amplify/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TestBed } from '@angular/core/testing';
-import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
+import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -97,7 +97,7 @@ export class ForgotPasswordComponent implements OnInit {
     const code = this.forgotPasswordForm.get('code').value;
     const password = this.forgotPasswordForm.get('password').value;
     this.update.emit({ email, code, password });
-    this.adobeDtbTracking.password_reset('Sign In popup');
+    this.adobeDtbTracking.passwordReset('Sign In popup');
   }
 
 }

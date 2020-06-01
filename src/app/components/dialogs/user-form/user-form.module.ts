@@ -11,8 +11,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatStepperModule } from '@angular/material/stepper';
 import { PersonalInfoModule } from '../../personal-info/personal-info.module';
 import { UserFormComponent } from './user-form.component';
-import { ForgotPasswordModule } from '../../forgot-password/forgot-password.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { BreadcrumbsModule } from '../../breadcrumbs/breadcrumbs.module';
 
 @NgModule({
   declarations: [UserFormComponent],
@@ -29,7 +29,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSnackBarModule,
     PersonalInfoModule,
     FormsModule,
-    ForgotPasswordModule
+    BreadcrumbsModule
   ],
   entryComponents: [UserFormComponent],
   exports: [UserFormComponent]

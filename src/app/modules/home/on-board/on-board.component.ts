@@ -29,12 +29,12 @@ export class OnBoardComponent implements OnDestroy {
 
   emitRouteToLogin() {
     this.login.emit();
-    this.adobeDtbTracking.anchor_link('Sign In popup on home page');
+    this.adobeDtbTracking.anchorLink('Sign In popup on home page');
   }
 
   scrollToHowItWorks() {
     this.scroll.emit();
-    this.adobeDtbTracking.anchor_link('CTA label to scroll to how it works on home page');
+    this.adobeDtbTracking.anchorLink('CTA label to scroll to how it works on home page');
   }
 
   ngOnDestroy() {
