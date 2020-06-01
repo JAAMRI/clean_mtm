@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 
-  constructor(private router: Router, 
+  constructor(private router: Router,
     private accountService: AccountService,
     private dialog: MatDialog,
     private seo: SeoService, private title: Title,
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   ngAfterViewInit() {
-    setTimeout(() => this.watchRoute()); // skip 1 cycle to let route come into place
+    this.watchRoute(); // skip 1 cycle to let route come into place
     setTimeout(() => { this.adobeDtbTracking.pageLoad("home page"); }, 1000);
   }
 
@@ -61,14 +61,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   promptUserForAuth() {
-    const authDialog = this.dialog.open(UserFormComponent, {
-      panelClass: 'email-dialog-container',
-      backdropClass: 'faded-backdrop'
-    });
-
-    authDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe(() => this.router.navigate(['/']))
-    // if the dialog is closed, go back to the home page as opposed to the dialog
-
+    this.router.navigate(['/auth'])
   }
 
   watchRoute() {
@@ -93,6 +86,11 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       this.promptUserForAuth()
     }
 
+  }
+
+  getStarted() {
+    const route = this.accountService.loggedIn ? '/recipes/discover' : '/auth';
+    this.router.navigate([route])
   }
 
   routeToRecipes(recipeLink?: string) {

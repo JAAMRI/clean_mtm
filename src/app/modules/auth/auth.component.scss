@@ -1,0 +1,20 @@
+@import "../../../scss/variables.scss";
+
+.auth-container{
+  height: 100vh;
+  .auth-wrapper{
+    padding: 1em;
+    
+    .auth-header{
+      width: 50%;
+      margin: auto;
+      text-align: center;
+    }
+    .register-container{
+      margin-bottom: 2em;
+    }
+    .login-container{
+  
+    }
+  }
+}

@@ -1,1 +1,12 @@
-<p>register works!</p>
+<div class="register-wrapper">
+    <h2>REGISTER</h2>
+    <form (ngSubmit)='routeToRegisterPage()' class="register-form" [formGroup]='registerForm'>
+
+        <mat-form-field>
+            <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
+            <input matInput type="email" placeholder='Email' formControlName='email' required>
+            <mat-icon matSuffix matTooltip='This must be a valid email address.'>info_outline</mat-icon>
+        </mat-form-field>
+        <button aria-label="Create my account" mat-flat-button color='primary'>CREATE MY ACCOUNT</button>
+    </form>
+</div>

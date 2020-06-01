@@ -1,7 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth.component';
 
-const HomeRoutes: Routes = [
+const AuthRoutes: Routes = [
   {
     path: '',
     component: AuthComponent,
@@ -9,4 +9,4 @@ const HomeRoutes: Routes = [
 
 ];
 
-export const HomeRouting = RouterModule.forChild(HomeRoutes);
+export const AuthRouting = RouterModule.forChild(AuthRoutes);

@@ -1,6 +1,6 @@
 <div [class]="!isWeb ? 'mobile-profile-page' : 'profile-page'">
   <div [class]="!isWeb ? 'mobile-profile-tabs' : 'profile-tabs'">
-    <mat-tab-group (selectedTabChange)="adobeDtbTracking.anchorLink_tab($event.index, 'profile page','')">
+    <mat-tab-group (selectedTabChange)="adobeDtbTracking.anchorLinkTab($event.index, 'profile page','')">
       <mat-tab>
         <ng-template mat-tab-label>
           <mat-icon svgIcon='avatar'></mat-icon> PERSONAL INFO

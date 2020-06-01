@@ -104,7 +104,7 @@
       </div>
     </div>
     <div class="meal-tabs-container">
-      <mat-tab-group (selectedTabChange)="adobeDtbTracking.anchorLink_tab($event.index, 'meal detail',meal.title)">
+      <mat-tab-group (selectedTabChange)="adobeDtbTracking.anchorLinkTab($event.index, 'meal detail',meal.title)">
         <mat-tab label="INGREDIENTS">
           <app-meal-tab [isMobile]='isMobile' [data]='meal.ingredients'>
 
@@ -154,7 +154,7 @@
       </div>
       <div class="meal-detail-action-button">
         <button aria-label="Select more meals" mat-stroked-button mat-dialog-close
-          (click)="adobeDtbTracking.anchorLink_meal('SELECT MORE MEALS', meal.title)">SELECT
+          (click)="adobeDtbTracking.anchorLinkMeal('SELECT MORE MEALS', meal.title)">SELECT
           MORE MEALS</button>
       </div>
       <div class="logo-wrapper" *ngIf='!isMobile'>

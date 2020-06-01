@@ -288,7 +288,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
     }
     this.carouselIsChanging = false;
-    this.adobeDtbTracking.anchorLink_meal('On Discover Meals Page, Viewing Meal Detail for: ', meal.title);
+    this.adobeDtbTracking.anchorLinkMeal('On Discover Meals Page, Viewing Meal Detail for: ', meal.title);
   }
   promptMealDetailComponent(id: string) {
     // if carousel is not being slided
@@ -338,7 +338,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   async addToMealPlan(mealId: any) {
     // add to mealplan
     const meal = this.meals.find((meal) => meal.id === mealId);
-    this.adobeDtbTracking.anchorLink_meal('Adding to Meal Plan: ', meal.title);
+    this.adobeDtbTracking.anchorLinkMeal('Adding to Meal Plan: ', meal.title);
     this.mealPlan.push(meal);
     this.mealPlanIds[mealId] = true;
     await this.mealPlanService.saveMealPlan(this.mealPlan, mealId);
@@ -351,7 +351,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
     delete this.mealPlanIds[mealId];
     const meal_delete_adobe = this.meals.find((meal) => meal.id === mealId);
-    this.adobeDtbTracking.anchorLink_meal('Removing from Meal Plan: ', meal_delete_adobe.title);
+    this.adobeDtbTracking.anchorLinkMeal('Removing from Meal Plan: ', meal_delete_adobe.title);
   }
 
   updateFavourites(favouriteMeal: any) {
@@ -374,7 +374,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.favouriteMeals = this.favouriteMeals.filter((meal: any) => meal.id !== favouriteMeal.id)
     delete this.favouriteMealIds[favouriteMeal.id];
     const favourite_meal_adobe = this.meals.find((meal) => meal.id === favouriteMeal.id);
-    this.adobeDtbTracking.anchorLink_meal('Removing from Favourites: ', favourite_meal_adobe.title);
+    this.adobeDtbTracking.anchorLinkMeal('Removing from Favourites: ', favourite_meal_adobe.title);
   }
 
   addToFavourites(favouriteMeal: any) {
@@ -382,7 +382,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.favouriteMealIds[favouriteMeal.id] = true;
     this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id);
     const favourite_meal_adobe = this.meals.find((meal) => meal.id === favouriteMeal.id);
-    this.adobeDtbTracking.anchorLink_meal('Adding to Favourites: ', favourite_meal_adobe.title);
+    this.adobeDtbTracking.anchorLinkMeal('Adding to Favourites: ', favourite_meal_adobe.title);
   }
 
 

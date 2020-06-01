@@ -20,6 +20,8 @@ const routes: Routes = [
 
     loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   },
+  { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
+
   {
     path: 'faqs',
 

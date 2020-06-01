@@ -1,17 +1,15 @@
 <div class="auth-container">
-    <div class="register-wrapper">
+    <app-toolbar></app-toolbar>
+    <div class="auth-wrapper">
         <p class='auth-header'>You're one step away from exploring 500+ recipes from around the world.
         </p>
-        <div class="create-account-wrapper">
-            <h2>REGISTER</h2>
-            <mat-form-field>
-                <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
-                <input matInput type="email" placeholder='Email' formControlName='email' required>
-                <mat-icon matSuffix matTooltip='This must be a valid email address.'>info_outline</mat-icon>
-            </mat-form-field>
-            <button aria-label="Create my account" mat-flat-button color='primary'
-                >Create my account</button>
+        <div class="register-container">
+
+            <app-register [registerForm]='registerForm' (navigate)='routeToRegisterPage()'></app-register>
+        </div>
+        <div class="login-container">
+
+            <app-login [authForm]='authForm'></app-login>
         </div>
     </div>
-    <app-login></app-login>
 </div>

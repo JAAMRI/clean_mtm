@@ -1,26 +1,24 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
-import { Breadcrumb } from '../../components/breadcrumbs/breadcrumbs.component';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { PersonalInfoComponent } from '../../components/personal-info/personal-info.component';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UserFormComponent } from '../../components/dialogs/user-form/user-form.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import Auth from '@aws-amplify/auth';
+import { Breadcrumb } from '../../components/breadcrumbs/breadcrumbs.component';
+import { PersonalInfoComponent } from '../../components/personal-info/personal-info.component';
 import { AccountService } from '../../services/account/account.service';
+import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
+import { MealFavouritesService } from '../../services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../services/meal-plan/meal-plan.service';
 import { PreferencesService } from '../../services/preferences/preferences.service';
-import { MealFavouritesService } from '../../services/meal-favourites/meal-favourites.service';
-import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
-import Auth from '@aws-amplify/auth';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
 
   email: string;
-  signUpFormStep1 = new FormGroup({
+  registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email])
   });
   authForm = new FormGroup({
@@ -49,8 +47,7 @@ export class AuthComponent implements OnInit {
   },
   ]
 
-  constructor(public dialogRef: MatDialogRef<UserFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+  constructor(
     private snackBar: MatSnackBar,
     private accountService: AccountService,
     private mealPlanService: MealPlanService,
@@ -59,14 +56,6 @@ export class AuthComponent implements OnInit {
     public adobeDtbTracking: AdobeDtbTracking
 
   ) { }
-
-  ngOnInit() {
-
-  }
-
-  closeDialog() {
-    this.dialogRef.close();
-  }
 
   updateLocalStorageValuesToServer() {
     const mealPlan = JSON.parse(localStorage.getItem('mealPlan'))
@@ -98,7 +87,6 @@ export class AuthComponent implements OnInit {
       }
       this.accountService.emitAuthStateChanged();
       this.accountService.loggedIn = true;
-      this.closeDialog();
       // this.mtmauthService.loggedIn = true;
       if (credentials.hasOwnProperty('firstTimeSignIn')) {
         this.adobeDtbTracking.firstTimeUser('New Registration');
@@ -126,20 +114,17 @@ export class AuthComponent implements OnInit {
   }
 
   // order of slider is listed above
-  stepToLoginPage() {
-    this.stepper.selectedIndex = 0;
+  routeToRegisterPage() {
   }
 
   stepToForgotPassword() {
     this.adobeDtbTracking.anchorLink('Link leading to reset password page on sign in popup');
-    this.stepper.selectedIndex = 1;
 
   }
 
   stepToCreateAccount() {
-    this.email = this.signUpFormStep1.controls.email.value;
-    this.stepper.selectedIndex = 2;
-    this.appPersonalInfo.setEmailFromStep1(this.signUpFormStep1.controls.email.value);
+    this.email = this.registerForm.controls.email.value;
+    this.appPersonalInfo.setEmailFromStep1(this.registerForm.controls.email.value);
   }
 
   sendEmailVerification() {

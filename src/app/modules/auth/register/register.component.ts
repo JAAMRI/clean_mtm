@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  @Input() registerForm: FormGroup;
+  @Output() navigate = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  routeToRegisterPage() {
+    this.navigate.emit();
+  }
+
+
 
 }

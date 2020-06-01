@@ -1,0 +1,19 @@
+@import "../../../../scss/variables.scss";
+
+.sign-in-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .forgot-button {
+        float: left;
+        text-decoration: underline;
+        margin-top: 1em;
+    }
+    mat-icon {
+        margin-right: 0 4px 4px 0;
+    }
+    .sign-in-button {
+        background-color: $mtm_grey !important;
+        color: $mtm_dark_green_color !important;
+    }
+}

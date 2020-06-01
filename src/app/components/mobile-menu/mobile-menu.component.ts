@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AccountService } from '../../../app/services/account/account.service';
 import Auth from '@aws-amplify/auth';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
+import { AuthenticatedPages, MenuPages } from './mobile-menu-pages';
 
 @Component({
   selector: 'app-mobile-menu',
@@ -18,18 +19,8 @@ import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.servi
 export class MobileMenuComponent implements OnInit {
   @Output() close = new EventEmitter();
   currentRoute: string;
-  authenticatedPages: MenuPage[] = [
-    { name: 'SELECT MEALS', route: '/recipes/discover', },
-    { name: `FAVOURITES`, route: '/recipes/favourites', }, // TODO when favourites page is created
-    { name: `MEAL PLAN`, route: '/recipes/my-meals' },
-    { name: 'GROCERY LIST', route: '/recipes/grocery-list' },
-  ];
-  menuPages: MenuPage[] = [
-    { name: 'ARTICLES', route: '/article', },
-    { name: `ABOUT`, route: '/about', }, // TODO when favourites page is created
-    { name: `CONTACT US`, route: '/contact-us' },
-    { name: 'FAQ', route: '/faqs' },
-  ];
+  authenticatedPages: MenuPage[] = AuthenticatedPages;
+  menuPages: MenuPage[] = MenuPages;
   unsubscribeAll = new Subject();
   loggedIn = this.accountService.loggedIn;
 
@@ -66,11 +57,7 @@ export class MobileMenuComponent implements OnInit {
   }
 
   promptUserForAuth() {
-    this.dialog.open(UserFormComponent, {
-      panelClass: 'email-dialog-container',
-      backdropClass: 'faded-backdrop',
-      data: { isMobile: true }
-    });
+    this.router.navigate(['/auth']);
   }
 
   watchRoute() {
