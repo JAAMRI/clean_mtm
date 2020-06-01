@@ -9,6 +9,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MobileMenuModule } from '../mobile-menu/mobile-menu.module';
+import { BreadcrumbsModule } from '../breadcrumbs/breadcrumbs.module';
 
 @NgModule({
   declarations: [ToolbarComponent],
@@ -21,7 +22,8 @@ import { MobileMenuModule } from '../mobile-menu/mobile-menu.module';
     MatDialogModule,
     MatMenuModule,
     MatSidenavModule,
-    MobileMenuModule
+    MobileMenuModule,
+    BreadcrumbsModule
   ],
   exports: [ToolbarComponent]
 })

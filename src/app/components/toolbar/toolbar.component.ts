@@ -9,6 +9,7 @@ import Auth from '@aws-amplify/auth';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { BREAKPOINTS } from '../../utilities/breakpoints';
+import { Breadcrumb } from '../breadcrumbs/breadcrumbs.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -20,6 +21,19 @@ export class ToolbarComponent implements OnInit {
   unsubscribeAll = new Subject();
   activePage: string;
   isMobile: boolean;
+  breadcrumbs: Breadcrumb[] = [{
+    name: 'Select Meals',
+    active: false
+  },
+  {
+    name: 'Meal Plan',
+    active: false
+  },
+  {
+    name: 'Grocery List',
+    active: false
+  },
+  ]
   @ViewChild('snav', { static: false }) snav: any;
 
 

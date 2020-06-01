@@ -1,9 +1,9 @@
 <div [class]="isMobile ? 'mobile-discover-meals-page' : 'discover-meals-page'">
-  <div class="title">
+  <div class="copy">
     <h1>
       SELECT MEALS
     </h1>
-    <p>See delicious meals you like? <br/> Click <mat-icon>add</mat-icon> to add them to your 'Meal Plan' now. Or, click <mat-icon>favorite_border</mat-icon> to save it to your favourites for later.</p>
+    <p class='subheader'>See delicious meals you like? <br/> Click <mat-icon>add</mat-icon> to add them to your 'Meal Plan' now. Or, click <mat-icon>favorite_border</mat-icon> to save it to your favourites for later.</p>
   </div>
   <div class="search">
     <app-search-bar [searchQuery]='searchQuery' (search)='searchMeals($event)'></app-search-bar>
@@ -22,19 +22,12 @@
     <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
   </div>
   <p class='loading-text' *ngIf='loading'>Loading...</p>
-
-  <app-mtm-slider *ngIf='viewLoaded'>
-    <app-meal-item *ngFor="let meal of meals" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
-      (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'
-      (favouriteToggled)='updateFavourites($event)' [favourited]='favouriteMealIds[meal.id]'>
-    </app-meal-item>
-  </app-mtm-slider>
-  <div class="discover-action-buttons">
-    <button aria-label="Show meal plan page" mat-flat-button class='next-button' (click)='visitMealPlan()'>
-      VIEW MEAL PLAN
-      <mat-icon>chevron_right</mat-icon>
-    </button>
+  <div class="meals-wrapper">
+    <app-mtm-slider *ngIf='meals.length > 0'>
+      <app-meal-item *ngFor="let meal of meals" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
+        (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'
+        (favouriteToggled)='updateFavourites($event)' [favourited]='favouriteMealIds[meal.id]'>
+      </app-meal-item>
+    </app-mtm-slider>
   </div>
-
-
 </div>

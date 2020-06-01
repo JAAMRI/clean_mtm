@@ -5,13 +5,19 @@
 
     </mat-sidenav>
     <mat-sidenav-content>
-      <div class="toolbar">
-        <button aria-label="Open menu" [class.deactivate]='snav.opened' mat-icon-button (click)="snav.toggle()">
-          <mat-icon *ngIf='!snav.opened'>menu</mat-icon>
-        </button>
-        <a routerLink='/' class="logo">
-          <img alt="Favorite icon" src="/assets/static_images/MTM_Favicon_4c_2.svg">
-        </a>
+      <div class="heading">
+        
+        <div class="toolbar">
+          <button aria-label="Open menu" [class.deactivate]='snav.opened' mat-icon-button (click)="snav.toggle()">
+            <mat-icon *ngIf='!snav.opened'>menu</mat-icon>
+          </button>
+          <a routerLink='/' class="logo">
+            <img alt="logo" src="/assets/static_images/MTM_Favicon_4c_2.svg">
+          </a>
+        </div>
+            <app-breadcrumbs [breadcrumbs]='breadcrumbs'>
+    
+            </app-breadcrumbs>
       </div>
       <router-outlet></router-outlet>
     </mat-sidenav-content>

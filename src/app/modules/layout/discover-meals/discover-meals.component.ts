@@ -49,7 +49,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   favouriteMealIds: any = [];
 
   pageStart: number = 0;
-  pageSize: number = 6;//If you change this value, please change it in the search function in the meal service as well
+  pageSize: number = 5;//If you change this value, please change it in the search function in the meal service as well
   theEnteredSearchQuery: string = "";
   totalResults: number = 0;
   mealPlanIds = {};

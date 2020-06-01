@@ -14,18 +14,20 @@
 
   </div>
   <div class="meal-content">
-    <h3 class='meal-title'>{{mealItem.title}}</h3>
+    <h4 class='meal-title'>{{mealItem.title | truncate:50}}</h4>
     <div class="meal-description" *ngIf='parent !== "favourites"'>
-      <p *ngIf='mealItem.servings'><strong>{{mealItem.servings}}</strong></p>
       <p class='meal-description'>
         <ng-container *ngIf='mealItem.cookTime'>
-          <strong>Cook time:</strong>
+          <strong>Cook in:</strong>
           {{mealItem.cookTime > 60 ? (mealItem.cookTime / 60 | floor )+ 'H ' + mealItem.cookTime % 60 : mealItem.cookTime}}
-          Min -
+          Min.
         </ng-container>
         <ng-container *ngIf='mealItem.prepTime'>
-          <strong>Prep time:</strong>
-          {{mealItem.prepTime}} Min
+          <strong>Prep in</strong>
+          {{mealItem.prepTime}} Min.
+        </ng-container>
+        <ng-container *ngIf='mealItem.servings'>
+          <strong>Serves:</strong> {{mealItem.servings.substr(0,1)}}.
         </ng-container>
       </p>
     </div>

@@ -11,25 +11,29 @@
       margin: unset;
     }
   }
-  .browse-our-recipes{
+  .browse-our-recipes {
     padding: 1em;
     text-align: center;
   }
-
-  .carousel-image{
+  .carousel-img-wrapper {
     height: 250px;
     width: 300px;
     border-radius: 4px;
+    .carousel-image {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
   }
 
   // .create-your-meal-plan {
-    
+
   // }
 
-  .shop-your-meal-plan{
+  .shop-your-meal-plan {
     padding: 0 2em;
   }
-  .img-wrapper{
+  .img-wrapper {
     display: flex;
     justify-content: center;
     img {
@@ -40,5 +44,4 @@
       max-width: 500px;
     }
   }
-  
 }

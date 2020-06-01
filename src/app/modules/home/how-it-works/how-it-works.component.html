@@ -5,12 +5,14 @@
     <p>Create instant grocery lists.</p>
     <p>Delivered straight to your door</p>
   </div>
- 
+
   <div class="browse-our-recipes">
-      <h1>BROWSE OUR RECIPES</h1>
-      <p>A little taste of 500+ chef curated recipes. Register to explore them all.</p>
+    <h1>BROWSE OUR RECIPES</h1>
+    <p>A little taste of 500+ chef curated recipes. Register to explore them all.</p>
     <app-mtm-slider>
-      <img class='carousel-image' *ngFor='let item of steps' src="/assets/static_images/Create_Meal_Image.jpg" alt="Shop meal plan">
+      <a class='carousel-img-wrapper' *ngFor='let recipe of recipes' [routerLink]='recipe.link'>
+        <img class='carousel-image' [src]="recipe.image" alt="recipe">
+      </a>
     </app-mtm-slider>
   </div>
   <div class="create-meal-plan">

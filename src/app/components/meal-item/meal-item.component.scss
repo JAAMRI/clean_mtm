@@ -1,14 +1,14 @@
 @import "../../../scss/variables.scss";
 
 .meal-item {
-  width: 300px;
+  width: 250px;
   position: relative;
   padding: unset;
   cursor: pointer;
   background-color: $mtm_grey;
   .img-wrapper {
     position: relative;
-    height: 250px;
+    height: 200px;
     width: 100%;
     &.active:before {
       content: "";
@@ -16,7 +16,7 @@
       top: 0;
       right: 0;
       left: 0;
-      height: 250px;
+      height: 200px;
 
       bottom: 0;
       background-color: rgba($mtm_black, 0.5);
@@ -87,6 +87,13 @@
     .meal-title {
       margin: unset;
       padding: 4px;
+      height: 48px;
+    }
+    .meal-description{
+      font-size: 12px;
+      margin: unset;
+      height: 48px;
+
     }
     .meal-servings {
       margin: 1em 0;

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MtmSliderComponent } from './mtm-slider.component';
-import { MatButtonModule } from '@angular/material/button';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 
@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
   declarations: [MtmSliderComponent],
   imports: [
     CommonModule,
+    ScrollingModule
   ],
   exports: [MtmSliderComponent]
 })

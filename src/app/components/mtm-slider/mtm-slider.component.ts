@@ -1,27 +1,24 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-mtm-slider',
   templateUrl: './mtm-slider.component.html',
-  styleUrls: ['./mtm-slider.component.scss']
+  styleUrls: ['./mtm-slider.component.scss'],
 })
-export class MtmSliderComponent implements AfterViewInit {
-  @ViewChild('slider', { static: true }) slider: ElementRef;
 
+export class MtmSliderComponent {
+  @ViewChild('slider', { static: true }) slider: ElementRef;
 
   constructor() { }
 
-  ngAfterViewInit(): void {
-    // this.scrollToMiddle()
+  ngAfterViewInit() {
+    const scrollbarWidth = this.slider.nativeElement.offsetWidth;
+    const sliderWidth = this.slider.nativeElement.scrollWidth
+
+    // scroll half way, but come back half way of the scroll bar to have it in the middle
+    this.slider.nativeElement.scrollLeft = ( (sliderWidth/ 2) - ( scrollbarWidth/2)); 
   }
 
-  // scrollToMiddle() {
-  //   setTimeout(() => {
-  //     this.slider.nativeElement.scrollLeft = (this.slider.nativeElement.clientWidth /2);
-
-  //   }, 1000);
-
-  // }
 
 
 }

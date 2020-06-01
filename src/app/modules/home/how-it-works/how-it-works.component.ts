@@ -1,7 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
-import { STOCK_IMAGE } from '../../../utilities/global-constants';
+import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-how-it-works',
@@ -9,40 +7,37 @@ import { STOCK_IMAGE } from '../../../utilities/global-constants';
   styleUrls: ['./how-it-works.component.scss']
 })
 export class HowItWorksComponent implements OnInit {
-  stockImage = STOCK_IMAGE;
-  steps = [
+
+  recipes = [
     {
-      icon: 'assets/static_images/noun_recipes_1132517.svg',
-      name: 'BROWSE OUR RECIPES',
+      link: `/recipes/Ancho-Steak-Tacos-169023`,
+      image: '/assets/static_images/home-page/featured-recipes/tacos.jpg',
     },
     {
-      icon: 'assets/static_images/noun_Browser_83393.svg',
-      name: 'CREATE MEAL PLAN',
+      link: `/recipes/Grilled-Eggplant-Caprese-Salad-95881`,
+      image: '/assets/static_images/home-page/featured-recipes/eggplant.jpg',
     },
     {
-      icon: 'assets/static_images/noun_Shopping Cart_2776002.svg',
-      name: 'SHOP YOUR MEAL PLAN'
-    }
+      link: `/recipes/The-Great-Canadian-Burger-108568`,
+      image: '/assets/static_images/home-page/featured-recipes/burger.jpg'
+    },
+    {
+      link: `/recipes/Grilled-Herb-Rubbed-Chicken-99319`,
+      image: '/assets/static_images/home-page/featured-recipes/chicken.png'
+    },
+    {
+      link: `/recipes/Spinach-and-Kale-Salad-188777`,
+      image: '/assets/static_images/home-page/featured-recipes/spinach.jpg'
+    },
+
   ]; // icons
 
-  @Input() isMobile: boolean;
 
   constructor(
-    private matIconRegistry: MatIconRegistry, 
-    private sanitizer: DomSanitizer, 
+    
   ) {}
 
-  createStepIcons() {
-    this.steps.forEach((step) => {
-      this.matIconRegistry.addSvgIcon(step.name, this.sanitizer.bypassSecurityTrustResourceUrl(step.icon));
-    });
-    this.matIconRegistry.addSvgIcon('right-arrow', this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/right-arrow.svg'));
-    // creating step icons for carousel
-
-  }
-
   ngOnInit(): void {
-    this.createStepIcons();
   }
 
 }

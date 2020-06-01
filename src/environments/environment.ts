@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   uat: false,
   host: 'https://4w0hc7sglf.execute-api.us-east-1.amazonaws.com/dev',
-	baseHref: '/'
+  baseHref: '/',
+  baseUrl: 'localhost:4200'
 };
 
 /*
