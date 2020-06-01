@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewEncapsulation, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import Auth from '@aws-amplify/auth';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { TestBed } from '@angular/core/testing';
-import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
+import Auth from '@aws-amplify/auth';
+import { AdobeDtbTracking } from '../../../../services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-forgot-password',

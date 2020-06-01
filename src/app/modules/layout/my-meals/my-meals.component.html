@@ -1,11 +1,10 @@
 <div [class]="isMobile ? 'mobile-my-meals-page' : 'my-meals-page'">
   <div class="copy">
     <h1>MEAL PLAN</h1>
-    <p>Click <strong>NEXT</strong> when you're ready, to shop ingredients in your Grocery List. Click <mat-icon>remove</mat-icon> to remove recipes.</p>
+    <p>Click <strong>NEXT</strong> when you're ready, to shop ingredients in your Grocery List. <br />Click <mat-icon>
+        remove</mat-icon> to remove recipes.</p>
   </div>
-  <p class='my-meals-subheader'>
-    {{!isMobile ? 'When your meal plan is ready, click grocery list to shop ingredients' : 'When your meal plan is ready, click grocery list to shop ingredients'}}
-  </p>
+
   <ng-container *ngIf='mealPlan.length === 0'>
     <p class='no-items-text'>No items found</p>
     <div class="button-wrapper">
@@ -19,12 +18,13 @@
 
 
   <div class="my-meals-container">
+    <div class="meal-item" *ngFor="let meal of mealPlan">
 
-    <app-meal-item *ngFor="let meal of mealPlan" (favouriteToggled)='updateFavourites($event)'
-      (remove)='removeFromMealPlan($event)' (wasClicked)='visitMealDetailPage($event)'
-      parent='my-meals'
-      [favourited]='favouriteMealIds?.includes(meal.id)' [mealItem]='meal'>
-    </app-meal-item>
+      <app-meal-item  (favouriteToggled)='updateFavourites($event)'
+        (remove)='removeFromMealPlan($event)' (wasClicked)='visitMealDetailPage($event)' parent='my-meals'
+        [favourited]='favouriteMealIds?.includes(meal.id)' [mealItem]='meal'>
+      </app-meal-item>
+    </div>
 
   </div>
 

@@ -38,6 +38,12 @@
     color: $mtm_light_green_color;
   }
 }
+.my-meals-container{
+  .meal-item{
+    margin-bottom: 1em;
+  }
+}
+
 .my-meals-subheader {
   text-align: center;
   font-family: avenir;

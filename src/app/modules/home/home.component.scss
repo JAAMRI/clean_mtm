@@ -3,7 +3,12 @@
 .home-page {
   height: 100%;
   background-color: $mtm_white;
-
+  h1{
+    margin: 0 0 4px 0;
+  }
+  p{
+    margin: 4px;
+  }
   mat-sidenav-container {
     @media(max-width:1024px) {
       mat-sidenav{
@@ -30,7 +35,7 @@
       justify-content: center;
       background-color: $mtm_grey;
       button {
-        margin: 1em;
+        margin: 1.1em 1em 1em 1em; // comment from design team, top is smaller than bottom
         width: 300px;
         font-size: 16px;
         padding: 4px;
