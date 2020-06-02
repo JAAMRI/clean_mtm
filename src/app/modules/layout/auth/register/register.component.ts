@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -22,7 +22,8 @@ class passwordErrorMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
 
@@ -88,7 +89,6 @@ export class RegisterComponent implements OnInit {
         this.userForm.controls.postal_code.setValue(currentUser.attributes['custom:postal_code']);
       })
         .catch(err => {
-          console.log(err);
           this.accountService.loggedIn = false;
           this.router.navigateByUrl("./");
         }

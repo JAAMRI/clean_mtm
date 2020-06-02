@@ -1,13 +1,13 @@
 <div class="auth-container">
     <div class="login-wrapper" *ngIf='activeRoute === "LOGIN"'>
-       
-        <app-login [loginForm]='loginForm' (register)='viewRegister()' [emailForm]='emailForm'></app-login>
+
+        <app-login [loginForm]='loginForm' (register)='viewRegister()' (login)='signIn()' [emailForm]='emailForm'></app-login>
     </div>
     <div class="register-wrapper" *ngIf='activeRoute === "REGISTER"'>
-
+        <app-register (back)='viewLogin()' (signIn)='signIn()'></app-register>
     </div>
     <div class="forgot-password-wrapper" *ngIf='activeRoute === "FORGOT_PASSWORD"'>
+        <app-forgot-password></app-forgot-password>
+    </div>  
 
-    </div>
-    
 </div>

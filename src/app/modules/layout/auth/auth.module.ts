@@ -15,6 +15,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PipesModule } from '../../../pipes/pipes.module';
+import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
 
 
 
@@ -34,7 +35,8 @@ import { PipesModule } from '../../../pipes/pipes.module';
     MatNativeDateModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
-    PipesModule
+    PipesModule,
+    ForgotPasswordModule
   ]
 })
 export class AuthModule { }

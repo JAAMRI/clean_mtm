@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
   @Input() loginForm: FormGroup;
   @Input() emailForm: FormGroup;
   @Output() register = new EventEmitter();
+  @Output() login = new EventEmitter();
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class LoginComponent implements OnInit {
 
   routeToRegisterPage() {
     this.register.emit();
+  }
+
+  emitLogin() {
+    this.login.emit();
   }
 
 }

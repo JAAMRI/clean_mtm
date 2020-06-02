@@ -13,7 +13,7 @@
       <button aria-label="Create my account" mat-flat-button color='primary'>CREATE MY ACCOUNT</button>
     </form>
   </div>
-  <form class='auth-form' [formGroup]='loginForm'>
+  <form class='auth-form' [formGroup]='loginForm' (ngSubmit)='emitLogin()'>
     <div class="sign-in-wrapper">
       <h2>SIGN IN</h2>
       <mat-form-field>

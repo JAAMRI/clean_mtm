@@ -1,7 +1,7 @@
 @import "../../../../scss/variables.scss";
 
 .auth-container {
-  height: 100vh;
+  min-height: 100vh;
   .login-wrapper {
     padding: 1em;
 
