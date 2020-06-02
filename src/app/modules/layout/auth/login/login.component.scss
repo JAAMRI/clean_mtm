@@ -1,5 +1,10 @@
 @import "../../../../../scss/variables.scss";
 
+.header {
+    width: 75%;
+    margin: auto;
+    text-align: center;
+  }
 .sign-in-wrapper {
     display: flex;
     flex-direction: column;
@@ -17,3 +22,13 @@
         color: $mtm_dark_green_color !important;
     }
 }
+.register-container {
+    margin: 2em 0 2em 0;
+    .register-form {
+      display: flex;
+      flex-direction: column;
+      mat-icon {
+        margin: 0 4px 4px 0;
+      }
+    }
+  }

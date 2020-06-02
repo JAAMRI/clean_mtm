@@ -1,18 +1,35 @@
-<form class='auth-form' [formGroup]='authForm'>
-  <div class="sign-in-wrapper">
-    <h2>SIGN IN</h2>
-    <mat-form-field>
-      <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
-      <input matInput type="email" placeholder='Email' #signInUsername formControlName='email' required>
-      <mat-icon matSuffix matTooltip='This must be a valid email address.'>info_outline</mat-icon>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-icon matPrefix class='prefix-icon'>lock_open</mat-icon>
-      <input matInput type="password" placeholder='Password' #signInPassword formControlName='password' required>
-      <mat-icon matSuffix matTooltip='Please enter a combination of at least 8 letters, numbers or symbols (!,@...)'>
-        info_outline</mat-icon>
-    </mat-form-field>
-    <button aria-label="Sign in" type="submit" mat-flat-button class='sign-in-button'>SIGN IN</button>
-    <a class='forgot-button' mat-link-button>Forgot your password?</a>
+<div class="login-wrapper">
+  <p class='header'>You're one step away from exploring 500+ recipes from around the world.
+  </p>
+  <div class="register-container">
+    <h2>REGISTER</h2>
+    <form (ngSubmit)='routeToRegisterPage()' class="register-form" [formGroup]='emailForm'>
+
+      <mat-form-field>
+        <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
+        <input matInput type="email" placeholder='Email' formControlName='email' required>
+        <mat-icon matSuffix matTooltip='This must be a valid email address.'>info_outline</mat-icon>
+      </mat-form-field>
+      <button aria-label="Create my account" mat-flat-button color='primary'>CREATE MY ACCOUNT</button>
+    </form>
   </div>
-</form>
+  <form class='auth-form' [formGroup]='loginForm'>
+    <div class="sign-in-wrapper">
+      <h2>SIGN IN</h2>
+      <mat-form-field>
+        <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
+        <input matInput type="email" placeholder='Email' #signInUsername formControlName='email' required>
+        <mat-icon matSuffix matTooltip='This must be a valid email address.'>info_outline</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-icon matPrefix class='prefix-icon'>lock_open</mat-icon>
+        <input matInput type="password" placeholder='Password' #signInPassword formControlName='password' required>
+        <mat-icon matSuffix matTooltip='Please enter a combination of at least 8 letters, numbers or symbols (!,@...)'>
+          info_outline</mat-icon>
+      </mat-form-field>
+      <button aria-label="Sign in" type="submit" mat-flat-button class='sign-in-button'>SIGN IN</button>
+      <a class='forgot-button' mat-link-button>Forgot your password?</a>
+    </div>
+  </form>
+
+</div>

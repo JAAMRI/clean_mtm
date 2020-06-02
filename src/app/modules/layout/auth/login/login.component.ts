@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,11 +7,17 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  @Input() authForm: FormGroup;
+  @Input() loginForm: FormGroup;
+  @Input() emailForm: FormGroup;
+  @Output() register = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  routeToRegisterPage() {
+    this.register.emit();
   }
 
 }

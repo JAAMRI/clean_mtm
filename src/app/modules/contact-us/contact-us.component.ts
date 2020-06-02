@@ -5,7 +5,7 @@ import { embedChatWidget } from './live-chat-helper';
 import { SeoService } from '../../services/seo.service';
 import { Title } from '@angular/platform-browser';
 import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
-import { DynamicScriptLoaderService } from '../../services/dynamic-script-loader.service';
+import { DynamicScriptLoaderService } from '../../services/dynamic-script-loader/dynamic-script-loader.service';
 
 @Component({
   selector: 'app-contact-us',

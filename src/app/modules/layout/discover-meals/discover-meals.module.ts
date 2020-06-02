@@ -6,7 +6,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MealItemModule } from '../../../../app/components/meal-item/meal-item.module';
 import { SearchBarModule } from '../../../../app/components/search-bar/search-bar.module';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';

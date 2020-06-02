@@ -14,7 +14,7 @@ import { SeoService } from '../../../../app/services/seo.service';
 import { SPELLING_ERROR } from '../../../../app/utilities/global-constants';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { UserFormComponent } from '../../../components/dialogs/user-form/user-form.component';
-import { MealService } from '../../../services/meal.service';
+import { MealService } from '../../../services/meal/meal.service';
 import { BREAKPOINTS } from '../../../utilities/breakpoints';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 import { FilterComponent } from '../../../components/dialogs/filter/filter.component';

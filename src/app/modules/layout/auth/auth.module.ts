@@ -10,6 +10,11 @@ import { AuthRouting } from './auth.routing';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { PipesModule } from '../../../pipes/pipes.module';
 
 
 
@@ -24,7 +29,12 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
     AuthRouting,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatProgressSpinnerModule,
+    MatCheckboxModule,
+    PipesModule
   ]
 })
 export class AuthModule { }

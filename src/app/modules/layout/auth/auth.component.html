@@ -1,14 +1,13 @@
 <div class="auth-container">
-    <div class="auth-wrapper">
-        <p class='auth-header'>You're one step away from exploring 500+ recipes from around the world.
-        </p>
-        <div class="register-container">
-
-            <app-register [registerForm]='registerForm' (navigate)='routeToRegisterPage()'></app-register>
-        </div>
-        <div class="login-container">
-
-            <app-login [authForm]='authForm'></app-login>
-        </div>
+    <div class="login-wrapper" *ngIf='activeRoute === "LOGIN"'>
+       
+        <app-login [loginForm]='loginForm' (register)='viewRegister()' [emailForm]='emailForm'></app-login>
     </div>
+    <div class="register-wrapper" *ngIf='activeRoute === "REGISTER"'>
+
+    </div>
+    <div class="forgot-password-wrapper" *ngIf='activeRoute === "FORGOT_PASSWORD"'>
+
+    </div>
+    
 </div>

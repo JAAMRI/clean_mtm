@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Auth from '@aws-amplify/auth';
@@ -9,19 +9,28 @@ import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../services/meal-plan/meal-plan.service';
 import { PreferencesService } from '../../../services/preferences/preferences.service';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { takeUntil, filter } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
+enum AuthType {
+  LOGIN = 'LOGIN',
+  REGISTER = 'REGISTER',
+  FORGOT_PASSWORD = 'FORGOT_PASSWORD'
+}
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit, OnDestroy {
 
   email: string;
-  registerForm = new FormGroup({
+  emailForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email])
   });
-  authForm = new FormGroup({
+  loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   })
@@ -33,6 +42,8 @@ export class AuthComponent {
   codeValidated: boolean;
   invalidCode: boolean;
   invalidEmail: boolean;
+  activeRoute: string = '';
+  unsubscribeAll = new Subject()
   breadcrumbs: Breadcrumb[] = [{
     name: 'Select Meals',
     active: false
@@ -53,9 +64,51 @@ export class AuthComponent {
     private mealPlanService: MealPlanService,
     private preferencesService: PreferencesService,
     private mealFavouritesService: MealFavouritesService,
-    public adobeDtbTracking: AdobeDtbTracking
+    public adobeDtbTracking: AdobeDtbTracking,
+    private router: Router,
+    private route: ActivatedRoute
 
   ) { }
+
+  ngOnInit() {
+    this.watchRoute();
+    this.setActiveRoute(this.router.url);
+  }
+
+  setActiveRoute(url: string) {
+    switch (url) {
+      case '/auth/login':
+        this.activeRoute = AuthType.LOGIN;
+      case '/auth/register':
+        this.activeRoute = AuthType.REGISTER;
+      case '/auth/forgot-password':
+        this.activeRoute = AuthType.FORGOT_PASSWORD;
+      default:
+        this.activeRoute = AuthType.LOGIN;
+    }
+  }
+
+  watchRoute() {
+    this.router.events.pipe(takeUntil(this.unsubscribeAll),
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {      
+      this.setActiveRoute(event.url);
+    });
+  }
+
+  viewRegister() {
+    this.router.navigate(['/auth/register']);
+  }
+
+  viewLogin() {
+    this.router.navigate(['/auth/login']);
+  }
+
+
+  viewForgotPassword() {
+    this.router.navigate(['/auth/forgot-password']);
+  }
+
 
   updateLocalStorageValuesToServer() {
     const mealPlan = JSON.parse(localStorage.getItem('mealPlan'))
@@ -115,6 +168,7 @@ export class AuthComponent {
 
   // order of slider is listed above
   routeToRegisterPage() {
+    this.router.navigate(['/register']);
   }
 
   stepToForgotPassword() {
@@ -123,8 +177,8 @@ export class AuthComponent {
   }
 
   stepToCreateAccount() {
-    this.email = this.registerForm.controls.email.value;
-    this.appPersonalInfo.setEmailFromStep1(this.registerForm.controls.email.value);
+    this.email = this.emailForm.controls.email.value;
+    this.appPersonalInfo.setEmailFromStep1(this.emailForm.controls.email.value);
   }
 
   sendEmailVerification() {
@@ -153,6 +207,11 @@ export class AuthComponent {
         console.log(err);
         this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
       });
+  }
+
+  ngOnDestroy() {
+    this.unsubscribeAll.next();
+    this.unsubscribeAll.complete();
   }
 
 

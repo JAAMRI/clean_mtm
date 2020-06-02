@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { AccountService } from './services/account/account.service';
-import { DynamicScriptLoaderService } from './services/dynamic-script-loader.service';
+import { DynamicScriptLoaderService } from './services/dynamic-script-loader/dynamic-script-loader.service';
 import { BREAKPOINTS } from './utilities/breakpoints';
 
 @Component({
@@ -61,21 +61,16 @@ export class AppComponent implements OnInit {
     // this.loadFooter();
     this.loadFontIcons();
     if (environment.production == true || environment.uat == true) {
-      await this.loadjscssfile("../jquery.js", "js");
-      await this.loadjscssfile("../carouselslicklazyloadedjs.js", "js");
+     
       this.loadCarousel = true; // load router outlet after js has been loaded
       await this.loadjscssfile("../lazyloadedstyles.css", "css");
-      await this.loadjscssfile("../carousellazyloadedstyles.css", "css");
-      await this.loadjscssfile("../carouselslicklazyloadedstyles.css", "css");
+
       this.insertAdChoice();
     }//If production or uat, lazyload main css
     else {
-      await this.loadjscssfile("../jquery.js", "js");
-      await this.loadjscssfile("../carouselslicklazyloadedjs.js", "js");
       this.loadCarousel = true; // load router outlet after js has been loaded
+      this.cdr.detectChanges()
       await this.loadjscssfile("../lazyloadedstyles.js", "js");
-      await this.loadjscssfile("../carousellazyloadedstyles.js", "js");
-      await this.loadjscssfile("../carouselslicklazyloadedstyles.js", "js");
     }
 
     if (environment.production || environment.uat) {

@@ -9,7 +9,7 @@ import { AccountService } from '../../../../app/services/account/account.service
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
-import { MealService } from '../../../../app/services/meal.service';
+import { MealService } from '../../../services/meal/meal.service';
 import { SeoService } from '../../../../app/services/seo.service';
 import { BREAKPOINTS } from '../../../../app/utilities/breakpoints';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
