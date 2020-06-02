@@ -17,26 +17,32 @@
   min-height: calc(100vh - 40px); // height subrating toolbar (landscape)
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   background-color: $mtm_white;
 }
 .copy {
   text-align: center;
+  p{
+    margin: unset;
+  }
+  h1{
+    margin-bottom: unset;
+  }
 
 }
 .my-meals-subheader {
   text-align: center;
-  font-family: avenir;
   width: 75%;
-  margin: auto;
 }
 .no-favourites {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 1em;
   font-family: avenir;
+  h2{
+    margin-top: unset;
+  }
   padding: 1em;
   mat-icon{
     color: $mtm_dark_green_color;
@@ -67,6 +73,9 @@
   justify-items: center;
   margin-top: 1em;
   grid-gap: 1em;
+  .favourite-item {
+    margin-bottom: 1em;
+  }
 }
 .my-meals-action-buttons {
   display: grid;

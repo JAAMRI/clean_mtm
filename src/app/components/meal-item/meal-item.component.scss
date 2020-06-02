@@ -6,7 +6,7 @@
   padding: unset;
   cursor: pointer;
   border-radius: 4px;
-  background-color: $mtm_grey;
+  background-color: $mtm_light_grey;
   .img-wrapper {
     position: relative;
     height: 200px;
@@ -60,7 +60,7 @@
       top: -16px;
       right: 8px;
       background-color: $mtm_white;
-      color: $mtm_light_green_color;
+      color: $mtm_dark_green_color;
       width: 32px;
       height: 32px;
       mat-icon {
@@ -72,7 +72,7 @@
       position: absolute;
       top: -16px;
       right: 8px;
-      background-color: red;
+      background-color: $mtm_light_green_color;
       color: $mtm_white;
       width: 32px;
       height: 32px;
@@ -89,6 +89,7 @@
       margin: unset;
       padding: 4px;
       height: 48px;
+      color: $mtm_light_green_color;
     }
     .meal-description{
       font-size: 12px;

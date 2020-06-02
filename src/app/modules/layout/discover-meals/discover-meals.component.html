@@ -3,7 +3,7 @@
     <h1>
       SELECT MEALS
     </h1>
-    <p class='subheader'>See delicious meals you like? <br/> Click <mat-icon>add</mat-icon> to add them to your 'Meal Plan' now. Or, click <mat-icon>favorite_border</mat-icon> to save it to your favourites for later.</p>
+    <p class='subheader'>Click <mat-icon>add</mat-icon> to add a recipe to your 'Meal Plan'. Click <mat-icon>favorite_border</mat-icon> to save it to your favourites for later.</p>
   </div>
   <div class="search">
     <app-search-bar [searchQuery]='searchQuery' (search)='searchMeals($event)'></app-search-bar>
@@ -12,7 +12,7 @@
     </p>
   </div>
   <div class="filter">
-    <p>Filter Recipes</p>
+    <p>FILTER RECIPES</p>
     <button mat-icon-button (click)='renderFilterDialog()'><mat-icon>filter_list</mat-icon></button>
     
   </div>

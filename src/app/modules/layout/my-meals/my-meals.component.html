@@ -1,7 +1,7 @@
 <div [class]="isMobile ? 'mobile-my-meals-page' : 'my-meals-page'">
   <div class="copy">
     <h1>MEAL PLAN</h1>
-    <p>Click <strong>NEXT</strong> when you're ready, to shop ingredients in your Grocery List. <br />Click <mat-icon>
+    <p>Click <strong>NEXT</strong> when you're ready, to shop ingredients for these recipes. <br />Click <mat-icon>
         remove</mat-icon> to remove recipes.</p>
   </div>
 
@@ -28,30 +28,5 @@
 
   </div>
 
-  <!-- <pre>{{filteredMealPlan$ | async | json}}</pre> -->
-
-  <div class="my-meals-action-buttons">
-    <div class="route-buttons">
-      <button aria-label="Select meals" mat-flat-button class='select-meals-button' routerLink='/recipes/discover'
-        (click)="adobeDtbTracking.pageTracking('SELECT MEALS','/recipes/discover')">
-        <mat-icon>chevron_left</mat-icon>
-        SELECT MEALS
-      </button>
-      <button aria-label="View grocery list" mat-flat-button class='grocery-list-button'
-        routerLink='/recipes/grocery-list'
-        (click)="adobeDtbTracking.pageTracking('GROCERY LIST','/recipes/grocery-list')">
-        GROCERY LIST
-        <mat-icon>chevron_right</mat-icon>
-      </button>
-    </div>
-    <button aria-label="Save meal plan" *ngIf="!accountService.loggedIn" mat-flat-button class='save-meal-plan-button'
-      (click)='promptUserForAuth()'>
-      SAVE MEAL PLAN
-    </button>
-    <button aria-label="View favourites" *ngIf="accountService.loggedIn" mat-flat-button class='save-meal-plan-button'
-      (click)='viewFavourites()'>
-      View Favourites
-    </button>
-
-  </div>
+ 
 </div>

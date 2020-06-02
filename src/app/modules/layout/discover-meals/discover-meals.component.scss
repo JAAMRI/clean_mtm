@@ -25,9 +25,13 @@
   h1{
     margin-bottom: 8px;
   }
-  p{
+  .subheader{
     padding: 0 4em;
     margin: unset;
+    mat-icon{
+      color: $mtm_light_green_color;
+      margin-bottom: 4px;
+    }
   }
 }
 
@@ -35,6 +39,7 @@
 .filter{
   p{
     margin: unset;
+    color: rgba(0, 0, 0, 0.54);
   }
   mat-icon{
     font-size: 32px;
@@ -88,6 +93,7 @@
     font-family: flavour;
   }
 }
+
 
 *:focus {
   outline: 0;
