@@ -12,7 +12,7 @@ const AuthRoutes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       {
-        path: 'forgot-password', loadChildren: () => import('./forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)
+        path: 'forgot-password', component: RegisterComponent
       },
       { path: '**', redirectTo: 'login', pathMatch: 'full' },
 

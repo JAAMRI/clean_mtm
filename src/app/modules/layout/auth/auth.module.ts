@@ -15,12 +15,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PipesModule } from '../../../pipes/pipes.module';
-import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent, RegisterComponent],
+  declarations: [AuthComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -36,7 +36,7 @@ import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
     MatProgressSpinnerModule,
     MatCheckboxModule,
     PipesModule,
-    ForgotPasswordModule
+    
   ]
 })
 export class AuthModule { }

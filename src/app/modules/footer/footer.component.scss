@@ -3,6 +3,7 @@
 .app-footer {
   display: grid;
   padding: 1em;
+  background-color: $mtm_grey;
   margin-bottom: 4em; // consider bottom button
   .visit-brands{
     display: flex;

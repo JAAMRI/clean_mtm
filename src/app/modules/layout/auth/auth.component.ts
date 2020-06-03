@@ -87,6 +87,8 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   viewForgotPassword() {
     this.router.navigate(['/auth/forgot-password']);
+    this.adobeDtbTracking.anchorLink('Link leading to reset password page on sign in popup');
+
   }
 
 
@@ -143,16 +145,6 @@ export class AuthComponent implements OnInit, OnDestroy {
       console.log(err);
       this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
     }
-  }
-
-  // order of slider is listed above
-  routeToRegisterPage() {
-    this.router.navigate(['/register']);
-  }
-
-  stepToForgotPassword() {
-    this.adobeDtbTracking.anchorLink('Link leading to reset password page on sign in popup');
-
   }
 
   sendEmailVerification() {

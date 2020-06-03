@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { Breadcrumb } from '../breadcrumbs/breadcrumbs.component';
 
 @Component({
@@ -8,23 +8,13 @@ import { Breadcrumb } from '../breadcrumbs/breadcrumbs.component';
 })
 export class ToolbarComponent {
 
-  @Output() navigate = new EventEmitter();
+  @Output() onLogoClick = new EventEmitter();
   @Output() toggle = new EventEmitter();
-  breadcrumbs: Breadcrumb[] = [{
-    name: 'Select Meals',
-    active: false
-  },
-  {
-    name: 'Meal Plan',
-    active: false
-  },
-  {
-    name: 'Grocery List',
-    active: false
-  }];
+  @Input() breadcrumbs: Breadcrumb[];
+  
 
-  emitNavigation() {
-    this.navigate.emit();
+  emitLogoClicked() {
+    this.onLogoClick.emit();
   }
 
   emitToggle() {

@@ -11,6 +11,8 @@
   -ms-overflow-x: hidden;
   position: relative;
   z-index: 1;
+  font-family: Arial; 
+  font-weight: regular;
   background-color: $mtm_white;
   &.dialog{
     max-width: 80vw;
@@ -47,18 +49,15 @@
   margin-top: 2em;
   .header {
     font-size: 2em;
+    margin-left: 20px;
     margin-top: unset;
     text-align: center;
     align-self: end;
-    font-family: flavour;
-    color: $mtm_dark_green_color;
   }
   .subheader {
-    color: $mtm_dark_green_color;
     text-align: center;
-    font-family: avenir;
     width: 75%;
-    margin: auto;
+    margin: 1em auto;
   }
 }
 
@@ -71,7 +70,12 @@
   background-color: $mtm_white;
 }
 .meal-summary-mobile {
-  padding-top: 1em;
+  position: relative;
+  button{
+    position: absolute;
+    right: 1em;
+    top: -20px;
+  }
   .img-wrapper {
     display: flex;
     width: 100%;
@@ -85,6 +89,9 @@
     display: flex;
     justify-content: space-between;
     margin: 1em 0;
+    .title{
+      color: $mtm_light_green_color;
+    }
     p {
       margin: unset;
       font-size: 1em;
@@ -108,6 +115,7 @@
     grid-template-columns: 1fr 2fr;
     .text-wrapper {
       h3 {
+        color: $mtm_light_green_color;
         margin: unset;
       }
       .meal-description {
@@ -117,6 +125,12 @@
       }
     }
     .action-wrapper {
+      position: relative;
+      button{
+        position: absolute;
+        right: 1em;
+        top: -20px;
+      }
       .img-wrapper {
         height: 35vh;
         width: 100%;
@@ -165,14 +179,24 @@
     height: 100%;
   }
   .mat-tab-label-content {
-    color: $mtm_dark_green_color;
     font-family: 500;
   }
   .mat-tab-header {
     border-bottom: unset;
   }
+  .mat-tab-label {
+    height: 24px;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px 4px 0 0;
+    background-color: $mtm_light_green_color;
+    color: $mtm_white;
+    margin: 0 4px;
+  }
   .mat-tab-label-active {
-    background-color: $mtm_grey;
+    background-color: $mtm_dark_green_color;
+    color: $mtm_white;
   }
   .mat-tab-body-wrapper {
     background-color: $mtm_grey;
@@ -181,12 +205,7 @@
   .mat-ink-bar {
     display: none;
   }
-  .mat-tab-label {
-    height: 24px;
-    padding: 0 12px;
-    font-size: 12px;
-    font-weight: 600;
-  }
+  
 }
 
 .scroll-to-bottom-button-wrapper {
@@ -200,67 +219,70 @@
 }
 
 .other-recommended-meals {
-  background-color: $mtm_dark_green_color;
-  color: $mtm_white;
+  background-color: $mtm_white;
   text-align: center;
-  padding: 1em;
-  .text-wrapper {
-    h1{
-      font-family: flavour;
-    }
+  width: 70vw;
+  min-width: 400px;
+  margin: auto;
+  h1{
+    padding: 0 1em;
   }
+ 
 }
 .meal-details-footer {
   height: 40vh;
-  background-image: url("/assets/static_images/Desktop_Footer_Image.jpg");
+  background-image: url("/assets/static_images/meal-recipe-footer.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
   position: relative;
   padding-bottom: 3em;
-  .meal-details-footer-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    .text-wrapper {
-      color: $mtm_white;
-      p {
-        font-family: avenir;
-        text-align: center;
-        padding: 0 1em;
-      }
-    }
-    .logo-wrapper {
-      position: absolute;
-      bottom: 2em;
-      left: 1em;
-      height: 10vh;
-      width: 10vh;
-      img {
-        object-fit: contain;
-        height: 100%;
-        width: 100%;
-      }
-    }
-    .meal-detail-action-button {
-      button {
-        background-color: $mtm_dark_green_color;
-        color: $mtm_white;
-      }
-    }
-    .scroll-to-top-button-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      button {
-        position: absolute;
-        bottom: 1em;
-        right: 3em;
-      }
-    }
-  }
 }
+    .meal-details-footer-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .text-wrapper {
+        color: $mtm_black;
+        p {
+          font-family: avenir;
+          text-align: center;
+          padding: 0 1em;
+        }
+      }
+      .logo-wrapper {
+        position: absolute;
+        bottom: 2em;
+        left: 1em;
+        height: 10vh;
+        width: 10vh;
+        img {
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .meal-detail-action-button {
+        background-color: $mtm_grey;
+        padding: 1em;
+        width: 100%;
+        text-align: center;
+        button {
+          background-color: $mtm_dark_green_color;
+          color: $mtm_white;
+        }
+      }
+      .scroll-to-top-button-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        button {
+          position: absolute;
+          bottom: 1em;
+          right: 3em;
+        }
+      }
+    }
 .scroll-button {
   color: $mtm_light_green_color !important;
   background-color: $mtm_white !important;
@@ -274,4 +296,17 @@
 
 mat-spinner{
   margin: auto;
+}
+
+.add-button {
+
+  background-color: $mtm_white !important;
+  color: $mtm_dark_green_color !important;
+
+}
+.remove-button {
+  
+  background-color: $mtm_light_green_color !important;
+  color: $mtm_white !important;
+
 }

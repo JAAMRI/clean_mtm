@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ICredentials } from '../../../../interfaces/credentials';
 
 @Component({
   selector: 'app-login',
@@ -9,20 +10,31 @@ import { FormGroup } from '@angular/forms';
 export class LoginComponent implements OnInit {
   @Input() loginForm: FormGroup;
   @Input() emailForm: FormGroup;
-  @Output() register = new EventEmitter();
-  @Output() login = new EventEmitter();
+  @Output() register = new EventEmitter<void>();
+  @Output() login = new EventEmitter<ICredentials>();
+  @Output() forgotPassword = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  routeToRegisterPage() {
+  emitRegister() {
     this.register.emit();
   }
 
+  emitForgotPassword() {
+    this.forgotPassword.emit();
+  }
+
   emitLogin() {
-    this.login.emit();
+    const username = this.loginForm.get('email').value;
+    const password = this.loginForm.get('password').value;
+    const credentials: ICredentials = {
+      username: username,
+      password: password,
+    }
+    this.login.emit(credentials);
   }
 
 }

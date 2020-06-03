@@ -1,5 +1,5 @@
-<div *ngIf='meal && !loading' 
-  [class]="inDialog ? (isMobile ? 'mobile-recipe-page' : 'recipe-page') + ' dialog' : (isMobile ? 'mobile-recipe-page' : 'recipe-page')" 
+<div *ngIf='meal && !loading'
+  [class]="inDialog ? (isMobile ? 'mobile-recipe-page' : 'recipe-page') + ' dialog' : (isMobile ? 'mobile-recipe-page' : 'recipe-page')"
   #topOfPage>
   <div class="close-button" *ngIf='inDialog'>
     <button mat-icon-button mat-dialog-close>
@@ -16,12 +16,18 @@
 
   <section class="meal-recipe" [class]="!isWeb ? 'mobile-meal-recipe' : 'meal-recipe'">
     <div class="meal-summary-mobile" *ngIf='isMobile'>
+      <button class='add-button' mat-mini-fab *ngIf='!inMealPlan' (click)='addToMealPlan()'>
+        <mat-icon>add</mat-icon>
+      </button>
+      <button class='remove-button' mat-mini-fab *ngIf='inMealPlan' (click)='removeFromMealPlan()'>
+        <mat-icon>remove</mat-icon>
+      </button>
       <div class="img-wrapper">
         <img [alt]="meal.title" [src]="meal.image" alt="meal item">
       </div>
       <div class="meal-subheader">
         <div class="meal-info">
-          <p>
+          <p class='title'>
             {{meal.title}}
           </p>
           <p>
@@ -30,7 +36,7 @@
           </p>
         </div>
 
-        <div class="action-buttons">
+        <!-- <div class="action-buttons">
           <button aria-label="Add to meal plan" *ngIf='!inMealPlan' mat-button class='add-button'
             [ngClass]="{'added': inMealPlan}" (click)='addToMealPlan()'>
             <mat-icon>add</mat-icon>
@@ -41,7 +47,7 @@
             <mat-icon>remove</mat-icon>
             REMOVE FROM MEAL PLAN
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="meal-summary-desktop" *ngIf='!isMobile'>
@@ -53,15 +59,15 @@
             </h3>
             <p>{{meal.prepTime + meal.cookTime}} min {{meal.servings ? '- ' + meal.servings : ''}}</p>
           </div>
-          <p class='meal-description' *ngIf="meal.cuisine"><strong>Cuisine:</strong> {{ meal.cuisine }}</p>
-          <br>
-          <p class='meal-description'><strong>Main Ingredient:</strong> {{ meal.mainIngredient }}</p>
+      
+          <p class='meal-description' *ngIf='meal.mainIngredient'>Main Ingredient:<strong> {{ meal.mainIngredient }}</strong> </p>
           <br>
           <p class='meal-description'>
             <ng-container *ngIf='meal.cookTime'>
               <strong>Cook time:</strong>
               {{meal.cookTime > 60 ? (meal.cookTime / 60 | floor )+ 'H ' + meal.cookTime % 60 : meal.cookTime}} Min -
             </ng-container>
+            <br/>
             <ng-container *ngIf='meal.prepTime'>
               <strong>Prep time:</strong>
               {{meal.prepTime}} Min
@@ -70,13 +76,19 @@
 
         </div>
         <div class="action-wrapper">
+          <button class='add-button' mat-mini-fab *ngIf='!inMealPlan' (click)='addToMealPlan()'>
+            <mat-icon>add</mat-icon>
+          </button>
+          <button class='remove-button' mat-mini-fab *ngIf='inMealPlan' (click)='removeFromMealPlan()'>
+            <mat-icon>remove</mat-icon>
+          </button>
           <div class="img-wrapper">
             <img [alt]="meal.title" [src]="meal.image" alt="meal item">
           </div>
           <div class="meal-subheader">
-            <a mat-stroked-button class='send-to-email-button' [href]='emailContent'
+            <a mat-stroked-button [href]='emailContent'
               (click)="adobeDtbTracking.sharingMealByEmail(meal.title)">
-              SEND TO EMAIL
+              EMAIL
             </a>
             <div class="cta-wrapper">
               <!-- <div class="social-media-icons">
@@ -84,7 +96,7 @@
                 <img src="assets/static_images/twitter.png" alt="Twitter logo">
                 <img src="assets/static_images/instagram.png" alt="Instagram logo">
               </div> -->
-              <div class="action-buttons">
+              <!-- <div class="action-buttons">
                 <button aria-label="Add to meal plan" *ngIf='!inMealPlan' mat-button class='add-button'
                   [ngClass]="{'added': inMealPlan}" (click)='addToMealPlan()'>
                   <mat-icon>add</mat-icon>
@@ -95,7 +107,7 @@
                   <mat-icon>remove</mat-icon>
                   REMOVE FROM MEAL PLAN
                 </button>
-              </div>
+              </div> -->
             </div>
 
           </div>
@@ -120,11 +132,7 @@
         </mat-tab>
       </mat-tab-group>
     </div>
-    <div class="scroll-to-bottom-button-wrapper" *ngIf='!isMobile'>
-      <button aria-label="Scroll down" class='scroll-button' mat-mini-fab (click)='scrollDown()'>
-        <mat-icon>expand_more</mat-icon>
-      </button>
-    </div>
+ 
 
   </section>
 
@@ -136,36 +144,30 @@
     </div>
 
     <div class="recommended-carousel">
-  
+
       <app-mtm-slider>
-        <app-meal-item *ngFor="let recipe of meal?.relatedRecipes"  [recommendedMeal]='true' (favouriteToggled)='updateFavourites($event)'
-          (wasClicked)='visitMealDetailPage($event)' [favourited]='favouriteMealIds?.includes(recipe.id)'
-          [mealItem]='recipe'>
+        <app-meal-item *ngFor="let recipe of meal?.relatedRecipes" [recommendedMeal]='true'
+          (favouriteToggled)='updateFavourites($event)' (wasClicked)='visitMealDetailPage($event)'
+          [favourited]='favouriteMealIds?.includes(recipe.id)' [mealItem]='recipe'>
         </app-meal-item>
 
       </app-mtm-slider>
     </div>
   </section>
-  <section class='meal-details-footer'>
-    <div class="meal-details-footer-wrapper">
-      <div class="text-wrapper">
-        <p>With Meals That Matter, cooking is an easier, more manageable part of your busy routine. <br />
-          See how a little food prep and planning gives you a head start in the kitchen today.</p>
-      </div>
-      <div class="meal-detail-action-button">
-        <button aria-label="Select more meals" mat-stroked-button mat-dialog-close
-          (click)="adobeDtbTracking.anchorLinkMeal('SELECT MORE MEALS', meal.title)">SELECT
-          MORE MEALS</button>
-      </div>
-      <div class="logo-wrapper" *ngIf='!isMobile'>
-        <img src="assets/static_images/MTM_Final_LOGO_4c.svg" alt="Meals That Matter Logo">
-      </div>
-      <div class="scroll-to-top-button-wrapper" *ngIf='!isMobile'>
-        <button aria-label="Scroll to top" class='scroll-button' mat-mini-fab (click)='scrollToTop()'>
-          <mat-icon>expand_less</mat-icon>
-        </button>
-      </div>
+  <div class="meal-details-footer-wrapper">
+    <div class="text-wrapper">
+      <p>With Meals That Matter, cooking is an easier, more manageable part of your busy routine. <br />
+        See how a little food prep and planning gives you a head start in the kitchen today.</p>
     </div>
+    <div class="meal-detail-action-button">
+      <button aria-label="Select more meals" mat-stroked-button mat-dialog-close
+        (click)="adobeDtbTracking.anchorLinkMeal('SELECT MORE MEALS', meal.title)">SELECT
+        MORE MEALS</button>
+    </div>
+   
+  </div>
+  <section class='meal-details-footer'>
+
   </section>
 
   <!-- 

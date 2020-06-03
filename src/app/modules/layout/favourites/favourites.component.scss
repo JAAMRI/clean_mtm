@@ -7,7 +7,6 @@
   min-height: calc(100vh - 64px); // height subrating toolbar (landscape)
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-color: $mtm_white;
   position: relative;
   z-index: 1;
@@ -33,6 +32,7 @@
 .my-meals-subheader {
   text-align: center;
   width: 75%;
+  margin: 1em auto;
 }
 .no-favourites {
   display: flex;

@@ -18,16 +18,16 @@
     <div class="meal-description" *ngIf='parent !== "favourites"'>
       <p class='meal-description'>
         <ng-container *ngIf='mealItem.cookTime'>
-          <strong>Cook:</strong>
+          <strong>Cook</strong>
           {{mealItem.cookTime > 60 ? (mealItem.cookTime / 60 | floor )+ 'H ' + mealItem.cookTime % 60 : mealItem.cookTime}}
           Min.
         </ng-container>
         <ng-container *ngIf='mealItem.prepTime'>
-          <strong>Prep:</strong>
+          <strong>Prep</strong>
           {{mealItem.prepTime}} Min.
         </ng-container>
         <ng-container *ngIf='mealItem.servings'>
-          <strong>Serves:</strong> {{mealItem.servings.substr(0,1)}}
+          <strong>Serves</strong> {{mealItem.servings.substr(0,1)}}
         </ng-container>
       </p>
     </div>

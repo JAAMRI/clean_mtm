@@ -15,6 +15,11 @@
         width: 100%;
       }
     }
+    @media(min-width:1024px) {
+      mat-sidenav{
+        width: 25%;
+      }
+    }
     mat-sidenav-content {
       overflow: unset;
       .menu-button {

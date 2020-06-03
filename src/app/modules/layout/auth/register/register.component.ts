@@ -11,6 +11,7 @@ import { Subject } from 'rxjs';
 import { AccountService } from '../../../../../app/services/account/account.service';
 import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
+import { ICredentials } from '../../../../interfaces/credentials';
 
 // Error state matching class for confirm password
 class passwordErrorMatcher implements ErrorStateMatcher {
@@ -49,7 +50,7 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  @Output() signIn = new EventEmitter<{ username: string, password: string, firstTimeSignIn: boolean }>();
+  @Output() signIn = new EventEmitter<ICredentials>();
 
   unsubscribeAll = new Subject();
   loading = false;
@@ -135,7 +136,8 @@ export class RegisterComponent implements OnInit {
     })
       .then(data => {
         //Sign User Automatically
-        this.signIn.emit({ username: username, password: password, firstTimeSignIn: true })
+        const credentials: ICredentials = { username: username, password: password, firstTime: true };
+        this.signIn.emit(credentials);
 
         this.snackBar.open("Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!", null, { duration: 4500 });
         //End Sign user In automatically

@@ -1,9 +1,10 @@
-import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-meal-item',
   templateUrl: './meal-item.component.html',
-  styleUrls: ['./meal-item.component.scss']
+  styleUrls: ['./meal-item.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MealItemComponent implements OnInit {
   @Input() mealItem: any; // actual recipe item

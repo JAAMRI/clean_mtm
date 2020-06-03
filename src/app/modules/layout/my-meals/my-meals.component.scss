@@ -39,6 +39,9 @@
   }
 }
 .my-meals-container{
+  height: 80vh;
+  overflow-y: scroll;
+  padding-top: 1em;
   .meal-item{
     margin-bottom: 1em;
   }

@@ -15,8 +15,8 @@ export class MtmSliderComponent {
     const scrollbarWidth = this.slider.nativeElement.offsetWidth;
     const sliderWidth = this.slider.nativeElement.scrollWidth
 
-    // scroll half way, but come back half way of the scroll bar to have it in the middle
-    this.slider.nativeElement.scrollLeft = ( (sliderWidth/ 2) - ( scrollbarWidth/2)); 
+    // scroll half way, but come back half way of the scroll bar to have it in the middle (16 accounted for the 1em grid gap)
+    this.slider.nativeElement.scrollLeft = ( (sliderWidth/ 2) - ( scrollbarWidth/2)-8); 
   }
 
 

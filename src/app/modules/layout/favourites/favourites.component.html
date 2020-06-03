@@ -22,8 +22,8 @@
   <div class="favourites-container">
     <div class="favourite-item" *ngFor="let meal of favouriteMeals">
 
-      <app-meal-item  (add)='addToMealPlan($event)'
-        (remove)='removeFromMealPlan($event)' [inMealPlan]='mealPlanIds[meal.id]' parent='favourites'
+      <app-meal-item  (add)='addToMealPlan($event)' 
+        (remove)='removeFromMealPlan($event)' [inMealPlan]='mealPlanIds[meal.id]' parent='favourites' [favourited]='true'
         (wasClicked)='visitMealDetailPage($event)' (favouriteToggled)='updateFavourites($event)' [mealItem]='meal'>
       </app-meal-item>
     </div>
