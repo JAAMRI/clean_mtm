@@ -126,6 +126,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       }
       this.accountService.emitAuthStateChanged();
       this.accountService.setLoggedIn(true);
+      this.router.navigate(['/recipes/discover']);
 
     } catch (err) {
       // if (err.code === 'UserNotConfirmedException') {
