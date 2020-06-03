@@ -45,7 +45,6 @@ export class LayoutComponent {
   }
 
   navigate(pageName: string) {
-    console.log(pageName)
     this.router.navigate([MTMPages[pageName].route]);
     if (MTMPages[pageName]) {
       this.adobeDtbTracking.pageTracking(MTMPages[pageName].name, MTMPages[pageName].route);
@@ -102,6 +101,8 @@ export class LayoutComponent {
         }
       } else if (activePageName === MTMPageNames.GROCERY_LIST) {
         breadcrumb.active = true;
+      } else {
+        breadcrumb.active = false;
       }
     });
   }

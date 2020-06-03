@@ -25,7 +25,7 @@
     <router-outlet></router-outlet>
     <div class="nav-buttons" *ngIf='activePage === "/recipes/discover" || activePage === "/recipes/my-meals" || activePage === "/recipes/grocery-list"'>
       <!-- clean this up ^^ -->
-      <div class="button-wrapper">
+      <div class="nav-buttons-wrapper">
 
         <button class='back' *ngIf='activePage !== "/recipes/discover"' mat-mini-fab (click)='back()'>
           <mat-icon>chevron_left</mat-icon>

@@ -7,7 +7,7 @@
 
   <ng-container *ngIf='mealPlan.length === 0'>
     <p class='no-items-text'>No items found</p>
-    <div class="button-wrapper">
+    <div class="select-meals-button-wrapper">
 
       <button aria-label="Select meals" mat-raised-button color='primary' routerLink='/recipes/discover'
         (click)="adobeDtbTracking.pageTracking('SELECT MEALS','/recipes/discover')">
