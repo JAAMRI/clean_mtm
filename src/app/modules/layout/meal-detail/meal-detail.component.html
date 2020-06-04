@@ -177,4 +177,7 @@
       </section> -->
 </div>
 <p *ngIf='!loading && !meal'>Meal not found</p>
-<mat-spinner diameter='20' *ngIf='loading'></mat-spinner>
+
+<div class="gif-wrapper" *ngIf='loading'>
+  <img class='loading-text' src="/assets/static_images/whisk_wood_green.gif" />
+</div>

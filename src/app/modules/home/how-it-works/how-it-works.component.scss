@@ -4,28 +4,23 @@
 .how-it-works {
   text-align: center;
   background-color: $mtm_white;
-  .copy {
-    padding: 2em 1em;
-    h1 {
-      margin-top: unset;
-    }
-    p {
-      margin: unset;
-    }
-    &.how-it-works-bg {
-      background-color: $mtm_grey;
-      padding: 1em;
-    }
+  h1 {
+    margin-top: unset;
   }
+  p {
+    margin: unset;
+  }
+  .how-it-works-bg {
+    background-color: $mtm_grey;
+    padding: 2em;
+  }
+
   .browse-our-recipes {
     text-align: center;
-    .copy{
-       padding: 2em 1em 1em 1em;
-    }
   }
   .carousel-img-wrapper {
     height: 250px;
-    width: 300px;
+    width: 275px;
     border-radius: 4px;
     .carousel-image {
       object-fit: cover;
@@ -51,6 +46,7 @@
       object-fit: cover;
       height: 100%;
       width: 100%;
+      border-radius: 4px;
       max-height: 40vh; //copying from live
       @media (max-width: 1024px) {
         width: 350px;

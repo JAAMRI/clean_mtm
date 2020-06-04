@@ -1,7 +1,7 @@
 @import "../../../../scss/variables.scss";
 
 .on-board-content {
-    height: 100vh;
+    height: calc(100vh - 76px);
     width: 100vw;
     background-image: url("/assets/static_images/home-page/homepage-image.jpg");
     @media (min-width: 1024px) {
@@ -32,7 +32,7 @@
     }
     .button-wrapper {
         position: absolute;
-        bottom: 6em;
+        bottom: 2em;
         button {
             background-color: $mtm_white;
             color: $mtm_dark_green_color;

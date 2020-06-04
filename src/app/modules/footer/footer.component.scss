@@ -4,7 +4,7 @@
   display: grid;
   padding: 1em;
   background-color: $mtm_grey;
-  margin-bottom: 4em; // consider bottom button
+  padding-bottom: 4em; // consider bottom button
   .visit-brands{
     display: flex;
     justify-content: space-evenly;
@@ -12,7 +12,7 @@
 
   a {
     text-decoration: unset;
-    color: $mtm_dark_green_color;
+    color: $mtm_black;
     font-size: 12px;
     cursor: pointer;
   }

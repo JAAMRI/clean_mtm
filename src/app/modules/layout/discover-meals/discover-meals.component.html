@@ -24,7 +24,9 @@
 
     <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
   </div>
-  <p class='loading-text' *ngIf='loading'>Loading...</p>
+  <div class="gif-wrapper" *ngIf='loading'>
+    <img class='loading-text' src="/assets/static_images/whisk_wood_green.gif" />
+  </div>
   <app-mtm-slider *ngIf='meals.length > 0'>
     <app-meal-item *ngFor="let meal of meals" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
       (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'

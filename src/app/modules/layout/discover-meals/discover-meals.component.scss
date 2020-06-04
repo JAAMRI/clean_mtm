@@ -33,7 +33,13 @@
     }
   }
 }
-
+.gif-wrapper{
+  display: flex;
+  justify-content: center;
+  img{
+    height: 40px;
+  }
+}
 
 .filter{
   display: flex;

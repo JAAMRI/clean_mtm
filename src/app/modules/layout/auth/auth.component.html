@@ -1,4 +1,4 @@
-<div class="auth-container">
+<div class="auth-container" >
     <div class="login-wrapper" *ngIf='activeRoute === "LOGIN"'>
 
         <app-login (forgotPassword)='viewForgotPassword()' [loginForm]='loginForm' (register)='viewRegister()' (login)='signIn($event)' [emailForm]='emailForm'></app-login>

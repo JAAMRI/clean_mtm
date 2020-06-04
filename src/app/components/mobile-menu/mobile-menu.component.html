@@ -35,6 +35,10 @@
         (click)="closeMobileMenu(page.name, page.route)">
         {{page.name}}
       </a>
+      <a *ngIf='loggedIn' class='page-item sign-out-item' mat-list-item
+        (click)="signOut()">
+        SIGN OUT
+      </a>
     </mat-nav-list>
   </div>
 </div>

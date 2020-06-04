@@ -6,7 +6,9 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <app-toolbar [breadcrumbs]='breadcrumbs' (toggle)='snav.open()' (onLogoClick)='routeHome()'></app-toolbar>
-      <router-outlet></router-outlet>
+      <div class="router-wrapper">
+        <router-outlet></router-outlet>
+      </div>
       <div class="nav-buttons" *ngIf='!onAuthPage && (activePage === "/recipes/discover" || activePage === "/recipes/my-meals" || activePage === "/recipes/grocery-list")'>
         <div class="nav-buttons-wrapper">
           <button class='back' *ngIf='activePage !== "/recipes/discover"' mat-mini-fab (click)='back()'>
@@ -22,7 +24,9 @@
   <div class="desktop-view" *ngIf='!(isMobile || onAuthPage)'>
     <app-desktop-toolbar [loggedIn]='loggedIn' (onSignOutClicked)='signOut()' (onAuthClicked)='authControl()'
       [activePage]='activePage' (navigate)='navigate($event)'></app-desktop-toolbar>
-    <router-outlet></router-outlet>
+      <div class="router-wrapper">
+        <router-outlet></router-outlet>
+      </div>
     <div class="nav-buttons" *ngIf='activePage === "/recipes/discover" || activePage === "/recipes/my-meals" || activePage === "/recipes/grocery-list"'>
       <!-- clean this up ^^ -->
       <div class="nav-buttons-wrapper">

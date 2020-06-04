@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationEnd, Router } from '@angular/router';
@@ -48,8 +48,14 @@ export class AuthComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.scrollToTop();
     this.watchRoute();
     this.setActiveRoute(this.router.url);
+  }
+
+  scrollToTop() {
+    // navigating here sometimes doesnt scroll at top
+    window.scroll(0,0);
   }
 
   setActiveRoute(url: string) {

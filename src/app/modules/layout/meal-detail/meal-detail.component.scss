@@ -44,6 +44,14 @@
   }
 }
 
+.gif-wrapper{
+  display: flex;
+  justify-content: center;
+  img{
+    height: 40px;
+  }
+}
+
 
 .headers {
   margin-top: 2em;
