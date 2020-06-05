@@ -87,19 +87,6 @@ export class AppComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-  loadFooter() {
-    import("./modules/footer/footer.component").then(
-      ({ FooterComponent }) => {
-        const component = this.componentFactoryResolver.resolveComponentFactory(FooterComponent);
-        const componentRef = this.footerContainer.createComponent(component);
-        componentRef.instance.isHandsetLandscape = this.isHandsetLandscape;
-        componentRef.instance.isPortrait = this.isPortrait;
-      }
-    );
-  }
-
-
-
 
   isLoggedIn() {
     Auth.currentAuthenticatedUser({

@@ -31,10 +31,22 @@
   img {
     height: 40px;
   }
+  .desktop-wrapper{
+    display: flex;
+    justify-content: space-between;
+    
+    width: 75%;
+    margin: auto;
+    align-items: center;
+  }
   .legal{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin: 1em 0;
+    a{
+      margin: 0 2em;
+    }
+
 
   }
   .footer-text {
