@@ -74,9 +74,9 @@ export class AppComponent implements OnInit {
     }
 
     if (environment.production || environment.uat) {
-      this.facebookImplementation();
-      this.adobeImplementation();
-      this.newRelicImplementation();
+      // this.facebookImplementation();
+      // this.adobeImplementation();
+      // this.newRelicImplementation();
     }
 
 

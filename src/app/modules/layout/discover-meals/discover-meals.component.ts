@@ -239,7 +239,12 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   renderFilterDialog() {
-    this.dialog.open(FilterComponent)
+    const filterDialog = this.dialog.open(FilterComponent);
+
+    filterDialog.afterClosed().subscribe((filterName: string) => {
+      this.searchMeals(filterName)
+    })
+
   }
 
 

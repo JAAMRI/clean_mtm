@@ -3,8 +3,7 @@
         <img [src]="article.image" [alt]="article.title">
     </div>
     <div class="article-content">
-        <h2 *ngIf='isMobile'>{{article.title | truncate:18}}</h2>
-        <h2 *ngIf='!isMobile'>{{article.title}}</h2>
+        <h3>{{article.title | truncate:60}}</h3>
         <p>{{article.content | truncate:60}}</p>
         <p>Read time: {{article.readTime}}</p>
     </div>
