@@ -19,6 +19,11 @@ export class FilterComponent {
     this.filters.forEach((filter: IFilter) => {
         filter.active = (filter.id === id);
     });
+    this.close();
+  }
+
+  close() {
+    this.dialogRef.close();
   }
   
 
