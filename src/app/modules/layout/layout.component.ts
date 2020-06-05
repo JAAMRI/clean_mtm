@@ -25,6 +25,7 @@ export class LayoutComponent {
   onAuthPage: boolean;
   isMobile: boolean = (window.innerWidth < 768);
   breadcrumbs: Breadcrumb[] = BREADCRUMBS;
+  showBreadcrumbs: boolean;
 
   constructor(
     private router: Router,
@@ -52,7 +53,7 @@ export class LayoutComponent {
   }
 
   watchRoute() {
-    
+
     this.router.events.pipe(takeUntil(this.unsubscribeAll),
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
@@ -78,13 +79,16 @@ export class LayoutComponent {
       this.router.navigate(['/recipes/discover']);
     } else if (activePageName === MTMPageNames.GROCERY_LIST) {
       this.router.navigate(['/recipes/my-meals']);
-    } 
+    }
   }
 
   activateBreadcrumb() {
+    // activate the active breadcrums, and allow the toolbar to know when to show them
     let activePageName = this.getActivePageNameFromRoute();
     this.breadcrumbs.forEach((breadcrumb: Breadcrumb) => {
       if (activePageName === MTMPageNames.SELECT_MEALS) {
+        this.showBreadcrumbs = true;
+
         if (breadcrumb.name.toLowerCase() === MTMPageNames.SELECT_MEALS.toLowerCase()) {
           breadcrumb.active = true
         } else {
@@ -92,6 +96,8 @@ export class LayoutComponent {
         }
 
       } else if (activePageName === MTMPageNames.MEAL_PLAN) {
+        this.showBreadcrumbs = true;
+
         if (breadcrumb.name.toLowerCase() === MTMPageNames.SELECT_MEALS.toLowerCase() ||
           breadcrumb.name.toLowerCase() === MTMPageNames.MEAL_PLAN.toLowerCase()
         ) {
@@ -101,14 +107,18 @@ export class LayoutComponent {
         }
       } else if (activePageName === MTMPageNames.GROCERY_LIST) {
         breadcrumb.active = true;
+        this.showBreadcrumbs = true;
       } else {
         breadcrumb.active = false;
+
+        this.showBreadcrumbs = activePageName.includes(MTMPageNames.AUTH)
+
       }
     });
   }
 
-  getActivePageNameFromRoute() {
-    let activePageName;
+  getActivePageNameFromRoute(): string {
+    let activePageName: string = '';
     Object.values(MTMPages).forEach((page) => {
       if (page.route === this.activePage) {
         activePageName = page.name;

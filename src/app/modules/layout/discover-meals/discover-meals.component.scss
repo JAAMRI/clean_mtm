@@ -12,8 +12,6 @@
   z-index: 1;
 }
 .mobile-discover-meals-page {
-  height: calc(100% - 40px - 2em); // height subtracting mobil toolbar
-  min-height: calc(100vh - 40px - 2em); // height subrating toolbar (landscape)
   background-color: $mtm_white;
 }
 .search {
@@ -21,9 +19,7 @@
 }
 .copy{
   text-align: center;
-  h1{
-    margin-bottom: 8px;
-  }
+
   .subheader{
     padding: 0 4em;
     margin: unset;

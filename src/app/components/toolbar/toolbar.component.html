@@ -8,7 +8,7 @@
       <img alt="logo" src="/assets/static_images/MTM_Favicon_4c_2.svg">
     </a>
   </div>
-  <app-breadcrumbs [breadcrumbs]='breadcrumbs'>
+  <app-breadcrumbs *ngIf='showBreadcrumbs' [breadcrumbs]='breadcrumbs'>
 
   </app-breadcrumbs>
 </div>

@@ -5,7 +5,7 @@
     .register-back-button {
         top: 0;
         left: 0;
-        color: $mtm_dark_green_color;
+        color: $mtm_dark_grey;
         padding: unset;
     }
     .register-form {
@@ -29,7 +29,7 @@
             }
         }
         mat-checkbox {
-            color: $mtm_dark_green_color;
+            color: $mtm_dark_grey;
             font-size: 12px;
 
             .view-more-button {
@@ -37,7 +37,7 @@
                 text-decoration: underline;
             }
             .mat-checkbox-frame {
-                border-color: $mtm_dark_green_color;
+                border-color: $mtm_dark_grey;
             }
             .mat-checkbox-label {
                 line-height: 20px;
@@ -52,7 +52,7 @@
         }
 
         .small-font {
-            color: $mtm_dark_green_color;
+            color: $mtm_dark_grey;
             text-align: center;
             font-size: 12px;
         }
@@ -116,30 +116,6 @@
     }
 }
 
-.account-dialog {
-    input {
-        font-family: avenir;
-        color: $mtm_dark_green_color;
-    }
-    mat-icon {
-        color: $mtm_dark_green_color;
-    }
-    .mat-form-field-appearance-legacy .mat-form-field-underline {
-        background-color: $mtm_dark_green_color !important;
-    }
-
-    .mat-form-field-label {
-        color: $mtm_dark_green_color !important;
-    }
-
-    .mat-form-field-ripple {
-        background-color: $mtm_dark_green_color !important;
-    }
-
-    .mat-datepicker-toggle-default-icon {
-        color: $mtm_dark_green_color;
-    }
-}
 
 .passwordError {
     font-size: 10px;

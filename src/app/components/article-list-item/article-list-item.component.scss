@@ -11,5 +11,12 @@
     }
     .article-content{
         padding: 4px;
+        h2{
+            margin: unset;
+         
+        }
+        p{
+            margin-bottom: unset;
+        }
     }
 }

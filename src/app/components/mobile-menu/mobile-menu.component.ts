@@ -53,6 +53,7 @@ export class MobileMenuComponent implements OnInit {
 
   }
 
+
   promptUserForAuth() {
     this.router.navigate(['/auth']);
   }

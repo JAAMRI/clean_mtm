@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SharedService } from '../../shared/shared.service';
+import { SharedService } from '../../../shared/shared.service';
 import { embedChatWidget } from './live-chat-helper';
-import { SeoService } from '../../services/seo.service';
+import { SeoService } from '../../../services/seo.service';
 import { Title } from '@angular/platform-browser';
-import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
-import { DynamicScriptLoaderService } from '../../services/dynamic-script-loader/dynamic-script-loader.service';
+import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
+import { DynamicScriptLoaderService } from '../../../services/dynamic-script-loader/dynamic-script-loader.service';
 
 @Component({
   selector: 'app-contact-us',

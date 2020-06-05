@@ -7,7 +7,9 @@ export enum MTMPageNames {
   GROCERY_LIST = 'GROCERY LIST',
   VIEW_PROFILE = 'VIEW PROFILE',
   CONTACT_US = 'CONTACT US',
-  FAQs = 'FAQs'
+  FAQs = 'FAQs',
+  HOME = 'HOME',
+  AUTH = 'AUTH'
 }
 
 export const MTMPages = {
@@ -42,6 +44,10 @@ export const MTMPages = {
   'HOME': {
     name: 'HOME',
     route: '/'
+  },
+  'Auth': {
+    name: 'AUTH',
+    route: '/auth'
   }
 }
 

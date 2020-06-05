@@ -39,6 +39,10 @@ mat-dialog-container{
   overflow: unset;
 }
 
+.mat-drawer-container {
+  background-color: $mtm_white !important;
+}
+
 .mat-menu-content {
   .mat-menu-item {
     font-family: flavour !important;

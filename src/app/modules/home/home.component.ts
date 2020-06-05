@@ -69,6 +69,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       this.promptUserForAuth();
       // if routed to url 'login', then show auth dialog
     }
+    this.checkIfRouteToHowItWorks()
+    
     this.router.events.pipe(takeUntil(this.unsubscribeAll),
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
@@ -76,7 +78,16 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       if (event.url === '/login') {
         this.promptUserForAuth();
       }
+      this.checkIfRouteToHowItWorks();
+     
     });
+  }
+
+  checkIfRouteToHowItWorks() {
+    const tree = this.router.parseUrl(this.router.url);
+    if (tree.fragment === 'howitworks') {
+      setTimeout(() => this.scrollToHowItWorks(), 1)
+    }
   }
 
   checkAuth(recipeLink?: string) {
@@ -99,6 +110,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   scrollToHowItWorks() {
+   
     this.howItWorks.nativeElement.scrollIntoView({ behavior: 'smooth' });
     // scroll down to how it works when clicking on button
   }

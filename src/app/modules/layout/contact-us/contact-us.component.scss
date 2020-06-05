@@ -1,4 +1,4 @@
-@import "../../../scss/variables.scss";
+@import "../../../../scss/variables.scss";
 
 .contact-us-page {
   display: flex;
@@ -18,15 +18,15 @@
     text-align: center;
     h1 {
       margin-top: unset;
-      color: $mtm_dark_green_color;
+      color: $mtm_dark_grey;
     }
     h2 {
       font-family: avenir;
-      color: $mtm_dark_green_color;
+      color: $mtm_dark_grey;
     }
     p {
       font-family: avenir;
-      color: $mtm_dark_green_color;
+      color: $mtm_dark_grey;
       margin: 0;
     }
   }
@@ -54,7 +54,7 @@
       .contact-us-description {
         font-family: avenir;
         .phone-number {
-          color: $mtm_dark_green_color;
+          color: $mtm_dark_grey;
           font-size: 20px;
         }
       }

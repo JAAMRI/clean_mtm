@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ArticleComponent } from './article.component';
 import { ArticleRouting } from './article.routing';
 import { MatCardModule } from '@angular/material/card';
-import { ArticleListItemModule } from '../../components/article-list-item/article-list-item.module';
+import { ArticleListItemModule } from '../../../components/article-list-item/article-list-item.module';
 import { RouterModule } from '@angular/router';
 
 @NgModule({

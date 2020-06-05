@@ -11,6 +11,7 @@ export class ToolbarComponent {
   @Output() onLogoClick = new EventEmitter();
   @Output() toggle = new EventEmitter();
   @Input() breadcrumbs: Breadcrumb[];
+  @Input() showBreadcrumbs: boolean;
   
 
   emitLogoClicked() {

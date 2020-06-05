@@ -18,6 +18,7 @@ import { MealService } from '../../../services/meal/meal.service';
 import { BREAKPOINTS } from '../../../utilities/breakpoints';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 import { FilterComponent } from '../../../components/dialogs/filter/filter.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-discover-meals',
@@ -70,6 +71,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     private preferencesService: PreferencesService,
     private mealService: MealService, private breakpointObserver: BreakpointObserver,
     private accountService: AccountService,
+    private snackBar: MatSnackBar,
     private seo: SeoService,
     private title: Title,
     private cdr: ChangeDetectorRef,
@@ -191,27 +193,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     }
   }
 
-  getMeals_backup(startAt?: number, ) {
-    // this.loading = true;
-    // this.mealService.searchMeals('', this.preferences, startAt, this.requestAmount).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (res) => {
-    //   if (res) {
-    //     const { meals } = res;
-    //     this.currentMealPlan = await this.mealPlanService.getMealPlan();
-    //     this.getFavouriteMeals(); // get users favourite meals
-    //     this.setMealPlanIds(); 
-    //     if (startAt > this.meals.length) {
-    //       // add more to array
-    //       this.meals.push(...meals); // -1 for index, grabbing meals from api and appending it to meals
-    //     }
-
-    //     if (this.currentSlide === (this.meals.length - this.itemsDisplayed)) {
-    //       this.reachedEndOfResponse = true;
-    //       this.disableNextButton = true;
-    //     }
-    //     this.loading = false;
-    //   }
-    // });
-  }
 
   async getFavouriteMeals() {
     this.favouriteMeals = await this.mealFavouritesService.getMealFavourites();
@@ -230,12 +211,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     });
   }
 
-
-  // setMealPlanIds_backup() {
-  //   this.currentMealPlan.filter((m) => m).forEach((userMeal: any) => {
-  //     this.mealPlanIds +=`${userMeal.id}|`
-  //   });
-  // }
 
   searchMeals(query?: any) {
     //Capture Enter Submit Event
@@ -261,8 +236,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.totalResults = 0;
     this.pageStart = 0;
     this.pageSize = 6;
-    // this.currentSlide = 0;
-    // this.numberOfSlides = 0;
   }
 
   renderFilterDialog() {
@@ -287,7 +260,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
       // this.router.navigate([`/recipes/discover/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
 
     }
-    this.carouselIsChanging = false;
     this.adobeDtbTracking.anchorLinkMeal('On Discover Meals Page, Viewing Meal Detail for: ', meal.title);
   }
   promptMealDetailComponent(id: string) {
@@ -318,15 +290,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     })
 
   }
-  ////
-  // const ref = this._dialog.open(InnerComponent);
-  //       const sub = ref.componentInstance.onAdd.subscribe((data) => {
-  //         alert(data);
-  //       });
-  //       dialogRef.afterClosed().subscribe(() => {
-  //         sub.unsubscribe();
-  //       });
-  //////
+
   promptUserForAuth() {
     this.router.navigate(['/auth']);
   }
@@ -338,6 +302,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.mealPlan.push(meal);
     this.mealPlanIds[mealId] = true;
     await this.mealPlanService.saveMealPlan(this.mealPlan, mealId);
+    this.snackBar.open('Added to meal plan!');
 
   }
 
@@ -348,6 +313,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     delete this.mealPlanIds[mealId];
     const meal_delete_adobe = this.meals.find((meal) => meal.id === mealId);
     this.adobeDtbTracking.anchorLinkMeal('Removing from Meal Plan: ', meal_delete_adobe.title);
+    this.snackBar.open('Removed from meal plan!');
   }
 
   updateFavourites(favouriteMeal: any) {
@@ -355,9 +321,13 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
       // this.promptUserForAuth()
     }
     if (this.favouriteMeals.find((meal: any) => meal.id == favouriteMeal.id)) {
-      this.removeFromFavourites(favouriteMeal)
+      this.removeFromFavourites(favouriteMeal);
+    this.snackBar.open('Removed from favourites!');
+      
     } else {
       this.addToFavourites(favouriteMeal);
+    this.snackBar.open('Added to favourites!');
+
     }
 
     // this.favouriteMeals.includes(favouriteMeal) ? this.removeFromFavourites(favouriteMeal) : this.addToFavourites(favouriteMeal);

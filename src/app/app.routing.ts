@@ -29,21 +29,27 @@ const routes: Routes = [
 
   {
     path: 'faqs',
+    component: LayoutComponent,
 
-    loadChildren: () => import('./modules/faq/faq.module').then(m => m.FaqModule)
+    loadChildren: () => import('./modules/layout/faq/faq.module').then(m => m.FaqModule)
   },
   {
     path: 'article',
-    loadChildren: () => import('./modules/article/article.module').then(m => m.ArticleModule)
+    component: LayoutComponent,
+
+    loadChildren: () => import('./modules/layout/article/article.module').then(m => m.ArticleModule)
   },
   {
     path: 'download',
-    loadChildren: () => import('./modules/download/download.module').then(m => m.DownloadModule)
+    component: LayoutComponent,
+
+    loadChildren: () => import('./modules/layout/download/download.module').then(m => m.DownloadModule)
   },
   {
     path: 'contact-us',
+    component: LayoutComponent,
 
-    loadChildren: () => import('./modules/contact-us/contact-us.module').then(m => m.ContactUsModule)
+    loadChildren: () => import('./modules/layout/contact-us/contact-us.module').then(m => m.ContactUsModule)
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 

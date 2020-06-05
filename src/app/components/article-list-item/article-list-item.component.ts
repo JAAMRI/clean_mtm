@@ -9,6 +9,7 @@ import { IArticle } from '../../interfaces/article';
 export class ArticleListItemComponent implements OnInit {
 
   @Input() article: IArticle;
+  isMobile = window.innerWidth < 768;
 
   constructor() { }
 

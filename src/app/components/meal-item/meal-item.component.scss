@@ -23,13 +23,14 @@
       height: 140px;
 
       bottom: 0;
-      background-color: rgba($mtm_black, 0.5);
+      background-color: rgba($mtm_dark_grey, 0.5);
     }
     
     img {
       object-fit: cover;
       width: 100%;
       height: 100%;
+      border-radius: 4px;
       // .shaded{
 
       // }
@@ -92,7 +93,10 @@
       margin: unset;
       padding: 8px 4px 4px 4px;
       height: 48px;
-      color: $mtm_light_green_color;
+      &.title-active{
+        color: $mtm_dark_green_color;
+
+      }
     }
     .meal-description{
       font-size: 12px;
@@ -108,7 +112,7 @@
 
   .macros-container {
     h3 {
-      color: $mtm_light_green_color;
+      color: $mtm_dark_green_color;
       margin: 4px;
     }
     .macros-wrapper {
@@ -138,6 +142,9 @@
   }
 }
 
+button{
+  box-shadow: none !important;
+}
 
 
 *:focus {

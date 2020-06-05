@@ -16,10 +16,15 @@
         margin-top: 2em;
     }
 
+    .mobile-router-wrapper{
+        min-height: calc(100vh - 64px);
+        margin-top: 2em;
+    }
+
     .nav-buttons {
         position: fixed;
         bottom: 0;
-        z-index: 1000;
+        z-index: 9999;
         text-align: center;
         width: 100%;
         background-color: $mtm_grey;
