@@ -235,7 +235,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.meals = [];
     this.totalResults = 0;
     this.pageStart = 0;
-    this.pageSize = 6;
+    this.pageSize = 5;
   }
 
   renderFilterDialog() {
@@ -307,7 +307,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.mealPlan.push(meal);
     this.mealPlanIds[mealId] = true;
     await this.mealPlanService.saveMealPlan(this.mealPlan, mealId);
-    this.snackBar.open('Added to meal plan!');
+    this.snackBar.open('Added to meal plan!', null, {duration: 2000});
 
   }
 
@@ -318,7 +318,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     delete this.mealPlanIds[mealId];
     const meal_delete_adobe = this.meals.find((meal) => meal.id === mealId);
     this.adobeDtbTracking.anchorLinkMeal('Removing from Meal Plan: ', meal_delete_adobe.title);
-    this.snackBar.open('Removed from meal plan!');
+    this.snackBar.open('Removed from meal plan!', null, {duration: 2000});
   }
 
   updateFavourites(favouriteMeal: any) {
@@ -327,11 +327,11 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     }
     if (this.favouriteMeals.find((meal: any) => meal.id == favouriteMeal.id)) {
       this.removeFromFavourites(favouriteMeal);
-    this.snackBar.open('Removed from favourites!');
+    this.snackBar.open('Removed from favourites!', null, {duration: 2000});
       
     } else {
       this.addToFavourites(favouriteMeal);
-    this.snackBar.open('Added to favourites!');
+    this.snackBar.open('Added to favourites!', null, {duration: 2000});
 
     }
 

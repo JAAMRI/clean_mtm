@@ -105,7 +105,7 @@ export class FavouritesComponent implements OnInit {
     this.mealPlanIds[mealId] = true;
     await this.mealPlanService.saveMealPlan(this.mealPlan, meal.id, 'add');
     console.log(this.mealPlanIds);
-    this.snackbar.open('Added to meal plan!');
+    this.snackbar.open('Added to meal plan!', null, {duration: 2000});
 
   }
 
@@ -114,7 +114,7 @@ export class FavouritesComponent implements OnInit {
     await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove')
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
     delete this.mealPlanIds[mealId];
-    this.snackbar.open('Remove from meal plan!');
+    this.snackbar.open('Remove from meal plan!', null, {duration: 2000});
 
   }
 
@@ -122,7 +122,7 @@ export class FavouritesComponent implements OnInit {
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
       await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove')
       this.favouriteMeals = this.favouriteMeals.filter((meal) => meal.id !== favouriteMeal.id)
-    this.snackbar.open('Removed!');
+    this.snackbar.open('Removed!', null, {duration: 2000});
 
     } else {
       this.addFavourite(favouriteMeal)

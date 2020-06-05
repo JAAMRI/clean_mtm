@@ -31,19 +31,14 @@
   
 }
 
-.close-button {
-  position: -webkit-sticky;
-  position: sticky;
-  // position:absolute;
+.recipe-close-button {
+
+  position:absolute;
   z-index: 100;
   top: 0;
   right: 0;
   color: $mtm_dark_green_color;
   //  width:100%;
-  button{
-    float:right;
-    // position:sticky;
-  }
 }
 
 .gif-wrapper{
@@ -56,11 +51,9 @@
 
 
 .headers {
-  margin-top: 2em;
+  margin-top: 3em;
   .header {
     font-size: 2em;
-    margin-left: 20px;
-    margin-top: unset;
     text-align: center;
     align-self: end;
   }
@@ -79,7 +72,7 @@
   background-color: $mtm_white;
 }
 .meal-info{
-  padding: 0 3em;
+  padding: 0 1em;
 }
 .text-wrapper{
   padding: 0 3em;
@@ -238,7 +231,7 @@
 
   h1{
     text-align: center;
-    padding: 0 1em;
+    margin-bottom: unset;
   }
  
 }
