@@ -13,11 +13,9 @@
   z-index: 1;
 }
 .mobile-my-meals-page {
-  height: calc(100% - 40px); // height subrating toolbar
-  min-height: calc(100vh - 40px); // height subrating toolbar (landscape)
+ 
   display: flex;
   flex-direction: column;
-  padding: 1em 2em;
   justify-content: center;
   background-color: $mtm_white;
 }
@@ -31,6 +29,10 @@
 }
 .copy {
   text-align: center;
+  padding: 0 2em;
+    position: sticky;
+    top: 0;
+  
   strong {
     color: $mtm_light_green_color;
   }
@@ -39,9 +41,6 @@
   }
 }
 .my-meals-container{
-  height: 80vh;
-  overflow-y: scroll;
-  padding-top: 1em;
   .meal-item{
     margin-bottom: 1em;
   }

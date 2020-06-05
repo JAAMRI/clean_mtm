@@ -6,8 +6,8 @@
     <button class='remove-button' mat-mini-fab *ngIf='inMealPlan' (click)='removeFromMealPlan($event)'>
       <mat-icon>remove</mat-icon>
     </button>
-    <img  [src]="mealItem.image" [alt]="mealItem.title">
-      <mat-icon class='favourite-button' *ngIf='favourited' (click)='toggleFavorite($event)'>favorite</mat-icon>
+    <img [src]="mealItem.image" [alt]="mealItem.title">
+    <mat-icon class='favourite-button' *ngIf='favourited' (click)='toggleFavorite($event)'>favorite</mat-icon>
     <button class='favourite-border-button' mat-mini-fab (click)='toggleFavorite($event)'>
       <mat-icon>favorite_border</mat-icon>
     </button>
@@ -15,7 +15,7 @@
   </div>
   <div class="meal-content">
     <h4 class='meal-title' [class.title-active]='inMealPlan || favourited'>{{mealItem.title | truncate:50}}</h4>
-    <div class="meal-description" *ngIf='parent !== "favourites"'>
+    <div class="meal-description" *ngIf='showDescription'>
       <p class='meal-description'>
         <ng-container *ngIf='mealItem.cookTime'>
           <strong>Cook</strong>

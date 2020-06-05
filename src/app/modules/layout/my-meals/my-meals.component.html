@@ -1,12 +1,14 @@
 <div [class]="isMobile ? 'mobile-my-meals-page' : 'my-meals-page'">
   <div class="copy">
     <h1>MEAL PLAN</h1>
-    <p>Click <strong>NEXT</strong> when you're ready, to shop ingredients for these recipes. <br />Click <mat-icon>
+    <p *ngIf='mealPlan.length > 0'>Click <strong>NEXT</strong> when you're ready, to shop ingredients for these recipes.
+      <br />Click <mat-icon>
         remove</mat-icon> to remove recipes.</p>
   </div>
 
   <ng-container *ngIf='mealPlan.length === 0'>
-    <p class='no-items-text'>No items found</p>
+    <p class='no-items-text'>It looks like you haven’t added
+      and recipes to your meal plan yet</p>
     <div class="select-meals-button-wrapper">
 
       <button aria-label="Select meals" mat-raised-button color='primary' routerLink='/recipes/discover'
@@ -20,7 +22,7 @@
   <div class="my-meals-container">
     <div class="meal-item" *ngFor="let meal of mealPlan">
 
-      <app-meal-item  (favouriteToggled)='updateFavourites($event)'
+      <app-meal-item (favouriteToggled)='updateFavourites($event)' [inMealPlan]='true'
         (remove)='removeFromMealPlan($event)' (wasClicked)='visitMealDetailPage($event)' parent='my-meals'
         [favourited]='favouriteMealIds?.includes(meal.id)' [mealItem]='meal'>
       </app-meal-item>
@@ -28,5 +30,5 @@
 
   </div>
 
- 
+
 </div>

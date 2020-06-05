@@ -16,6 +16,7 @@ import { AccountService } from '../../../../app/services/account/account.service
 import { SeoService } from '../../../../app/services/seo.service';
 import { Title } from '@angular/platform-browser';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
+import { MealService } from '../../../services/meal/meal.service';
 
 @Component({
   selector: 'app-favourites',
@@ -48,6 +49,7 @@ export class FavouritesComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private mealFavouritesService: MealFavouritesService,
     private mealPlanService: MealPlanService,
+    private mealService: MealService,
     private location: Location,
     private accountService: AccountService,
     private dialog: MatDialog,
@@ -95,11 +97,16 @@ export class FavouritesComponent implements OnInit {
     })
   }
 
-  async addToMealPlan(meal: any) {
+  async addToMealPlan(mealId: string) {
     // add to mealplan
+    const meal = await this.mealService.getMealById(mealId).toPromise();
+
     this.mealPlan.push(meal);
-    this.mealPlanIds[meal.id] = true;
-    await this.mealPlanService.saveMealPlan(this.mealPlan, meal.id, 'add')
+    this.mealPlanIds[mealId] = true;
+    await this.mealPlanService.saveMealPlan(this.mealPlan, meal.id, 'add');
+    console.log(this.mealPlanIds);
+    this.snackbar.open('Added to meal plan!');
+
   }
 
   async removeFromMealPlan(mealId: any) {
@@ -107,12 +114,16 @@ export class FavouritesComponent implements OnInit {
     await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove')
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
     delete this.mealPlanIds[mealId];
+    this.snackbar.open('Remove from meal plan!');
+
   }
 
   async updateFavourites(favouriteMeal: any) {
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
       await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove')
       this.favouriteMeals = this.favouriteMeals.filter((meal) => meal.id !== favouriteMeal.id)
+    this.snackbar.open('Removed!');
+
     } else {
       this.addFavourite(favouriteMeal)
       this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id);
@@ -131,7 +142,6 @@ export class FavouritesComponent implements OnInit {
       // this.router.navigate([`/recipes/favourites/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
       this.promptMealDetailComponent(meal.id);
     }
-    this.carouselIsChanging = false;
 
   }
   promptMealDetailComponent(id: string) {
@@ -151,12 +161,7 @@ export class FavouritesComponent implements OnInit {
 
       }
     }
-    ref.afterClosed().toPromise().then((newDialog: string) => {
-      if (!newDialog) {
-        this.router.navigate(['/recipes/favourites'], { queryParams: {} })
-
-      }
-    })
+ 
   }
 
 

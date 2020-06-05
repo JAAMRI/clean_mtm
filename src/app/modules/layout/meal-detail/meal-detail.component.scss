@@ -18,6 +18,7 @@
     max-width: 80vw;
     max-height: 80vh;
   }
+ 
 }
 
 .mobile-recipe-page{
@@ -27,6 +28,7 @@
   overflow: scroll;
   overflow-x: hidden;
   -ms-overflow-x: hidden;
+  
 }
 
 .close-button {
@@ -64,8 +66,7 @@
   }
   .subheader {
     text-align: center;
-    width: 75%;
-    margin: 1em auto;
+    padding: 0 3em;
   }
 }
 
@@ -76,6 +77,12 @@
 .mobile-meal-recipe {
   padding: 0 4px;
   background-color: $mtm_white;
+}
+.meal-info{
+  padding: 0 3em;
+}
+.text-wrapper{
+  padding: 0 3em;
 }
 .meal-summary-mobile {
   position: relative;
@@ -228,11 +235,9 @@
 
 .other-recommended-meals {
   background-color: $mtm_white;
-  text-align: center;
-  width: 70vw;
-  min-width: 400px;
-  margin: auto;
+
   h1{
+    text-align: center;
     padding: 0 1em;
   }
  

@@ -146,7 +146,7 @@
     <div class="recommended-carousel">
 
       <app-mtm-slider>
-        <app-meal-item *ngFor="let recipe of meal?.relatedRecipes" [recommendedMeal]='true'
+        <app-meal-item *ngFor="let recipe of meal?.relatedRecipes" [recommendedMeal]='true' parent='recipe-detail'
           (favouriteToggled)='updateFavourites($event)' (wasClicked)='visitMealDetailPage($event)'
           [favourited]='favouriteMealIds?.includes(recipe.id)' [mealItem]='recipe'>
         </app-meal-item>
@@ -160,7 +160,7 @@
         See how a little food prep and planning gives you a head start in the kitchen today.</p>
     </div>
     <div class="meal-detail-action-button">
-      <button aria-label="Select more meals" mat-stroked-button mat-dialog-close
+      <button aria-label="Select more meals" mat-stroked-button mat-dialog-close (click)='checkAuth()'
         (click)="adobeDtbTracking.anchorLinkMeal('SELECT MORE MEALS', meal.title)">SELECT
         MORE MEALS</button>
     </div>

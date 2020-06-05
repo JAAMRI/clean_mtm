@@ -16,12 +16,13 @@ export class MealItemComponent implements OnInit {
   @Output() favouriteToggled: EventEmitter<any> = new EventEmitter();
   @Output() remove: EventEmitter<string> = new EventEmitter();
   @Input() parent: string;
-
+  showDescription: boolean;
   mealMacros: any = {};
   constructor() { }
 
   ngOnInit() {
-    this.updateMacros()
+    this.updateMacros();
+    this.showDescription= (this.parent !== "favourites" ) && (this.parent !== "recipe-detail")
   }
 
   

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Filters, IFilter, Disclosures } from './filter.data';
 
 @Component({
   selector: 'app-filter',
@@ -7,30 +8,21 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./filter.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent {
 
-  filters = [];
-  activeFilter = 0;
+  filters: IFilter[] = Filters;
+  disclosures = Disclosures;
 
   constructor(public dialogRef: MatDialogRef<FilterComponent>) { }
 
-  ngOnInit(): void {
-    this.getFilters()
-  }
-
-  getFilters() {
-    for(let i=1; i<20; i++) {
-      this.filters.push({id: i, name: 'Lorem ipsum dolor sit.'})
-    }
-  }
-
   setActiveFilter(id: number) {
-    this.activeFilter = id === this.activeFilter ? 0 : id;
-    this.dialogRef.close();
+    this.filters.forEach((filter: IFilter) => {
+        filter.active = (filter.id === id);
+    });
   }
+  
 
   clear() {
-    this.activeFilter = null;
+    this.setActiveFilter(null);
   }
-
 }

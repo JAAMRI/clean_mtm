@@ -14,6 +14,7 @@ import { MealDetailComponent } from './meal-detail.component';
 import { MealDetailRouting } from './meal-detail.routing';
 import { MtmSliderModule } from '../../../components/mtm-slider/mtm-slider.module';
 import { MealItemModule } from '../../../components/meal-item/meal-item.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [MealDetailComponent],
@@ -31,7 +32,8 @@ import { MealItemModule } from '../../../components/meal-item/meal-item.module';
     UserFormModule,
     SharedModule,
     MtmSliderModule,
-    MealItemModule
+    MealItemModule,
+    RouterModule
   ],
   entryComponents: [MealDetailComponent],
   exports: [MealDetailComponent],

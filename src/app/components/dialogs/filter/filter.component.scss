@@ -3,6 +3,7 @@
 .mat-dialog-container {
     padding: 16px;
     .filter-dialog {
+        position: relative;
         @media (max-width: 767px) {
             height: 100vh;
             .filter-header {
@@ -19,10 +20,13 @@
             }
         }
 
-        @media (min-width: 768px) {
-            .close-button {
+        .close-button {
+        @media (min-width: 1024px) {
                 display: none;
             }
+            position: absolute;
+            top: 4px;
+            right: 4px;
         }
         .copy {
             text-align: center;
@@ -38,6 +42,7 @@
         .filters {
             .filter-wrapper {
                 padding: 1em;
+                cursor: pointer;
                 &.active {
                     background-color: $mtm_grey;
                     color: $mtm_dark_green_color;

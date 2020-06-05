@@ -129,6 +129,15 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  checkAuth() {
+    if (this.accountService.loggedIn) {
+      this.router.navigate(['/recipes/discover'])
+    } else {
+      this.router.navigate(['/auth'])
+
+    }
+  }
+
   logMealLocation() {
     const host = `${environment.production ? 'https://www.mealsthatmatter.com' : (environment.uat ? 'https://uat.mealsthatmatter.com' : 'http://localhost:4200')}`;
     const mealTitle = this.meal.title.split(',').join('').split('(').join('').split(')').join('').split(' ').join('-').split('&').join('and');
@@ -204,11 +213,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   promptUserForAuth() {
-    this.dialog.open(UserFormComponent, {
-      panelClass: 'email-dialog-container',
-      backdropClass: 'faded-backdrop',
-      data: { isMobile: !this.isWeb }
-    });
+    this.router.navigate(['/auth']);
   }
 
   async addToMealPlan() {
