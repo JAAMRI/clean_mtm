@@ -1,15 +1,17 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NavigationEnd, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { MTMPages, MTMPageNames } from '../../components/desktop-toolbar/desktop-toolbar.component';
+import { MTMPages, MTMPageNames, MTMPage } from '../../components/desktop-toolbar/desktop-toolbar.component';
 import { UserFormComponent } from '../../components/dialogs/user-form/user-form.component';
 import { AccountService } from '../../services/account/account.service';
 import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
 import { Breadcrumb } from '../../components/breadcrumbs/breadcrumbs.component';
 import { BREADCRUMBS } from '../../utilities/breadcrumbs';
+import { Title } from '@angular/platform-browser';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-layout',
@@ -20,7 +22,7 @@ import { BREADCRUMBS } from '../../utilities/breadcrumbs';
 export class LayoutComponent {
 
   unsubscribeAll = new Subject();
-  activePage: string = '';
+  activeRoute: string = '';
   loggedIn = this.accountService.loggedIn;
   onAuthPage: boolean;
   isMobile: boolean = (window.innerWidth < 768);
@@ -31,18 +33,27 @@ export class LayoutComponent {
     private router: Router,
     private dialog: MatDialog,
     public accountService: AccountService,
+    private seo: SeoService,
     public adobeDtbTracking: AdobeDtbTracking,
+    private title: Title
   ) { }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isMobile = (event.target.innerWidth < 768);
+
+  }
   ngOnInit() {
-    this.setActivePage();
-    this.onAuthPage = this.activePage.includes('auth');
+    this.setActiveRoute();
+    this.setTitle();
+    this.setSeo();
+    this.activateBreadcrumb();
+    this.onAuthPage = this.activeRoute.includes('auth');
     this.watchRoute();
   }
 
-  setActivePage() {
-    this.activePage = this.router.url;
-    this.activateBreadcrumb();
+  setActiveRoute() {
+    this.activeRoute = this.router.url;
   }
 
   navigate(pageName: string) {
@@ -53,17 +64,32 @@ export class LayoutComponent {
   }
 
   watchRoute() {
-
     this.router.events.pipe(takeUntil(this.unsubscribeAll),
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
-      this.activePage = event.url;
+      this.activeRoute = event.url;
       this.activateBreadcrumb();
+      this.setTitle();
     });
   }
 
+  setTitle() {
+    const activePage = this.getActivePage();
+    this.title.setTitle(activePage.title);
+  }
+
+  setSeo() {
+    const activePage = this.getActivePage();
+    this.seo.generateTags({
+      title: activePage.title,
+      description: activePage.description,
+      image: activePage.image,
+      slug: activePage.route
+    })
+  }
+
   next() {
-    const activePageName = this.getActivePageNameFromRoute();
+    const activePageName = this.getActivePage().name;
     if (activePageName === MTMPageNames.SELECT_MEALS) {
       this.router.navigate(['/recipes/my-meals']);
     } else if (activePageName === MTMPageNames.MEAL_PLAN) {
@@ -74,7 +100,7 @@ export class LayoutComponent {
   }
 
   back() {
-    const activePageName = this.getActivePageNameFromRoute();
+    const activePageName = this.getActivePage().name;
     if (activePageName === MTMPageNames.MEAL_PLAN) {
       this.router.navigate(['/recipes/discover']);
     } else if (activePageName === MTMPageNames.GROCERY_LIST) {
@@ -84,7 +110,7 @@ export class LayoutComponent {
 
   activateBreadcrumb() {
     // activate the active breadcrums, and allow the toolbar to know when to show them
-    let activePageName = this.getActivePageNameFromRoute();
+    let activePageName = this.getActivePage().name;
     this.breadcrumbs.forEach((breadcrumb: Breadcrumb) => {
       if (activePageName === MTMPageNames.SELECT_MEALS) {
         this.showBreadcrumbs = true;
@@ -117,15 +143,16 @@ export class LayoutComponent {
     });
   }
 
-  getActivePageNameFromRoute(): string {
-    let activePageName: string = '';
+  getActivePage(): MTMPage {
+    let activePage: MTMPage;
     Object.values(MTMPages).forEach((page) => {
-      if (page.route === this.activePage) {
-        activePageName = page.name;
+      if (page.route === this.activeRoute) {
+        activePage = page;
       }
     });
-    return activePageName;
+    return activePage;
   }
+
 
   signOut() {
     this.adobeDtbTracking.signout();

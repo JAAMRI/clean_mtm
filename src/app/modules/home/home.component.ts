@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(private router: Router,
     private accountService: AccountService,
-    private dialog: MatDialog,
     private seo: SeoService, private title: Title,
     public adobeDtbTracking: AdobeDtbTracking,
   ) {

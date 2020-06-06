@@ -1,19 +1,7 @@
 @import "../../../../scss/variables.scss";
-@import "../../../../scss/variables.scss";
 
-.discover-meals-page {
-  height: calc(100% - 64px); // height subtracting toolbar
-  min-height: calc(100vh - 64px); // height subrating toolbar (landscape)
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: $mtm_white;
-  position: relative;
-  z-index: 1;
-}
-.mobile-discover-meals-page {
-  background-color: $mtm_white;
-}
+
+
 .search {
   width: 100%;
 }
@@ -72,18 +60,8 @@
   text-align: center;
   color: $mtm_dark_green_color;
 }
-.discover-meals-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  flex: 1;
-  width: 100%;
-  mat-progress-bar {
-    width: 80%;
-  }
-}
+
+
 .discover-action-buttons {
   display: flex;
   justify-content: center;

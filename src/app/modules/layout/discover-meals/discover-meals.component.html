@@ -1,4 +1,4 @@
-<div [class]="isMobile ? 'mobile-discover-meals-page' : 'discover-meals-page'">
+<div class="discover-meals-page">
   <div class="copy">
     <h1>
       SELECT MEALS
@@ -20,7 +20,7 @@
 
   </div>
 
-  <div class='no-items-wrapper' *ngIf='!didYouMean && meals?.length === 0 && !loading && requestedMeals'>
+  <div class='no-items-wrapper' *ngIf='!didYouMean && meals?.length === 0 && !loading'>
 
     <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
   </div>

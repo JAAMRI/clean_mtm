@@ -12,14 +12,27 @@ export enum MTMPageNames {
   AUTH = 'AUTH'
 }
 
-export const MTMPages = {
+export interface MTMPage {
+
+  name: string;
+  route: string;
+  title?: string;
+  description?: string;
+  image?: string;
+
+}
+
+export const MTMPages: { [name: string]: MTMPage } = {
   'SELECT MEALS': {
     name: 'SELECT MEALS',
-    route: '/recipes/discover'
+    route: '/recipes/discover',
+    title: 'Choose Your Weekly Meals | Meals That Matter',
+    description: 'Choose your meals for the week and take your meal prep to the next level. Select from a wide range of amazing recipes, curated by our Knorr Chefs.',
+    image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
   },
   'FAVOURITES': {
     name: 'FAVOURITES',
-    route: '/recipes/favourites'
+    route: '/recipes/favourites',
   },
   'MEAL PLAN': {
     name: 'MEAL PLAN',

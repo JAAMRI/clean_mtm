@@ -1,0 +1,1 @@
+export const FIELDS = "recipe_id, main_ingredient, cuisines, methods, ingredients, related_recipes, title, nutrients_legacy, description, comments, cook_time, ready_time, prep_time, wait_time, total_time, calculated_nutrients_per_serving, creation_time, yield, assets";

@@ -14,6 +14,7 @@ import { MealPlanService } from '../../../services/meal-plan/meal-plan.service';
 import { PreferencesService } from '../../../services/preferences/preferences.service';
 import { ICredentials } from '../../../interfaces/credentials';
 import { EmailForm, LoginForm } from './auth.forms';
+import { scrollToTop } from '../../../utilities/helper-functions';
 
 enum AuthType {
   LOGIN = 'LOGIN',
@@ -48,14 +49,9 @@ export class AuthComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.scrollToTop();
+    scrollToTop();
     this.watchRoute();
     this.setActiveRoute(this.router.url);
-  }
-
-  scrollToTop() {
-    // navigating here sometimes doesnt scroll at top
-    window.scroll(0,0);
   }
 
   setActiveRoute(url: string) {

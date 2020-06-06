@@ -2,6 +2,7 @@
 
 .app-footer {
   display: grid;
+  z-index: 0;
   padding: 1em;
   background-color: $mtm_grey;
   padding-bottom: 4em; // consider bottom button

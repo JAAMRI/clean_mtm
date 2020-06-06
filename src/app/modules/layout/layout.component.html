@@ -11,13 +11,13 @@
           <router-outlet></router-outlet>
         </div>
         <div class="nav-buttons"
-        *ngIf='!onAuthPage && (activePage === "/recipes/discover" || activePage === "/recipes/my-meals" || activePage === "/recipes/grocery-list")'>
+        *ngIf='!onAuthPage && (activeRoute === "/recipes/discover" || activeRoute === "/recipes/my-meals" || activeRoute === "/recipes/grocery-list")'>
         <div class="nav-buttons-wrapper">
-          <button class='back' *ngIf='activePage !== "/recipes/discover"' mat-mini-fab (click)='back()'>
+          <button class='back' *ngIf='activeRoute !== "/recipes/discover"' mat-mini-fab (click)='back()'>
             <mat-icon>chevron_left</mat-icon>
           </button>
           <button class='next' mat-flat-button color='primary'
-            (click)='next()'>{{activePage === '/recipes/grocery-list' ? 'START SHOPPING' : 'NEXT'}}</button>
+            (click)='next()'>{{activeRoute === '/recipes/grocery-list' ? 'START SHOPPING' : 'NEXT'}}</button>
         </div>
       </div>
     </mat-sidenav-content>
@@ -26,20 +26,20 @@
   <!-- DESKTOP VIEW -->
   <div class="desktop-view" *ngIf='!(isMobile || onAuthPage)'>
     <app-desktop-toolbar [loggedIn]='loggedIn' (onSignOutClicked)='signOut()' (onAuthClicked)='authControl()'
-      [activePage]='activePage' (navigate)='navigate($event)'></app-desktop-toolbar>
+      [activePage]='activeRoute' (navigate)='navigate($event)'></app-desktop-toolbar>
     <div class="router-wrapper">
       <router-outlet></router-outlet>
     </div>
     <div class="nav-buttons"
-      *ngIf='activePage === "/recipes/discover" || activePage === "/recipes/my-meals" || activePage === "/recipes/grocery-list"'>
+      *ngIf='activeRoute === "/recipes/discover" || activeRoute === "/recipes/my-meals" || activeRoute === "/recipes/grocery-list"'>
       <!-- clean this up ^^ -->
       <div class="nav-buttons-wrapper">
 
-        <button class='back' *ngIf='activePage !== "/recipes/discover"' mat-mini-fab (click)='back()'>
+        <button class='back' *ngIf='activeRoute !== "/recipes/discover"' mat-mini-fab (click)='back()'>
           <mat-icon>chevron_left</mat-icon>
         </button>
         <button class='next' mat-flat-button color='primary'
-          (click)='next()'>{{activePage === '/recipes/grocery-list' ? 'START SHOPPING' : 'NEXT'}}</button>
+          (click)='next()'>{{activeRoute === '/recipes/grocery-list' ? 'START SHOPPING' : 'NEXT'}}</button>
       </div>
     </div>
   </div>
