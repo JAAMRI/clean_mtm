@@ -31,7 +31,7 @@ import { FilterModule } from '../../../components/dialogs/filter/filter.module';
     UserFormModule,
     MatDialogModule,
     MtmSliderModule,
-    FilterModule
+    FilterModule,
   ],
   providers: [
     MealFavouritesService,

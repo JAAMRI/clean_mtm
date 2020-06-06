@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { handleError } from '../../utilities/helper-functions';
+import { Meal, Meals } from '../../interfaces/meal/meal';
 import { FIELDS } from './meal.fields';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class MealService {
   }
 
   //Get Meals from API
-  getMeals(page_start: number, page_size: number, query?: string): Observable<any> {
+  getMeals(page_start: number, page_size: number, query?: string): Observable<Meals> {
     const httpParams = new HttpParams({
       fromObject: {
         page_start: page_start.toString(),
@@ -35,7 +35,26 @@ export class MealService {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
     };
 
-    return this.http.post(environment.host + this.recipesUrl, httpParams.toString(), options).pipe(catchError(this.handleError('getMeals', [])));
+    return this.http.post(environment.host + this.recipesUrl, httpParams.toString(), options).pipe(
+      map((meals: any) => {
+          return {
+            didYouMean: meals.didYouMean,
+            results: meals.results,
+            items: meals.data.map((meal: any, index: any) => ({
+              id: meal.recipe_id,
+              image: meal.assets.image.default[0].url,
+              cuisine: meal.cuisines && (Object.keys(meal.cuisines).length === 0) ? null : meal.cuisines[0].description,
+              title: meal.title,
+              nutrition: meal.nutrients_legacy,
+              cookTime: meal.cook_time,
+              prepTime: meal.prep_time,
+              servings: meal.yield.value + " " + meal.yield.measure,
+              ingredients: meal.ingredients.ungrouped.list,
+              instructions: meal.methods.ungrouped.list,
+              mainIngredient: (Object.keys(meal.main_ingredient).length === 0) ? null : meal.main_ingredient[0].description
+            }))
+          }
+      }));
   }
 
 
@@ -77,26 +96,5 @@ export class MealService {
         }
       }))
 
-  }
-
-  /**
-  * Handle Http operation that failed.
-  * Let the app continue.
-  * @param operation - name of the operation that failed
-  * @param result - optional value to return as the observable result
-  */
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
-      console.log(`${operation} failed:`);
-      console.dir(error);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
   }
 }

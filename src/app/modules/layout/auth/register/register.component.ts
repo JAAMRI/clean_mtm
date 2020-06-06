@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
 import { AccountService } from '../../../../../app/services/account/account.service';
 import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
-import { ICredentials } from '../../../../interfaces/credentials';
+import { ICredentials } from '../../../../interfaces/auth/credentials';
 
 // Error state matching class for confirm password
 class passwordErrorMatcher implements ErrorStateMatcher {

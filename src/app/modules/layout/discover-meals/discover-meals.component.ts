@@ -1,18 +1,19 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AccountService } from '../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
-import { scrollToTop, shuffleArray } from '../../../../app/utilities/helper-functions';
+import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { FilterComponent } from '../../../components/dialogs/filter/filter.component';
+import { Meals } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
-import { PreferencesService } from '../../../services/preferences/preferences.service';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-discover-meals',
@@ -24,7 +25,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   meals: any[] = [];
   favouriteMeals: any = []
-  preferences: string = '';
   loading = false;
   viewLoaded: boolean = false;
   searchQuery: string;
@@ -36,7 +36,8 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   theEnteredSearchQuery: string = "";
   totalResults: number = 0;
   mealPlanIds = {};
-  mealPlan: any[] = [];
+  mealPlan = [];
+  @ViewChild(CdkVirtualScrollViewport) viewPort: CdkVirtualScrollViewport;
 
 
   constructor(private router: Router, private dialog: MatDialog,
@@ -44,8 +45,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     private mealFavouritesService: MealFavouritesService,
     private mealPlanService: MealPlanService,
     private mealService: MealService,
-    private accountService: AccountService,
-    private preferencesService: PreferencesService,
     private snackBar: MatSnackBar,
     private cdr: ChangeDetectorRef,
     public adobeDtbTracking: AdobeDtbTracking
@@ -56,12 +55,10 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     scrollToTop();
     this.adobeDtbTracking.pageLoad("discover meals page");
     this.watchRouteForRecipePrompt()
-    if (this.preferences.split(' ').length > 0) {//Randomize preferences if multiple preferences
-      this.preferences = shuffleArray(this.preferences.split(' ')).join(' ');
-    }
-    this.getMeals();
     this.mealPlan = await this.mealPlanService.getMealPlan();
+    await this.getFavouriteMeals();
 
+    this.getMeals();
   }
 
   ngAfterViewInit() {
@@ -72,74 +69,53 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   watchRouteForRecipePrompt() {
     this.route.queryParams.pipe(takeUntil(this.unsubscribeAll)).subscribe((params) => {
       if (params.id) {
-
         this.promptMealDetailComponent(params.id)
       }
     })
   }
 
-  async getPreferences() {
-    return await this.preferencesService.getPreferences();
+  getNextBatch(index: number) {
+    console.log(index)
+    if (index === this.meals.length - 1) {
+      console.log(this.pageSize, this.pageStart)
+      this.getMeals(this.meals.length, this.pageSize, '')
+    }
   }
 
-  getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, query: string = this.preferences) {
+  getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, query: string = '') {
     //Show spinner while loading
     this.loading = true;
-    this.mealService.getMeals(pageStart, pageSize, query).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals) => {
+    this.mealService.getMeals(pageStart, pageSize, query).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
       if (meals) {
         //Check if did_you_mean
-        if (meals.hasOwnProperty("did_you_mean") && meals.hasOwnProperty("did_you_mean_results") && meals.data.length === 0) {
-          this.didYouMean = meals.did_you_mean;
+        this.didYouMean = meals.didYouMean;
+        if (meals.didYouMean && meals.items.length === 0) {
           // if did you mean exists, still search for those results
           this.searchMeals(this.didYouMean);
-        } else if (!meals.did_you_mean) {
-          this.didYouMean = null;
         }
         //Reset page start
         this.pageStart = pageStart;
-        //Map Results
-        let theMeals = this.mapResults(meals);
+        console.log(pageStart, meals.results)
         // Populate meals
         if (pageStart < meals.results) {
-          if (this.meals && (this.meals.length === this.pageStart)) {//Avoid multiple push with same server response
-            this.meals.push(...theMeals.slice(0, pageSize + 1)); // -1 for index, grabbing meals from api and appending it to meals
-          }
+          this.meals.push(...meals.items.slice(0, pageSize + 1)); // -1 for index, grabbing meals from api and appending it to meals
+          console.log('in here')
+          console.log(this.meals)
         }
-        //Disable Spinner
-        //Enable next button
         //Set meal plan IDs
         this.setMealPlanIds()
         // get favourite meals
-        this.getFavouriteMeals();
-        //Add Query to preferences
-        if (this.theEnteredSearchQuery && theMeals && theMeals.length > 0) {
-          this.addToPreferences(this.theEnteredSearchQuery);
-        }
-
+        
       }
+      // setTimeout(() => {
+
+      //   this.viewPort.scrollToIndex(2);
+      //   console.log(this.viewPort.getDataLength())
+      // }, 2000)
       this.loading = false;
 
     });
   }
-
-  mapResults(meals: any) {//an interface  should be created for this
-    if (meals.data) {
-      return meals.data.map((meal: any, index: any) => ({
-        id: meal.recipe_id,
-        image: meal.assets.image.default[0].url,
-        cuisine: meal.cuisines && (Object.keys(meal.cuisines).length === 0) ? null : meal.cuisines[0].description,
-        title: meal.title,
-        nutrition: meal.nutrients_legacy,
-        cookTime: meal.cook_time,
-        prepTime: meal.prep_time,
-        servings: meal.yield.value + " " + meal.yield.measure,
-        ingredients: meal.ingredients.ungrouped.list,
-        instructions: meal.methods.ungrouped.list,
-        mainIngredient: (Object.keys(meal.main_ingredient).length === 0) ? null : meal.main_ingredient[0].description
-      }));
-    }
-  }
-
 
   async getFavouriteMeals() {
     this.favouriteMeals = await this.mealFavouritesService.getMealFavourites();
@@ -158,13 +134,9 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     });
   }
 
-
-  searchMeals(query?: any) {
+  searchMeals(query?: string) {
     //Capture Enter Submit Event
-    if (typeof query !== 'string') query = query.target.value;
-
-    if (query == "") {//check if search field is cleared
-      query = this.preferences;
+    if (query.trim() == "") {//check if search field is cleared
       this.theEnteredSearchQuery = "";
     } else {
       this.theEnteredSearchQuery = query;
@@ -241,81 +213,60 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.router.navigate(['/auth']);
   }
 
-  async addToMealPlan(mealId: any) {
+  async addToMealPlan(mealId: string) {
     // add to mealplan
     const meal = this.meals.find((meal) => meal.id === mealId);
     this.adobeDtbTracking.anchorLinkMeal('Adding to Meal Plan: ', meal.title);
     this.mealPlan.push(meal);
     this.mealPlanIds[mealId] = true;
     await this.mealPlanService.saveMealPlan(this.mealPlan, mealId);
-    this.snackBar.open('Added to meal plan!', null, { duration: 2000 });
+    this.snackBar.open('Added to meal plan!', null, { duration: 2000, verticalPosition: 'top' });
 
   }
 
-  async removeFromMealPlan(mealId: any) {
+  async removeFromMealPlan(mealId: string) {
     // add to mealplan
     await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove');
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
     delete this.mealPlanIds[mealId];
-    const meal_delete_adobe = this.meals.find((meal) => meal.id === mealId);
-    this.adobeDtbTracking.anchorLinkMeal('Removing from Meal Plan: ', meal_delete_adobe.title);
-    this.snackBar.open('Removed from meal plan!', null, { duration: 2000 });
+    const meal = this.meals.find((meal) => meal.id === mealId);
+    this.adobeDtbTracking.anchorLinkMeal('Removing from Meal Plan: ', meal.title);
+    this.snackBar.open('Removed from meal plan!', null, { duration: 2000, verticalPosition: 'top' });
   }
 
   updateFavourites(favouriteMeal: any) {
-    if (!this.accountService.loggedIn) {
-      // this.promptUserForAuth()
-    }
+
     if (this.favouriteMeals.find((meal: any) => meal.id == favouriteMeal.id)) {
       this.removeFromFavourites(favouriteMeal);
-      this.snackBar.open('Removed from favourites!', null, { duration: 2000 });
+      this.snackBar.open('Removed from favourites!', null, { duration: 2000, verticalPosition: 'top' });
 
     } else {
       this.addToFavourites(favouriteMeal);
-      this.snackBar.open('Added to favourites!', null, { duration: 2000 });
+      this.snackBar.open('Added to favourites!', null, { duration: 2000, verticalPosition: 'top' });
 
     }
 
   }
-
-
 
   async removeFromFavourites(favouriteMeal: any) {
     await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove');
     this.favouriteMeals = this.favouriteMeals.filter((meal: any) => meal.id !== favouriteMeal.id)
     delete this.favouriteMealIds[favouriteMeal.id];
-    const favourite_meal_adobe = this.meals.find((meal) => meal.id === favouriteMeal.id);
-    this.adobeDtbTracking.anchorLinkMeal('Removing from Favourites: ', favourite_meal_adobe.title);
+    const meal = this.meals.find((meal) => meal.id === favouriteMeal.id);
+    this.adobeDtbTracking.anchorLinkMeal('Removing from Favourites: ', meal.title);
   }
 
   addToFavourites(favouriteMeal: any) {
     this.favouriteMeals.push(favouriteMeal)
     this.favouriteMealIds[favouriteMeal.id] = true;
     this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id);
-    const favourite_meal_adobe = this.meals.find((meal) => meal.id === favouriteMeal.id);
-    this.adobeDtbTracking.anchorLinkMeal('Adding to Favourites: ', favourite_meal_adobe.title);
+    const meal = this.meals.find((meal) => meal.id === favouriteMeal.id);
+    this.adobeDtbTracking.anchorLinkMeal('Adding to Favourites: ', meal.title);
   }
 
   loadMore() {
-    // const startAt = this.meals.length + 1;
-    // this.getMeals(this.pageStart, this.pageSize, this.preferences);
-    const new_pageStart = this.meals.length;
-    if (this.theEnteredSearchQuery) {
-      this.getMeals(new_pageStart, this.pageSize, this.theEnteredSearchQuery);
-    } else {
-      this.getMeals(new_pageStart, this.pageSize, this.preferences);
-    }
-  }
-
-  addToPreferences(q: String) {
-    //Save Query terms as preferences
-    let query_term_array = this.theEnteredSearchQuery.split(' ');
-    query_term_array.forEach(term => {
-      if (!this.preferences.includes(term.toLowerCase())) {
-        this.preferences += ` ${term.trim()}`
-        this.preferencesService.savePreferences(this.preferences.trim());
-      }
-    });
+    const newPageStart = this.meals.length;
+    this.getMeals(newPageStart, this.pageSize, this.theEnteredSearchQuery || '');
   }
 
 

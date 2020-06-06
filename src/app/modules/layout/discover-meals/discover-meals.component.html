@@ -28,9 +28,11 @@
     <img class='loading-text' src="/assets/static_images/whisk_wood_green.gif" />
   </div>
   <app-mtm-slider *ngIf='meals.length > 0'>
-    <app-meal-item *ngFor="let meal of meals" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
-      (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'
-      (favouriteToggled)='updateFavourites($event)' [favourited]='favouriteMealIds[meal.id]'>
-    </app-meal-item>
+    <cdk-virtual-scroll-viewport itemSize='200' orientation='horizontal' (scrolledIndexChange)='getNextBatch($event)'>
+      <app-meal-item *cdkVirtualFor="let meal of meals" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
+        (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'
+        (favouriteToggled)='updateFavourites($event)' [favourited]='favouriteMealIds[meal.id]'>
+      </app-meal-item>
+    </cdk-virtual-scroll-viewport>
   </app-mtm-slider>
 </div>

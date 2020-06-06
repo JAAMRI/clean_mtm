@@ -12,7 +12,7 @@ import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../services/meal-plan/meal-plan.service';
 import { PreferencesService } from '../../../services/preferences/preferences.service';
-import { ICredentials } from '../../../interfaces/credentials';
+import { ICredentials } from '../../../interfaces/auth/credentials';
 import { EmailForm, LoginForm } from './auth.forms';
 import { scrollToTop } from '../../../utilities/helper-functions';
 

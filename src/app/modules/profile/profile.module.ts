@@ -9,7 +9,6 @@ import { PersonalInfoModule } from '../../components/personal-info/personal-info
 import { ProfileComponent } from './profile.component';
 import { ProfileRouting } from './profile.routing';
 import { ChangePasswordModule } from '../../components/change-password/change-password.module';
-import { FeedbackModule } from '../../components/feedback/feedback.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTabsModule,
     MatCheckboxModule,
     ChangePasswordModule,
-    FeedbackModule,
     PersonalInfoModule,
     ReactiveFormsModule
   ]
