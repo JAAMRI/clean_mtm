@@ -9,7 +9,7 @@ export const LoginForm = new FormGroup({
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
 })
 
-export const registerForm = new FormGroup({
+export const RegisterForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirm_password: new FormControl('', [Validators.required]),
