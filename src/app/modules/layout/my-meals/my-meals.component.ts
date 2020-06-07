@@ -20,32 +20,17 @@ import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 @Component({
   selector: 'app-my-meals',
   templateUrl: './my-meals.component.html',
-  styleUrls: ['./my-meals.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./my-meals.component.scss']
 
 })
 export class MyMealsComponent implements OnInit, OnDestroy {
   mealPlan = [];
   unsubscribeAll = new Subject();
-  isMobile: boolean;
-  isWeb: boolean;
-  slidesToShow: number;
-  disableNextButton: boolean;
+
   favouriteMeals = [];
-  carouselIsChanging: boolean;
   favouriteMealIds: string = '';
 
-  slideConfig = {
-    "slidesToShow": 4,
-    "slidesToScroll": 1,
-    "nextArrow": "<div class='nav-btn next-slide'></div>",
-    "prevArrow": "<div class='nav-btn prev-slide'></div>",
-    'infinite': false
-  };
-
-
   constructor(private router: Router, private snackbar: MatSnackBar,
-    private breakpointObserver: BreakpointObserver,
     private mealPlanService: MealPlanService,
     private mealFavouritesService: MealFavouritesService,
     private matIconRegistry: MatIconRegistry, private sanitizer: DomSanitizer,
@@ -54,12 +39,12 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     private seo: SeoService,
     private title: Title,
     public adobeDtbTracking: AdobeDtbTracking) {
-    this.observeBreakpoints();
     this.registerIcons();
 
   }
 
   ngOnInit() {
+    scrollToTop();
     this.getMealPlan();
     setTimeout(() => {
       this.adobeDtbTracking.pageLoad("meal plan page");
@@ -67,7 +52,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
       5000);
 
     this.getFavouriteMeals();
-    scrollToTop();
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
     }
@@ -161,7 +145,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
         // console.log(fromDialog);
         //this will update added to meal plan in parent component
         (fromDialog.action === 'add') ? this.mealPlan.push(fromDialog.meal) : this.mealPlan = this.mealPlan.filter((meal) => meal.id !== fromDialog.meal.id);
-        this.setCarouselChanging(false);//This will re-adjust the arrows
 
         // (fromDialog.action === 'add') ? this.addToMealPlan(fromDialog.meal) : this.removeFromMealPlan(fromDialog.meal.id);
       },
@@ -179,30 +162,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     })
 
   }
-
-  // breakpoints
-  //  setting breakpoint configs
-  observeBreakpoints() {
-    this.breakpointObserver.observe(BREAKPOINTS).pipe(takeUntil
-      (this.unsubscribeAll)).subscribe((result: BreakpointState) => {
-        this.isMobile = this.breakpointObserver.isMatched('(max-width: 599px)');
-        this.isWeb = this.breakpointObserver.isMatched('(min-width: 960px)');
-        this.slidesToShow = this.isWeb ? 3 : (this.isMobile ? 1 : 2)
-        this.slideConfig = { ...this.slideConfig, 'slidesToShow': this.slidesToShow };
-      });
-  }
-
-  setCarouselChanging(event: any) {
-    //carousel is being slided
-    this.carouselIsChanging = true;
-    const { nextSlide } = event;
-    if ((nextSlide + this.slidesToShow) === this.mealPlan.length) {
-      this.disableNextButton = true;
-    } else {
-      this.disableNextButton = false;
-    }
-  }
-
 
   ngOnDestroy() {
     this.unsubscribeAll.next();

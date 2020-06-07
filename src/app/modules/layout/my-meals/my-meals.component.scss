@@ -3,10 +3,7 @@
 
 .copy {
   text-align: center;
-  padding: 0 2em;
-  position: sticky;
-  top: 0;
-  
+  padding: 1em 2em;
   strong {
     color: $mtm_light_green_color;
   }
@@ -90,6 +87,13 @@
 .select-meals-button-wrapper{
   display: flex;
   justify-content: center;
+}
+
+.sticky{
+  position: sticky;
+  top: 0;
+  background-color: $mtm_white;
+  z-index: 3;
 }
 
 *:focus {
