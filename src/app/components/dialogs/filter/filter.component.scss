@@ -19,6 +19,20 @@
                 }
             }
         }
+        @media(min-width: 768px) {
+            height: 50vh;
+            width: 50vh;
+            .filter-header {
+                display: flex;
+                padding: 0 1em;
+                img {
+                    flex: 1;
+                    height: 48px;
+                    width: 48px;
+                }
+               
+            }
+        }
 
         .close-button {
         @media (min-width: 1024px) {
