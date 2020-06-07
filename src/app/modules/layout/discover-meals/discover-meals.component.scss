@@ -45,12 +45,16 @@
   }
 }
 .no-items-wrapper {
-  border-radius: 5%;
-  font-family: avenir;
-  background-color: lightgray;
-  padding: 0.5em 1em 1em 1em;
-  mat-icon {
-    color: $mtm_dark_green_color;
+  display: flex;
+  justify-content: center;
+  p{
+
+    border-radius: 5%;
+    background-color: $mtm_grey;
+    padding: 8px;
+    mat-icon {
+      color: $mtm_dark_green_color;
+    }
   }
 }
 .loading-text {
@@ -67,17 +71,6 @@
     color: $mtm_dark_green_color !important;
     background-color: $mtm_grey !important;
     font-family: flavour;
-  }
-}
-
-cdk-virtual-scroll-viewport {
-  height: 300px;
-  .cdk-virtual-scroll-content-wrapper {
-    app-meal-item {
-      margin: 0 4px;
-      padding-top: 1em;
-    }
-    display: flex;
   }
 }
 

@@ -23,16 +23,18 @@
   </div>
 
   <div class='no-items-wrapper' *ngIf='!didYouMean && meals?.length === 0 && !loading'>
-
-    <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
+    <p>
+      <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
+    </p>
   </div>
   
-  <!-- <app-mtm-slider> -->
-    <cdk-virtual-scroll-viewport  minBufferPx="1200" maxBufferPx="1200" itemSize='200' orientation='horizontal' (scrolledIndexChange)='getNextBatch($event)'>
-      <app-meal-item *cdkVirtualFor="let meal of meals; trackBy: trackByIndex; let i=index;" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
-        (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'
-        (favouriteToggled)='updateFavourites($event)' [favourited]='favouriteMealIds[meal.id]'>
-      </app-meal-item>
-    </cdk-virtual-scroll-viewport>
-  <!-- </app-mtm-slider> -->
+ 
+      <app-mtm-slider *ngIf='meals.length > 0' (onEndReached)='getNextBatch()' (onStartReached)='getPreviousBatch()' [numOfItems]='meals.length'>
+
+        <app-meal-item *ngFor="let meal of meals; trackBy: trackByIndex; let i=index;" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
+          (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'
+          (favouriteToggled)='updateFavourites($event)' [favourited]='favouriteMealIds[meal.id]'>
+        </app-meal-item>
+      </app-mtm-slider>
+
 </div>

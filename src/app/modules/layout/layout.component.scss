@@ -23,13 +23,14 @@
     .nav-buttons {
         position: fixed;
         bottom: 0;
-        z-index: 9999;
+        z-index: 2;
         text-align: center;
         width: 100%;
         background-color: $mtm_grey;
         .nav-buttons-wrapper {
             display: flex;
             align-items: center;
+            z-index: 1000;
             justify-content: flex-end;
             width: calc(50% + 100px + 1em); // half width of next button
             .next {

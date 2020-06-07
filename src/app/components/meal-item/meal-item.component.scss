@@ -67,9 +67,10 @@
       color: $mtm_dark_green_color;
       width: 32px;
       height: 32px;
+      border: 1px solid rgba($mtm_light_grey, 0.7);
       mat-icon {
         font-size: 20px;
-        margin-top: -4px;
+        margin-top: -5px;
       }
     }
     .remove-button {

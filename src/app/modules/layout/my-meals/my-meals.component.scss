@@ -2,23 +2,7 @@
 .cc-side-drawer-anchor {
   display: none;
 }
-.my-meals-page {
-  height: calc(100% - 64px); // height subrating toolbar
-  min-height: calc(100vh - 64px); // height subrating toolbar (landscape)
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: $mtm_white;
-  position: relative;
-  z-index: 1;
-}
-.mobile-my-meals-page {
- 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: $mtm_white;
-}
+
 .select-meals-button-wrapper {
   display: flex;
   justify-content: center;

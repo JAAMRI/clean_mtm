@@ -40,7 +40,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   filter = {};
   leftPageStart = 0;
   numOfResults = 0;
-  @ViewChild(CdkVirtualScrollViewport) viewPort: CdkVirtualScrollViewport;
+  initialSliderScrollWidth: number;
 
 
   constructor(private router: Router, private dialog: MatDialog,
@@ -56,12 +56,12 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   async ngOnInit() {
     scrollToTop();
+    this.getMeals();
     this.adobeDtbTracking.pageLoad("discover meals page");
     this.watchRouteForRecipePrompt()
     this.mealPlan = await this.mealPlanService.getMealPlan();
     await this.getFavouriteMeals();
 
-    this.getMeals();
   }
 
   ngAfterViewInit() {
@@ -77,25 +77,25 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     })
   }
 
-  getNextBatch(index: number) {
-    if (index === (this.meals.length - 1) && index !== 0) {
-      this.getMeals(this.meals.length, this.pageSize, 'right')
+  getNextBatch() {
+    this.getMeals(this.meals.length, this.pageSize, 'right')
+
+  }
+
+  getPreviousBatch() {
+    this.leftPageStart = this.leftPageStart - this.pageSize;
+    if (this.leftPageStart < 0) {
+      this.leftPageStart = this.numOfResults + this.leftPageStart;
     }
-    else if (index === 0 && this.meals.length > 0) {
-      this.leftPageStart = this.leftPageStart - this.pageSize;
-      if (this.leftPageStart < 0) {
-        this.leftPageStart = this.numOfResults + this.leftPageStart;
-      }
-      this.getMeals(this.leftPageStart, this.pageSize, 'left')
-    }
+    this.getMeals(this.leftPageStart, this.pageSize, 'left')
   }
 
   trackByIndex(i: number) {
     return i;
   }
 
-  getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter,) {
-    //Show spinner while loading
+  getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter) {
+    //Show spinner while loadin
     this.loading = true;
     this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
       if (meals) {
@@ -103,7 +103,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
         this.didYouMean = meals.didYouMean;
         if (meals.didYouMean && meals.items.length === 0) {
           // if did you mean exists, still search for those results
-          this.searchMeals(this.didYouMean);
+          this.getMeals(pageStart, pageSize, meals.didYouMean);
         }
         //Reset page start
         this.pageStart = pageStart;
@@ -115,36 +115,18 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
         } else {
           this.meals = [...meals.items.slice(0, pageSize + 1), ...this.meals];
-          this.viewPort.scrollToIndex(6)
 
         }
 
         //Set meal plan IDs
         this.setMealPlanIds()
-        // get favourite meals
-        if (pageStart === 0) {
-          setTimeout(() => {
-            this.scrollToMiddle(); // skip a cycle           
-          }, 0)
-
-        }
+     
 
       }
 
       this.loading = false;
 
     });
-  }
-
-  scrollToMiddle() {
-    const slider = this.viewPort.getElementRef();
-    const scrollbarWidth = slider.nativeElement.offsetWidth;
-    const sliderWidth = slider.nativeElement.scrollWidth
-    console.log(sliderWidth)
-    console.log(scrollbarWidth)
-
-    // scroll half way, but come back half way of the scroll bar to have it in the middle (16 accounted for the 1em grid gap)
-    slider.nativeElement.scrollLeft = ((sliderWidth / 2) - (scrollbarWidth / 2));
   }
 
   async getFavouriteMeals() {
