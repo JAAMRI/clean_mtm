@@ -30,6 +30,9 @@
       <button aria-label="Sign in" type="submit" mat-flat-button class='sign-in-button'>SIGN IN</button>
       <a class='forgot-button' mat-link-button (click)='emitForgotPassword()'>Forgot your password?</a>
     </div>
+    <div class="gif-wrapper" *ngIf='loading'>
+      <img class='loading-text' src="/assets/static_images/whisk_wood_green.gif" />
+    </div>
   </form>
 
 </div>

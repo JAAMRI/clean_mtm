@@ -11,6 +11,7 @@ import { SeoService } from '../../../app/services/seo.service';
 import { scrollToTop } from '../../../app/utilities/helper-functions';
 import { UserFormComponent } from '../../components/dialogs/user-form/user-form.component';
 import { AccountService } from '../../services/account/account.service';
+import Auth from '@aws-amplify/auth';
 
 // use this to scroll on safari
 smoothscroll.polyfill();
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   unsubscribeAll = new Subject();
   onLandingPage: boolean;
   @ViewChild('howItWorks') howItWorks: ElementRef;
+  isLoggedIn: boolean;
 
 
 
@@ -38,6 +40,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     scrollToTop();
+    this.isLoggedIn = this.accountService.loggedIn;
     this.onLandingPage = (this.router.url === '/'); // check if we are on landing page which is /
     this.title.setTitle('Meal Prep & Weekly Meal Planner | Meals That Matter'); //updating page title
     this.seo.generateTags({ //updating seo
@@ -49,6 +52,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }//end ngOnInit
 
 
+
   ngAfterViewInit() {
     this.watchRoute(); // skip 1 cycle to let route come into place
     setTimeout(() => { this.adobeDtbTracking.pageLoad("home page"); }, 1000);
@@ -57,6 +61,14 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   routeToLogin() {
     this.router.url === '/login' ? this.promptUserForAuth() : this.router.navigate(['/login']);
     // if user is already on login and clicked button, show auth, else route to login and router will show auth
+  }
+
+  signOut() {
+    Auth.signOut().then(_ => {
+      this.accountService.loggedIn = false;
+      this.router.navigate(['/']);
+
+    })
   }
 
   promptUserForAuth() {

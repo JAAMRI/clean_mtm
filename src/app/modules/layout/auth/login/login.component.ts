@@ -9,6 +9,7 @@ import { ICredentials } from '../../../../interfaces/auth/credentials';
 })
 export class LoginComponent implements OnInit {
   @Input() loginForm: FormGroup;
+  @Input() loading: boolean;
   @Input() emailForm: FormGroup;
   @Output() register = new EventEmitter<void>();
   @Output() login = new EventEmitter<ICredentials>();

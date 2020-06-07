@@ -36,6 +36,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   emailValidated: boolean;
   activeRoute: string = '';
   unsubscribeAll = new Subject()
+  loading: boolean = false;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -118,6 +119,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   async signIn(credentials: ICredentials) {
     try {
       const { username, password, firstTime } = credentials;
+      this.loading = true;
       await Auth.signIn(username.toLowerCase(), password);
       // Update only if user is signing in for the first time right after signing up
       if (firstTime) {
@@ -129,7 +131,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       this.accountService.emitAuthStateChanged();
       this.accountService.setLoggedIn(true);
       this.router.navigate(['/recipes/discover']);
-
+      this.loading = false;
     } catch (err) {
       // if (err.code === 'UserNotConfirmedException') {
       //   // The error happens if the user didn't finish the confirmation step when signing up
@@ -147,6 +149,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       // }
       console.log(err);
       this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
+      this.loading = false;
     }
   }
 

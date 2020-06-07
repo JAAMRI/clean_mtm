@@ -9,6 +9,7 @@ import { LayoutComponent } from './layout.component';
 import { LayoutRouting } from './layout.routing';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthGuard } from '../../guards/auth.guard';
 
 @NgModule({
   declarations: [LayoutComponent],
@@ -22,6 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     ToolbarModule,
     DesktopToolbarModule
-  ]
+  ],
+  providers: [AuthGuard]
 })
 export class LayoutModule { }

@@ -1,7 +1,7 @@
 <div class="home-page">
   <mat-sidenav-container>
     <mat-sidenav mode="over" #snav>
-      <app-mobile-menu (close)='snav.close()'></app-mobile-menu>
+      <app-mobile-menu [loggedIn]='isLoggedIn' (onSignOut)='signOut()' (close)='snav.close()'></app-mobile-menu>
 
     </mat-sidenav>
     <mat-sidenav-content>

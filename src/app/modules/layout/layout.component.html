@@ -1,7 +1,7 @@
 <div class="layout-container">
   <mat-sidenav-container class="sidenav-container" *ngIf='isMobile || onAuthPage'>
     <mat-sidenav #snav mode="over" [fixedInViewport]="true">
-      <app-mobile-menu (close)='snav.close()'></app-mobile-menu>
+      <app-mobile-menu [loggedIn]='loggedIn' (onSignOut)='signOut()' (close)='snav.close()'></app-mobile-menu>
 
     </mat-sidenav>
     <mat-sidenav-content>

@@ -3,11 +3,15 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { ChangeDetectorRef, Component, ComponentFactoryResolver, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild, ViewContainerRef } from '@angular/core';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, filter } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { AccountService } from './services/account/account.service';
 import { DynamicScriptLoaderService } from './services/dynamic-script-loader/dynamic-script-loader.service';
 import { BREAKPOINTS } from './utilities/breakpoints';
+import { MTMPage, MTMPages } from './components/desktop-toolbar/desktop-toolbar.component';
+import { SeoService } from './services/seo.service';
+import { Title } from '@angular/platform-browser';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,21 +20,17 @@ import { BREAKPOINTS } from './utilities/breakpoints';
 })
 export class AppComponent implements OnInit {
   unsubscribeAll = new Subject();
-  isPortrait: boolean;
-  @ViewChild('footerContainer', { read: ViewContainerRef }) footerContainer: ViewContainerRef;
-  footerHeight: number;
-  isHandsetLandscape: boolean;
+  activeRoute: string;
   loadScript: Promise<any>;
   stylesToBeLoaded: boolean = false;
-  loadCarousel = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private dynamicScriptLoader: DynamicScriptLoaderService,
-    @Inject(DOCUMENT) private document: any,
-    private breakpointObserver: BreakpointObserver,
     public accountService: AccountService,
+    private seoService: SeoService,
+    private title: Title,
     private cdr: ChangeDetectorRef,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private router: Router
 
   ) { }
 
@@ -46,10 +46,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.isLoggedIn();
-    this.observeBreakpoints();
+    this.activeRoute = this.router.url;
+    this.watchRoute();
 
     if (!isPlatformBrowser(this.platformId)) {
-      let bases = this.document.getElementsByTagName('base');
+      let bases = document.getElementsByTagName('base');
 
       if (bases.length > 0) {
         bases[0].setAttribute('href', environment.baseHref);
@@ -61,25 +62,31 @@ export class AppComponent implements OnInit {
     // this.loadFooter();
     this.loadFontIcons();
     if (environment.production == true || environment.uat == true) {
-     
-      this.loadCarousel = true; // load router outlet after js has been loaded
+
       await this.loadjscssfile("../lazyloadedstyles.css", "css");
 
       this.insertAdChoice();
     }//If production or uat, lazyload main css
     else {
-      this.loadCarousel = true; // load router outlet after js has been loaded
       this.cdr.detectChanges()
       await this.loadjscssfile("../lazyloadedstyles.js", "js");
     }
 
     if (environment.production || environment.uat) {
-      // this.facebookImplementation();
-      // this.adobeImplementation();
-      // this.newRelicImplementation();
+      this.facebookImplementation();
+      this.adobeImplementation();
+      this.newRelicImplementation();
     }
 
 
+  }
+
+  watchRoute() {
+    this.router.events.pipe(takeUntil(this.unsubscribeAll),
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.activeRoute = event.url;
+    });
   }
 
   loadFontIcons() {
@@ -93,36 +100,40 @@ export class AppComponent implements OnInit {
       bypassCache: false  // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
     }).then(user => {
       this.accountService.loggedIn = true;
-      console.log(user)
     }
     )
       .catch(err => console.log(err));
-    // this.amplifyService.authStateChange$
-    //   .subscribe(authState => {
-    //     if (authState.user) {
-    //       this.accountService.loggedIn = true;
-    //       // console.log(authState.user);
-    //     }
-    //   });
   }
 
 
-  observeBreakpoints() {
-    this.breakpointObserver.observe(BREAKPOINTS).pipe(takeUntil
-      (this.unsubscribeAll)).subscribe((result: BreakpointState) => {
-        this.isPortrait = result.matches;
-        this.isHandsetLandscape = this.breakpointObserver.isMatched('(max-width: 959.99px) and (orientation: landscape)');
-        // breakpoints for footer
-      });
-  }
-
-  completeSubscription() {
+  ngOnDestroy() {
     this.unsubscribeAll.next();
     this.unsubscribeAll.complete();
   }
 
-  ngOnDestroy() {
-    this.completeSubscription();
+  getActivePage(): MTMPage {
+    let activePage: MTMPage;
+    Object.values(MTMPages).forEach((page) => {
+      if (this.activeRoute.includes(page.route)) {
+        activePage = page;
+      }
+    });
+    return activePage;
+  }
+
+  setSeo() {
+    const activePage = this.getActivePage();
+    this.seoService.generateTags({
+      title: activePage.title,
+      description: activePage.description,
+      image: activePage.image,
+      slug: activePage.route
+    })
+  }
+
+  setTitle() {
+    const activePage = this.getActivePage();
+    this.title.setTitle(activePage.title);
   }
 
   insertAdChoice() {

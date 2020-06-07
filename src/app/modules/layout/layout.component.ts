@@ -1,17 +1,15 @@
-import { Component, ViewChild, ViewEncapsulation, HostListener } from '@angular/core';
+import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NavigationEnd, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { MTMPages, MTMPageNames, MTMPage } from '../../components/desktop-toolbar/desktop-toolbar.component';
+import { Breadcrumb } from '../../components/breadcrumbs/breadcrumbs.component';
+import { MTMPage, MTMPageNames, MTMPages } from '../../components/desktop-toolbar/desktop-toolbar.component';
 import { UserFormComponent } from '../../components/dialogs/user-form/user-form.component';
 import { AccountService } from '../../services/account/account.service';
 import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
-import { Breadcrumb } from '../../components/breadcrumbs/breadcrumbs.component';
 import { BREADCRUMBS } from '../../utilities/breadcrumbs';
-import { Title } from '@angular/platform-browser';
-import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-layout',
@@ -23,7 +21,7 @@ export class LayoutComponent {
 
   unsubscribeAll = new Subject();
   activeRoute: string = '';
-  loggedIn = this.accountService.loggedIn;
+  loggedIn : boolean;
   onAuthPage: boolean;
   isMobile: boolean = (window.innerWidth < 768);
   breadcrumbs: Breadcrumb[] = BREADCRUMBS;
@@ -33,9 +31,7 @@ export class LayoutComponent {
     private router: Router,
     private dialog: MatDialog,
     public accountService: AccountService,
-    private seo: SeoService,
     public adobeDtbTracking: AdobeDtbTracking,
-    private title: Title
   ) { }
 
   @HostListener('window:resize', ['$event'])
@@ -45,11 +41,15 @@ export class LayoutComponent {
   }
   ngOnInit() {
     this.setActiveRoute();
-    this.setTitle();
-    this.setSeo();
+    this.setLoggedInStatus();
+
     this.activateBreadcrumb();
     this.onAuthPage = this.activeRoute.includes('auth');
     this.watchRoute();
+  }
+
+  setLoggedInStatus() {
+    this.loggedIn = this.accountService.loggedIn;
   }
 
   setActiveRoute() {
@@ -69,24 +69,12 @@ export class LayoutComponent {
     ).subscribe((event: NavigationEnd) => {
       this.activeRoute = event.url;
       this.activateBreadcrumb();
-      this.setTitle();
     });
   }
 
-  setTitle() {
-    const activePage = this.getActivePage();
-    this.title.setTitle(activePage.title);
-  }
+ 
 
-  setSeo() {
-    const activePage = this.getActivePage();
-    this.seo.generateTags({
-      title: activePage.title,
-      description: activePage.description,
-      image: activePage.image,
-      slug: activePage.route
-    })
-  }
+  
 
   next() {
     const activePageName = this.getActivePage().name;
@@ -146,7 +134,7 @@ export class LayoutComponent {
   getActivePage(): MTMPage {
     let activePage: MTMPage;
     Object.values(MTMPages).forEach((page) => {
-      if (page.route === this.activeRoute) {
+      if (this.activeRoute.includes(page.route)) {
         activePage = page;
       }
     });
@@ -157,11 +145,11 @@ export class LayoutComponent {
   signOut() {
     this.adobeDtbTracking.signout();
     Auth.signOut()
-      .then(data => {
-        this.accountService.loggedIn = false;
-        this.router.navigate(['/']);
+    .then(data => {
+      this.accountService.loggedIn = false;
+      this.router.navigate(['/']);
 
-      })
+    })
       .catch(err => {
         alert(err.message);
       });

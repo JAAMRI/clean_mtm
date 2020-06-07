@@ -1,34 +1,41 @@
 @import "../../../../../scss/variables.scss";
 
 .header {
-    width: 75%;
-    margin: auto;
-    text-align: center;
-  }
+  width: 75%;
+  margin: auto;
+  text-align: center;
+}
 .sign-in-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    .forgot-button {
-        float: left;
-        text-decoration: underline;
-        margin-top: 1em;
-    }
-    mat-icon {
-        margin-right: 0 4px 4px 0;
-    }
-    .sign-in-button {
-        background-color: $mtm_grey !important;
-        color: $mtm_dark_green_color !important;
-    }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .forgot-button {
+    float: left;
+    text-decoration: underline;
+    margin-top: 1em;
+  }
+  mat-icon {
+    margin-right: 0 4px 4px 0;
+  }
+  .sign-in-button {
+    background-color: $mtm_grey !important;
+    color: $mtm_dark_green_color !important;
+  }
 }
 .register-container {
-    margin: 2em 0 2em 0;
-    .register-form {
-      display: flex;
-      flex-direction: column;
-      mat-icon {
-        margin: 0 4px 4px 0;
-      }
+  margin: 2em 0 2em 0;
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    mat-icon {
+      margin: 0 4px 4px 0;
     }
   }
+}
+.gif-wrapper {
+  display: flex;
+  justify-content: center;
+  img {
+    height: 40px;
+  }
+}

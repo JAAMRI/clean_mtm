@@ -1,10 +1,8 @@
-import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { MenuPage } from '../../../app/interfaces/menu-page';
-import { AccountService } from '../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
 import { AuthenticatedPages, MenuPages } from './mobile-menu-pages';
 
@@ -20,11 +18,11 @@ export class MobileMenuComponent implements OnInit {
   authenticatedPages: MenuPage[] = AuthenticatedPages;
   menuPages: MenuPage[] = MenuPages;
   unsubscribeAll = new Subject();
-  loggedIn = this.accountService.loggedIn;
+  @Input() loggedIn: boolean;
+  @Output() onSignOut = new EventEmitter();
 
   constructor(
     private router: Router,
-    public accountService: AccountService,
     public adobeDtbTracking: AdobeDtbTracking
   ) { }
 
@@ -41,16 +39,8 @@ export class MobileMenuComponent implements OnInit {
 
   signOut() {
     this.adobeDtbTracking.signout();
-    Auth.signOut()
-      .then((data: any) => {
-        this.close.emit();
-        this.accountService.loggedIn = false;
-        this.router.navigate(['/']);
-      })
-      .catch(err => {
-        console.log(err.message);
-      });
-
+    this.close.emit();
+    this.onSignOut.emit();
   }
 
 
