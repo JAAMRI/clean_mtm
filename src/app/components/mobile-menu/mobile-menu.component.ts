@@ -59,6 +59,15 @@ export class MobileMenuComponent implements OnInit {
 
   setActiveRoute(url: string) {
     this.currentRoute = url;
+    if (this.loggedIn) {
+      this.authenticatedPages.forEach((page) => {
+        if (url.includes(page.route)) {
+          page.active = true;
+        } else {
+          page.active = false;
+        }
+      });
+    }
     this.menuPages.forEach((page) => {
       if (url.includes(page.route)) {
         page.active = true;
