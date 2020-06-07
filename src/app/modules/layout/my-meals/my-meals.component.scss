@@ -1,21 +1,11 @@
 @import "../../../../scss/variables.scss";
-.cc-side-drawer-anchor {
-  display: none;
-}
 
-.select-meals-button-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  button {
-    width: 300px;
-  }
-}
+
 .copy {
   text-align: center;
   padding: 0 2em;
-    position: sticky;
-    top: 0;
+  position: sticky;
+  top: 0;
   
   strong {
     color: $mtm_light_green_color;
@@ -32,7 +22,7 @@
 
 .my-meals-subheader {
   text-align: center;
-  font-family: avenir;
+  
   width: 75%;
   margin: auto;
 }
@@ -95,6 +85,11 @@
 .save-meal-plan-button {
   color: $mtm_dark_green_color !important;
   background-color: $mtm_grey !important;
+}
+
+.select-meals-button-wrapper{
+  display: flex;
+  justify-content: center;
 }
 
 *:focus {

@@ -5,7 +5,7 @@
   overflow: unset;
 }
 .recipe-page {
-  font-family: avenir;
+  
   overflow: scroll;
   overflow-x: hidden;
   -ms-overflow-x: hidden;
@@ -22,7 +22,7 @@
 }
 
 .mobile-recipe-page{
-  font-family: avenir;
+  
   width: 100vw;
   height: 100vh;
   overflow: scroll;
@@ -127,7 +127,7 @@
         margin: unset;
       }
       .meal-description {
-        font-family: avenir;
+        
         padding-right: 1em;
         margin: unset;
       }
@@ -252,7 +252,7 @@
       .text-wrapper {
         color: $mtm_dark_grey;
         p {
-          font-family: avenir;
+          
           text-align: center;
           padding: 0 1em;
         }

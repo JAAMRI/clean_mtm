@@ -1,22 +1,26 @@
-<div [class]="isMobile ? 'mobile-my-meals-page' : 'my-meals-page'">
+<div class='my-meals-page'>
   <div class="copy">
     <h1>MEAL PLAN</h1>
-    <p *ngIf='mealPlan.length > 0'>Click <strong>NEXT</strong> when you're ready, to shop ingredients for these recipes.
-      <br />Click <mat-icon>
-        remove</mat-icon> to remove recipes.</p>
+    <ng-container *ngIf='mealPlan.length > 0'>
+      <p>Click <strong>NEXT</strong> when you're ready, to shop ingredients for these recipes.
+        <br />Click <mat-icon>
+          remove</mat-icon> to remove recipes.</p>
+    </ng-container>
+
+    <ng-container *ngIf='mealPlan.length === 0'>
+      <p class='no-items-text'>It looks like you haven’t added
+        any recipes to your meal plan yet</p>
+      <div class="select-meals-button-wrapper">
+
+        <button aria-label="Select meals" mat-raised-button color='primary' routerLink='/recipes/discover'
+          (click)="adobeDtbTracking.pageTracking('SELECT MEALS','/recipes/discover')">
+          SELECT MEALS
+        </button>
+      </div>
+    </ng-container>
   </div>
 
-  <ng-container *ngIf='mealPlan.length === 0'>
-    <p class='no-items-text'>It looks like you haven’t added
-      any recipes to your meal plan yet</p>
-    <div class="select-meals-button-wrapper">
 
-      <button aria-label="Select meals" mat-raised-button color='primary' routerLink='/recipes/discover'
-        (click)="adobeDtbTracking.pageTracking('SELECT MEALS','/recipes/discover')">
-        SELECT MEALS
-      </button>
-    </div>
-  </ng-container>
 
 
   <div class="my-meals-container">

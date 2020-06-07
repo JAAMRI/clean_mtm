@@ -89,11 +89,9 @@
   }
   .meal-content {
     text-align: center;
-    padding: 1em;
+    padding: 1em 1em 0 1em;
     .meal-title {
-      margin: unset;
       padding: 8px 4px 4px 4px;
-      height: 48px;
       &.title-active{
         color: $mtm_dark_green_color;
 
@@ -101,8 +99,6 @@
     }
     .meal-description{
       font-size: 12px;
-      margin: unset;
-      height: 48px;
 
     }
     .meal-servings {
@@ -124,7 +120,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-family: avenir;
         font-size: 10px;
         mat-icon {
           margin-bottom: 1em;
