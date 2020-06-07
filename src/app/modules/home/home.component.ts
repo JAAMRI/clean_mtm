@@ -1,17 +1,12 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
+import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import * as smoothscroll from "smoothscroll-polyfill";
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
-import { SeoService } from '../../../app/services/seo.service';
 import { scrollToTop } from '../../../app/utilities/helper-functions';
-import { UserFormComponent } from '../../components/dialogs/user-form/user-form.component';
 import { AccountService } from '../../services/account/account.service';
-import Auth from '@aws-amplify/auth';
 
 // use this to scroll on safari
 smoothscroll.polyfill();
@@ -33,7 +28,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(private router: Router,
     private accountService: AccountService,
-    private seo: SeoService, private title: Title,
     public adobeDtbTracking: AdobeDtbTracking,
   ) {
   }
@@ -42,13 +36,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     scrollToTop();
     this.isLoggedIn = this.accountService.loggedIn;
     this.onLandingPage = (this.router.url === '/'); // check if we are on landing page which is /
-    this.title.setTitle('Meal Prep & Weekly Meal Planner | Meals That Matter'); //updating page title
-    this.seo.generateTags({ //updating seo
-      title: 'Meal Prep  & Weekly Meal Planner | Meals That Matter',
-      description: 'Welcome to the all-in-one meal preparation tool, where you can choose from a wide range of seasonal and flavorful recipes to take your meal prep for the week to a whole new level!',
-      image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
-      slug: ''
-    });
   }//end ngOnInit
 
 

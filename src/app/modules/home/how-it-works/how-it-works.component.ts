@@ -23,4 +23,18 @@ export class HowItWorksComponent implements OnInit {
     this.navigate.emit(recipeLink);
   }
 
+  pushEnd() {
+    console.log('adding')
+    this.recipes = [...this.recipes, ...FeaturedRecipes]
+  }
+
+  pushStart() {
+    console.log('adding')
+    this.recipes = [ ...FeaturedRecipes, ...this.recipes]
+  }
+
+  trackByIndex(i: number) {
+    return i;
+  }
+
 }

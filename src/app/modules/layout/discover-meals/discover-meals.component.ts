@@ -1,20 +1,19 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { AccountService } from '../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { FilterComponent } from '../../../components/dialogs/filter/filter.component';
+import { IFilter } from '../../../components/dialogs/filter/filter.data';
 import { Meals } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
-import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { IFilter } from '../../../components/dialogs/filter/filter.data';
 
 @Component({
   selector: 'app-discover-meals',
@@ -24,7 +23,7 @@ import { IFilter } from '../../../components/dialogs/filter/filter.data';
 })
 export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  meals: any[] = [];
+  meals: any = [];
   favouriteMeals: any = []
   loading = false;
   viewLoaded: boolean = false;
@@ -39,6 +38,8 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   mealPlanIds = {};
   mealPlan = [];
   filter = {};
+  leftPageStart = 0;
+  numOfResults = 0;
   @ViewChild(CdkVirtualScrollViewport) viewPort: CdkVirtualScrollViewport;
 
 
@@ -77,10 +78,15 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   getNextBatch(index: number) {
-    const end = this.viewPort.getRenderedRange().end;
-    const total = this.viewPort.getDataLength();
-    if (index === this.meals.length -1) {
-      this.getMeals(this.meals.length, this.pageSize, '')
+    if (index === (this.meals.length - 1) && index !== 0) {
+      this.getMeals(this.meals.length, this.pageSize, 'right')
+    }
+    else if (index === 0 && this.meals.length > 0) {
+      this.leftPageStart = this.leftPageStart - this.pageSize;
+      if (this.leftPageStart < 0) {
+        this.leftPageStart = this.numOfResults + this.leftPageStart;
+      }
+      this.getMeals(this.leftPageStart, this.pageSize, 'left')
     }
   }
 
@@ -88,7 +94,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     return i;
   }
 
-  getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, query?: string, options: any = this.filter) {
+  getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter,) {
     //Show spinner while loading
     this.loading = true;
     this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
@@ -101,19 +107,27 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
         }
         //Reset page start
         this.pageStart = pageStart;
-
+        this.numOfResults = meals.results;
         // Populate meals
-        if (pageStart < meals.results) {
-          this.meals = [...this.meals, ...meals.items.slice(0, pageSize + 1)]
+        if (direction === 'right') {
+
+          this.meals = [...this.meals, ...meals.items.slice(0, pageSize + 1)];
+
+        } else {
+          this.meals = [...meals.items.slice(0, pageSize + 1), ...this.meals];
+          this.viewPort.scrollToIndex(6)
+
         }
+
+        //Set meal plan IDs
+        this.setMealPlanIds()
+        // get favourite meals
         if (pageStart === 0) {
           setTimeout(() => {
             this.scrollToMiddle(); // skip a cycle           
           }, 0)
+
         }
-        //Set meal plan IDs
-        this.setMealPlanIds()
-        // get favourite meals
 
       }
 
@@ -126,9 +140,11 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     const slider = this.viewPort.getElementRef();
     const scrollbarWidth = slider.nativeElement.offsetWidth;
     const sliderWidth = slider.nativeElement.scrollWidth
+    console.log(sliderWidth)
+    console.log(scrollbarWidth)
 
     // scroll half way, but come back half way of the scroll bar to have it in the middle (16 accounted for the 1em grid gap)
-    slider.nativeElement.scrollLeft = ( (sliderWidth/ 2) - ( scrollbarWidth/2)); 
+    slider.nativeElement.scrollLeft = ((sliderWidth / 2) - (scrollbarWidth / 2));
   }
 
   async getFavouriteMeals() {
@@ -156,7 +172,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
       this.theEnteredSearchQuery = query;
     }
     this.resetAllGlobalValues();
-    this.getMeals(this.pageStart, this.pageSize, query);
+    this.getMeals(this.pageStart, this.pageSize, 'right', query);
     if (query != "") {
       this.adobeDtbTracking.searchQuery(query, this.pageSize);
     }
@@ -174,10 +190,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     const filterDialog = this.dialog.open(FilterComponent);
     filterDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe((filter: IFilter) => {
       if (filter) {
-        setTimeout(() => {
-          
-          document.body.click()
-        }, 1000)
         this.filter = filter;
         this.searchMeals();
       }
@@ -287,7 +299,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   loadMore() {
     const newPageStart = this.meals.length;
-    this.getMeals(newPageStart, this.pageSize, this.theEnteredSearchQuery || '');
+    this.getMeals(newPageStart, this.pageSize, 'right', this.theEnteredSearchQuery || '');
   }
 
 

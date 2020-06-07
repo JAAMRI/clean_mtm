@@ -6,8 +6,8 @@
     </p>
   </div>
 
-  <app-mtm-slider>
-    <div class='youll-love-this-meal-item' *ngFor="let item of carouselData">
+  <app-mtm-slider (onEndReached)='pushEnd()' (onStartReached)='pushStart()'>
+    <div class='youll-love-this-meal-item' *ngFor="let item of carouselData; trackBy: trackByIndex; let i=index;">
       <div class="img-wrapper">
         <img [alt]="item.header" [src]='item.img' [alt]='item.header' />
 

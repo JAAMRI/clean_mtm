@@ -23,6 +23,14 @@ export interface MTMPage {
 }
 
 export const MTMPages: { [name: string]: MTMPage } = {
+  'HOME': {
+    name: 'HOME',
+    route: '/',
+    title: 'Meal Prep & Weekly Meal Planner | Meals That Matter',
+    description: 'Welcome to the all-in-one meal preparation tool, where you can choose from a wide range of seasonal and flavorful recipes to take your meal prep for the week to a whole new level!',
+    image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
+
+  },
   'SELECT MEALS': {
     name: 'SELECT MEALS',
     route: '/recipes/discover',
@@ -54,10 +62,7 @@ export const MTMPages: { [name: string]: MTMPage } = {
     name: 'FAQs',
     route: '/faqs'
   },
-  'HOME': {
-    name: 'HOME',
-    route: '/'
-  },
+
   'Auth': {
     name: 'AUTH',
     route: '/auth'

@@ -78,6 +78,7 @@ export class LayoutComponent {
 
   next() {
     const activePageName = this.getActivePage().name;
+    console.log(activePageName)
     if (activePageName === MTMPageNames.SELECT_MEALS) {
       this.router.navigate(['/recipes/my-meals']);
     } else if (activePageName === MTMPageNames.MEAL_PLAN) {
