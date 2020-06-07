@@ -13,7 +13,7 @@ import { MealFavouritesService } from '../../../services/meal-favourites/meal-fa
 import { MealPlanService } from '../../../services/meal-plan/meal-plan.service';
 import { PreferencesService } from '../../../services/preferences/preferences.service';
 import { ICredentials } from '../../../interfaces/auth/credentials';
-import { EmailForm, LoginForm } from './auth.forms';
+import { EmailForm, LoginForm, RegisterForm } from './auth.forms';
 import { scrollToTop } from '../../../utilities/helper-functions';
 
 enum AuthType {
@@ -31,6 +31,7 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   emailForm = EmailForm;
   loginForm = LoginForm;
+  registerForm = RegisterForm;
 
   //forgot password components
   emailValidated: boolean;

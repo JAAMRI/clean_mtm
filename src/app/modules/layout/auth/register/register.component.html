@@ -3,7 +3,7 @@
         type='button'>
         <mat-icon>chevron_left</mat-icon> Back
     </button>
-    <form [class]='onProfilePage ? "register-form" : "register-form account-dialog"' [formGroup]='userForm'
+    <form [class]='onProfilePage ? "register-form" : "register-form account-dialog"' [formGroup]='registerForm'
         (ngSubmit)='submitForm()'>
         <div class="input-fields">
             <mat-form-field>
@@ -54,7 +54,7 @@
                 <mat-icon matSuffix matTooltip='Please confirm your password'>
                     info_outline</mat-icon>
 
-                <mat-error *ngIf="userForm.hasError('NotSamePassword')">
+                <mat-error *ngIf="registerForm.hasError('NotSamePassword')">
                     <b class="passwordError">Passwords Do Not Match!</b>
                 </mat-error>
             </mat-form-field>
@@ -91,7 +91,7 @@
             </mat-checkbox>
             <div class="action-buttons">
                 <button aria-label="Submit data" class='submit-button' matSuffix mat-flat-button
-                    [disabled]="!userForm.valid">
+                    [disabled]="!registerForm.valid">
                     <div class="spinner-wrapper">
                         <mat-spinner *ngIf='loading' class='spinner' diameter='20'></mat-spinner>
                         SUBMIT

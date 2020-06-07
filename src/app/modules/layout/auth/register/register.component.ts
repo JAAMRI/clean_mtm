@@ -12,13 +12,9 @@ import { AccountService } from '../../../../../app/services/account/account.serv
 import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
 import { ICredentials } from '../../../../interfaces/auth/credentials';
+import { PasswordErrorMatcher } from '../auth.forms';
 
-// Error state matching class for confirm password
-class passwordErrorMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    return control.dirty && form.invalid;
-  }
-}
+
 
 @Component({
   selector: 'app-register',
@@ -28,27 +24,7 @@ class passwordErrorMatcher implements ErrorStateMatcher {
 })
 export class RegisterComponent implements OnInit {
 
-  passwordMatcher = new passwordErrorMatcher();
-
-  userForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    confirm_password: new FormControl('', [Validators.required]),
-    given_name: new FormControl('', Validators.required),
-    family_name: new FormControl('', Validators.required),
-    birthdate: new FormControl(''),
-    opt_in: new FormControl(),
-    postal_code: new FormControl('')
-  }, {
-      validators: this.checkPasswords
-    }
-  );
-
-  checkPasswords(userGroup: FormGroup) {
-    const condition = userGroup.get('password').value !== userGroup.get('confirm_password').value;
-    return condition ? { NotSamePassword: true } : null;
-
-  }
+  passwordMatcher = new PasswordErrorMatcher();
 
   @Output() signIn = new EventEmitter<ICredentials>();
 
@@ -58,6 +34,7 @@ export class RegisterComponent implements OnInit {
   // @Input() email: string;
   @Input() onProfilePage: boolean;
   @Input() isMobile: boolean;
+  @Input() registerForm: FormGroup;
   @Output() back = new EventEmitter();
   constructor(
     private matIconRegistry: MatIconRegistry,
@@ -83,11 +60,11 @@ export class RegisterComponent implements OnInit {
         bypassCache: true  // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
       }).then(currentUser => {
 
-        this.userForm.controls.family_name.setValue(currentUser.attributes.family_name);
-        this.userForm.controls.given_name.setValue(currentUser.attributes.given_name);
-        this.userForm.controls.email.setValue(currentUser.attributes.email);
-        currentUser.attributes.birthdate && this.userForm.controls.birthdate.setValue(moment(currentUser.attributes.birthdate).toISOString());
-        this.userForm.controls.postal_code.setValue(currentUser.attributes['custom:postal_code']);
+        this.registerForm.controls.family_name.setValue(currentUser.attributes.family_name);
+        this.registerForm.controls.given_name.setValue(currentUser.attributes.given_name);
+        this.registerForm.controls.email.setValue(currentUser.attributes.email);
+        currentUser.attributes.birthdate && this.registerForm.controls.birthdate.setValue(moment(currentUser.attributes.birthdate).toISOString());
+        this.registerForm.controls.postal_code.setValue(currentUser.attributes['custom:postal_code']);
       })
         .catch(err => {
           this.accountService.loggedIn = false;
@@ -100,7 +77,7 @@ export class RegisterComponent implements OnInit {
   }
 
   setEmailFromStep1(emailFromLastStep: string) {
-    this.userForm.controls.email.setValue(emailFromLastStep);
+    this.registerForm.controls.email.setValue(emailFromLastStep);
   }
 
   submitForm() {
@@ -110,12 +87,12 @@ export class RegisterComponent implements OnInit {
   async signUp() {
     let currentMealPlan = await this.mealPlanService.getMealPlan();
     let meal_plan_started = currentMealPlan && currentMealPlan.length ? 1 : 0; //Check wether the user signed up after having created a mealplan or before
-    let username = this.userForm.controls.email.value.toLowerCase();
-    let password = this.userForm.controls.password.value;
-    let postal_code = this.userForm.controls.postal_code.value;
-    let given_name = this.userForm.controls.given_name.value;
-    let family_name = this.userForm.controls.family_name.value;
-    let opt_in = this.userForm.controls.opt_in.value;
+    let username = this.registerForm.controls.email.value.toLowerCase();
+    let password = this.registerForm.controls.password.value;
+    let postal_code = this.registerForm.controls.postal_code.value;
+    let given_name = this.registerForm.controls.given_name.value;
+    let family_name = this.registerForm.controls.family_name.value;
+    let opt_in = this.registerForm.controls.opt_in.value;
     let locale = "CA-en"
     let website = "mealsthatmatter.com";
     let updated_at = new Date().getTime().toString();
@@ -150,16 +127,16 @@ export class RegisterComponent implements OnInit {
   async update() {
     let user = await Auth.currentAuthenticatedUser();
     let attributes = {
-      'email': this.userForm.controls.email.value,
-      'family_name': this.userForm.controls.family_name.value,
-      'given_name': this.userForm.controls.given_name.value,
+      'email': this.registerForm.controls.email.value,
+      'family_name': this.registerForm.controls.family_name.value,
+      'given_name': this.registerForm.controls.given_name.value,
       'updated_at': new Date().getTime().toString()
     }
-    if (this.userForm.controls.postal_code.value) {
-      attributes['custom:postal_code'] = this.userForm.controls.postal_code.value;
+    if (this.registerForm.controls.postal_code.value) {
+      attributes['custom:postal_code'] = this.registerForm.controls.postal_code.value;
     }
-    if (this.userForm.controls.birthdate.value) {
-      const momentDate = new Date(this.userForm.controls.birthdate.value);
+    if (this.registerForm.controls.birthdate.value) {
+      const momentDate = new Date(this.registerForm.controls.birthdate.value);
       const formattedDate = moment(momentDate).format("YYYY-MM-DD");
       attributes['birthdate'] = formattedDate;
     }
