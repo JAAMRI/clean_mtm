@@ -14,6 +14,7 @@ import { Meals } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { IFilter } from '../../../components/dialogs/filter/filter.data';
 
 @Component({
   selector: 'app-discover-meals',
@@ -37,6 +38,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   totalResults: number = 0;
   mealPlanIds = {};
   mealPlan = [];
+  filter = {};
   @ViewChild(CdkVirtualScrollViewport) viewPort: CdkVirtualScrollViewport;
 
 
@@ -75,17 +77,21 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   getNextBatch(index: number) {
-    console.log(index)
-    if (index === this.meals.length - 1) {
-      console.log(this.pageSize, this.pageStart)
+    const end = this.viewPort.getRenderedRange().end;
+    const total = this.viewPort.getDataLength();
+    if (index === this.meals.length -1) {
       this.getMeals(this.meals.length, this.pageSize, '')
     }
   }
 
-  getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, query: string = '') {
+  trackByIndex(i: number) {
+    return i;
+  }
+
+  getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, query?: string, options: any = this.filter) {
     //Show spinner while loading
     this.loading = true;
-    this.mealService.getMeals(pageStart, pageSize, query).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
+    this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
       if (meals) {
         //Check if did_you_mean
         this.didYouMean = meals.didYouMean;
@@ -95,26 +101,34 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
         }
         //Reset page start
         this.pageStart = pageStart;
-        console.log(pageStart, meals.results)
+
         // Populate meals
         if (pageStart < meals.results) {
-          this.meals.push(...meals.items.slice(0, pageSize + 1)); // -1 for index, grabbing meals from api and appending it to meals
-          console.log('in here')
-          console.log(this.meals)
+          this.meals = [...this.meals, ...meals.items.slice(0, pageSize + 1)]
+        }
+        if (pageStart === 0) {
+          setTimeout(() => {
+            this.scrollToMiddle(); // skip a cycle           
+          }, 0)
         }
         //Set meal plan IDs
         this.setMealPlanIds()
         // get favourite meals
-        
-      }
-      // setTimeout(() => {
 
-      //   this.viewPort.scrollToIndex(2);
-      //   console.log(this.viewPort.getDataLength())
-      // }, 2000)
+      }
+
       this.loading = false;
 
     });
+  }
+
+  scrollToMiddle() {
+    const slider = this.viewPort.getElementRef();
+    const scrollbarWidth = slider.nativeElement.offsetWidth;
+    const sliderWidth = slider.nativeElement.scrollWidth
+
+    // scroll half way, but come back half way of the scroll bar to have it in the middle (16 accounted for the 1em grid gap)
+    slider.nativeElement.scrollLeft = ( (sliderWidth/ 2) - ( scrollbarWidth/2)); 
   }
 
   async getFavouriteMeals() {
@@ -136,7 +150,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   searchMeals(query?: string) {
     //Capture Enter Submit Event
-    if (query.trim() == "") {//check if search field is cleared
+    if (query && query.trim() == "") {//check if search field is cleared
       this.theEnteredSearchQuery = "";
     } else {
       this.theEnteredSearchQuery = query;
@@ -158,8 +172,11 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   renderFilterDialog() {
     const filterDialog = this.dialog.open(FilterComponent);
-    filterDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe((filterName: string) => {
-      this.searchMeals(filterName);
+    filterDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe((filter: IFilter) => {
+      if (filter) {
+        this.filter = filter;
+        this.searchMeals();
+      }
     })
 
   }

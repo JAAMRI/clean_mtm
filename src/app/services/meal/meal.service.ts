@@ -19,7 +19,8 @@ export class MealService {
   }
 
   //Get Meals from API
-  getMeals(page_start: number, page_size: number, query?: string): Observable<Meals> {
+  getMeals(page_start: number, page_size: number, query?: string, params?: any): Observable<Meals> {
+
     const httpParams = new HttpParams({
       fromObject: {
         page_start: page_start.toString(),
@@ -27,7 +28,8 @@ export class MealService {
         lang: 'en-CA',
         fields: FIELDS,
         q: query || '',
-        p_has_asset: "[[\"image\"]]"
+        p_has_asset: "[[\"image\"]]",
+        ...params
       }
     })
 

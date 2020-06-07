@@ -1,30 +1,40 @@
 export const Filters: IFilter[] = [
     {
         name: 'Quick & Easy',
-        query: '',
         id: 1,
+        key: 'p_cook_time',
+        value: '0,30'
     },
     {
         name: 'Chicken',
         query: '',
         id: 2,
+        key: 'p_title',
+        value: 'chicken'
 
     },
     {
         name: 'Summer',
         query: '',
         id: 3,
+        key: 'q',
+        value: 'summer'
 
     },
     {
         name: 'BBQ',
         query: '',
+        key: 'q',
+        value: 'BBQ',
         id: 4,
 
     },
     {
         name: 'Vegetarian',
         query: '',
+        'p_vegetarian': true,
+        key: 'p_vegetarian',
+        value: true,
         disclosure: 1,
         id: 5,
 
@@ -32,46 +42,62 @@ export const Filters: IFilter[] = [
     {
         name: 'Dinner',
         query: '',
+        key: 'q',
+        value: 'main course',
         id: 6,
 
     },
     {
         name: 'Pasta',
         query: '',
+        key: 'q',
+        value: 'pasta',
         id: 7,
     },
     {
         name: 'Beef',
         query: '',
         id: 7,
+        key: 'q',
+        value: 'beef',
 
     },
     {
         name: 'Slow-Cooker',
         query: '',
+        key: 'q',
+        value: 'simmer',
         id: 8,
 
     },
     {
         name: 'Breakfast & Brunch',
         query: '',
+        key: 'q',
+        value: 'breakfast,brunch',
         id: 9,
 
     },
     {
         name: 'Italian',
         query: '',
+        key: 'q',
+        value: 'italian',
         id: 10,
 
     },
     {
         name: 'Indian',
         query: '',
+        key: 'q',
+        value: 'indian',
         id: 11,
 
     },
     {
         name: 'Asian',
+        key: 'q',
+        value: 'asian',
         query: '',
         id: 12,
 
@@ -80,37 +106,50 @@ export const Filters: IFilter[] = [
         name: 'Mexican',
         query: '',
         id: 13,
+        key: 'q',
+        value: 'mexican',
 
     },
     {
         name: 'Middle Eastern',
         query: '',
         id: 14,
+        key: 'q',
+        value: 'middle eastern',
 
     },
     {
         name: 'Mediterranean',
         query: '',
         id: 15,
+        key: 'q',
+        value: 'Mediterranean',
 
     },
     {
         name: 'Canadian',
         query: '',
         id: 16,
+        key: 'q',
+        value: 'canadian',
+        
 
     },
     {
         name: 'Salad',
         query: '',
         id: 17,
+        key: 'q',
+        value: 'salad',
 
     },
     {
-        name: 'Better for you ',
+        name: 'Better for you',
         query: '',
         disclosure: 2,
         id: 18,
+        key: 'p_kcal_per_serving',
+        value: '0,500',
 
     },
 ]
@@ -122,8 +161,9 @@ export const Disclosures = [
 
 export interface IFilter {
     name: string;
-    query: string;
+    query?: string;
     disclosure?: number;
     active?: boolean;
     id: number;
+    [key: string]: string | number | boolean;
 }

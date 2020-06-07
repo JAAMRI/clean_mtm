@@ -27,9 +27,9 @@
   <div class="gif-wrapper" *ngIf='loading'>
     <img class='loading-text' src="/assets/static_images/whisk_wood_green.gif" />
   </div>
-  <app-mtm-slider *ngIf='meals.length > 0'>
-    <cdk-virtual-scroll-viewport itemSize='200' orientation='horizontal' (scrolledIndexChange)='getNextBatch($event)'>
-      <app-meal-item *cdkVirtualFor="let meal of meals" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
+  <app-mtm-slider>
+    <cdk-virtual-scroll-viewport minBufferPx="1200" maxBufferPx="1200" itemSize='200' orientation='horizontal' (scrolledIndexChange)='getNextBatch($event)'>
+      <app-meal-item *cdkVirtualFor="let meal of meals; trackBy: trackByIndex; let i=index;" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
         (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'
         (favouriteToggled)='updateFavourites($event)' [favourited]='favouriteMealIds[meal.id]'>
       </app-meal-item>

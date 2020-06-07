@@ -77,9 +77,10 @@
 cdk-virtual-scroll-viewport{
   height: 300px;
   .cdk-virtual-scroll-content-wrapper{
-    // app-meal-item{
-    //   margin: 0 4px;
-    // }
+    app-meal-item{
+      margin: 0 4px;
+      padding-top: 1em;
+    }
    display: flex;
   
   }

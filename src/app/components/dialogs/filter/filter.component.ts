@@ -16,12 +16,18 @@ export class FilterComponent {
   constructor(public dialogRef: MatDialogRef<FilterComponent>) { }
 
   setActiveFilter(id: number) {
-    let activeFilterName: string = '';
-    this.filters.forEach((filter: IFilter) => {
-      filter.active = (filter.id === id);
-      activeFilterName = filter.name;
+    let activeFilter: any;
+    this.filters.forEach((filter: any) => {
+      if (filter.id === id) {
+        filter.active = true;
+        activeFilter = {[filter.key]: filter.value};
+      } else {
+        filter.active = false;
+      }
+
     });
-    this.dialogRef.close(activeFilterName);
+
+    this.dialogRef.close(activeFilter);
   }
 
   clear() {
