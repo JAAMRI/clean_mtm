@@ -14,19 +14,19 @@
   </div>
   <div class="filter">
     <p>FILTER RECIPES</p>
-    <button mat-icon-button (click)='renderFilterDialog()'>
+    <button mat-icon-button (click)='renderFilterDialog()' *ngIf='!loading'>
       <mat-icon>filter_list</mat-icon>
     </button>
-
+    <div class="gif-wrapper" *ngIf='loading'>
+      <img class='loading-text' src="/assets/static_images/whisk_wood_green.gif" />
+    </div>
   </div>
 
   <div class='no-items-wrapper' *ngIf='!didYouMean && meals?.length === 0 && !loading'>
 
     <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
   </div>
-  <div class="gif-wrapper" *ngIf='loading'>
-    <img class='loading-text' src="/assets/static_images/whisk_wood_green.gif" />
-  </div>
+  
   <!-- <app-mtm-slider> -->
     <cdk-virtual-scroll-viewport  minBufferPx="1200" maxBufferPx="1200" itemSize='200' orientation='horizontal' (scrolledIndexChange)='getNextBatch($event)'>
       <app-meal-item *cdkVirtualFor="let meal of meals; trackBy: trackByIndex; let i=index;" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
