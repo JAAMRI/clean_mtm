@@ -1,42 +1,39 @@
 @import "../../../../scss/variables.scss";
 
-
-
 .search {
   width: 100%;
 }
-.copy{
+.copy {
   text-align: center;
 
-  .subheader{
+  .subheader {
     padding: 0 4em;
-    mat-icon{
+    mat-icon {
       color: $mtm_light_green_color;
       margin-bottom: 4px;
     }
   }
 }
-.gif-wrapper{
+.gif-wrapper {
   display: flex;
   justify-content: center;
-  img{
+  img {
     height: 40px;
   }
 }
 
-.filter{
+.filter {
   display: flex;
   align-items: center;
   flex-direction: column;
-  p{
+  p {
     margin: unset;
     color: rgba(0, 0, 0, 0.54);
   }
-  mat-icon{
+  mat-icon {
     cursor: pointer;
   }
 }
-
 
 .search {
   text-align: center;
@@ -61,7 +58,6 @@
   color: $mtm_dark_green_color;
 }
 
-
 .discover-action-buttons {
   display: flex;
   justify-content: center;
@@ -74,20 +70,23 @@
   }
 }
 
-cdk-virtual-scroll-viewport{
+cdk-virtual-scroll-viewport {
   height: 300px;
-  .cdk-virtual-scroll-content-wrapper{
-    app-meal-item{
+  .cdk-virtual-scroll-content-wrapper {
+    app-meal-item {
       margin: 0 4px;
       padding-top: 1em;
     }
-   display: flex;
-  
+    display: flex;
   }
 }
-
 
 *:focus {
   outline: 0;
   outline: none;
+}
+
+.mat-button-focus-overlay {
+  background-color: transparent !important;
+  // remove grey outline from ubttons
 }
