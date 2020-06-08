@@ -53,6 +53,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   signOut() {
     Auth.signOut().then(_ => {
       this.accountService.loggedIn = false;
+      this.isLoggedIn = false;
       this.router.navigate(['/']);
 
     })

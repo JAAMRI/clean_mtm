@@ -82,6 +82,7 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   viewRegister() {
     this.router.navigate(['/auth/register']);
+    this.registerForm.patchValue(this.emailForm.value);
   }
 
   viewLogin() {

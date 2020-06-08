@@ -37,8 +37,11 @@ button {
 .mat-button{
   
   font-family: Arial !important;
+ 
 }
-
+.mat-flat-button{
+  padding: 2px 4px 4px 4px !important;
+}
 
 mat-dialog-container{
   overflow: unset;

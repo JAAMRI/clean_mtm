@@ -10,7 +10,7 @@
         <input matInput type="email" placeholder='Email' formControlName='email' required>
         <mat-icon matSuffix matTooltip='This must be a valid email address.'>info_outline</mat-icon>
       </mat-form-field>
-      <button aria-label="Create my account" mat-flat-button color='primary'>CREATE MY ACCOUNT</button>
+      <button aria-label="Create my account" mat-flat-button color='primary' [disabled]='!emailForm.valid'>CREATE MY ACCOUNT</button>
     </form>
   </div>
   <form class='auth-form' [formGroup]='loginForm' (ngSubmit)='emitLogin()'>
