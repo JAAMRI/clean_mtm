@@ -1,9 +1,8 @@
 @import "../../../../scss/variables.scss";
-@import "../../../../scss/variables.scss";
 
-.mat-dialog-container {
-  overflow: unset;
-}
+// .mat-dialog-container {
+//   overflow: unset;
+// }
 .recipe-page {
   
   overflow: scroll;
@@ -64,7 +63,7 @@
 }
 
 .meal-recipe {
-  padding: 2em 8em 1em 8em;
+  padding: 2em 3em 1em 3em;
   background-color: $mtm_white;
 }
 .mobile-meal-recipe {

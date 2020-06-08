@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="auth-section" *ngIf='loggedIn'>
-    <button mat-flat-button color='primary'>MY ACCOUNT</button>
+    <button mat-flat-button color='primary' routerLink='/profile' (click)='closeMobileMenu("Profile", "/profile")'>MY ACCOUNT</button>
 
   </div>
   <mat-nav-list *ngIf='loggedIn' class='menu-list'>

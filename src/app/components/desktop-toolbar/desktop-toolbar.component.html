@@ -5,15 +5,13 @@
     <div class="call-to-actions">
       <div class="tabs">
         <a [class.active]='activePage === "/recipes/discover"' mat-button 
-          (click)="emitNavigation('SELECT MEALS')">SELECT
-          MEALS</a>
+          (click)="emitNavigation('SELECT MEALS')">Select Meals</a>
         <a [class.active]='activePage === "/recipes/favourites"' mat-button
-        (click)="emitNavigation('FAVOURITES')">FAVOURITES</a>
+        (click)="emitNavigation('FAVOURITES')">Favourites</a>
         <a [class.active]='activePage === "/recipes/my-meals"' mat-button
-        (click)="emitNavigation('MEAL PLAN')">MEAL PLAN</a>
+        (click)="emitNavigation('MEAL PLAN')">Meal Plan</a>
         <a [class.active]='activePage === "/recipes/grocery-list"' mat-button 
-        (click)="emitNavigation('GROCERY LIST')">GROCERY
-          LIST</a>
+        (click)="emitNavigation('GROCERY LIST')">Grocery List</a>
       </div>
       <div class="actions">
         <a mat-button [matMenuTriggerFor]="profileMenu" *ngIf="loggedIn">My Account</a>
@@ -31,10 +29,9 @@
         <a mat-button [matMenuTriggerFor]="contactMenu">Help Center</a>
         <mat-menu #contactMenu="matMenu">
           <a mat-menu-item 
-          (click)="emitNavigation('CONTACT US')">CONTACT
-            US</a>
+          (click)="emitNavigation('CONTACT US')">Contact Us</a>
           <a mat-menu-item 
-          (click)="emitNavigation('FAQs')">FAQs</a>
+          (click)="emitNavigation('FAQs')">Faqs</a>
         </mat-menu>
       </div>
     </div>

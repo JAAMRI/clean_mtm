@@ -33,8 +33,13 @@ button {
   .mat-spinner circle {
     stroke: $mtm_white;
   }
-  font-family: filson !important;
 }
+.mat-button{
+  
+  font-family: Arial !important;
+}
+
+
 mat-dialog-container{
   overflow: unset;
 }
@@ -45,7 +50,7 @@ mat-dialog-container{
 
 .mat-menu-content {
   .mat-menu-item {
-    font-family: flavour !important;
+    font-family: Arial !important;
   }
 }
 // dialog colors
