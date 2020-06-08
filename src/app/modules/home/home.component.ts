@@ -89,9 +89,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  checkAuth(recipeLink?: string) {
+  checkAuth(link?: string) {
     if (this.accountService.loggedIn) {
-      this.routeToRecipes(recipeLink);
+      this.routeToRecipes(link);
     } else {
       this.promptUserForAuth()
     }

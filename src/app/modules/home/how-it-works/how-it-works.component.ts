@@ -22,12 +22,10 @@ export class HowItWorksComponent implements OnInit {
   }
 
   pushEnd() {
-    console.log('adding')
     this.recipes = [...this.recipes, ...FeaturedRecipes]
   }
 
   pushStart() {
-    console.log('adding')
     this.recipes = [ ...FeaturedRecipes, ...this.recipes]
   }
 
