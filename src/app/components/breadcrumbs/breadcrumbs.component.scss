@@ -4,6 +4,10 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 8px;
+    @media(min-width:1024px) {
+        max-width: 50%;
+        margin: 1em auto 0 auto;
+    }
     .breadcrumb{
         display: flex;
         flex-direction: column;
