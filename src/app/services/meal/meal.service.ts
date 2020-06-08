@@ -61,7 +61,7 @@ export class MealService {
 
 
   /** GET meal by id. Will 404 if id not found */
-  getMealById(id: any) {
+  getMealById(id: any): Observable<any> {
     const httpParams = new HttpParams({
       fromObject: {
         fieldset: 'all',

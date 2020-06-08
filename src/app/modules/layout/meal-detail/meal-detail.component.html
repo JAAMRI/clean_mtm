@@ -14,7 +14,7 @@
     <p class='subheader'>{{meal.description}}</p>
   </section>
 
-  <section class="meal-recipe" [class]="!isWeb ? 'mobile-meal-recipe' : 'meal-recipe'">
+  <section class="meal-recipe" [class]="isMobile ? 'mobile-meal-recipe' : 'meal-recipe'">
     <div class="meal-summary-mobile" *ngIf='isMobile'>
       <button class='add-button' mat-mini-fab *ngIf='!inMealPlan' (click)='addToMealPlan()'>
         <mat-icon>add</mat-icon>
@@ -90,26 +90,6 @@
               (click)="adobeDtbTracking.sharingMealByEmail(meal.title)">
               EMAIL
             </a>
-            <div class="cta-wrapper">
-              <!-- <div class="social-media-icons">
-                <img src="assets/static_images/facebook.png" alt="Facebook logo">
-                <img src="assets/static_images/twitter.png" alt="Twitter logo">
-                <img src="assets/static_images/instagram.png" alt="Instagram logo">
-              </div> -->
-              <!-- <div class="action-buttons">
-                <button aria-label="Add to meal plan" *ngIf='!inMealPlan' mat-button class='add-button'
-                  [ngClass]="{'added': inMealPlan}" (click)='addToMealPlan()'>
-                  <mat-icon>add</mat-icon>
-                  ADD TO MEAL PLAN
-                </button>
-                <button aria-label="Remove from meal plan" *ngIf='inMealPlan' color='warn' mat-button
-                  class='remove-button' (click)='removeFromMealPlan()'>
-                  <mat-icon>remove</mat-icon>
-                  REMOVE FROM MEAL PLAN
-                </button>
-              </div> -->
-            </div>
-
           </div>
         </div>
 
@@ -145,8 +125,8 @@
 
     <div class="recommended-carousel">
 
-      <app-mtm-slider>
-        <app-meal-item *ngFor="let recipe of meal?.relatedRecipes" [recommendedMeal]='true' parent='recipe-detail'
+      <app-mtm-slider (onStartReached)='pushStart()' (onEndReached)='pushEnd()'>
+        <app-meal-item *ngFor="let recipe of relatedRecipes" [recommendedMeal]='true' parent='recipe-detail'
           (favouriteToggled)='updateFavourites($event)' (wasClicked)='visitMealDetailPage($event)'
           [favourited]='favouriteMealIds?.includes(recipe.id)' [mealItem]='recipe'>
         </app-meal-item>
@@ -171,11 +151,6 @@
 
   </section>
 
-  <!-- 
-        recipe widget
-        <section>
-        <div class="meal-detail-widget" [innerHtml]='mealDetailWidget'></div>
-      </section> -->
 </div>
 <p *ngIf='!loading && !meal'>Meal not found</p>
 

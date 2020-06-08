@@ -6,4 +6,8 @@
     max-width: 1100px;
     margin: auto;
     grid-gap: 1em;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none !important;
+    }
 }

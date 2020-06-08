@@ -72,7 +72,9 @@
   background-color: $mtm_white;
 }
 .meal-info{
-  padding: 0 1em;
+  @media(max-width: 768px) {
+    padding: 0 1em;
+  }
 }
 .text-wrapper{
   padding: 0 3em;

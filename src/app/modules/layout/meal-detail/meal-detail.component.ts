@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, ElementRef, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation, HostListener } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -15,6 +15,7 @@ import { BREAKPOINTS } from '../../../../app/utilities/breakpoints';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { MockCarousel } from '../../../../app/utilities/mock-carousel';
 import { environment } from '../../../../environments/environment';
+import { Meal, RelatedRecipe } from '../../../interfaces/meal/meal';
 // smoothscroll.polyfill();
 @Component({
   selector: 'app-meal-detail',
@@ -25,35 +26,27 @@ import { environment } from '../../../../environments/environment';
 export class MealDetailComponent implements OnInit, OnDestroy {
   mealId: string;
   loading: boolean;
-  meal: any;
+  meal: Meal;
   unsubscribeAll = new Subject();
   inMealPlan: boolean;
-  isMobile: boolean;
-  isWeb: boolean;
-  currentMealPlan: any = [];
+  isMobile: boolean = window.innerWidth < 768;
+  relatedRecipes: RelatedRecipe[];
+  currentMealPlan: Meal[] = [];
   favouriteMeals = [];
   mealDetailWidget: string;
   favouriteMealIds = '';
   carouselIsChanging: boolean;
   emailContent: string;
   inDialog = false;
-  slideConfig = {
-    "slidesToShow": 3,
-    "slidesToScroll": 1,
-    "nextArrow": "<div class='nav-btn next-slide'></div>",
-    "prevArrow": "<div class='nav-btn prev-slide'></div>",
-    "infinite": true
-  };
+
   public dialogParams: any;
 
-  carouselData = MockCarousel; //Mock data from utilities
   @ViewChild('recommendedMeals', { static: false }) recommendedMeals: ElementRef;
   @ViewChild('topOfPage', { static: false }) topOfPage: ElementRef;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private dialog: MatDialog,
-    private dialogRef: MatDialogRef<MealDetailComponent>,
+
     private accountService: AccountService,
     private mealFavouritesService: MealFavouritesService,
     private mealPlanService: MealPlanService,
@@ -61,13 +54,16 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     public adobeDtbTracking: AdobeDtbTracking,
     private seo: SeoService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
-    private breakpointObserver: BreakpointObserver
   ) {
-    this.observeBreakpoints();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isMobile = (event.target.innerWidth < 768);
+
   }
 
   async ngOnInit() {
-    console.log('on iinit')
     scrollToTop();
     this.updateSeoTag()
     this.mealId = await this.getMealId();
@@ -90,9 +86,9 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       const param = routeParams.get('id');
 
       if (param) {
-     
+
         const paramArray = param.split('-');
-        const mealId = paramArray[paramArray.length -1];
+        const mealId = paramArray[paramArray.length - 1];
         if (mealId) {
           return mealId;
         }
@@ -114,16 +110,17 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.loading = true;
     try {
       // this.buildRecipeWidget(); recipe widget
-      this.meal = await this.mealService.getMealById(this.mealId).toPromise();
+      this.meal = (await this.mealService.getMealById(this.mealId).toPromise());
+      this.relatedRecipes = [...this.meal.relatedRecipes];
       this.loading = false;
       this.currentMealPlan = await this.mealPlanService.getMealPlan();
       this.getFavouriteMeals();
       this.checkIfMealInMealPlan();
       this.getEmailContent();
       this.logMealLocation()
-      
+
     } catch (error) {
- 
+
       this.router.navigate(['/recipes/discover'])
 
     }
@@ -166,38 +163,24 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   //   this.mealDetailWidget = `<div class="cc-recipe-details-container" recipe-id="{${this.mealId}}"></div>`
   // }
 
-  visitMealDetailPage(meal: any) {
-    if (!this.carouselIsChanging) {
-      if (this.inDialog) {
-        this.mealId = meal.id;
-        this.getMealById();
-      } else {
-        this.mealId = meal.id;
-        this.router.navigate(['/recipes', meal.title.split(',').join('').split(' ').join('-').split('&').join('and') + '-' + meal.id]);
-        this.getMealById();
-        this.scrollToTop()
-      }
-
-      // new dialog opening
-
+  visitMealDetailPage(meal: Meal) {
+    if (this.inDialog) {
+      this.mealId = meal.id;
+      this.getMealById();
+    } else {
+      this.mealId = meal.id;
+      this.router.navigate(['/recipes', meal.title.split(',').join('').split(' ').join('-').split('&').join('and') + '-' + meal.id]);
+      this.getMealById();
+      this.scrollToTop()
     }
-    this.carouselIsChanging = false;
+
+    // new dialog opening
+
+
   }
 
   checkIfMealInMealPlan() {
-    this.inMealPlan = this.currentMealPlan.filter((m) => m).find((meal) => meal.id === parseInt(this.mealId, 10));
-  }
-
-  setCarouselChanging(event) {
-    //carousel is being slided
-    this.carouselIsChanging = true;
-  }
-
-
-  ngOnDestroy() {
-    this.unsubscribeAll.next();
-    this.unsubscribeAll.complete();
-    this.seo.removeTag();
+    this.inMealPlan = !!this.currentMealPlan.filter((m) => m).find((meal) => meal.id === this.mealId);
   }
 
   scrollToTop() {
@@ -214,6 +197,15 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   promptUserForAuth() {
     this.router.navigate(['/auth']);
+  }
+
+  pushStart() {
+    console.log('start')
+    this.relatedRecipes = [...this.meal.relatedRecipes, ...this.relatedRecipes]
+  }
+
+  pushEnd() {
+    this.relatedRecipes = [...this.relatedRecipes, ...this.meal.relatedRecipes]
   }
 
   async addToMealPlan() {
@@ -261,12 +253,10 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.adobeDtbTracking.anchorLinkMeal('Adding to Favourite: ', this.meal.title);
   }
 
-  observeBreakpoints() {
-    this.breakpointObserver.observe(BREAKPOINTS).pipe(takeUntil
-      (this.unsubscribeAll)).subscribe((result: BreakpointState) => {
-        this.isMobile = this.breakpointObserver.isMatched('(max-width: 599px)');
-        this.isWeb = this.breakpointObserver.isMatched('(min-width: 960px)');
-        this.slideConfig = { ...this.slideConfig, 'slidesToShow': this.isWeb ? 3 : (this.isMobile ? 1 : 2) };
-      });
+  ngOnDestroy() {
+    this.unsubscribeAll.next();
+    this.unsubscribeAll.complete();
+    this.seo.removeTag();
   }
+
 }

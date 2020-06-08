@@ -21,6 +21,12 @@ export class MtmSliderComponent implements AfterViewInit, OnChanges {
     if (event.target.scrollLeft === 0) {
       this.onStartReached.emit();
       this.lastSideReached = 'START';
+      if (!this.numOfItems) {
+        setTimeout(() => {
+
+          this.slider.nativeElement.scrollLeft = this.initialScrollWidth;
+        }, 40)
+      }
 
 
     } else if (event.target.scrollLeft + event.target.offsetWidth === this.slider.nativeElement.scrollWidth) {
@@ -47,7 +53,7 @@ export class MtmSliderComponent implements AfterViewInit, OnChanges {
       }, 40)
 
     }
- 
+
   }
 
 

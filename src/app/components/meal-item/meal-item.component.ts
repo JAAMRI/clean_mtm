@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output, OnInit, ViewEncapsulation } from '@angular/core';
+import { Meal } from '../../interfaces/meal/meal';
 
 @Component({
   selector: 'app-meal-item',
@@ -11,7 +12,7 @@ export class MealItemComponent implements OnInit {
   @Input() recommendedMeal: boolean;
   @Input() inMealPlan: boolean; // check if in meal plan
   @Input() favourited: boolean; // check if favourites
-  @Output() wasClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() wasClicked: EventEmitter<Meal> = new EventEmitter<Meal>();
   @Output() add: EventEmitter<any> = new EventEmitter();
   @Output() favouriteToggled: EventEmitter<any> = new EventEmitter();
   @Output() remove: EventEmitter<string> = new EventEmitter();

@@ -4,16 +4,24 @@ export interface Meal {
     cuisine?:string;
     title: string;
     nutrition: any;
-    cookTime: string;
-    prepTime: string
+    cookTime: number;
+    prepTime: number
     servings: number;
     ingredients: any[];
     instructions: any[];
+    description: string;
     mainIngredient: string;
+    relatedRecipes?: RelatedRecipe[];
 }
 
 export interface Meals {
     didYouMean?: string;
     results: number;
     items: Meal[];
+}
+
+export interface RelatedRecipe {
+    title: string;
+        id: string;
+        image: string;
 }
