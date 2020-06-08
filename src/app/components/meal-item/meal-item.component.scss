@@ -2,30 +2,39 @@
 
 .meal-item {
   width: 250px;
+  @media (min-width: 1024px) {
+    width: 400px;
+  }
   position: relative;
   padding: unset;
   cursor: pointer;
   border-radius: 4px;
   background-color: $mtm_light_grey;
-  .mat-button-wrapper{
+  .mat-button-wrapper {
     padding: 7px 0;
   }
   .img-wrapper {
     position: relative;
     height: 140px;
     width: 100%;
+    @media (min-width: 1024px) {
+      height: 250px;
+    }
     &.active:before {
       content: "";
       position: absolute;
       top: 0;
       right: 0;
       left: 0;
+      border-radius: 4px 4px 0 0;
       height: 140px;
-
+      @media (min-width: 1024px) {
+        height: 250px;
+      }
       bottom: 0;
       background-color: rgba($mtm_dark_grey, 0.5);
     }
-    
+
     img {
       object-fit: cover;
       width: 100%;
@@ -89,25 +98,22 @@
   }
   .meal-content {
     text-align: center;
-    padding: 4px 1em;
+    padding: 4px 1em 1em 1em;
     .meal-title {
       margin-bottom: unset;
       height: 36px;
-      &.title-active{
+      &.title-active {
         color: $mtm_dark_green_color;
-
       }
     }
-    .meal-description{
+    .meal-description {
       font-size: 12px;
       height: 36px;
-
     }
     .meal-servings {
       margin: 1em 0;
     }
   }
-
 
   .macros-container {
     h3 {
@@ -123,13 +129,14 @@
         justify-content: center;
         align-items: center;
         font-size: 10px;
+        color: $mtm_dark_green_color;
         mat-icon {
           margin-bottom: 1em;
           &.blob {
             transform: scale(1.2);
           }
           &.bread {
-            transform: scale(2.0);
+            transform: scale(2);
           }
           &.burger {
             transform: scale(1.2);
@@ -140,10 +147,9 @@
   }
 }
 
-button{
+button {
   box-shadow: none !important;
 }
-
 
 *:focus {
   outline: 0;

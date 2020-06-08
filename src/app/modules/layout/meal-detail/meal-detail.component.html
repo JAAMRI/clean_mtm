@@ -27,9 +27,9 @@
       </div>
       <div class="meal-subheader">
         <div class="meal-info">
-          <p class='title'>
+          <!-- <p class='title'>
             {{meal.title}}
-          </p>
+          </p> -->
           <p>
             {{(meal.prepTime + meal.cookTime) > 60 ? ((meal.prepTime + meal.cookTime) / 60 | floor )+ 'H ' + (meal.prepTime + meal.cookTime) % 60 : (meal.prepTime + meal.cookTime)}}Min
             {{meal.servings ? '- ' + meal.servings : ''}}
@@ -54,9 +54,9 @@
       <div class="summary-container">
         <div class="summary-text-wrapper">
           <div class="meal-info">
-            <h3>
+            <!-- <h3>
               {{meal.title}}
-            </h3>
+            </h3> -->
             <p>{{meal.prepTime + meal.cookTime}} min {{meal.servings ? '- ' + meal.servings : ''}}</p>
           </div>
       

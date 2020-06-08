@@ -4,11 +4,19 @@
 .how-it-works {
   text-align: center;
   background-color: $mtm_white;
+  .copy{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
   h1 {
     margin-top: unset;
   }
   p {
-    margin: unset;
+    @media(max-width: 1024px) {
+      margin: unset;
+    }
+    margin-bottom: unset;
   }
   .how-it-works-bg {
     background-color: $mtm_grey;
@@ -33,11 +41,12 @@
     }
   }
 
-  // .create-your-meal-plan {
-
-  // }
+  .create-meal-plan {
+    cursor: pointer;
+  }
 
   .shop-your-meal-plan {
+    cursor: pointer;
     @media (max-width: 1024px) {
       padding: 0 2em;
     }

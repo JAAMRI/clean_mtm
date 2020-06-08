@@ -3,15 +3,15 @@
 
 .copy {
   text-align: center;
-  padding: 1em 2em 0 1em;
+  padding: 1em 2em 0 2em;
   h1{
     margin: unset;
   }
   strong {
-    color: $mtm_light_green_color;
+    color: $mtm_dark_green_color;
   }
   mat-icon {
-    color: $mtm_light_green_color;
+    color: $mtm_dark_green_color;
   }
 }
 .my-meals-container{

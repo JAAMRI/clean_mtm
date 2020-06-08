@@ -3,26 +3,31 @@
 .home-page {
   height: 100%;
   background-color: $mtm_white;
-  h1{
+  h1 {
     margin: 0 0 4px 0;
     font-size: 1.5em !important;
   }
-  .copy{
+  .copy {
     text-align: center;
     padding: 3em 2em 1em 2em;
+    @media (min-width: 1024px) {
+      padding: 4em 2em 1em 2em;
+    }
   }
-  p{
-    margin: 4px;
+  p {
+    @media (max-width: 1024px) {
+      margin: 4px;
+    }
   }
 
   mat-sidenav-container {
-    @media(max-width:1024px) {
-      mat-sidenav{
+    @media (max-width: 1024px) {
+      mat-sidenav {
         width: 100%;
       }
     }
-    @media(min-width:1024px) {
-      mat-sidenav{
+    @media (min-width: 1024px) {
+      mat-sidenav {
         width: 25%;
       }
     }
@@ -32,7 +37,6 @@
         position: absolute;
         top: 0;
         z-index: 2;
-        color: $mtm_dark_green_color;
         background-color: $mtm_white;
         margin: 1em;
       }
@@ -54,4 +58,3 @@
     }
   }
 }
-  

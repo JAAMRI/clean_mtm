@@ -1,6 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { environment } from '../../../../environments/environment';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FeaturedRecipes } from './featured-recipes';
 
 @Component({
@@ -19,7 +17,7 @@ export class HowItWorksComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  emitNavigation(recipeLink: string) {
+  emitNavigation(recipeLink?: string) {
     this.navigate.emit(recipeLink);
   }
 

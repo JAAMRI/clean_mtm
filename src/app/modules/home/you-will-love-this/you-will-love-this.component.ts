@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { CarouselData } from '../home-carousel-helper';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
@@ -10,6 +10,7 @@ import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.se
 })
 export class YouWillLoveThisComponent implements OnInit {
   carouselData = CarouselData;
+  @Output() navigate = new EventEmitter();
 
 
   constructor(
@@ -17,6 +18,10 @@ export class YouWillLoveThisComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+  }
+
+  emitNavigation() {
+    this.navigate.emit();
   }
 
   pushEnd() {
