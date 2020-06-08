@@ -38,16 +38,10 @@
               "src/manifest.json"
             ],
             "styles": [
-              {
-                "inject": false,
-                "lazy": true,
-
-                "input": "src/scss/styles.scss",
-                "bundleName": "lazyloadedstyles"
-              },
-             
+              
+              "src/scss/styles.scss"
             
-            ],
+            ]
             
           },
           "configurations": {
@@ -135,7 +129,7 @@
                   "maximumError": "10kb"
                 }
               ]
-            },
+            }
           }
         },
         "serve": {
@@ -176,8 +170,8 @@
                 "inject": false,
                 "input": "src/scss/styles.scss",
                 "bundleName": "lazyloadedstyles"
-              },
-            ],
+              }
+            ]
            
           }
         },

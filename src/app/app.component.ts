@@ -69,8 +69,8 @@ export class AppComponent implements OnInit {
     }//If production or uat, lazyload main css
     else {
       this.cdr.detectChanges()
-      await this.loadjscssfile("../lazyloadedstyles.js", "js");
-      await this.loadjscssfile("../lazyloadedstyles.css", "css");
+      // await this.loadjscssfile("../lazyloadedstyles.js", "js");
+      await this.loadjscssfile("./lazyloadedstyles.css", "css");
     }
 
     if (environment.production || environment.uat) {
