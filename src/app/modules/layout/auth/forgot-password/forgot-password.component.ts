@@ -76,7 +76,8 @@ export class ForgotPasswordComponent implements OnInit {
         this.validate.emit(email);
       })
       .catch(err => {
-        this.snackBar.open("Sorry! " + err, null, { duration: 2500 });
+        console.log(err)
+        this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
       });
   }
 
