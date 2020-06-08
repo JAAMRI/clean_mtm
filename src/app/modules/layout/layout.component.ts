@@ -21,7 +21,7 @@ export class LayoutComponent {
 
   unsubscribeAll = new Subject();
   activeRoute: string = '';
-  loggedIn : boolean;
+  loggedIn: boolean;
   onAuthPage: boolean;
   isMobile: boolean = (window.innerWidth < 768);
   breadcrumbs: Breadcrumb[] = BREADCRUMBS;
@@ -72,19 +72,24 @@ export class LayoutComponent {
     });
   }
 
- 
 
-  
+
+
 
   next() {
     const activePageName = this.getActivePage().name;
-    console.log(activePageName)
     if (activePageName === MTMPageNames.SELECT_MEALS) {
       this.router.navigate(['/recipes/my-meals']);
     } else if (activePageName === MTMPageNames.MEAL_PLAN) {
       this.router.navigate(['/recipes/grocery-list']);
     } else {
       // start shopping
+      var iframe: any = document.getElementsByTagName("iframe")[0];
+      console.log(iframe)
+      console.log(iframe.contentDocument)
+      var elmnt = iframe.contentWindow.document.getElementsByClassName("shop")[0].click();
+      const a = document.getElementsByClassName('shop')[0];
+      console.log(a)
     }
   }
 
@@ -147,11 +152,11 @@ export class LayoutComponent {
   signOut() {
     this.adobeDtbTracking.signout();
     Auth.signOut()
-    .then(data => {
-      this.accountService.loggedIn = false;
-      this.router.navigate(['/']);
+      .then(data => {
+        this.accountService.loggedIn = false;
+        this.router.navigate(['/']);
 
-    })
+      })
       .catch(err => {
         alert(err.message);
       });
