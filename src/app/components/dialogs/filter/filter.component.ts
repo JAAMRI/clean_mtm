@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Filters, IFilter, Disclosures } from './filter.data';
+import { Filters, IFilter, Disclaimers } from './filter.data';
 
 @Component({
   selector: 'app-filter',
@@ -11,7 +11,7 @@ import { Filters, IFilter, Disclosures } from './filter.data';
 export class FilterComponent {
 
   filters: IFilter[] = Filters;
-  disclosures = Disclosures;
+  disclaimers = Disclaimers;
 
   constructor(public dialogRef: MatDialogRef<FilterComponent>) { }
 

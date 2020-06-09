@@ -16,8 +16,14 @@
         <div (click)='setActiveFilter(filter.id)' class="filter-wrapper" [class.active]='filter.active'
             *ngFor='let filter of filters'>
             <strong>
-                {{filter.name}}
+                {{filter.name}} <sup *ngIf='filter.disclaimerId'>{{filter.disclaimerId}}</sup>
             </strong>
         </div>
+    </div>
+    <div class="disclaimers">
+        <small *ngFor='let disclaimer of disclaimers'>
+            <sup>{{disclaimer.disclaimerId}}</sup>
+            {{disclaimer.text}}
+        </small>
     </div>
 </div>

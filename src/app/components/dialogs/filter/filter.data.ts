@@ -35,7 +35,7 @@ export const Filters: IFilter[] = [
         'p_vegetarian': true,
         key: 'p_vegetarian',
         value: true,
-        disclosure: 1,
+        disclaimerId: 1,
         id: 5,
 
     },
@@ -132,7 +132,7 @@ export const Filters: IFilter[] = [
         id: 16,
         key: 'q',
         value: 'canadian',
-        
+
 
     },
     {
@@ -146,7 +146,7 @@ export const Filters: IFilter[] = [
     {
         name: 'Better for you',
         query: '',
-        disclosure: 2,
+        disclaimerId: 2,
         id: 18,
         key: 'p_kcal_per_serving',
         value: '0,500',
@@ -154,15 +154,22 @@ export const Filters: IFilter[] = [
     },
 ]
 
-export const Disclosures = [
-    'Our (ovo-lacto) vegetarian recipes may contain dairy products and eggs, but no other animal products.*The Hellmann’s/Knorr product in these recipes are vegetarian. Always check the label of all other ingredients you use to ensure they are free of animal products. ',
-    'Our Better-for-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars. '
+export const Disclaimers = [{
+    disclaimerId: 1,
+    text: 'Our(ovo- lacto) vegetarian recipes may contain dairy products and eggs, but no other animal products.* The Hellmann’s / Knorr product in these recipes are vegetarian.Always check the label of all other ingredients you use to ensure they are free of animal products. ',
+
+},
+{
+    disclaimerId: 2,
+    text: 'Our Better-for-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars. '
+
+},
 ]
 
 export interface IFilter {
     name: string;
     query?: string;
-    disclosure?: number;
+    disclaimerId?: number;
     active?: boolean;
     id: number;
     [key: string]: string | number | boolean;
