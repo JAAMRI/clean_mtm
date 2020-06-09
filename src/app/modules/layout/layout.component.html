@@ -12,12 +12,12 @@
         </div>
         <div class="nav-buttons"
         *ngIf='!onAuthPage && (activeRoute === "/recipes/discover" || activeRoute === "/recipes/my-meals" || activeRoute === "/recipes/grocery-list")'>
-        <div class="nav-buttons-wrapper">
+        <div [class]='activeRoute === "/recipes/grocery-list" ? "nav-buttons-wrapper gl" : "nav-buttons-wrapper"'>
           <button class='back' *ngIf='activeRoute !== "/recipes/discover"' mat-mini-fab (click)='back()'>
             <mat-icon>chevron_left</mat-icon>
           </button>
-          <button class='next' mat-flat-button color='primary'
-            (click)='next()'>{{activeRoute === '/recipes/grocery-list' ? 'START SHOPPING' : 'NEXT'}}</button>
+          <button  *ngIf="activeRoute !== '/recipes/grocery-list'" class='next' mat-flat-button color='primary'
+          (click)='next()'>NEXT</button>
         </div>
       </div>
     </mat-sidenav-content>
@@ -33,12 +33,12 @@
     <div class="nav-buttons"
       *ngIf='activeRoute === "/recipes/discover" || activeRoute === "/recipes/my-meals" || activeRoute === "/recipes/grocery-list"'>
       <!-- clean this up ^^ -->
-      <div class="nav-buttons-wrapper">
+      <div [class]='activeRoute === "/recipes/grocery-list" ? "nav-buttons-wrapper gl" : "nav-buttons-wrapper"'>
 
         <button class='back' *ngIf='activeRoute !== "/recipes/discover"' mat-mini-fab (click)='back()'>
           <mat-icon>chevron_left</mat-icon>
         </button>
-        <button *ngIf="activeRoute !== '/recipes/grocery-list'" class='next' mat-flat-button color='primary'
+        <button  *ngIf="activeRoute !== '/recipes/grocery-list'" class='next' mat-flat-button color='primary'
           (click)='next()'>NEXT</button>
       </div>
     </div>

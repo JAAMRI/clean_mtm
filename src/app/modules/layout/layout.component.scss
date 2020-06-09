@@ -39,8 +39,13 @@
             z-index: 1000;
             justify-content: flex-end;
             width: calc(50% + 100px + 1em); // half width of next button
+            &.gl{
+                width: unset;
+                justify-content: center;
+                padding: 1em;
+            }
             .next {
-                margin: 1em 1em 1em 1em; // comment from design team, top is smaller than bottom
+                margin: 1em; // comment from design team, top is smaller than bottom
                 min-width: 200px;
                 font-size: 14px;
             }
