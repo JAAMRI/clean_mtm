@@ -65,13 +65,14 @@ export class AppComponent implements OnInit {
 
       await this.loadjscssfile("../lazyloadedstyles.css", "css");
 
-      this.insertAdChoice();
     }//If production or uat, lazyload main css
     else {
       this.cdr.detectChanges()
       // await this.loadjscssfile("../lazyloadedstyles.js", "js");
       await this.loadjscssfile("./lazyloadedstyles.css", "css");
     }
+    this.insertAdChoice();
+
 
     if (environment.production || environment.uat) {
       this.facebookImplementation();

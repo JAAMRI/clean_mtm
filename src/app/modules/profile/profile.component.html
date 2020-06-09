@@ -3,7 +3,7 @@
     <mat-tab-group (selectedTabChange)="adobeDtbTracking.anchorLinkTab($event.index, 'profile page','')">
       <mat-tab>
         <ng-template mat-tab-label>
-          <mat-icon svgIcon='avatar'></mat-icon> PERSONAL INFO
+          <mat-icon svgIcon='avatar'></mat-icon> Personal Info
         </ng-template>
         <app-personal-info [onProfilePage]='true' [isMobile]='isHandsetPortrait || isHandsetLandscape'>
         </app-personal-info>
@@ -11,7 +11,7 @@
 
       <mat-tab>
         <ng-template mat-tab-label>
-          <mat-icon svgIcon='security'></mat-icon> SECURITY
+          <mat-icon svgIcon='security'></mat-icon> Security
         </ng-template>
         <app-change-password [isMobile]='isHandsetPortrait || isHandsetLandscape'></app-change-password>
       </mat-tab>

@@ -11,6 +11,8 @@
     background-color: $mtm_white;
     z-index: 1;
     .img-wrapper{
+        height: 100%;
+        width: 100%;
         img{
             object-fit: cover;
             width: 100%;

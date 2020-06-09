@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Filters, IFilter, Disclaimers } from './filter.data';
 
@@ -12,6 +12,7 @@ export class FilterComponent {
 
   filters: IFilter[] = Filters;
   disclaimers = Disclaimers;
+  @ViewChild('disclaimerWrapper') disclaimersRef: ElementRef;
 
   constructor(public dialogRef: MatDialogRef<FilterComponent>) { }
 
@@ -32,5 +33,10 @@ export class FilterComponent {
 
   clear() {
     this.setActiveFilter(null);
+  }
+
+  scrollDown() {
+    this.disclaimersRef.nativeElement.scrollIntoView({behavior: 'smooth'}) ;
+
   }
 }

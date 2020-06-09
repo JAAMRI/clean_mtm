@@ -12,9 +12,9 @@
       <p>A little taste of 500+ chef curated recipes. Register to explore them all.</p>
     </div>
     <app-mtm-slider (onEndReached)='pushEnd()' (onStartReached)='pushStart()'>
-      <a class='carousel-img-wrapper' *ngFor='let recipe of recipes; trackBy: trackByIndex; let i=index;' (click)='emitNavigation(recipe.link)'>
+      <div class='carousel-img-wrapper' *ngFor='let recipe of recipes; trackBy: trackByIndex; let i=index;' (click)='emitNavigation(recipe.link)'>
         <img class='carousel-image' [src]="recipe.image" alt="recipe">
-      </a>
+      </div>
     </app-mtm-slider>
   </div>
   <div class="create-meal-plan" (click)='emitNavigation("/recipes/my-meals")'>

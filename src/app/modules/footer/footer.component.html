@@ -7,15 +7,19 @@
         <div class="social-icons">
             <a rel="noopener" *ngFor='let item of footerItems.social'
                 (click)="adobeDtbTracking.pageTracking(item.name, item.href)" target="_blank" [href]="item.href">
-                <img [src]="item.img" [alt]="item.name">
+                <img [class]='item.name !== "Pinterest" ? "collapse": ""' [src]="item.img" [alt]="item.name">
 
             </a>
         </div>
         <div class="ad-logos">
-            <a id="_bapw-link" href="#" target="_blank" style="text-decoration:none !important">
+            <!-- <a id="_bapw-link" href="#" target="_blank" style="text-decoration:none !important">
                 <img alt="Adchoices" id="_bapw-icon"
                     style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;" />
                 <span style="vertical-align:middle !important">AdChoices</span>
+            </a> -->
+            <a class='adchoices-logo' href="https://www.unilever.ca">
+                <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
+                <span>AdChoices</span>
             </a>
             <a class='unilever-logo' href="https://www.unilever.ca">
                 <img class='unilever-logo' src="/assets/static_images/footer/unilever-logo.svg" alt="Unilever logo">
@@ -32,10 +36,14 @@
             <img [src]="item.img" [alt]="item.name">
 
         </a>
-        <a id="_bapw-link" href="#" target="_blank" style="text-decoration:none !important">
+        <!-- <a id="_bapw-link" href="#" target="_blank" style="text-decoration:none !important">
             <img alt="Adchoices" id="_bapw-icon"
                 style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;" />
             <span style="vertical-align:middle !important">AdChoices</span>
+        </a> -->
+        <a class='adchoices-logo' href="https://www.unilever.ca">
+            <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
+            <span>AdChoices</span>
         </a>
         <a class='unilever-logo' href="https://www.unilever.ca">
             <img class='unilever-logo' src="/assets/static_images/footer/unilever-logo.svg" alt="Unilever logo">

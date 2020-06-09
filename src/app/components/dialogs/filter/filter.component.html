@@ -1,4 +1,4 @@
-<div class="filter-dialog">
+<div class="filter-dialog" #filterDialog>
     <div class="filter-header" mat-dialog-close routerLink='/'>
         <img src="/assets/static_images/MTM_Favicon_4c_2.svg" alt="">
     </div>
@@ -20,10 +20,13 @@
             </strong>
         </div>
     </div>
-    <div class="disclaimers">
+    <div class="disclaimers" #disclaimerWrapper>
         <small *ngFor='let disclaimer of disclaimers'>
             <sup>{{disclaimer.disclaimerId}}</sup>
             {{disclaimer.text}}
         </small>
+    </div>
+    <div class="scroll-down-button">
+        <button mat-icon-button (click)='scrollDown()'><mat-icon>expand_more</mat-icon> </button>
     </div>
 </div>

@@ -19,6 +19,7 @@
                 }
             }
         }
+
         @media(min-width: 768px) {
             height: 50vh;
             width: 50vh;
@@ -33,11 +34,14 @@
                
             }
         }
+        .scroll-down-button{
+            position: absolute;
+            bottom: 1em;
+            transform: translate(50%, 50%);
+            right: 50%;
+        }
 
         .close-button {
-        @media (min-width: 1024px) {
-                display: none;
-            }
             position: absolute;
             top: 4px;
             right: 4px;

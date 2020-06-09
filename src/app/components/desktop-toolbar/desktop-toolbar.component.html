@@ -1,39 +1,30 @@
 <mat-toolbar class='desktop-nav'>
-    <a class="logo-desktop-wrapper" (click)="emitNavigation('HOME')">
-      <img alt="Meals That Matter Logo" src="/assets/static_images/MTM_Final_LOGO.svg">
-    </a>
-    <div class="call-to-actions">
-      <div class="tabs">
-        <a [class.active]='activePage === "/recipes/discover"' mat-button 
-          (click)="emitNavigation('SELECT MEALS')">Select Meals</a>
-        <a [class.active]='activePage === "/recipes/favourites"' mat-button
-        (click)="emitNavigation('FAVOURITES')">Favourites</a>
-        <a [class.active]='activePage === "/recipes/my-meals"' mat-button
-        (click)="emitNavigation('MEAL PLAN')">Meal Plan</a>
-        <a [class.active]='activePage === "/recipes/grocery-list"' mat-button 
-        (click)="emitNavigation('GROCERY LIST')">Grocery List</a>
-      </div>
-      <div class="actions">
-        <a mat-button [matMenuTriggerFor]="profileMenu" *ngIf="loggedIn">My Account</a>
-        <mat-menu #profileMenu="matMenu">
-          <a mat-menu-item 
-          (click)="emitNavigation('VIEW PROFILE')">View
-            Profile</a>
-          <a mat-menu-item (click)="signOut()">Sign Out</a>
-        </mat-menu>
-        <a mat-button *ngIf="!loggedIn" (click)='authClicked()'>Already a Member?</a>
-
-        <!-- <a mat-button routerLink='//contact-us'
-          (click)="adobeDtbTracking.pageTracking('CONTACT US','//contact-us')">CONTACT
-          US</a> -->
-        <a mat-button [matMenuTriggerFor]="contactMenu">Help Center</a>
-        <mat-menu #contactMenu="matMenu">
-          <a mat-menu-item 
-          (click)="emitNavigation('CONTACT US')">Contact Us</a>
-          <a mat-menu-item 
-          (click)="emitNavigation('FAQs')">Faqs</a>
-        </mat-menu>
-      </div>
+  <a class="logo-desktop-wrapper" (click)="emitNavigation('HOME')">
+    <img alt="Meals That Matter Logo" src="/assets/static_images/MTM_Final_LOGO.svg">
+  </a>
+  <div class="call-to-actions">
+    <div class="tabs">
+      <a [class.active]='activePage === "/recipes/discover"' mat-button (click)="emitNavigation('SELECT MEALS')">Select
+        Meals</a>
+        <a [class.active]='activePage === "/recipes/my-meals"' mat-button (click)="emitNavigation('MEAL PLAN')">Meal
+          Plan</a>
+          <a [class.active]='activePage === "/recipes/grocery-list"' mat-button
+          (click)="emitNavigation('GROCERY LIST')">Grocery List</a>
+          <a [class.active]='activePage === "/recipes/favourites"' mat-button
+            (click)="emitNavigation('FAVOURITES')">Favourites</a>
     </div>
+    <div class="actions">
+      <a [class.active]='activePage === "/articles"' mat-button (click)="emitNavigation('ARTICLES')">Articles</a>
+      <a [class.active]='activePage === "/profile"' *ngIf="loggedIn" mat-button (click)="emitNavigation('VIEW PROFILE')">My
+        Account</a>
+      <a [class.active]='activePage === "/contact-us"' mat-button (click)="emitNavigation('CONTACT US')">Contact Us</a>
+      <a [class.active]='activePage === "/faqs"' mat-button (click)="emitNavigation('FAQs')">FAQs
+      </a>
+      <a mat-button (click)="signOut()">Sign Out</a>
 
-  </mat-toolbar>
+
+
+    </div>
+  </div>
+
+</mat-toolbar>
