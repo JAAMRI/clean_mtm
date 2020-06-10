@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Filters, IFilter, Disclaimers } from './filter.data';
 
@@ -12,9 +12,17 @@ export class FilterComponent {
 
   filters: IFilter[] = Filters;
   disclaimers = Disclaimers;
+  hideScroll = false;
   @ViewChild('disclaimerWrapper') disclaimersRef: ElementRef;
 
   constructor(public dialogRef: MatDialogRef<FilterComponent>) { }
+
+  @HostListener('scroll', ['$event'])
+  onElementScroll(event: any) {
+    console.log(event)
+    this.hideScroll = true;
+
+  }
 
   setActiveFilter(id: number) {
     let activeFilter: any;

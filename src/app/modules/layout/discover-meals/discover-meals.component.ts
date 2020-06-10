@@ -120,7 +120,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
         //Set meal plan IDs
         this.setMealPlanIds()
-     
+
 
       }
 

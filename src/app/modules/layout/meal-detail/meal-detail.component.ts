@@ -1,6 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation, HostListener } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { first, takeUntil } from 'rxjs/operators';
@@ -38,6 +38,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   carouselIsChanging: boolean;
   emailContent: string;
   inDialog = false;
+  mealPlanIds = {};
 
   public dialogParams: any;
 
@@ -46,7 +47,6 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-
     private accountService: AccountService,
     private mealFavouritesService: MealFavouritesService,
     private mealPlanService: MealPlanService,
@@ -59,8 +59,8 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
+    
     this.isMobile = (event.target.innerWidth < 768);
-
   }
 
   async ngOnInit() {
@@ -107,13 +107,19 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   async getMealById() {
+    const dialog = document.getElementsByClassName('recipe-dialog-container')[0];
+    dialog.classList.add('unset-box-shadow');
     this.loading = true;
     try {
       // this.buildRecipeWidget(); recipe widget
       this.meal = (await this.mealService.getMealById(this.mealId).toPromise());
       this.relatedRecipes = [...this.meal.relatedRecipes];
       this.loading = false;
+      dialog.classList.remove('unset-box-shadow')
       this.currentMealPlan = await this.mealPlanService.getMealPlan();
+      this.currentMealPlan.filter((m) => m).forEach((meal) => {
+        this.mealPlanIds[meal.id] = true;
+      })
       this.getFavouriteMeals();
       this.checkIfMealInMealPlan();
       this.getEmailContent();
@@ -208,22 +214,35 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.relatedRecipes = [...this.relatedRecipes, ...this.meal.relatedRecipes]
   }
 
-  async addToMealPlan() {
+  async addToMealPlan(id?: string) {
     // add to mealplan
-    this.currentMealPlan.push(this.meal);
-    this.inMealPlan = true;
-    await this.mealPlanService.saveMealPlan(this.currentMealPlan, this.meal.id, 'add')
-    this.dialogParams.onAddOrRemoveMealPlan({ 'meal': this.meal, 'action': 'add' });
-    this.adobeDtbTracking.anchorLinkMeal('Adding to Meal Plan: ', this.meal.title);
+    let meal = this.meal;
+    let mealId = id || this.meal.id;
+    if (id) {
+      meal = await this.mealService.getMealById(id).toPromise();
+    }
+
+   
+    this.currentMealPlan.push(meal);
+    this.mealPlanIds[mealId] = true;
+    await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'add')
+
+    this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'add' });
+    this.adobeDtbTracking.anchorLinkMeal('Adding to Meal Plan: ', meal.title);
   }
 
-  async removeFromMealPlan() {
+  async removeFromMealPlan(id?: string) {
     // add to mealplan
-    await this.mealPlanService.saveMealPlan(this.currentMealPlan, this.meal.id, 'remove')
-    this.currentMealPlan = this.currentMealPlan.filter((m) => m).filter((meal) => meal.id !== this.meal.id)
-    this.inMealPlan = false;
-    this.dialogParams.onAddOrRemoveMealPlan({ 'meal': this.meal, 'action': 'remove' });
-    this.adobeDtbTracking.anchorLinkMeal('Removing From Meal Plan: ', this.meal.title);
+    let meal = this.meal;
+    let mealId = id || this.meal.id;
+    if (id) {
+      meal = await this.mealService.getMealById(id).toPromise();
+    }
+    await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'remove')
+    this.currentMealPlan = this.currentMealPlan.filter((m) => m).filter((meal) => meal.id !== mealId)
+    delete this.mealPlanIds[mealId];
+    this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'remove' });
+    this.adobeDtbTracking.anchorLinkMeal('Removing From Meal Plan: ', meal.title);
   }
 
   async updateFavourites(favouriteMeal: any) {
@@ -244,6 +263,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   removeFavourite(favouriteMeal: any) {
     this.favouriteMealIds = this.favouriteMealIds.replace(favouriteMeal.id + '|', '');
+    this.favouriteMeals = this.favouriteMeals.filter((m) => m.id !== favouriteMeal.id)
     this.adobeDtbTracking.anchorLinkMeal('Removing from Favourite: ', this.meal.title);
   }
 

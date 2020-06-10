@@ -1,8 +1,12 @@
 @import "../../../../scss/variables.scss";
 
-// .mat-dialog-container {
-//   overflow: unset;
-// }
+.unset-box-shadow {
+
+  .mat-dialog-container {
+    box-shadow: unset !important;
+    background: transparent !important;
+  }
+}
 .recipe-page {
   
   overflow: scroll;

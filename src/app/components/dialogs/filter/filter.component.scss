@@ -4,6 +4,11 @@
     padding: 16px;
     .filter-dialog {
         position: relative;
+        overflow: scroll;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none !important;
+        }
         @media (max-width: 767px) {
             height: calc(100vh - 2em);
             .filter-header {

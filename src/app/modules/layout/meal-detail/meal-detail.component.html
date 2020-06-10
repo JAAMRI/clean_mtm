@@ -126,8 +126,8 @@
     <div class="recommended-carousel">
 
       <app-mtm-slider (onStartReached)='pushStart()' (onEndReached)='pushEnd()'>
-        <app-meal-item *ngFor="let recipe of relatedRecipes" [recommendedMeal]='true' parent='recipe-detail'
-          (favouriteToggled)='updateFavourites($event)' (wasClicked)='visitMealDetailPage($event)'
+        <app-meal-item *ngFor="let recipe of relatedRecipes" [recommendedMeal]='true' (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)' parent='recipe-detail'
+          (favouriteToggled)='updateFavourites($event)' (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[recipe.id]'
           [favourited]='favouriteMealIds?.includes(recipe.id)' [mealItem]='recipe'>
         </app-meal-item>
 

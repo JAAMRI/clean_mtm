@@ -1,4 +1,4 @@
-<div class="filter-dialog" #filterDialog>
+<div class="filter-dialog" (scroll)='onElementScroll($event)'>
     <div class="filter-header" mat-dialog-close routerLink='/'>
         <img src="/assets/static_images/MTM_Favicon_4c_2.svg" alt="">
     </div>
@@ -26,7 +26,7 @@
             {{disclaimer.text}}
         </small>
     </div>
-    <div class="scroll-down-button">
+    <div class="scroll-down-button" *ngIf='!hideScroll'>
         <button mat-icon-button (click)='scrollDown()'><mat-icon>expand_more</mat-icon> </button>
     </div>
 </div>

@@ -9,7 +9,8 @@ export enum MTMPageNames {
   CONTACT_US = 'CONTACT US',
   FAQs = 'FAQs',
   HOME = 'HOME',
-  AUTH = 'AUTH'
+  AUTH = 'AUTH',
+  ARTICLES = 'ARTICLES'
 }
 
 export interface MTMPage {
@@ -64,7 +65,7 @@ export const MTMPages: { [name: string]: MTMPage } = {
   },
   'ARTICLES': {
     name: 'ARTICLES',
-    route: '/faqs'
+    route: '/article'
   },
 
   'AUTH': {

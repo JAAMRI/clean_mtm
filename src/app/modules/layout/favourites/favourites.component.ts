@@ -99,7 +99,6 @@ export class FavouritesComponent implements OnInit {
     this.mealPlan.push(meal);
     this.mealPlanIds[mealId] = true;
     await this.mealPlanService.saveMealPlan(this.mealPlan, meal.id, 'add');
-    console.log(this.mealPlanIds);
     this.snackbar.open('Added to meal plan!', null, {duration: 2000, verticalPosition: 'top'});
 
   }
