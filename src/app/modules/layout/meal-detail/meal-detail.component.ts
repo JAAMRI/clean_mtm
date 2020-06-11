@@ -1,22 +1,18 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, ElementRef, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation, HostListener } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
+import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { first, takeUntil } from 'rxjs/operators';
-import { UserFormComponent } from '../../../../app/components/dialogs/user-form/user-form.component';
+import { first } from 'rxjs/operators';
 import { AccountService } from '../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
-import { MealService } from '../../../services/meal/meal.service';
 import { SeoService } from '../../../../app/services/seo.service';
-import { BREAKPOINTS } from '../../../../app/utilities/breakpoints';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
-import { MockCarousel } from '../../../../app/utilities/mock-carousel';
 import { environment } from '../../../../environments/environment';
 import { Meal, RelatedRecipe } from '../../../interfaces/meal/meal';
-// smoothscroll.polyfill();
+import { MealService } from '../../../services/meal/meal.service';
+
 @Component({
   selector: 'app-meal-detail',
   templateUrl: './meal-detail.component.html',

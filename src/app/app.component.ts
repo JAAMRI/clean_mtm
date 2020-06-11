@@ -1,17 +1,15 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, Component, ComponentFactoryResolver, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild, ViewContainerRef } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ChangeDetectorRef, Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { NavigationEnd, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
-import { takeUntil, filter } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 import { environment } from '../environments/environment';
+import { MTMPage, MTMPages } from './components/desktop-toolbar/desktop-toolbar.component';
 import { AccountService } from './services/account/account.service';
 import { DynamicScriptLoaderService } from './services/dynamic-script-loader/dynamic-script-loader.service';
-import { BREAKPOINTS } from './utilities/breakpoints';
-import { MTMPage, MTMPages } from './components/desktop-toolbar/desktop-toolbar.component';
 import { SeoService } from './services/seo.service';
-import { Title } from '@angular/platform-browser';
-import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
