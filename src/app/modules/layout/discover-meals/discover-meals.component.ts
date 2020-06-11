@@ -78,7 +78,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   getNextBatch() {
-    this.getMeals(this.meals.length, this.pageSize, 'right')
+    this.getMeals(this.meals.length, this.pageSize, 'right', this.didYouMean || this.theEnteredSearchQuery)
 
   }
 
@@ -87,7 +87,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     if (this.leftPageStart < 0) {
       this.leftPageStart = this.numOfResults + this.leftPageStart;
     }
-    this.getMeals(this.leftPageStart, this.pageSize, 'left')
+    this.getMeals(this.leftPageStart, this.pageSize, 'left', this.didYouMean || this.theEnteredSearchQuery)
   }
 
   trackByIndex(i: number) {
@@ -97,32 +97,34 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter) {
     //Show spinner while loadin
     this.loading = true;
-    console.log(options)
     this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
       if (meals) {
         //Check if did_you_mean
-        if (this.noFilters()) {
-          this.didYouMean = meals.didYouMean;
-          if (meals.didYouMean && meals.items.length === 0) {
+        if (meals.didYouMean) {
+          if (this.noFilters()) {
+            this.didYouMean = meals.didYouMean;
             // if did you mean exists, still search for those results
-            this.getMeals(pageStart, pageSize, meals.didYouMean);
+            this.resetAllGlobalValues();
+            this.getMeals(pageStart, pageSize, 'right', meals.didYouMean);
           }
-        }
-        //Reset page start
-        this.pageStart = pageStart;
-        this.numOfResults = meals.results;
-        // Populate meals
-        if (direction === 'right') {
-
-          this.meals = [...this.meals, ...meals.items.slice(0, pageSize + 1)];
-
         } else {
-          this.meals = [...meals.items.slice(0, pageSize + 1), ...this.meals];
-
+          //Reset page start
+        
+          this.pageStart = pageStart;
+          this.numOfResults = meals.results;
+          // Populate meals
+          if (direction === 'right') {
+  
+            this.meals = [...this.meals, ...meals.items.slice(0, pageSize + 1)];
+  
+          } else {
+            this.meals = [...meals.items.slice(0, pageSize + 1), ...this.meals];
+  
+          }
+  
+          //Set meal plan IDs
+          this.setMealPlanIds()
         }
-
-        //Set meal plan IDs
-        this.setMealPlanIds()
 
 
       }
@@ -153,13 +155,14 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     });
   }
 
-  searchMeals(query?: string) {
+  searchMeals(query: string = '') {
     //Capture Enter Submit Event
     this.filter = {}
-    if (query && query.trim() == "") {//check if search field is cleared
+    if (query.trim() == "") {//check if search field is cleared
       this.theEnteredSearchQuery = "";
     } else {
       this.theEnteredSearchQuery = query;
+      this.didYouMean = null;
     }
     this.resetAllGlobalValues();
     this.getMeals(this.pageStart, this.pageSize, 'right', query);
@@ -291,12 +294,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     const meal = this.meals.find((meal) => meal.id === favouriteMeal.id);
     this.adobeDtbTracking.anchorLinkMeal('Adding to Favourites: ', meal.title);
   }
-
-  loadMore() {
-    const newPageStart = this.meals.length;
-    this.getMeals(newPageStart, this.pageSize, 'right', this.theEnteredSearchQuery || '');
-  }
-
 
   ngOnDestroy() {
     this.unsubscribeAll.next();
