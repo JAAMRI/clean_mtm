@@ -21,12 +21,23 @@
         </div>
     </div>
     <div class="disclaimers" #disclaimerWrapper>
-        <small *ngFor='let disclaimer of disclaimers'>
-            <sup>{{disclaimer.disclaimerId}}</sup>
-            {{disclaimer.text}}
-        </small>
+        <ul>
+            <li *ngFor='let disclaimer of disclaimers'>
+                <strong>{{disclaimer.title}} <sup>{{disclaimer.disclaimerId}}</sup>
+                </strong>
+                <small>
+                    {{disclaimer.disclaimerId}}
+                    {{disclaimer.text}}
+                    <i *ngIf='disclaimer.italic'>{{disclaimer.disclaimerId}}{{disclaimer.italic}}</i>
+                </small>
+                <br/>
+            </li>
+        </ul>
+
     </div>
     <div class="scroll-down-button" *ngIf='!hideScroll'>
-        <button mat-icon-button (click)='scrollDown()'><mat-icon>expand_more</mat-icon> </button>
+        <button mat-icon-button (click)='scrollDown()'>
+            <mat-icon>expand_more</mat-icon>
+        </button>
     </div>
 </div>

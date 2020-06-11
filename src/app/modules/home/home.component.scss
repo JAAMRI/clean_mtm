@@ -41,20 +41,21 @@
         margin: 1em;
       }
     }
-
-    .get-started-button-wrapper {
-      position: fixed;
-      bottom: 0;
-      display: flex;
-      width: 100%;
-      justify-content: center;
-      background-color: $mtm_grey;
-      button {
-        margin: 1em; // comment from design team, top is smaller than bottom
-        width: 300px;
-        font-size: 16px;
-        padding: 4px;
-      }
-    }
+  }
+}
+.get-started-button-wrapper {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  -webkit-transform: translate3d(0,0,0);
+  z-index: 999;
+  justify-content: center;
+  background-color: $mtm_grey;
+  button {
+    margin: 1em; // comment from design team, top is smaller than bottom
+    width: 300px;
+    font-size: 16px;
+    padding: 4px;
   }
 }

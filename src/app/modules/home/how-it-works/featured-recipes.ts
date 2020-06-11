@@ -12,8 +12,8 @@ export const FeaturedRecipes = [
       image: '/assets/static_images/home-page/featured-recipes/burger.jpg'
     },
     {
-      link: `/recipes/Grilled-Herb-Rubbed-Chicken-99319`,
-      image: '/assets/static_images/home-page/featured-recipes/chicken.png'
+      link: `/recipes/Golden-Beet-Quinoa-Bowl-with-Mint-210601`,
+      image: '/assets/static_images/home-page/featured-recipes/quinoa.jpg'
     },
     {
       link: `/recipes/Spinach-and-Kale-Salad-188777`,

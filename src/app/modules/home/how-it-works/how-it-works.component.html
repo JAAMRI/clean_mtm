@@ -3,13 +3,13 @@
     <h1>HOW IT WORKS</h1>
     <p>Select delicious recipes.
     Create instant grocery lists.
-    Delivered straight to your door</p>
+    Delivered straight to your door.</p>
   </div>
 
   <div class="browse-our-recipes">
     <div class="copy">
       <h1>BROWSE OUR RECIPES</h1>
-      <p>A little taste of 500+ chef curated recipes. Register to explore them all.</p>
+      <p>A little taste of our 500+ chef curated recipes. Register to explore them all.</p>
     </div>
     <app-mtm-slider (onEndReached)='pushEnd()' (onStartReached)='pushStart()'>
       <div class='carousel-img-wrapper' *ngFor='let recipe of recipes; trackBy: trackByIndex; let i=index;' (click)='emitNavigation(recipe.link)'>
@@ -20,7 +20,7 @@
   <div class="create-meal-plan" (click)='emitNavigation("/recipes/my-meals")'>
     <div class="copy">
       <h1>CREATE MEAL PLAN</h1>
-      <p>Add recipes from around the world to your 'Meal Plan'. Make cooking an adventure with deliciously diverse meals.
+      <p>Add recipes from around the world to your personalized 'Meal Plan'. Make cooking an adventure with deliciously diverse meals.
       </p>
 
     </div>

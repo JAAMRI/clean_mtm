@@ -35,7 +35,7 @@ export const Filters: IFilter[] = [
         'p_vegetarian': true,
         key: 'p_vegetarian',
         value: true,
-        disclaimerId: 1,
+        disclaimerId: '*',
         id: 5,
 
     },
@@ -144,9 +144,9 @@ export const Filters: IFilter[] = [
 
     },
     {
-        name: 'Better for you',
+        name: 'Better-For-You',
         query: '',
-        disclaimerId: 2,
+        disclaimerId: '**',
         id: 18,
         key: 'p_kcal_per_serving',
         value: '0,500',
@@ -155,13 +155,16 @@ export const Filters: IFilter[] = [
 ]
 
 export const Disclaimers = [{
-    disclaimerId: 1,
-    text: 'Our(ovo- lacto) vegetarian recipes may contain dairy products and eggs, but no other animal products.* The Hellmann’s / Knorr product in these recipes are vegetarian.Always check the label of all other ingredients you use to ensure they are free of animal products. ',
+    disclaimerId: '*',
+    title: 'Vegetarian',
+    text: 'Our (ovo-lacto) vegetarian recipes may contain dairy products and eggs, but no other animal products.',
+    italic: 'The Hellmann’s/Knorr product in these recipes is vegetarian. Always check the label of all other ingredients you use to ensure they are free of animal products',
 
 },
 {
-    disclaimerId: 2,
-    text: 'Our Better-for-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars. '
+    disclaimerId: '**',
+    title: 'Better-For-You',
+    text: 'Our Better-For-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars.'
 
 },
 ]
@@ -169,7 +172,7 @@ export const Disclaimers = [{
 export interface IFilter {
     name: string;
     query?: string;
-    disclaimerId?: number;
+    disclaimerId?: string;
     active?: boolean;
     id: number;
     [key: string]: string | number | boolean;
