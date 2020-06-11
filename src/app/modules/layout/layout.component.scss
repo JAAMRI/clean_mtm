@@ -1,6 +1,7 @@
 @import "../../../scss/variables.scss";
 
 .layout-container {
+    height: 100%;
     mat-sidenav-container{
         overflow: initial;
     }
@@ -17,6 +18,9 @@
 
     .router-wrapper{
         margin-top: 2em;
+        height: calc(100% - 64px - 2em); // remove margin and toolbar
+        display: flex;
+        flex-direction: column;
     }
 
     .mobile-router-wrapper{
@@ -24,6 +28,9 @@
     }
     .mat-sidenav-content{
         overflow: unset;
+    }
+    .desktop-view{
+        height: 100%;
     }
 
     .nav-buttons {

@@ -226,13 +226,15 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     if (id) {
       meal = await this.mealService.getMealById(id).toPromise();
     }
+    console.log(mealId)
 
    
     this.currentMealPlan.push(meal);
     this.mealPlanIds[mealId] = true;
     await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'add')
-
-    this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'add' });
+    if (this.inDialog) {
+      this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'add' });
+    }
     this.adobeDtbTracking.anchorLinkMeal('Adding to Meal Plan: ', meal.title);
   }
 
@@ -246,7 +248,9 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'remove')
     this.currentMealPlan = this.currentMealPlan.filter((m) => m).filter((meal) => meal.id !== mealId)
     delete this.mealPlanIds[mealId];
-    this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'remove' });
+    if(this.inDialog) {
+      this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'remove' });
+    }
     this.adobeDtbTracking.anchorLinkMeal('Removing From Meal Plan: ', meal.title);
   }
 
@@ -256,13 +260,18 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     }
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
       await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove')
-      this.dialogParams.onAddOrRemoveFavourites({ 'meal': favouriteMeal, 'action': 'remove' });
+      if(this.inDialog) {
+
+        this.dialogParams.onAddOrRemoveFavourites({ 'meal': favouriteMeal, 'action': 'remove' });
+      }
       this.removeFavourite(favouriteMeal);
 
     } else {
       this.addFavourite(favouriteMeal)
       this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id)
-      this.dialogParams.onAddOrRemoveFavourites({ 'meal': favouriteMeal, 'action': 'add' });
+      if (this.inDialog) {
+        this.dialogParams.onAddOrRemoveFavourites({ 'meal': favouriteMeal, 'action': 'add' });
+      }
     }
   }
 

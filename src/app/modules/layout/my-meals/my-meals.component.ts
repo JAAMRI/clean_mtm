@@ -20,7 +20,8 @@ import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 @Component({
   selector: 'app-my-meals',
   templateUrl: './my-meals.component.html',
-  styleUrls: ['./my-meals.component.scss']
+  styleUrls: ['./my-meals.component.scss'],
+  encapsulation: ViewEncapsulation.None
 
 })
 export class MyMealsComponent implements OnInit, OnDestroy {

@@ -176,6 +176,8 @@
             margin-left: 1em;
             .add-button {
               color: $mtm_dark_green_color;
+              border: 1px solid rgba($mtm_light_grey, 0.7);
+
             }
             .added {
               opacity: 0.5;
@@ -313,11 +315,13 @@ mat-spinner{
 
   background-color: $mtm_white !important;
   color: $mtm_dark_green_color !important;
+  border: 1px solid rgba($mtm_light_grey, 0.7);
+
 
 }
 .remove-button {
   
-  background-color: $mtm_light_green_color !important;
+  background-color: $mtm_dark_green_color !important;
   color: $mtm_white !important;
 
 }

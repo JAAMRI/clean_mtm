@@ -1,72 +1,74 @@
 @import "../../../../scss/variables.scss";
-
-.search {
-  width: 100%;
-}
-.copy {
-  text-align: center;
-  padding: 0 2em;
-  .subheader {
-    mat-icon {
-      color: $mtm_dark_green_color;
-      margin-bottom: 4px;
+app-discover-meals{
+  flex: 1;
+  .search {
+    width: 100%;
+  }
+  .copy {
+    text-align: center;
+    padding: 0 2em;
+    .subheader {
+      mat-icon {
+        color: $mtm_dark_green_color;
+        margin-bottom: 4px;
+      }
     }
   }
-}
-.gif-wrapper {
-  display: flex;
-  justify-content: center;
-  img {
-    height: 40px;
+  .gif-wrapper {
+    display: flex;
+    justify-content: center;
+    img {
+      height: 40px;
+    }
   }
-}
-
-.filter {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  p {
-    margin: unset;
-    color: rgba(0, 0, 0, 0.54);
-  }
-  mat-icon {
-    cursor: pointer;
-  }
-}
-
-.search {
-  text-align: center;
   
-  .did-you-mean {
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-  }
-}
-.no-items-wrapper {
-  display: flex;
-  justify-content: center;
-  p{
-
-    border-radius: 5%;
-    background-color: $mtm_grey;
-    padding: 8px;
+  .filter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    p {
+      margin: unset;
+      color: rgba(0, 0, 0, 0.54);
+    }
     mat-icon {
-      color: $mtm_dark_green_color;
+      cursor: pointer;
     }
   }
-}
-.loading-text {
-  text-align: center;
-  color: $mtm_dark_green_color;
-}
-
-*:focus {
-  outline: 0;
-  outline: none;
-}
-
-.mat-button-focus-overlay {
-  background-color: transparent !important;
-  // remove grey outline from ubttons
+  
+  .search {
+    text-align: center;
+    
+    .did-you-mean {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+    }
+  }
+  .no-items-wrapper {
+    display: flex;
+    justify-content: center;
+    p{
+  
+      border-radius: 5%;
+      background-color: $mtm_grey;
+      padding: 8px;
+      mat-icon {
+        color: $mtm_dark_green_color;
+      }
+    }
+  }
+  .loading-text {
+    text-align: center;
+    color: $mtm_dark_green_color;
+  }
+  
+  *:focus {
+    outline: 0;
+    outline: none;
+  }
+  
+  .mat-button-focus-overlay {
+    background-color: transparent !important;
+    // remove grey outline from ubttons
+  }
 }

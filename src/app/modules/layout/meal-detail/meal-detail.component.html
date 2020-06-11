@@ -16,10 +16,10 @@
 
   <section class="meal-recipe" [class]="isMobile ? 'mobile-meal-recipe' : 'meal-recipe'">
     <div class="meal-summary-mobile" *ngIf='isMobile'>
-      <button class='add-button' mat-mini-fab *ngIf='!inMealPlan' (click)='addToMealPlan()'>
+      <button class='add-button' mat-mini-fab *ngIf='!mealPlanIds[meal.id]' (click)='addToMealPlan()'>
         <mat-icon>add</mat-icon>
       </button>
-      <button class='remove-button' mat-mini-fab *ngIf='inMealPlan' (click)='removeFromMealPlan()'>
+      <button class='remove-button' mat-mini-fab *ngIf='mealPlanIds[meal.id]' (click)='removeFromMealPlan()'>
         <mat-icon>remove</mat-icon>
       </button>
       <div class="img-wrapper">
@@ -76,10 +76,10 @@
 
         </div>
         <div class="action-wrapper">
-          <button class='add-button' mat-mini-fab *ngIf='!inMealPlan' (click)='addToMealPlan()'>
+          <button class='add-button' mat-mini-fab *ngIf='!mealPlanIds[meal.id]' (click)='addToMealPlan()'>
             <mat-icon>add</mat-icon>
           </button>
-          <button class='remove-button' mat-mini-fab *ngIf='inMealPlan' (click)='removeFromMealPlan()'>
+          <button class='remove-button' mat-mini-fab *ngIf='mealPlanIds[meal.id]' (click)='removeFromMealPlan()'>
             <mat-icon>remove</mat-icon>
           </button>
           <div class="img-wrapper">
