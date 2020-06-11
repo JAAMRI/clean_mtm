@@ -107,15 +107,20 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   async getMealById() {
-    const dialog = document.getElementsByClassName('recipe-dialog-container')[0];
-    dialog.classList.add('unset-box-shadow');
+    let dialog;
+    if (this.inDialog) {
+      dialog = document.getElementsByClassName('recipe-dialog-container')[0];
+      dialog.classList.add('unset-box-shadow');
+    }
     this.loading = true;
     try {
       // this.buildRecipeWidget(); recipe widget
       this.meal = (await this.mealService.getMealById(this.mealId).toPromise());
       this.relatedRecipes = [...this.meal.relatedRecipes];
       this.loading = false;
-      dialog.classList.remove('unset-box-shadow')
+      if (this.inDialog && dialog) {
+        dialog.classList.remove('unset-box-shadow')
+      }
       this.currentMealPlan = await this.mealPlanService.getMealPlan();
       this.currentMealPlan.filter((m) => m).forEach((meal) => {
         this.mealPlanIds[meal.id] = true;

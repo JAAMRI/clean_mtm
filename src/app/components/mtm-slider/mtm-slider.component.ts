@@ -25,7 +25,7 @@ export class MtmSliderComponent implements AfterViewInit, OnChanges {
         setTimeout(() => {
 
           this.slider.nativeElement.scrollLeft = this.initialScrollWidth;
-        }, 40)
+        }, 4)
       }
 
 
@@ -50,7 +50,7 @@ export class MtmSliderComponent implements AfterViewInit, OnChanges {
       setTimeout(() => {
 
         this.slider.nativeElement.scrollLeft = this.initialScrollWidth;
-      }, 40)
+      }, 4)
 
     }
 
