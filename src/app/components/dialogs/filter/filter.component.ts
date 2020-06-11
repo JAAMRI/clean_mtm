@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef, HostListener } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Filters, IFilter, Disclaimers } from './filter.data';
+import { Component, ElementRef, HostListener, ViewChild, ViewEncapsulation, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Disclaimers, Filters, IFilter } from './filter.data';
 
 @Component({
   selector: 'app-filter',
@@ -15,12 +15,19 @@ export class FilterComponent {
   hideScroll = false;
   @ViewChild('disclaimerWrapper') disclaimersRef: ElementRef;
 
-  constructor(public dialogRef: MatDialogRef<FilterComponent>) { }
+  constructor(public dialogRef: MatDialogRef<FilterComponent>, @Inject(MAT_DIALOG_DATA) public data: any, ) { }
 
   @HostListener('scroll', ['$event'])
   onElementScroll(event: any) {
-    console.log(event)
     this.hideScroll = true;
+  }
+
+  ngOnInit() {
+    if (this.data.resetFilter) {
+      this.filters.forEach((filter: IFilter) => {
+        filter.active = false;
+      })
+    }
 
   }
 
@@ -29,7 +36,7 @@ export class FilterComponent {
     this.filters.forEach((filter: any) => {
       if (filter.id === id) {
         filter.active = true;
-        activeFilter = {[filter.key]: filter.value};
+        activeFilter = { [filter.key]: filter.value };
       } else {
         filter.active = false;
       }
@@ -44,7 +51,7 @@ export class FilterComponent {
   }
 
   scrollDown() {
-    this.disclaimersRef.nativeElement.scrollIntoView({behavior: 'smooth'}) ;
+    this.disclaimersRef.nativeElement.scrollIntoView({ behavior: 'smooth' });
 
   }
 }

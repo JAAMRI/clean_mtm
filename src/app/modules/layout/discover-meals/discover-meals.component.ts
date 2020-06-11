@@ -97,13 +97,16 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter) {
     //Show spinner while loadin
     this.loading = true;
+    console.log(options)
     this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
       if (meals) {
         //Check if did_you_mean
-        this.didYouMean = meals.didYouMean;
-        if (meals.didYouMean && meals.items.length === 0) {
-          // if did you mean exists, still search for those results
-          this.getMeals(pageStart, pageSize, meals.didYouMean);
+        if (this.noFilters()) {
+          this.didYouMean = meals.didYouMean;
+          if (meals.didYouMean && meals.items.length === 0) {
+            // if did you mean exists, still search for those results
+            this.getMeals(pageStart, pageSize, meals.didYouMean);
+          }
         }
         //Reset page start
         this.pageStart = pageStart;
@@ -140,6 +143,10 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     }
   }
 
+  noFilters() {
+    return JSON.stringify(this.filter) === '{}';
+  }
+
   setMealPlanIds() {
     this.mealPlan.forEach((userMeal: any) => {
       this.mealPlanIds[userMeal.id] = true
@@ -148,6 +155,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   searchMeals(query?: string) {
     //Capture Enter Submit Event
+    this.filter = {}
     if (query && query.trim() == "") {//check if search field is cleared
       this.theEnteredSearchQuery = "";
     } else {
@@ -169,11 +177,16 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   renderFilterDialog() {
-    const filterDialog = this.dialog.open(FilterComponent);
+    const filterDialog = this.dialog.open(FilterComponent, {
+      data: {
+        resetFilter: this.noFilters()
+      }
+    });
     filterDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe((filter: IFilter) => {
       if (filter) {
         this.filter = filter;
-        this.searchMeals();
+        this.resetAllGlobalValues()
+        this.getMeals();
       }
     })
 
