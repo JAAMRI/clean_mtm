@@ -112,7 +112,6 @@ export class MealPlanService {
 
     return await Auth.currentSession().then(res => {
       let accessToken = res.getIdToken().getJwtToken()
-      console.log(accessToken)
       const options = {
         headers: new HttpHeaders().set('Authorization', accessToken)
           .set('Content-Type', 'application/json')
