@@ -59,11 +59,11 @@ export class AppComponent implements OnInit {
   async ngAfterViewInit() {
     // this.loadFooter();
     this.loadFontIcons();
+    this.adobeImplementation();
     if (environment.production || environment.uat) {
 
       await this.loadjscssfile("../lazyloadedstyles.css", "css");
       this.facebookImplementation();
-      this.adobeImplementation();
       if (environment.production) {
         this.newRelicImplementation();
       }
