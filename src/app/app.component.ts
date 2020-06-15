@@ -59,10 +59,14 @@ export class AppComponent implements OnInit {
   async ngAfterViewInit() {
     // this.loadFooter();
     this.loadFontIcons();
-    if (environment.production == true || environment.uat == true) {
+    if (environment.production || environment.uat) {
 
       await this.loadjscssfile("../lazyloadedstyles.css", "css");
-
+      this.facebookImplementation();
+      this.adobeImplementation();
+      if (environment.production) {
+        this.newRelicImplementation();
+      }
     }//If production or uat, lazyload main css
     else {
       this.cdr.detectChanges()
@@ -70,13 +74,6 @@ export class AppComponent implements OnInit {
       await this.loadjscssfile("./lazyloadedstyles.css", "css");
     }
     this.insertAdChoice();
-
-
-    if (environment.production || environment.uat) {
-      this.facebookImplementation();
-      this.adobeImplementation();
-      this.newRelicImplementation();
-    }
 
 
   }

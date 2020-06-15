@@ -47,6 +47,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   routeToLogin() {
     this.router.url === '/login' ? this.promptUserForAuth() : this.router.navigate(['/login']);
+    this.adobeDtbTracking.anchorLink('Login ');
+
     // if user is already on login and clicked button, show auth, else route to login and router will show auth
   }
 
@@ -89,9 +91,11 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  checkAuth(link?: string) {
+  checkAuth(link?: string, comingFrom?: string) {
     if (this.accountService.loggedIn) {
       this.routeToRecipes(link);
+      this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
+
     } else {
       this.promptUserForAuth()
     }
@@ -106,6 +110,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   routeToRecipes(recipeLink?: string) {
     const route = recipeLink || '/recipes/discover';
     this.router.navigate([route]);
+
   }
 
   scrollToHowItWorks() {

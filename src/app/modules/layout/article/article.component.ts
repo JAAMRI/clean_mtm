@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { IArticle } from '../../../interfaces/article';
-import { Router } from '@angular/router';
+import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss']
 })
-export class ArticleComponent  {
+export class ArticleComponent {
 
-  constructor(private router: Router) {
+  constructor(public adobeDtbTracking: AdobeDtbTracking,
+  ) {
 
   }
 
@@ -20,11 +21,12 @@ export class ArticleComponent  {
       readTime: '3min',
       image: '/assets/static_images/articles/what-and-what-not-to-freeze.jpg'
     },
-  
+
   ]
 
-  routeToArticle(title: string) {
-    this.router.navigate([this.router.url, title])
+  track(title: string) {
+    this.adobeDtbTracking.anchorLink(`Link to article: ${title}`);
+
   }
 
 }
