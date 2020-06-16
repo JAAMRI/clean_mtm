@@ -57,7 +57,7 @@ export const Filters: IFilter[] = [
     {
         name: 'Beef',
         query: '',
-        id: 7,
+        id: 8,
         key: 'q',
         value: 'beef',
 
@@ -67,7 +67,7 @@ export const Filters: IFilter[] = [
         query: '',
         key: 'q',
         value: 'simmer',
-        id: 8,
+        id: 9,
 
     },
     {
@@ -75,7 +75,7 @@ export const Filters: IFilter[] = [
         query: '',
         key: 'q',
         value: 'breakfast,brunch',
-        id: 9,
+        id: 10,
 
     },
     {
@@ -83,7 +83,7 @@ export const Filters: IFilter[] = [
         query: '',
         key: 'q',
         value: 'italian',
-        id: 10,
+        id: 11,
 
     },
     {
@@ -91,7 +91,7 @@ export const Filters: IFilter[] = [
         query: '',
         key: 'q',
         value: 'indian',
-        id: 11,
+        id: 12,
 
     },
     {
@@ -99,13 +99,13 @@ export const Filters: IFilter[] = [
         key: 'q',
         value: 'asian',
         query: '',
-        id: 12,
+        id: 13,
 
     },
     {
         name: 'Mexican',
         query: '',
-        id: 13,
+        id: 14,
         key: 'q',
         value: 'mexican',
 
@@ -113,7 +113,7 @@ export const Filters: IFilter[] = [
     {
         name: 'Middle Eastern',
         query: '',
-        id: 14,
+        id: 15,
         key: 'q',
         value: 'middle eastern',
 
@@ -121,7 +121,7 @@ export const Filters: IFilter[] = [
     {
         name: 'Mediterranean',
         query: '',
-        id: 15,
+        id: 16,
         key: 'q',
         value: 'Mediterranean',
 
@@ -129,7 +129,7 @@ export const Filters: IFilter[] = [
     {
         name: 'Canadian',
         query: '',
-        id: 16,
+        id: 17,
         key: 'q',
         value: 'canadian',
 
@@ -138,7 +138,7 @@ export const Filters: IFilter[] = [
     {
         name: 'Salad',
         query: '',
-        id: 17,
+        id: 18,
         key: 'q',
         value: 'salad',
 
@@ -147,7 +147,7 @@ export const Filters: IFilter[] = [
         name: 'Better-For-You',
         query: '',
         disclaimerId: '**',
-        id: 18,
+        id: 19,
         key: 'p_kcal_per_serving',
         value: '0,500',
 

@@ -97,6 +97,9 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter) {
     //Show spinner while loadin
     this.loading = true;
+    if (options.q) {
+      this.theEnteredSearchQuery = options.q;
+    }
     this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
       if (meals) {
         //Check if did_you_mean
