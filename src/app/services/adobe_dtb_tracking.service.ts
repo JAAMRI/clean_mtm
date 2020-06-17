@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment';
 export class AdobeDtbTracking {
     apiHost = environment.host;
     pageLoad(name) {
+        if (environment.local) return;
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent ' + name);
@@ -27,6 +28,8 @@ export class AdobeDtbTracking {
     }
 
     pageTracking(name: string, url: string) {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent ' + name + ' ' + url);
@@ -48,6 +51,8 @@ export class AdobeDtbTracking {
     }
 
     socialMediaTracking(name, url) {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent' + name + ', ' + url);
@@ -69,6 +74,8 @@ export class AdobeDtbTracking {
     }
 
     passwordReset(val: string) {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'password reset on' + val);
@@ -105,6 +112,8 @@ export class AdobeDtbTracking {
     }
 
     firstTimeUser(val) {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', val);
@@ -126,6 +135,8 @@ export class AdobeDtbTracking {
     }
 
     returningUser() {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'Returning User sign in');
@@ -147,6 +158,8 @@ export class AdobeDtbTracking {
     }
 
     signout() {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'Rerouting to Home Page on signout');
@@ -170,6 +183,8 @@ export class AdobeDtbTracking {
     }
 
     anchorLink(val) {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', val);
@@ -193,6 +208,8 @@ export class AdobeDtbTracking {
 
 
     updateInformation() {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'Updating User Information on Profile');
@@ -213,6 +230,8 @@ export class AdobeDtbTracking {
         // }
     }
     checkbox(value: any) {
+        if (environment.local) return;
+
         // if (environment.production) {
         if (value.checked) {
             this.taggingOptin();
@@ -222,6 +241,8 @@ export class AdobeDtbTracking {
         // }
     }
     taggingOptin() {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'CompleteRegistration');
@@ -243,6 +264,8 @@ export class AdobeDtbTracking {
     }
 
     taggingOptout() {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'BRAND OPTOUT/CORPORATE OPTOUT');
@@ -264,6 +287,8 @@ export class AdobeDtbTracking {
     }
 
     contactUs(val) {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'CONTACT US Using:' + val);
@@ -285,6 +310,8 @@ export class AdobeDtbTracking {
     }
 
     sharingMealByEmail(title) {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'Sharing ' + title + ' by Email');
@@ -306,6 +333,8 @@ export class AdobeDtbTracking {
     }
 
     anchorLinkMeal(val, title) {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', val + title);
@@ -327,6 +356,8 @@ export class AdobeDtbTracking {
     }
 
     anchorLinkTab(val, file, title) {
+        if (environment.local) return;
+
         // if (environment.production) {
         if (file == "profile page") {
             if (!isNaN(val)) {
@@ -370,6 +401,8 @@ export class AdobeDtbTracking {
     }
 
     searchQuery(query, size) {
+        if (environment.local) return;
+
         // if (environment.production) {
         // @ts-ignore
         fbq('track', query);

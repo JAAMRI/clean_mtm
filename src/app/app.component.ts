@@ -59,8 +59,11 @@ export class AppComponent implements OnInit {
   async ngAfterViewInit() {
     // this.loadFooter();
     this.loadFontIcons();
-    this.facebookImplementation();
-    this.adobeImplementation();
+    if (!environment.local) {
+      console.log('in here')
+      this.facebookImplementation();
+      this.adobeImplementation();
+    }
     if (environment.production || environment.uat) {
 
       await this.loadjscssfile("../lazyloadedstyles.css", "css");

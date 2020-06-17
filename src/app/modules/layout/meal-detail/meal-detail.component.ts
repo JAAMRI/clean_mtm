@@ -55,7 +55,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    
+
     this.isMobile = (event.target.innerWidth < 768);
   }
 
@@ -143,7 +143,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   logMealLocation() {
-    const host = `${environment.production ? 'https://www.mealsthatmatter.com' : (environment.uat ? 'https://uat.mealsthatmatter.com' : 'http://localhost:4200')}`;
+    const host = environment.baseUrl;
     const mealTitle = this.meal.title.split(',').join('').split('(').join('').split(')').join('').split(' ').join('-').split('&').join('and');
     const location = `RECIPE LOCATION: ${host}/recipes/${mealTitle}-${this.mealId}`;
     console.log(location);
@@ -159,7 +159,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   getEmailContent() {
-    const host = `${environment.production ? 'https://www.mealsthatmatter.com' : (environment.uat ? 'https://uat.mealsthatmatter.com' : 'http://localhost:4200')}`;
+    const host = environment.baseUrl;
     const mealTitle = this.meal.title.split(',').join('').split('(').join('').split(')').join('').split(' ').join('-').split('&').join('and');
     const location = `${host}/recipes/${mealTitle}-${this.mealId}`;
     const body = "Hi, Thought you would love this recipe from Meals That Matter. " + encodeURIComponent(location);
@@ -224,7 +224,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     }
     console.log(mealId)
 
-   
+
     this.currentMealPlan.push(meal);
     this.mealPlanIds[mealId] = true;
     await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'add')
@@ -244,7 +244,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'remove')
     this.currentMealPlan = this.currentMealPlan.filter((m) => m).filter((meal) => meal.id !== mealId)
     delete this.mealPlanIds[mealId];
-    if(this.inDialog) {
+    if (this.inDialog) {
       this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'remove' });
     }
     this.adobeDtbTracking.anchorLinkMeal('Removing From Meal Plan: ', meal.title);
@@ -256,7 +256,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     }
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
       await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove')
-      if(this.inDialog) {
+      if (this.inDialog) {
 
         this.dialogParams.onAddOrRemoveFavourites({ 'meal': favouriteMeal, 'action': 'remove' });
       }

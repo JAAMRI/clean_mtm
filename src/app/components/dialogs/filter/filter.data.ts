@@ -51,7 +51,7 @@ export const Filters: IFilter[] = [
         name: 'Pasta',
         query: '',
         key: 'q',
-        value: 'pasta',
+        value: 'pasta recipes',
         id: 7,
     },
     {
@@ -66,7 +66,7 @@ export const Filters: IFilter[] = [
         name: 'Slow-Cooker',
         query: '',
         key: 'q',
-        value: 'simmer',
+        value: 'slow-cooked recipes',
         id: 9,
 
     },
@@ -115,7 +115,7 @@ export const Filters: IFilter[] = [
         query: '',
         id: 15,
         key: 'q',
-        value: 'middle eastern',
+        value: 'middle easter', // typo on backend this compensates for it
 
     },
     {
