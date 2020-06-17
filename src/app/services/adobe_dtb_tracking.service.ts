@@ -7,8 +7,9 @@ import { environment } from '../../environments/environment';
 
 export class AdobeDtbTracking {
     apiHost = environment.host;
-    page_load(name) {
-         if (environment.production) {
+    pageLoad(name) {
+        if (environment.local) return;
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent ' + name);
         var ev = {};
@@ -23,11 +24,13 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': "Other" }; ev.subcategory = 'Read';
         // @ts-ignore
         digitalData.event.push(ev);
-        } 
+        // }
     }
 
-    page_tracking(name, url) {
-         if (environment.production) {
+    pageTracking(name: string, url: string) {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent ' + name + ' ' + url);
         var ev = {};
@@ -44,11 +47,13 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': "Custom" };
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 
-    social_media_tracking(name, url) {
-         if (environment.production) {
+    socialMediaTracking(name, url) {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent' + name + ', ' + url);
         var ev = {};
@@ -65,11 +70,13 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.referral };
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 
-    password_reset(val: string) {
-         if (environment.production) {
+    passwordReset(val: string) {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', 'password reset on' + val);
         // @ts-ignore
@@ -101,11 +108,13 @@ export class AdobeDtbTracking {
         ev.subcategory = 'Interest';
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 
-    first_time_user(val) {
-         if (environment.production) {
+    firstTimeUser(val) {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', val);
         var ev = {};
@@ -122,11 +131,13 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.other };
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 
-    returning_user() {
-         if (environment.production) {
+    returningUser() {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', 'Returning User sign in');
         var ev = {};
@@ -143,11 +154,13 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.other }; ev.subcategory = 'Lead';
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 
     signout() {
-         if (environment.production) {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', 'Rerouting to Home Page on signout');
         var ev = {};
@@ -166,11 +179,13 @@ export class AdobeDtbTracking {
         ev.subcategory = 'Interest';
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 
-    anchor_link(val) {
-         if (environment.production) {
+    anchorLink(val) {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', val);
         var ev = {};
@@ -187,74 +202,15 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.custom };
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 
-    anchor_link_tab(val, from_file, meal_title) {
-         if (environment.production) {
-        if (from_file == "profile page") {
-            if (!isNaN(val)) {
-                if (val == 0) {
-                    val = "PERSONAL INFO TAB on profile page";
-                } else if (val == 1) {
-                    val = "SECURITY TAB on profile page";
-                } else if (val == 2) {
-                    val = "NOTIFICATIONS TAB on profile page";
-                }
-            }
-        } else if (from_file == "meal detail") {
-            if (!isNaN(val)) {
-                if (val == 0) {
-                    val = "INGREDIENTS TAB for: " + meal_title;
-                } else if (val == 1) {
-                    val = "INSTRUCTIONS TAB for: " + meal_title;
-                } else if (val == 2) {
-                    val = "NUTRITION TAB for: " + meal_title;
-                }
-            }
 
-        }
-        // @ts-ignore
-        fbq('track', val);
-        var ev = {};
-        // @ts-ignore
-        ev.eventInfo = {
-            // @ts-ignore
-            'type': ctConstants.trackEvent,
-            // @ts-ignore
-            'eventAction': ctConstants.anchorLinkClicked,
-            'eventLabel': val,
-            'eventValue': 1
-        };
-        // @ts-ignore
-        ev.category = { 'primaryCategory': ctConstants.custom };
-        // @ts-ignores
-        digitalData.event.push(ev);
-               }
-    }
 
-    anchor_link_meal(val, meal_title) {
-         if (environment.production) {
-        // @ts-ignore
-        fbq('track', val + meal_title);
-        var ev = {};
-        // @ts-ignore
-        ev.eventInfo = {
-            // @ts-ignore
-            'type': ctConstants.trackEvent,
-            // @ts-ignore
-            'eventAction': ctConstants.anchorLinkClicked,
-            'eventLabel': val + meal_title,
-            'eventValue': 1
-        };
-        // @ts-ignore
-        ev.category = { 'primaryCategory': ctConstants.custom };
-        // @ts-ignores
-        digitalData.event.push(ev);
-               }
-    }
-    update_information() {
-         if (environment.production) {
+    updateInformation() {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', 'Updating User Information on Profile');
         var ev = {};
@@ -271,19 +227,23 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.custom }; ev.subcategory = 'Others';
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
-    checkbox(value) {
-         if (environment.production) {
+    checkbox(value: any) {
+        if (environment.local) return;
+
+        // if (environment.production) {
         if (value.checked) {
-            this.tagging_optin();
+            this.taggingOptin();
         } else {
-            this.tagging_optout();
+            this.taggingOptout();
         }
-               }
+        // }
     }
-    tagging_optin() {
-         if (environment.production) {
+    taggingOptin() {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', 'CompleteRegistration');
         var ev = {};
@@ -300,11 +260,13 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.conversion }; ev.subcategory = 'Lead';
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 
-    tagging_optout() {
-         if (environment.production) {
+    taggingOptout() {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', 'BRAND OPTOUT/CORPORATE OPTOUT');
         var ev = {};
@@ -321,11 +283,13 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.custom };
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 
-    contact_us(val) {
-         if (environment.production) {
+    contactUs(val) {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', 'CONTACT US Using:' + val);
         var ev = {};
@@ -342,11 +306,13 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.other };
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 
-    sharing_meal_by_email(title) {
-         if (environment.production) {
+    sharingMealByEmail(title) {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', 'Sharing ' + title + ' by Email');
         var ev = {};
@@ -363,11 +329,81 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.referral }; ev.subcategory = 'Lead';
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 
-    search_query(query, size) {
-         if (environment.production) {
+    anchorLinkMeal(val, title) {
+        if (environment.local) return;
+
+        // if (environment.production) {
+        // @ts-ignore
+        fbq('track', val + title);
+        var ev = {};
+        // @ts-ignore
+        ev.eventInfo = {
+            // @ts-ignore
+            'type': ctConstants.trackEvent,
+            // @ts-ignore
+            'eventAction': ctConstants.anchorLinkClicked,
+            'eventLabel': val + title,
+            'eventValue': 1
+        };
+        // @ts-ignore
+        ev.category = { 'primaryCategory': ctConstants.custom };
+        // @ts-ignores
+        digitalData.event.push(ev);
+        // }
+    }
+
+    anchorLinkTab(val, file, title) {
+        if (environment.local) return;
+
+        // if (environment.production) {
+        if (file == "profile page") {
+            if (!isNaN(val)) {
+                if (val == 0) {
+                    val = "PERSONAL INFO TAB on profile page";
+                } else if (val == 1) {
+                    val = "SECURITY TAB on profile page";
+                } else if (val == 2) {
+                    val = "NOTIFICATIONS TAB on profile page";
+                }
+            }
+        } else if (file == "meal detail") {
+            if (!isNaN(val)) {
+                if (val == 0) {
+                    val = "INGREDIENTS TAB for: " + title;
+                } else if (val == 1) {
+                    val = "INSTRUCTIONS TAB for: " + title;
+                } else if (val == 2) {
+                    val = "NUTRITION TAB for: " + title;
+                }
+            }
+
+        }
+        // @ts-ignore
+        fbq('track', val);
+        var ev = {};
+        // @ts-ignore
+        ev.eventInfo = {
+            // @ts-ignore
+            'type': ctConstants.trackEvent,
+            // @ts-ignore
+            'eventAction': ctConstants.anchorLinkClicked,
+            'eventLabel': val,
+            'eventValue': 1
+        };
+        // @ts-ignore
+        ev.category = { 'primaryCategory': ctConstants.custom };
+        // @ts-ignores
+        digitalData.event.push(ev);
+        //   }
+    }
+
+    searchQuery(query, size) {
+        if (environment.local) return;
+
+        // if (environment.production) {
         // @ts-ignore
         fbq('track', query);
         var ev = {};
@@ -386,6 +422,6 @@ export class AdobeDtbTracking {
         digitalData.page.attributes.contentType = "SEARCH TYPE"
         // @ts-ignore
         digitalData.event.push(ev);
-               }
+        // }
     }
 }

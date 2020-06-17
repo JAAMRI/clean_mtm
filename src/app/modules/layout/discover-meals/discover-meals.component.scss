@@ -1,86 +1,74 @@
-@import "../../../../scss/customTheme.scss";
 @import "../../../../scss/variables.scss";
-
-.discover-meals-page {
-  height: calc(100% - 64px); // height subtracting toolbar
-  min-height: calc(100vh - 64px); // height subrating toolbar (landscape)
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: $light_beige;
-  position: relative;
-  z-index: 1;
-}
-.mobile-discover-meals-page {
-  height: calc(100% - 40px - 2em); // height subtracting mobil toolbar
-  min-height: calc(100vh - 40px - 2em); // height subrating toolbar (landscape)
-  display: flex;
-  padding: 1em 0;
-  flex-direction: column;
-  align-items: center;
-  background-color: $light_beige;
-}
-.search {
-  width: 100%;
-}
-.title {
-  font-size: 2em;
-  align-self: center;
-  color: $mtm_dark_green_color;
-  font-weight: bold;
-}
-.subheader {
-  text-align: center;
-  font-family: avenir;
-  width: 75%;
-}
-.search {
-  text-align: center;
-  font-family: avenir;
-  .did-you-mean {
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-  }
-}
-.no-items-wrapper {
-  border-radius: 5%;
-  font-family: avenir;
-  background-color: lightgray;
-  padding: 0.5em 1em 1em 1em;
-  mat-icon {
-    color: $mtm_green_color;
-  }
-}
-.loading-text {
-  text-align: center;
-  color: $mtm_dark_green_color;
-}
-.discover-meals-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+app-discover-meals{
   flex: 1;
-  width: 100%;
-  mat-progress-bar {
-    width: 80%;
+  .search {
+    width: 100%;
   }
-}
-.discover-action-buttons {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 1em;
-  .next-button {
-    color: $mtm_green_color !important;
-    background-color: $darker_beige !important;
-    font-family: flavour;
+  .copy {
+    text-align: center;
+    padding: 0 2em;
+    .subheader {
+      mat-icon {
+        color: $mtm_dark_green_color;
+        margin-bottom: 4px;
+      }
+    }
   }
-}
-
-*:focus {
-  outline: 0;
-  outline: none;
+  .gif-wrapper {
+    display: flex;
+    justify-content: center;
+    img {
+      height: 40px;
+    }
+  }
+  
+  .filter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    p {
+      margin: unset;
+      color: rgba(0, 0, 0, 0.54);
+    }
+    mat-icon {
+      cursor: pointer;
+    }
+  }
+  
+  .search {
+    text-align: center;
+    
+    .did-you-mean {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+    }
+  }
+  .no-items-wrapper {
+    display: flex;
+    justify-content: center;
+    p{
+  
+      border-radius: 5%;
+      background-color: $mtm_grey;
+      padding: 8px;
+      mat-icon {
+        color: $mtm_dark_green_color;
+      }
+    }
+  }
+  .loading-text {
+    text-align: center;
+    color: $mtm_dark_green_color;
+  }
+  
+  *:focus {
+    outline: 0;
+    outline: none;
+  }
+  
+  .mat-button-focus-overlay {
+    background-color: transparent !important;
+    // remove grey outline from ubttons
+  }
 }

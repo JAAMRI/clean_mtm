@@ -1,111 +1,103 @@
-@import "../../../../scss/customTheme.scss";
-.cc-side-drawer-anchor {
-  display: none;
-}
-.my-meals-page {
-  height: calc(100% - 64px); // height subrating toolbar
-  min-height: calc(100vh - 64px); // height subrating toolbar (landscape)
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: $light_beige;
-  position: relative;
-  z-index: 1;
-}
-.mobile-my-meals-page {
-  height: calc(100% - 40px); // height subrating toolbar
-  min-height: calc(100vh - 40px); // height subrating toolbar (landscape)
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: $light_beige;
-}
-.button-wrapper{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  button{
-      width: 300px;
-  }
-}
-.title {
-  font-size: 2em;
-  text-align: center;
-  margin-bottom: 16px;
-  color: $mtm_dark_green_color;
-  font-weight: bold;
-}
-.my-meals-subheader {
-  text-align: center;
-  font-family: avenir;
-  width: 75%;
-  margin: auto;
-}
-.no-items-text {
-  text-align: center;
-}
-.add-meal-button {
-  font-family: flavour;
-  width: 50%;
-  margin: auto;
-}
-.my-meals-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@import "../../../../scss/variables.scss";
+
+app-my-meals{
   flex: 1;
-  height: 100%;
-  width: 100%;
-  .virtual-scroll {
-    width: 100%;
-    height: 100%;
+  .copy {
+    text-align: center;
+    padding: 1em 2em 0 2em;
+    h1{
+      margin: unset;
+    }
+    strong {
+      color: $mtm_dark_green_color;
+    }
+    mat-icon {
+      color: $mtm_dark_green_color;
+    }
   }
-  .cdk-virtual-scroll-content-wrapper {
+  .my-meals-container{
+    .meal-item{
+      margin-bottom: 1em;
+    }
+  }
+  
+  .my-meals-subheader {
+    text-align: center;
+    
+    width: 75%;
+    margin: auto;
+  }
+  .no-items-text {
+    text-align: center;
+  }
+  
+  .my-meals-container {
+    display: grid;
+    grid-gap: 1em;
+    justify-content: center;
+    .virtual-scroll {
+      width: 100%;
+      height: 100%;
+    }
+    .cdk-virtual-scroll-content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 0.5em;
+    }
+    .add-meal-item {
+      background-color: $mtm_grey;
+      display: flex;
+      height: 20vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      .icon-container {
+        mat-icon {
+          transform: scale(2);
+        }
+      }
+      p {
+        margin: unset;
+      }
+    }
+  }
+  .my-meals-action-buttons {
+    display: grid;
+    margin: auto;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 0.5em;
+    padding: 0 1em 1em 1em;
+  }
+  
+  .route-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 0.5em;
+    button {
+      color: $mtm_dark_green_color !important;
+      background-color: $mtm_grey !important;
+    }
   }
-  .add-meal-item {
-    background-color: $darker_beige;
+  .save-meal-plan-button {
+    color: $mtm_dark_green_color !important;
+    background-color: $mtm_grey !important;
+  }
+  
+  .select-meals-button-wrapper{
     display: flex;
-    height: 20vh;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    cursor: pointer;
-    .icon-container {
-      mat-icon {
-        transform: scale(2);
-      }
-    }
-    p {
-      margin: unset;
-    }
   }
-}
-.my-meals-action-buttons {
-  display: grid;
-  margin: auto;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 0.5em;
-  padding: 0 1em 1em 1em;
-}
-
-.route-buttons{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 0.5em;
-  button{
-    color: $mtm_green_color !important;
-    background-color: $darker_beige !important;
+  
+  .sticky{
+    position: sticky;
+    top: 0;
+    background-color: $mtm_white;
+    z-index: 3;
   }
-}
-.save-meal-plan-button {
-  color: $mtm_green_color !important;
-  background-color: $darker_beige !important;
-}
-
-*:focus {
-  outline: 0;
-  outline: none;
+  
+  *:focus {
+    outline: 0;
+    outline: none;
+  }
 }

@@ -1,18 +1,18 @@
-$flavour-font-path: '/assets/fonts/flavour.regular.ttf';
-$font-family-flavour: 'flavour';
+$filson-font-path: '/assets/fonts/filson/filson.regular.otf';
+$font-family-filson: 'filson';
 
+$filson-bold-font-path: '/assets/fonts/filson/filson.bold.otf';
+$font-family-filson-bold: 'filson-bold';
 
-$avenir-font-path: '/assets/fonts/avenir_ttf/Avenir-Medium-09.ttf';
-$font-family-avenir: 'avenir';
 
 @font-face {
-    font-family: $font-family-flavour;
+    font-family: $font-family-filson;
     font-display: swap;
-    src: url($flavour-font-path) format("truetype");
+    src: url($filson-font-path) format("truetype");
 }
 
 @font-face {
-    font-family: $font-family-avenir;
+    font-family: $font-family-filson-bold;
     font-display: swap;
-    src: url($avenir-font-path) format("truetype");
+    src: url($filson-bold-font-path) format("truetype");
 }

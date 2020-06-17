@@ -1,25 +1,28 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #snav mode="over" [class]="isMobile ? 'mobile-nav' : 'web-nav'" [fixedInViewport]="true">
-    <app-mobile-menu (close)='snav.close()'></app-mobile-menu>
+<div class="home-page">
+  <mat-sidenav-container>
+    <mat-sidenav mode="over" #snav>
+      <app-mobile-menu [loggedIn]='isLoggedIn' (onSignOut)='signOut()' (close)='snav.close()'></app-mobile-menu>
 
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <button class='menu-button' aria-label="Open menu" [class.deactivate]='snav.opened' mat-icon-button
-      (click)="snav.toggle()">
-      <mat-icon *ngIf='!snav.opened'>menu</mat-icon>
-    </button>
-
-    <div class="home-page">
-      <section [class]="isMobile ? 'mobile-wrapper' : 'main-wrapper'">
-        <div class="component-wrapper">
-          <div class="home-content" [class.desktop]='isWeb'>
-            <app-on-board (scroll)='scrollToHowItWorks()' (login)='routeToLogin()'></app-on-board>
-          </div>
-        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <button class='menu-button' aria-label="Open menu" mat-icon-button (click)="snav.toggle()">
+        <mat-icon *ngIf='!snav.opened'>menu</mat-icon>
+      </button>
+      <section class="on-board-content">
+        <app-on-board (scroll)='scrollToHowItWorks()' (login)='routeToLogin()'></app-on-board>
       </section>
-      <div #howItWorks> <div #howItWorksContainer></div></div>
-      <div #youWillLoveThisContainer> </div>
-      <div  #reclaimWeeknightCookingContainer> </div>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      <section #howItWorks class="how-it-works">
+        <app-how-it-works (navigate)='checkAuth($event, "how-it-works")'></app-how-it-works>
+      </section>
+      <section class="you-will-love-this">
+        <app-you-will-love-this (navigate)='checkAuth("", "you-will-love-this")'></app-you-will-love-this>
+      </section>
+      <section class="reclaim-weeknight-cooking">
+        <app-reclaim-weeknight-cooking (navigate)='checkAuth("", "reclaim-weeknight-cooking")'></app-reclaim-weeknight-cooking>
+      </section>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+<div class="get-started-button-wrapper">
+  <button mat-flat-button color='primary' (click)='getStarted()'>GET STARTED</button>
+</div>

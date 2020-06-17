@@ -1,26 +1,13 @@
-@import "../../../../scss/customTheme.scss";
 @import "../../../../scss/variables.scss";
 
-.main-footer {
-    .main-footer-wrapper {
-      background-image: url("/assets/static_images/Desktop_Footer_Image.jpg");
-      background-size: cover;
-      background-position: center;
-      height: 100%;
-      min-height: 40vh;
+.reclaim-weeknight-cooking-section {
+  .img-wrapper{
+    display: flex;
+    justify-content: center;
+    img{
+      object-fit: cover;
       width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      flex-direction: column;
-      position: relative;
-      .text-wrapper {
-        text-align: center;
-        color: $light_beige;
-        p {
-          font-family: avenir;
-          width: 65%;
-          margin: auto;
-        }
-      }
+      max-height: 40vh;
     }
   }
+}

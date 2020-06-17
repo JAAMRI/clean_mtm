@@ -1,18 +1,15 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import Auth from '@aws-amplify/auth';
 import { environment } from '../../../environments/environment';
 import { AccountService } from '../account/account.service';
-import Auth from '@aws-amplify/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PreferencesService {
   apiHost = environment.host;
-  private preferencesUrl = '/preferences';  // URL to web api
 
   constructor(
-    private http: HttpClient,
     private accountService: AccountService
     ) { }
 

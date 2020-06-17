@@ -1,77 +1,94 @@
-@import "../../../../scss/customTheme.scss";
 @import "../../../../scss/variables.scss";
 
-.mat-dialog-container {
-  overflow: unset;
+.unset-box-shadow {
+
+  .mat-dialog-container {
+    box-shadow: unset !important;
+    background: transparent !important;
+  }
 }
 .recipe-page {
-  font-family: avenir;
+  
   overflow: scroll;
   overflow-x: hidden;
   -ms-overflow-x: hidden;
   position: relative;
   z-index: 1;
-  background-color: $light_beige;
+  font-family: Arial; 
+  font-weight: regular;
+  background-color: $mtm_white;
   &.dialog{
     max-width: 80vw;
     max-height: 80vh;
   }
+ 
 }
 
 .mobile-recipe-page{
-  font-family: avenir;
+  
   width: 100vw;
   height: 100vh;
   overflow: scroll;
   overflow-x: hidden;
   -ms-overflow-x: hidden;
+  
 }
 
-.close-button {
-  position: -webkit-sticky;
-  position: sticky;
-  // position:absolute;
+.recipe-close-button {
+
+  position:absolute;
   z-index: 100;
   top: 0;
   right: 0;
   color: $mtm_dark_green_color;
   //  width:100%;
-  button{
-    float:right;
-    // position:sticky;
+}
+
+.gif-wrapper{
+  display: flex;
+  justify-content: center;
+  img{
+    height: 40px;
   }
 }
 
 
 .headers {
-  margin-top: 2em;
+  margin-top: 3em;
+  padding: 0 3em;
   .header {
     font-size: 2em;
-    margin-top: unset;
     text-align: center;
     align-self: end;
-    font-family: flavour;
-    color: $mtm_dark_green_color;
   }
   .subheader {
-    color: $mtm_dark_green_color;
     text-align: center;
-    font-family: avenir;
-    width: 75%;
-    margin: auto;
   }
 }
 
 .meal-recipe {
-  padding: 2em 8em 1em 8em;
-  background-color: $light_beige;
+  padding: 2em 3em 1em 3em;
+  background-color: $mtm_white;
 }
 .mobile-meal-recipe {
   padding: 0 4px;
-  background-color: $light_beige;
+  background-color: $mtm_white;
+}
+.meal-info{
+  @media(max-width: 768px) {
+    padding: 0 1em;
+  }
+}
+.text-wrapper{
+  padding: 0 3em;
 }
 .meal-summary-mobile {
-  padding-top: 1em;
+  position: relative;
+  button{
+    position: absolute;
+    right: 1em;
+    top: -20px;
+  }
   .img-wrapper {
     display: flex;
     width: 100%;
@@ -85,6 +102,9 @@
     display: flex;
     justify-content: space-between;
     margin: 1em 0;
+    .title{
+      color: $mtm_dark_green_color;
+    }
     p {
       margin: unset;
       font-size: 1em;
@@ -94,7 +114,7 @@
     justify-self: start;
     text-align: right;
     .add-button {
-      color: $mtm_green_color;
+      color: $mtm_dark_green_color;
     }
     .added {
       opacity: 0.5;
@@ -108,15 +128,22 @@
     grid-template-columns: 1fr 2fr;
     .text-wrapper {
       h3 {
+        color: $mtm_dark_green_color;
         margin: unset;
       }
       .meal-description {
-        font-family: avenir;
+        
         padding-right: 1em;
         margin: unset;
       }
     }
     .action-wrapper {
+      position: relative;
+      button{
+        position: absolute;
+        right: 1em;
+        top: -20px;
+      }
       .img-wrapper {
         height: 35vh;
         width: 100%;
@@ -132,7 +159,7 @@
         justify-content: space-between;
         margin-top: 8px;
         .send-to-email-button {
-          background-color: $darker_beige;
+          background-color: $mtm_grey;
           color: $mtm_dark_green_color;
         }
         .cta-wrapper {
@@ -148,7 +175,9 @@
             text-align: right;
             margin-left: 1em;
             .add-button {
-              color: $mtm_green_color;
+              color: $mtm_dark_green_color;
+              border: 1px solid rgba($mtm_light_grey, 0.7);
+
             }
             .added {
               opacity: 0.5;
@@ -165,28 +194,33 @@
     height: 100%;
   }
   .mat-tab-label-content {
-    color: $mtm_dark_green_color;
     font-family: 500;
   }
   .mat-tab-header {
     border-bottom: unset;
-  }
-  .mat-tab-label-active {
-    background-color: $darker_beige;
-  }
-  .mat-tab-body-wrapper {
-    background-color: $darker_beige;
-    height: 100%;
-  }
-  .mat-ink-bar {
-    display: none;
   }
   .mat-tab-label {
     height: 24px;
     padding: 0 12px;
     font-size: 12px;
     font-weight: 600;
+    border-radius: 4px 4px 0 0;
+    background-color: $mtm_light_green_color;
+    color: $mtm_white;
+    margin: 0 4px;
   }
+  .mat-tab-label-active {
+    background-color: $mtm_dark_green_color;
+    color: $mtm_white;
+  }
+  .mat-tab-body-wrapper {
+    background-color: $mtm_grey;
+    height: 100%;
+  }
+  .mat-ink-bar {
+    display: none;
+  }
+  
 }
 
 .scroll-to-bottom-button-wrapper {
@@ -200,70 +234,71 @@
 }
 
 .other-recommended-meals {
-  background-color: $mtm_green_color;
-  color: $light_beige;
-  text-align: center;
-  padding: 1em;
-  .text-wrapper {
-    h1{
-      font-family: flavour;
-    }
+  background-color: $mtm_white;
+
+  h1{
+    text-align: center;
+    margin-bottom: unset;
   }
+ 
 }
 .meal-details-footer {
   height: 40vh;
-  background-image: url("/assets/static_images/Desktop_Footer_Image.jpg");
+  background-image: url("/assets/static_images/meal-recipe-footer.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
   position: relative;
   padding-bottom: 3em;
-  .meal-details-footer-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    .text-wrapper {
-      color: $light_beige;
-      p {
-        font-family: avenir;
-        text-align: center;
-        padding: 0 1em;
-      }
-    }
-    .logo-wrapper {
-      position: absolute;
-      bottom: 2em;
-      left: 1em;
-      height: 10vh;
-      width: 10vh;
-      img {
-        object-fit: contain;
-        height: 100%;
-        width: 100%;
-      }
-    }
-    .meal-detail-action-button {
-      button {
-        background-color: $mtm_green_color;
-        color: $light_beige;
-      }
-    }
-    .scroll-to-top-button-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      button {
-        position: absolute;
-        bottom: 1em;
-        right: 3em;
-      }
-    }
-  }
 }
+    .meal-details-footer-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .text-wrapper {
+        color: $mtm_dark_grey;
+        p {
+          
+          text-align: center;
+          padding: 0 1em;
+        }
+      }
+      .logo-wrapper {
+        position: absolute;
+        bottom: 2em;
+        left: 1em;
+        height: 10vh;
+        width: 10vh;
+        img {
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .meal-detail-action-button {
+        background-color: $mtm_grey;
+        padding: 1em;
+        width: 100%;
+        text-align: center;
+        button {
+          background-color: $mtm_dark_green_color;
+          color: $mtm_white;
+        }
+      }
+      .scroll-to-top-button-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        button {
+          position: absolute;
+          bottom: 1em;
+          right: 3em;
+        }
+      }
+    }
 .scroll-button {
   color: $mtm_light_green_color !important;
-  background-color: $light_beige !important;
+  background-color: $mtm_white !important;
   border: 1px solid $mtm_light_green_color !important;
 }
 
@@ -274,4 +309,19 @@
 
 mat-spinner{
   margin: auto;
+}
+
+.add-button {
+
+  background-color: $mtm_white !important;
+  color: $mtm_dark_green_color !important;
+  border: 1px solid rgba($mtm_light_grey, 0.7);
+
+
+}
+.remove-button {
+  
+  background-color: $mtm_dark_green_color !important;
+  color: $mtm_white !important;
+
 }

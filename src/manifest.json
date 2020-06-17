@@ -1,8 +1,8 @@
 {
   "name": "Meals That Matter - Plan. Prep. Plate",
   "short_name": "MTM",
-  "theme_color": "#fafafa",
-  "background_color": "#fffef9",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",

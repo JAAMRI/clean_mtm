@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AuthGuardService as AuthGuard } from './services/account/auth-guard.service';
+import { LayoutComponent } from './modules/layout/layout.component';
 
 const routes: Routes = [
   {
@@ -11,7 +11,6 @@ const routes: Routes = [
   },
   {
     path: 'recipes',
-    component: ToolbarComponent,
     loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule)
   },
   { path: 'MTM', redirectTo: 'recipes', pathMatch: 'prefix' },//Redirect all MTM requests to recipes
@@ -19,31 +18,39 @@ const routes: Routes = [
   {
     path: 'profile',
     canActivate: [AuthGuard],
-    component: ToolbarComponent,
+    component: LayoutComponent,
 
     loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   },
   {
-    path: 'faqs',
-    component: ToolbarComponent,
+    path: 'auth',
+    component: LayoutComponent,
+    loadChildren: () => import('./modules/layout/auth/auth.module').then(m => m.AuthModule)
+  },
 
-    loadChildren: () => import('./modules/faq/faq.module').then(m => m.FaqModule)
+  {
+    path: 'faqs',
+    component: LayoutComponent,
+
+    loadChildren: () => import('./modules/layout/faq/faq.module').then(m => m.FaqModule)
   },
   {
     path: 'article',
-    component: ToolbarComponent,
-    loadChildren: () => import('./modules/article/article.module').then(m => m.ArticleModule)
+    component: LayoutComponent,
+
+    loadChildren: () => import('./modules/layout/article/article.module').then(m => m.ArticleModule)
   },
   {
     path: 'download',
-    component: ToolbarComponent,
-    loadChildren: () => import('./modules/download/download.module').then(m => m.DownloadModule)
+    component: LayoutComponent,
+
+    loadChildren: () => import('./modules/layout/download/download.module').then(m => m.DownloadModule)
   },
   {
     path: 'contact-us',
-    component: ToolbarComponent,
+    component: LayoutComponent,
 
-    loadChildren: () => import('./modules/contact-us/contact-us.module').then(m => m.ContactUsModule)
+    loadChildren: () => import('./modules/layout/contact-us/contact-us.module').then(m => m.ContactUsModule)
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 

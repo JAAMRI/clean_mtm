@@ -40,7 +40,7 @@ export class GroceryListComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.adobeDtbTracking.page_load("grocery list page");
+      this.adobeDtbTracking.pageLoad("grocery list page");
     },
       5000);
 

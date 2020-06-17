@@ -58,7 +58,7 @@ export class ChangePasswordComponent implements OnInit {
   async changePassword() {
     Auth.currentAuthenticatedUser()
       .then(user => {
-        this.adobeDtbTracking.password_reset('Profile page');
+        this.adobeDtbTracking.passwordReset('Profile page');
         return Auth.changePassword(user, this.securityForm.controls.password.value, this.securityForm.controls.newPassword.value);
       })
       .then(data => {

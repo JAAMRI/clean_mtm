@@ -1,21 +1,19 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { UserFormComponent } from '../../../../app/components/dialogs/user-form/user-form.component';
-import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
-import { BREAKPOINTS } from '../../../../app/utilities/breakpoints';
-import { scrollToTop } from '../../../../app/utilities/helper-functions';
-import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
-import { MealDetailComponent } from '../meal-detail/meal-detail.component';
-import { Location } from '@angular/common';
-import { AccountService } from '../../../../app/services/account/account.service';
-import { SeoService } from '../../../../app/services/seo.service';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { AccountService } from '../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
+import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
+import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
+import { SeoService } from '../../../../app/services/seo.service';
+import { scrollToTop } from '../../../../app/utilities/helper-functions';
+import { MealService } from '../../../services/meal/meal.service';
+import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 
 @Component({
   selector: 'app-favourites',
@@ -45,21 +43,20 @@ export class FavouritesComponent implements OnInit {
 
   constructor(private router: Router, private snackbar: MatSnackBar,
     private route: ActivatedRoute,
-    private breakpointObserver: BreakpointObserver,
     private mealFavouritesService: MealFavouritesService,
     private mealPlanService: MealPlanService,
+    private mealService: MealService,
     private location: Location,
     private accountService: AccountService,
     private dialog: MatDialog,
     private seo: SeoService,
     private title: Title,
     public adobeDtbTracking: AdobeDtbTracking) {
-    this.observeBreakpoints();
   }
 
   ngOnInit() {
     setTimeout(() => {
-      this.adobeDtbTracking.page_load("favourite meals page");
+      this.adobeDtbTracking.pageLoad("favourite meals page");
     },
       5000);
     this.getFavouriteMeals();
@@ -95,25 +92,15 @@ export class FavouritesComponent implements OnInit {
     })
   }
 
-  promptUserForAuth() {
-    const dialogRef = this.dialog.open(UserFormComponent, {
-      panelClass: 'email-dialog-container',
-      backdropClass: 'faded-backdrop',
-      data: { isMobile: !this.isWeb }
-    });
-
-    dialogRef.afterClosed().subscribe(res => {
-      if (res) {
-        this.snackbar.open('Your preferences have been saved!', null, { duration: 3000 });
-      }
-    });
-  }
-
-  async addToMealPlan(meal: any) {
+  async addToMealPlan(mealId: string) {
     // add to mealplan
+    const meal = await this.mealService.getMealById(mealId).toPromise();
+
     this.mealPlan.push(meal);
-    this.mealPlanIds[meal.id] = true;
-    await this.mealPlanService.saveMealPlan(this.mealPlan, meal.id, 'add')
+    this.mealPlanIds[mealId] = true;
+    await this.mealPlanService.saveMealPlan(this.mealPlan, meal.id, 'add');
+    this.snackbar.open('Added to meal plan!', null, {duration: 2000, verticalPosition: 'top'});
+
   }
 
   async removeFromMealPlan(mealId: any) {
@@ -121,12 +108,16 @@ export class FavouritesComponent implements OnInit {
     await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove')
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
     delete this.mealPlanIds[mealId];
+    this.snackbar.open('Remove from meal plan!', null, {duration: 2000, verticalPosition: 'top'});
+
   }
 
   async updateFavourites(favouriteMeal: any) {
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
       await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove')
       this.favouriteMeals = this.favouriteMeals.filter((meal) => meal.id !== favouriteMeal.id)
+    this.snackbar.open('Removed!', null, {duration: 2000, verticalPosition: 'top'});
+
     } else {
       this.addFavourite(favouriteMeal)
       this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id);
@@ -145,7 +136,6 @@ export class FavouritesComponent implements OnInit {
       // this.router.navigate([`/recipes/favourites/`], { queryParams: { recipe: mealTitle.split(',').join('').split(' ').join('-').split('&').join('and'), id: meal.id } })
       this.promptMealDetailComponent(meal.id);
     }
-    this.carouselIsChanging = false;
 
   }
   promptMealDetailComponent(id: string) {
@@ -165,37 +155,8 @@ export class FavouritesComponent implements OnInit {
 
       }
     }
-    ref.afterClosed().toPromise().then((newDialog: string) => {
-      if (!newDialog) {
-        this.router.navigate(['/recipes/favourites'], { queryParams: {} })
-
-      }
-    })
+ 
   }
-
-
-  // breakpoints
-  //  setting breakpoint configs
-  observeBreakpoints() {
-    this.breakpointObserver.observe(BREAKPOINTS).pipe(takeUntil
-      (this.unsubscribeAll)).subscribe((result: BreakpointState) => {
-        this.isMobile = this.breakpointObserver.isMatched('(max-width: 599px)');
-        this.isWeb = this.breakpointObserver.isMatched('(min-width: 960px)');
-        this.slidesToShow = this.isWeb ? 3 : (this.isMobile ? 1 : 2)
-        this.slideConfig = { ...this.slideConfig, 'slidesToShow': this.slidesToShow };
-      });
-  }
-  setCarouselChanging(event) {
-    //carousel is being slided
-    this.carouselIsChanging = true;
-    const { nextSlide } = event;
-    if ((nextSlide + this.slidesToShow) === this.mealPlan.length) {
-      this.disableNextButton = true;
-    } else {
-      this.disableNextButton = false;
-    }
-  }
-
 
   ngOnDestroy() {
     this.unsubscribeAll.next();

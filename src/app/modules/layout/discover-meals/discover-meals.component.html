@@ -1,6 +1,10 @@
-<div [class]="isMobile ? 'mobile-discover-meals-page' : 'discover-meals-page'">
-  <div class="title">
-    SELECT MEALS
+<div class="discover-meals-page">
+  <div class="copy">
+    <h1>
+      SELECT MEALS
+    </h1>
+    <p class='subheader'>Click <mat-icon>add</mat-icon> to add a recipe to your 'Meal Plan'. Click <mat-icon>
+        favorite_border</mat-icon> to save it to your favourites for later.</p>
   </div>
   <div class="search">
     <app-search-bar [searchQuery]='searchQuery' (search)='searchMeals($event)'></app-search-bar>
@@ -8,35 +12,29 @@
       <a class='did-you-mean' (click)='setSearchQuery()'>{{didYouMean}}?</a>
     </p>
   </div>
-  <p class='subheader' *ngIf='!didYouMean'>
-    {{!isMobile ? 'Browse recipes to add to your meal plan.' : 'Browse recipes to add to your meal plan.'}}
-  </p>
-
-  <div class='no-items-wrapper' *ngIf='!didYouMean && meals?.length === 0 && !loading && requestedMeals'>
-    
-      <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
+  <div class="filter">
+    <p>FILTER RECIPES</p>
+    <button mat-icon-button (click)='renderFilterDialog()' *ngIf='!loading'>
+      <mat-icon>filter_list</mat-icon>
+    </button>
+    <div class="gif-wrapper" *ngIf='loading'>
+      <img class='loading-text' src="/assets/static_images/Whisk-Stat-Transp.png" />
+    </div>
   </div>
-  <p class='loading-text' *ngIf='loading'>Loading...</p>
 
-  <div *ngIf='viewLoaded' class="discover-meals-container">
-    <!-- <mat-progress-bar mode="indeterminate" *ngIf='loadingMeals'></mat-progress-bar> -->
-    <ngx-slick-carousel [class]="!isWeb ? 'mobile-carousel' : 'carousel'" #slickModal="slick-carousel"
-      [ngClass]="{'disable-next-button': disableNextButton}" (beforeChange)='setCarouselChanging()'
-      [config]="slideConfig" (afterChange)='checkCarouselItemsRemaining($event)'>
-      <div ngxSlickItem *ngFor="let meal of meals" class="slide">
-        <app-meal-item (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
+  <div class='no-items-wrapper' *ngIf='!didYouMean && meals?.length === 0 && !loading'>
+    <p>
+      <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
+    </p>
+  </div>
+  
+ 
+      <app-mtm-slider *ngIf='meals.length > 0' (onEndReached)='getNextBatch()' (onStartReached)='getPreviousBatch()' [numOfItems]='meals.length'>
+
+        <app-meal-item *ngFor="let meal of meals; trackBy: trackByIndex; let i=index;" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
           (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'
           (favouriteToggled)='updateFavourites($event)' [favourited]='favouriteMealIds[meal.id]'>
         </app-meal-item>
-      </div>
-    </ngx-slick-carousel>
-  </div>
-  <div class="discover-action-buttons">
-    <button aria-label="Show meal plan page" mat-flat-button class='next-button' (click)='visitMealPlan()'>
-      VIEW MEAL PLAN
-      <mat-icon>chevron_right</mat-icon>
-    </button>
-  </div>
-
+      </app-mtm-slider>
 
 </div>

@@ -1,20 +1,18 @@
-@import '../../../scss/customTheme.scss';
-.search-wrapper{
-    mat-icon{
-        vertical-align: middle;
-        color: $mtm_light_green_color;
-    }
-    .mat-form-field-appearance-legacy .mat-form-field-underline {
-        background-color: $mtm_dark_green_color;
-      }
-      
-      .mat-form-field-label {
-        color: $mtm_dark_green_color;
-      }
-      
-      .mat-form-field-ripple {
-        background-color: $mtm_dark_green_color;
-      }
-      
-}
+@import "../../../scss/variables.scss";
+.search-wrapper {
+  mat-icon {
+    vertical-align: middle;
+    color: $mtm_dark_green_color;
+  }
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: $mtm_dark_green_color;
+  }
 
+  .mat-form-field-label {
+    color: $mtm_dark_green_color;
+  }
+
+  .mat-form-field-ripple {
+    background-color: $mtm_dark_green_color;
+  }
+}

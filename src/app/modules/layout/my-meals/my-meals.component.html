@@ -1,60 +1,38 @@
-<div [class]="isMobile ? 'mobile-my-meals-page' : 'my-meals-page'">
-  <div class="title">
-    MEAL PLAN
-  </div>
-  <p class='my-meals-subheader'>
-    {{!isMobile ? 'When your meal plan is ready, click grocery list to shop ingredients' : 'When your meal plan is ready, click grocery list to shop ingredients'}}
-  </p>
-  <ng-container *ngIf='mealPlan.length === 0'>
-    <p class='no-items-text'>No items found</p>
-    <div class="button-wrapper">
+<div class='my-meals-page'>
+  <div class="copy sticky">
+    <h1>MEAL PLAN</h1>
+    <ng-container *ngIf='mealPlan.length > 0'>
+      <p>Click <strong>NEXT</strong> when you're ready, to shop ingredients for these recipes.
+        <br />Click <mat-icon>
+          remove</mat-icon> to remove recipes.</p>
+    </ng-container>
 
-      <button aria-label="Select meals" mat-raised-button color='primary'
-        routerLink='/recipes/discover' (click)="adobeDtbTracking.page_tracking('SELECT MEALS','/recipes/discover')">
-        SELECT MEALS
-      </button>
-    </div>
-  </ng-container>
+    <ng-container *ngIf='mealPlan.length === 0'>
+      <p class='no-items-text'>It looks like you haven’t added
+        any recipes to your meal plan yet</p>
+      <div class="select-meals-button-wrapper">
+
+        <button aria-label="Select meals" mat-raised-button color='primary' routerLink='/recipes/discover'
+          (click)="adobeDtbTracking.pageTracking('SELECT MEALS','/recipes/discover')">
+          SELECT MEALS
+        </button>
+      </div>
+    </ng-container>
+  </div>
+
+
 
 
   <div class="my-meals-container">
-    <ngx-slick-carousel [class]="!isWeb ? 'mobile-carousel' : 'carousel'" #slickModal="slick-carousel"
-      [ngClass]="{'disable-next-button': disableNextButton}" (beforeChange)='setCarouselChanging($event)'
-      [config]="slideConfig">
-      <div ngxSlickItem *ngFor="let meal of mealPlan" class="slide">
-        <app-my-meal-item (favouriteToggled)='updateFavourites($event)' (remove)='removeFromMealPlan($event)'
-          (wasClicked)='visitMealDetailPage($event)' [favourited]='favouriteMealIds?.includes(meal.id)'
-          [mealItem]='meal'>
-        </app-my-meal-item>
+    <div class="meal-item" *ngFor="let meal of mealPlan">
 
-      </div>
-    </ngx-slick-carousel>
-  </div>
-
-  <!-- <pre>{{filteredMealPlan$ | async | json}}</pre> -->
-
-  <div class="my-meals-action-buttons">
-    <div class="route-buttons">
-      <button aria-label="Select meals" mat-flat-button class='select-meals-button' routerLink='/recipes/discover'
-        (click)="adobeDtbTracking.page_tracking('SELECT MEALS','/recipes/discover')">
-        <mat-icon>chevron_left</mat-icon>
-        SELECT MEALS
-      </button>
-      <button aria-label="View grocery list" mat-flat-button class='grocery-list-button'
-        routerLink='/recipes/grocery-list'
-        (click)="adobeDtbTracking.page_tracking('GROCERY LIST','/recipes/grocery-list')">
-        GROCERY LIST
-        <mat-icon>chevron_right</mat-icon>
-      </button>
+      <app-meal-item (favouriteToggled)='updateFavourites($event)' [inMealPlan]='true'
+        (remove)='removeFromMealPlan($event)' (wasClicked)='visitMealDetailPage($event)' parent='my-meals'
+        [favourited]='favouriteMealIds?.includes(meal.id)' [mealItem]='meal'>
+      </app-meal-item>
     </div>
-    <button aria-label="Save meal plan" *ngIf="!accountService.loggedIn" mat-flat-button class='save-meal-plan-button'
-      (click)='promptUserForAuth()'>
-      SAVE MEAL PLAN
-    </button>
-    <button aria-label="View favourites" *ngIf="accountService.loggedIn" mat-flat-button class='save-meal-plan-button'
-      (click)='viewFavourites()'>
-      View Favourites
-    </button>
 
   </div>
+
+
 </div>

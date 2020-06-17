@@ -1,4 +1,4 @@
-@import "../../../../scss/customTheme.scss";
+@import "../../../../scss/variables.scss";
 .cc-side-drawer-anchor {
   display: none;
 }
@@ -7,8 +7,7 @@
   min-height: calc(100vh - 64px); // height subrating toolbar (landscape)
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: $light_beige;
+  background-color: $mtm_white;
   position: relative;
   z-index: 1;
 }
@@ -17,32 +16,38 @@
   min-height: calc(100vh - 40px); // height subrating toolbar (landscape)
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: $light_beige;
+  align-items: center;
+  background-color: $mtm_white;
 }
-.title {
-  font-size: 2em;
+.copy {
   text-align: center;
-  margin-bottom: 16px;
-  font-weight: bold;
-  color: $mtm_dark_green_color;
+  padding: 1em 2em;
+  p{
+    margin: unset;
+  }
+  h1{
+    margin-bottom: 4px;
+  }
+
 }
 .my-meals-subheader {
   text-align: center;
-  font-family: avenir;
   width: 75%;
-  margin: auto;
+  margin: 1em auto;
 }
 .no-favourites {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 1em;
-  font-family: avenir;
+  
+  h2{
+    margin-top: unset;
+    margin-bottom: 4px;
+  }
   padding: 1em;
   mat-icon{
-    color: $mtm_green_color;
+    color: $mtm_dark_green_color;
     transform: scale(2)
   }
   p{
@@ -50,6 +55,7 @@
     margin: unset;
   }
 }
+
 .button-wrapper{
   display: flex;
   justify-content: center;
@@ -59,43 +65,14 @@
       width: 300px;
   }
 }
-.add-meal-button {
-  font-family: flavour;
-  width: 50%;
-  margin: auto;
-}
-.my-meals-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  height: 100%;
-  width: 100%;
-  .virtual-scroll {
-    width: 100%;
-    height: 100%;
-  }
-  .cdk-virtual-scroll-content-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 0.5em;
-  }
-  .add-meal-item {
-    background-color: $darker_beige;
-    display: flex;
-    height: 20vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    .icon-container {
-      mat-icon {
-        transform: scale(2);
-      }
-    }
-    p {
-      margin: unset;
-    }
+
+.favourites-container {
+  display: grid;
+  justify-items: center;
+  margin-top: 1em;
+  grid-gap: 1em;
+  .favourite-item {
+    margin-bottom: 1em;
   }
 }
 .my-meals-action-buttons {
@@ -110,13 +87,13 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.5em;
   button{
-    color: $mtm_green_color !important;
-    background-color: $darker_beige !important;
+    color: $mtm_dark_green_color !important;
+    background-color: $mtm_grey !important;
   }
 }
 .save-meal-plan-button {
-  color: $mtm_green_color !important;
-  background-color: $darker_beige !important;
+  color: $mtm_dark_green_color !important;
+  background-color: $mtm_grey !important;
 }
 
 *:focus {

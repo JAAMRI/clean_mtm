@@ -1,17 +1,16 @@
-@import "../../../../scss/customTheme.scss";
+@import "../../../../scss/variables.scss";
 
 .mat-dialog-container {
   overflow: unset;
 }
 .dialog-container {
-  background-color: $mtm_light_green_color;
-  font-family: avenir;
+  background-color: $mtm_white;
   max-width: 80vw;
 }
 
 
 .dialog-content {
-  background-color: $mtm_light_green_color;
+  background-color: $mtm_white;
   display: flex;
   height: 75vh;
   .auth-img-wrapper {
@@ -24,17 +23,7 @@
       // -webkit-filter: blur(1px);
       // filter: blur(1px);
     }
-    .img-content {
-      position: absolute;
-      padding: 2em;
-      bottom: 0;
-      font-size: 2em;
-      color: $light_beige;
-      text-shadow: 2px 2px black;
-      a {
-        color: $light_beige !important;
-      }
-    }
+  
   }
   .mobile-auth-content-stepper {
     width: 100%;
@@ -52,7 +41,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    color: $light_beige;
+    color: $mtm_white;
   }
   mat-horizontal-stepper {
     background: unset;
@@ -67,43 +56,34 @@
       grid-template-rows: auto 1fr 1fr;
       min-height: 75vh;
       .auth-header {
-        font-size: 0.75em;
         text-align: center;
-        font-family: avenir;
-        color: $light_beige;
+        color: $mtm_dark_grey;
       }
       .create-account-wrapper {
         display: flex;
         flex-direction: column;
         h2 {
-          color: $light_beige;
-          font-family: flavour;
+          color: $mtm_dark_grey;
         }
         button {
           margin-bottom: 2em;
         }
       }
-      mat-form-field {
-        input {
-          font-family: avenir;
-          color: $light_beige;
-        }
-      }
+   
       .auth-form {
         .sign-in-wrapper {
           margin-top: 2em;
           display: flex;
           flex-direction: column;
           h2 {
-            color: $light_beige;
-            font-family: flavour;
+            color: $mtm_dark_grey;
             margin: unset;
           }
           .forgot-button {
-            color: $light_beige;
-            font-family: avenir;
+            color: $mtm_dark_grey;
             text-align: left;
             padding: 0.5em 0;
+            text-decoration: underline;
           }
         }
       }
@@ -119,39 +99,40 @@
   height: 100vh;
   position: relative;
   overflow: scroll;
-  background-color: $mtm_light_green_color;
-  font-family: avenir;
+  background-color: $mtm_white;
 }
 
-.auth-container {
-  mat-form-field {
-    input {
-      caret-color: $light_beige !important;
+mat-icon{
+  margin: 0 4px 4px 0;
+}
+
+.sign-in-button{
+  background-color: $mtm_grey !important;
+  color: $mtm_light_green_color !important;
+}
+
+.heading{
+  background-color: $mtm_grey;
+  padding-bottom: 1em;
+  .toolbar {
+    display: flex;
+    width: calc(50% + 24px); //hlaf with + half logo
+    justify-content: space-between;
+
+    .edit-button {
+      color: $mtm_dark_green_color;
     }
-    mat-icon {
-      &.prefix-icon {
-        margin-right: 1em;
+    .deactivate {
+      cursor: default;
+      pointer-events: none;
+    }
+    .logo {
+      height: 48px;
+      cursor: pointer;
+      img {
+        height: 100%;
+        margin-top: 4px;
       }
-      color: $light_beige;
-      height: 100%;
     }
-    .mat-form-field-required-marker {
-      color: $light_beige !important;
-    }
-  }
-  .mat-form-field-appearance-legacy .mat-form-field-underline {
-    background-color: $light_beige !important;
-  }
-
-  .mat-form-field-label {
-    color: $light_beige !important;
-  }
-
-  .mat-form-field-ripple {
-    background-color: $light_beige !important;
-  }
-
-  .mat-datepicker-toggle-default-icon {
-    color: $light_beige;
-  }
+}
 }

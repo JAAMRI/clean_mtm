@@ -5,10 +5,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { UserFormModule } from '../../components/dialogs/user-form/user-form.module';
-import { ForgotPasswordModule } from '../../components/forgot-password/forgot-password.module';
-import { OnBoardModule } from '../../components/on-board/on-board.module';
+import { OnBoardModule } from './on-board/on-board.module';
 import { HomeComponent } from './home.component';
 import { HomeRouting } from './home.routing';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
@@ -16,6 +14,7 @@ import { YouWillLoveThisComponent } from './you-will-love-this/you-will-love-thi
 import { ReclaimWeeknightCookingComponent } from './reclaim-weeknight-cooking/reclaim-weeknight-cooking.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MobileMenuModule } from '../../components/mobile-menu/mobile-menu.module';
+import { MtmSliderModule } from '../../components/mtm-slider/mtm-slider.module';
 
 @NgModule({
   declarations: [HomeComponent, HowItWorksComponent, YouWillLoveThisComponent, ReclaimWeeknightCookingComponent],
@@ -29,10 +28,9 @@ import { MobileMenuModule } from '../../components/mobile-menu/mobile-menu.modul
     OnBoardModule,
     MatDialogModule,
     UserFormModule,
-    ForgotPasswordModule,
-    SlickCarouselModule,
     MatSidenavModule,
-    MobileMenuModule
+    MobileMenuModule,
+    MtmSliderModule
   ]
 })
 export class HomeModule { }

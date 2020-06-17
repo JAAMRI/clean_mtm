@@ -1,0 +1,122 @@
+@import "../../../../../scss/variables.scss";
+
+.register-page {
+    padding: 1em;
+    .register-back-button {
+        top: 0;
+        left: 0;
+        color: $mtm_dark_grey;
+        padding: unset;
+    }
+    .register-form {
+        display: flex;
+        flex-direction: column;
+        .input-fields {
+            display: grid;
+            mat-form-field {
+                mat-icon {
+                    &.prefix-icon {
+                        margin-right: 1em;
+                    }
+                    height: 100%;
+                }
+                mat-datepicker-toggle {
+                    margin-right: 1.5em;
+                }
+                .mat-button-wrapper {
+                    color: $mtm_dark_green_color !important;
+                }
+            }
+        }
+        mat-checkbox {
+            color: $mtm_dark_grey;
+            font-size: 12px;
+
+            .view-more-button {
+                font-style: italic;
+                text-decoration: underline;
+            }
+            .mat-checkbox-frame {
+                border-color: $mtm_dark_grey;
+            }
+            .mat-checkbox-label {
+                line-height: 20px;
+                white-space: normal;
+            }
+            .mat-checkbox-inner-container {
+                margin-top: 4px;
+            }
+        }
+        a {
+            color: $mtm_dark_green_color;
+        }
+
+        .small-font {
+            color: $mtm_dark_grey;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            .save-button {
+                min-width: 150px;
+                width: 70%;
+                background-color: $mtm_grey;
+                color: $mtm_dark_green_color;
+                margin: 1em auto;
+                mat-icon {
+                    color: $mtm_dark_green_color;
+                }
+                .spinner-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .spinner {
+                        margin-right: 4px;
+                    }
+                }
+            }
+            .signout-button {
+                min-width: 150px;
+                width: 70%;
+                background-color: $mtm_grey;
+                color: $mtm_dark_green_color;
+                margin: 1em auto;
+                mat-icon {
+                    color: $mtm_dark_green_color;
+                }
+                .spinner-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .spinner {
+                        margin-right: 4px;
+                    }
+                }
+            }
+            .submit-button {
+                background-color: $mtm_grey;
+                margin: 1em;
+                mat-icon {
+                    color: $mtm_dark_green_color;
+                }
+                .spinner-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .spinner {
+                        margin-right: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.passwordError {
+    font-size: 10px;
+}

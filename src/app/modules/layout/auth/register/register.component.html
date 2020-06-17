@@ -1,0 +1,126 @@
+<div class="register-page">
+    <button aria-label="Go back" *ngIf='!onProfilePage' class='register-back-button' mat-button (click)='goBack()'
+        type='button'>
+        <mat-icon>chevron_left</mat-icon> Back
+    </button>
+    <form [class]='onProfilePage ? "register-form" : "register-form account-dialog"' [formGroup]='registerForm'
+        (ngSubmit)='submitForm()'>
+        <div class="input-fields">
+            <mat-form-field>
+                <mat-icon matPrefix class='prefix-icon'>face</mat-icon>
+                <input matInput type="text" placeholder='First name' formControlName='given_name' required>
+                <!-- <mat-icon matSuffix matTooltip='Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, amet?'>
+              info_outline</mat-icon> -->
+
+            </mat-form-field>
+            <mat-form-field>
+                <mat-icon matPrefix class='prefix-icon'>face</mat-icon>
+                <input matInput type="text" placeholder='Last name' formControlName='family_name' required>
+                <!-- <mat-icon matSuffix matTooltip='Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, amet?'>
+              info_outline</mat-icon> -->
+
+            </mat-form-field>
+            <mat-form-field>
+                <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
+                <input matInput type="email" placeholder='Email' #theEmail formControlName='email' required>
+                <mat-icon matSuffix matTooltip='This must be a valid email address'>
+                    info_outline</mat-icon>
+
+                <!-- <mat-error *ngIf="!userForm.email?.valid && userForm.email?.value">
+            Please enter a valid email address
+          </mat-error> -->
+                <!-- <mat-error *ngIf="!userForm.email?.value">
+            Email is <strong>required</strong>
+          </mat-error> -->
+            </mat-form-field>
+            <mat-form-field>
+                <mat-icon matPrefix class='prefix-icon'>location_on</mat-icon>
+                <input matInput type="text" placeholder='Postal code' formControlName='postal_code' required>
+                <mat-icon matSuffix matTooltip='This must be a valid canadian postal code - ex. H3N 3G6'>
+                    info_outline</mat-icon>
+            </mat-form-field>
+            <mat-form-field *ngIf='!onProfilePage'>
+                <mat-icon matPrefix class='prefix-icon'>lock_open</mat-icon>
+                <input matInput type="password" placeholder='Password' formControlName='password' required>
+                <mat-icon matSuffix
+                    matTooltip='Please enter a combination of at least 8 letters, numbers or symbols (!,@...)'>
+                    info_outline</mat-icon>
+
+            </mat-form-field>
+            <mat-form-field *ngIf='!onProfilePage'>
+                <mat-icon matPrefix class='prefix-icon'>lock_open</mat-icon>
+                <input matInput type="password" placeholder='Confirm Password' formControlName='confirm_password'
+                    [errorStateMatcher]="passwordMatcher" required>
+                <mat-icon matSuffix matTooltip='Please confirm your password'>
+                    info_outline</mat-icon>
+
+                <mat-error *ngIf="registerForm.hasError('NotSamePassword')">
+                    <b class="passwordError">Passwords Do Not Match!</b>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field *ngIf='onProfilePage'>
+                <input matInput (click)='picker.open()' [matDatepicker]="picker" placeholder="Date of birth"
+                    formControlName='birthdate'>
+                <mat-datepicker-toggle matPrefix [for]="picker">
+                    <mat-icon matDatepickerToggleIcon>cake</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <!-- <mat-form-field *ngIf='onProfilePage'>
+          <mat-icon matPrefix svgIcon='gender'></mat-icon>
+          <input matInput type="text" placeholder='gender' formControlName='gender'>
+          <mat-error></mat-error>
+        </mat-form-field> -->
+        </div>
+        <ng-container *ngIf='!onProfilePage'>
+            <p> WOULD YOU LIKE TO HEAR FROM US?
+            </p>
+            <mat-checkbox (change)="this.adobeDtbTracking.checkbox($event)" formControlName='opt_in'>
+                YES! I want to be among the first to learn about the exciting offers, product offers and more
+                from
+                Knorr and other
+                <a href="#">Unilever brands <sup>*</sup></a> by electronic messages and postal mail.
+
+                Occasionally, this may
+                include
+                co-promotions with carefully selected partners. For further information, please refer to our <a
+                    rel="noopener" href="https://www.unilevernotices.com/canada/english/privacy-notice/notice.html"
+                    target="_blank">Privacy
+                    Notice</a>. You
+                can unsubscribe at any time or update your email preferences <a rel="noopener"
+                    href="https://privacyportal-de.onetrust.com/webform/fb530312-8ed8-4500-b6a6-5aaf40028e65/94bb2e70-eab7-4414-9083-9fd3c153bb7e"
+                    target="_blank">here.</a>
+            </mat-checkbox>
+            <div class="action-buttons">
+                <button aria-label="Submit data" class='submit-button' matSuffix mat-flat-button
+                    [disabled]="!registerForm.valid">
+                    <div class="spinner-wrapper">
+                        <mat-spinner *ngIf='loading' class='spinner' diameter='20'></mat-spinner>
+                        SUBMIT
+                    </div>
+                </button>
+            </div>
+            <small class='small-font'>
+                Your consent is sought by Unilever Canada Inc., privacy.canada@unilever.com | 1-888-568-7644 |
+                Unilever
+                Consumer Services Contact Centre, P.O. Box 38, Saint John, New Brunswick, E2L 3X1, CANADA
+            </small>
+        </ng-container>
+        <ng-container *ngIf='onProfilePage'>
+            <div class="action-buttons">
+                <button aria-label="Update information" class='save-button' matSuffix mat-flat-button>
+                    <div class="spinner-wrapper">
+                        <mat-spinner *ngIf='loading' class='spinner' diameter='20'></mat-spinner>
+                        UPDATE INFORMATION
+                    </div>
+                </button>
+                <button aria-label="Sign out" class='signout-button' matSuffix mat-flat-button (click)="signOut()">
+                    <div class="spinner-wrapper">
+                        <mat-spinner *ngIf='loading' class='spinner' diameter='20'></mat-spinner>
+                        SIGN OUT
+                    </div>
+                </button>
+            </div>
+        </ng-container>
+    </form>
+</div>

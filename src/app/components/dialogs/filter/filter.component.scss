@@ -1,0 +1,87 @@
+@import "../../../../scss/variables.scss";
+
+.mat-dialog-container {
+    padding: 16px;
+    .filter-dialog {
+        position: relative;
+        overflow: scroll;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none !important;
+        }
+        @media (max-width: 767px) {
+            height: calc(100vh - 2em);
+            .filter-header {
+                display: flex;
+                padding: 0 1em;
+                img {
+                    flex: 1;
+                    height: 48px;
+                    width: 48px;
+                }
+                button {
+                    flex: 0;
+                }
+            }
+        }
+
+        @media(min-width: 768px) {
+            height: 50vh;
+            width: 50vh;
+            .filter-header {
+                display: flex;
+                padding: 0 1em;
+                img {
+                    flex: 1;
+                    height: 48px;
+                    width: 48px;
+                }
+               
+            }
+        }
+        .scroll-down-button{
+            position: absolute;
+            bottom: 1em;
+            transform: translate(50%, 50%);
+            right: 50%;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+        }
+        .copy {
+            text-align: center;
+            padding: 0 1em;
+        }
+        .clear-button-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            button {
+                text-decoration: underline;
+            }
+        }
+        .filters {
+           
+            .filter-wrapper {
+                padding: 1em;
+                cursor: pointer;
+                &.active {
+                    background-color: $mtm_grey;
+                    color: $mtm_dark_green_color;
+                }
+            }
+        }
+    }
+    .disclaimers{
+        small{
+            display: block;
+        }
+        padding: 1em 1em 6em 1em;
+    }
+}
+
+.cdk-overlay-pane {
+    max-width: unset !important;
+}
