@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router } from "@angular/router";
-import { map } from "rxjs/operators";
-import { AccountService } from '../services/account/account.service';
 import Auth from '@aws-amplify/auth';
+import { AccountService } from '../services/account/account.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -14,6 +13,7 @@ export class AuthGuard implements CanActivate {
                 return true;
             }
         }).catch(err => {
+            console.log('err');
             console.log(err);
             this.router.navigate(['/'])
             return false;
