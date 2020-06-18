@@ -33,7 +33,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   favouriteMealIds: any = [];
   pageStart: number = 0;
   pageSize: number = 5;//If you change this value, please change it in the search function in the meal service as well
-  theEnteredSearchQuery: string = "";
   totalResults: number = 0;
   mealPlanIds = {};
   mealPlan = [];
@@ -78,7 +77,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   getNextBatch() {
-    this.getMeals(this.meals.length, this.pageSize, 'right', this.didYouMean || this.theEnteredSearchQuery)
+    this.getMeals(this.meals.length, this.pageSize, 'right', this.searchQuery)
 
   }
 
@@ -87,7 +86,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     if (this.leftPageStart < 0) {
       this.leftPageStart = this.numOfResults + this.leftPageStart;
     }
-    this.getMeals(this.leftPageStart, this.pageSize, 'left', this.didYouMean || this.theEnteredSearchQuery)
+    this.getMeals(this.leftPageStart, this.pageSize, 'left', this.searchQuery)
   }
 
   trackByIndex(i: number) {
@@ -97,21 +96,21 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter) {
     //Show spinner while loadin
     this.loading = true;
-    if (options.q) {
-      this.theEnteredSearchQuery = options.q;
-    }
+    // if (options.q) {
+    //   this.searchQuery = options.q;
+    // }
     this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
       if (meals) {
         //Check if did_you_mean
-        if (meals.didYouMean) {
-          if (this.noFilters()) {
-            this.didYouMean = meals.didYouMean;
-            // if did you mean exists, still search for those results
-            this.resetAllGlobalValues();
-            this.getMeals(pageStart, pageSize, 'right', meals.didYouMean);
-          }
-        } else {
+        // if (meals.didYouMean) {
+        //   if (this.noFilters()) {
+        //     // if did you mean exists, still search for those results
+        //     this.resetAllGlobalValues();
+        //     this.getMeals(pageStart, pageSize, 'right', meals.didYouMean);
+        //   }
+        // } else {
           //Reset page start
+          this.didYouMean = meals.didYouMean;
         
           this.pageStart = pageStart;
           this.numOfResults = meals.results;
@@ -127,7 +126,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   
           //Set meal plan IDs
           this.setMealPlanIds()
-        }
+        // }
 
 
       }
@@ -161,19 +160,13 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   searchMeals(query: string = '') {
     //Capture Enter Submit Event
     this.filter = {}
-    if (query.trim() == "") {//check if search field is cleared
-      this.theEnteredSearchQuery = "";
-    } else {
-      this.theEnteredSearchQuery = query;
-      this.didYouMean = null;
-    }
     this.resetAllGlobalValues();
     this.getMeals(this.pageStart, this.pageSize, 'right', query);
     if (query != "") {
       this.adobeDtbTracking.searchQuery(query, this.pageSize);
     }
     //Reset Search Query
-    this.searchQuery = "";
+    // this.searchQuery = "";
   }
 
   resetAllGlobalValues() {
@@ -191,6 +184,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     filterDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe((filter: IFilter) => {
       if (filter) {
         this.filter = filter;
+        this.searchQuery='';
         this.resetAllGlobalValues()
         this.getMeals();
       }

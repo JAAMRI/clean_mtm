@@ -22,9 +22,9 @@
     </div>
   </div>
 
-  <div class='no-items-wrapper' *ngIf='!didYouMean && meals?.length === 0 && !loading'>
+  <div class='no-items-wrapper' *ngIf='meals?.length === 0 && !loading'>
     <p>
-      <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{theEnteredSearchQuery}}"
+      <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{searchQuery}}"
     </p>
   </div>
   

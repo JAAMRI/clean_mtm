@@ -115,7 +115,7 @@ export const Filters: IFilter[] = [
         query: '',
         id: 15,
         key: 'q',
-        value: 'middle easter', // typo on backend this compensates for it
+        value: 'middle eastern', // typo on backend this compensates for it
 
     },
     {

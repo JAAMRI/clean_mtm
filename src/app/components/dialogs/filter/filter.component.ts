@@ -42,8 +42,8 @@ export class FilterComponent {
       }
 
     });
-
-    this.dialogRef.close(activeFilter);
+    
+    this.dialogRef.close(!id ? {} : activeFilter);
   }
 
   clear() {
