@@ -33,9 +33,9 @@ export class SearchBarComponent implements OnInit, OnChanges {
       takeUntil(this.unsubscribeMe),
       debounceTime(400),
     ).subscribe((query) => {
-      if (query) {
+      // if (query) {
         this.search.emit(query);
-      }
+      // }
     });
   }
 

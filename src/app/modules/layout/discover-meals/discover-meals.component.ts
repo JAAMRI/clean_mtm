@@ -96,9 +96,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter) {
     //Show spinner while loadin
     this.loading = true;
-    // if (options.q) {
-    //   this.searchQuery = options.q;
-    // }
+    
     this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
       if (meals) {
         //Check if did_you_mean
@@ -159,6 +157,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   searchMeals(query: string = '') {
     //Capture Enter Submit Event
+    if (typeof query !== 'string') return;
     this.filter = {}
     this.resetAllGlobalValues();
     this.getMeals(this.pageStart, this.pageSize, 'right', query);
