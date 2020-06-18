@@ -44,54 +44,39 @@
     }
     .favourite-button {
       position: absolute;
-      bottom: -23px;
+      bottom: -13px;
       z-index: 2;
-      left: 14px;
+      left: 16px;
       color: $mtm_light_green_color;
-      width: 32px;
-      height: 32px;
-      font-size: 20px;
-      margin-top: -2px;
+      transform: scale(0.75);
     }
     .favourite-border-button {
       position: absolute;
-      bottom: -16px;
+      bottom: -20px;
       left: 8px;
       background-color: $mtm_white !important;
       color: $mtm_dark_green_color;
-      width: 32px;
-      height: 32px;
+      transform: scale(0.9);
       mat-icon {
-        font-size: 24px;
-        margin-top: -7px;
+        // transform: scale(1.1);
       }
     }
     .add-button {
       position: absolute;
-      top: -16px;
+      top: -20px;
       right: 8px;
       background-color: $mtm_white;
       color: $mtm_dark_green_color;
-      width: 32px;
-      height: 32px;
+      transform: scale(0.8);
       border: 1px solid rgba($mtm_light_grey, 0.7);
-      mat-icon {
-        font-size: 20px;
-        margin-top: -5px;
-      }
     }
     .remove-button {
       position: absolute;
-      top: -16px;
+      top: -20px;
       right: 8px;
       background-color: $mtm_light_green_color;
       color: $mtm_white;
-      width: 32px;
-      height: 32px;
-      mat-icon {
-        font-size: 20px;
-        margin-top: -4px;
-      }
+      transform: scale(0.8);
     }
   }
   .meal-content {
