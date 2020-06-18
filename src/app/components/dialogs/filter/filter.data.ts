@@ -158,7 +158,7 @@ export const Disclaimers = [{
     disclaimerId: '*',
     title: 'Vegetarian',
     text: 'Our (ovo-lacto) vegetarian recipes may contain dairy products and eggs, but no other animal products.',
-    italic: 'The Hellmann’s/Knorr product in these recipes is vegetarian. Always check the label of all other ingredients you use to ensure they are free of animal products',
+    italic: 'The Hellmann’s/Knorr product in these recipes are vegetarian. Always check the label of all other ingredients you use to ensure they are free of animal products',
 
 },
 {
