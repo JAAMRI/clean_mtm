@@ -146,6 +146,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   noFilters() {
+    console.log(this.filter)
     return JSON.stringify(this.filter) === '{}';
   }
 
@@ -158,10 +159,12 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   searchMeals(query: string = '') {
     //Capture Enter Submit Event
     if (typeof query !== 'string') return;
-    this.filter = {}
+  
     this.resetAllGlobalValues();
     this.getMeals(this.pageStart, this.pageSize, 'right', query);
     if (query != "") {
+      this.filter = {}
+      this.searchQuery = query;
       this.adobeDtbTracking.searchQuery(query, this.pageSize);
     }
     //Reset Search Query
