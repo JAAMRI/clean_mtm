@@ -39,9 +39,8 @@ export class MealService {
 
     return this.http.post(environment.host + this.recipesUrl, httpParams.toString(), options).pipe(
       map((meals: any) => {
-        console.log(meals);
           return {
-            didYouMean: meals.did_you_mean,
+            didYouMean: meals.results === 0 ? meals.did_you_mean : null,
             results: meals.results,
             items: meals.data.map((meal: any, index: any) => ({
               id: meal.recipe_id,

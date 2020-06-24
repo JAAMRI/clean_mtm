@@ -148,8 +148,8 @@ export const Filters: IFilter[] = [
         query: '',
         disclaimerId: '**',
         id: 19,
-        key: 'p_kcal_per_serving',
-        value: '0,500',
+        key: 'q',
+        value: 'better for you',
 
     },
 ]
