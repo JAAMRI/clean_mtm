@@ -31,12 +31,13 @@ export class FilterComponent {
 
   }
 
-  setActiveFilter(id: number) {
+  setActiveFilter(id: number|string) {
     let activeFilter: any;
     this.filters.forEach((filter: any) => {
       if (filter.id === id) {
         filter.active = true;
-        activeFilter = { [filter.key]: filter.value };
+        
+        activeFilter = filter.id === 1400 ? {'q': 'dinner'} : { 'p_tag_ids': filter.id }; //check if dinner and use 'q' otherwise use tag
       } else {
         filter.active = false;
       }
