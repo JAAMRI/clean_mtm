@@ -1,22 +1,22 @@
 export const Filters: IFilter[] = [
     {
         name: 'Quick & Easy',
-        id: 1,
+        id: 1588,
         key: 'p_cook_time',
         value: '0,30'
     },
     {
         name: 'Chicken',
         query: '',
-        id: 2,
-        key: 'p_title',
+        id: 1503,
+        key: 'q',
         value: 'chicken'
 
     },
     {
         name: 'Summer',
         query: '',
-        id: 3,
+        id: 1544,
         key: 'q',
         value: 'summer'
 
@@ -26,7 +26,7 @@ export const Filters: IFilter[] = [
         query: '',
         key: 'q',
         value: 'BBQ',
-        id: 4,
+        id: 1393,
 
     },
     {
@@ -36,15 +36,16 @@ export const Filters: IFilter[] = [
         key: 'p_vegetarian',
         value: true,
         disclaimerId: '*',
-        id: 5,
+        id: 9733,
 
     },
     {
         name: 'Dinner',
         query: '',
         key: 'q',
-        value: 'main course',
-        id: 6,
+        value: 'main dish',
+        id: 1400,
+        // id:6536
 
     },
     {
@@ -52,22 +53,23 @@ export const Filters: IFilter[] = [
         query: '',
         key: 'q',
         value: 'pasta recipes',
-        id: 7,
+        id: 1047,
     },
     {
         name: 'Beef',
         query: '',
-        id: 8,
+        id: 1499,
         key: 'q',
         value: 'beef',
 
     },
+    // bbq, slowcooker, pasta, dinner
     {
         name: 'Slow-Cooker',
         query: '',
         key: 'q',
         value: 'slow-cooked recipes',
-        id: 9,
+        id: 1390,
 
     },
     {
@@ -75,7 +77,7 @@ export const Filters: IFilter[] = [
         query: '',
         key: 'q',
         value: 'breakfast,brunch',
-        id: 10,
+        id: '1551,619'
 
     },
     {
@@ -83,7 +85,7 @@ export const Filters: IFilter[] = [
         query: '',
         key: 'q',
         value: 'italian',
-        id: 11,
+        id: 1422,
 
     },
     {
@@ -91,7 +93,7 @@ export const Filters: IFilter[] = [
         query: '',
         key: 'q',
         value: 'indian',
-        id: 12,
+        id: 1419,
 
     },
     {
@@ -99,13 +101,13 @@ export const Filters: IFilter[] = [
         key: 'q',
         value: 'asian',
         query: '',
-        id: 13,
+        id: 1433,
 
     },
     {
         name: 'Mexican',
         query: '',
-        id: 14,
+        id: 1427,
         key: 'q',
         value: 'mexican',
 
@@ -113,7 +115,7 @@ export const Filters: IFilter[] = [
     {
         name: 'Middle Eastern',
         query: '',
-        id: 15,
+        id: 1428,
         key: 'q',
         value: 'middle eastern', // typo on backend this compensates for it
 
@@ -121,7 +123,7 @@ export const Filters: IFilter[] = [
     {
         name: 'Mediterranean',
         query: '',
-        id: 16,
+        id: 1435,
         key: 'q',
         value: 'Mediterranean',
 
@@ -129,7 +131,7 @@ export const Filters: IFilter[] = [
     {
         name: 'Canadian',
         query: '',
-        id: 17,
+        id: 1295,
         key: 'q',
         value: 'canadian',
 
@@ -138,7 +140,7 @@ export const Filters: IFilter[] = [
     {
         name: 'Salad',
         query: '',
-        id: 18,
+        id: 1487,
         key: 'q',
         value: 'salad',
 
@@ -147,9 +149,9 @@ export const Filters: IFilter[] = [
         name: 'Better-For-You',
         query: '',
         disclaimerId: '**',
-        id: 19,
-        key: 'q',
-        value: 'better for you',
+        id: 9870,
+        key: 'p_tag_ids',
+        value: 'Better for you',
 
     },
 ]
@@ -174,6 +176,6 @@ export interface IFilter {
     query?: string;
     disclaimerId?: string;
     active?: boolean;
-    id: number;
+    id: any;
     [key: string]: string | number | boolean;
 }
