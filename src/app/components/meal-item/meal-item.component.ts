@@ -30,9 +30,9 @@ export class MealItemComponent implements OnInit {
 
   updateMacros() {
     if (this.mealItem.nutrition instanceof Array) {
-      this.mealMacros['fat'] = this.mealItem.nutrition.find(n => n.name === 'Total Fat').value
-      this.mealMacros['carbs'] = this.mealItem.nutrition.find(n => n.name === 'Total Carbs').value
-      this.mealMacros['calories'] = this.mealItem.nutrition.find(n => n.name === 'Calories').value
+      this.mealMacros['fat'] = this.mealItem.nutrition.find(n => n.name === 'Total Fat')?.value
+      this.mealMacros['carbs'] = this.mealItem.nutrition.find(n => n.name === 'Total Carbs')?.value
+      this.mealMacros['calories'] = this.mealItem.nutrition.find(n => n.name === 'Calories')?.value
     } else {//This happens when recommended recipes are added to favourites => SCM API doesn't provide nutrition data for recommended recipes
       this.mealMacros['fat'] = '?';
       this.mealMacros['carbs'] = '?';

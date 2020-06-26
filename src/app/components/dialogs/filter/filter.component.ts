@@ -36,7 +36,8 @@ export class FilterComponent {
     this.filters.forEach((filter: any) => {
       if (filter.id === id) {
         filter.active = true;
-        activeFilter = { 'p_tag_ids': filter.id };
+        
+        activeFilter = filter.id === 1400 ? {'q': 'dinner'} : { 'p_tag_ids': filter.id }; //check if dinner and use 'q' otherwise use tag
       } else {
         filter.active = false;
       }
