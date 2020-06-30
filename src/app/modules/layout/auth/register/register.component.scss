@@ -120,3 +120,8 @@
 .passwordError {
     font-size: 10px;
 }
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    
+    background-color: $mtm_dark_green_color !important;
+  }
