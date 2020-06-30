@@ -1,6 +1,6 @@
 export const Filters: IFilter[] = [
     {
-        name: 'Quick & Easy',
+        name: '30 minutes or less',
         id: 1588,
         key: 'p_cook_time',
         value: '0,30'
@@ -29,16 +29,16 @@ export const Filters: IFilter[] = [
         id: 1393,
 
     },
-    {
-        name: 'Vegetarian',
-        query: '',
-        'p_vegetarian': true,
-        key: 'p_vegetarian',
-        value: true,
-        disclaimerId: '*',
-        id: 9733,
+    // {
+    //     name: 'Vegetarian',
+    //     query: '',
+    //     'p_vegetarian': true,
+    //     key: 'p_vegetarian',
+    //     value: true,
+    //     disclaimerId: '*',
+    //     id: 9733,
 
-    },
+    // },
     {
         name: 'Dinner',
         query: '',
@@ -148,7 +148,7 @@ export const Filters: IFilter[] = [
     {
         name: 'Better-For-You',
         query: '',
-        disclaimerId: '**',
+        disclaimerId: '*',
         id: 9870,
         key: 'p_tag_ids',
         value: 'Better for you',
@@ -156,15 +156,16 @@ export const Filters: IFilter[] = [
     },
 ]
 
-export const Disclaimers = [{
-    disclaimerId: '*',
-    title: 'Vegetarian',
-    text: 'Our (ovo-lacto) vegetarian recipes may contain dairy products and eggs, but no other animal products.',
-    italic: 'The Hellmann’s/Knorr product in these recipes are vegetarian. Always check the label of all other ingredients you use to ensure they are free of animal products',
+export const Disclaimers = [
+//     {
+//     disclaimerId: '*',
+//     title: 'Vegetarian',
+//     text: 'Our (ovo-lacto) vegetarian recipes may contain dairy products and eggs, but no other animal products.',
+//     italic: 'The Hellmann’s/Knorr product in these recipes are vegetarian. Always check the label of all other ingredients you use to ensure they are free of animal products',
 
-},
+// },
 {
-    disclaimerId: '**',
+    disclaimerId: '*',
     title: 'Better-For-You',
     text: 'Our Better-For-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars.'
 
