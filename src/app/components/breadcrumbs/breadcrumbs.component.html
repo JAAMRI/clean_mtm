@@ -1,0 +1,6 @@
+<div class="breadcrumbs-container">
+    <div class="breadcrumb" *ngFor='let breadcrumb of breadcrumbs'>
+        <span [class.active]='breadcrumb.active'></span>
+        {{breadcrumb.name}}
+    </div>
+</div>

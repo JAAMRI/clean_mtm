@@ -1,14 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToolbarComponent } from './toolbar.component';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MobileMenuModule } from '../mobile-menu/mobile-menu.module';
+import { RouterModule } from '@angular/router';
+import { BreadcrumbsModule } from '../breadcrumbs/breadcrumbs.module';
+import { ToolbarComponent } from './toolbar.component';
 
 @NgModule({
   declarations: [ToolbarComponent],
@@ -16,12 +12,9 @@ import { MobileMenuModule } from '../mobile-menu/mobile-menu.module';
     CommonModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule,
     RouterModule,
-    MatDialogModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MobileMenuModule
+  
+    BreadcrumbsModule
   ],
   exports: [ToolbarComponent]
 })

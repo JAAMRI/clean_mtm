@@ -1,0 +1,27 @@
+@import '../../../scss/variables.scss';
+
+.breadcrumbs-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 8px;
+    @media(min-width:1024px) {
+        max-width: 50%;
+        margin: 1em auto 0 auto;
+    }
+    .breadcrumb{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        span{
+            margin: 8px;
+            box-shadow: $mtm-box-shadow;
+            width: 60px;
+            height: 14px;
+            border-radius: 10px;
+            background-color: $mtm_white;
+            &.active {
+                background-color: $mtm_dark_grey;
+            }
+        }
+    }
+}

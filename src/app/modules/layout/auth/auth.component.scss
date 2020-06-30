@@ -1,0 +1,14 @@
+@import "../../../../scss/variables.scss";
+
+.auth-container {
+  min-height: 100vh;
+  @media(min-width: 1024px) {
+    display: grid;
+    max-width: 50%;
+    margin: auto;
+  }
+  .login-wrapper {
+    padding: 1em;
+  }
+}
+

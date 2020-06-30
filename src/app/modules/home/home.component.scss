@@ -1,143 +1,61 @@
-@import "../../../scss/customTheme.scss";
 @import "../../../scss/variables.scss";
 
-
-mat-sidenav-container {
-  margin-top: 0 !important;
-  background-color: $light_beige;
-  mat-sidenav {
-    top: 0 !important;
-    background-color: $mtm_green_color !important;
-    padding: 16px;
-    overflow: unset;
-    &.mobile-nav{
-      width: 100%;
-    }
-    .menu-toolbar {
-      display: flex;
-      justify-content: space-between;
-      button {
-        color: $light_beige;
-      }
-    }
-    mat-nav-list {
-      padding: 16px;
-      .page-item {
-        color: $light_beige;
-        font-family: flavour;
-        font-size: 1.25em;
-        height: 36px;
-      }
-      .active {
-        color: $mtm_light_green_color;
-      }
-    }
-    .bottom-wrapper {
-      bottom: 0;
-      width: 100%;
+.home-page {
+  height: 100%;
+  background-color: $mtm_white;
+  h1 {
+    margin: 0 0 4px 0;
+    font-size: 1.5em !important;
+  }
+  .copy {
+    text-align: center;
+    padding: 3em 2em 1em 2em;
+    @media (min-width: 1024px) {
+      padding: 4em 2em 1em 2em;
     }
   }
-  mat-sidenav-content {
-    overflow: unset;
-    .menu-button {
-      position: absolute;
-      top: 0;
-      z-index: 2;
-      color: $light_beige;
-      background-color: $mtm_light_green_color;
-      margin: 1em;
+  p {
+    @media (max-width: 1024px) {
+      margin: 4px;
     }
-    .home-page {
-      height: 100%;
-      .mobile-wrapper {
-        height: 80vh;
-        position: relative;
-    
-        background-image: url("/assets/static_images/MTM_Mobile_Homepage_Image_1125x2436.jpg");
-        background-size: cover;
-      }
-      .main-wrapper {
-        height: 80vh;
-        position: relative;
-    
-        background-image: url("/assets/static_images/MTM_Desktop_Homepage_Image_1920x1080.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-      }
-      
-      .component-wrapper {
-        position: absolute;
-        bottom: 0;
+  }
+
+  mat-sidenav-container {
+    @media (max-width: 1024px) {
+      mat-sidenav {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        .home-content {
-          display: flex;
-          background-color: $mtm_light_green_color;
-          color: $light_beige;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          max-width: 300px;
-          width: 70%;
-          height: 250px;
-          &.desktop {
-            height: 37vh;
-            width: 40vw;
-            max-width: unset;
-            
-    
-          }
-        }
-    
-        .close-button {
-          display: flex;
-          align-self: flex-end;
-        }
       }
-    
-      // mat form fields
-      .mat-form-field-appearance-legacy .mat-form-field-underline {
-        background: $light_beige !important;
+    }
+    @media (min-width: 1024px) {
+      mat-sidenav {
+        width: 25%;
       }
-      .mat-form-field-label {
-        color: $light_beige !important;
-      }
-    
-      .mat-form-field-ripple {
-        background-color: $light_beige !important;
+    }
+    mat-sidenav-content {
+      overflow: unset;
+      .menu-button {
+        position: absolute;
+        top: 0;
+        z-index: 2;
+        background-color: $mtm_white;
+        margin: 1em;
       }
     }
   }
 }
-
-.scroll-to-top-button-wrapper {
+.get-started-button-wrapper {
+  position: fixed;
+  bottom: 0;
   display: flex;
-  justify-content: flex-end;
-  button {
-    position: absolute;
-    bottom: 1.5em;
-    right: 3em;
-  }
-}
-
-.scroll-button {
-  color: $mtm_light_green_color !important;
-  background-color: $light_beige !important;
-}
-
-.action-button {
-  display: flex;
+  width: 100%;
+  -webkit-transform: translate3d(0,0,0);
+  z-index: 999;
   justify-content: center;
-  margin: 1em 0 2em 0;
+  background-color: $mtm_grey;
   button {
-    color: $light_beige;
-    background-color: $mtm_green_color;
+    margin: 1em; // comment from design team, top is smaller than bottom
+    width: 300px;
+    font-size: 16px;
+    padding: 4px;
   }
-}
-
-*:focus {
-  outline: 0;
-  outline: none;
 }

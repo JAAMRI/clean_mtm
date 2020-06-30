@@ -1,0 +1,43 @@
+@import "../../../../scss/variables.scss";
+
+.on-board-content {
+    height: calc(100vh - 76px);
+    width: 100vw;
+    background-image: url("/assets/static_images/home-page/homepage-image.jpg");
+    @media (min-width: 1024px) {
+        background-image: url("/assets/static_images/home-page/desktop-homepage-image.jpg");
+    }
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    .logo-wrapper {
+        height: 25vh;
+        width: 25vh;
+    }
+    .copy {
+        text-align: center;
+        padding: 1em;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      
+        p {
+            max-width: 400px;
+        }
+    }
+    .button-wrapper {
+        position: absolute;
+        bottom: 2em;
+        button {
+            background-color: $mtm_white;
+            color: $mtm_dark_green_color;
+        }
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+}

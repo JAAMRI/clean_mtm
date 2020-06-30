@@ -1,0 +1,32 @@
+@import "../../../scss/variables";
+
+.desktop-nav {
+    display: flex;
+    .call-to-actions {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    background-color: $mtm_white;
+    .tabs {
+        img {
+            height: 30px;
+            width: 30px;
+        }
+    }
+    a {
+        &.active {
+            color: $mtm_dark_green_color;
+        }
+        padding: 0 8px !important;
+    }
+    .logo-desktop-wrapper {
+        margin-top: 2em;
+        z-index: 2;
+        cursor: pointer;
+        img {
+            height: 10vh;
+            min-height: 90px;
+        }
+    }
+}

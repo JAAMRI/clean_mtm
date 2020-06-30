@@ -1,35 +1,28 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { MenuPage } from '../../../app/interfaces/menu-page';
-import { takeUntil, filter } from 'rxjs/operators';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { UserFormComponent } from '../dialogs/user-form/user-form.component';
-import { MatDialog } from '@angular/material/dialog';
-import { AccountService } from '../../../app/services/account/account.service';
-import Auth from '@aws-amplify/auth';
+import { filter, takeUntil } from 'rxjs/operators';
+import { MenuPage } from '../../../app/interfaces/menu-page';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
+import { AuthenticatedPages, MenuPages } from './mobile-menu-pages';
 
 @Component({
   selector: 'app-mobile-menu',
   templateUrl: './mobile-menu.component.html',
-  styleUrls: ['./mobile-menu.component.scss']
+  styleUrls: ['./mobile-menu.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MobileMenuComponent implements OnInit {
   @Output() close = new EventEmitter();
   currentRoute: string;
-  menuPages: MenuPage[] = [
-    { name: 'SELECT MEALS', route: '/recipes/discover', },
-    { name: `FAVOURITES`, route: '/recipes/favourites', }, // TODO when favourites page is created
-    { name: `MEAL PLAN`, route: '/recipes/my-meals' },
-    { name: 'GROCERY LIST', route: '/recipes/grocery-list' },
-    { name: 'ABOUT', route: '/about' },
-  ];
+  authenticatedPages: MenuPage[] = AuthenticatedPages;
+  menuPages: MenuPage[] = MenuPages;
   unsubscribeAll = new Subject();
+  @Input() loggedIn: boolean;
+  @Output() onSignOut = new EventEmitter();
 
   constructor(
     private router: Router,
-    private dialog: MatDialog,
-    public accountService: AccountService,
     public adobeDtbTracking: AdobeDtbTracking
   ) { }
 
@@ -37,39 +30,22 @@ export class MobileMenuComponent implements OnInit {
     this.watchRoute();
   }
 
-  closeMobileMenu(name, url) {
+  closeMobileMenu(name: string, url: string) {
     this.close.emit();
     if (name.length > 0 && url.length > 0) {
-      this.adobeDtbTracking.page_tracking(name, url);
+      this.adobeDtbTracking.pageTracking(name, url);
     }
   }
 
   signOut() {
     this.adobeDtbTracking.signout();
-    Auth.signOut()
-      .then(data => {
-        this.close.emit();
-        this.accountService.loggedIn = false;
-        this.router.navigate(['/']);
-      })
-      .catch(err => {
-        console.log(err.message);
-      });
-
+    this.close.emit();
+    this.onSignOut.emit();
   }
 
-
-
-  authControl() {
-    this.promptUserForAuth()
-  }
 
   promptUserForAuth() {
-    this.dialog.open(UserFormComponent, {
-      panelClass: 'email-dialog-container',
-      backdropClass: 'faded-backdrop',
-      data: { isMobile: true }
-    });
+    this.router.navigate(['/auth']);
   }
 
   watchRoute() {
@@ -83,6 +59,15 @@ export class MobileMenuComponent implements OnInit {
 
   setActiveRoute(url: string) {
     this.currentRoute = url;
+    if (this.loggedIn) {
+      this.authenticatedPages.forEach((page) => {
+        if (url.includes(page.route)) {
+          page.active = true;
+        } else {
+          page.active = false;
+        }
+      });
+    }
     this.menuPages.forEach((page) => {
       if (url.includes(page.route)) {
         page.active = true;

@@ -9,9 +9,19 @@
 
 html,
 body {
-  background: $light_beige;
-  font-family: flavour;
+  background: $mtm_white;
+  font-family: Arial; 
   margin: unset;
+  height: 100%;
+  color: $mtm_body_color;
+  h1, h2, h3, h4, h5, h6{
+    font-family: filson-bold;
+    color: $mtm_headline_color;
+  }
+  p{
+    line-height: 22px;
+  }
+
 }
 
 mat-icon {
@@ -21,17 +31,29 @@ mat-icon {
 button {
   .mat-progress-spinner circle,
   .mat-spinner circle {
-    stroke: $light_beige;
+    stroke: $mtm_white;
   }
-  font-family: flavour !important;
 }
+.mat-button{
+  
+  font-family: Arial !important;
+ 
+}
+.mat-flat-button{
+  padding: 2px 4px 4px 4px !important;
+}
+
 mat-dialog-container{
   overflow: unset;
 }
 
+.mat-drawer-container {
+  background-color: $mtm_white !important;
+}
+
 .mat-menu-content {
   .mat-menu-item {
-    font-family: flavour !important;
+    font-family: Arial !important;
   }
 }
 // dialog colors
@@ -75,52 +97,19 @@ mat-dialog-container{
   }
 }
 
-.prev-slide {
-  background: url("#{$imgdir}/icon-left.png") no-repeat scroll 0 0;
-  left: -85px;
-  transform: scale(1.25);
+
+// cookies on this site
+#_ghostery-title{
+  font-family: Arial !important;
 }
 
-.next-slide {
-  background: url("#{$imgdir}/icon-right.png") no-repeat scroll;
-  right: -100px;
-  transform: scale(1.25);
+#_ghostery-body{
+  font-family: Arial !important;
 }
 
-.recipe-page-carousel {
-  &:not(.mobile-carousel) {
-    .next-slide {
-      transform: scale(1.5);
-      background: url("#{$imgdir}/chevron-right-white.png") no-repeat scroll !important;
-    }
-    .prev-slide {
-      transform: scale(1.5);
-      background: url("#{$imgdir}/chevron-left-white.png") no-repeat scroll !important;
-    }
-  }
-}
-
-.mobile-carousel {
-  .next-slide {
-    height: 85px;
-    width: 85px;
-    background: url("#{$imgdir}/mobile-carousel-icon.png") no-repeat scroll 0 0;
-    z-index: 1;
-    transform: scale(0.6);
-    position: absolute;
-    right: -30px;
-    top: 60px;
-    cursor: pointer;
-  }
-  .prev-slide {
-    position: absolute;
-    left: -30px;
-    top: 60px;
-    height: 85px;
-    width: 85px;
-    background: url("#{$imgdir}/mobile-carousel-icon.png") no-repeat scroll 0 0;
-    z-index: 1;
-    transform: scale(0.6) rotate(180deg);
-    cursor: pointer;
+#_evh-ric{
+  svg{
+    height: 18px !important;
+    width: 18px !important;
   }
 }

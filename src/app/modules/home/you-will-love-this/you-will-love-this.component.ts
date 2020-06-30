@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { CarouselData } from '../home-carousel-helper';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
@@ -9,18 +9,8 @@ import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.se
   styleUrls: ['./you-will-love-this.component.scss']
 })
 export class YouWillLoveThisComponent implements OnInit {
-
-  @Input() isMobile: boolean;
-  @Input() isWeb: boolean;
-
-  slideConfig = {
-    "slidesToShow": 3,
-    "slidesToScroll": 1,
-    "nextArrow": "<div class='nav-btn next-slide'></div>",
-    "prevArrow": "<div class='nav-btn prev-slide'></div>",
-    "infinite": true
-  }; // slide config for carousel
   carouselData = CarouselData;
+  @Output() navigate = new EventEmitter();
 
 
   constructor(
@@ -28,7 +18,22 @@ export class YouWillLoveThisComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.slideConfig = { ...this.slideConfig, 'slidesToShow': this.isWeb ? 3 : (this.isMobile ? 1 : 2) };
+  }
+
+  emitNavigation() {
+    this.navigate.emit();
+  }
+
+  pushEnd() {
+    this.carouselData = [...this.carouselData, ...CarouselData]
+  }
+  pushStart() {
+    this.carouselData = [...CarouselData, ...this.carouselData]
+
+  }
+
+  trackByIndex(i: number) {
+    return i;
   }
 
 }

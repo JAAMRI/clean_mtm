@@ -10,6 +10,7 @@ import { PreferencesService } from '../../../../app/services/preferences/prefere
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
+import { Breadcrumb } from '../../breadcrumbs/breadcrumbs.component';
 
 @Component({
   selector: 'app-user-form',
@@ -19,7 +20,7 @@ import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.se
 })
 export class UserFormComponent implements OnInit {
   email: string;
-  isMobile: boolean;
+  isMobile: boolean = true;
   signUpFormStep1 = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email])
   });
@@ -36,7 +37,19 @@ export class UserFormComponent implements OnInit {
   codeValidated: boolean;
   invalidCode: boolean;
   invalidEmail: boolean;
-
+  breadcrumbs: Breadcrumb[] = [{
+    name: 'Select Meals',
+    active: false
+  },
+  {
+    name: 'Meal Plan',
+    active: false
+  },
+  {
+    name: 'Grocery List',
+    active: false
+  },
+  ]
 
   constructor(public dialogRef: MatDialogRef<UserFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -50,11 +63,7 @@ export class UserFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.data) {
-      // check if data was passed through
-      this.isMobile = this.data.isMobile;
-      // check if mobile. this is sent from component
-    }
+
   }
 
   closeDialog() {
@@ -87,16 +96,16 @@ export class UserFormComponent implements OnInit {
       const user = await Auth.signIn(credentials.username.toLowerCase(), credentials.password);
       // Update only if user is signing in for the first time right after signing up
       if (credentials.hasOwnProperty('firstTimeSignIn')) {
-        (credentials.firstTimeSignIn === true) ? this.updateLocalStorageValuesToServer() : null;
+        (credentials.firstTimeSignIn) ? this.updateLocalStorageValuesToServer() : null;
       }
       this.accountService.emitAuthStateChanged();
       this.accountService.loggedIn = true;
       this.closeDialog();
       // this.mtmauthService.loggedIn = true;
       if (credentials.hasOwnProperty('firstTimeSignIn')) {
-        this.adobeDtbTracking.first_time_user('New Registration');
+        this.adobeDtbTracking.firstTimeUser('New Registration');
       } else {
-        this.adobeDtbTracking.returning_user();
+        this.adobeDtbTracking.returningUser();
       }
     } catch (err) {
       if (err.code === 'UserNotConfirmedException') {
@@ -124,7 +133,7 @@ export class UserFormComponent implements OnInit {
   }
 
   stepToForgotPassword() {
-    this.adobeDtbTracking.anchor_link('Link leading to reset password page on sign in popup');
+    this.adobeDtbTracking.anchorLink('Link leading to reset password page on sign in popup');
     this.stepper.selectedIndex = 1;
 
   }

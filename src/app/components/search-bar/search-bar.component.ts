@@ -23,8 +23,8 @@ export class SearchBarComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: any) {
-    if (changes && this.searchQuery) {
-      this.searchFormControl.setValue(this.searchQuery)
+    if (changes) {
+      this.searchFormControl.setValue(this.searchQuery);
     }
   }
 
@@ -33,11 +33,9 @@ export class SearchBarComponent implements OnInit, OnChanges {
       takeUntil(this.unsubscribeMe),
       debounceTime(400),
     ).subscribe((query) => {
-      this.loading = true;
-      setTimeout(() => {
+      // if (query) {
         this.search.emit(query);
-        this.loading = false;
-      }, 100);
+      // }
     });
   }
 

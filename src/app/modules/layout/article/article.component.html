@@ -1,0 +1,14 @@
+<div class="article-page">
+    <div class="copy">
+        <h1>ARTICLES</h1>
+        <p>
+            Find tips & tricks to improve your cooking skills and help you reclaim weeknight cooking
+        </p>
+    </div>
+    <div class="article-container">
+        <app-article-list-item (click)='track(article.title)' [routerLink]='article.title' *ngFor='let article of articles' [article]='article'>
+
+        </app-article-list-item >
+    </div>
+</div>
+

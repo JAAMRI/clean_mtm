@@ -6,7 +6,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MealItemModule } from '../../../../app/components/meal-item/meal-item.module';
 import { SearchBarModule } from '../../../../app/components/search-bar/search-bar.module';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
@@ -14,6 +13,8 @@ import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.se
 import { UserFormModule } from '../../../components/dialogs/user-form/user-form.module';
 import { DiscoverMealsComponent } from './discover-meals.component';
 import { DiscoverMealsRouting } from './discover-meals.routing';
+import { MtmSliderModule } from '../../../components/mtm-slider/mtm-slider.module';
+import { FilterModule } from '../../../components/dialogs/filter/filter.module';
 
 @NgModule({
   declarations: [DiscoverMealsComponent],
@@ -27,9 +28,10 @@ import { DiscoverMealsRouting } from './discover-meals.routing';
     MatProgressBarModule,
     ScrollingModule,
     MatIconModule,
-    SlickCarouselModule,
     UserFormModule,
-    MatDialogModule
+    MatDialogModule,
+    MtmSliderModule,
+    FilterModule,
   ],
   providers: [
     MealFavouritesService,

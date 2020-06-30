@@ -1,0 +1,16 @@
+.article-page{
+    height: 100%;
+    padding: 1em;
+    @media(min-width:1024px) {
+        width: 50%;
+        margin: auto;
+    }
+    .copy{
+        text-align: center;
+        padding: 1em;
+    }
+    .article-container{
+        display: grid;
+        grid-gap: 1em;
+    }
+}

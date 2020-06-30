@@ -1,5 +1,16 @@
 
 .app-container {
   z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .app-content{
+    flex: 1;
+  }
+  .footer-container{
+    max-height: 10vh;
+
+  }
+  
 }
 

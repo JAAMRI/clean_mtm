@@ -1,96 +1,140 @@
-@import "../../../scss/customTheme.scss";
 @import "../../../scss/variables.scss";
-.meal {
-  height: 350px;
-  position: relative;
-}
-.recommended-meal {
-  height: 300px;
-  position: relative;
-}
+
 .meal-item {
-  max-width: 400px;
+  width: 250px;
+  @media (min-width: 1024px) {
+    width: 400px;
+  }
   position: relative;
   padding: unset;
-  height: 100%;
-  margin: 0.5em;
   cursor: pointer;
-  box-shadow: unset !important;
-  background-color: $light_beige;
-  .meal-title {
-    font-family: flavour;
-    text-align: center;
-    font-size: 1.25em;
-    height: 32px;
-    margin: 0;
-  }
-  .meal-description {
-    font-family: avenir;
-    text-align: center;
-    margin: unset;
-    font-size: 0.8rem;
-  }
-  .mat-card-image {
-    height: 20vh;
-    margin: 0 0 16px 0;
-    width: unset;
-    min-height: 175px;
-    max-height: 200px;
+  border-radius: 4px;
+  background-color: $mtm_light_grey;
+
+  .img-wrapper {
     position: relative;
-    background-position: center;
-    background-size: cover;
-    box-shadow: $mtm-box-shadow;
-  }
-  .remove {
-    color: $light_beige;
-    mat-icon {
-      color: $light_beige !important;
+    height: 140px;
+    width: 100%;
+    @media (min-width: 1024px) {
+      height: 250px;
+    }
+    &.active:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      border-radius: 4px 4px 0 0;
+      height: 140px;
+      @media (min-width: 1024px) {
+        height: 250px;
+      }
+      bottom: 0;
+      background-color: rgba($mtm_dark_grey, 0.5);
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      // .shaded{
+
+      // }
+    }
+    .favourite-button {
+      position: absolute;
+      bottom: -13px;
+      z-index: 2;
+      left: 16px;
+      color: $mtm_light_green_color;
+      transform: scale(0.75);
+    }
+    .favourite-border-button {
+      position: absolute;
+      bottom: -20px;
+      left: 8px;
+      background-color: $mtm_white !important;
+      color: $mtm_dark_green_color;
+      transform: scale(0.9);
+      mat-icon {
+        // transform: scale(1.1);
+      }
+    }
+    .add-button {
+      position: absolute;
+      top: -20px;
+      right: 8px;
+      background-color: $mtm_white;
+      color: $mtm_dark_green_color;
+      transform: scale(0.8);
+      border: 1px solid rgba($mtm_light_grey, 0.7);
+    }
+    .remove-button {
+      position: absolute;
+      top: -20px;
+      right: 8px;
+      background-color: $mtm_light_green_color;
+      color: $mtm_white;
+      transform: scale(0.8);
     }
   }
-  .active:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 20vh;
-    min-height: 175px;
-    max-height: 200px;
-    bottom: 0;
-    background-color: rgba($mtm_light_green_color, 0.5);
+  .meal-content {
+    text-align: center;
+    padding: 4px 1em 1em 1em;
+    .meal-title {
+      margin-bottom: unset;
+      height: 36px;
+      &.title-active {
+        color: $mtm_dark_green_color;
+      }
+    }
+    .meal-description {
+      font-size: 12px;
+      height: 36px;
+    }
+    .meal-servings {
+      margin: 1em 0;
+    }
   }
 
-  .meal-toolbar-icons {
-    width: 100%;
-    position: absolute;
-    top: 8px;
-    .favourite-icons {
-      cursor: pointer;
-      .favourite-icon {
-        color: transparent;
-        transform: scale(1.5);
-        position: absolute;
-        right: 8px;
-      }
-      .favourite-border-icon {
-        color: $light_beige;
-        z-index: 2;
-        right: 8px;
-        position: absolute;
-        transform: scale(1.5);
-      }
+  .macros-container {
+    h3 {
+      color: $mtm_dark_green_color;
+      margin: 4px;
     }
-    .favourited {
-      color: $mtm_light_green_color !important;
+    .macros-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      .macro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        color: $mtm_dark_green_color;
+        mat-icon {
+          margin-bottom: 1em;
+          &.blob {
+            transform: scale(1.2);
+          }
+          &.bread {
+            transform: scale(2);
+          }
+          &.burger {
+            transform: scale(1.2);
+          }
+        }
+      }
     }
   }
-  mat-card-actions {
-    display: flex;
-    justify-content: center;
-    button {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-    }
-  }
+}
+
+button {
+  box-shadow: none !important;
+}
+
+*:focus {
+  outline: 0;
+  outline: none;
 }

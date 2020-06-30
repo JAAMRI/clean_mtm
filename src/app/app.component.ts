@@ -1,13 +1,15 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, Component, ComponentFactoryResolver, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild, ViewContainerRef } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ChangeDetectorRef, Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { NavigationEnd, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 import { environment } from '../environments/environment';
+import { MTMPage, MTMPages } from './components/desktop-toolbar/desktop-toolbar.component';
 import { AccountService } from './services/account/account.service';
-import { DynamicScriptLoaderService } from './services/dynamic-script-loader.service';
-import { BREAKPOINTS } from './utilities/breakpoints';
+import { DynamicScriptLoaderService } from './services/dynamic-script-loader/dynamic-script-loader.service';
+import { SeoService } from './services/seo.service';
 
 @Component({
   selector: 'app-root',
@@ -16,21 +18,17 @@ import { BREAKPOINTS } from './utilities/breakpoints';
 })
 export class AppComponent implements OnInit {
   unsubscribeAll = new Subject();
-  isPortrait: boolean;
-  @ViewChild('footerContainer', { read: ViewContainerRef }) footerContainer: ViewContainerRef;
-  footerHeight: number;
-  isHandsetLandscape: boolean;
+  activeRoute: string;
   loadScript: Promise<any>;
   stylesToBeLoaded: boolean = false;
-  loadCarousel = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private dynamicScriptLoader: DynamicScriptLoaderService,
-    @Inject(DOCUMENT) private document: any,
-    private breakpointObserver: BreakpointObserver,
     public accountService: AccountService,
+    private seoService: SeoService,
+    private title: Title,
     private cdr: ChangeDetectorRef,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private router: Router
 
   ) { }
 
@@ -46,10 +44,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.isLoggedIn();
-    this.observeBreakpoints();
+    this.activeRoute = this.router.url;
+    this.watchRoute();
 
     if (!isPlatformBrowser(this.platformId)) {
-      let bases = this.document.getElementsByTagName('base');
+      let bases = document.getElementsByTagName('base');
 
       if (bases.length > 0) {
         bases[0].setAttribute('href', environment.baseHref);
@@ -58,48 +57,41 @@ export class AppComponent implements OnInit {
   }
 
   async ngAfterViewInit() {
-    this.loadFooter();
+    // this.loadFooter();
     this.loadFontIcons();
-    if (environment.production == true || environment.uat == true) {
-      await this.loadjscssfile("../jquery.js", "js");
-      await this.loadjscssfile("../carouselslicklazyloadedjs.js", "js");
-      this.loadCarousel = true; // load router outlet after js has been loaded
-      await this.loadjscssfile("../lazyloadedstyles.css", "css");
-      await this.loadjscssfile("../carousellazyloadedstyles.css", "css");
-      await this.loadjscssfile("../carouselslicklazyloadedstyles.css", "css");
-      this.insertAdChoice();
-    }//If production or uat, lazyload main css
-    else {
-      await this.loadjscssfile("../jquery.js", "js");
-      await this.loadjscssfile("../carouselslicklazyloadedjs.js", "js");
-      this.loadCarousel = true; // load router outlet after js has been loaded
-      await this.loadjscssfile("../lazyloadedstyles.js", "js");
-      await this.loadjscssfile("../carousellazyloadedstyles.js", "js");
-      await this.loadjscssfile("../carouselslicklazyloadedstyles.js", "js");
-    }
-
-    if (environment.production || environment.uat) {
+    if (!environment.local) {
+      console.log('in here')
       this.facebookImplementation();
       this.adobeImplementation();
     }
+    if (environment.production || environment.uat) {
+
+      await this.loadjscssfile("../lazyloadedstyles.css", "css");
+      if (environment.production) {
+        this.newRelicImplementation();
+      }
+    }//If production or uat, lazyload main css
+    else {
+      this.cdr.detectChanges()
+      // await this.loadjscssfile("../lazyloadedstyles.js", "js");
+      await this.loadjscssfile("./lazyloadedstyles.css", "css");
+    }
+    this.insertAdChoice();
 
 
+  }
+
+  watchRoute() {
+    this.router.events.pipe(takeUntil(this.unsubscribeAll),
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.activeRoute = event.url;
+    });
   }
 
   loadFontIcons() {
     this.stylesToBeLoaded = true;
     this.cdr.detectChanges();
-  }
-
-  loadFooter() {
-    import("./modules/footer/footer.component").then(
-      ({ FooterComponent }) => {
-        const component = this.componentFactoryResolver.resolveComponentFactory(FooterComponent);
-        const componentRef = this.footerContainer.createComponent(component);
-        componentRef.instance.isHandsetLandscape = this.isHandsetLandscape;
-        componentRef.instance.isPortrait = this.isPortrait;
-      }
-    );
   }
 
 
@@ -108,36 +100,40 @@ export class AppComponent implements OnInit {
       bypassCache: false  // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
     }).then(user => {
       this.accountService.loggedIn = true;
-      console.log(user)
     }
     )
       .catch(err => console.log(err));
-    // this.amplifyService.authStateChange$
-    //   .subscribe(authState => {
-    //     if (authState.user) {
-    //       this.accountService.loggedIn = true;
-    //       // console.log(authState.user);
-    //     }
-    //   });
   }
 
 
-  observeBreakpoints() {
-    this.breakpointObserver.observe(BREAKPOINTS).pipe(takeUntil
-      (this.unsubscribeAll)).subscribe((result: BreakpointState) => {
-        this.isPortrait = result.matches;
-        this.isHandsetLandscape = this.breakpointObserver.isMatched('(max-width: 959.99px) and (orientation: landscape)');
-        // breakpoints for footer
-      });
-  }
-
-  completeSubscription() {
+  ngOnDestroy() {
     this.unsubscribeAll.next();
     this.unsubscribeAll.complete();
   }
 
-  ngOnDestroy() {
-    this.completeSubscription();
+  getActivePage(): MTMPage {
+    let activePage: MTMPage;
+    Object.values(MTMPages).forEach((page) => {
+      if (this.activeRoute.includes(page.route)) {
+        activePage = page;
+      }
+    });
+    return activePage;
+  }
+
+  setSeo() {
+    const activePage = this.getActivePage();
+    this.seoService.generateTags({
+      title: activePage.title,
+      description: activePage.description,
+      image: activePage.image,
+      slug: activePage.route
+    })
+  }
+
+  setTitle() {
+    const activePage = this.getActivePage();
+    this.title.setTitle(activePage.title);
   }
 
   insertAdChoice() {
@@ -272,6 +268,12 @@ export class AppComponent implements OnInit {
   adobeImplementation() {
     this.dynamicScriptLoader.load('adobe-tracking', 'adobe-tracking-min').then((data: any) => {
       console.log('Adobe tracking loaded successfully');
+    }).catch(console.error)
+  }
+
+  newRelicImplementation() {
+    this.dynamicScriptLoader.load('new-relic').then((data: any) => {
+      console.log('New Relic loaded successfully');
     }).catch(console.error)
   }
 

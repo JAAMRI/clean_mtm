@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FeaturedRecipes } from './featured-recipes';
 
 @Component({
   selector: 'app-how-it-works',
@@ -8,40 +7,30 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./how-it-works.component.scss']
 })
 export class HowItWorksComponent implements OnInit {
+  @Output() navigate = new EventEmitter();
 
-  steps = [
-    {
-      icon: 'assets/static_images/noun_recipes_1132517.svg',
-      name: 'BROWSE OUR RECIPES',
-    },
-    {
-      icon: 'assets/static_images/noun_Browser_83393.svg',
-      name: 'CREATE MEAL PLAN',
-    },
-    {
-      icon: 'assets/static_images/noun_Shopping Cart_2776002.svg',
-      name: 'SHOP YOUR MEAL PLAN'
-    }
-  ]; // icons
-
-  @Input() isMobile: boolean;
-
-  constructor(
-    private matIconRegistry: MatIconRegistry, 
-    private sanitizer: DomSanitizer, 
+  recipes = FeaturedRecipes;
+  constructor( 
+    
   ) {}
 
-  createStepIcons() {
-    this.steps.forEach((step) => {
-      this.matIconRegistry.addSvgIcon(step.name, this.sanitizer.bypassSecurityTrustResourceUrl(step.icon));
-    });
-    this.matIconRegistry.addSvgIcon('right-arrow', this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/right-arrow.svg'));
-    // creating step icons for carousel
-
+  ngOnInit(): void {
   }
 
-  ngOnInit(): void {
-    this.createStepIcons();
+  emitNavigation(recipeLink?: string) {
+    this.navigate.emit(recipeLink);
+  }
+
+  pushEnd() {
+    this.recipes = [...this.recipes, ...FeaturedRecipes]
+  }
+
+  pushStart() {
+    this.recipes = [ ...FeaturedRecipes, ...this.recipes]
+  }
+
+  trackByIndex(i: number) {
+    return i;
   }
 
 }

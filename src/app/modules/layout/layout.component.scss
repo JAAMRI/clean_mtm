@@ -1,0 +1,69 @@
+@import "../../../scss/variables.scss";
+
+.layout-container {
+    height: 100%;
+    mat-sidenav-container{
+        overflow: initial;
+    }
+    @media (max-width: 1024px) {
+        mat-sidenav {
+            width: 100%;
+        }
+    }
+    @media (min-width: 1024px) {
+        mat-sidenav {
+            width: 25%;
+        }
+    }
+
+    .router-wrapper{
+        margin-top: 2em;
+        height: calc(100% - 64px - 2em); // remove margin and toolbar
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mobile-router-wrapper{
+        min-height: calc(100vh - 64px);
+    }
+    .mat-sidenav-content{
+        overflow: unset;
+    }
+    .desktop-view{
+        height: 100%;
+    }
+
+    .nav-buttons {
+        position: fixed;
+        bottom: 0;
+        z-index: 2;
+        text-align: center;
+        width: 100%;
+        background-color: $mtm_grey;
+    }
+            .nav-buttons-wrapper {
+                display: flex;
+                align-items: center;
+                z-index: 1000;
+                justify-content: flex-end;
+                width: calc(50% + 100px + 1em); // half width of next button
+                &.gl{
+                    width: unset;
+                    justify-content: center;
+                    padding: 1em;
+                }
+                .next {
+                    margin: 1em; // comment from design team, top is smaller than bottom
+                    min-width: 200px;
+                    font-size: 14px;
+                }
+                .back {
+                    margin-right: 1em;
+                    background-color: $mtm_white;
+                    mat-icon {
+                        color: $mtm_dark_green_color;
+                    }
+                }
+            
+            }
+}

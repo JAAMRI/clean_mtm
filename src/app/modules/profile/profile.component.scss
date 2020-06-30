@@ -1,9 +1,9 @@
-@import "../../../scss/customTheme.scss";
+@import "../../../scss/variables.scss";
 
 .profile-page {
   height: calc(100% - 64px); // height subtracting toolbar
   min-height: calc(100vh - 64px); // height subrating toolbar (landscape)
-  background-color: $light_beige;
+  background-color: $mtm_white;
   margin-top: 4em;
   position: relative;
   z-index: 1;
@@ -11,7 +11,7 @@
 .mobile-profile-page {
   height: calc(100% - 40px); // height subtracting mobil toolbar
   min-height: calc(100vh - 40px); // height subrating toolbar (landscape)
-  background-color: $light_beige;
+  background-color: $mtm_white;
   margin-top: 2em;
 }
 
@@ -59,7 +59,7 @@ mat-tab-group {
     .save-button {
       min-width: 150px;
       width:70%;
-      background-color: $darker_beige;
+      background-color: $mtm_grey;
       color: $mtm_dark_green_color;
       margin: 1em auto;
     }

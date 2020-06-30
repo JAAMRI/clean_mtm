@@ -1,27 +1,25 @@
-<section class='product-benefits'>
-    <div class="text-wrapper">
-      <h1>WHY YOU'LL LOVE THIS</h1>
-      <p>
-        {{!isMobile ? 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.' : 'Enjoy delicious recipe inspiration, personalized grocery lists and delivery for a better cooking experience.'}}
-      </p>
+<div class='product-benefits'>
+  <div class="copy">
+    <h1>WHY YOU'LL LOVE THIS</h1>
+    <p>
+      Enjoy delicious recipe inspiration, personalized meal plans and delivery for a great cooking experience.
+    </p>
+  </div>
+
+  <app-mtm-slider (onEndReached)='pushEnd()' (onStartReached)='pushStart()'>
+    <div class='youll-love-this-meal-item' *ngFor="let item of carouselData; trackBy: trackByIndex; let i=index;" (click)='emitNavigation()'>
+      <div class="img-wrapper">
+        <img [alt]="item.header" [src]='item.img' [alt]='item.header' />
+
+      </div>
+      <div class='content'>
+        <h3 class='meal-title'>{{item.header}}</h3>
+        <p class='meal-body'>{{item.body}}</p>
+
+      </div>
     </div>
-    <div class="product-carousel">
-      <ngx-slick-carousel [class]='isWeb ? "carousel" : "mobile-carousel"' #slickModal="slick-carousel"
-        [config]="slideConfig">
-        <div ngxSlickItem *ngFor="let item of carouselData" class="slide">
-          <mat-card class='meal-item'>
-            <img [alt]="item.header" mat-card-image [src]='item.img' [alt]='item.header' />
-            <mat-card-content>
-              <p class='meal-title'>{{item.header}}</p>
-              <p class='meal-body'>{{item.body}}</p>
-            </mat-card-content>
-          </mat-card>
-        </div>
-      </ngx-slick-carousel>
-    </div>
-    <div class="action-button">
-      <button aria-label="Get started" mat-raised-button routerLink="/recipes/discover"
-        (click)="adobeDtbTracking.page_tracking('>SELECT MEALS','/recipes/discover')">GET STARTED</button>
-        <!-- <button aria-label="Get started" mat-raised-button routerLink="/recipes/discover">GET STARTED</button> -->
-    </div>
-</section>
+
+  </app-mtm-slider>
+
+
+</div>

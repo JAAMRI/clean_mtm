@@ -1,35 +1,33 @@
-@import '../../../../../scss/customTheme.scss';
-
-.grocery-list-page{
-    height: calc(100% - 64px);
-    min-height: calc(100vh - 64px);
-
-    display: flex;
-
-    flex-direction: column;
-
-    background-color: #fffef9;
-    position: relative;
-    z-index: 1;
-    .title{
+@import '../../../../../scss/variables.scss';
+app-grocery-list{
+    flex: 1;
+    .grocery-list-page{
+        background-color: $mtm_white !important; //overwirting grocery list widget
         text-align: center;
-        margin-bottom: unset;
-        color: $mtm_dark_green_color;
-        font-weight: bold;
-    }
-    .grocery-container{
-        overflow: auto;
-        flex: 1;
-        .cc-mealplan-details-container{
-            height: 100%;
+    
+        .title{
+            margin-bottom: unset;
+            font-weight: bold;
         }
-    }
-    .button-wrapper{
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        button{
-            width: 300px;
+        p{
+            width: 75%;
+            margin:  1em auto;
+        }
+      
+        .grocery-container{
+           position: relative;
+           z-index: 0;
+            .cc-mealplan-details-container{
+                height: 100%;
+            }
+        }
+        .button-wrapper{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            button{
+                width: 300px;
+            }
         }
     }
 }
