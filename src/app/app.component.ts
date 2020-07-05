@@ -69,7 +69,7 @@ export class AppComponent implements OnInit {
 
     if (environment.production || environment.uat) {
 
-      await this.loadjscssfile("../lazyloadedstyles.css", "css");
+      // await this.loadjscssfile("../lazyloadedstyles.css", "css");
       if (environment.production) {
         this.newRelicImplementation();
         this.hotjarImplementation();
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
     else {
       this.cdr.detectChanges()
       // await this.loadjscssfile("../lazyloadedstyles.js", "js");
-      await this.loadjscssfile("./lazyloadedstyles.css", "css");
+      // await this.loadjscssfile("./lazyloadedstyles.css", "css");
     }
     this.insertAdChoice();
 
