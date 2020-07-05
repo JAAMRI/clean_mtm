@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
   activeRoute: string;
   loadScript: Promise<any>;
   stylesToBeLoaded: boolean = false;
+  loadNewRelic = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private dynamicScriptLoader: DynamicScriptLoaderService,
@@ -58,17 +59,20 @@ export class AppComponent implements OnInit {
 
   async ngAfterViewInit() {
     // this.loadFooter();
+    console.log('in hereeee');
     this.loadFontIcons();
     if (!environment.local) {
-      console.log('in here')
       this.facebookImplementation();
       this.adobeImplementation();
     }
+  
+
     if (environment.production || environment.uat) {
 
       await this.loadjscssfile("../lazyloadedstyles.css", "css");
       if (environment.production) {
         this.newRelicImplementation();
+        this.hotjarImplementation();
       }
     }//If production or uat, lazyload main css
     else {
@@ -272,8 +276,15 @@ export class AppComponent implements OnInit {
   }
 
   newRelicImplementation() {
-    this.dynamicScriptLoader.load('new-relic').then((data: any) => {
-      console.log('New Relic loaded successfully');
+    this.loadNewRelic = true;
+    // this.dynamicScriptLoader.load('new-relic').then((data: any) => {
+    //   console.log('New Relic loaded successfully');
+    // }).catch(console.error)
+  }
+
+  hotjarImplementation() {
+    this.dynamicScriptLoader.load('hot-jar').then((data: any) => {
+      console.log('Hot Jar loaded successfully');
     }).catch(console.error)
   }
 

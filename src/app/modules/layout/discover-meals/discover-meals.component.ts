@@ -26,7 +26,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   meals: any = [];
   favouriteMeals: any = []
   loading = false;
-  viewLoaded: boolean = false;
+  isReady: boolean = false;
   searchQuery: string;
   didYouMean: string;
   unsubscribeAll = new Subject();
@@ -39,7 +39,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   filter = {};
   leftPageStart = 0;
   numOfResults = 0;
-  initialSliderScrollWidth: number;
 
 
   constructor(private router: Router, private dialog: MatDialog,
@@ -64,7 +63,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   ngAfterViewInit() {
-    this.viewLoaded = true;
+    this.isReady = true;
     this.cdr.detectChanges();
   }
 
