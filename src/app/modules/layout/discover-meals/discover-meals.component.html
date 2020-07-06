@@ -29,12 +29,11 @@
   </div>
   
  
-      <app-mtm-slider *ngIf='meals.length > 0' (onEndReached)='getNextBatch()' (onStartReached)='getPreviousBatch()' [numOfItems]='meals.length'>
+      <app-mtm-slider *ngIf='meals.length > 0 && isReady' (onEndReached)='getNextBatch()' (onStartReached)='getPreviousBatch()' [numOfItems]='meals.length'>
 
         <app-meal-item *ngFor="let meal of meals; trackBy: trackByIndex; let i=index;" (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
           (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[meal.id]' [mealItem]='meal'
           (favouriteToggled)='updateFavourites($event)' [favourited]='favouriteMealIds[meal.id]'>
         </app-meal-item>
       </app-mtm-slider>
-
 </div>
