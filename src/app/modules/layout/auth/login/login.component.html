@@ -27,7 +27,7 @@
         <mat-icon matSuffix matTooltip='Please enter a combination of at least 8 letters, numbers or symbols (!,@...)'>
           info_outline</mat-icon>
       </mat-form-field>
-      <button aria-label="Sign in" type="submit" mat-flat-button class='sign-in-button'>SIGN IN</button>
+      <button aria-label="Sign in" type="submit" mat-flat-button class='sign-in-button'>{{loading ? 'PROCESSING...' : 'SIGN IN'}}</button>
       <a class='forgot-button' mat-link-button (click)='emitForgotPassword()'>Forgot your password?</a>
     </div>
     <div class="gif-wrapper" *ngIf='loading'>
