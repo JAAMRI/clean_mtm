@@ -67,12 +67,12 @@ export class AppComponent implements OnInit {
       this.adobeImplementation();
     }
   
-
+    
     if (environment.production || environment.uat) {
-
+      
       if (environment.production) {
+        this.newRelicImplementation();
         this.hotjarImplementation();
-        // this.newRelicImplementation();
       }
     }//If production or uat, lazyload main css
     else {
