@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 export class AdobeDtbTracking {
     apiHost = environment.host;
     pageLoad(name) {
-        if (environment.local) return;
+        if (!environment.production) return;
         // if (environment.production) {
         // @ts-ignore
         fbq('track', 'ViewContent ' + name);
@@ -28,7 +28,7 @@ export class AdobeDtbTracking {
     }
 
     pageTracking(name: string, url: string) {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -51,7 +51,7 @@ export class AdobeDtbTracking {
     }
 
     socialMediaTracking(name, url) {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -74,7 +74,7 @@ export class AdobeDtbTracking {
     }
 
     passwordReset(val: string) {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -112,7 +112,7 @@ export class AdobeDtbTracking {
     }
 
     firstTimeUser(val) {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -135,7 +135,7 @@ export class AdobeDtbTracking {
     }
 
     returningUser() {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -158,7 +158,7 @@ export class AdobeDtbTracking {
     }
 
     signout() {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -183,7 +183,7 @@ export class AdobeDtbTracking {
     }
 
     anchorLink(val) {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -208,7 +208,7 @@ export class AdobeDtbTracking {
 
 
     updateInformation() {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -230,7 +230,7 @@ export class AdobeDtbTracking {
         // }
     }
     checkbox(value: any) {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         if (value.checked) {
@@ -241,7 +241,7 @@ export class AdobeDtbTracking {
         // }
     }
     taggingOptin() {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -264,7 +264,7 @@ export class AdobeDtbTracking {
     }
 
     taggingOptout() {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -287,7 +287,7 @@ export class AdobeDtbTracking {
     }
 
     contactUs(val) {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -310,7 +310,7 @@ export class AdobeDtbTracking {
     }
 
     sharingMealByEmail(title) {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -333,7 +333,7 @@ export class AdobeDtbTracking {
     }
 
     anchorLinkMeal(val, title) {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
@@ -356,7 +356,7 @@ export class AdobeDtbTracking {
     }
 
     anchorLinkTab(val, file, title) {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         if (file == "profile page") {
@@ -401,7 +401,7 @@ export class AdobeDtbTracking {
     }
 
     searchQuery(query, size) {
-        if (environment.local) return;
+        if (!environment.production) return;
 
         // if (environment.production) {
         // @ts-ignore
