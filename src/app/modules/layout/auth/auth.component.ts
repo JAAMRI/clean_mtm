@@ -119,15 +119,12 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   async signIn(credentials: ICredentials) {
-    console.log('sigining in')
 
     try {
       const { username, password, firstTime } = credentials;
       this.loading = true;
-    console.log('loading')
 
       await Auth.signIn(username.toLowerCase(), password);
-    console.log('signed in in')
 
       // Update only if user is signing in for the first time right after signing up
       if (firstTime) {
@@ -136,13 +133,11 @@ export class AuthComponent implements OnInit, OnDestroy {
       } else {
         this.adobeDtbTracking.returningUser();
       }
-      console.log('changing auth state')
       this.accountService.emitAuthStateChanged();
       this.accountService.setLoggedIn(true);
       this.router.navigate(['/recipes/discover']);
       this.loading = false;
     } catch (err) {
-      console.log('changing auth state')
 
       // if (err.code === 'UserNotConfirmedException') {
       //   // The error happens if the user didn't finish the confirmation step when signing up
