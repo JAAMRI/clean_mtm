@@ -25,13 +25,11 @@ export class ArticleItemComponent implements OnInit {
   loadArticleBasedOffRoute(): void {
     this.route.params.pipe(takeUntil(this.unsubscribeAll)).subscribe((params: ParamMap) => {
       //  watch route and load article depending on route id
-      console.log('test')
-      console.log('test')
+   
       if (params['id']) {
         const article = params['id'];
 
       } else {
-        console.log(params)
         this.router.navigate(['/recipes/discover']);
 
       }

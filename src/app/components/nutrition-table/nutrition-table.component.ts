@@ -19,7 +19,6 @@ export class NutritionTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.nutritionFacts)
     if (this.nutritionFacts) {
       this.caloricInfo = this.nutritionFacts.find((nutrition) => nutrition.name === 'Calories');
       this.mappedNutrition = this.nutritionFactMapper();

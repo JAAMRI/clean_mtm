@@ -99,7 +99,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
       return;
     }
     this.loading = true;
-    // console.log('hereeee')
     this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
       if (meals) {
         //Check if did_you_mean
