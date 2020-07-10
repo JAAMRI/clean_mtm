@@ -63,14 +63,14 @@ export class AppComponent implements OnInit {
   async ngAfterViewInit() {
     // this.loadFooter();
     this.loadFontIcons();
-    // if (environment.production) {
-      // this.facebookImplementation();
-      // this.newRelicImplementation();
-      // this.hotjarImplementation();
-      // this.adobeImplementation();
+    if (environment.production) {
+      this.facebookImplementation();
+      this.newRelicImplementation();
+      this.hotjarImplementation();
+      this.adobeImplementation();
  
 
-    // }//If production or uat, lazyload main css
+    }//If production or uat, lazyload main css
     // else {
       this.cdr.detectChanges()
       // await this.loadjscssfile("../lazyloadedstyles.js", "js");
