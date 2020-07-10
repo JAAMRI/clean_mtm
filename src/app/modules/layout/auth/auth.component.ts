@@ -116,14 +116,12 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   async signIn(credentials: ICredentials) {
-    console.log('about to login')
 
     try {
       const { username, password, firstTime } = credentials;
       this.loading = true;
 
       await Auth.signIn(username.toLowerCase(), password);
-    console.log('ologined')
 
       this.router.navigate(['/recipes/discover']);
       this.loading = false;

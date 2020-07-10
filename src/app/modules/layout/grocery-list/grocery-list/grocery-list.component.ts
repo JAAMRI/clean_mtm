@@ -43,7 +43,6 @@ export class GroceryListComponent implements OnInit {
       this.adobeDtbTracking.pageLoad("grocery list page");
     },
       5000);
-    console.log(this.sharedService.groceryListPageVisited);
     if (!this.sharedService.groceryListPageVisited) {
       embedWidget();
       this.sharedService.groceryListPageVisited = true

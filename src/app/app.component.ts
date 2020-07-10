@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
   loadScript: Promise<any>;
   stylesToBeLoaded: boolean = false;
   loadNewRelic = false;
-  loadLayout = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private dynamicScriptLoader: DynamicScriptLoaderService,
