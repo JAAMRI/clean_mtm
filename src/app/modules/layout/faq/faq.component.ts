@@ -12,7 +12,7 @@ import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 })
 export class FaqComponent implements OnInit {
   panelOpenState = false;
-  constructor(private router: Router, private sharedService: SharedService, private seo: SeoService, private title: Title, public adobeDtbTracking: AdobeDtbTracking) { }
+  constructor(private seo: SeoService, private title: Title, public adobeDtbTracking: AdobeDtbTracking) { }
 
   ngOnInit() {
     this.scrollToTop();
@@ -27,6 +27,10 @@ export class FaqComponent implements OnInit {
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/faqs'
     })
+  }
+
+  track() {
+    this.adobeDtbTracking.socialMediaTracking('QUICK DEMO LINK', 'https://www.youtube.com/watch?v=sfGbvNX3Y9o&feature=youtu.be');
   }
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });

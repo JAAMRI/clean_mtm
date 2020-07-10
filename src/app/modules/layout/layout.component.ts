@@ -80,26 +80,24 @@ export class LayoutComponent {
     const activePageName = this.getActivePage().name;
     if (activePageName === MTMPageNames.SELECT_MEALS) {
       this.router.navigate(['/recipes/my-meals']);
+      this.adobeDtbTracking.pageTracking('NEXT', '/recipes/my-meals');
     } else if (activePageName === MTMPageNames.MEAL_PLAN) {
       this.router.navigate(['/recipes/grocery-list']);
-    } else {
-      // start shopping
-      var iframe: any = document.getElementsByTagName("iframe")[0];
-      console.log(iframe)
-      console.log(iframe.contentDocument)
-      var elmnt = iframe.contentWindow.document.getElementsByClassName("shop")[0].click();
-      const a = document.getElementsByClassName('shop')[0];
-      console.log(a)
-    }
+      this.adobeDtbTracking.pageTracking('NEXT', '/recipes/grocery-list');
+
+    } 
   }
 
   back() {
     const activePageName = this.getActivePage().name;
-    console.log(activePageName)
     if (activePageName === MTMPageNames.MEAL_PLAN) {
       this.router.navigate(['/recipes/discover']);
+      this.adobeDtbTracking.pageTracking('BACK', '/recipes/discover');
+
     } else if (activePageName === MTMPageNames.GROCERY_LIST) {
       this.router.navigate(['/recipes/my-meals']);
+      this.adobeDtbTracking.pageTracking('BACK', '/recipes/my-meals');
+
     }
   }
 

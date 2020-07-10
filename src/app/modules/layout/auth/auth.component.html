@@ -7,7 +7,7 @@
         <app-register [registerForm]='registerForm' (back)='viewLogin()' (signIn)='signIn($event)'></app-register>
     </div>
     <div class="forgot-password-wrapper" *ngIf='activeRoute === "FORGOT_PASSWORD"'>
-        <app-forgot-password [emailValidated]='emailValidated' (validate)='validateEmail()' (back)='viewLogin()' ></app-forgot-password>
+        <app-forgot-password [emailValidated]='emailValidated' (update)='updatePassword($event)' (validate)='validateEmail()' (back)='viewLogin()' ></app-forgot-password>
     </div>  
 
 </div>
