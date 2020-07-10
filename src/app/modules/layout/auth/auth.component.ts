@@ -1,20 +1,17 @@
-import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationEnd, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { Breadcrumb } from '../../../components/breadcrumbs/breadcrumbs.component';
-import { PersonalInfoComponent } from '../../../components/personal-info/personal-info.component';
+import { ICredentials } from '../../../interfaces/auth/credentials';
 import { AccountService } from '../../../services/account/account.service';
 import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../services/meal-plan/meal-plan.service';
 import { PreferencesService } from '../../../services/preferences/preferences.service';
-import { ICredentials } from '../../../interfaces/auth/credentials';
-import { EmailForm, LoginForm, RegisterForm } from './auth.forms';
 import { scrollToTop } from '../../../utilities/helper-functions';
+import { EmailForm, LoginForm, RegisterForm } from './auth.forms';
 
 enum AuthType {
   LOGIN = 'LOGIN',
@@ -119,12 +116,17 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   async signIn(credentials: ICredentials) {
+    console.log('about to login')
 
     try {
       const { username, password, firstTime } = credentials;
       this.loading = true;
 
       await Auth.signIn(username.toLowerCase(), password);
+    console.log('ologined')
+
+      this.router.navigate(['/recipes/discover']);
+      this.loading = false;
 
       // Update only if user is signing in for the first time right after signing up
       if (firstTime) {
@@ -135,8 +137,6 @@ export class AuthComponent implements OnInit, OnDestroy {
       }
       this.accountService.emitAuthStateChanged();
       this.accountService.setLoggedIn(true);
-      this.router.navigate(['/recipes/discover']);
-      this.loading = false;
     } catch (err) {
 
       // if (err.code === 'UserNotConfirmedException') {

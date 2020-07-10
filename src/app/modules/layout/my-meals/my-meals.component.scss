@@ -34,16 +34,7 @@ app-my-meals{
   .my-meals-container {
     display: grid;
     grid-gap: 1em;
-    justify-content: center;
-    .virtual-scroll {
-      width: 100%;
-      height: 100%;
-    }
-    .cdk-virtual-scroll-content-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 0.5em;
-    }
+    justify-content: center;   
     .add-meal-item {
       background-color: $mtm_grey;
       display: flex;
@@ -70,19 +61,7 @@ app-my-meals{
     padding: 0 1em 1em 1em;
   }
   
-  .route-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 0.5em;
-    button {
-      color: $mtm_dark_green_color !important;
-      background-color: $mtm_grey !important;
-    }
-  }
-  .save-meal-plan-button {
-    color: $mtm_dark_green_color !important;
-    background-color: $mtm_grey !important;
-  }
+
   
   .select-meals-button-wrapper{
     display: flex;

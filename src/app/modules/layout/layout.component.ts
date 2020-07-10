@@ -80,8 +80,11 @@ export class LayoutComponent {
     const activePageName = this.getActivePage().name;
     if (activePageName === MTMPageNames.SELECT_MEALS) {
       this.router.navigate(['/recipes/my-meals']);
+      this.adobeDtbTracking.pageTracking('NEXT', '/recipes/my-meals');
     } else if (activePageName === MTMPageNames.MEAL_PLAN) {
       this.router.navigate(['/recipes/grocery-list']);
+      this.adobeDtbTracking.pageTracking('NEXT', '/recipes/grocery-list');
+
     } 
   }
 
@@ -89,8 +92,12 @@ export class LayoutComponent {
     const activePageName = this.getActivePage().name;
     if (activePageName === MTMPageNames.MEAL_PLAN) {
       this.router.navigate(['/recipes/discover']);
+      this.adobeDtbTracking.pageTracking('BACK', '/recipes/discover');
+
     } else if (activePageName === MTMPageNames.GROCERY_LIST) {
       this.router.navigate(['/recipes/my-meals']);
+      this.adobeDtbTracking.pageTracking('BACK', '/recipes/my-meals');
+
     }
   }
 

@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   loadScript: Promise<any>;
   stylesToBeLoaded: boolean = false;
   loadNewRelic = false;
+  loadLayout = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private dynamicScriptLoader: DynamicScriptLoaderService,
@@ -62,18 +63,19 @@ export class AppComponent implements OnInit {
   async ngAfterViewInit() {
     // this.loadFooter();
     this.loadFontIcons();
-    if (environment.production) {
-      this.facebookImplementation();
-      this.newRelicImplementation();
-      this.hotjarImplementation();
-      this.adobeImplementation();
+    // if (environment.production) {
+      // this.facebookImplementation();
+      // this.newRelicImplementation();
+      // this.hotjarImplementation();
+      // this.adobeImplementation();
+ 
 
-    }//If production or uat, lazyload main css
-    else {
+    // }//If production or uat, lazyload main css
+    // else {
       this.cdr.detectChanges()
       // await this.loadjscssfile("../lazyloadedstyles.js", "js");
       // await this.loadjscssfile("./lazyloadedstyles.css", "css");
-    }
+    // }
     this.insertAdChoice();
 
 

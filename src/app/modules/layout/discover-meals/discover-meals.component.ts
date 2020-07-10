@@ -55,7 +55,10 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   async ngOnInit() {
     scrollToTop();
     this.getMeals();
-    this.adobeDtbTracking.pageLoad("discover meals page");
+    setTimeout(() => {
+
+      this.adobeDtbTracking.pageLoad("discover meals page");
+    }, 5000);
     this.watchRouteForRecipePrompt()
     this.mealPlan = await this.mealPlanService.getMealPlan();
     await this.getFavouriteMeals();
@@ -179,6 +182,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   renderFilterDialog() {
+    this.adobeDtbTracking.anchorLink('FILTER');
     const filterDialog = this.dialog.open(FilterComponent, {
       data: {
         resetFilter: this.noFilters()
@@ -187,12 +191,13 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     filterDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe((filter: IFilter) => {
       if (filter) {
         this.filter = filter;
+        
         this.searchQuery='';
         this.resetAllGlobalValues()
           this.getMeals();
 
       }
-    })
+    });
 
   }
 

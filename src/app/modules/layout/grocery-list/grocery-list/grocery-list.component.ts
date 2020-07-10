@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
 import { scrollToTop } from '../../../../../app/utilities/helper-functions';
-import { embedWidget } from '../../../../../app/utilities/grocery-widget-helper';
+import { embedWidget, hideWidget } from '../../../../../app/utilities/grocery-widget-helper';
 import { SharedService } from '../../../../../app/shared/shared.service';
 import { SeoService } from '../../../../../app/services/seo.service';
 import { Title } from '@angular/platform-browser';
@@ -43,7 +43,7 @@ export class GroceryListComponent implements OnInit {
       this.adobeDtbTracking.pageLoad("grocery list page");
     },
       5000);
-
+    console.log(this.sharedService.groceryListPageVisited);
     if (!this.sharedService.groceryListPageVisited) {
       embedWidget();
       this.sharedService.groceryListPageVisited = true
@@ -78,6 +78,11 @@ export class GroceryListComponent implements OnInit {
       `<div class="cc-mealplan-details-container" recipe-ids="${recipeIds}"></div>`;
 
   }
+
+
+
+ 
+
 
 
 }
