@@ -104,6 +104,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   getStarted() {
     const route = this.accountService.loggedIn ? '/recipes/discover' : '/auth';
+    this.adobeDtbTracking.pageTracking('GET STARTED', '/recipes/discover');
+
     this.router.navigate([route])
   }
 

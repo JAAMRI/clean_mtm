@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 import { UrlSerializer } from '@angular/router';
 // StandardUrlSerializer 
 import { DefaultUrlSerializer, UrlTree } from "@angular/router";
+import { AuthGuard } from './guards/auth.guard';
 
 export class StandardUrlSerializer implements UrlSerializer {
     private _defaultUrlSerializer: DefaultUrlSerializer = new DefaultUrlSerializer();
@@ -62,6 +63,7 @@ export class StandardUrlSerializer implements UrlSerializer {
     DynamicScriptLoaderService,
     // AmplifyService,
     AccountService,
+    AuthGuard,
     SharedService,
       {
          provide: UrlSerializer,

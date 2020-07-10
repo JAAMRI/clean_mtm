@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, ViewChild, ViewEncapsulation, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Disclaimers, Filters, IFilter } from './filter.data';
+import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-filter',
@@ -15,7 +16,7 @@ export class FilterComponent {
   hideScroll = false;
   @ViewChild('disclaimerWrapper') disclaimersRef: ElementRef;
 
-  constructor(public dialogRef: MatDialogRef<FilterComponent>, @Inject(MAT_DIALOG_DATA) public data: any, ) { }
+  constructor(public dialogRef: MatDialogRef<FilterComponent>, public adobeDtbTracking: AdobeDtbTracking, @Inject(MAT_DIALOG_DATA) public data: any,) { }
 
   @HostListener('scroll', ['$event'])
   onElementScroll(event: any) {
@@ -31,24 +32,28 @@ export class FilterComponent {
 
   }
 
-  setActiveFilter(id: number|string) {
+  setActiveFilter(id: number | string) {
     let activeFilter: any;
     this.filters.forEach((filter: any) => {
       if (filter.id === id) {
         filter.active = true;
-        
-        activeFilter = filter.id === 1400 ? {'q': 'dinner'} : { 'p_tag_ids': filter.id }; //check if dinner and use 'q' otherwise use tag
+
+        activeFilter = filter.id === 1400 ? { 'q': 'dinner' } : { 'p_tag_ids': filter.id }; //check if dinner and use 'q' otherwise use tag
+        this.adobeDtbTracking.anchorLink(`Filter: ${filter.name} clicked!`);
+
       } else {
         filter.active = false;
       }
 
     });
-    
+
     this.dialogRef.close(!id ? {} : activeFilter);
   }
 
   clear() {
     this.setActiveFilter(null);
+    this.adobeDtbTracking.anchorLink('CLEAR FILTER');
+
   }
 
   scrollDown() {

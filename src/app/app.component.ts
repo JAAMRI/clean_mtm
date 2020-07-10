@@ -37,9 +37,11 @@ export class AppComponent implements OnInit {
   @HostListener('window:beforeinstallprompt', ['$event'])
   onbeforeinstallprompt(e) {
     // Prevent Chrome 67 and earlier from automatically showing the prompt
-    e.preventDefault();
-    // Stash the event so it can be triggered later.
-    e.prompt(); // prompot user to add to homescreen
+    if (e) {
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      e.prompt(); // prompot user to add to homescreen
+    }
   }
 
 
@@ -59,27 +61,20 @@ export class AppComponent implements OnInit {
 
   async ngAfterViewInit() {
     // this.loadFooter();
-    console.log('in hereeee');
     this.loadFontIcons();
-    if (!environment.local) {
+    if (environment.production) {
       this.facebookImplementation();
+      this.newRelicImplementation();
+      this.hotjarImplementation();
       this.adobeImplementation();
-    }
-  
+ 
 
-    if (environment.production || environment.uat) {
-
-      // await this.loadjscssfile("../lazyloadedstyles.css", "css");
-      if (environment.production) {
-        this.newRelicImplementation();
-        this.hotjarImplementation();
-      }
     }//If production or uat, lazyload main css
-    else {
+    // else {
       this.cdr.detectChanges()
       // await this.loadjscssfile("../lazyloadedstyles.js", "js");
       // await this.loadjscssfile("./lazyloadedstyles.css", "css");
-    }
+    // }
     this.insertAdChoice();
 
 
@@ -276,10 +271,10 @@ export class AppComponent implements OnInit {
   }
 
   newRelicImplementation() {
-    this.loadNewRelic = true;
-    // this.dynamicScriptLoader.load('new-relic').then((data: any) => {
-    //   console.log('New Relic loaded successfully');
-    // }).catch(console.error)
+    // this.loadNewRelic = true;
+    this.dynamicScriptLoader.load('new-relic').then((data: any) => {
+      console.log('New Relic loaded successfully');
+    }).catch(console.error)
   }
 
   hotjarImplementation() {

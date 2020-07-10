@@ -65,9 +65,11 @@ export class ProfileComponent {
       bypassCache: true  // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
     }).then(currentUser => {
       if (currentUser.attributes['custom:opt_in'] == false) {
-        console.log(currentUser.attributes['custom:opt_in']);
         this.optInModify = true;
-        this.notificationsForm.controls.opt_in.setValue(currentUser.attributes['custom:opt_in']);
+        if (this.notificationsForm.controls.opt_in) {
+          this.notificationsForm.controls.opt_in.setValue(currentUser.attributes['custom:opt_in']);
+
+        }
       }
     })
       .catch(err => console.log(err.message));

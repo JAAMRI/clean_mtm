@@ -51,7 +51,7 @@
     "tslib": "^1.10.0",
     "url-search-params-polyfill": "^7.0.0",
     "web-animations-js": "^2.3.2",
-    "zone.js": "~0.10.2"
+    "zone.js": "0.8.16"
   },
   "devDependencies": {
     "@angular-devkit/core": "^9.0.2",

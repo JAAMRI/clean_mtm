@@ -6,6 +6,7 @@ import { SeoService } from '../../../services/seo.service';
 import { Title } from '@angular/platform-browser';
 import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 import { DynamicScriptLoaderService } from '../../../services/dynamic-script-loader/dynamic-script-loader.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-contact-us',
@@ -18,14 +19,14 @@ export class ContactUsComponent implements OnInit {
     private dynamicScriptLoader: DynamicScriptLoaderService,
     private sharedService: SharedService, private seo: SeoService, private title: Title, public adobeDtbTracking: AdobeDtbTracking) { }
 
-  ngOnInit() {
+  async ngOnInit(){
     setTimeout(() => {
       this.adobeDtbTracking.pageLoad("contact us page");
     },
       5000);
 
-    if (!this.sharedService.chatPageVisited) {
-      this.dynamicScriptLoader.loadScript('sales-force-live-agent');
+    if (!this.sharedService.chatPageVisited && environment.production) {
+      await this.dynamicScriptLoader.loadScript('sales-force-live-agent');
       embedChatWidget();
 
       this.sharedService.chatPageVisited = true

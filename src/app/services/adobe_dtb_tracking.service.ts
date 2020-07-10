@@ -8,8 +8,9 @@ import { environment } from '../../environments/environment';
 export class AdobeDtbTracking {
     apiHost = environment.host;
     pageLoad(name) {
-        if (environment.local) return;
-        // if (environment.production) {
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', 'ViewContent ' + name);
         var ev = {};
@@ -28,9 +29,10 @@ export class AdobeDtbTracking {
     }
 
     pageTracking(name: string, url: string) {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', 'ViewContent ' + name + ' ' + url);
         var ev = {};
@@ -51,9 +53,10 @@ export class AdobeDtbTracking {
     }
 
     socialMediaTracking(name, url) {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', 'ViewContent' + name + ', ' + url);
         var ev = {};
@@ -74,9 +77,10 @@ export class AdobeDtbTracking {
     }
 
     passwordReset(val: string) {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', 'password reset on' + val);
         // @ts-ignore
@@ -112,9 +116,10 @@ export class AdobeDtbTracking {
     }
 
     firstTimeUser(val) {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', val);
         var ev = {};
@@ -135,9 +140,10 @@ export class AdobeDtbTracking {
     }
 
     returningUser() {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', 'Returning User sign in');
         var ev = {};
@@ -158,9 +164,10 @@ export class AdobeDtbTracking {
     }
 
     signout() {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', 'Rerouting to Home Page on signout');
         var ev = {};
@@ -183,9 +190,10 @@ export class AdobeDtbTracking {
     }
 
     anchorLink(val) {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', val);
         var ev = {};
@@ -208,9 +216,10 @@ export class AdobeDtbTracking {
 
 
     updateInformation() {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', 'Updating User Information on Profile');
         var ev = {};
@@ -230,9 +239,10 @@ export class AdobeDtbTracking {
         // }
     }
     checkbox(value: any) {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         if (value.checked) {
             this.taggingOptin();
         } else {
@@ -241,9 +251,10 @@ export class AdobeDtbTracking {
         // }
     }
     taggingOptin() {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', 'CompleteRegistration');
         var ev = {};
@@ -264,9 +275,10 @@ export class AdobeDtbTracking {
     }
 
     taggingOptout() {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', 'BRAND OPTOUT/CORPORATE OPTOUT');
         var ev = {};
@@ -287,9 +299,10 @@ export class AdobeDtbTracking {
     }
 
     contactUs(val) {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', 'CONTACT US Using:' + val);
         var ev = {};
@@ -310,9 +323,10 @@ export class AdobeDtbTracking {
     }
 
     sharingMealByEmail(title) {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', 'Sharing ' + title + ' by Email');
         var ev = {};
@@ -333,9 +347,10 @@ export class AdobeDtbTracking {
     }
 
     anchorLinkMeal(val, title) {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', val + title);
         var ev = {};
@@ -356,9 +371,10 @@ export class AdobeDtbTracking {
     }
 
     anchorLinkTab(val, file, title) {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         if (file == "profile page") {
             if (!isNaN(val)) {
                 if (val == 0) {
@@ -401,9 +417,10 @@ export class AdobeDtbTracking {
     }
 
     searchQuery(query, size) {
-        if (environment.local) return;
+        //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
-        // if (environment.production) {
+
+        if (!environment.production) return
         // @ts-ignore
         fbq('track', query);
         var ev = {};
