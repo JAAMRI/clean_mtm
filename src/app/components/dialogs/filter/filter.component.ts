@@ -28,17 +28,21 @@ export class FilterComponent {
       this.filters.forEach((filter: IFilter) => {
         filter.active = false;
       })
+    } else if (this.data.activeFilterId) {
+      this.filters.forEach((filter: IFilter) => {
+        filter.active = (filter.id === +this.data.activeFilterId);
+      })
     }
 
   }
 
   setActiveFilter(id: number | string) {
-    let activeFilter: any;
+    let activeFilter: any = {};
     this.filters.forEach((filter: any) => {
       if (filter.id === id) {
         filter.active = true;
+        activeFilter = filter;
 
-        activeFilter = filter.id === 1400 ? { 'q': 'dinner' } : { 'p_tag_ids': filter.id }; //check if dinner and use 'q' otherwise use tag
         this.adobeDtbTracking.anchorLink(`Filter: ${filter.name} clicked!`);
 
       } else {
@@ -47,7 +51,7 @@ export class FilterComponent {
 
     });
 
-    this.dialogRef.close(!id ? {} : activeFilter);
+    this.dialogRef.close(activeFilter);
   }
 
   clear() {

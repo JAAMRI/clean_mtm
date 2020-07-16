@@ -1,31 +1,51 @@
+export const FilterIdsByName = {
+    '30_minutes_or_less': '1588',
+    'chicken': '1503',
+    'summer': '1544',
+    'bbq': '1393',
+    'pasta': '1047',
+    'beef': '1499',
+    'slow_cooker': '1390',
+    'breakfast_and_brunch': '1551,619',
+    'italian': '1422',
+    'indian': '1419',
+    'asian': '1433',
+    'mexican': '1433',
+    'middle_eastern': '1428',
+    'mediterranean': '1435',
+    'canadian': '1295',
+    'salad': '1487',
+    'better_for_you': '9870',
+}
+
+
 export const Filters: IFilter[] = [
     {
         name: '30 minutes or less',
+        key: '30_minutes_or_less',
         id: 1588,
-        key: 'p_cook_time',
-        value: '0,30'
+       
     },
     {
         name: 'Chicken',
-        query: '',
+        key: 'chicken',
+
         id: 1503,
-        key: 'q',
-        value: 'chicken'
+     
 
     },
     {
         name: 'Summer',
-        query: '',
+        key: 'summer',
+
         id: 1544,
-        key: 'q',
-        value: 'summer'
+      
 
     },
     {
         name: 'BBQ',
-        query: '',
-        key: 'q',
-        value: 'BBQ',
+        key: 'bbq',
+
         id: 1393,
 
     },
@@ -41,117 +61,101 @@ export const Filters: IFilter[] = [
     // },
     {
         name: 'Dinner',
-        query: '',
-        key: 'q',
-        value: 'main dish',
+        key: 'dinner',
+
         id: 1400,
         // id:6536
 
     },
     {
         name: 'Pasta',
-        query: '',
-        key: 'q',
-        value: 'pasta recipes',
+        key: 'pasta',
+
         id: 1047,
     },
     {
         name: 'Beef',
-        query: '',
         id: 1499,
-        key: 'q',
-        value: 'beef',
+        key: 'beef',
+
 
     },
     // bbq, slowcooker, pasta, dinner
     {
         name: 'Slow-Cooker',
-        query: '',
-        key: 'q',
-        value: 'slow-cooked recipes',
+        key: 'slow_cooker',
+
         id: 1390,
 
     },
     {
         name: 'Breakfast & Brunch',
-        query: '',
-        key: 'q',
-        value: 'breakfast,brunch',
+        key: 'breakfast_and_brunch',
+
         id: '1551,619'
 
     },
     {
         name: 'Italian',
-        query: '',
-        key: 'q',
-        value: 'italian',
+        key: 'italian',
+
         id: 1422,
 
     },
     {
         name: 'Indian',
-        query: '',
-        key: 'q',
-        value: 'indian',
+        key: 'indian',
+
         id: 1419,
 
     },
     {
         name: 'Asian',
-        key: 'q',
-        value: 'asian',
-        query: '',
+        key: 'asian',
+
         id: 1433,
 
     },
     {
         name: 'Mexican',
-        query: '',
         id: 1427,
-        key: 'q',
-        value: 'mexican',
+        key: 'mexican',
+
 
     },
     {
         name: 'Middle Eastern',
-        query: '',
         id: 1428,
-        key: 'q',
-        value: 'middle eastern', // typo on backend this compensates for it
+        key: 'middle_eastern',
 
     },
     {
         name: 'Mediterranean',
-        query: '',
         id: 1435,
-        key: 'q',
-        value: 'Mediterranean',
+        key: 'mediterranean',
+
 
     },
     {
         name: 'Canadian',
-        query: '',
         id: 1295,
-        key: 'q',
-        value: 'canadian',
+        key: 'canadian',
 
 
     },
     {
         name: 'Salad',
-        query: '',
         id: 1487,
-        key: 'q',
-        value: 'salad',
+        key: 'salad',
+
 
     },
     {
         name: 'Better-For-You',
-        query: '',
         disclaimerId: '*',
         id: 9870,
-        key: 'p_tag_ids',
-        value: 'Better for you',
+        key: 'better_for_you',
+
 
     },
 ]
@@ -174,7 +178,6 @@ export const Disclaimers = [
 
 export interface IFilter {
     name: string;
-    query?: string;
     disclaimerId?: string;
     active?: boolean;
     id: any;

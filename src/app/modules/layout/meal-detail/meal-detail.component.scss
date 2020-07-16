@@ -1,5 +1,23 @@
 @import "../../../../scss/variables.scss";
 
+.favourite-button {
+  position: absolute;
+  bottom: -13px;
+  z-index: 2;
+  left: 16px;
+  color: $mtm_light_green_color !important;
+  transform: scale(0.75);
+}
+.favourite-border-button {
+  position: absolute;
+  bottom: -20px;
+  left: 8px;
+  background-color: $mtm_white !important;
+  color: $mtm_dark_green_color !important;
+  transform: scale(0.9);
+
+}
+
 .unset-box-shadow {
 
   .mat-dialog-container {
@@ -23,6 +41,8 @@
   }
  
 }
+
+
 
 .mobile-recipe-page{
   
@@ -84,7 +104,12 @@
 }
 .meal-summary-mobile {
   position: relative;
-  button{
+  .add-button{
+    position: absolute;
+    right: 1em;
+    top: -20px;
+  }
+  .remove-button{
     position: absolute;
     right: 1em;
     top: -20px;
@@ -92,6 +117,7 @@
   .img-wrapper {
     display: flex;
     width: 100%;
+    position: relative;
     img {
       height: 100%;
       width: 100%;
@@ -139,7 +165,12 @@
     }
     .action-wrapper {
       position: relative;
-      button{
+      .add-button{
+        position: absolute;
+        right: 1em;
+        top: -20px;
+      }
+      .remove-button{
         position: absolute;
         right: 1em;
         top: -20px;
@@ -147,6 +178,7 @@
       .img-wrapper {
         height: 35vh;
         width: 100%;
+        position: relative;
         img {
           height: 100%;
           width: 100%;

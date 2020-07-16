@@ -16,38 +16,29 @@
 
   <section class="meal-recipe" [class]="isMobile ? 'mobile-meal-recipe' : 'meal-recipe'">
     <div class="meal-summary-mobile" *ngIf='isMobile'>
-      <button class='add-button' mat-mini-fab *ngIf='!mealPlanIds[meal.id]' (click)='addToMealPlan()'>
-        <mat-icon>add</mat-icon>
-      </button>
-      <button class='remove-button' mat-mini-fab *ngIf='mealPlanIds[meal.id]' (click)='removeFromMealPlan()'>
-        <mat-icon>remove</mat-icon>
-      </button>
       <div class="img-wrapper">
+        <button class='add-button' mat-mini-fab *ngIf='!mealPlanIds[meal.id]' (click)='addToMealPlan()'>
+          <mat-icon>add</mat-icon>
+        </button>
+        <button class='remove-button' mat-mini-fab *ngIf='mealPlanIds[meal.id]' (click)='removeFromMealPlan()'>
+          <mat-icon>remove</mat-icon>
+        </button>
         <img [alt]="meal.title" [src]="meal.image" alt="meal item">
+        <mat-icon class='favourite-button' *ngIf='favourited' (click)='updateFavourites(meal)'>favorite</mat-icon>
+        <button class='favourite-border-button' mat-mini-fab (click)='updateFavourites(meal)'>
+          <mat-icon>favorite_border</mat-icon>
+        </button>
       </div>
       <div class="meal-subheader">
         <div class="meal-info">
-          <!-- <p class='title'>
-            {{meal.title}}
-          </p> -->
+
           <p>
             {{(meal.prepTime + meal.cookTime) > 60 ? ((meal.prepTime + meal.cookTime) / 60 | floor )+ 'H ' + (meal.prepTime + meal.cookTime) % 60 : (meal.prepTime + meal.cookTime)}}Min
             {{meal.servings ? '- ' + meal.servings : ''}}
           </p>
         </div>
 
-        <!-- <div class="action-buttons">
-          <button aria-label="Add to meal plan" *ngIf='!inMealPlan' mat-button class='add-button'
-            [ngClass]="{'added': inMealPlan}" (click)='addToMealPlan()'>
-            <mat-icon>add</mat-icon>
-            ADD TO MEAL PLAN
-          </button>
-          <button aria-label="Remove from meal plan" *ngIf='inMealPlan' color='warn' mat-button class='remove-button'
-            (click)='removeFromMealPlan()'>
-            <mat-icon>remove</mat-icon>
-            REMOVE FROM MEAL PLAN
-          </button>
-        </div> -->
+
       </div>
     </div>
     <div class="meal-summary-desktop" *ngIf='!isMobile'>
@@ -59,15 +50,16 @@
             </h3> -->
             <p>{{meal.prepTime + meal.cookTime}} min {{meal.servings ? '- ' + meal.servings : ''}}</p>
           </div>
-      
-          <p class='meal-description' *ngIf='meal.mainIngredient'>Main Ingredient:<strong> {{ meal.mainIngredient }}</strong> </p>
+
+          <p class='meal-description' *ngIf='meal.mainIngredient'>Main Ingredient:<strong>
+              {{ meal.mainIngredient }}</strong> </p>
           <br>
           <p class='meal-description'>
             <ng-container *ngIf='meal.cookTime'>
               <strong>Cook time:</strong>
               {{meal.cookTime > 60 ? (meal.cookTime / 60 | floor )+ 'H ' + meal.cookTime % 60 : meal.cookTime}} Min -
             </ng-container>
-            <br/>
+            <br />
             <ng-container *ngIf='meal.prepTime'>
               <strong>Prep time:</strong>
               {{meal.prepTime}} Min
@@ -86,8 +78,7 @@
             <img [alt]="meal.title" [src]="meal.image" alt="meal item">
           </div>
           <div class="meal-subheader">
-            <a mat-stroked-button [href]='emailContent'
-              (click)="adobeDtbTracking.sharingMealByEmail(meal.title)">
+            <a mat-stroked-button [href]='emailContent' (click)="adobeDtbTracking.sharingMealByEmail(meal.title)">
               EMAIL
             </a>
           </div>
@@ -112,7 +103,7 @@
         </mat-tab>
       </mat-tab-group>
     </div>
- 
+
 
   </section>
 
@@ -126,8 +117,9 @@
     <div class="recommended-carousel">
 
       <app-mtm-slider (onStartReached)='pushStart()' (onEndReached)='pushEnd()'>
-        <app-meal-item *ngFor="let recipe of relatedRecipes" [recommendedMeal]='true' (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)' parent='recipe-detail'
-          (favouriteToggled)='updateFavourites($event)' (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[recipe.id]'
+        <app-meal-item *ngFor="let recipe of relatedRecipes" [recommendedMeal]='true' (add)='addToMealPlan($event)'
+          (remove)='removeFromMealPlan($event)' parent='recipe-detail' (favouriteToggled)='updateFavourites($event)'
+          (wasClicked)='visitMealDetailPage($event)' [inMealPlan]='mealPlanIds[recipe.id]'
           [favourited]='favouriteMealIds?.includes(recipe.id)' [mealItem]='recipe'>
         </app-meal-item>
 
@@ -145,7 +137,7 @@
         (click)="adobeDtbTracking.anchorLinkMeal('SELECT MORE MEALS', meal.title)">SELECT
         MORE MEALS</button>
     </div>
-   
+
   </div>
   <section class='meal-details-footer'>
 

@@ -2,7 +2,7 @@ import { Breadcrumb } from '../components/breadcrumbs/breadcrumbs.component';
 
 export const BREADCRUMBS: Breadcrumb[] = [
     {
-        name: 'Select Meals',
+        name: 'Select Recipes',
         active: false
     },
     {

@@ -1,7 +1,7 @@
 <div class="discover-meals-page">
   <div class="copy">
     <h1>
-      SELECT MEALS
+      SELECT RECIPES
     </h1>
     <p class='subheader'>Click <mat-icon>add</mat-icon> to add a recipe to your 'Meal Plan'. Click <mat-icon>
         favorite_border</mat-icon> to save it to your favourites for later.</p>
@@ -22,10 +22,14 @@
     </div>
   </div>
 
-  <div class='no-items-wrapper' *ngIf='meals?.length === 0 && !loading'>
+  <div class='no-items-wrapper' *ngIf='meals?.length === 0 && !loading && !error'>
     <p>
       <mat-icon>info</mat-icon> Sorry, we couldn't find any results matching "{{searchQuery}}"
     </p>
+  </div>
+  
+  <div class="error-wrapper" *ngIf='!loading && error'>
+    <p>{{error}}</p>
   </div>
   
  

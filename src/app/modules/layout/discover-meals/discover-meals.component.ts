@@ -10,10 +10,11 @@ import { MealFavouritesService } from '../../../../app/services/meal-favourites/
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { FilterComponent } from '../../../components/dialogs/filter/filter.component';
-import { IFilter } from '../../../components/dialogs/filter/filter.data';
+import { IFilter, FilterIdsByName } from '../../../components/dialogs/filter/filter.data';
 import { Meals } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
+import { query } from '@angular/animations';
 
 @Component({
   selector: 'app-discover-meals',
@@ -30,15 +31,17 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   searchQuery: string;
   didYouMean: string;
   unsubscribeAll = new Subject();
-  favouriteMealIds: any = [];
+  favouriteMealIds: any = {};
   pageStart: number = 0;
   pageSize: number = 5;//If you change this value, please change it in the search function in the meal service as well
   totalResults: number = 0;
   mealPlanIds = {};
   mealPlan = [];
   filter = {};
+  activeFilterName: string;
   leftPageStart = 0;
   numOfResults = 0;
+  error: string = '';
 
 
   constructor(private router: Router, private dialog: MatDialog,
@@ -54,28 +57,42 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   async ngOnInit() {
     scrollToTop();
-    this.getMeals();
+    // this.getMeals();
     setTimeout(() => {
 
       this.adobeDtbTracking.pageLoad("discover meals page");
     }, 5000);
-    this.watchRouteForRecipePrompt()
+    this.watchQueryParams();
     this.mealPlan = await this.mealPlanService.getMealPlan();
     await this.getFavouriteMeals();
 
   }
 
+  watchQueryParams() {
+    this.route.queryParams.pipe(takeUntil(this.unsubscribeAll)).subscribe((queryParams) => {
+
+      if (JSON.stringify(queryParams) !== '{}') {
+        if (queryParams.id) {
+          // id is the id of the meal - we route to meal detail page here
+          this.promptMealDetailComponent(queryParams.id)
+        } else if (queryParams['filter']) {
+          // query params have id for filters
+          // use the name of filter and grab the id by its name in filter.ts and use that to get meals
+          if (queryParams['filter'] == 'dinner') {
+            this.filter = {'q': 'dinner'}
+          } else {
+            this.filter = {'p_tag_ids': FilterIdsByName[queryParams['filter']]};
+           
+          }
+        }
+      }
+      this.getMeals(this.meals.length, this.pageSize, 'right', this.searchQuery)
+    })
+  }
+
   ngAfterViewInit() {
     this.isReady = true;
     this.cdr.detectChanges();
-  }
-
-  watchRouteForRecipePrompt() {
-    this.route.queryParams.pipe(takeUntil(this.unsubscribeAll)).subscribe((params) => {
-      if (params.id) {
-        this.promptMealDetailComponent(params.id)
-      }
-    })
   }
 
   getNextBatch() {
@@ -97,46 +114,35 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter) {
     //Show spinner while loadin
+    
     if (this.loading) {
       // stop duplicate calls
       return;
     }
     this.loading = true;
-    this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(async (meals: Meals) => {
-      if (meals) {
-        //Check if did_you_mean
-        // if (meals.didYouMean) {
-        //   if (this.noFilters()) {
-        //     // if did you mean exists, still search for those results
-        //     this.resetAllGlobalValues();
-        //     this.getMeals(pageStart, pageSize, 'right', meals.didYouMean);
-        //   }
-        // } else {
-          //Reset page start
-          this.didYouMean = meals.didYouMean;
-        
-          this.pageStart = pageStart;
-          this.numOfResults = meals.results;
-          // Populate meals
-          if (direction === 'right') {
-  
-            this.meals = [...this.meals, ...meals.items.slice(0, pageSize + 1)];
-  
-          } else {
-            this.meals = [...meals.items.slice(0, pageSize + 1), ...this.meals];
-  
-          }
-  
-          //Set meal plan IDs
-          this.setMealPlanIds()
-        // }
-
-
-      }
-
-      this.loading = false;
-
-    });
+    this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(
+        async (meals: Meals) => {
+        if (meals) {
+            this.didYouMean = meals.didYouMean;
+            this.pageStart = pageStart;
+            this.numOfResults = meals.results;
+            // Populate meals
+            if (direction === 'right') {
+              this.meals = [...this.meals, ...meals.items.slice(0, pageSize + 1)];
+            } else {
+              this.meals = [...meals.items.slice(0, pageSize + 1), ...this.meals];
+            }
+            //Set meal plan IDs
+            this.setMealPlanIds()
+          // }
+        }
+        this.loading = false;
+      
+      }, (err: string) => {
+        this.loading = false;
+        this.error = err;
+      });
+    
   }
 
   async getFavouriteMeals() {
@@ -181,20 +187,30 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.pageSize = 5;
   }
 
-  renderFilterDialog() {
+  async renderFilterDialog() {
     this.adobeDtbTracking.anchorLink('FILTER');
+    let activeFilterId;
+    
+    if (Object.values(this.filter).length > 0) {
+      activeFilterId = Object.values(this.filter)[0];
+    }
     const filterDialog = this.dialog.open(FilterComponent, {
       data: {
-        resetFilter: this.noFilters()
+        resetFilter: this.noFilters(),
+        activeFilterId: activeFilterId
       }
     });
     filterDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe((filter: IFilter) => {
       if (filter) {
-        this.filter = filter;
-        
+        this.router.navigate([], {
+          relativeTo: this.route,
+          queryParams: {
+            filter: filter.key,
+          },
+         
+        }); 
         this.searchQuery='';
         this.resetAllGlobalValues()
-          this.getMeals();
 
       }
     });
@@ -233,7 +249,8 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
       },
       onAddOrRemoveFavourites: (fromDialog: any) => {//Action coming from dialog
         //this will update added to update in parent component
-        (fromDialog.action === 'add') ? this.favouriteMealIds.push(fromDialog.meal.id) : this.favouriteMealIds = this.favouriteMealIds.filter(id => id !== fromDialog.meal.id)
+     
+        (fromDialog.action === 'add') ? this.favouriteMealIds[fromDialog.meal.id] = true :  delete this.favouriteMealIds[fromDialog.meal.id]
 
       }
     }
