@@ -9,6 +9,7 @@ import { Component, ElementRef, ViewChild, HostListener, Output, EventEmitter, A
 export class MtmSliderComponent implements AfterViewInit, OnChanges {
   @ViewChild('slider', { static: true }) slider: ElementRef;
   @Input() numOfItems: number;
+  @Input() showArrows: boolean = false;
   @Output() onEndReached = new EventEmitter();
   @Output() onStartReached = new EventEmitter();
   initialScrollWidth: number;
@@ -54,6 +55,14 @@ export class MtmSliderComponent implements AfterViewInit, OnChanges {
 
     }
 
+  }
+
+  slideRight() {
+
+  }
+
+  slideLeft() {
+    
   }
 
 

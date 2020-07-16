@@ -1,3 +1,13 @@
-<div #slider class="slider" (scroll)='onElementScroll($event)'>
-    <ng-content ></ng-content>
+<div class="slider-wrapper">
+
+    <button mat-mini-fab class='left-button' *ngIf='showArrows' (click)='slideLeft()'>
+        <mat-icon>chevron_left</mat-icon>
+    </button>
+    <div #slider class="slider" (scroll)='onElementScroll($event)'>
+        <ng-content></ng-content>
+
+    </div>
+    <button mat-mini-fab class='right-button' *ngIf='showArrows' (click)='slideRight()'>
+        <mat-icon>chevron_right</mat-icon>
+    </button>
 </div>
