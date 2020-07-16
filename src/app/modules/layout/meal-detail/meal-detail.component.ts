@@ -13,6 +13,7 @@ import { environment } from '../../../../environments/environment';
 import { Meal, RelatedRecipe } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RecipeSeo } from '../../../utilities/recipes.seo';
 
 @Component({
   selector: 'app-meal-detail',
@@ -37,6 +38,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   emailContent: string;
   inDialog = false;
   mealPlanIds = {};
+  script: HTMLScriptElement;
 
   public dialogParams: any;
 
@@ -66,11 +68,28 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     scrollToTop();
     this.updateSeoTag()
     this.mealId = await this.getMealId();
+    if (RecipeSeo[this.mealId]) {
+      // if one of the recipes is part of the seo tags to add to the header
+      this.addRecipeToHeader()
+    }
+
     this.getMealById()
 
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
     }
+  }
+  
+
+  addRecipeToHeader() {
+    this.script = document.createElement('script');
+    // script type
+    this.script.type = 'application/ld+json';
+    //set text
+    this.script.text = JSON.stringify(RecipeSeo[this.mealId]);
+
+    //append to head
+    document.getElementsByTagName('head')[0].appendChild(this.script);
   }
 
   async getMealId(): Promise<string> {
@@ -301,6 +320,11 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.unsubscribeAll.next();
     this.unsubscribeAll.complete();
     this.seo.removeTag();
+
+    // remove script from head
+    if (this.script) {
+      this.script.parentNode.removeChild( this.script );
+    }
   }
 
 }
