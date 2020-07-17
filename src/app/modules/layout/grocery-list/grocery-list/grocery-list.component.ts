@@ -1,14 +1,14 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
-import { scrollToTop } from '../../../../../app/utilities/helper-functions';
-import { embedWidget, hideWidget } from '../../../../../app/utilities/grocery-widget-helper';
-import { SharedService } from '../../../../../app/shared/shared.service';
-import { SeoService } from '../../../../../app/services/seo.service';
-import { Title } from '@angular/platform-browser';
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
+import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
+import { SeoService } from '../../../../../app/services/seo.service';
+import { SharedService } from '../../../../../app/shared/shared.service';
+import { scrollToTop } from '../../../../../app/utilities/helper-functions';
+import { WidgetHelperService } from '../../../../services/widget-helper/widget-helper.service';
 
 @Component({
   selector: 'app-grocery-list',
@@ -27,7 +27,7 @@ export class GroceryListComponent implements OnInit {
 
   constructor(private mealPlanService: MealPlanService,
     private sharedService: SharedService,
- 
+    private widgetHelperService: WidgetHelperService,
     breakpointObserver: BreakpointObserver,
     private seo: SeoService,
     private title: Title,
@@ -44,7 +44,7 @@ export class GroceryListComponent implements OnInit {
     },
       5000);
     if (!this.sharedService.groceryListPageVisited) {
-      embedWidget();
+      this.widgetHelperService.embedWidget();
       this.sharedService.groceryListPageVisited = true
     }
 
@@ -77,6 +77,11 @@ export class GroceryListComponent implements OnInit {
       `<div class="cc-mealplan-details-container" recipe-ids="${recipeIds}"></div>`;
 
   }
+
+  // ngOnDestroy() {
+  //   this.widgetHelperService.removeWidget();
+  //   this.groceryListWidget = '';
+  // }
 
 
 

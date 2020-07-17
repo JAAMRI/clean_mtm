@@ -6,17 +6,25 @@
 
   </div>
   
-  <div class='no-favourites' *ngIf='favouriteMeals.length === 0'>
+  <div class='no-favourites' *ngIf='favouriteMeals.length === 0 && !loading'>
     <h1>MY FAVOURITES</h1>
     <p>It looks like you haven’t added
       any recipes to your favourites yet</p>
     <div class="button-wrapper">
-      <button aria-label="Select meals" mat-raised-button color='primary' routerLink='/recipes/discover'
-        (click)="adobeDtbTracking.pageTracking('SELECT MEALS','/recipes/discover')">
-        SELECT MEALS
+      <button aria-label="Select recipes" mat-raised-button color='primary'
+        (click)="selectRecipes()">
+        SELECT RECIPES
       </button>
 
     </div>
+  </div>
+  <div class="gif-wrapper" *ngIf='loading'>
+    <p>
+
+      Loading your favourites...
+    </p>
+
+    <img class='loading-text' src="/assets/static_images/Whisk-Stat-Transp.png" />
   </div>
 
   <div class="favourites-container">

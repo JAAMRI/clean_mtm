@@ -9,9 +9,13 @@ import { Component, ElementRef, ViewChild, HostListener, Output, EventEmitter, A
 export class MtmSliderComponent implements AfterViewInit, OnChanges {
   @ViewChild('slider', { static: true }) slider: ElementRef;
   @Input() numOfItems: number;
+  @Input() showArrows: boolean = false;
   @Output() onEndReached = new EventEmitter();
   @Output() onStartReached = new EventEmitter();
+  @Output() onRightClicked = new EventEmitter();
+  @Output() onLeftClicked = new EventEmitter();
   initialScrollWidth: number;
+  smoothScroll = true;
   lastSideReached: 'START' | 'END';
 
   constructor() { }
@@ -19,6 +23,7 @@ export class MtmSliderComponent implements AfterViewInit, OnChanges {
   @HostListener('scroll', ['$event'])
   onElementScroll(event: any) {
     if (event.target.scrollLeft === 0) {
+      this.smoothScroll = false;
       this.onStartReached.emit();
       this.lastSideReached = 'START';
       if (!this.numOfItems) {
@@ -31,6 +36,8 @@ export class MtmSliderComponent implements AfterViewInit, OnChanges {
 
     } else if (event.target.scrollLeft + event.target.offsetWidth === this.slider.nativeElement.scrollWidth) {
       this.onEndReached.emit();
+      this.smoothScroll = true;
+
       this.lastSideReached = 'END';
 
     }
@@ -47,6 +54,8 @@ export class MtmSliderComponent implements AfterViewInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.numOfItems && this.lastSideReached === 'START') {
+      this.smoothScroll = false;
+
       setTimeout(() => {
 
         this.slider.nativeElement.scrollLeft = this.initialScrollWidth;
@@ -54,6 +63,24 @@ export class MtmSliderComponent implements AfterViewInit, OnChanges {
 
     }
 
+  }
+
+  slideRight() {
+    this.smoothScroll = true;
+    this.slider.nativeElement.scrollLeft += 416;
+
+    this.onRightClicked.emit();
+  }
+
+  slideLeft() {
+    this.smoothScroll = true;
+    setTimeout(() => {
+
+    this.slider.nativeElement.scrollLeft -= 416;
+    },1);
+
+    this.onLeftClicked.emit();
+    
   }
 
 

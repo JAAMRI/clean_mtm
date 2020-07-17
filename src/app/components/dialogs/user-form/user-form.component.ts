@@ -38,7 +38,7 @@ export class UserFormComponent implements OnInit {
   invalidCode: boolean;
   invalidEmail: boolean;
   breadcrumbs: Breadcrumb[] = [{
-    name: 'Select Meals',
+    name: 'Select Recipes',
     active: false
   },
   {

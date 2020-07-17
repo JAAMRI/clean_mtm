@@ -128,11 +128,11 @@
       }
     }
   }
+  button {
+    box-shadow: none !important;
+  }
 }
 
-button {
-  box-shadow: none !important;
-}
 
 *:focus {
   outline: 0;

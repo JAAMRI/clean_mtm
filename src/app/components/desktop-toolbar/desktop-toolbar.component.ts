@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 export enum MTMPageNames {
-  SELECT_MEALS = 'SELECT MEALS',
+  SELECT_MEALS = 'SELECT RECIPES',
   FAVOURITES = 'FAVOURITES',
   MEAL_PLAN = 'MEAL PLAN',
   GROCERY_LIST = 'GROCERY LIST',
@@ -32,8 +32,8 @@ export const MTMPages: { [name: string]: MTMPage } = {
     image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
 
   },
-  'SELECT MEALS': {
-    name: 'SELECT MEALS',
+  'SELECT RECIPES': {
+    name: 'SELECT RECIPES',
     route: '/recipes/discover',
     title: 'Choose Your Weekly Meals | Meals That Matter',
     description: 'Choose your meals for the week and take your meal prep to the next level. Select from a wide range of amazing recipes, curated by our Knorr Chefs.',

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { Meal, Meals } from '../../interfaces/meal/meal';
 import { FIELDS } from './meal.fields';
@@ -19,7 +19,7 @@ export class MealService {
   }
 
   //Get Meals from API
-  getMeals(pageStart: number, pageSize: number, query?: string, params?: any): Observable<Meals> {
+  getMeals(pageStart: number, pageSize: number, query?: string, params?: any): Observable<any> {
 
     const httpParams = new HttpParams({
       fromObject: {
@@ -39,24 +39,27 @@ export class MealService {
 
     return this.http.post(environment.host + this.recipesUrl, httpParams.toString(), options).pipe(
       map((meals: any) => {
-          return {
-            didYouMean: meals.results === 0 ? meals.did_you_mean : null,
-            results: meals.results,
-            items: meals.data.map((meal: any, index: any) => ({
-              id: meal.recipe_id,
-              image: meal.assets.image.default[0].url,
-              cuisine: meal.cuisines && (Object.keys(meal.cuisines).length === 0) ? null : meal.cuisines[0].description,
-              title: meal.title,
-              nutrition: meal.nutrients_legacy,
-              cookTime: meal.cook_time,
-              prepTime: meal.prep_time,
-              servings: meal.yield.value + " " + meal.yield.measure,
-              ingredients: meal.ingredients.ungrouped.list,
-              instructions: meal.methods.ungrouped.list,
-              mainIngredient: (Object.keys(meal.main_ingredient).length === 0) ? null : meal.main_ingredient[0].description
-            }))
-          }
-      }));
+        if (!meals['success']) {
+          throw  'error';
+        }
+        return {
+          didYouMean: meals.results === 0 ? meals.did_you_mean : null,
+          results: meals.results,
+          items: meals.data?.map((meal: any, index: any) => ({
+            id: meal.recipe_id,
+            image: meal.assets.image.default[0].url,
+            cuisine: meal.cuisines && (Object.keys(meal.cuisines).length === 0) ? null : meal.cuisines[0].description,
+            title: meal.title,
+            nutrition: meal.nutrients_legacy,
+            cookTime: meal.cook_time,
+            prepTime: meal.prep_time,
+            servings: meal.yield.value + " " + meal.yield.measure,
+            ingredients: meal.ingredients.ungrouped.list,
+            instructions: meal.methods.ungrouped.list,
+            mainIngredient: (Object.keys(meal.main_ingredient).length === 0) ? null : meal.main_ingredient[0].description
+          }))
+        }
+      }), catchError((err) => { throw 'Error fetching meals, please try again later'}));
   }
 
 

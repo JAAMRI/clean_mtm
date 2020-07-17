@@ -63,7 +63,7 @@ app-my-meals{
   
 
   
-  .select-meals-button-wrapper{
+  .select-recipes-button-wrapper{
     display: flex;
     justify-content: center;
   }
@@ -73,6 +73,15 @@ app-my-meals{
     top: 0;
     background-color: $mtm_white;
     z-index: 3;
+  }
+  .gif-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: 40px;
+    }
   }
   
   *:focus {
