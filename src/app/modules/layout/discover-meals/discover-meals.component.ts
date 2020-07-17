@@ -218,6 +218,9 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
     if (Object.values(this.filter).length > 0) {
       activeFilterId = Object.values(this.filter)[0];
+      if (activeFilterId === 'dinner') {
+        activeFilterId = FilterIdsByName['dinner']
+      }
     }
     const filterDialog = this.dialog.open(FilterComponent, {
       data: {

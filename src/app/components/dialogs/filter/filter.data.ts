@@ -16,6 +16,7 @@ export const FilterIdsByName = {
     'canadian': '1295',
     'salad': '1487',
     'better_for_you': '9870',
+    'dinner': '1400'
 }
 
 
