@@ -3,7 +3,7 @@
     <button mat-mini-fab class='left-button' *ngIf='showArrows' (click)='slideLeft()'>
         <mat-icon>chevron_left</mat-icon>
     </button>
-    <div #slider class="slider" (scroll)='onElementScroll($event)'>
+    <div #slider [class]="smoothScroll ? 'slider smooth' : 'slider'"  (scroll)='onElementScroll($event)'>
         <ng-content></ng-content>
 
     </div>

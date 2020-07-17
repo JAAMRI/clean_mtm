@@ -126,7 +126,7 @@
   }
   .meal-subheader {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin: 1em 0;
     .title{
       color: $mtm_dark_green_color;
@@ -188,7 +188,7 @@
       }
       .meal-subheader {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         margin-top: 8px;
         .send-to-email-button {
           background-color: $mtm_grey;

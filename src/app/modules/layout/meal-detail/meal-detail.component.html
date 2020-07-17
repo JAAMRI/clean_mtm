@@ -68,14 +68,18 @@
 
         </div>
         <div class="action-wrapper">
-          <button class='add-button' mat-mini-fab *ngIf='!mealPlanIds[meal.id]' (click)='addToMealPlan()'>
-            <mat-icon>add</mat-icon>
-          </button>
-          <button class='remove-button' mat-mini-fab *ngIf='mealPlanIds[meal.id]' (click)='removeFromMealPlan()'>
-            <mat-icon>remove</mat-icon>
-          </button>
           <div class="img-wrapper">
+            <button class='add-button' mat-mini-fab *ngIf='!mealPlanIds[meal.id]' (click)='addToMealPlan()'>
+              <mat-icon>add</mat-icon>
+            </button>
+            <button class='remove-button' mat-mini-fab *ngIf='mealPlanIds[meal.id]' (click)='removeFromMealPlan()'>
+              <mat-icon>remove</mat-icon>
+            </button>
             <img [alt]="meal.title" [src]="meal.image" alt="meal item">
+            <mat-icon class='favourite-button' *ngIf='favourited' (click)='updateFavourites(meal)'>favorite</mat-icon>
+            <button class='favourite-border-button' mat-mini-fab (click)='updateFavourites(meal)'>
+              <mat-icon>favorite_border</mat-icon>
+            </button>
           </div>
           <div class="meal-subheader">
             <a mat-stroked-button [href]='emailContent' (click)="adobeDtbTracking.sharingMealByEmail(meal.title)">

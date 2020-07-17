@@ -1,5 +1,5 @@
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -42,7 +42,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   leftPageStart = 0;
   numOfResults = 0;
   error: string = '';
-
+  isMobile = (window.innerWidth < 1024);
 
   constructor(private router: Router, private dialog: MatDialog,
     private route: ActivatedRoute,
@@ -53,6 +53,12 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     private cdr: ChangeDetectorRef,
     public adobeDtbTracking: AdobeDtbTracking
   ) {
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+
+    this.isMobile = (event.target.innerWidth < 1024);
   }
 
   async ngOnInit() {
@@ -79,10 +85,10 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
           // query params have id for filters
           // use the name of filter and grab the id by its name in filter.ts and use that to get meals
           if (queryParams['filter'] == 'dinner') {
-            this.filter = {'q': 'dinner'}
+            this.filter = { 'q': 'dinner' }
           } else {
-            this.filter = {'p_tag_ids': FilterIdsByName[queryParams['filter']]};
-           
+            this.filter = { 'p_tag_ids': FilterIdsByName[queryParams['filter']] };
+
           }
         }
       }
@@ -114,35 +120,46 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter) {
     //Show spinner while loadin
-    
+
     if (this.loading) {
       // stop duplicate calls
       return;
     }
     this.loading = true;
     this.mealService.getMeals(pageStart, pageSize, query, options).pipe(takeUntil(this.unsubscribeAll)).subscribe(
-        async (meals: Meals) => {
+      async (meals: Meals) => {
         if (meals) {
-            this.didYouMean = meals.didYouMean;
-            this.pageStart = pageStart;
-            this.numOfResults = meals.results;
-            // Populate meals
-            if (direction === 'right') {
-              this.meals = [...this.meals, ...meals.items.slice(0, pageSize + 1)];
-            } else {
-              this.meals = [...meals.items.slice(0, pageSize + 1), ...this.meals];
-            }
-            //Set meal plan IDs
-            this.setMealPlanIds()
+          if (this.searchQuery && meals.items.length > 0) {
+            // if the user is searching, swap the first element with the middle one to have it in middle of screen (at least 2 elements)
+            const temp = meals.items[0];
+            let middleIndex = meals.items.length % 2 === 0 ? meals.items.length / 2 : (meals.items.length - 1) / 2
+
+            meals.items[0] = meals.items[middleIndex];
+            meals.items[middleIndex] = temp;
+
+          }
+          this.didYouMean = meals.didYouMean;
+          this.pageStart = pageStart;
+          this.numOfResults = meals.results;
+          // Populate meals
+          if (direction === 'right') {
+            // coming from right
+            this.meals = [...this.meals, ...meals.items.slice(0, pageSize + 1)];
+          } else {
+            // coming from left
+            this.meals = [...meals.items.slice(0, pageSize + 1), ...this.meals];
+          }
+          //Set meal plan IDs
+          this.setMealPlanIds();
           // }
         }
         this.loading = false;
-      
+
       }, (err: string) => {
         this.loading = false;
         this.error = err;
       });
-    
+
   }
 
   async getFavouriteMeals() {
@@ -160,6 +177,14 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     return JSON.stringify(this.filter) === '{}';
   }
 
+  onRightClicked() {
+    this.adobeDtbTracking.anchorLink('Clicked on desktop slider right button to move carousel')
+  }
+
+  onLeftClicked() {
+    this.adobeDtbTracking.anchorLink('Clicked on desktop slider left button to move carousel')
+  }
+
   setMealPlanIds() {
     this.mealPlan.forEach((userMeal: any) => {
       this.mealPlanIds[userMeal.id] = true
@@ -169,7 +194,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   searchMeals(query: string = '') {
     //Capture Enter Submit Event
     if (typeof query !== 'string') return;
-  
+
     this.resetAllGlobalValues();
     if (query != "") {
       this.filter = {}
@@ -190,7 +215,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   async renderFilterDialog() {
     this.adobeDtbTracking.anchorLink('FILTER');
     let activeFilterId;
-    
+
     if (Object.values(this.filter).length > 0) {
       activeFilterId = Object.values(this.filter)[0];
     }
@@ -207,9 +232,9 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
           queryParams: {
             filter: filter.key,
           },
-         
-        }); 
-        this.searchQuery='';
+
+        });
+        this.searchQuery = '';
         this.resetAllGlobalValues()
 
       }
@@ -249,8 +274,8 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
       },
       onAddOrRemoveFavourites: (fromDialog: any) => {//Action coming from dialog
         //this will update added to update in parent component
-     
-        (fromDialog.action === 'add') ? this.favouriteMealIds[fromDialog.meal.id] = true :  delete this.favouriteMealIds[fromDialog.meal.id]
+
+        (fromDialog.action === 'add') ? this.favouriteMealIds[fromDialog.meal.id] = true : delete this.favouriteMealIds[fromDialog.meal.id]
 
       }
     }

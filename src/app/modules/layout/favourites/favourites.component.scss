@@ -19,6 +19,13 @@
   align-items: center;
   background-color: $mtm_white;
 }
+.gif-wrapper {
+  display: flex;
+  justify-content: center;
+  img {
+    height: 40px;
+  }
+}
 .copy {
   text-align: center;
   padding: 1em 2em;

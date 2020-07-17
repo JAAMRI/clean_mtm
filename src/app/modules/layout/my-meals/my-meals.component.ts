@@ -23,7 +23,7 @@ import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 export class MyMealsComponent implements OnInit, OnDestroy {
   mealPlan = [];
   unsubscribeAll = new Subject();
-
+  loading: boolean = false;
   favouriteMeals = [];
   favouriteMealIds: string = '';
 
@@ -78,7 +78,10 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   }
 
   async getMealPlan() {
+    this.loading = true;
     this.mealPlan = await this.mealPlanService.getMealPlan();
+    this.loading = false;
+
   }
 
   async getFavouriteMeals() {

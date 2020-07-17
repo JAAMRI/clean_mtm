@@ -7,7 +7,7 @@
           remove</mat-icon> to remove recipes.</p>
     </ng-container>
 
-    <ng-container *ngIf='mealPlan.length === 0'>
+    <ng-container *ngIf='mealPlan.length === 0 && !loading'>
       <p class='no-items-text'>It looks like you haven’t added
         any recipes to your meal plan yet</p>
       <div class="select-recipes-button-wrapper">
@@ -18,6 +18,11 @@
         </button>
       </div>
     </ng-container>
+    <div class="gif-wrapper" *ngIf='loading'>
+      <br/>
+      Loading your meals...
+      <img class='loading-text' src="/assets/static_images/Whisk-Stat-Transp.png" />
+    </div>
   </div>
 
 

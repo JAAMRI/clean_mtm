@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SharedModule } from '../../../../app/shared/shared.module';
+import { WidgetHelperService } from '../../../services/widget-helper/widget-helper.service';
 
 @NgModule({
   declarations: [GroceryListComponent],
@@ -20,6 +21,9 @@ import { SharedModule } from '../../../../app/shared/shared.module';
     MatMenuModule,
     ScrollingModule,
     SharedModule
+  ],
+  providers: [
+    WidgetHelperService
   ]
 })
 export class GroceryListModule { }

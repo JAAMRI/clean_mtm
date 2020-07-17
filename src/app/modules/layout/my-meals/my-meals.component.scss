@@ -74,6 +74,13 @@ app-my-meals{
     background-color: $mtm_white;
     z-index: 3;
   }
+  .gif-wrapper {
+    display: flex;
+    justify-content: center;
+    img {
+      height: 40px;
+    }
+  }
   
   *:focus {
     outline: 0;

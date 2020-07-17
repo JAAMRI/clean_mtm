@@ -63,10 +63,10 @@ export class AppComponent implements OnInit {
     // this.loadFooter();
     this.loadFontIcons();
     if (environment.production) {
+      this.adobeImplementation();
       this.facebookImplementation();
       this.newRelicImplementation();
       this.hotjarImplementation();
-      this.adobeImplementation();
  
 
     }//If production or uat, lazyload main css

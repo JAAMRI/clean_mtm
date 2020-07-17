@@ -1,10 +1,8 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { AccountService } from '../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
@@ -23,8 +21,8 @@ import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 export class FavouritesComponent implements OnInit {
 
   unsubscribeAll = new Subject();
-  isMobile: boolean;
-  isWeb: boolean;
+  isMobile: boolean = window.innerWidth < 768;
+  loading: boolean = false;
   disableNextButton: boolean;
   favouriteMeals = [];
   slidesToShow: number;
@@ -41,17 +39,23 @@ export class FavouritesComponent implements OnInit {
   };
 
 
-  constructor(private router: Router, private snackbar: MatSnackBar,
-    private route: ActivatedRoute,
+  constructor(private snackbar: MatSnackBar,
+    
     private mealFavouritesService: MealFavouritesService,
     private mealPlanService: MealPlanService,
     private mealService: MealService,
-    private location: Location,
     private accountService: AccountService,
     private dialog: MatDialog,
+    private router: Router,
     private seo: SeoService,
     private title: Title,
     public adobeDtbTracking: AdobeDtbTracking) {
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+
+    this.isMobile = (event.target.innerWidth < 1024);
   }
 
   ngOnInit() {
@@ -74,6 +78,11 @@ export class FavouritesComponent implements OnInit {
     })
   }
 
+  selectRecipes() {
+    this.router.navigate(['/recipes/discover']);
+    this.adobeDtbTracking.pageTracking('SELECT RECIPES','/recipes/discover');
+  }
+
   watchAuthState() {
     this.accountService.authStateChanged.subscribe((event) => {
       this.ngOnInit()
@@ -85,11 +94,14 @@ export class FavouritesComponent implements OnInit {
   }
 
   async getMealPlan() {
+    this.loading = true;
     // get meal plan, filter out all nulls is there are any and add mealplan ids to string
     this.mealPlan = await this.mealPlanService.getMealPlan();
     this.mealPlan.filter((m) => m).forEach((meal) => {
       this.mealPlanIds[meal.id] = true;
     })
+    this.loading = false;
+
   }
 
   async addToMealPlan(mealId: string) {
