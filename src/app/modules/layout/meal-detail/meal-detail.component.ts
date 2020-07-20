@@ -12,6 +12,8 @@ import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { environment } from '../../../../environments/environment';
 import { Meal, RelatedRecipe } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RecipeSeo } from '../../../utilities/recipes.seo';
 
 @Component({
   selector: 'app-meal-detail',
@@ -23,6 +25,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   mealId: string;
   loading: boolean;
   meal: Meal;
+  favourited: boolean = false;
   unsubscribeAll = new Subject();
   inMealPlan: boolean;
   isMobile: boolean = window.innerWidth < 768;
@@ -35,6 +38,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   emailContent: string;
   inDialog = false;
   mealPlanIds = {};
+  script: HTMLScriptElement;
 
   public dialogParams: any;
 
@@ -43,6 +47,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
     private accountService: AccountService,
     private mealFavouritesService: MealFavouritesService,
     private mealPlanService: MealPlanService,
@@ -63,11 +68,28 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     scrollToTop();
     this.updateSeoTag()
     this.mealId = await this.getMealId();
+    if (RecipeSeo[this.mealId]) {
+      // if one of the recipes is part of the seo tags to add to the header
+      this.addRecipeToHeader()
+    }
+
     this.getMealById()
 
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
     }
+  }
+  
+
+  addRecipeToHeader() {
+    this.script = document.createElement('script');
+    // script type
+    this.script.type = 'application/ld+json';
+    //set text
+    this.script.text = JSON.stringify(RecipeSeo[this.mealId]);
+
+    //append to head
+    document.getElementsByTagName('head')[0].appendChild(this.script);
   }
 
   async getMealId(): Promise<string> {
@@ -153,6 +175,9 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.favouriteMeals = await this.mealFavouritesService.getMealFavourites();
     if (this.favouriteMeals && Array.isArray(this.favouriteMeals)) {
       this.favouriteMeals.map((meal) => meal.id).forEach((mealId) => {
+        if (mealId === this.meal.id) {
+          this.favourited = true;
+        }
         this.favouriteMealIds += `${mealId}|`;
       })
     }
@@ -207,7 +232,6 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   pushStart() {
-    console.log('start')
     this.relatedRecipes = [...this.meal.relatedRecipes, ...this.relatedRecipes]
   }
 
@@ -222,7 +246,6 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     if (id) {
       meal = await this.mealService.getMealById(id).toPromise();
     }
-    console.log(mealId)
 
 
     this.currentMealPlan.push(meal);
@@ -275,18 +298,33 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.favouriteMealIds = this.favouriteMealIds.replace(favouriteMeal.id + '|', '');
     this.favouriteMeals = this.favouriteMeals.filter((m) => m.id !== favouriteMeal.id)
     this.adobeDtbTracking.anchorLinkMeal('Removing from Favourite: ', this.meal.title);
+    if (favouriteMeal.id === this.meal.id) {
+      this.favourited = false;
+    }
+    this.snackBar.open('Removed from favourites!', null, { duration: 2000, verticalPosition: 'top' });
+
   }
 
   addFavourite(favouriteMeal: any) {
     this.favouriteMeals.push(favouriteMeal)
     this.favouriteMealIds += (favouriteMeal.id + '|');
+    if (favouriteMeal.id === this.meal.id) {
+      this.favourited = true;
+    }
     this.adobeDtbTracking.anchorLinkMeal('Adding to Favourite: ', this.meal.title);
+    this.snackBar.open('Added to favourites!', null, { duration: 2000, verticalPosition: 'top' });
+
   }
 
   ngOnDestroy() {
     this.unsubscribeAll.next();
     this.unsubscribeAll.complete();
     this.seo.removeTag();
+
+    // remove script from head
+    if (this.script) {
+      this.script.parentNode.removeChild( this.script );
+    }
   }
 
 }

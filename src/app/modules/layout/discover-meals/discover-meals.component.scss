@@ -1,5 +1,5 @@
 @import "../../../../scss/variables.scss";
-app-discover-meals{
+app-discover-meals {
   flex: 1;
   .search {
     width: 100%;
@@ -21,7 +21,7 @@ app-discover-meals{
       height: 40px;
     }
   }
-  
+
   .filter {
     display: flex;
     align-items: center;
@@ -34,10 +34,10 @@ app-discover-meals{
       cursor: pointer;
     }
   }
-  
+
   .search {
     text-align: center;
-    
+
     .did-you-mean {
       cursor: pointer;
       color: blue;
@@ -47,8 +47,7 @@ app-discover-meals{
   .no-items-wrapper {
     display: flex;
     justify-content: center;
-    p{
-  
+    p {
       border-radius: 5%;
       background-color: $mtm_grey;
       padding: 8px;
@@ -57,16 +56,25 @@ app-discover-meals{
       }
     }
   }
+  .error-wrapper {
+    display: flex;
+    justify-content: center;
+    p {
+      border-radius: 5%;
+      background-color: $mtm_grey;
+      padding: 8px;
+    }
+  }
   .loading-text {
     text-align: center;
     color: $mtm_dark_green_color;
   }
-  
+
   *:focus {
     outline: 0;
     outline: none;
   }
-  
+
   .mat-button-focus-overlay {
     background-color: transparent !important;
     // remove grey outline from ubttons
