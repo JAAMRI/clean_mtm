@@ -11,9 +11,9 @@
           <router-outlet></router-outlet>
         </div>
         <div class="nav-buttons"
-        *ngIf='!onAuthPage && (activeRoute === "/recipes/discover" || activeRoute === "/recipes/my-meals" || activeRoute === "/recipes/grocery-list")'>
+        *ngIf='!onAuthPage && (activeRouteOnDiscoverPage || activeRoute === "/recipes/my-meals" || activeRoute === "/recipes/grocery-list")'>
         <div [class]='activeRoute === "/recipes/grocery-list" ? "nav-buttons-wrapper gl" : "nav-buttons-wrapper"'>
-          <button class='back' *ngIf='activeRoute !== "/recipes/discover"' mat-mini-fab (click)='back()'>
+          <button class='back' *ngIf='!activeRouteOnDiscoverPage' mat-mini-fab (click)='back()'>
             <mat-icon>chevron_left</mat-icon>
           </button>
           <button  *ngIf="activeRoute !== '/recipes/grocery-list'" class='next' mat-flat-button color='primary'
@@ -30,10 +30,10 @@
     <div class="router-wrapper">
       <router-outlet></router-outlet>
       <div class="desktop-nav-buttons"
-        *ngIf='activeRoute === "/recipes/discover" || activeRoute === "/recipes/my-meals" || activeRoute === "/recipes/grocery-list"'>
+        *ngIf='activeRouteOnDiscoverPage || activeRoute === "/recipes/my-meals" || activeRoute === "/recipes/grocery-list"'>
         <div [class]='activeRoute === "/recipes/grocery-list" ? "nav-buttons-wrapper gl" : "nav-buttons-wrapper"'>
     
-          <button class='back' *ngIf='activeRoute !== "/recipes/discover"' mat-mini-fab (click)='back()'>
+          <button class='back' *ngIf='!activeRouteOnDiscoverPage' mat-mini-fab (click)='back()'>
             <mat-icon>chevron_left</mat-icon>
           </button>
           <button  *ngIf="activeRoute !== '/recipes/grocery-list'" class='next' mat-flat-button color='primary'

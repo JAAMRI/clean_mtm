@@ -62,18 +62,21 @@ export class AppComponent implements OnInit {
   async ngAfterViewInit() {
     // this.loadFooter();
     this.loadFontIcons();
+    this.pixelImplementation();
+
     if (environment.production) {
       this.adobeImplementation();
       this.facebookImplementation();
       this.newRelicImplementation();
       this.hotjarImplementation();
- 
+      this.pixelImplementation();
+
 
     }//If production or uat, lazyload main css
     // else {
-      this.cdr.detectChanges()
-      // await this.loadjscssfile("../lazyloadedstyles.js", "js");
-      // await this.loadjscssfile("./lazyloadedstyles.css", "css");
+    this.cdr.detectChanges()
+    // await this.loadjscssfile("../lazyloadedstyles.js", "js");
+    // await this.loadjscssfile("./lazyloadedstyles.css", "css");
     // }
     this.insertAdChoice();
 
@@ -279,6 +282,12 @@ export class AppComponent implements OnInit {
 
   hotjarImplementation() {
     this.dynamicScriptLoader.load('hot-jar').then((data: any) => {
+      console.log('Hot Jar loaded successfully');
+    }).catch(console.error)
+  }
+
+  pixelImplementation() {
+    this.dynamicScriptLoader.loadInFooter('pixel-min', 'pixel').then((data: any) => {
       console.log('Hot Jar loaded successfully');
     }).catch(console.error)
   }
