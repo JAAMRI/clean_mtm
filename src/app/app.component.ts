@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
   async ngAfterViewInit() {
     // this.loadFooter();
     this.loadFontIcons();
-    this.pixelImplementation();
+    // this.pixelImplementation();
 
     if (environment.production) {
       this.adobeImplementation();
