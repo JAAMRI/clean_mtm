@@ -1,12 +1,13 @@
 <footer class="app-footer">
     <ng-container *ngIf='isMobile'>
         <div class="visit-brands">
-            <a rel="noopener" (click)="adobeDtbTracking.pageTracking(item.name, item.href)"
+            <a rel="noopener" (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'external')"
                 *ngFor='let item of footerItems.brands' target="_blank" [href]="item.href">{{item.name}}</a>
         </div>
         <div class="social-icons">
             <a rel="noopener" *ngFor='let item of footerItems.social'
-                (click)="adobeDtbTracking.pageTracking(item.name, item.href)" target="_blank" [href]="item.href">
+                (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'social')" target="_blank"
+                [href]="item.href">
                 <img [class]='item.name !== "Pinterest" ? "collapse": ""' [src]="item.img" [alt]="item.name">
 
             </a>
@@ -17,11 +18,13 @@
                     style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;" />
                 <span style="vertical-align:middle !important">AdChoices</span>
             </a> -->
-            <a class='adchoices-logo' href="https://www.unilever.ca">
+            <a class='adchoices-logo' href="https://www.unilever.ca"
+                (click)="adobeDtbTracking.footerLinks('Adchoices', 'https://www.unilever.ca', 'external')">
                 <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
                 <span>AdChoices</span>
             </a>
-            <a class='unilever-logo' href="https://www.unilever.ca">
+            <a class='unilever-logo' href="https://www.unilever.ca"
+                (click)="adobeDtbTracking.footerLinks('Unilever', 'https://www.unilever.ca', 'external')">
                 <img class='unilever-logo' src="/assets/static_images/footer/unilever-logo.svg" alt="Unilever logo">
                 <span>© 2020 Unilever</span>
             </a>
@@ -29,10 +32,10 @@
     </ng-container>
     <div *ngIf='!isMobile' class="desktop-wrapper">
 
-        <a rel="noopener" (click)="adobeDtbTracking.pageTracking(item.name, item.href)"
+        <a rel="noopener" (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'external')"
             *ngFor='let item of footerItems.brands' target="_blank" [href]="item.href">{{item.name}}</a>
         <a rel="noopener" *ngFor='let item of footerItems.social'
-            (click)="adobeDtbTracking.pageTracking(item.name, item.href)" target="_blank" [href]="item.href">
+            (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'social')" target="_blank" [href]="item.href">
             <img [class]='item.name !== "Pinterest" ? "collapse": ""' [src]="item.img" [alt]="item.name">
 
         </a>
@@ -41,11 +44,13 @@
                 style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;" />
             <span style="vertical-align:middle !important">AdChoices</span>
         </a> -->
-        <a class='adchoices-logo' href="https://www.unilever.ca">
+        <a class='adchoices-logo' href="https://www.unilever.ca"
+            (click)="adobeDtbTracking.footerLinks('Adchoices', 'https://www.unilever.ca', 'external')">
             <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
             <span>AdChoices</span>
         </a>
-        <a class='unilever-logo' href="https://www.unilever.ca">
+        <a class='unilever-logo' href="https://www.unilever.ca"
+            (click)="adobeDtbTracking.footerLinks('Unilever', 'https://www.unilever.ca', 'external')">
             <img class='unilever-logo' src="/assets/static_images/footer/unilever-logo.svg" alt="Unilever logo">
             <span>© 2020 Unilever</span>
         </a>
@@ -53,7 +58,7 @@
     <div class="legal">
         <ng-container *ngFor='let item of footerItems.legal'>
             <a rel="noopener" *ngIf='item.href' [href]="item.href" target="_blank"
-                (click)="adobeDtbTracking.pageTracking(item.name, item.href)">{{item.name}}</a>
+                (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'external')">{{item.name}}</a>
 
             <a *ngIf='item.routerLink' [routerLink]="item.routerLink"
                 (click)="adobeDtbTracking.pageTracking(item.name, item.href)">{{item.name}}</a>
