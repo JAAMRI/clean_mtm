@@ -54,8 +54,6 @@ export class AdobeDtbTracking {
 
     socialMediaTracking(name, url) {
         //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
-
-
         if (!environment.production) return
         // @ts-ignore
         fbq('track', 'ViewContent' + name + ', ' + url);
@@ -437,6 +435,50 @@ export class AdobeDtbTracking {
         ev.category = { 'primaryCategory': ctConstants.other }; ev.subcategory = 'Interest';
         // @ts-ignore
         digitalData.page.attributes.contentType = "SEARCH TYPE"
+        // @ts-ignore
+        digitalData.event.push(ev);
+        // }
+    }
+
+    footerLinks(name, url, status) {
+        if (!environment.production) return
+
+        if (status == "social") {
+            // @ts-ignore
+            fbq('track', 'ViewContent' + name + ', ' + url);
+            var ev = {};
+            // @ts-ignore
+            ev.eventInfo = {
+                // @ts-ignore
+                'type': ctConstants.trackEvent,
+                // @ts-ignore
+                'eventAction': ctConstants.clickstosocialplatforms,
+                'eventLabel': name + ', ' + url,
+                'eventValue': 1
+            };
+            // @ts-ignore
+            ev.category = { 'primaryCategory': ctConstants.referral };
+            // @ts-ignore
+            digitalData.event.push(ev);
+            // }
+
+        }
+        // @ts-ignore
+        fbq('track', 'ViewContent ' + name + ' ' + url);
+        var ev = {};
+        // @ts-ignore
+        ev.eventInfo = {
+            // @ts-ignore
+            'type': ctConstants.trackEvent,
+            // @ts-ignore
+            'eventAction': ctConstants.ExternalLink,
+            'eventLabel': url,
+            'eventValue': 1
+        };
+        // @ts-ignore
+        ev.category = { 'primaryCategory': ctConstants.custom };
+        // @ts-ignore
+        ev.subcategory = 'Others';
         // @ts-ignore
         digitalData.event.push(ev);
         // }
