@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
   loadScript: Promise<any>;
   stylesToBeLoaded: boolean = false;
   loadNewRelic = false;
+  loadLoyaltyAmazonPixel = false;
+  loadAwarenessAmazonPixel = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private dynamicScriptLoader: DynamicScriptLoaderService,
@@ -70,6 +72,7 @@ export class AppComponent implements OnInit {
       this.newRelicImplementation();
       this.hotjarImplementation();
       this.pixelImplementation();
+      this.amazonPixelImplementation();
 
 
     }//If production or uat, lazyload main css
@@ -288,7 +291,15 @@ export class AppComponent implements OnInit {
 
   pixelImplementation() {
     this.dynamicScriptLoader.loadInFooter('pixel-min', 'pixel').then((data: any) => {
-      console.log('Hot Jar loaded successfully');
+      console.log('Pixel loaded successfully');
+    }).catch(console.error)
+  }
+
+  amazonPixelImplementation() {
+    this.dynamicScriptLoader.loadInFooter('loyalty-amazon', 'awareness-amazon').then((data: any) => {
+      console.log('Amazon loyalty and awareness loaded successfully');
+      this.loadAwarenessAmazonPixel = true;
+      this.loadLoyaltyAmazonPixel = true;
     }).catch(console.error)
   }
 
