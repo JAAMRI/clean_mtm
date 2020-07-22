@@ -101,6 +101,11 @@ export class LayoutComponent {
     }
   }
 
+  get activeRouteOnDiscoverPage() {
+    // using this as a getter in the html to check if the route is in discover page and has q param
+    return this.activeRoute.includes('/recipes/discover');
+  }
+
   activateBreadcrumb() {
     // activate the active breadcrums, and allow the toolbar to know when to show them
     let activePageName = this.getActivePage().name;

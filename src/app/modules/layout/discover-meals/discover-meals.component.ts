@@ -1,5 +1,4 @@
-import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation, HostListener } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,12 +8,12 @@ import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.se
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
+import { environment } from '../../../../environments/environment';
 import { FilterComponent } from '../../../components/dialogs/filter/filter.component';
-import { IFilter, FilterIdsByName } from '../../../components/dialogs/filter/filter.data';
+import { FilterIdsByName, IFilter } from '../../../components/dialogs/filter/filter.data';
 import { Meals } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
-import { query } from '@angular/animations';
 
 @Component({
   selector: 'app-discover-meals',
@@ -24,6 +23,7 @@ import { query } from '@angular/animations';
 })
 export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  production = environment.production; // check if env is prod
   meals: any = [];
   favouriteMeals: any = []
   loading = false;
