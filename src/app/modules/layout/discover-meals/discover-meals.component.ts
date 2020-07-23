@@ -1,5 +1,4 @@
-import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation, HostListener } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,12 +8,12 @@ import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.se
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
 import { scrollToTop } from '../../../../app/utilities/helper-functions';
+import { environment } from '../../../../environments/environment';
 import { FilterComponent } from '../../../components/dialogs/filter/filter.component';
-import { IFilter, FilterIdsByName } from '../../../components/dialogs/filter/filter.data';
+import { FilterIdsByName, IFilter } from '../../../components/dialogs/filter/filter.data';
 import { Meals } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
-import { query } from '@angular/animations';
 
 @Component({
   selector: 'app-discover-meals',
@@ -24,6 +23,7 @@ import { query } from '@angular/animations';
 })
 export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  production = environment.production; // check if env is prod
   meals: any = [];
   favouriteMeals: any = []
   loading = false;
@@ -299,16 +299,32 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     // add to mealplan
     const meal = this.meals.find((meal) => meal.id === mealId);
     this.adobeDtbTracking.anchorLinkMeal('Adding to Meal Plan: ', meal.title);
-    this.mealPlan.push(meal);
-    this.mealPlanIds[mealId] = true;
-    await this.mealPlanService.saveMealPlan(this.mealPlan, mealId);
-    this.snackBar.open('Added to meal plan!', null, { duration: 2000, verticalPosition: 'top' });
+    const status = await this.mealPlanService.saveMealPlan([...this.mealPlan, meal], mealId);
+    if (status !== 'Successfully created') {
+      if (status !== undefined) {
+        // if the status is not undefined, that means there was an error sent back, otherwise a req to server may not have been made
+        this.snackBar.open('Error adding to meal plan.', null, { duration: 2000, verticalPosition: 'top' });
+      }
+      return;
+    } else {
+      this.mealPlanIds[mealId] = true;
+      this.mealPlan.push(meal);
+      this.snackBar.open('Added to meal plan!', null, { duration: 2000, verticalPosition: 'top' });
+    }
 
   }
 
   async removeFromMealPlan(mealId: string) {
     // add to mealplan
-    await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove');
+    const status = await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove');
+
+    if (status !== 'Successfully deleted') {
+      if (status !== undefined) {
+        // if the status is not undefined, that means there was an error sent back, otherwise a req to server may not have been made
+        this.snackBar.open('Error removing from meal plan.', null, { duration: 2000, verticalPosition: 'top' });
+      }
+      return;
+    }
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
     delete this.mealPlanIds[mealId];
     const meal = this.meals.find((meal) => meal.id === mealId);
@@ -320,30 +336,46 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
     if (this.favouriteMeals.find((meal: any) => meal.id == favouriteMeal.id)) {
       this.removeFromFavourites(favouriteMeal);
-      this.snackBar.open('Removed from favourites!', null, { duration: 2000, verticalPosition: 'top' });
 
     } else {
       this.addToFavourites(favouriteMeal);
-      this.snackBar.open('Added to favourites!', null, { duration: 2000, verticalPosition: 'top' });
 
     }
 
   }
 
   async removeFromFavourites(favouriteMeal: any) {
-    await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove');
+    const status = await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove');
+    if (status !== 'Successfully deleted') {
+      if (status !== undefined) {
+
+        this.snackBar.open('Error removing from favourites.', null, { duration: 2000, verticalPosition: 'top' });
+      }
+      return;
+    }
     this.favouriteMeals = this.favouriteMeals.filter((meal: any) => meal.id !== favouriteMeal.id)
     delete this.favouriteMealIds[favouriteMeal.id];
     const meal = this.meals.find((meal) => meal.id === favouriteMeal.id);
     this.adobeDtbTracking.anchorLinkMeal('Removing from Favourites: ', meal.title);
+    this.snackBar.open('Removed from favourites!', null, { duration: 2000, verticalPosition: 'top' });
+
   }
 
-  addToFavourites(favouriteMeal: any) {
+  async addToFavourites(favouriteMeal: any) {
+    const status = await this.mealFavouritesService.saveMealFavourites([...this.favouriteMeals, favouriteMeal], favouriteMeal.id);
+    if (status !== 'Successfully created') {
+      if (status !== undefined) {
+
+        this.snackBar.open('Error adding to favourites.', null, { duration: 2000, verticalPosition: 'top' });
+      }
+      return;
+    }
     this.favouriteMeals.push(favouriteMeal)
     this.favouriteMealIds[favouriteMeal.id] = true;
-    this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id);
     const meal = this.meals.find((meal) => meal.id === favouriteMeal.id);
     this.adobeDtbTracking.anchorLinkMeal('Adding to Favourites: ', meal.title);
+    this.snackBar.open('Added to favourites!', null, { duration: 2000, verticalPosition: 'top' });
+
   }
 
   ngOnDestroy() {

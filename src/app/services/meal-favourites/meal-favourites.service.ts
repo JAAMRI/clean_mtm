@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { catchError, map } from 'rxjs/operators';
 import { handleError } from '../../../app/utilities/helper-functions';
@@ -17,10 +18,18 @@ export class MealFavouritesService {
 
   constructor(
     private http: HttpClient,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router,
   ) { }
 
   saveMealFavourites(favourites: any, recipeId: string, action: string = 'add'): Promise<any> {
+    if (!this.accountService.loggedIn) {
+      const currentRoute = this.router.url;
+      
+      this.router.navigate(['/auth/login'], {queryParams: {
+        returnUrl: currentRoute
+      },})
+    }
     return this.accountService.loggedIn ? this.saveMealFavouritesToServer(favourites, recipeId, action) : this.storeMealFavourites(favourites, recipeId, action);
   }
 
@@ -64,10 +73,10 @@ export class MealFavouritesService {
     return Promise.resolve().then(function () {
       localStorage.setItem('favourites', stringifiedFavourites);
     });
-    //local storage
-    return Promise.resolve().then(() =>
-      localStorage.setItem('favourites', JSON.stringify(favourites))
-    );
+    // //local storage
+    // return Promise.resolve().then(() =>
+    //   localStorage.setItem('favourites', JSON.stringify(favourites))
+    // );
   }
 
   getMealFavourites(): Promise<any> {

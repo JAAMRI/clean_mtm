@@ -250,11 +250,17 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
     this.currentMealPlan.push(meal);
     this.mealPlanIds[mealId] = true;
-    await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'add')
+    const status = await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'add')
+    if (status !== 'Successfully created') {
+      this.snackBar.open('Error adding to meal plan', null, {duration: 1000, verticalPosition: 'top' });
+      return;
+    }
     if (this.inDialog) {
       this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'add' });
     }
     this.adobeDtbTracking.anchorLinkMeal('Adding to Meal Plan: ', meal.title);
+    this.snackBar.open('Added to meal plan', null, {duration: 1000, verticalPosition: 'top' });
+
   }
 
   async removeFromMealPlan(id?: string) {
@@ -264,13 +270,19 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     if (id) {
       meal = await this.mealService.getMealById(id).toPromise();
     }
-    await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'remove')
+    const status = await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'remove')
+    if (status !== 'Successfully deleted') {
+      this.snackBar.open('Error deleting from meal plan', null, {duration: 1000, verticalPosition: 'top' });
+      return;
+    }
     this.currentMealPlan = this.currentMealPlan.filter((m) => m).filter((meal) => meal.id !== mealId)
     delete this.mealPlanIds[mealId];
     if (this.inDialog) {
       this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'remove' });
     }
     this.adobeDtbTracking.anchorLinkMeal('Removing From Meal Plan: ', meal.title);
+    this.snackBar.open('Removed from meal plan', null, {duration: 1000, verticalPosition: 'top' });
+
   }
 
   async updateFavourites(favouriteMeal: any) {
@@ -278,7 +290,11 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       this.promptUserForAuth()
     }
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
-      await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove')
+      const status = await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove')
+      if (status !== 'Successfully deleted') {
+        this.snackBar.open('Error deleting from favourites', null, {duration: 1000, verticalPosition: 'top' });
+        return;
+      }
       if (this.inDialog) {
 
         this.dialogParams.onAddOrRemoveFavourites({ 'meal': favouriteMeal, 'action': 'remove' });
@@ -286,8 +302,12 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       this.removeFavourite(favouriteMeal);
 
     } else {
+      const status = await this.mealFavouritesService.saveMealFavourites([...this.favouriteMeals, favouriteMeal], favouriteMeal.id);
+      if (status !== 'Successfully created') {
+        this.snackBar.open('Error adding to favourites', null, {duration: 1000, verticalPosition: 'top' });
+        return;
+      }
       this.addFavourite(favouriteMeal)
-      this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id)
       if (this.inDialog) {
         this.dialogParams.onAddOrRemoveFavourites({ 'meal': favouriteMeal, 'action': 'add' });
       }

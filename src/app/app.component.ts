@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
   loadScript: Promise<any>;
   stylesToBeLoaded: boolean = false;
   loadNewRelic = false;
+  loadLoyaltyAmazonPixel = false;
+  loadAwarenessAmazonPixel = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private dynamicScriptLoader: DynamicScriptLoaderService,
@@ -62,18 +64,22 @@ export class AppComponent implements OnInit {
   async ngAfterViewInit() {
     // this.loadFooter();
     this.loadFontIcons();
+    // this.pixelImplementation();
+
     if (environment.production) {
       this.adobeImplementation();
       this.facebookImplementation();
       this.newRelicImplementation();
-      this.hotjarImplementation();
- 
+      // this.hotjarImplementation();
+      this.pixelImplementation();
+      this.amazonPixelImplementation();
+
 
     }//If production or uat, lazyload main css
     // else {
-      this.cdr.detectChanges()
-      // await this.loadjscssfile("../lazyloadedstyles.js", "js");
-      // await this.loadjscssfile("./lazyloadedstyles.css", "css");
+    this.cdr.detectChanges()
+    // await this.loadjscssfile("../lazyloadedstyles.js", "js");
+    // await this.loadjscssfile("./lazyloadedstyles.css", "css");
     // }
     this.insertAdChoice();
 
@@ -278,8 +284,22 @@ export class AppComponent implements OnInit {
   }
 
   hotjarImplementation() {
-    this.dynamicScriptLoader.load('hot-jar').then((data: any) => {
-      console.log('Hot Jar loaded successfully');
+    // this.dynamicScriptLoader.load('hot-jar').then((data: any) => {
+    //   console.log('Hot Jar loaded successfully');
+    // }).catch(console.error)
+  }
+
+  pixelImplementation() {
+    this.dynamicScriptLoader.loadInFooter('pixel-min', 'pixel').then((data: any) => {
+      console.log('Pixel loaded successfully');
+    }).catch(console.error)
+  }
+
+  amazonPixelImplementation() {
+    this.dynamicScriptLoader.loadInFooter('loyalty-amazon', 'awareness-amazon').then((data: any) => {
+      console.log('Amazon loyalty and awareness loaded successfully');
+      this.loadAwarenessAmazonPixel = true;
+      this.loadLoyaltyAmazonPixel = true;
     }).catch(console.error)
   }
 
