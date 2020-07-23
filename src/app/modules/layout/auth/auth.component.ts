@@ -87,7 +87,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   viewLogin() {
-    this.router.navigate(['/auth/register'], { queryParamsHandling: 'preserve' });
+    this.router.navigate(['/auth/login'], { queryParamsHandling: 'preserve' });
   }
 
 
