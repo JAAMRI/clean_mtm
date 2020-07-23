@@ -56,20 +56,22 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   setActiveRoute(url: string) {
-    switch (url) {
-      case '/auth/login':
-        this.activeRoute = AuthType.LOGIN;
-        break;
-      case '/auth/register':
-        this.activeRoute = AuthType.REGISTER;
-        break;
-      case '/auth/forgot-password':
-        this.activeRoute = AuthType.FORGOT_PASSWORD;
-        break;
-      default:
-        this.activeRoute = AuthType.LOGIN;
+    // using .includes here incase of queryparams
+    if (url.includes('/auth/login')) {
+      this.activeRoute = AuthType.LOGIN;
+    }
+    else if (url.includes('/auth/register')) {
+      this.activeRoute = AuthType.REGISTER;
+    }
+    else if (url.includes('/auth/forgot-password')) {
+
+      this.activeRoute = AuthType.FORGOT_PASSWORD;
+    } else {
+      this.activeRoute = AuthType.LOGIN;
+
     }
   }
+
 
   watchRoute() {
     this.router.events.pipe(takeUntil(this.unsubscribeAll),
@@ -80,17 +82,17 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   viewRegister() {
-    this.router.navigate(['/auth/register']);
+    this.router.navigate(['/auth/register'], { queryParamsHandling: 'preserve' });
     this.registerForm.patchValue(this.emailForm.value);
   }
 
   viewLogin() {
-    this.router.navigate(['/auth/login']);
+    this.router.navigate(['/auth/register'], { queryParamsHandling: 'preserve' });
   }
 
 
   viewForgotPassword() {
-    this.router.navigate(['/auth/forgot-password']);
+    this.router.navigate(['/auth/forgot-password'], { queryParamsHandling: 'preserve' });
     this.adobeDtbTracking.anchorLink('Link leading to reset password page on sign in popup');
 
   }
@@ -127,7 +129,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       if (this.route.snapshot.queryParams && this.route.snapshot.queryParams['returnUrl']) {
         // check if there is a redirectTo in the query params and redirect to this instead
         const redirectRoute = this.route.snapshot.queryParams['returnUrl'];
-        
+
         this.router.navigateByUrl(redirectRoute);
       } else {
 
