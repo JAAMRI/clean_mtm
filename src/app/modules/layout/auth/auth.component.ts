@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, ActivatedRoute, UrlSerializer } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
@@ -44,6 +44,8 @@ export class AuthComponent implements OnInit, OnDestroy {
     private mealFavouritesService: MealFavouritesService,
     public adobeDtbTracking: AdobeDtbTracking,
     private router: Router,
+    private route: ActivatedRoute,
+    private serializer: UrlSerializer
 
   ) { }
 
@@ -122,8 +124,15 @@ export class AuthComponent implements OnInit, OnDestroy {
       this.loading = true;
 
       await Auth.signIn(username.toLowerCase(), password);
+      if (this.route.snapshot.queryParams && this.route.snapshot.queryParams['returnUrl']) {
+        // check if there is a redirectTo in the query params and redirect to this instead
+        const redirectRoute = this.route.snapshot.queryParams['returnUrl'];
+        
+        this.router.navigateByUrl(redirectRoute);
+      } else {
 
-      this.router.navigate(['/recipes/discover']);
+        this.router.navigate(['/recipes/discover']);
+      }
       this.loading = false;
 
       // Update only if user is signing in for the first time right after signing up

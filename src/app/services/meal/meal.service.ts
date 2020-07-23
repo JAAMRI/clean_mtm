@@ -1,10 +1,11 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { Meal, Meals } from '../../interfaces/meal/meal';
 import { FIELDS } from './meal.fields';
+import { AccountService } from '../account/account.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class MealService {
 
   //Get Meals from API
   getMeals(pageStart: number, pageSize: number, query?: string, params?: any): Observable<any> {
-
+    
     const httpParams = new HttpParams({
       fromObject: {
         page_start: pageStart.toString(),

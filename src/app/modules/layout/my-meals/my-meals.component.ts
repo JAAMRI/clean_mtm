@@ -95,22 +95,42 @@ export class MyMealsComponent implements OnInit, OnDestroy {
 
   async addToMealPlan(meal: any) {
     // add to mealplan
+    const status = await this.mealPlanService.saveMealPlan([...this.mealPlan, meal], meal.id);
+    if (status !== 'Successfully created') {
+      this.snackbar.open('Error adding to meal plan.', null, { duration: 2000, verticalPosition: 'top' });
+      return;
+    }
     this.mealPlan.push(meal);
-    await this.mealPlanService.saveMealPlan(this.mealPlan, meal.id);
+    this.snackbar.open('Added.', null, { duration: 2000, verticalPosition: 'top' });
+
   }
 
   async removeFromMealPlan(mealId: any) {
-    await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove');
+    const status = await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove');
+    if (status !== 'Successfully deleted') {
+      this.snackbar.open('Error deleting from meal plan.', null, { duration: 2000, verticalPosition: 'top' });
+      return;
+    }
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
+    this.snackbar.open('Removed.', null, { duration: 2000, verticalPosition: 'top' });
+
   }
 
   async updateFavourites(favouriteMeal: any) {
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
-      await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove')
+      const status = await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove');
+      if (status !== 'Successfully deleted') {
+        this.snackbar.open('Error deleting from favourites.', null, { duration: 2000, verticalPosition: 'top' });
+        return;
+      }
       this.removeFavourite(favouriteMeal.id);
     } else {
+      const status = await this.mealFavouritesService.saveMealFavourites([...this.favouriteMeals, favouriteMeal], favouriteMeal.id)
+      if (status !== 'Successfully created') {
+        this.snackbar.open('Error adding to favourites.', null, { duration: 2000, verticalPosition: 'top' });
+        return;
+      }
       this.addFavourite(favouriteMeal)
-      this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id)
     }
   }
 
@@ -118,12 +138,16 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   removeFavourite(mealId: string) {
     this.favouriteMeals = this.favouriteMeals.filter((meal: any) => meal.id !== mealId)
     this.favouriteMealIds = this.favouriteMealIds.replace(mealId + '|', '');
+    this.snackbar.open('Removed from favourites.', null, { duration: 2000, verticalPosition: 'top' });
+
 
   }
 
   addFavourite(favouriteMeal: any) {
     this.favouriteMeals.push(favouriteMeal)
     this.favouriteMealIds += (favouriteMeal.id + '|');
+    this.snackbar.open('Added to favourites.', null, { duration: 2000, verticalPosition: 'top' });
+
 
   }
 

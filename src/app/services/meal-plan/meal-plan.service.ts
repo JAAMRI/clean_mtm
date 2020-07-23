@@ -5,6 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { handleError } from '../../../app/utilities/helper-functions';
 import { AccountService } from '../account/account.service';
 import Auth from '@aws-amplify/auth';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -16,10 +17,17 @@ export class MealPlanService {
 
   constructor(
     private http: HttpClient,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) { }
 
   saveMealPlan(mealPlan: any[], mealId?: string, action: string = 'add'): Promise<any> {
+    if (!this.accountService.loggedIn) {
+      const currentRoute = this.router.url;
+      this.router.navigate(['/auth/login'], {queryParams: {
+        returnUrl: currentRoute
+      },})
+    }
     return this.accountService.loggedIn ? this.saveMealPlanToServer(mealPlan, mealId, action) : this.saveMealPlanToLocalStorage(mealPlan, mealId, action);
 
   }

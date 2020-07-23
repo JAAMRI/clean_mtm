@@ -20,7 +20,7 @@
       <a [class.active]='activePage === "/contact-us"' mat-button (click)="emitNavigation('CONTACT US')">Contact Us</a>
       <a [class.active]='activePage === "/faqs"' mat-button (click)="emitNavigation('FAQs')">FAQs
       </a>
-      <a mat-button (click)="signOut()">Sign Out</a>
+      <a mat-button *ngIf='loggedIn' (click)="signOut()">Sign Out</a>
 
 
 
