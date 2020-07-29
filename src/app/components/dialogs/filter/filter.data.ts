@@ -18,7 +18,6 @@ export const FilterIdsByName = {
     'salad': '1487',
     'better_for_you': '9870',
     'dinner': '1400',
-    
 }
 
 
