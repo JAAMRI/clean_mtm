@@ -223,51 +223,9 @@ export class AppComponent implements OnInit {
   }
 
   facebookImplementation() {
-    let facebook = `!function (f, b, e, v, n, t, s) {if (f.fbq) return; n = f.fbq = function () {n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-    };
-    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-    n.queue = []; t = b.createElement(e); t.async = !0;
-    t.src = v; s = b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t, s)
-  }(window, document, 'script',
-    'https://connect.facebook.net/en_US/fbevents.js?ngsw-bypass');
-  fbq('init', '194312168116213');
-  fbq('track', 'PageView');`;
-
-    let facebookNoScript = `<img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=194312168116213&ev=PageView&noscript=1&ngsw-bypass" />`;
-
-    this.loadScript = new Promise((resolve) => {
-      let node = document.createElement('script');
-      node.type = 'text/javascript';
-      node.async = true;
-      node.charset = 'utf-8';
-      try {
-        node.appendChild(document.createTextNode(facebook));
-        document.getElementsByTagName('head')[0].appendChild(node);
-      } catch (e) {
-        node.text = facebook;
-        document.body.appendChild(node);
-      }
-
-    });
-    this.loadScript = new Promise((resolve) => {
-      let nodeNoScript = document.createElement('noscript');
-      // nodeNoScript.type = 'text/javascript';
-      // nodeNoScript.async = true;
-      // nodeNoScript.charset = 'utf-8';
-      try {
-        nodeNoScript.appendChild(document.createTextNode(facebookNoScript));
-        document.getElementsByTagName('head')[0].appendChild(nodeNoScript);
-      } catch (e) {
-        // nodeNoScript.text = facebookNoScript;
-        let text = document.createTextNode(facebookNoScript);
-        nodeNoScript.appendChild(text);
-        // document.body.appendChild(nodeNoScript);
-      }
-
-    });
-
+    this.dynamicScriptLoader.load('facebook-pixel').then((data: any) => {
+      console.log('Facebook pixel tracking loaded successfully');
+    }).catch(console.error)
   }
 
   adobeImplementation() {
