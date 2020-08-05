@@ -45,7 +45,6 @@ export class AuthComponent implements OnInit, OnDestroy {
     public adobeDtbTracking: AdobeDtbTracking,
     private router: Router,
     private route: ActivatedRoute,
-    private serializer: UrlSerializer
 
   ) { }
 

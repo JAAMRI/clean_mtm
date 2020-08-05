@@ -6,6 +6,7 @@ export const FilterIdsByName = {
     'pasta': '1047',
     'beef': '1499',
     'slow_cooker': '1390',
+    'tea': '1368',
     'breakfast_and_brunch': '1551,619',
     'italian': '1422',
     'indian': '1419',
@@ -16,7 +17,7 @@ export const FilterIdsByName = {
     'canadian': '1295',
     'salad': '1487',
     'better_for_you': '9870',
-    'dinner': '1400'
+    'dinner': '1400',
 }
 
 
@@ -87,6 +88,13 @@ export const Filters: IFilter[] = [
         key: 'slow_cooker',
 
         id: 1390,
+
+    },
+    {
+        name: 'Tea',
+        key: 'tea',
+
+        id: 1368,
 
     },
     {
