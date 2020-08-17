@@ -48,7 +48,7 @@ export class MealService {
           results: meals.results,
           items: meals.data?.map((meal: any, index: any) => ({
             id: meal.recipe_id,
-            image: meal.assets.image.default[0].url,
+            image: meal.assets.image.default[0].thumb_url,
             cuisine: meal.cuisines && (Object.keys(meal.cuisines).length === 0) ? null : meal.cuisines[0].description,
             title: meal.title,
             nutrition: meal.nutrients_legacy,
