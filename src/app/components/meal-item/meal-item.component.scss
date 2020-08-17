@@ -3,7 +3,7 @@
 .meal-item {
   width: 250px;
   @media (min-width: 1024px) {
-    width: 400px;
+    width: 350px;
   }
   position: relative;
   padding: unset;
@@ -16,7 +16,7 @@
     height: 140px;
     width: 100%;
     @media (min-width: 1024px) {
-      height: 250px;
+      height: 200px;
     }
     &.active:before {
       content: "";
@@ -27,7 +27,7 @@
       border-radius: 4px 4px 0 0;
       height: 140px;
       @media (min-width: 1024px) {
-        height: 250px;
+        height: 200px;
       }
       bottom: 0;
       background-color: rgba($mtm_dark_grey, 0.5);
