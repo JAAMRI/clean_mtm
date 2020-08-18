@@ -85,7 +85,7 @@ export class MealService {
           id: meal.data.recipe_id,
           title: meal.data.title,
           nutrition: meal.data.nutrients_legacy,
-          image: meal.data.assets.image.default[0].versions.default[0].url,
+          image: meal.data.assets.image.default[0].versions.default[0].url || meal.data.assets.image.default[0].url,
           description: meal.data.description || meal.data.short_description,
           cookTime: meal.data.cook_time,
           mainIngredient: (Object.keys(meal.data.main_ingredient).length === 0) ? null : meal.data.main_ingredient[0].description,
