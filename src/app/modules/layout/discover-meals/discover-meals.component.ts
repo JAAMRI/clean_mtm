@@ -103,7 +103,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   getNextBatch() {
     this.getMeals(this.meals.length, this.pageSize, 'right', this.searchQuery)
-
   }
 
   getPreviousBatch() {
@@ -315,7 +314,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   async removeFromMealPlan(mealId: string) {
-    // add to mealplan
+    // remove from mealplan
     const status = await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove');
 
     if (status !== 'Successfully deleted') {
