@@ -3,9 +3,9 @@
 .on-board-content {
     height: calc(100vh - 76px);
     width: 100vw;
-    background-image: url("/assets/static_images/home-page/homepage-image-reduced.jpg");
+    background-image: url("/assets/static_images/home-page/homepage-image.jpg");
     @media (min-width: 1024px) {
-        background-image: url("/assets/static_images/home-page/desktop-homepage-image-reduced.jpg");
+        background-image: url("/assets/static_images/home-page/desktop-homepage-image.jpg");
     }
     background-repeat: no-repeat;
     background-size: cover;
