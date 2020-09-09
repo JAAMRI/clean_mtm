@@ -8,12 +8,12 @@ interface Scripts {
 export const ScriptStore: Scripts[] = [
   { name: 'new-relic', src: '/assets/scripts/new-relic.js' },
   {name: "pixel-min", src: 'https://js.adsrvr.org/up_loader.1.1.0.js'},
-  {name: "pixel", src: '/assets/scripts/pixel.js'},
   {name: "awareness-amazon", src: '/assets/scripts/awareness-amazon.js'},
   {name: "loyalty-amazon", src: '/assets/scripts/loyalty-amazon.js'},
   { name: 'adobe-tracking', src: '/assets/scripts/adobe-tracking.js' },
   { name: 'hot-jar', src: '/assets/scripts/hot-jar.js' },
   { name: 'facebook-pixel', src: '/assets/scripts/facebook-pixel.js' },
+  { name: 'bodyhiding', src: 'assets/scripts/bodyhiding.js' },
   { name: 'adobe-tracking-min', src: '//assets.adobedtm.com/launch-EN0ed0003810f9435a8566fef4c9d7b320.min.js' },
   {name: 'sales-force-live-agent', src: 'https://c.la1-c2-lo2.salesforceliveagent.com/content/g/js/47.0/deployment.js'},
 ];

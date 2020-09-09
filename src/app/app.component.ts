@@ -67,6 +67,7 @@ export class AppComponent implements OnInit {
     // this.pixelImplementation();
 
     if (environment.production) {
+      this.bodyhidingImplementation()
       this.adobeImplementation();
       this.facebookImplementation();
       this.newRelicImplementation();
@@ -234,6 +235,13 @@ export class AppComponent implements OnInit {
     }).catch(console.error)
   }
 
+  bodyhidingImplementation() {
+    // this.loadNewRelic = true;
+    this.dynamicScriptLoader.load('bodyhiding').then((data: any) => {
+      console.log('bodyhiding loaded successfully');
+    }).catch(console.error)
+  }
+
   newRelicImplementation() {
     // this.loadNewRelic = true;
     this.dynamicScriptLoader.load('new-relic').then((data: any) => {
@@ -260,5 +268,7 @@ export class AppComponent implements OnInit {
       this.loadLoyaltyAmazonPixel = true;
     }).catch(console.error)
   }
+
+  
 
 }
