@@ -21,6 +21,10 @@
     background-color: $mtm_grey !important;
     color: $mtm_dark_green_color !important;
   }
+  .login-action-row{
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .register-container {
   margin: 2em 0 2em 0;
@@ -39,3 +43,4 @@
     height: 40px;
   }
 }
+

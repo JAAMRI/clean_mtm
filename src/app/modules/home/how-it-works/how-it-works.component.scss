@@ -1,5 +1,4 @@
 @import "../../../../scss/variables.scss";
-@import "../../../../scss/variables.scss";
 
 .how-it-works {
   text-align: center;
@@ -21,6 +20,17 @@
   .how-it-works-bg {
     background-color: $mtm_grey;
     padding: 2em;
+  }
+  .circle {
+    border-radius: 50%;
+    margin-bottom: 1em;
+    width: 20px;
+    height: 20px;
+    padding: 8px;
+    color: $mtm_white;
+    background: $mtm_light_green_color;
+    text-align: center;
+    font-size: 18px;
   }
 
   .browse-our-recipes {

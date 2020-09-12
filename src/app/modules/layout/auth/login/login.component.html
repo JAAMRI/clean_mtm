@@ -28,7 +28,10 @@
           info_outline</mat-icon>
       </mat-form-field>
       <button aria-label="Sign in" type="submit" mat-flat-button class='sign-in-button'>{{loading ? 'PROCESSING...' : 'SIGN IN'}}</button>
-      <a class='forgot-button' mat-link-button (click)='emitForgotPassword()'>Forgot your password?</a>
+      <div class="login-action-row">
+        <a class='forgot-button' mat-link-button (click)='emitForgotPassword()'>Forgot your password?</a>
+        <p class='required-field'>* Required field</p>
+      </div>
     </div>
     <div class="gif-wrapper" *ngIf='loading'>
       <img class='loading-text' src="/assets/static_images/Whisk-Stat-Transp.png" />
