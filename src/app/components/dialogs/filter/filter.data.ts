@@ -11,7 +11,7 @@ export const FilterIdsByName = {
     'italian': '1422',
     'indian': '1419',
     'asian': '1433',
-    'mexican': '1433',
+    'mexican': '1427',
     'middle_eastern': '1428',
     'mediterranean': '1435',
     'canadian': '1295',

@@ -119,7 +119,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter) {
     //Show spinner while loadin
-    console.log('getting meals')
     if (this.loading) {
       // stop duplicate calls
       return;
@@ -196,7 +195,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
     this.resetAllGlobalValues();
     if (query != "") {
-      this.filter = {}
+      // this.filter = {}
       this.searchQuery = query;
       this.adobeDtbTracking.searchQuery(query, this.pageSize);
     }

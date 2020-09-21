@@ -29,6 +29,7 @@ export class MealFavouritesService {
       this.router.navigate(['/auth/login'], {queryParams: {
         returnUrl: currentRoute
       },})
+      return;
     }
     return this.accountService.loggedIn ? this.saveMealFavouritesToServer(favourites, recipeId, action) : this.storeMealFavourites(favourites, recipeId, action);
   }
