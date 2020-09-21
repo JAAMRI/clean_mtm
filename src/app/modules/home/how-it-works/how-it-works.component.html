@@ -10,9 +10,9 @@
     <div class="copy">
       <div class="circle">1</div>
       <h1>BROWSE OUR RECIPES</h1>
-      <p>A little taste of our 500+ chef curated recipes. Register to explore them all.</p>
+      <p>Make every meal an adventure with 500+ chef curated dishes.</p>
     </div>
-    <app-mtm-slider (onEndReached)='pushEnd()' (onStartReached)='pushStart()'>
+    <app-mtm-slider [offset]='150' (onEndReached)='pushEnd()' (onStartReached)='pushStart()'>
       <div class='carousel-img-wrapper' *ngFor='let recipe of recipes; trackBy: trackByIndex; let i=index;'
         (click)='emitNavigation(recipe.link)'>
         <img class='carousel-image' [src]="recipe.image" alt="recipe">
