@@ -14,6 +14,7 @@ import { FilterIdsByName, IFilter } from '../../../components/dialogs/filter/fil
 import { Meals } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
+import { RecipeInformationByFilterName } from './discover-meals.data';
 
 @Component({
   selector: 'app-discover-meals',
@@ -23,6 +24,7 @@ import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 })
 export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  defaultPageTitle = 'SELECT RECIPES';
   production = environment.production; // check if env is prod
   meals: any = [];
   favouriteMeals: any = []
@@ -32,6 +34,8 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   didYouMean: string;
   unsubscribeAll = new Subject();
   favouriteMealIds: any = {};
+  pageTitle = this.defaultPageTitle;
+  pageDescription = '';
   pageStart: number = 0;
   pageSize: number = 5;//If you change this value, please change it in the search function in the meal service as well
   totalResults: number = 0;
@@ -75,23 +79,19 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   watchQueryParams() {
-    this.route.queryParams.pipe(takeUntil(this.unsubscribeAll)).subscribe((queryParams) => {
-
-      if (JSON.stringify(queryParams) !== '{}') {
-        if (queryParams.id) {
-          // id is the id of the meal - we route to meal detail page here
-          this.promptMealDetailComponent(queryParams.id)
-        } else if (queryParams['filter']) {
-          // query params have id for filters
-          // use the name of filter and grab the id by its name in filter.ts and use that to get meals
-          if (queryParams['filter'] == 'dinner') {
-            this.filter = { 'q': 'dinner' }
-          } else {
-            this.filter = { 'p_tag_ids': FilterIdsByName[queryParams['filter']] };
-
-          }
+    this.route.paramMap.pipe(takeUntil(this.unsubscribeAll)).subscribe((paramMap) => {
+      if (paramMap.get('filter')) {
+        // query params have id for filters
+        // use the name of filter and grab the id by its name in filter.ts and use that to get meals
+        if (paramMap.get('filter') == 'dinner') {
+          this.filter = { 'q': 'dinner' }
+        } else {
+          this.filter = { 'p_tag_ids': FilterIdsByName[paramMap.get('filter')]};
         }
+        this.pageTitle = RecipeInformationByFilterName[paramMap.get('filter')].title;
+        this.pageDescription = RecipeInformationByFilterName[paramMap.get('filter')].description;
       }
+
       this.getMeals(this.meals.length, this.pageSize, 'right', this.searchQuery)
     })
   }
@@ -119,7 +119,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter) {
     //Show spinner while loadin
-
+    console.log('getting meals')
     if (this.loading) {
       // stop duplicate calls
       return;
@@ -229,16 +229,10 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     });
     filterDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe((filter: IFilter) => {
       if (filter) {
-        this.router.navigate([], {
-          relativeTo: this.route,
-          queryParams: {
-            filter: filter.key,
-          },
 
-        });
+        this.router.navigate([`/recipes/discover/${filter.key || ''}`]);
         this.searchQuery = '';
         this.resetAllGlobalValues()
-
       }
     });
 

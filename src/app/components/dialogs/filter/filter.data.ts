@@ -164,9 +164,7 @@ export const Filters: IFilter[] = [
         disclaimerId: '*',
         id: 9870,
         key: 'better_for_you',
-
-
-    },
+    }
 ]
 
 export const Disclaimers = [
@@ -189,6 +187,6 @@ export interface IFilter {
     name: string;
     disclaimerId?: string;
     active?: boolean;
-    id: any;
+    id?: any;
     [key: string]: string | number | boolean;
 }
