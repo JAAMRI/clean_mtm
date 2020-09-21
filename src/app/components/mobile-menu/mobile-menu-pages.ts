@@ -5,6 +5,10 @@ export const AuthenticatedPages = [
         toggled: false,
         subPages: [
             {
+                name: 'All Recipes',
+                route: '/recipes/discover',
+            },
+            {
                 name: '30 minutes or less',
                 route: '/recipes/discover/30_minutes_or_less',
             },
