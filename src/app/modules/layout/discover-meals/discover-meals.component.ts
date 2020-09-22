@@ -13,6 +13,7 @@ import { FilterComponent } from '../../../components/dialogs/filter/filter.compo
 import { FilterIdsByName, IFilter } from '../../../components/dialogs/filter/filter.data';
 import { Meals } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
+import { SeoService } from '../../../services/seo.service';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 import { RecipeInformationByFilterName } from './discover-meals.data';
 
@@ -55,6 +56,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     private mealService: MealService,
     private snackBar: MatSnackBar,
     private cdr: ChangeDetectorRef,
+    private seoService: SeoService,
     public adobeDtbTracking: AdobeDtbTracking
   ) {
   }
@@ -72,27 +74,37 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
       this.adobeDtbTracking.pageLoad("discover meals page");
     }, 5000);
-    this.watchQueryParams();
+    this.watchParams();
     this.mealPlan = await this.mealPlanService.getMealPlan();
     await this.getFavouriteMeals();
 
   }
 
-  watchQueryParams() {
+  watchParams() {
     this.route.paramMap.pipe(takeUntil(this.unsubscribeAll)).subscribe((paramMap) => {
-      if (paramMap.get('filter')) {
+      const filter = paramMap.get('filter')
+      if (filter) {
         // query params have id for filters
         // use the name of filter and grab the id by its name in filter.ts and use that to get meals
-        if (paramMap.get('filter') == 'dinner') {
+        if (filter == 'dinner') {
           this.filter = { 'q': 'dinner' }
         } else {
-          this.filter = { 'p_tag_ids': FilterIdsByName[paramMap.get('filter')]};
+          this.filter = { 'p_tag_ids': FilterIdsByName[filter]};
         }
-        this.pageTitle = RecipeInformationByFilterName[paramMap.get('filter')].title;
-        this.pageDescription = RecipeInformationByFilterName[paramMap.get('filter')].description;
+        this.pageTitle = RecipeInformationByFilterName[filter].title;
+        this.pageDescription = RecipeInformationByFilterName[filter].description;
       }
+      this.setSeo(filter)
 
       this.getMeals(this.meals.length, this.pageSize, 'right', this.searchQuery)
+    })
+  }
+
+  setSeo(filter: string) {
+    this.seoService.generateTags({
+      title: RecipeInformationByFilterName[filter].titleTag,
+      description: RecipeInformationByFilterName[filter].seoDescription,
+      slug: this.router.url
     })
   }
 
