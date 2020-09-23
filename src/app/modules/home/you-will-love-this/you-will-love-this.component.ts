@@ -2,7 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { CarouselData } from '../home-carousel-helper';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-you-will-love-this',
   templateUrl: './you-will-love-this.component.html',
@@ -14,7 +14,8 @@ export class YouWillLoveThisComponent implements OnInit {
 
 
   constructor(
-    public adobeDtbTracking: AdobeDtbTracking
+    public adobeDtbTracking: AdobeDtbTracking,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +31,12 @@ export class YouWillLoveThisComponent implements OnInit {
   pushStart() {
     this.carouselData = [...CarouselData, ...this.carouselData]
 
+  }
+
+  getStarted() {
+    const route = '/auth';
+    this.adobeDtbTracking.pageTracking('GET STARTED', '/');
+    this.router.navigate([route]);
   }
 
   trackByIndex(i: number) {
