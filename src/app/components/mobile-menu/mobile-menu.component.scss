@@ -10,6 +10,9 @@
   .mat-list-item-content {
     padding: unset !important;
   }
+  .sub-list{
+    margin-left: 2em;
+  }
   mat-nav-list {
     .page-item {
       font-family: filson;
@@ -21,6 +24,9 @@
     .sign-out-item{
       margin-top: 1em;
       
+    }
+    .pushDown{
+      margin-bottom: 1em;
     }
   }
   .auth-section {

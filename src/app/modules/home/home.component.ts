@@ -93,8 +93,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   checkAuth(link?: string, comingFrom?: string) {
     if (this.accountService.loggedIn) {
-      this.routeToRecipes(link);
-      this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
+      this.routeToRecipes(link, comingFrom);
 
     } else {
       this.promptUserForAuth()
@@ -109,9 +108,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     this.router.navigate([route])
   }
 
-  routeToRecipes(recipeLink?: string) {
-    const route = recipeLink || '/recipes/discover';
+  routeToRecipes(link?: string, comingFrom?: string) {
+    const route = link || '/recipes/discover';
     this.router.navigate([route]);
+    this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
   }
 

@@ -11,7 +11,7 @@ export const FilterIdsByName = {
     'italian': '1422',
     'indian': '1419',
     'asian': '1433',
-    'mexican': '1433',
+    'mexican': '1427',
     'middle_eastern': '1428',
     'mediterranean': '1435',
     'canadian': '1295',
@@ -164,9 +164,7 @@ export const Filters: IFilter[] = [
         disclaimerId: '*',
         id: 9870,
         key: 'better_for_you',
-
-
-    },
+    }
 ]
 
 export const Disclaimers = [
@@ -189,6 +187,6 @@ export interface IFilter {
     name: string;
     disclaimerId?: string;
     active?: boolean;
-    id: any;
+    id?: any;
     [key: string]: string | number | boolean;
 }

@@ -27,6 +27,7 @@ export class MealPlanService {
       this.router.navigate(['/auth/login'], {queryParams: {
         returnUrl: currentRoute
       },})
+      return;
     }
     return this.accountService.loggedIn ? this.saveMealPlanToServer(mealPlan, mealId, action) : this.saveMealPlanToLocalStorage(mealPlan, mealId, action);
 

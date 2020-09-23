@@ -16,6 +16,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PipesModule } from '../../../pipes/pipes.module';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -35,6 +36,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MatNativeDateModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
+    MatTooltipModule,
     PipesModule,
     
   ]

@@ -37,6 +37,15 @@ export class MobileMenuComponent implements OnInit {
     }
   }
 
+  handlePageClick(page: MenuPage) {
+    if (page.subPages) {
+      page.toggled = !page.toggled;
+    } else {
+      this.closeMobileMenu(page.name, page.route);
+      this.router.navigate([page.route])
+    }
+  }
+
   signOut() {
     this.adobeDtbTracking.signout();
     this.close.emit();
@@ -61,19 +70,17 @@ export class MobileMenuComponent implements OnInit {
     this.currentRoute = url;
     if (this.loggedIn) {
       this.authenticatedPages.forEach((page) => {
-        if (url.includes(page.route)) {
-          page.active = true;
-        } else {
-          page.active = false;
+        page.active = url.includes(page.route);
+        if (page.subPages) {
+          page.subPages.forEach((subPage) => {
+            subPage.active = url.includes(subPage.route);
+          })
+
         }
       });
     }
     this.menuPages.forEach((page) => {
-      if (url.includes(page.route)) {
-        page.active = true;
-      } else {
-        page.active = false;
-      }
+      page.active = url.includes(page.route)
     });
   }
 

@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
     constructor(
         private router: Router) { }
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-        if (FilterIdsByName[route.queryParams['filter']] && route.url[0].path.includes('discover')) {
+        if (route.url[0].path.includes('discover')) {
             // check if the route is on the discover page and has an appropriate filter
             return true
         }
