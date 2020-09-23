@@ -49,16 +49,23 @@
       width: 100%;
       border-radius: 4px;
     }
+    &:hover {
+      cursor: pointer;
+    }
   }
 
-  .create-meal-plan {
+  .create-meal-plan img {
     cursor: pointer;
   }
 
   .shop-your-meal-plan {
-    cursor: pointer;
+    
     @media (max-width: 1024px) {
       padding: 0 2em;
+    }
+
+    img {
+      cursor: pointer;
     }
   }
   .img-wrapper {

@@ -1,11 +1,19 @@
 @import "../../../../scss/variables.scss";
 
 .product-benefits {
+  
   .copy{
     padding: 3em 2em 0 2em;
   }
+  .register-home-page {
+    button {
+      min-width: 300px;
+    }
+  }
   .youll-love-this-meal-item {
     border-radius: 4px;
+
+    
     .img-wrapper {
       height: 200px;
       width: 300px;
