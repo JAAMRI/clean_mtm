@@ -19,6 +19,7 @@ export class ArticleComponent {
       title: 'WHAT AND WHAT NOT TO FREEZE',
       content: 'Freezing is a great way to retain the texture, flavour and colour of foods and can help you with your weekly menu planning so avoiding waste.',
       readTime: '3min',
+      url: 'what-and-what-not-to-freeze',
       image: '/assets/static_images/articles/what-and-what-not-to-freeze.jpg'
     },
 
