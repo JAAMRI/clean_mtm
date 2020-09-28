@@ -93,8 +93,8 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
         }
         this.pageTitle = RecipeInformationByFilterName[filter].title;
         this.pageDescription = RecipeInformationByFilterName[filter].description;
+        this.setSeo(filter)
       }
-      this.setSeo(filter)
 
       this.getMeals(this.meals.length, this.pageSize, 'right', this.searchQuery)
     })
