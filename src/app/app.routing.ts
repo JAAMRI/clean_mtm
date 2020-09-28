@@ -35,7 +35,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/layout/faq/faq.module').then(m => m.FaqModule)
   },
   {
-    path: 'article',
+    path: 'articles',
     component: LayoutComponent,
 
     loadChildren: () => import('./modules/layout/article/article.module').then(m => m.ArticleModule)
