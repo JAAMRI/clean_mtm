@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { first } from 'rxjs/operators';
@@ -47,6 +47,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
+    private dialogRef: MatDialogRef<any>,
     private snackBar: MatSnackBar,
     private accountService: AccountService,
     private mealFavouritesService: MealFavouritesService,
@@ -79,7 +80,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       this.watchAuthState()
     }
   }
-  
+
 
   addRecipeToHeader() {
     this.script = document.createElement('script');
@@ -252,14 +253,15 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     this.mealPlanIds[mealId] = true;
     const status = await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'add')
     if (status !== 'Successfully created') {
-      this.snackBar.open('Error adding to meal plan', null, {duration: 1000, verticalPosition: 'top' });
+      this.dialogRef.close()
+      this.snackBar.open('Error adding to meal plan', null, { duration: 1000, verticalPosition: 'top' });
       return;
     }
     if (this.inDialog) {
       this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'add' });
     }
     this.adobeDtbTracking.anchorLinkMeal('Adding to Meal Plan: ', meal.title);
-    this.snackBar.open('Added to meal plan', null, {duration: 1000, verticalPosition: 'top' });
+    this.snackBar.open('Added to meal plan', null, { duration: 1000, verticalPosition: 'top' });
 
   }
 
@@ -272,7 +274,8 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     }
     const status = await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'remove')
     if (status !== 'Successfully deleted') {
-      this.snackBar.open('Error deleting from meal plan', null, {duration: 1000, verticalPosition: 'top' });
+      this.dialogParams.close()
+      this.snackBar.open('Error deleting from meal plan', null, { duration: 1000, verticalPosition: 'top' });
       return;
     }
     this.currentMealPlan = this.currentMealPlan.filter((m) => m).filter((meal) => meal.id !== mealId)
@@ -281,7 +284,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'remove' });
     }
     this.adobeDtbTracking.anchorLinkMeal('Removing From Meal Plan: ', meal.title);
-    this.snackBar.open('Removed from meal plan', null, {duration: 1000, verticalPosition: 'top' });
+    this.snackBar.open('Removed from meal plan', null, { duration: 1000, verticalPosition: 'top' });
 
   }
 
@@ -292,7 +295,9 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
       const status = await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove')
       if (status !== 'Successfully deleted') {
-        this.snackBar.open('Error deleting from favourites', null, {duration: 1000, verticalPosition: 'top' });
+        this.dialogRef.close()
+
+        this.snackBar.open('Error deleting from favourites', null, { duration: 1000, verticalPosition: 'top' });
         return;
       }
       if (this.inDialog) {
@@ -304,7 +309,9 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     } else {
       const status = await this.mealFavouritesService.saveMealFavourites([...this.favouriteMeals, favouriteMeal], favouriteMeal.id);
       if (status !== 'Successfully created') {
-        this.snackBar.open('Error adding to favourites', null, {duration: 1000, verticalPosition: 'top' });
+        this.dialogRef.close()
+
+        this.snackBar.open('Error adding to favourites', null, { duration: 1000, verticalPosition: 'top' });
         return;
       }
       this.addFavourite(favouriteMeal)
@@ -343,7 +350,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
     // remove script from head
     if (this.script) {
-      this.script.parentNode.removeChild( this.script );
+      this.script.parentNode.removeChild(this.script);
     }
   }
 

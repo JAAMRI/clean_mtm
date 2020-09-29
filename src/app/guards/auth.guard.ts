@@ -1,15 +1,15 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
 import Auth from '@aws-amplify/auth';
-import { AccountService } from '../services/account/account.service';
-import { FilterIdsByName } from '../components/dialogs/filter/filter.data';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
     constructor(
         private router: Router) { }
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-        if (route.url[0].path.includes('discover')) {
+        if (state.url.includes('/recipes/discover'))  {
+            console.log(state)
+            console.log(route)
             // check if the route is on the discover page and has an appropriate filter
             return true
         }

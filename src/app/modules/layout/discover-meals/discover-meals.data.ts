@@ -91,7 +91,7 @@ export const RecipeInformationByFilterName = {
     },
     'better_for_you': {
         title: 'Better For You Recipes', titleTag: 'Better For You Recipes | Meals That Matter',
-        seoDescription: 'Pick from our range of better for you recipes that strive to promote a balanced and healthy eating pattern.', description: `Our range of better for you recipes strive to promote a balanced and healthy eating pattern*`
+        seoDescription: 'Pick from our range of better for you recipes that strive to promote a balanced and healthy eating pattern.', description: `Our range of better for you recipes strive to promote a balanced and healthy eating pattern`
     },
     'dinner': {
         title: 'Dinner Recipes', titleTag: '220+ Dinner Ideas | Meals That Matter',

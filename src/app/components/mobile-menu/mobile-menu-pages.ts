@@ -29,7 +29,7 @@ export const AuthenticatedPages = [
                 route: '/recipes/discover/dinner',
             },
             {
-                name: 'pasta',
+                name: 'Pasta',
                 route: '/recipes/discover/pasta',
             },
             {

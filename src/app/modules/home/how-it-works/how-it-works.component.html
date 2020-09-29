@@ -8,11 +8,11 @@
 
   <div class="browse-our-recipes">
     <div class="copy">
-      <div class="circle">1</div>
+      <img class='number' src="/assets/static_images/home-page/one.png" alt="">
       <h1>BROWSE OUR RECIPES</h1>
       <p>Make every meal an adventure with 500+ chef curated dishes.</p>
     </div>
-    <app-mtm-slider [offset]='150' (onEndReached)='pushEnd()' (onStartReached)='pushStart()'>
+    <app-mtm-slider [showArrows]='true' [scrollDistance]='291' [offset]='150' (onRightClicked)='pushEnd()' (onLeftClicked)='pushStart()'>
       <div class='carousel-img-wrapper' *ngFor='let recipe of recipes; trackBy: trackByIndex; let i=index;'
         (click)='emitNavigation(recipe.link)'>
         <img class='carousel-image' [src]="recipe.image" alt="recipe">
@@ -21,7 +21,7 @@
   </div>
   <div class="create-meal-plan" (click)='emitNavigation("/recipes/my-meals")'>
     <div class="copy">
-      <div class="circle">2</div>
+      <img class='number' src="/assets/static_images/home-page/two.png" alt="">
       <h1>CREATE YOUR MEAL PLAN</h1>
       <p>Add recipes from around the world to your personalized 'Meal Plan'. Make cooking an adventure with deliciously
         diverse meals.
@@ -34,8 +34,8 @@
   </div>
   <div class="shop-your-meal-plan" (click)='emitNavigation("/recipes/grocery-list")'>
     <div class="copy">
-      <div class="circle">
-        3</div>
+      <img class='number' src="/assets/static_images/home-page/three.png" alt="">
+
 
       <h1>SHOP YOUR MEAL PLAN</h1>
       <p>Your chosen ingredients,

@@ -289,7 +289,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     ref.afterClosed().toPromise().then((newDialog: string) => {
       if (!newDialog) {
         // if no new dialog is openning
-        this.router.navigate(['/recipes/discover'], { queryParams: {} })
+        this.router.navigate(['.'], { queryParams: {}, skipLocationChange:true, relativeTo: this.route })
       }
     })
 
