@@ -63,7 +63,7 @@ export const RecipeInformationByFilterName = {
     },
     'indian': {
         title: 'Indian Recipes', titleTag: 'Indian Recipes - Authentic | Meals That Matter',
-        seoDescription: 'Spice up your life and learn how to cook your favorite Indian restaurant dishes at home such as a chicken curry or naan bread.', description: `Spice up your life and learn how to cook your favorite Indian dishes at home!`
+        seoDescription: 'Spice up your life and learn how to cook your favourite Indian restaurant dishes at home such as a chicken curry or naan bread.', description: `Spice up your life and learn how to cook your favourite Indian dishes at home!`
     },
     'asian': {
         title: 'Asian Recipes', titleTag: 'Asian Inspired Recipes | Meals That Matter',
