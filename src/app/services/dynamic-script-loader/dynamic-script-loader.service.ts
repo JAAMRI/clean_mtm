@@ -3,20 +3,22 @@ import { Injectable } from '@angular/core';
 interface Scripts {
   name: string;
   src: string;
+  id?: string;
 }
 
 export const ScriptStore: Scripts[] = [
   { name: 'new-relic', src: '/assets/scripts/new-relic.js' },
-  {name: "pixel-min", src: 'https://js.adsrvr.org/up_loader.1.1.0.js'},
-  {name: "awareness-amazon", src: '/assets/scripts/awareness-amazon.js'},
-  {name: "loyalty-amazon", src: '/assets/scripts/loyalty-amazon.js'},
+  { name: "pixel-min", src: 'https://js.adsrvr.org/up_loader.1.1.0.js' },
+  { name: "awareness-amazon", src: '/assets/scripts/awareness-amazon.js' },
+  { name: "loyalty-amazon", src: '/assets/scripts/loyalty-amazon.js' },
   { name: 'adobe-tracking', src: '/assets/scripts/adobe-tracking.js' },
   { name: 'hot-jar', src: '/assets/scripts/hot-jar.js' },
   { name: 'facebook-pixel', src: '/assets/scripts/facebook-pixel.js' },
   { name: 'bodyhiding', src: 'assets/scripts/bodyhiding.js' },
-  { name: 'pinterest', src: 'assets/scripts/pinterest.js' },
+  { name: 'pinterest', src: 'assets/scripts/pinterest.js', },
+  { name: 'grocery-list', src: 'assets/scripts/grocery-list.js', id: 'grocery-list' },
   { name: 'adobe-tracking-min', src: '//assets.adobedtm.com/launch-EN0ed0003810f9435a8566fef4c9d7b320.min.js' },
-  {name: 'sales-force-live-agent', src: 'https://c.la1-c2-lo2.salesforceliveagent.com/content/g/js/47.0/deployment.js'},
+  { name: 'sales-force-live-agent', src: 'https://c.la1-c2-lo2.salesforceliveagent.com/content/g/js/47.0/deployment.js' },
 ];
 
 declare var document: any;
@@ -34,6 +36,11 @@ export class DynamicScriptLoaderService {
       };
       // an object here to let us know whethere the script is loaded and the src of it
     });
+  }
+
+  unload(id: string) {
+    const doc = document.getElementById(id);
+    doc.remove();
   }
 
   load(...scripts: string[]) {
@@ -63,7 +70,7 @@ export class DynamicScriptLoaderService {
         script.type = 'text/javascript';
         // script src is the src from our scripts obj
         script.src = this.scripts[name].src;
-        if (script.readyState) {  
+        if (script.readyState) {
           //Only for internet explorer
           // load script and resolve promise
           script.onreadystatechange = () => {
@@ -74,7 +81,7 @@ export class DynamicScriptLoaderService {
             }
           };
         } else {  //Others
-                    // load script and resolve promise
+          // load script and resolve promise
           script.onload = () => {
             this.scripts[name].loaded = true;
             resolve({ script: name, loaded: true, status: 'Loaded' });
@@ -102,7 +109,10 @@ export class DynamicScriptLoaderService {
         script.type = 'text/javascript';
         // script src is the src from our scripts obj
         script.src = this.scripts[name].src;
-        if (script.readyState) {  
+
+        script.id = name;
+
+        if (script.readyState) {
           //Only for internet explorer
           // load script and resolve promise
           script.onreadystatechange = () => {
@@ -113,7 +123,7 @@ export class DynamicScriptLoaderService {
             }
           };
         } else {  //Others
-                    // load script and resolve promise
+          // load script and resolve promise
           script.onload = () => {
             this.scripts[name].loaded = true;
             resolve({ script: name, loaded: true, status: 'Loaded' });

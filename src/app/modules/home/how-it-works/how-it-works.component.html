@@ -12,7 +12,7 @@
       <h1>BROWSE OUR RECIPES</h1>
       <p>Make every meal an adventure with 500+ chef curated dishes.</p>
     </div>
-    <app-mtm-slider [showArrows]='true' [scrollDistance]='291' [offset]='150' (onRightClicked)='pushEnd()' (onLeftClicked)='pushStart()'>
+    <app-mtm-slider [showArrows]='!isMobile' [scrollDistance]='291' [offset]='150' (onRightClicked)='pushEnd()' (onLeftClicked)='pushStart()'>
       <div class='carousel-img-wrapper' *ngFor='let recipe of recipes; trackBy: trackByIndex; let i=index;'
         (click)='emitNavigation(recipe.link)'>
         <img class='carousel-image' [src]="recipe.image" alt="recipe">
