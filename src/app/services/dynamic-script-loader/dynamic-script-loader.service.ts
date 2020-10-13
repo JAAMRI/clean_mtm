@@ -9,6 +9,7 @@ interface Scripts {
 export const ScriptStore: Scripts[] = [
   { name: 'new-relic', src: '/assets/scripts/new-relic.js' },
   { name: "pixel-min", src: 'https://js.adsrvr.org/up_loader.1.1.0.js' },
+  { name: "pixel", src: '/assets/scripts/pixel.js' },
   { name: "awareness-amazon", src: '/assets/scripts/awareness-amazon.js' },
   { name: "loyalty-amazon", src: '/assets/scripts/loyalty-amazon.js' },
   { name: 'adobe-tracking', src: '/assets/scripts/adobe-tracking.js' },
@@ -62,7 +63,9 @@ export class DynamicScriptLoaderService {
   loadScriptInFooter(name: string) {
     return new Promise((resolve, reject) => {
       // check if script is loaded. if not load script
+      console.log(name)
       if (!this.scripts[name].loaded) {
+
         //load script
         // create script
         let script = document.createElement('script');
