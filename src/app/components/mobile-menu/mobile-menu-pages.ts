@@ -45,10 +45,6 @@ export const AuthenticatedPages = [
                 route: '/recipes/discover/breakfast_and_brunch',
             },
             {
-                name: 'Slow Cooker',
-                route: '/recipes/discover/slow_cooker',
-            },
-            {
                 name: 'Italian',
                 route: '/recipes/discover/italian',
             },
