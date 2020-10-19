@@ -1,7 +1,7 @@
 <div class="discover-meals-page">
   <div class="copy">
     <h1>
-      {{pageTitle}}
+      {{pageTitle | uppercase}}
     </h1>
     <p *ngIf='pageDescription' class='subheader'>
       {{pageDescription}}
@@ -36,7 +36,7 @@
   </div>
 
 
-  <app-mtm-slider *ngIf='meals.length > 0 && isReady' (onEndReached)='getNextBatch()'
+  <app-mtm-slider *ngIf='meals.length > 0 && isReady' (onEndReached)='getNextBatch()' [scrollDistance]='358'
     (onStartReached)='getPreviousBatch()' [numOfItems]='meals.length' [showArrows]='!isMobile'>
 
     <app-meal-item *ngFor="let meal of meals; trackBy: trackByIndex; let i=index;" (add)='addToMealPlan($event)'

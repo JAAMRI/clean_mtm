@@ -63,7 +63,7 @@ export const RecipeInformationByFilterName = {
     },
     'indian': {
         title: 'Indian Recipes', titleTag: 'Indian Recipes - Authentic | Meals That Matter',
-        seoDescription: 'Spice up your life and learn how to cook your favorite Indian restaurant dishes at home such as a chicken curry or naan bread.', description: `Spice up your life and learn how to cook your favorite Indian dishes at home!`
+        seoDescription: 'Spice up your life and learn how to cook your favourite Indian restaurant dishes at home such as a chicken curry or naan bread.', description: `Spice up your life and learn how to cook your favourite Indian dishes at home!`
     },
     'asian': {
         title: 'Asian Recipes', titleTag: 'Asian Inspired Recipes | Meals That Matter',
@@ -91,7 +91,7 @@ export const RecipeInformationByFilterName = {
     },
     'better_for_you': {
         title: 'Better For You Recipes', titleTag: 'Better For You Recipes | Meals That Matter',
-        seoDescription: 'Pick from our range of better for you recipes that strive to promote a balanced and healthy eating pattern.', description: `Our range of better for you recipes strive to promote a balanced and healthy eating pattern*`
+        seoDescription: 'Pick from our range of better for you recipes that strive to promote a balanced and healthy eating pattern.', description: `Our range of better for you recipes strive to promote a balanced and healthy eating pattern`
     },
     'dinner': {
         title: 'Dinner Recipes', titleTag: '220+ Dinner Ideas | Meals That Matter',

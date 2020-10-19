@@ -108,6 +108,9 @@
     position: absolute;
     right: 1em;
     top: -20px;
+    .mat-button-wrapper{
+      padding: 6px 0;
+    }
   }
   .remove-button{
     position: absolute;
@@ -348,6 +351,9 @@ mat-spinner{
   background-color: $mtm_white !important;
   color: $mtm_dark_green_color !important;
   border: 1px solid rgba($mtm_light_grey, 0.7);
+  .mat-button-wrapper{
+    padding: 6px 0;
+  }
 
 
 }
