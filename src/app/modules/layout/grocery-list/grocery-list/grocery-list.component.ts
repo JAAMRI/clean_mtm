@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -8,6 +8,7 @@ import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan
 import { SeoService } from '../../../../../app/services/seo.service';
 import { SharedService } from '../../../../../app/shared/shared.service';
 import { scrollToTop } from '../../../../../app/utilities/helper-functions';
+import { DynamicScriptLoaderService } from '../../../../services/dynamic-script-loader/dynamic-script-loader.service';
 import { WidgetHelperService } from '../../../../services/widget-helper/widget-helper.service';
 
 @Component({
@@ -19,7 +20,6 @@ import { WidgetHelperService } from '../../../../services/widget-helper/widget-h
 })
 export class GroceryListComponent implements OnInit {
   unsubscribeAll = new Subject();
-  isMobile: boolean;
   groceryListWidget: string;
   isMealPlanEmpty: boolean = false;
 
@@ -27,15 +27,12 @@ export class GroceryListComponent implements OnInit {
 
   constructor(private mealPlanService: MealPlanService,
     private sharedService: SharedService,
-    private widgetHelperService: WidgetHelperService,
-    breakpointObserver: BreakpointObserver,
+    private dynamicScriptLoader: DynamicScriptLoaderService,
     private seo: SeoService,
     private title: Title,
     public adobeDtbTracking: AdobeDtbTracking
   ) {
-    breakpointObserver.observe([Breakpoints.Web]).pipe(takeUntil(this.unsubscribeAll)).subscribe((result: BreakpointState) => {
-      this.isMobile = !result.matches;
-    });
+
   }
 
   ngOnInit() {
@@ -43,10 +40,7 @@ export class GroceryListComponent implements OnInit {
       this.adobeDtbTracking.pageLoad("grocery list page");
     },
       5000);
-    if (!this.sharedService.groceryListPageVisited) {
-      this.widgetHelperService.embedWidget();
-      this.sharedService.groceryListPageVisited = true
-    }
+    this.loadGroceryListWidget()
 
     scrollToTop();
 
@@ -68,6 +62,15 @@ export class GroceryListComponent implements OnInit {
 
   }
 
+  loadGroceryListWidget() {
+    if (!this.sharedService.groceryListPageVisited) {
+      this.dynamicScriptLoader.load('grocery-list').then((data: any) => {
+        console.log('Grocery list loaded');
+        this.sharedService.groceryListPageVisited = true
+      }).catch(console.error)
+    }
+  }
+
   buildGroceryListWidget(itemIds: any) {
     let recipeIds = '';
     itemIds.forEach((itemId: any, index: number) => {
@@ -77,16 +80,4 @@ export class GroceryListComponent implements OnInit {
       `<div class="cc-mealplan-details-container" recipe-ids="${recipeIds}"></div>`;
 
   }
-
-  // ngOnDestroy() {
-  //   this.widgetHelperService.removeWidget();
-  //   this.groceryListWidget = '';
-  // }
-
-
-
- 
-
-
-
 }

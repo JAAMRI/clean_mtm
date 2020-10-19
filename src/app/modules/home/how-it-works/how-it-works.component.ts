@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FeaturedRecipes } from './featured-recipes';
 
 @Component({
@@ -8,6 +8,7 @@ import { FeaturedRecipes } from './featured-recipes';
 })
 export class HowItWorksComponent implements OnInit {
   @Output() navigate = new EventEmitter();
+  @Input() isMobile: boolean;
 
   recipes = FeaturedRecipes;
   constructor( 

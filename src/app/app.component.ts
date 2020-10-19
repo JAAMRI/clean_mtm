@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   loadNewRelic = false;
   loadLoyaltyAmazonPixel = false;
   loadAwarenessAmazonPixel = false;
+  loadPinterest = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private dynamicScriptLoader: DynamicScriptLoaderService,
@@ -69,6 +70,7 @@ export class AppComponent implements OnInit {
     if (environment.production) {
       this.bodyhidingImplementation()
       this.adobeImplementation();
+      this.pinterestImplementation();
       this.facebookImplementation();
       this.newRelicImplementation();
       // this.hotjarImplementation();
@@ -266,6 +268,13 @@ export class AppComponent implements OnInit {
       console.log('Amazon loyalty and awareness loaded successfully');
       this.loadAwarenessAmazonPixel = true;
       this.loadLoyaltyAmazonPixel = true;
+    }).catch(console.error)
+  }
+
+  pinterestImplementation() {
+    this.dynamicScriptLoader.load('pinterest').then((data: any) => {
+      console.log('Pinterest loaded');
+      this.loadPinterest = true;
     }).catch(console.error)
   }
 

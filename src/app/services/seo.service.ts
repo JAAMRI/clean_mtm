@@ -1,10 +1,10 @@
 import { Injectable, RendererFactory2, ViewEncapsulation, Inject } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 @Injectable()
 export class SeoService {
     renderer: any;
-    constructor(private meta: Meta, private rendererFactory: RendererFactory2,
+    constructor(private meta: Meta, private titleService: Title, private rendererFactory: RendererFactory2,
         @Inject(DOCUMENT) private document) {
         this.renderer = this.rendererFactory.createRenderer(this.document, {
             id: '-1',
@@ -23,6 +23,7 @@ export class SeoService {
             slug: '',
             ...config
         }
+        this.titleService.setTitle(config.title)
         this.meta.updateTag({ name: 'description', content: config.description });
         this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
         this.meta.updateTag({ name: 'twitter:site', content: '@content' });

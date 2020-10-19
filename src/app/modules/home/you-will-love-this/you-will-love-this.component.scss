@@ -5,9 +5,12 @@
   .copy{
     padding: 3em 2em 0 2em;
   }
-  .register-home-page {
+  .get-started-button {
     button {
       min-width: 300px;
+      color: $mtm_dark_green_color;
+      font-size: 1.2em;
+      font-family: 900;
     }
   }
   .youll-love-this-meal-item {

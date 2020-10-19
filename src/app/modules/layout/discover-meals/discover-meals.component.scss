@@ -7,6 +7,10 @@ app-discover-meals {
   .add-to-meal-plan-description{
     text-align: center;
     padding: 1em 2em;
+    mat-icon {
+      color: $mtm_dark_green_color;
+      margin-bottom: 4px;
+    }
   }
   .copy {
     text-align: center;

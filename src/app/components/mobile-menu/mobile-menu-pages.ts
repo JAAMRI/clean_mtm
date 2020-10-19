@@ -29,7 +29,7 @@ export const AuthenticatedPages = [
                 route: '/recipes/discover/dinner',
             },
             {
-                name: 'pasta',
+                name: 'Pasta',
                 route: '/recipes/discover/pasta',
             },
             {
@@ -43,10 +43,6 @@ export const AuthenticatedPages = [
             {
                 name: 'Breakfast and Brunch',
                 route: '/recipes/discover/breakfast_and_brunch',
-            },
-            {
-                name: 'Slow Cooker',
-                route: '/recipes/discover/slow_cooker',
             },
             {
                 name: 'Italian',
