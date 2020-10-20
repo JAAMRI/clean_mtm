@@ -1,9 +1,12 @@
 <div class="discover-meals-page">
   <div class="copy">
     <h1>
-      SELECT RECIPES
+      {{pageTitle | uppercase}}
     </h1>
-    <p class='subheader'>Click <mat-icon>add</mat-icon> to add a recipe to your 'Meal Plan'. Click <mat-icon>
+    <p *ngIf='pageDescription' class='subheader'>
+      {{pageDescription}}
+    </p>
+    <p  *ngIf='!pageDescription' class='subheader'>Click <mat-icon>add</mat-icon> to add a recipe to your 'Meal Plan'. Click <mat-icon>
         favorite_border</mat-icon> to save it to your favourites for later.</p>
   </div>
   <div class="search">
@@ -33,7 +36,7 @@
   </div>
 
 
-  <app-mtm-slider *ngIf='meals.length > 0 && isReady' (onEndReached)='getNextBatch()'
+  <app-mtm-slider *ngIf='meals.length > 0 && isReady' (onEndReached)='getNextBatch()' [scrollDistance]='358'
     (onStartReached)='getPreviousBatch()' [numOfItems]='meals.length' [showArrows]='!isMobile'>
 
     <app-meal-item *ngFor="let meal of meals; trackBy: trackByIndex; let i=index;" (add)='addToMealPlan($event)'
@@ -42,6 +45,9 @@
       [favourited]='favouriteMealIds[meal.id]'>
     </app-meal-item>
   </app-mtm-slider>
+
+  <p  *ngIf='pageDescription && !loading' class='add-to-meal-plan-description'>Click <mat-icon>add</mat-icon> to add a recipe to your 'Meal Plan'. Click <mat-icon>
+    favorite_border</mat-icon> to save it to your favourites for later.</p>
 
   <!-- for pixel script -->
   <!-- was requested to place in discover page -->

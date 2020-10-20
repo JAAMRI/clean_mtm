@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   onLandingPage: boolean;
   @ViewChild('howItWorks') howItWorks: ElementRef;
   isLoggedIn: boolean;
+  isMobile: boolean = (window.innerWidth < 768);
 
 
 
@@ -30,6 +31,11 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     private accountService: AccountService,
     public adobeDtbTracking: AdobeDtbTracking,
   ) {
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.isMobile = event.target.innerWidth < 1024;
   }
 
   ngOnInit() {
@@ -93,8 +99,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   checkAuth(link?: string, comingFrom?: string) {
     if (this.accountService.loggedIn) {
-      this.routeToRecipes(link);
-      this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
+      this.routeToRecipes(link, comingFrom);
 
     } else {
       this.promptUserForAuth()
@@ -109,9 +114,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     this.router.navigate([route])
   }
 
-  routeToRecipes(recipeLink?: string) {
-    const route = recipeLink || '/recipes/discover';
+  routeToRecipes(link?: string, comingFrom?: string) {
+    const route = link || '/recipes/discover';
     this.router.navigate([route]);
+    this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
   }
 

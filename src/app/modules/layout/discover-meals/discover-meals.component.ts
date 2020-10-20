@@ -13,7 +13,9 @@ import { FilterComponent } from '../../../components/dialogs/filter/filter.compo
 import { FilterIdsByName, IFilter } from '../../../components/dialogs/filter/filter.data';
 import { Meals } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
+import { SeoService } from '../../../services/seo.service';
 import { MealDetailComponent } from '../meal-detail/meal-detail.component';
+import { RecipeInformationByFilterName } from './discover-meals.data';
 
 @Component({
   selector: 'app-discover-meals',
@@ -23,6 +25,7 @@ import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 })
 export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  defaultPageTitle = 'SELECT RECIPES';
   production = environment.production; // check if env is prod
   meals: any = [];
   favouriteMeals: any = []
@@ -32,6 +35,8 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   didYouMean: string;
   unsubscribeAll = new Subject();
   favouriteMealIds: any = {};
+  pageTitle = this.defaultPageTitle;
+  pageDescription = '';
   pageStart: number = 0;
   pageSize: number = 5;//If you change this value, please change it in the search function in the meal service as well
   totalResults: number = 0;
@@ -51,6 +56,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     private mealService: MealService,
     private snackBar: MatSnackBar,
     private cdr: ChangeDetectorRef,
+    private seoService: SeoService,
     public adobeDtbTracking: AdobeDtbTracking
   ) {
   }
@@ -68,31 +74,37 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
       this.adobeDtbTracking.pageLoad("discover meals page");
     }, 5000);
-    this.watchQueryParams();
+    this.watchParams();
     this.mealPlan = await this.mealPlanService.getMealPlan();
     await this.getFavouriteMeals();
 
   }
 
-  watchQueryParams() {
-    this.route.queryParams.pipe(takeUntil(this.unsubscribeAll)).subscribe((queryParams) => {
-
-      if (JSON.stringify(queryParams) !== '{}') {
-        if (queryParams.id) {
-          // id is the id of the meal - we route to meal detail page here
-          this.promptMealDetailComponent(queryParams.id)
-        } else if (queryParams['filter']) {
-          // query params have id for filters
-          // use the name of filter and grab the id by its name in filter.ts and use that to get meals
-          if (queryParams['filter'] == 'dinner') {
-            this.filter = { 'q': 'dinner' }
-          } else {
-            this.filter = { 'p_tag_ids': FilterIdsByName[queryParams['filter']] };
-
-          }
+  watchParams() {
+    this.route.paramMap.pipe(takeUntil(this.unsubscribeAll)).subscribe((paramMap) => {
+      const filter = paramMap.get('filter')
+      if (filter) {
+        // query params have id for filters
+        // use the name of filter and grab the id by its name in filter.ts and use that to get meals
+        if (filter == 'dinner') {
+          this.filter = { 'q': 'dinner' }
+        } else {
+          this.filter = { 'p_tag_ids': FilterIdsByName[filter]};
         }
+        this.pageTitle = RecipeInformationByFilterName[filter].title;
+        this.pageDescription = RecipeInformationByFilterName[filter].description;
+        this.setSeo(filter)
       }
+
       this.getMeals(this.meals.length, this.pageSize, 'right', this.searchQuery)
+    })
+  }
+
+  setSeo(filter: string) {
+    this.seoService.generateTags({
+      title: RecipeInformationByFilterName[filter].titleTag,
+      description: RecipeInformationByFilterName[filter].seoDescription,
+      slug: this.router.url
     })
   }
 
@@ -119,7 +131,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
   getMeals(pageStart: number = this.pageStart, pageSize: number = this.pageSize, direction: string = 'right', query?: string, options: any = this.filter) {
     //Show spinner while loadin
-
     if (this.loading) {
       // stop duplicate calls
       return;
@@ -196,7 +207,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
 
     this.resetAllGlobalValues();
     if (query != "") {
-      this.filter = {}
+      // this.filter = {}
       this.searchQuery = query;
       this.adobeDtbTracking.searchQuery(query, this.pageSize);
     }
@@ -229,16 +240,10 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     });
     filterDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe((filter: IFilter) => {
       if (filter) {
-        this.router.navigate([], {
-          relativeTo: this.route,
-          queryParams: {
-            filter: filter.key,
-          },
 
-        });
+        this.router.navigate([`/recipes/discover/${filter.key || ''}`]);
         this.searchQuery = '';
         this.resetAllGlobalValues()
-
       }
     });
 
@@ -284,7 +289,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     ref.afterClosed().toPromise().then((newDialog: string) => {
       if (!newDialog) {
         // if no new dialog is openning
-        this.router.navigate(['/recipes/discover'], { queryParams: {} })
+        this.router.navigate(['.'], { queryParams: {}, skipLocationChange:true, relativeTo: this.route })
       }
     })
 

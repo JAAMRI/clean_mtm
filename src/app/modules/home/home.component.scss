@@ -47,15 +47,20 @@
   position: fixed;
   bottom: 0;
   display: flex;
+  flex-direction: column;
   width: 100%;
   -webkit-transform: translate3d(0,0,0);
   z-index: 999;
   justify-content: center;
+  align-items: center;
   background-color: $mtm_grey;
+  padding: 1em 4px 4px 4px;
+  small{
+    font-size: 10px;
+  }
   button {
-    margin: 1em; // comment from design team, top is smaller than bottom
+    margin: 2px 1em 1em 1em; // comment from design team, top is smaller than bottom
     width: 300px;
     font-size: 16px;
-    padding: 4px;
   }
 }

@@ -12,7 +12,7 @@
         <app-on-board (scroll)='scrollToHowItWorks()' (login)='routeToLogin()'></app-on-board>
       </section>
       <section #howItWorks class="how-it-works">
-        <app-how-it-works (navigate)='checkAuth($event, "how-it-works")'></app-how-it-works>
+        <app-how-it-works [isMobile]='isMobile' (navigate)='routeToRecipes($event, "how-it-works")'></app-how-it-works>
       </section>
       <section class="you-will-love-this">
         <app-you-will-love-this (navigate)='checkAuth("", "you-will-love-this")'></app-you-will-love-this>
@@ -24,5 +24,6 @@
   </mat-sidenav-container>
 </div>
 <div class="get-started-button-wrapper">
+  <span><small>Find mealtime inspiration and start planning your week today</small></span>
   <button mat-flat-button color='primary' (click)='getStarted()'>GET STARTED</button>
 </div>

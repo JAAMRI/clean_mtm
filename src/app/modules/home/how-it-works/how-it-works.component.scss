@@ -1,10 +1,9 @@
 @import "../../../../scss/variables.scss";
-@import "../../../../scss/variables.scss";
 
 .how-it-works {
   text-align: center;
   background-color: $mtm_white;
-  .copy{
+  .copy {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -13,7 +12,7 @@
     margin-top: unset;
   }
   p {
-    @media(max-width: 1024px) {
+    @media (max-width: 1024px) {
       margin: unset;
     }
     margin-bottom: unset;
@@ -25,29 +24,40 @@
 
   .browse-our-recipes {
     text-align: center;
-    .copy{
+    .copy {
       padding: 3em 2em 0 2em;
     }
+  }
+  .number {
+    height: 5vh;
+    margin-bottom: 2em;
   }
 
   .carousel-img-wrapper {
     width: 275px;
+    cursor: pointer;
     .carousel-image {
       object-fit: cover;
       height: 250px;
       width: 100%;
       border-radius: 4px;
     }
+    &:hover {
+      cursor: pointer;
+    }
   }
 
-  .create-meal-plan {
+  .create-meal-plan img {
     cursor: pointer;
   }
 
   .shop-your-meal-plan {
-    cursor: pointer;
     @media (max-width: 1024px) {
       padding: 0 2em;
+    }
+
+    img {
+      cursor: pointer;
     }
   }
   .img-wrapper {

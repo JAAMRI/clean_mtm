@@ -6,7 +6,11 @@ const DiscoverMealsRoutes: Routes = [
     path: '',
     component: DiscoverMealsComponent,
   },
- 
+  {
+    path: ':filter',
+    component: DiscoverMealsComponent,
+  }
+
 
 ];
 
