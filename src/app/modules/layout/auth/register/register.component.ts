@@ -13,6 +13,8 @@ import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
 import { ICredentials } from '../../../../interfaces/auth/credentials';
 import { PasswordErrorMatcher } from '../auth.forms';
+import { PinterestTrackingService } from '../../../../services/pinterest-tracking.service';
+import { environment } from '../../../../../environments/environment';
 
 
 
@@ -43,7 +45,8 @@ export class RegisterComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router,
     private mealPlanService: MealPlanService,
-    public adobeDtbTracking: AdobeDtbTracking
+    public adobeDtbTracking: AdobeDtbTracking,
+    public pinterestService: PinterestTrackingService
   ) {
     this.matIconRegistry.addSvgIcon('gender', this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/profile-icons/gender.svg'));
   }
@@ -96,6 +99,9 @@ export class RegisterComponent implements OnInit {
     let locale = "CA-en"
     let website = "mealsthatmatter.com";
     let updated_at = new Date().getTime().toString();
+    if (environment.production) {
+      this.pinterestService.trackSignup();
+    }
 
     Auth.signUp({
       username,
