@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import Auth from '@aws-amplify/auth';
 import * as moment from 'moment';
 import { Subject } from 'rxjs';
@@ -15,6 +15,8 @@ import { ICredentials } from '../../../../interfaces/auth/credentials';
 import { PasswordErrorMatcher } from '../auth.forms';
 import { PinterestTrackingService } from '../../../../services/pinterest-tracking.service';
 import { environment } from '../../../../../environments/environment';
+import { MatDialog } from '@angular/material/dialog';
+import { Checkout51Component } from '../../../../components/dialogs/checkout51/checkout51.component';
 
 
 
@@ -43,7 +45,9 @@ export class RegisterComponent implements OnInit {
     private accountService: AccountService,
     private sanitizer: DomSanitizer,
     private snackBar: MatSnackBar,
+    private dialog: MatDialog,
     private router: Router,
+    private route: ActivatedRoute,
     private mealPlanService: MealPlanService,
     public adobeDtbTracking: AdobeDtbTracking,
     public pinterestService: PinterestTrackingService
@@ -120,15 +124,30 @@ export class RegisterComponent implements OnInit {
       .then(data => {
         //Sign User Automatically
         const credentials: ICredentials = { username: username, password: password, firstTime: true };
-        this.signIn.emit(credentials);
-
-        this.snackBar.open("Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!", null, { duration: 4500 });
+        if (this.route.snapshot.queryParamMap.get('code')) {
+          this.viewCheckout51Dialog()
+        } else {
+          this.signIn.emit(credentials);
+          this.snackBar.open("Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!", null, { duration: 4500 });
+        }
         //End Sign user In automatically
       })
       .catch(err => {
         this.snackBar.open("Oops! " + err.message, null, { duration: 2500 });
       });
   }//End signUp function
+
+  viewCheckout51Dialog() {
+    const dialog = this.dialog.open(Checkout51Component, {
+      data: { pinCode: this.route.snapshot.queryParamMap.get('code') }
+    });
+
+    dialog.afterClosed().subscribe((res) => {
+      if (res && res.unlockOffers) {
+        window.location.href = '';
+      }
+    })
+  }
 
   async update() {
     let user = await Auth.currentAuthenticatedUser();

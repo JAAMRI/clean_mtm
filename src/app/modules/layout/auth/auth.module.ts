@@ -18,6 +18,8 @@ import { PipesModule } from '../../../pipes/pipes.module';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PinterestTrackingService } from '../../../services/pinterest-tracking.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { Checkout51Module } from '../../../components/dialogs/checkout51/checkout51.module';
 
 
 
@@ -39,6 +41,8 @@ import { PinterestTrackingService } from '../../../services/pinterest-tracking.s
     MatCheckboxModule,
     MatTooltipModule,
     PipesModule,
+    MatDialogModule,
+    Checkout51Module
 
 
   ], providers: [PinterestTrackingService]
