@@ -11,6 +11,5 @@
 }("https://s.pinimg.com/ct/core.js");
 pintrk('load', '2613993939117', { em: '<user_email_address>' });
 pintrk('page');
-pintrk('track', 'signup');
 
 
