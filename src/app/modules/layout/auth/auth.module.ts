@@ -17,6 +17,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PipesModule } from '../../../pipes/pipes.module';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { PinterestTrackingService } from '../../../services/pinterest-tracking.service';
 
 
 
@@ -38,7 +39,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatCheckboxModule,
     MatTooltipModule,
     PipesModule,
-    
-  ]
+
+
+  ], providers: [PinterestTrackingService]
 })
 export class AuthModule { }
