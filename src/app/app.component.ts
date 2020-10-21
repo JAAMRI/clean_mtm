@@ -66,11 +66,11 @@ export class AppComponent implements OnInit {
     // this.loadFooter();
     this.loadFontIcons();
     // this.pixelImplementation();
-
+    
     if (environment.production) {
       this.bodyhidingImplementation()
-      this.adobeImplementation();
       this.pinterestImplementation();
+      this.adobeImplementation();
       this.facebookImplementation();
       this.newRelicImplementation();
       // this.hotjarImplementation();

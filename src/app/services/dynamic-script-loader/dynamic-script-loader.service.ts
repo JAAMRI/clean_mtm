@@ -63,7 +63,6 @@ export class DynamicScriptLoaderService {
   loadScriptInFooter(name: string) {
     return new Promise((resolve, reject) => {
       // check if script is loaded. if not load script
-      console.log(name)
       if (!this.scripts[name].loaded) {
 
         //load script
