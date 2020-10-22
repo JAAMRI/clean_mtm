@@ -88,7 +88,7 @@ export const AuthenticatedPages = [
 ];
 
 export const MenuPages = [
-    { name: 'ARTICLES', route: '/article', },
+    { name: 'ARTICLES', route: '/articles', },
     { name: `ABOUT`, route: '/about', }, // TODO when favourites page is created
     { name: `CONTACT US`, route: '/contact-us' },
     { name: 'FAQ', route: '/faqs' },
