@@ -43,8 +43,6 @@ import { Checkout51Module } from '../../../components/dialogs/checkout51/checkou
     PipesModule,
     MatDialogModule,
     Checkout51Module
-
-
   ], providers: [PinterestTrackingService]
 })
 export class AuthModule { }

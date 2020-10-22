@@ -3,24 +3,25 @@
         <img src="assets/static_images/meal-recipe-footer.jpg" alt="">
     </div>
     <div class="content">
-        <h1 mat-dialog-title> Thanks for signing up for Meals That Matter!</h1>
+        <h2 > Thanks for signing up for Meals That Matter!</h2>
         <button mat-mini-fab color='primary' class='close-button' [mat-dialog-close]>
 
             <mat-icon>close</mat-icon>
         </button>
         <div class='dialog-content' mat-dialog-content>
-                <p> Your unique PIN code is {{pinCode}}.</p>
+                <p> Your unique PIN code is:</p>
+                <p class='pin-code'>{{pinCode}}</p>
+                <button mat-button (cdkCopyToClipboardCopied)='onCodeCopiedToClipboard()' [cdkCopyToClipboard]="pinCode">
+                    Click here to code to clipboard
+                    <mat-icon>file_copy</mat-icon>
+                </button>
+                <br />
+                <button mat-flat-button color='primary'  (click)='unlockOffers()'>Unlock offers</button>
+
                 <p>Copy this code, and click on the button below to go back to the Checkout 51 savings page. Paste or
                     enter
                     this code
                     to unlock your exclusive offers</p>
-
-            <div class="action-buttons">
-                <button mat-flat-button [mat-dialog-close]>Dismiss</button>
-
-                <button mat-flat-button color='primary' (click)='unlockOffers()'>Unlock offers</button>
-            </div>
-
 
         </div>
     </div>

@@ -4,7 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { Checkout51Component } from './checkout51.component';
-
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -13,7 +14,10 @@ import { Checkout51Component } from './checkout51.component';
     CommonModule,
     MatDialogModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    ClipboardModule,
+    MatIconModule,
+    MatSnackBarModule
   ],
   entryComponents: [Checkout51Component],
   exports: [Checkout51Component]

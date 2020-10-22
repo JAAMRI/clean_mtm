@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-checkout51',
@@ -8,14 +9,19 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   encapsulation: ViewEncapsulation.None
 })
 export class Checkout51Component implements OnInit {
-  pinCode: number;
+  pinCode: string;
 
   constructor(
     public dialogRef: MatDialogRef<Checkout51Component>,
-    @Inject(MAT_DIALOG_DATA) public data: {pinCode: number}) { }
+    private snackBar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA) public data: {pinCode: string}) { }
 
   ngOnInit(): void {
     this.pinCode = this.data.pinCode;
+  }
+
+  onCodeCopiedToClipboard() {
+    this.snackBar.open('Code copied to clipboard!', null, {duration: 3000})
   }
 
   unlockOffers() {
