@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-CA" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="register" datatype="html">
+        <source>register</source>
+      </trans-unit>
+      <trans-unit id="have-account" datatype="html">
+        <source>already have an account?</source>
+      </trans-unit>
+      <trans-unit id="signin" datatype="html">
+        <source>signin</source>
+      </trans-unit>
+      <trans-unit id="my-account" datatype="html">
+        <source>my account</source>
+      </trans-unit>
+      <trans-unit id="select-recipes" datatype="html">
+        <source>select recipes</source>
+      </trans-unit>
+      <trans-unit id="all-recipes" datatype="html">
+        <source>all recipes</source>
+      </trans-unit>
+      <trans-unit id="30-minutes" datatype="html">
+        <source>30 minutes or less</source>
+      </trans-unit>
+      <trans-unit id="bbq" datatype="html">
+        <source>bbq</source>
+      </trans-unit>
+      <trans-unit id="summer" datatype="html">
+        <source>summer</source>
+      </trans-unit>
+      <trans-unit id="chicken" datatype="html">
+        <source>chicken</source>
+      </trans-unit>
+      <trans-unit id="dinner" datatype="html">
+        <source>dinner</source>
+      </trans-unit>
+      <trans-unit id="pasta" datatype="html">
+        <source>pasta</source>
+      </trans-unit>
+      <trans-unit id="slow-cooker" datatype="html">
+        <source>slow cooker</source>
+      </trans-unit>
+      <trans-unit id="tea" datatype="html">
+        <source>tea</source>
+      </trans-unit>
+      <trans-unit id="breakfast-and-brunch" datatype="html">
+        <source>breakfast and brunch</source>
+      </trans-unit>
+      <trans-unit id="italian" datatype="html">
+        <source>italian</source>
+      </trans-unit>
+      <trans-unit id="indian" datatype="html">
+        <source>indian</source>
+      </trans-unit>
+      <trans-unit id="asian" datatype="html">
+        <source>asian</source>
+      </trans-unit>
+      <trans-unit id="mexican" datatype="html">
+        <source>mexican</source>
+      </trans-unit>
+      <trans-unit id="middle-eastern" datatype="html">
+        <source>middle eastern</source>
+      </trans-unit>
+      <trans-unit id="canadian" datatype="html">
+        <source>canadian</source>
+      </trans-unit>
+      <trans-unit id="salad" datatype="html">
+        <source>salad</source>
+      </trans-unit>
+      <trans-unit id="better-for-you" datatype="html">
+        <source>better for you</source>
+      </trans-unit>
+      <trans-unit id="meal-plan" datatype="html">
+        <source>meal plan</source>
+      </trans-unit>
+      <trans-unit id="grocery-list" datatype="html">
+        <source>grocery list</source>
+      </trans-unit>
+      <trans-unit id="favourites" datatype="html">
+        <source>favourites</source>
+      </trans-unit>
+      <trans-unit id="articles" datatype="html">
+        <source>articles</source>
+      </trans-unit>
+      <trans-unit id="contact-us" datatype="html">
+        <source>contact us</source>
+      </trans-unit>
+      <trans-unit id="faqs" datatype="html">
+        <source>FAQs</source>
+      </trans-unit>
+      <trans-unit id="about" datatype="html">
+        <source>about</source>
+      </trans-unit>
+      <trans-unit id="home.title" datatype="html">
+        <source>meal planning, made easy</source>
+      </trans-unit>
+      <trans-unit id="home.body" datatype="html">
+        <source>Sign up today and start exploring the world with hundreds of international and local recipes, your own unique meal plans, and convenient grocery delivery.</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

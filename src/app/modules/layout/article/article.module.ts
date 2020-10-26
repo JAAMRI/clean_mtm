@@ -5,6 +5,7 @@ import { ArticleRouting } from './article.routing';
 import { MatCardModule } from '@angular/material/card';
 import { ArticleListItemModule } from '../../../components/article-list-item/article-list-item.module';
 import { RouterModule } from '@angular/router';
+import { ArticleItemModule } from './article-item/article-item.module';
 
 @NgModule({
   declarations: [ArticleComponent],
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     ArticleRouting,
     MatCardModule,
     ArticleListItemModule,
-    RouterModule
+    RouterModule,
+    ArticleItemModule
   ]
 })
 export class ArticleModule { }
