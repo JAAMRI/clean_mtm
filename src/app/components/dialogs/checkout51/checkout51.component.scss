@@ -29,20 +29,21 @@ mat-dialog-container {
             right: 4px;
         }
         .content {
-            @media(min-width: 768px) {
+            @media (min-width: 768px) {
                 margin-top: 1em;
             }
             padding: 1em;
             text-align: center;
 
-            .dialog-content{
-                .pin-code{
+            .dialog-content {
+                .pin-code {
                     font-size: 2em;
                     font-weight: 700;
                 }
-                button{
+                button {
                     padding: 4px 1em !important;
                     margin: 4px 0;
+                    width: 200px;
                 }
             }
         }
