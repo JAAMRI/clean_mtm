@@ -4,100 +4,952 @@
     <body>
       <trans-unit id="register" datatype="html">
         <source>register</source>
+
       </trans-unit>
       <trans-unit id="have-account" datatype="html">
         <source>already have an account?</source>
+
+
       </trans-unit>
       <trans-unit id="signin" datatype="html">
         <source>signin</source>
+
+
       </trans-unit>
+      <trans-unit id="signout" datatype="html">
+        <source>signout</source>
+
+
+      </trans-unit>
+
       <trans-unit id="my-account" datatype="html">
         <source>my account</source>
+
+
       </trans-unit>
       <trans-unit id="select-recipes" datatype="html">
         <source>select recipes</source>
+
+
       </trans-unit>
       <trans-unit id="all-recipes" datatype="html">
         <source>all recipes</source>
+
+
       </trans-unit>
-      <trans-unit id="30-minutes" datatype="html">
-        <source>30 minutes or less</source>
-      </trans-unit>
+      <trans-unit id="30-minutes" datatype="html"></trans-unit>
       <trans-unit id="bbq" datatype="html">
         <source>bbq</source>
+
+
       </trans-unit>
       <trans-unit id="summer" datatype="html">
         <source>summer</source>
+
+
       </trans-unit>
       <trans-unit id="chicken" datatype="html">
         <source>chicken</source>
+
+
       </trans-unit>
       <trans-unit id="dinner" datatype="html">
         <source>dinner</source>
+
+
       </trans-unit>
       <trans-unit id="pasta" datatype="html">
         <source>pasta</source>
+
+
       </trans-unit>
       <trans-unit id="slow-cooker" datatype="html">
         <source>slow cooker</source>
+
+
       </trans-unit>
       <trans-unit id="tea" datatype="html">
         <source>tea</source>
+
+
       </trans-unit>
       <trans-unit id="breakfast-and-brunch" datatype="html">
         <source>breakfast and brunch</source>
+
+
       </trans-unit>
       <trans-unit id="italian" datatype="html">
         <source>italian</source>
+
+
       </trans-unit>
       <trans-unit id="indian" datatype="html">
         <source>indian</source>
+
+
       </trans-unit>
       <trans-unit id="asian" datatype="html">
         <source>asian</source>
+
+
       </trans-unit>
       <trans-unit id="mexican" datatype="html">
         <source>mexican</source>
+
+
       </trans-unit>
       <trans-unit id="middle-eastern" datatype="html">
         <source>middle eastern</source>
+
+
       </trans-unit>
       <trans-unit id="canadian" datatype="html">
         <source>canadian</source>
+
+
+      </trans-unit>
+      <trans-unit id="mediterranean" datatype="html">
+        <source>mediterranean</source>
+
+
       </trans-unit>
       <trans-unit id="salad" datatype="html">
         <source>salad</source>
+
+
       </trans-unit>
       <trans-unit id="better-for-you" datatype="html">
         <source>better for you</source>
+
+
       </trans-unit>
       <trans-unit id="meal-plan" datatype="html">
         <source>meal plan</source>
+
+
       </trans-unit>
       <trans-unit id="grocery-list" datatype="html">
         <source>grocery list</source>
+
+
       </trans-unit>
       <trans-unit id="favourites" datatype="html">
         <source>favourites</source>
+
+
       </trans-unit>
       <trans-unit id="articles" datatype="html">
         <source>articles</source>
+
+
       </trans-unit>
       <trans-unit id="contact-us" datatype="html">
         <source>contact us</source>
+
+
       </trans-unit>
       <trans-unit id="faqs" datatype="html">
         <source>FAQs</source>
+
+
       </trans-unit>
       <trans-unit id="about" datatype="html">
         <source>about</source>
+
+
       </trans-unit>
       <trans-unit id="home.title" datatype="html">
         <source>meal planning, made easy</source>
+
       </trans-unit>
       <trans-unit id="home.body" datatype="html">
         <source>Sign up today and start exploring the world with hundreds of international and local recipes, your own unique meal plans, and convenient grocery delivery.</source>
+
       </trans-unit>
+      <trans-unit id="home.cta" datatype="html">
+        <source>get started</source>
+
+      </trans-unit>
+      <trans-unit id="home.microcopy" datatype="html">
+        <source>find mealtime inspiration and start planning your week today</source>
+
+      </trans-unit>
+      <trans-unit id="how-it-works.title" datatype="html">
+        <source>how it works</source>
+
+      </trans-unit>
+      <trans-unit id="how-it-works.body" datatype="html">
+        <source>Select delicious recipes. Create instant grocery lists. Delivered straight to your door.</source>
+
+      </trans-unit>
+      <trans-unit id="browse-our-recipes.title" datatype="html">
+        <source>browse our recipes.</source>
+
+      </trans-unit>
+      <trans-unit id="browse-our-recipes.body" datatype="html">
+        <source>Make every meal an adventure with 500+ chef curated recipes</source>
+
+      </trans-unit>
+      <trans-unit id="create-your-meal-plan.title" datatype="html">
+        <source>create your meal plan</source>
+
+      </trans-unit>
+      <trans-unit id="create-your-meal-plan.body" datatype="html">
+        <source>Add recipes from around the world to your personalized ‘Meal Plan’. Make cooking an adventure with deliciously diverse meals.</source>
+
+      </trans-unit>
+      <trans-unit id="shop-your-meal-plan.title" datatype="html">
+        <source>shop your meal plan</source>
+
+      </trans-unit>
+      <trans-unit id="shop-your-meal-plan.body" datatype="html">
+        <source>Your chosen ingredients, delivered to your door, from your go-to grocery store.</source>
+
+      </trans-unit>
+      <trans-unit id="why-youll-love-this.title" datatype="html">
+        <source>why you'll love this.</source>
+
+      </trans-unit>
+      <trans-unit id="why-youll-love-this.body" datatype="html">
+        <source>Enjoy delicious recipe inspiration, personalized meal plans and delivery for a great cooking experience.</source>
+
+      </trans-unit>
+      <trans-unit id="chef-curated-recipes.title" datatype="html">
+        <source>chef curated recipes</source>
+
+      </trans-unit>
+      <trans-unit id="chef-curated-recipes.body" datatype="html">
+        <source>Explore a world of flavour with recipes hand-crafted and tested by our trusted global chefs.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="instant-grocery-list.title" datatype="html">
+        <source>instant grocery lists
+        </source>
+
+      </trans-unit>
+      <trans-unit id="instant-grocery-list.body" datatype="html">
+        <source>Generate instant grocery lists from your meal plan and add or remove items as you wish.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="shopping-made-easy.title" datatype="html">
+        <source>shopping made easy
+        </source>
+
+      </trans-unit>
+      <trans-unit id="shopping-made-easy.body" datatype="html">
+        <source>Find products easily online and avoid lines by getting groceries delivered or ready for pick up.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="less-time-prepping.title" datatype="html">
+        <source>less time prepping
+        </source>
+
+      </trans-unit>
+      <trans-unit id="less-time-prepping.body" datatype="html">
+        <source>Easy-to-create meal plans and instant grocery lists will give you more time back in your day.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="save-on-costs.title" datatype="html">
+        <source>save on costs
+        </source>
+
+      </trans-unit>
+      <trans-unit id="save-on-costs.body" datatype="html">
+        <source>Save by cooking at home and using just the right amount of groceries for the recipes you love.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="reclaim-weeknight-cooking.title" datatype="html">
+        <source>reclaim weeknight cooking
+        </source>
+
+      </trans-unit>
+      <trans-unit id="reclaim-weeknight-cooking.body" datatype="html">
+        <source>
+          With Meals That Matter, cooking is an easier, more manageable part of your busy routine. See how a little food prep and planning gives you a head start in the kitchen today.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="auth.one-step-away" datatype="html">
+        <source>
+          You’re one step away from exploring 500+ recipes from around the world.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="auth.email" datatype="html">
+        <source>
+          email
+        </source>
+
+      </trans-unit>
+      <trans-unit id="auth.password" datatype="html">
+        <source>
+          password
+        </source>
+
+      </trans-unit>
+      <trans-unit id="auth.forgot" datatype="html">
+        <source>
+          forgot your password?
+        </source>
+
+      </trans-unit>
+      <trans-unit id="auth.get-confirmation-code" datatype="html">
+        <source>
+          get confirmation code
+        </source>
+
+      </trans-unit>
+      <trans-unit id="auth.enter-code" datatype="html">
+        <source>
+          enter code
+        </source>
+
+      </trans-unit>
+      <trans-unit id="auth.new-password" datatype="html">
+        <source>
+          new password
+        </source>
+
+      </trans-unit>
+      <trans-unit id="auth.confirm-password" datatype="html">
+        <source>
+          confirm password
+        </source>
+
+      </trans-unit>
+      <trans-unit id="auth.submit" datatype="html">
+        <source>
+          submit
+        </source>
+
+      </trans-unit>
+      <trans-unit id="back" datatype="html">
+        <source>
+          back
+        </source>
+
+      </trans-unit>
+      <trans-unit id="next" datatype="html">
+        <source>
+          next
+        </source>
+
+      </trans-unit>
+      <trans-unit id="processing" datatype="html">
+        <source>
+          processing
+        </source>
+
+      </trans-unit>
+      <trans-unit id="recipes.body" datatype="html">
+        <source>
+          Click + to add recipes to your ‘Meal Plan’. Click ♡ to save it to your favourites for later.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="recipes.search" datatype="html">
+        <source>
+          Search all recipes
+        </source>
+
+      </trans-unit>
+      <trans-unit id="recipes.filter" datatype="html">
+        <source>
+          Filter Recipes
+        </source>
+
+      </trans-unit>
+      <trans-unit id="recipes.filter.clear" datatype="html">
+        <source>
+          clear filter
+        </source>
+
+      </trans-unit>
+      <trans-unit id="recipes.filter.subtitle" datatype="html">
+        <source>
+          Select the filters below to narrow down your search.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="favourites.added" datatype="html">
+        <source>
+          Added to favourites!
+        </source>
+
+      </trans-unit>
+      <trans-unit id="favourites.removed" datatype="html">
+        <source>
+          Removed from favourites!
+        </source>
+
+      </trans-unit>
+      <trans-unit id="meal-plan.added" datatype="html">
+        <source>
+          Added to meal plan!
+        </source>
+
+      </trans-unit>
+      <trans-unit id="meal-plan.removed" datatype="html">
+        <source>
+          Removed from meal plan!
+        </source>
+
+      </trans-unit>
+      <trans-unit id="removed" datatype="html">
+        <source>
+          removed
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.30-minutes-or-less.body" datatype="html">
+        <source>
+          Low on time but don’t want to sacrifice taste? Try one of our 30 minute or less meals tonight.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.chicken.body" datatype="html">
+        <source>
+          From a fabulous salad to a comforting carbonara, we've got you covered with our top chicken recipes.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.summer.body" datatype="html">
+        <source>
+          Celebrate summer with our top pick of bright and delicious recipes below!
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.bbq.body" datatype="html">
+        <source>
+          Out of backyard BBQ ideas? Turn up the heat and try our favourite BBQ recipes today.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.dinner.body" datatype="html">
+        <source>
+          What's for Dinner? Let us help you answering that question with our wide range of recipes below.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.pasta.body" datatype="html">
+        <source>
+          Qu’est-ce qu’on mange? Laissez-nous vous aider avec notre panoplie de recettes ci-dessous.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.beef.body" datatype="html">
+        <source>
+          Multiple cuts, multiple options, you can do so much with beef. Browse our range of recipes below.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.slow-cooker.body" datatype="html">
+        <source>
+          Perfect for those busy days. Explore our range of delicious slow cooker recipes below.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.breakfast-and-brunch.body" datatype="html">
+        <source>
+          Fed up of the usual bacon and eggs? Kick it up a notch with these breakfast bites.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.italian.body" datatype="html">
+        <source>
+          Explore the taste of Italy from your kitchen with our delicious and comforting Italian recipes.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.indian.body" datatype="html">
+        <source>
+          Spice up your life and learn how to cook your favourite Indian dishes at home!
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.asian.body" datatype="html">
+        <source>
+          Full of flavour and fragrance, our classic Asian recipes are totally worth a try!
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.mexican.body" datatype="html">
+        <source>
+          Make the most of Mexico's bold cuisine and whip up something delicious from our recipes below
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.middle-eastern.body" datatype="html">
+        <source>
+          Discover a world of flavour with our delicious recipes inspired by the Middle East below!
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.mediterranean.body" datatype="html">
+        <source>
+          Ready to give your meals a Mediterranean twist? See our pick of top recipes below.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.canadian.body" datatype="html">
+        <source>
+          Explore our favourite iconic Canadian recipes and make them for yourself today!
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.salad.body" datatype="html">
+        <source>
+          Take your pick from our favourite colourful salad recipes here. There are many delicious options!
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.tea.body" datatype="html">
+        <source>
+          Take 5 and discover our range of delicious tea recipes
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.tea.body" datatype="html">
+        <source>
+          Take 5 and discover our range of delicious tea recipes
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.better-for-you.body" datatype="html">
+        <source>
+          Our range of better for you recipes strive to promote a balanced and healthy eating pattern
+        </source>
+
+      </trans-unit>
+      <trans-unit id="filter.legal" datatype="html">
+        <source>
+          * Our Better-For-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="meal-plan.body" datatype="html">
+        <source>
+          Click NEXT when you’re ready to shop ingredients for these recipes. Click – to remove recipes.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="meal-plan.empty" datatype="html">
+        <source>
+          It looks like you haven’t added any recipes to your meal plan yet
+        </source>
+
+      </trans-unit>
+      <trans-unit id="grocery-list.body" datatype="html">
+        <source>
+          Order ingredients for delivery right here, or share them to shop in store.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="favourites.title" datatype="html">
+        <source>
+          My Favourites
+        </source>
+
+      </trans-unit>
+      <trans-unit id="favourites.body" datatype="html">
+        <source>
+          When you find something you like, use the heart to save your favourites and you can find it again here.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="favourites.empty" datatype="html">
+        <source>
+          It looks like you haven’t added any recipes to your favourites yet
+        </source>
+
+      </trans-unit>
+      <trans-unit id="articles.body" datatype="html">
+        <source>
+          Find tips and tricks to improve your cooking skills and help you reclaim weeknight cooking
+        </source>
+
+      </trans-unit>
+      <trans-unit id="articles.read-time" datatype="html">
+        <source>
+          Read Time
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.personal-info" datatype="html">
+        <source>
+          Personal Info
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.first-name" datatype="html">
+        <source>
+          First Name
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.last-name" datatype="html">
+        <source>
+          Last Name
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.email" datatype="html">
+        <source>
+          Email
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.postal" datatype="html">
+        <source>
+          Postal Code
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.dob" datatype="html">
+        <source>
+          Date of Birth
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.update-button" datatype="html">
+        <source>
+          Update Information
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.valid-email" datatype="html">
+        <source>
+          This must be a valid email address
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.valid-postal" datatype="html">
+        <source>
+          This must be a valid Canadian postal code – ex: A1A 1A1
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.invalid-attributes" datatype="html">
+        <source>
+          	Invalid user attributes: email: Required attribute cannot be deleted.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.invalid-email" datatype="html">
+        <source>
+          Invalid email address format.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.invalid-email" datatype="html">
+        <source>
+          Invalid email address format.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.successfully-updated" datatype="html">
+        <source>
+          Profile info successfully updated.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="account.invalid-password" datatype="html">
+        <source>
+          Password needs a minimum of 6 characters.
+        </source>
+
+      </trans-unit>
+      <trans-unit id="security.title" datatype="html">
+        <source>
+          Security
+        </source>
+
+      </trans-unit>
+      <trans-unit id="security.password" datatype="html">
+        <source>
+          Password
+        </source>
+
+      </trans-unit>
+      <trans-unit id="security.new-password" datatype="html">
+        <source>
+          New Password
+        </source>
+
+      </trans-unit>
+      <trans-unit id="security.verify-password" datatype="html">
+        <source>
+          Verify Password
+        </source>
+
+      </trans-unit>
+      <trans-unit id="security.update-password" datatype="html">
+        <source>
+          Update Password
+        </source>
+
+      </trans-unit>
+      <trans-unit id="contact.title" datatype="html">
+        <source>
+          Contact Us
+        </source>
+
+      </trans-unit>
+      <trans-unit id="contact.subtitle" datatype="html">
+        <source>
+          Need some help? 
+        </source>
+
+      </trans-unit>
+      <trans-unit id="contact.body" datatype="html">
+        <source>
+          Questions? Comments? We value your feedback and would love to hear from you.
+You can contact us in a variety of ways, the choice is yours.
+
+        </source>
+        
+      </trans-unit>
+      <trans-unit id="contact.call-us-title" datatype="html">
+        <source>
+          Call Us
+
+        </source>
+        
+      </trans-unit>
+      <trans-unit id="contact.call-us-body" datatype="html">
+        <source>
+          If you would like to speak to a live representative, please call us at 1-800-899-1120, Monday to Friday between 8:30 AM-6:00 PM Eastern Time.
+          <br />
+          IF THIS IS A MEDICAL OR PRODUCT SAFETY EMERGENCY, PLEASE CALL 1-800-297-7421.
+          <br />
+          This number is available 24 hours a day / 7 days a week.
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="contact.message-us" datatype="html">
+        <source>
+          Message Us 
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.title" datatype="html">
+        <source>
+          Have some questions?
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.purchase-online.title" datatype="html">
+        <source>
+          Can I purchase my meal plan online?
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.purchase-online.body" datatype="html">
+        <source>
+          If you live in Ontario, you may be able to purchase your meal plan online through Metro online grocery. Visit www.metro.ca/en/online-grocery to find out if they have pickup or delivery in your area*
+          <br />
+          If you live in BC, you may be able to purchase your meal plan online through Save on Foods online grocery. Visit https://www.saveonfoods.com/shop-online-how-it-works/# To find out if they have pickup or delivery in your area*
+        </source>
+      </trans-unit>
+      <trans-unit id="faq.build-meal-plan.title" datatype="html">
+        <source>
+          How do I build my meal plan? 
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.build-meal-plan.body" datatype="html">
+        <source>
+          Easy! From the home page, click ‘get started’  and make sure you have registered. Then you’ll be directed to the ‘Select Recipes’ page. This is where you’ll start browsing through our collection of delicious  recipes.
+To add a meal to your meal plan, simply click the green ‘+ ’ button on the top right of  the recipe. To see your Meal Plan, click on the green next button on the select recipes page.
+          <b>PS:</b>
+          You can always find these pages on  the progress  bar or the side menu if you’re on your phone.
+        </source>
+        
+      </trans-unit>
+      <trans-unit id="faq.add-favourite.title" datatype="html">
+        <source>
+          How do I add a recipe to my favourite list of recipes? 
+        </source>
+        
+      </trans-unit>
+      <trans-unit id="faq.recipe-instructions.title" datatype="html">
+        <source>
+          How do I see the recipe instructions?
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.recipe-instructions.body" datatype="html">
+        <source>
+          Click on the recipe name or image and the full recipe page will open as a popup. Then you’ll find the cooking instructions in the tabs below the recipe image to the right of the ‘Ingredients’ tab.
+        </source>
+      
+      </trans-unit>
+      <trans-unit id="faq.nutritional-information.title" datatype="html">
+        <source>
+          Can I see detailed nutritional information?
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.nutritional-information.body" datatype="html">
+        <source>
+          Yep! When you click on the recipe name or image, the full recipe page will open as a popup. Then you’ll find nutrition facts in the tabs below the recipe image to the right of the ‘Instructions’ tab.
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.easier-access.title" datatype="html">
+        <source>
+          Is there an easier way for me to access this website to plan my meals?
+        </source>
+        
+      </trans-unit>
+      <trans-unit id="faq.easier-access.body" datatype="html">
+        <source>
+          Yes! You can add the Meals That Matter website to your phone’s home screen just like an app.
+For iOS, launch the Safari browser and go to Mealsthatmatter.com. Tap the Share button, then scroll until you find the ‘Add to Home Screen’ button…and tap to download.
+For Android, launch Chrome and go to Mealsthatmatter.com. Tap the menu button, then tap ‘Add to Homescreen’.
+Once downloaded, The Meals That Matter icon will appear on your home screen for you to drag and place wherever you like.
+
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.cost.title" datatype="html">
+        <source>
+          How much does this cost?
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.cost.body" datatype="html">
+        <source>
+          We’re pleased to offer our service free of charge! At Meals That Matter, we have a mission to help Canadians reclaim weeknight cooking, and we hope that our website helps you do just that.
+Of course, you’ll still have to pay for your groceries! Those prices and delivery charges (if applicable) are determined by the retailer you choose to shop with.
+
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.recipe-types.title" datatype="html">
+        <source>
+          Are there Italian/ Asian/ 30 minuntes or less recipes? 
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.recipe-types.body" datatype="html">
+        <source>
+          Yes and more 😊 The best way to explore these recipes is to use the filter feature on the ‘Select Recipes’ page. We have over 500 recipes that span across multiple recipe categories.
+We are always improving and adding to our recipe collection so stay tuned for more dietary options.
+
+        </source>
+     
+      </trans-unit>
+      <trans-unit id="faq.membership.title" datatype="html">
+        <source>
+          Is membership required in order to create a meal plan/ shop?
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.membership.body" datatype="html">
+        <source>
+          Yes. In order to create and shop a meal plan you will need to have an account with us. To create a new account simple click the ‘get started’ button on our homepage and then fill out your details to register.
+          <br />
+          Once registered, you will have access to 500+ recipes with new recipes being added all the time as well as exclusive offers and the ability to simply shop your meal plan online or instore.
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.category.title" datatype="html">
+        <source>
+          Can I view by category such as breakfast, brunch, dinner?
+        </source>
+
+      </trans-unit>
+      <trans-unit id="faq.category.body" datatype="html">
+        <source>
+          Yes! You can find those categories easily by filtering on the ‘Select Recipes’ page.
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="faq.grocery-list.title" datatype="html">
+        <source>
+          My grocery list includes every ingredient in the recipes, including staples I already have like flour, spices, and seasonings. Is there a way to edit my grocery list to remove staples?
+        </source>
+        
+      </trans-unit>
+      <trans-unit id="faq.grocery-list.body" datatype="html">
+        <source>
+          If you choose to shop your grocery list online, your items will be sent to the grocery cart on the retailer website. From there, you can remove items you already have before you checkout.
+If you choose to shop in-store, you can check off items to indicate that you already have them. Unfortunately you are not able to remove these items completely at this time. However, we’re also looking to improve our service!
+
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="no-items-found" datatype="html">
+        <source>
+          No items found
+
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="no-results-matching" datatype="html">
+        <source>
+          Sorry, we couldn't find any results matching "..."
+
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="footer.visit-knorr" datatype="html">
+        <source>
+          Visit Knorr
+
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="footer.visit-hellmanns" datatype="html">
+        <source>
+          Visit Hellmann's
+
+        </source>
+        
+      </trans-unit>
+      <trans-unit id="footer.terms" datatype="html">
+        <source>
+          Terms of Use
+
+        </source>
+        
+      </trans-unit>
+      <trans-unit id="footer.privacy" datatype="html">
+        <source>
+          Privacy Notice
+
+        </source>
+        
+      </trans-unit>
+      <trans-unit id="footer.faqs" datatype="html">
+        <source>
+          FAQS
+
+        </source>
+        
+      </trans-unit>
+      <trans-unit id="footer.adchoices" datatype="html">
+        <source>
+          Adchoices
+
+        </source>
+       
+      </trans-unit>
+      <trans-unit id="footer.legal" datatype="html">
+        <source>
+          This website is intended for Canadian consumers of products and services of Unilever Canada Inc. This website is not intended for consumers outside Canada.
+
+        </source>
+      
+      </trans-unit>
+
+
     </body>
   </file>
 </xliff>
