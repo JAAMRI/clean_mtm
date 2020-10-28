@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
   passwordMatcher = new PasswordErrorMatcher();
 
   @Output() signIn = new EventEmitter<ICredentials>();
-
+  loadPinterestNoScript: boolean;
   unsubscribeAll = new Subject();
   loading = false;
   viewMore = false;
@@ -88,6 +88,10 @@ export class RegisterComponent implements OnInit {
   }
 
   async signUp() {
+    if (environment.production) {
+      this.loadPinterestNoScript = true;
+      this.pinterestService.trackSignup();
+    }
     let currentMealPlan = await this.mealPlanService.getMealPlan();
     let meal_plan_started = currentMealPlan && currentMealPlan.length ? 1 : 0; //Check wether the user signed up after having created a mealplan or before
     let username = this.registerForm.controls.email.value.toLowerCase();
@@ -99,9 +103,7 @@ export class RegisterComponent implements OnInit {
     let locale = "CA-en"
     let website = "mealsthatmatter.com";
     let updated_at = new Date().getTime().toString();
-    if (environment.production) {
-      this.pinterestService.trackSignup();
-    }
+    
 
     Auth.signUp({
       username,
