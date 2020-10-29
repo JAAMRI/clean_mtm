@@ -1,8 +1,8 @@
 <div class='my-meals-page'>
   <div class="copy sticky">
-    <h1>MEAL PLAN</h1>
+    <h1 class='uppercase' i18n>meal plan</h1>
     <ng-container *ngIf='mealPlan.length > 0'>
-      <p>Click <strong>NEXT</strong> when you're ready, to shop ingredients for these recipes.
+      <p i18n>Click <strong>NEXT</strong> when you're ready, to shop ingredients for these recipes.
         <br />Click <mat-icon>
           remove</mat-icon> to remove recipes.</p>
     </ng-container>
@@ -13,15 +13,15 @@
       <div class="select-recipes-button-wrapper">
 
         <button aria-label="Select recipes" mat-raised-button color='primary' routerLink='/recipes/discover'
-          (click)="adobeDtbTracking.pageTracking('SELECT RECIPES','/recipes/discover')">
-          SELECT RECIPES
+          (click)="adobeDtbTracking.pageTracking('SELECT RECIPES','/recipes/discover')" class='uppercase' i18n>
+          select recipes
         </button>
       </div>
     </ng-container>
     <div class="gif-wrapper" *ngIf='loading'>
-      <p>
+      <p i18n>
 
-        Loading your meals...
+        loading your meals
       </p>
 
       <img class='loading-text' src="/assets/static_images/Whisk-Stat-Transp.png" />

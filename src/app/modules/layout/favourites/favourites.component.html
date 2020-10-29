@@ -1,27 +1,27 @@
 <div [class]="isMobile ? 'mobile-my-meals-page' : 'my-meals-page'">
   <div class="copy" *ngIf='favouriteMeals?.length !== 0'>
-    <h1>MY FAVOURITES</h1>
-    <p>When you find something you like, use the heart to save your favourites and you can find it again here.</p>
+    <h1 class='uppercase' i18n>my favourites</h1>
+    <p i18n>When you find something you like, use the heart to save your favourites and you can find it again here.</p>
 
 
   </div>
   
   <div class='no-favourites' *ngIf='favouriteMeals.length === 0 && !loading'>
-    <h1>MY FAVOURITES</h1>
-    <p>It looks like you haven’t added
+    <h1 class='uppercase' i18n>my favourites</h1>
+    <p i18n>It looks like you haven’t added
       any recipes to your favourites yet</p>
     <div class="button-wrapper">
-      <button aria-label="Select recipes" mat-raised-button color='primary'
+      <button aria-label="Select recipes" mat-raised-button color='primary' class='uppercase' i18n
         (click)="selectRecipes()">
-        SELECT RECIPES
+        select recipes
       </button>
 
     </div>
   </div>
   <div class="gif-wrapper" *ngIf='loading'>
-    <p>
+    <p i18n>
 
-      Loading your favourites...
+      Loading your favourites
     </p>
 
     <img class='loading-text' src="/assets/static_images/Whisk-Stat-Transp.png" />
