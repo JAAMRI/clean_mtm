@@ -1,29 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-CA" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="132231cc2e21fa20636778df0dfe3a1e3d4dd76e" datatype="html">
+      <trans-unit id="a1aa740cc9e7e5daf2e4692b257710940a1042a3" datatype="html">
         <source>
-        <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
-        <x id="ICU" equiv-text="{
-            breadcrumb, select, select recipes {...} meal plan {...} grocery list {...}}"/>
-    </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/breadcrumbs/breadcrumbs.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-        <note priority="1" from="description">breadcrumb: name of breadcrumb on mobile view</note>
-      </trans-unit>
-      <trans-unit id="330adddaa910c85c0913156b314896564872161a" datatype="html">
-        <source>{VAR_SELECT, select, select recipes {select recipes} meal plan {meal plan} grocery list {grocery list} }</source>
+          <x id="ICU" equiv-text="{
+                breadcrumb, select, select recipes {...} meal plan {...} grocery list {...}}" />
+        </source>
+        <target>
+          <x id="ICU" equiv-text="{
+              breadcrumb, select, select recipes {...} meal plan {...} grocery list {...}}" />
+        </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/breadcrumbs/breadcrumbs.component.html</context>
           <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">breadcrumb: name of breadcrumb on mobile view</note>
+      </trans-unit>
+      <trans-unit id="0f113eb809918289410fb3167a81d32355a1ecd8" datatype="html">
+        <source>{VAR_SELECT, select, select recipes {select recipes} meal plan {meal plan} grocery list {grocery list} }</source>
+        <target>{VAR_SELECT, select, select recipes {sélectionner recettes} meal plan {plan de repas} grocery list {liste d’épicerie} }</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/breadcrumbs/breadcrumbs.component.html</context>
+          <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="911df1fb23fe26865e49fc041f885dda8fadd887" datatype="html">
         <source>Select
         Recipes</source>
+        <target>sélectionner recettes</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">7</context>
@@ -32,6 +37,7 @@
       <trans-unit id="b592704f037c9ca8a3fe9657a1b3c983df5bc154" datatype="html">
         <source>Meal
           Plan</source>
+        <source>plan de repas</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">9</context>
@@ -39,6 +45,7 @@
       </trans-unit>
       <trans-unit id="1b0c99b950c8b76a8706a657265f5663b22c40ea" datatype="html">
         <source>Grocery List</source>
+        <source>liste d’épicerie</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">12</context>
@@ -46,6 +53,7 @@
       </trans-unit>
       <trans-unit id="62ab0c2bf8d16ce7baf2c8b1da2c561d99522256" datatype="html">
         <source>Favourites</source>
+        <target>favoris</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">14</context>
@@ -53,6 +61,8 @@
       </trans-unit>
       <trans-unit id="3b6143a528c6f4586e60e9af4ced8ac0fbe08251" datatype="html">
         <source>Articles</source>
+        <target>articles</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">17</context>
@@ -61,6 +71,8 @@
       <trans-unit id="9c1036948ed0fbdd0540cba8a36b868930aaa3ef" datatype="html">
         <source>My
         Account</source>
+        <target>mon compte</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">18</context>
@@ -68,6 +80,7 @@
       </trans-unit>
       <trans-unit id="02e9e69ddcbf93de9fd38bc4d0f312142658610d" datatype="html">
         <source>Contact Us</source>
+        <target>contactez-nous</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">20</context>
@@ -76,6 +89,7 @@
       <trans-unit id="9a3da01f228334580598f66c1272d119a9e84583" datatype="html">
         <source>FAQs
       </source>
+        <target>FAQ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">21</context>
@@ -83,6 +97,7 @@
       </trans-unit>
       <trans-unit id="be394178ed48540a1665330866853faecea24c55" datatype="html">
         <source>sign out</source>
+        <target>déconnexion</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">23</context>
@@ -90,6 +105,7 @@
       </trans-unit>
       <trans-unit id="8e93ff8a1cd4789ebe9fc6d17b54ce56b5b05e96" datatype="html">
         <source>{VAR_SELECT, select, visit knorr {visit knorr} visit hellmann&apos;s {visit hellmann&apos;s} }</source>
+        <target>{VAR_SELECT, select, visit knorr {visitez knorr} visit hellmann&apos;s {visitez hellmann&apos;s} }</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
           <context context-type="linenumber">5</context>
@@ -98,6 +114,7 @@
       </trans-unit>
       <trans-unit id="41203cc4d2278b2821469119010ee8ee66fe52b8" datatype="html">
         <source>adchoices</source>
+        <source>Choix de pub</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
           <context context-type="linenumber">31</context>
@@ -109,6 +126,7 @@
       </trans-unit>
       <trans-unit id="09022ea32dc02e1a0e223709320b7c4f812b4ac0" datatype="html">
         <source>© 2020 Unilever</source>
+        <target>© 2020 Unilever</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
           <context context-type="linenumber">36</context>
@@ -124,6 +142,10 @@
             Unilever Canada Inc.
             This website is not intended for consumers outside Canada.
         </source>
+        <target>
+          Ce site Web s’adresse uniquement aux consommateurs canadiens de produits et services d’Unilever Canada Inc. Ce site Web ne s’adresse pas aux consommateurs à l’extérieur du Canada.
+
+        </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
           <context context-type="linenumber">101</context>
@@ -131,20 +153,32 @@
       </trans-unit>
       <trans-unit id="47dfe78bf9cd27e72ed5072223ed120191589dd1" datatype="html">
         <source>first name</source>
+        <target>prénom</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/personal-info/personal-info.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="d9fe613f150fdf789a9b67dccec2f6da619101b3" datatype="html">
         <source>last name</source>
+        <target>nom</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/personal-info/personal-info.component.html</context>
           <context context-type="linenumber">19</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="0b15bf6fa1e5bdabc9fde97a14bee63a5d5e62f6" datatype="html">
         <source>email</source>
+        <target>courriel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/personal-info/personal-info.component.html</context>
           <context context-type="linenumber">26</context>
@@ -158,19 +192,29 @@
           <context context-type="linenumber">21</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/forgot-password/forgot-password.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="df2c948348c9993998542479416f6d396824785d" datatype="html">
         <source>postal code</source>
+        <target>Code postal</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/personal-info/personal-info.component.html</context>
           <context context-type="linenumber">39</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="d8b81951d25439864e92f750f7c99d7426d6517c" datatype="html">
         <source>password</source>
+        <target>mot de passe</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/personal-info/personal-info.component.html</context>
           <context context-type="linenumber">45</context>
@@ -179,12 +223,21 @@
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
           <context context-type="linenumber">27</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="966ca7c5a5c2a131698322a3eaa54d88336950b2" datatype="html">
         <source>confirm password</source>
+        <target>confirmer le mot de passe</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/personal-info/personal-info.component.html</context>
           <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="437cda6f4c6acb01a417453b6547f30a9b339f7e" datatype="html">
@@ -192,6 +245,7 @@
               update information
 
             </source>
+        <target>Mise à jour de l’information</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/personal-info/personal-info.component.html</context>
           <context context-type="linenumber">115</context>
@@ -201,13 +255,23 @@
         <source>
               sign out
             </source>
+        <target>déconnexion</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/personal-info/personal-info.component.html</context>
           <context context-type="linenumber">124</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="612af120c77b52601251e6833cb9e3cfb55fe0fe" datatype="html">
+        <source>next</source>
+        <target>suivant</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="dc5d9533385fc176b7185f5e16a884acbce2749f" datatype="html">
         <source>Meal Planning, Made Easy </source>
+        <target>La planification de repas simplifiée</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/on-board/on-board.component.html</context>
           <context context-type="linenumber">6</context>
@@ -216,6 +280,8 @@
       <trans-unit id="b908506b50bd91045a74d1b220d06583a785c39a" datatype="html">
         <source>Sign up today and start exploring the world with hundreds of international and local recipes, your own unique meal plans, and convenient grocery delivery.
     </source>
+        <target>Abonnez-vous aujourd’hui et commencez à explorer le monde avec des centaines de recettes internationales et locales, vos plans de repas uniques et la livraison de votre épicerie.</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/on-board/on-board.component.html</context>
           <context context-type="linenumber">7</context>
@@ -223,6 +289,7 @@
       </trans-unit>
       <trans-unit id="864a10a49ba0c86b34d35168a6ad12c8164ca6c6" datatype="html">
         <source>register</source>
+        <target>inscription</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">14</context>
@@ -234,6 +301,7 @@
       </trans-unit>
       <trans-unit id="a21b4e4b7c48dc611c3774abf8d163519991638d" datatype="html">
         <source>Already have an account?</source>
+        <target>avez-vous déjà un compte?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">16</context>
@@ -241,6 +309,7 @@
       </trans-unit>
       <trans-unit id="270329219d947cded795679e59f1110152f64745" datatype="html">
         <source>signin</source>
+        <target>connexion</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">17</context>
@@ -257,6 +326,7 @@
       <trans-unit id="1773439ea94264b7c0b3a4db052648ec96a703a1" datatype="html">
         <source>my account
       </source>
+        <target>mon compte</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">22</context>
@@ -264,10 +334,15 @@
       </trans-unit>
       <trans-unit id="0ca27e0838856f23a6ce30e1e53be7b1887ea345" datatype="html">
         <source>
-        <x id="ICU" equiv-text="{
-        page, select, Select Recipes {...} Meal Plan {...} Favourites {...} Grocery List {...}}"/>
-        
-      </source>
+          <x id="ICU" equiv-text="{
+        page, select, Select Recipes {...} Meal Plan {...} Favourites {...} Grocery List {...}}" />
+
+        </source>
+        <target>
+          <x id="ICU" equiv-text="{
+        page, select, Select Recipes {...} Meal Plan {...} Favourites {...} Grocery List {...}}" />
+
+        </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">29</context>
@@ -275,17 +350,24 @@
         <note priority="1" from="description">authenticatedPage: name of the page</note>
       </trans-unit>
       <trans-unit id="62631b3f5b4f500e281f629abc65ebb9537afcff" datatype="html">
-        <source>{VAR_SELECT, select, Select Recipes {select recipes} Meal Plan {meal plan} Favourites {favourites} Grocery List {grocery list } }</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
+        <source>{VAR_SELECT, select, Select Recipes {select recipes} Meal Plan {meal plan} Favourites {favourites} Grocery List {grocery list} }</source>
+        <target>
+          {VAR_SELECT, select, Select Recipes {sélectionner recettes} Meal Plan {plan de repas} Favourites {favoris} Grocery List {liste d’épicerie} }
+          </source>
+          <context-group purpose="location">
+            <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+            <context context-type="linenumber">30</context>
+          </context-group>
       </trans-unit>
       <trans-unit id="cc547e0fa680ea96d4867e86a3de6c032e526ff4" datatype="html">
         <source>
           <x id="ICU" equiv-text="{
-          subPage, select, All Recipes {...} 30 minutes or less {...} Chicken {...} Summer {...} BBQ {...} Dinner {...} Pasta {...} Slow Cooker {...} Tea {...} Breakfast and Brunch {...} Italian {...} Indian {...} Asian {...} Mexican {...} Middle Eastern {...} Mediterranean {...} Canadian {...} Salad {...} Better for you {...}}"/>
+          subPage, select, All Recipes {...} 30 minutes or less {...} Chicken {...} Summer {...} BBQ {...} Dinner {...} Pasta {...} Slow Cooker {...} Tea {...} Breakfast and Brunch {...} Italian {...} Indian {...} Asian {...} Mexican {...} Middle Eastern {...} Mediterranean {...} Canadian {...} Salad {...} Better for you {...}}" />
         </source>
+        <target>
+          <x id="ICU" equiv-text="{
+          subPage, select, All Recipes {...} 30 minutes or less {...} Chicken {...} Summer {...} BBQ {...} Dinner {...} Pasta {...} Slow Cooker {...} Tea {...} Breakfast and Brunch {...} Italian {...} Indian {...} Asian {...} Mexican {...} Middle Eastern {...} Mediterranean {...} Canadian {...} Salad {...} Better for you {...}}" />
+        </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">45</context>
@@ -294,6 +376,7 @@
       </trans-unit>
       <trans-unit id="af0cdb4a8a5d82e69962f3ac5f5639d09175d72a" datatype="html">
         <source>{VAR_SELECT, select, All Recipes {all recipes} 30 minutes or less {30 minutes or less} Chicken {Chicken} Summer {Summer} BBQ {BBQ} Dinner {Dinner} Pasta {Pasta} Slow Cooker {Slow Cooker} Tea {Tea} Breakfast and Brunch {Breakfast and Brunch} Italian {Italian} Indian {Indian} Asian {Asian} Mexican {Mexican} Middle Eastern {Middle Eastern} Mediterranean {Mediterranean} Canadian {Canadian} Salad {Salad} Better for you {Better for you} }</source>
+        <source>{VAR_SELECT, select, All Recipes {toutes les recettes} 30 minutes or less {30 minutes ou moins} Chicken {Poulet} Summer {été} BBQ {BBQ} Dinner {Dinner} Pasta {pâtes} Slow Cooker {mijoteuse} Tea {thé} Breakfast and Brunch {déjeuner et brunch} Italian {plats italiens} Indian {plats indiens} Asian {plats asiatiques} Mexican {Plats mexicains} Middle Eastern {plats du moyen-orient} Mediterranean {plats méditerranéens} Canadian {plats canadiens} Salad {salade} Better for you {meilleur pour la santé} }</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">46</context>
@@ -301,9 +384,13 @@
       </trans-unit>
       <trans-unit id="8bb2f30f29d695c7f7051aa5c13f7403fe97a683" datatype="html">
         <source>
-        <x id="ICU" equiv-text="{
-        page, select, articles {...} about {...} contact us {...} faq {...}}"/>
-      </source>
+          <x id="ICU" equiv-text="{
+        page, select, articles {...} about {...} contact us {...} faq {...}}" />
+        </source>
+        <target>
+          <x id="ICU" equiv-text="{
+        page, select, articles {...} about {...} contact us {...} faq {...}}" />
+        </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">78</context>
@@ -312,15 +399,19 @@
       </trans-unit>
       <trans-unit id="496b7cb4ffc5d614edf2936650151122b88d96cc" datatype="html">
         <source>{VAR_SELECT, select, articles {articles} about {about} contact us {contact us} faq {faq} }</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
-          <context context-type="linenumber">79</context>
-        </context-group>
+        <target>
+          {VAR_SELECT, select, articles {articles} about {À propos} contact us {contactez-nous} faq {faq} }
+          </source>
+          <context-group purpose="location">
+            <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+            <context context-type="linenumber">79</context>
+          </context-group>
       </trans-unit>
       <trans-unit id="604071c1b98deffb6c26c8ce18c39ab882792994" datatype="html">
         <source>
         sign out
       </source>
+        <target>déconnexion</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">88</context>
@@ -328,6 +419,7 @@
       </trans-unit>
       <trans-unit id="c7580f51747559366d754aecab7ddf626956ced8" datatype="html">
         <source>Find mealtime inspiration and start planning your week today</source>
+        <target>trouvez des repas inspirants et commencez à planifier votre semaine aujourd’hui</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/home.component.html</context>
           <context context-type="linenumber">27</context>
@@ -335,6 +427,7 @@
       </trans-unit>
       <trans-unit id="b23cbdf2bad3c98a62c23fa7cc9c2e09f5bc98e2" datatype="html">
         <source>get started</source>
+        <target>débutez</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/home.component.html</context>
           <context context-type="linenumber">28</context>
@@ -346,6 +439,7 @@
       </trans-unit>
       <trans-unit id="990494766a0d2e4e32b3db984a962299ad738eb3" datatype="html">
         <source>browse our recipes</source>
+        <target>explorez nos recettes.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
           <context context-type="linenumber">12</context>
@@ -353,6 +447,7 @@
       </trans-unit>
       <trans-unit id="79db48e3b94fc0a6e3d92007f503be1a3cd2dab7" datatype="html">
         <source>Make every meal an adventure with 500+ chef curated dishes.</source>
+        <target>Faites de chaque repas une aventure avec plus de 500 recettes créées par nos chefs</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
           <context context-type="linenumber">13</context>
@@ -360,6 +455,7 @@
       </trans-unit>
       <trans-unit id="c033aed414a04587ca1e6e36c64a2438fe01c1fb" datatype="html">
         <source>create your meal plan</source>
+        <target>créez votre plan de repas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
           <context context-type="linenumber">25</context>
@@ -369,6 +465,8 @@
         <source>Add recipes from around the world to your personalized &apos;Meal Plan&apos;. Make cooking an adventure with deliciously
         diverse meals.
       </source>
+        <target>Ajoutez des recettes du monde entier à votre plan de repas personnalisé. Faites de la cuisine une aventure avec des repas diversifiés. </target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
           <context context-type="linenumber">26</context>
@@ -376,6 +474,7 @@
       </trans-unit>
       <trans-unit id="6a39e084e067da1e8b0abd86e027a80ac11b8007" datatype="html">
         <source>shop your meal plan</source>
+        <target>magasinez votre plan de repas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
           <context context-type="linenumber">40</context>
@@ -386,6 +485,7 @@
         delivered to your door,
         from your go-to grocery store.
       </source>
+        <target>Vos ingrédients sélectionnés, livrés à votre porte, par votre supermarché préféré. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
           <context context-type="linenumber">41</context>
@@ -393,6 +493,7 @@
       </trans-unit>
       <trans-unit id="8964708b496aa9a5973e79afccd8368730bd576e" datatype="html">
         <source>why you&apos;ll love this</source>
+        <target>pourquoi vous aimerez cela</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
           <context context-type="linenumber">3</context>
@@ -402,6 +503,8 @@
         <source>
       Enjoy delicious recipe inspiration, personalized meal plans and delivery for a great cooking experience.
     </source>
+        <target>Vous apprécierez nos recettes, nos plans de repas personnalisés et la livraison des ingrédients pour une belle expérience culinaire.</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
           <context context-type="linenumber">4</context>
@@ -409,6 +512,7 @@
       </trans-unit>
       <trans-unit id="c0c5344d25e4ff6c7c31c828858546c2efb21a7a" datatype="html">
         <source>{VAR_SELECT, select, chef curated recipes {chef curated recipes} instant grocery list {instant grocery list} shopping made easy {shopping made easy} less time prepping {less time prepping} save on costs {save on costs} }</source>
+        <source>{VAR_SELECT, select, chef curated recipes {recettes créées pas nos chefs} instant grocery list {listes d’épicerie instantanées} shopping made easy {le magasinage simplifié} less time prepping {moins de temps de préparation} save on costs {économisez} }</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
           <context context-type="linenumber">16</context>
@@ -417,6 +521,7 @@
       </trans-unit>
       <trans-unit id="2f075786462f89f3f53de95f5fa919145196845b" datatype="html">
         <source>reclaim weeknight cooking</source>
+        <target>cuisinez à la maison les soirs de semaine</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/reclaim-weeknight-cooking/reclaim-weeknight-cooking.component.html</context>
           <context context-type="linenumber">3</context>
@@ -427,6 +532,8 @@
       With Meals That Matter, cooking is an easier, more manageable part of your busy routine. See how a little food
       prep and planning gives you a head start in the kitchen today.
     </source>
+        <target>Avec Chaque repas compte, il est plus facile d’intégrer la cuisine à votre routine quotidienne. Voyez comment la préparation et la planification donnent un bon coup de pouce dans la cuisine.</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/reclaim-weeknight-cooking/reclaim-weeknight-cooking.component.html</context>
           <context context-type="linenumber">4</context>
@@ -434,21 +541,291 @@
       </trans-unit>
       <trans-unit id="b13db48a46737c4ed5c8985a2e1a5171e7df7047" datatype="html">
         <source>search all recipes</source>
+        <target>Rechercher toutes les recettes</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search-bar/search-bar.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="41462791cb4d5b05e9b57b8e04673c4663735c44" datatype="html">
+        <source>other recommended recipes</source>
+        <target>other recommended recipes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a3722a2ce0095843f7cbeaa8eb77c0400d15e7f1" datatype="html">
+        <source>
+          With Meals That Matter, cooking is an easier, more manageable part of your busy routine.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          See how a little food prep and planning gives you a head start in the kitchen today.
+        </source>
+        <source>
+          <target>
+            Avec Chaque repas compte, il est plus facile d’intégrer la cuisine à votre routine quotidienne.
+            <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+            <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+            Voyez comment la préparation et la planification donnent un bon coup de pouce dans la cuisine.
+          </target>
+          <context-group purpose="location">
+            <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+            <context context-type="linenumber">135</context>
+          </context-group>
+      </trans-unit>
+      <trans-unit id="3b4260c25a6ee8efeb691d8c2881eb3c5b90bea1" datatype="html">
+        <source>select more meals</source>
+        <target>select more meals</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8d22867f1406a7cbe696e2fd7f03ecfea98076b2" datatype="html">
+        <source>
+          Click
+          <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;" />
+          add
+          <x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;" />
+          to add a recipe to your &apos;Meal Plan&apos;. Click
+          <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;" />
+          favorite_border
+          <x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;" />
+          to save it to your favourites for later.
+        </source>
+        <target>
+          Cliquez
+          <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;" />
+          add
+          <x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;" />
+          pour ajouter des recettes à votre Plan de repas. Cliquez sur
+          <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;" />
+          favorite_border
+          <x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;" />
+          pour les enregistrer dans vos favoris.
+        </target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/discover-meals/discover-meals.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="33c01e6c010f31af0ea595a9be4e428ef8b0b284" datatype="html">
+        <source>filter recipes</source>
+        <target>Filtrer les recettes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/discover-meals/discover-meals.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8704879e76649f75451089c06361fbf9cadfd922" datatype="html">
+        <source>
+          Click
+          <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;" />
+          add
+          <x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;" />
+          to add a recipe to your &apos;Meal Plan&apos;. Click
+          <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;" />
+          favorite_border
+          <x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;" />
+          to save it to your favourites for later.
+        </source>
+        <target>
+          Cliquez
+          <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;" />
+          add
+          <x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;" />
+          pour ajouter des recettes à votre Plan de repas. Cliquez sur
+          <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;" />
+          favorite_border
+          <x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;" />
+          pour les enregistrer dans vos favoris.
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/discover-meals/discover-meals.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7379e4b1dd78d9816ca66002ca58dcf0b7a0ed38" datatype="html">
+        <source>my favourites</source>
+        <target>mes favoris</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/favourites/favourites.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/favourites/favourites.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9db88f609368a9f873f78143802c4fe9aa6cab53" datatype="html">
+        <source>When you find something you like, use the heart to save your favourites and you can find it again here.</source>
+        <target>Lorsque vous trouvez une recette que vous aimez, utilisez le coeur pour l’enregistrer dans vos favoris et la consulter plus tard.</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/favourites/favourites.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1519933022c7248ffa973ee9fa7b08d44bfa7421" datatype="html">
+        <source>It looks like you haven’t added
+      any recipes to your favourites yet</source>
+        <target>Il semble que nous n’ayez pas encore ajouté de recettes à vos favoris</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/favourites/favourites.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="356646da72ab804a8fa5050a45fca11c2a9927bc" datatype="html">
+        <source>
+        select recipes
+      </source>
+        <target>sélectionner recettes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/favourites/favourites.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/grocery-list/grocery-list/grocery-list.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aaa171084d54c4c8c1ef643df02aa71efeb1bc04" datatype="html">
+        <source>
+
+      Loading your favourites
+    </source>
+        <target>
+
+      Loading your favourites
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/favourites/favourites.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0459fa82b8c8758334ed33fee7bb77219ff49e3f" datatype="html">
+        <source>meal plan</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/my-meals/my-meals.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c37098cda8acd43501fcec5df45e1751115baacb" datatype="html">
+        <source>
+          Click
+          <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+          NEXT
+          <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+          when you&apos;re ready, to shop ingredients for these recipes.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Click
+          <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;" />
+          remove
+          <x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;" />
+          to remove recipes.
+        </source>
+        <target>
+          Cliquez sur
+          <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+          SUIVANT
+          <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+          pour magasiner les ingrédients de ces recettes.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Cliquez sur
+          <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;" />
+          remove
+          <x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;" />
+          pour supprimer les recettes.
+        </target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/my-meals/my-meals.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e628f89d1f7409062a51048f5ffcdfe6b381530e" datatype="html">
+        <source>
+          select recipes
+        </source>
+        <target>sélectionner recettes</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/my-meals/my-meals.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="71919f5c342204852fd118623f7aad0470691781" datatype="html">
+        <source>
+        loading your meals
+      </source>
+        <target>
+
+        Loading your meals
+      </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/my-meals/my-meals.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="293d9dac1da0c707ab260d157eeaa80ab8623db8" datatype="html">
+        <source> grocery list</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/grocery-list/grocery-list/grocery-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="86f89f7858f5a24ba6b8513efd542ed20af02312" datatype="html">
+        <source>Order ingredients for delivery right here, or share them to shop in store</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/grocery-list/grocery-list/grocery-list.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6c89284011fd3aa87fedb2e5bddb17a6fe1e5132" datatype="html">
+        <source>
+      No meals found
+    </source>
+        <target>Aucun élément trouvé</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/grocery-list/grocery-list/grocery-list.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="50c1610cfedda7185507a9a21dad87ae1bc5c76d" datatype="html">
         <source>update password</source>
+        <target>Modification du mot de passe</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/change-password/change-password.component.html</context>
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="c55a76bdfe1075ba87f0e72d99361d3055b28166" datatype="html">
+        <source>
+            Personal Info
+          </source>
+        <target>Renseignements personnels</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/profile.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="411c1e72a8caa1e5cd50b2c1582cb515ceeb664c" datatype="html">
+        <source>
+            Security
+          </source>
+        <target>Sécurité</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/profile.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="20544a08bd3803623ac305391a75ae25755e5dbf" datatype="html">
         <source>You&apos;re one step away from exploring 500+ recipes from around the world.
   </source>
+        <target>Vous n’êtes plus qu’à une étape d’explorer plus de 500 recettes du monde entier.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
           <context context-type="linenumber">2</context>
@@ -456,6 +833,7 @@
       </trans-unit>
       <trans-unit id="bc4c71410a1244badba1d5e273ed60a96773fc9f" datatype="html">
         <source>processing</source>
+        <target>en cours de traitement</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
           <context context-type="linenumber">33</context>
@@ -463,15 +841,37 @@
       </trans-unit>
       <trans-unit id="6a6a5a45d7df5b7f0169fd2096d78910bb5d0b7d" datatype="html">
         <source>Forgot your password?</source>
+        <target>oublié votre mot de passe?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
           <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="85c1a4cd231047c92c14da54a870ce1044324e3e" datatype="html">
+        <source>
+                            update information
+                        </source>
+        <target>Mise à jour de l’information</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d96670223d6053791c86b22183c73be94ccfa39c" datatype="html">
+        <source>
+                            sign out
+                        </source>
+        <target>déconnexion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">123</context>
         </context-group>
       </trans-unit>
       <trans-unit id="e2af3b485a0e9ea7c0cd6efad56f4b9a32372cd1" datatype="html">
         <source>
           forgot password
         </source>
+        <target>oublié votre mot de passe?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/forgot-password/forgot-password.component.html</context>
           <context context-type="linenumber">7</context>
@@ -479,13 +879,369 @@
       </trans-unit>
       <trans-unit id="502ff3c9d199394ea24070e44268860097f5a336" datatype="html">
         <source>get confirmation code</source>
+        <target>obtenir un code de confirmation</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/forgot-password/forgot-password.component.html</context>
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="e9b56284753956a3fdc1a1da139742190eb7aa1b" datatype="html">
+        <source>code is invalid</source>
+        <target>code is invalid</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/forgot-password/forgot-password.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c98077fe229df56d1df276acd22818bd2885eddc" datatype="html">
+        <source>submit</source>
+        <target>soumettre</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/forgot-password/forgot-password.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fe51519b1dda4099c164ac345dd080a8be09699d" datatype="html">
+        <source>
+                            Can I purchase my meal plan online?
+                        </source>
+        <target>
+                          Vous avez des questions?
+                        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="889ae9c5b45da59044081f074ce9143af9eb5b90" datatype="html">
+        <source>
+                    *Due to COVID-19 there is higher than normal volume on grocery delivery right now, therefore
+                    delivery times may be impacted through Metro &amp; Save on Foods.
+                </source>
+        <target>
+                  *Due to COVID-19 there is higher than normal volume on grocery delivery right now, therefore
+                  delivery times may be impacted through Metro &amp; Save on Foods.
+              </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e6be4a047346ab3239d9a903d7637677b70ffbf9" datatype="html">
+        <source>
+                            How do I build my meal plan?
+                        </source>
+        <target>
+                          Comment puis-je bâtir mon plan de repas? 
+                        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0e381aef527ef00d8477b76413e97de7cd56083d" datatype="html">
+        <source>
+          Easy! From the home page, click &apos;get started&apos;, and make sure you have
+                    registered. You’ll then be directed to the ‘Select
+                    Recipes’ page. This is where you’ll start browsing through our collection of delicious recipes.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          To add a meal to your meal plan, simply click the green ‘+’
+                    button on the top right of the recipe. To see your Meal Plan, click on green next button on the
+                    select recipes page.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;" />
+          PS:
+          <x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;" />
+          You can always find these pages on the progress bar
+                    or the
+                    side menu if you’re on your phone.
+        </source>
+        <target>
+          Facile! À la page d’accueil, cliquez sur «Débutez» et assurez-vous d’être inscrit. Puis la page Sélectionner recettes s’affichera. C’est à cet endroit que vous débuterez l’exploration de notre collection de délicieuses recettes.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Pour ajouter un repas à votre plan de repas, cliquez sur le bouton vert «+» dans le coin supérieur droit la recette. Pour afficher votre plan de repas, cliquez sur le bouton vert «Suivant» de la page «Sélectionner recettes».
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+
+          <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;" />
+          P. S. :
+          <x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;" />
+          Vous trouverez toujours ces pages dans la barre de progression ou dans le menu latéral si vous êtes au téléphone.
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cfdec31ae55a96f21faab024cd79fc7d9ce2e86a" datatype="html">
+        <source>First, click on the little heart icon on the bottom left corner of the
+                    recipe
+                    image. Second, to see the recipes you’ve previously added to your favourites, click ‘Favourites’ in
+                    the side menu on your phone or the navigation bar on desktop.
+                </source>
+        <target>First, click on the little heart icon on the bottom left corner of the
+                  recipe
+                  image. Second, to see the recipes you’ve previously added to your favourites, click ‘Favourites’ in
+                  the side menu on your phone or the navigation bar on desktop.
+              </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="121106081c35cede005c26518ae3be788bfa0218" datatype="html">
+        <source>
+                            How do I see the recipe instructions?
+                        </source>
+        <target>
+                          Comment-puis voir les instructions?
+                        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9a8d72637d53b0b2127a32991f447902b3d12472" datatype="html">
+        <source>Click on the recipe name or image and the full recipe page will open as
+                    a
+                    popup. Then you’ll find the cooking instructions in the tabs below the recipe image to the right of
+                    the ‘Ingredients’ tab.
+                </source>
+        <target>
+                  Cliquez sur le nom de la recette ou l’image et la page complète de la recette s’affichera. Vous trouverez les instructions dans les onglets sous l’image à la droite de l’onglet «Ingrédients».
+                </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ec523cf680f23bcba346f6cd82a64b1685d88781" datatype="html">
+        <source>
+                            Can I see detailed nutritional information?
+                        </source>
+        <target>
+                          Puis-je voir la valeur nutritive détaillée?
+                        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">123</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2bd7dacca20c7eede4ddbac4a7f2f05b2519c4a5" datatype="html">
+        <source>Yep! When you click on the recipe name or image, the full recipe page
+                    will
+                    open as a popup. Then you’ll find nutrition facts in the tabs below the recipe image to the right of
+                    the ‘Instructions’ tab.
+                </source>
+        <target>
+                  Oui! En cliquant sur le nom de la recette ou l’image, la page de la recette s’affichera. Vous trouverez la valeur nutritive dans les onglets sous l’image à la droite de l’onglet «Instructions».
+                </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="192dbcec81d39e090d58a81df8eb6fe1d50fd8e1" datatype="html">
+        <source>
+                            Is there an easier way for me to access this website to plan my meals?
+                        </source>
+        <target>
+                          Y a-t-il une façon plus simple d’accéder à ce site pour planifier mes repas?
+                        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3eb28d64ffd6028b9b07555aaca34a487b4748c7" datatype="html">
+        <source>
+          Yes! You can add the Meals That Matter website to your phone’s home
+                    screen
+                    just like an app.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          For iOS, launch the Safari browser and go to Mealsthatmatter.com. Tap the
+                    Share button, then scroll until you find the ‘Add to Home Screen’ button…and tap to download.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          For Android, launch Chrome and go to Mealsthatmatter.com. Tap the menu
+                    button, then tap ‘Add to Homescreen’.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          &gt;Once downloaded, The Meals That Matter icon will appear on your home screen
+                    for you to drag and place wherever you like.
+        </source>
+        <target>
+          Oui! Ajoutez le site Chaque repas compte à l’écran d’accueil de votre téléphone comme une appli.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Pour iOS, lancez Safari et rendez-vous sur Mealsthatmatter.com. Appuyez sur le bouton Partager, puis allez au bouton «Ajouter à l’écran d’accueil»… et appuyez pour télécharger.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Pour Android, lancez Chrome et rendez-vous sur Mealsthatmatter.com. Appuyez sur le bouton Menu, puis sur «Ajouter à l’écran d’accueil».
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Une fois téléchargée, l’icône de Chaque repas compte apparaîtra à votre écran d’accueil et vous pourrez la glisser et la placer où vous voulez.
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">155</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="49982e4b3e0593476f34d8c3230c49a3b5a38174" datatype="html">
+        <source>
+                            How much does this cost?
+                        </source>
+        <target>
+                          Quels sont les coûts?
+                        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">172</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7339426fa5134e0a3d824226f38fbeb80da70e89" datatype="html">
+        <source>
+          We’re pleased to offer our service free of charge! At Meals That Matter,
+                    we
+                    have a mission to help Canadians reclaim weeknight cooking, and we hope that our website helps you
+                    do just that.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Of course, you’ll still have to pay for your groceries! Those prices and
+                    delivery charges (if applicable) are determined by the retailer you choose to shop with.
+        </source>
+        <target>
+          Nous vous offrons ce service gratuitement! La mission de Chaque repas compte est d’aider les Canadiens à cuisiner les soirs de semaine, et nous espérons que notre site vous le permettra.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Bien sûr, vous devrez payer votre épicerie! Les prix et les frais de livraison (s’il y a lieu) sont déterminés par le détaillant de votre choix.
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">182</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b89fe5728f997cb8ac2d9676f1105b634b04ecfc" datatype="html">
+        <source>
+                            Are there Italian/Asian/30 minutes or less recipes?
+                        </source>
+        <target>
+                          Y a-t-il des recettes de plats italiens, asiatiques ou prêts en 30 minutes ou moins? 
+                        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">196</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dd0007958734d5dc864bde918b59f73c99145e33" datatype="html">
+        <source>
+          Yes… and more 😊 The best way to explore these recipes is to use the
+                    filter
+                    feature on the ‘Select Recipes’ page. We have over 500 recipes that span across multiple recipe
+                    categories.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          We are always improving and adding to our recipe collection so stay tuned for
+                    more dietary options.
+        </source>
+        <target>
+          Oui et bien plus 😊 La meilleure façon d’explorer ces recettes est d’utiliser le filtre à la page «Sélectionner recettes». Notre choix de plus de 500 recettes s’étend à de multiples catégories.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Nous améliorons toujours et ajoutons des recettes; surveillez notre variété de plats exquis.
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">206</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ae410358562198f1b2aad11dceea5fbea65f7fbb" datatype="html">
+        <source>
+                            Is membership required in order to create a meal plan/shop?
+                        </source>
+        <target>
+                          Faut-il être membre pour créer ou magasiner un plan de repas?        
+                        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">222</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="16cccd78ddd049ad244866a398825b611622847c" datatype="html">
+        <source>
+          Yes. In order to create and shop a meal plan you will need to have an
+                    account
+                    with us. To create a new account simply click the ‘get started’ button on our homepage and then fill
+                    out your details to register.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Once registered, you will have access to 500+ recipes with new recipes being
+                    added all the time as well as exclusive offers and the ability to simply shop your meal plan online
+                    or instore.
+        </source>
+        <target>
+          Oui. Pour créer et magasiner un plan de repas, vous devez avoir un compte avec nous. Pour créer un compte, cliquez sur le bouton «Débutez» à la page d’accueil et remplissez le formulaire pour vous inscrire.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Une fois inscrit, vous aurez accès à plus de 500 recettes et à de nouvelles recettes et offres exclusives, et vous pourrez magasiner votre plan de repas en ligne ou en magasin.
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">232</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7f888be90245f8ad84e00c2e0ddf115cdfd5649d" datatype="html">
+        <source>
+
+                            Can I view by category like breakfast, brunch, dinner?
+                        </source>
+        <target>
+                          Puis-je afficher les recettes par catégorie, telle que déjeuner, brunch, souper?     
+                        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">249</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="49cd5101334691976e70e124eede234f4824d1d7" datatype="html">
+        <source>Yes! You can find those categories easily by filtering on the ‘Select
+                    Recipes&apos;
+                    page.
+                </source>
+        <target>
+                  Oui! Vous trouverez facielement ces catégories en les filtrant à la page «Sélectionner recettes».    
+                </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">260</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7c186157a8c68d6cb93b051497d762fa9aea5896" datatype="html">
+        <source>
+                            My grocery list includes every ingredient in the recipes, including staples I already have
+                            like flour, spices, and seasonings. Is there a way to edit my grocery list to remove
+                            staples?
+                        </source>
+        <target>
+                          Ma liste d’épicerie comprend chaque ingrédient dans les recettes, dont les essentiels comme la farine, les épices et les assaisonnements. Puis-je changer ma liste pour enlever les essentiels?
+                        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">271</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ba99081d5ef8a5b0c224d18b9f00dd668697a469" datatype="html">
+        <source>
+          If you choose to shop your grocery list online, your items will be sent
+                    to
+                    the grocery cart on the retailer website. From there, you can remove items you already have before
+                    you checkout.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          If you choose to shop in-store, you can check off items to indicate that you
+                    already have them. Unfortunately you are not able to remove these items completely at this time.
+                    However, we’re also looking to improve our service!
+        </source>
+        <target>
+          Si vous magasinez votre liste d’épicerie en ligne, vos articles seront ajoutés au panier sur le site du détaillant. Vous pouvez y enlever les articles que vous avez déjà avant de passer à la caisse.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Si vous magasinez en ligne, vous pouvez cocher les articles que vous avez déjà sous la main. Pour l’instant, nous ne pouvons pas enlever ces articles. Toutefois, nous travaillons à améliorer notre service!
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">283</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="2debda4ba1cf357d4afab81af54c89fb07fbae47" datatype="html">
         <source>read time</source>
+        <target>Temps de lecture </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/article-list-item/article-list-item.component.html</context>
           <context context-type="linenumber">8</context>
@@ -493,6 +1249,7 @@
       </trans-unit>
       <trans-unit id="34764072fb38ae3fefae2e18c322291552ae60bb" datatype="html">
         <source>articles</source>
+        <target>articles</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/article/article.component.html</context>
           <context context-type="linenumber">3</context>
@@ -502,9 +1259,87 @@
         <source>
             Find tips &amp; tricks to improve your cooking skills and help you reclaim weeknight cooking
         </source>
+        <target>Des conseils et trucs pour améliorer vos talents culinaires et cuisiner les soirs de semaine</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/article/article.component.html</context>
           <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2233ff913e3117be30a64ecc29ecaf41a2f38049" datatype="html">
+        <source>Need some help?</source>
+        <target>Besoin d’aide? </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f4b0d1bb4dbcff9aaeacbf234f7f3aa9735304e8" datatype="html">
+        <source>contact us</source>
+        <target>contactez-nous</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f2ba4050bb7e20f42ec71bad43c7b0d63ae70482" datatype="html">
+        <source>Questions? Comments? We value your feedback and would love to hear from you.</source>
+        <target>Questions? Commentaires? Nous apprécions vos commentaires et aimons avoir de vos nouvelles.
+          </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="60f88c75e76afbc7d9dbe81e0a76e13522755746" datatype="html">
+        <source>You can contact us in a variety of ways, the choice is yours.</source>
+        <target>
+          Vous pouvez nous contacter de diverses façons, le choix vous appartient.
+          </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="64b5a678c9d65648b11dd1b6bcbc96abbc961874" datatype="html">
+        <source>
+          If you would like to speak to a live representative, please call
+                    us at
+                    1-800-899-1120,
+                    Monday to Friday between 8:30 AM-6:00 PM Eastern Time.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          IF THIS IS A MEDICAL OR PRODUCT SAFETY EMERGENCY, PLEASE CALL
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;" />
+          1-800-297-7421.
+          <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          This number is available 24 hours a day / 7 days a week.
+        </source>
+        <target>
+          Pour parler à un représentant en direct, composez 1 800 899-1120, du lundi au vendredi de 8 h 30 à 18 h, heure de l’Est.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          EN CAS D’URGENCE MÉDICALE OU DE SÉCURITÉ DE PRODUIT, COMPOSEZ
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;" />
+          1 800 297-7421.
+          <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
+
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Ce numéro est disponible 24 heures sur 24, 7 jours sur 7.
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5aeacee7114f95e49f5018a720916027cc99c7d7" datatype="html">
+        <source>
+                            message us
+                        </source>
+        <target>
+                          Envoyez-nous un message 
+                        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
     </body>
