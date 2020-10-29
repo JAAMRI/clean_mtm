@@ -1,35 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="fr-CA" datatype="plaintext" original="ng2.template">
+  <file source-language="en-CA" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="register" datatype="html">
+      <trans-unit id="87991473d36920c248f4746d934e7b519806560e" datatype="html">
         <source>register</source>
         <target>inscription</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
       </trans-unit>
-      <trans-unit id="have-account" datatype="html">
-        <source>already have an account?</source>
+      <trans-unit id="a21b4e4b7c48dc611c3774abf8d163519991638d" datatype="html">
+        <source>Already have an account?</source>
         <target>avez-vous déjà un compte?</target>
 
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
       </trans-unit>
-      <trans-unit id="signin" datatype="html">
+      <trans-unit id="ab7754f7b85111ed14997d9824388a732df7dd74" datatype="html">
         <source>signin</source>
-
         <target>connexion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
       </trans-unit>
-      <trans-unit id="signout" datatype="html">
-        <source>signout</source>
-
-        <target>déconnexion</target>
-      </trans-unit>
-
-      <trans-unit id="my-account" datatype="html">
+      <trans-unit id="ef1faa7e35279b211ce0444fc87d01fa38fe2b12" datatype="html">
         <source>my account</source>
-
-        <target>mon compte</target>
+      <target>mon compte</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
       </trans-unit>
+      <trans-unit id="20544a08bd3803623ac305391a75ae25755e5dbf" datatype="html">
+        <source>You&apos;re one step away from exploring 500+ recipes from around the world.
+  </source>
+        <target>Vous n’êtes plus qu’à une étape d’explorer plus de 500 recettes du monde entier.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0b15bf6fa1e5bdabc9fde97a14bee63a5d5e62f6" datatype="html">
+        <source>email</source>
+        <target>courriel</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d8b81951d25439864e92f750f7c99d7426d6517c" datatype="html">
+        <source>password</source>
+        <target>mot de passe</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bc4c71410a1244badba1d5e273ed60a96773fc9f" datatype="html">
+        <source>processing</source>
+        <target>en cours de traitement</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6a6a5a45d7df5b7f0169fd2096d78910bb5d0b7d" datatype="html">
+        <source>Forgot your password?</source>
+        <target>oublié votre mot de passe?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ce71ef726456e80d2328559ac7f812599d5523f9" datatype="html">
+        <source>
+        SIGN OUT
+      </source>
+      <target>déconnexion</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+
       <trans-unit id="select-recipes" datatype="html">
         <source>select recipes</source>
-
         <target>sélectionner recettes</target>
       </trans-unit>
       <trans-unit id="all-recipes" datatype="html">
@@ -125,929 +192,77 @@
         <target>meilleur pour la santé </target>
 
       </trans-unit>
-      <trans-unit id="meal-plan" datatype="html">
-        <source>meal plan</source>
-        <target>plan de repas</target>
-
-      </trans-unit>
-      <trans-unit id="grocery-list" datatype="html">
-        <source>grocery list</source>
-        <target>liste d’épicerie</target>
-
-      </trans-unit>
-      <trans-unit id="favourites" datatype="html">
-        <source>favourites</source>
-        <target>favoris</target>
-
-      </trans-unit>
-      <trans-unit id="articles" datatype="html">
-        <source>articles</source>
-        <target>articles</target>
-
-      </trans-unit>
-      <trans-unit id="contact-us" datatype="html">
-        <source>contact us</source>
-        <target>contactez-nous</target>
-
-      </trans-unit>
-      <trans-unit id="faqs" datatype="html">
-        <source>FAQs</source>
-        <target>FAQ</target>
-
-      </trans-unit>
-      <trans-unit id="about" datatype="html">
-        <source>about</source>
-        <target>À propos</target>
-
-      </trans-unit>
-      <trans-unit id="home.title" datatype="html">
-        <source>meal planning, made easy</source>
-        <target>La planification de repas simplifiée</target>
-      </trans-unit>
-      <trans-unit id="home.body" datatype="html">
-        <source>Sign up today and start exploring the world with hundreds of international and local recipes, your own unique meal plans, and convenient grocery delivery.</source>
-        <target>Abonnez-vous aujourd’hui et commencez à explorer le monde avec des centaines de recettes internationales et locales, vos plans de repas uniques et la livraison de votre épicerie.</target>
-      </trans-unit>
-      <trans-unit id="home.cta" datatype="html">
-        <source>get started</source>
-        <target>débutez</target>
-      </trans-unit>
-      <trans-unit id="home.microcopy" datatype="html">
-        <source>find mealtime inspiration and start planning your week today</source>
-        <target>trouvez des repas inspirants et commencez à planifier votre semaine aujourd’hui</target>
-      </trans-unit>
-      <trans-unit id="how-it-works.title" datatype="html">
-        <source>how it works</source>
-        <target>marche à suivre</target>
-      </trans-unit>
-      <trans-unit id="how-it-works.body" datatype="html">
-        <source>Select delicious recipes. Create instant grocery lists. Delivered straight to your door.</source>
-        <target>Sélectionnez des recettes. Créez des listes d’épicerie. Faites-les livrer à votre porte.</target>
-      </trans-unit>
-      <trans-unit id="browse-our-recipes.title" datatype="html">
-        <source>browse our recipes.</source>
-        <target>explorez nos recettes.</target>
-      </trans-unit>
-      <trans-unit id="browse-our-recipes.body" datatype="html">
-        <source>Make every meal an adventure with 500+ chef curated recipes</source>
-        <target>Faites de chaque repas une aventure avec plus de 500 recettes créées par nos chefs</target>
-      </trans-unit>
-      <trans-unit id="create-your-meal-plan.title" datatype="html">
-        <source>create your meal plan</source>
-        <target>créez votre plan de repas</target>
-      </trans-unit>
-      <trans-unit id="create-your-meal-plan.body" datatype="html">
-        <source>Add recipes from around the world to your personalized ‘Meal Plan’. Make cooking an adventure with deliciously diverse meals.</source>
-        <target>Ajoutez des recettes du monde entier à votre plan de repas personnalisé. Faites de la cuisine une aventure avec des repas diversifiés. </target>
-      </trans-unit>
-      <trans-unit id="shop-your-meal-plan.title" datatype="html">
-        <source>shop your meal plan</source>
-        <target>magasinez votre plan de repas</target>
-      </trans-unit>
-      <trans-unit id="shop-your-meal-plan.body" datatype="html">
-        <source>Your chosen ingredients, delivered to your door, from your go-to grocery store.</source>
-        <target>Vos ingrédients sélectionnés, livrés à votre porte, par votre supermarché préféré. </target>
-      </trans-unit>
-      <trans-unit id="why-youll-love-this.title" datatype="html">
-        <source>why you'll love this.</source>
-        <target>pourquoi vous aimerez cela</target>
-      </trans-unit>
-      <trans-unit id="why-youll-love-this.body" datatype="html">
-        <source>Enjoy delicious recipe inspiration, personalized meal plans and delivery for a great cooking experience.</source>
-        <target>Vous apprécierez nos recettes, nos plans de repas personnalisés et la livraison des ingrédients pour une belle expérience culinaire.</target>
-      </trans-unit>
-      <trans-unit id="chef-curated-recipes.title" datatype="html">
-        <source>chef curated recipes</source>
-        <target>recettes créées pas nos chefs</target>
-      </trans-unit>
-      <trans-unit id="chef-curated-recipes.body" datatype="html">
-        <source>Explore a world of flavour with recipes hand-crafted and tested by our trusted global chefs.
-        </source>
-        <target>Explorez un monde de saveurs avec des recettes créées et testées par nos chefs de renom.</target>
-      </trans-unit>
-      <trans-unit id="instant-grocery-list.title" datatype="html">
-        <source>instant grocery lists
-        </source>
-        <target>listes d’épicerie instantanées</target>
-      </trans-unit>
-      <trans-unit id="instant-grocery-list.body" datatype="html">
-        <source>Generate instant grocery lists from your meal plan and add or remove items as you wish.
-        </source>
-        <target>Générez des listes d’épicerie instantanées et ajoutez ou enlevez les articles de votre choix.</target>
-      </trans-unit>
-      <trans-unit id="shopping-made-easy.title" datatype="html">
-        <source>shopping made easy
-        </source>
-        <target>le magasinage simplifié</target>
-      </trans-unit>
-      <trans-unit id="shopping-made-easy.body" datatype="html">
-        <source>Find products easily online and avoid lines by getting groceries delivered or ready for pick up.
-        </source>
-        <target>Découvez des produits en ligne et évitez les files avec la livraison ou le ramassage de vos articles.</target>
-      </trans-unit>
-      <trans-unit id="less-time-prepping.title" datatype="html">
-        <source>less time prepping
-        </source>
-        <target>moins de temps de préparation.</target>
-      </trans-unit>
-      <trans-unit id="less-time-prepping.body" datatype="html">
-        <source>Easy-to-create meal plans and instant grocery lists will give you more time back in your day.
-        </source>
-        <target>Les plans de repas et les listes d’épicerie instantanées vous feront gagner du temps.</target>
-      </trans-unit>
-      <trans-unit id="save-on-costs.title" datatype="html">
-        <source>save on costs
-        </source>
-        <target>économisez</target>
-      </trans-unit>
-      <trans-unit id="save-on-costs.body" datatype="html">
-        <source>Save by cooking at home and using just the right amount of groceries for the recipes you love.
-        </source>
-        <target>Économisez en cuisinant à la maison avec la liste d’ingrédients nécessaires pour vos recettes.</target>
-      </trans-unit>
-      <trans-unit id="reclaim-weeknight-cooking.title" datatype="html">
-        <source>reclaim weeknight cooking
-        </source>
-        <target>cuisinez à la maison les soirs de semaine</target>
-      </trans-unit>
-      <trans-unit id="reclaim-weeknight-cooking.body" datatype="html">
+      <trans-unit id="0ca27e0838856f23a6ce30e1e53be7b1887ea345" datatype="html">
         <source>
-          With Meals That Matter, cooking is an easier, more manageable part of your busy routine. See how a little food prep and planning gives you a head start in the kitchen today.
-        </source>
-        <target>Avec Chaque repas compte, il est plus facile d’intégrer la cuisine à votre routine quotidienne. Voyez comment la préparation et la planification donnent un bon coup de pouce dans la cuisine.</target>
-      </trans-unit>
-      <trans-unit id="auth.one-step-away" datatype="html">
-        <source>
-          You’re one step away from exploring 500+ recipes from around the world.
-        </source>
-        <target>Vous n’êtes plus qu’à une étape d’explorer plus de 500 recettes du monde entier.</target>
-      </trans-unit>
-      <trans-unit id="auth.email" datatype="html">
-        <source>
-          email
-        </source>
-        <target>courriel</target>
-      </trans-unit>
-      <trans-unit id="auth.password" datatype="html">
-        <source>
-          password
-        </source>
-        <target>mot de passe</target>
-      </trans-unit>
-      <trans-unit id="auth.forgot" datatype="html">
-        <source>
-          forgot your password?
-        </source>
-        <target>oublié votre mot de passe?</target>
-      </trans-unit>
-      <trans-unit id="auth.get-confirmation-code" datatype="html">
-        <source>
-          get confirmation code
-        </source>
-        <target>obtenir un code de confirmation</target>
-      </trans-unit>
-      <trans-unit id="auth.enter-code" datatype="html">
-        <source>
-          enter code
-        </source>
-        <target>entrer le code</target>
-      </trans-unit>
-      <trans-unit id="auth.new-password" datatype="html">
-        <source>
-          new password
-        </source>
-        <target>nouveau mot de passe</target>
-      </trans-unit>
-      <trans-unit id="auth.confirm-password" datatype="html">
-        <source>
-          confirm password
-        </source>
-        <target>confirmer le mot de passe</target>
-      </trans-unit>
-      <trans-unit id="auth.submit" datatype="html">
-        <source>
-          submit
-        </source>
-        <target>soumettre</target>
-      </trans-unit>
-      <trans-unit id="back" datatype="html">
-        <source>
-          back
-        </source>
-        <target>précédent</target>
-      </trans-unit>
-      <trans-unit id="next" datatype="html">
-        <source>
-          next
-        </source>
-        <target>suivant</target>
-      </trans-unit>
-      <trans-unit id="processing" datatype="html">
-        <source>
-          processing
-        </source>
-        <target>en cours de traitement</target>
-      </trans-unit>
-      <trans-unit id="recipes.body" datatype="html">
-        <source>
-          Click + to add recipes to your ‘Meal Plan’. Click ♡ to save it to your favourites for later.
-        </source>
-        <target>Cliquez + pour ajouter des recettes à votre Plan de repas. Cliquez sur ♡ pour les enregistrer dans vos favoris.</target>
-      </trans-unit>
-      <trans-unit id="recipes.search" datatype="html">
-        <source>
-          Search all recipes
-        </source>
-        <target>Rechercher toutes les recettes</target>
-      </trans-unit>
-      <trans-unit id="recipes.filter" datatype="html">
-        <source>
-          Filter Recipes
-        </source>
-        <target>Filtrer les recettes</target>
-      </trans-unit>
-      <trans-unit id="recipes.filter.clear" datatype="html">
-        <source>
-          clear filter
-        </source>
-        <target>supprimer le filtre</target>
-      </trans-unit>
-      <trans-unit id="recipes.filter.subtitle" datatype="html">
-        <source>
-          Select the filters below to narrow down your search.
-        </source>
-        <target>Sélectionnez les filtres ci-dessous pour réduire votre recherche.</target>
-      </trans-unit>
-      <trans-unit id="favourites.added" datatype="html">
-        <source>
-          Added to favourites!
-        </source>
-        <target>Ajouté à vos favoris!</target>
-      </trans-unit>
-      <trans-unit id="favourites.removed" datatype="html">
-        <source>
-          Removed from favourites!
-        </source>
-        <target>Supprimé de vos favoris!</target>
-      </trans-unit>
-      <trans-unit id="meal-plan.added" datatype="html">
-        <source>
-          Added to meal plan!
-        </source>
-        <target>Ajouté au plan de repas!</target>
-      </trans-unit>
-      <trans-unit id="meal-plan.removed" datatype="html">
-        <source>
-          Removed from meal plan!
-        </source>
-        <target>Supprimé du plan de repas!</target>
-      </trans-unit>
-      <trans-unit id="removed" datatype="html">
-        <source>
-          removed
-        </source>
-        <target>supprimé</target>
-      </trans-unit>
-      <trans-unit id="filter.30-minutes-or-less.body" datatype="html">
-        <source>
-          Low on time but don’t want to sacrifice taste? Try one of our 30 minute or less meals tonight.
-        </source>
-        <target>À court de temps, pas prêt à sacrifier le goût? Essayez nos repas prêts en 30 minutes ou moins.</target>
-      </trans-unit>
-      <trans-unit id="filter.chicken.body" datatype="html">
-        <source>
-          From a fabulous salad to a comforting carbonara, we've got you covered with our top chicken recipes.
-        </source>
-        <target>D’une fabuleuse salade aux pâtes carbonara réconfortantes, nous avons la solution avec nos délicieuses recettes de poulet.</target>
-      </trans-unit>
-      <trans-unit id="filter.summer.body" datatype="html">
-        <source>
-          Celebrate summer with our top pick of bright and delicious recipes below!
-        </source>
-        <target>Célébrez l’été avec nos meilleures recettes colorées et délicieuses ci-dessous!</target>
-      </trans-unit>
-      <trans-unit id="filter.bbq.body" datatype="html">
-        <source>
-          Out of backyard BBQ ideas? Turn up the heat and try our favourite BBQ recipes today.
-        </source>
-        <target>À court d’idées de BBQ? Allumez le gril et essayez nos recettes préférées en plein air.</target>
-      </trans-unit>
-      <trans-unit id="filter.dinner.body" datatype="html">
-        <source>
-          What's for Dinner? Let us help you answering that question with our wide range of recipes below.
-        </source>
-        <target>Qu’est-ce qu’on mange? Laissez-nous vous aider avec notre panoplie de recettes ci-dessous.</target>
-      </trans-unit>
-      <trans-unit id="filter.pasta.body" datatype="html">
-        <source>
-          Qu’est-ce qu’on mange? Laissez-nous vous aider avec notre panoplie de recettes ci-dessous.
-        </source>
-        <target>Pâtes à la bolognaise ou gratin de pâtes crémeuses, essayez nos recettes préférées.</target>
-      </trans-unit>
-      <trans-unit id="filter.beef.body" datatype="html">
-        <source>
-          Multiple cuts, multiple options, you can do so much with beef. Browse our range of recipes below.
-        </source>
-        <target>Coupes et options multiples, vous pouvez tout faire avec du bœuf. Explorez nos recettes.</target>
-      </trans-unit>
-      <trans-unit id="filter.slow-cooker.body" datatype="html">
-        <source>
-          Perfect for those busy days. Explore our range of delicious slow cooker recipes below.
-        </source>
-        <target>Idéal pour un horaire chargé. Explorez nos délicieuses recettes de plats mijotés ci-dessous.</target>
-      </trans-unit>
-      <trans-unit id="filter.breakfast-and-brunch.body" datatype="html">
-        <source>
-          Fed up of the usual bacon and eggs? Kick it up a notch with these breakfast bites.
-        </source>
-        <target>Ras le bol des œufs et bacon? Diversifiez le choix avec nos suggestions de recettes.</target>
-      </trans-unit>
-      <trans-unit id="filter.italian.body" datatype="html">
-        <source>
-          Explore the taste of Italy from your kitchen with our delicious and comforting Italian recipes.
-        </source>
-        <target>Explorez le goût de l’Italie dans votre cuisine avec nos délicieuses recettes italiennes.</target>
-      </trans-unit>
-      <trans-unit id="filter.indian.body" datatype="html">
-        <source>
-          Spice up your life and learn how to cook your favourite Indian dishes at home!
-        </source>
-        <target>Pimentez votre vie et découvrez comment cuisiner vos plats indiens préférés à la maison! </target>
-      </trans-unit>
-      <trans-unit id="filter.asian.body" datatype="html">
-        <source>
-          Full of flavour and fragrance, our classic Asian recipes are totally worth a try!
-        </source>
-        <target>Regorgeant de saveur et de parfum, nos plats asiatiques classiques en valent la peine!</target>
-      </trans-unit>
-      <trans-unit id="filter.mexican.body" datatype="html">
-        <source>
-          Make the most of Mexico's bold cuisine and whip up something delicious from our recipes below
-        </source>
-        <target>Tirez parti de la cuisine mexicaine et préparez nos délicieuses recettes ci-dessous.</target>
-      </trans-unit>
-      <trans-unit id="filter.middle-eastern.body" datatype="html">
-        <source>
-          Discover a world of flavour with our delicious recipes inspired by the Middle East below!
-        </source>
-        <target>Découvrez un monde de saveur avec nos délicieuses recettes inspirées du Moyen-Orient!</target>
-      </trans-unit>
-      <trans-unit id="filter.mediterranean.body" datatype="html">
-        <source>
-          Ready to give your meals a Mediterranean twist? See our pick of top recipes below.
-        </source>
-        <target>Prêt pour une touche méditerranéenne à vos repas? Explorez nos recettes ci-dessous.</target>
-      </trans-unit>
-      <trans-unit id="filter.canadian.body" datatype="html">
-        <source>
-          Explore our favourite iconic Canadian recipes and make them for yourself today!
-        </source>
-        <target>Explorez nos plats canadiens préférés et préparez-les dès aujourd’hui!</target>
-      </trans-unit>
-      <trans-unit id="filter.salad.body" datatype="html">
-        <source>
-          Take your pick from our favourite colourful salad recipes here. There are many delicious options!
-        </source>
-        <target>Faites votre choix à partir de nos délicieuses recettes de salades colorées préférées!</target>
-      </trans-unit>
-      <trans-unit id="filter.tea.body" datatype="html">
-        <source>
-          Take 5 and discover our range of delicious tea recipes
-        </source>
-        <target>Faites une pause et découvrez notre variété de délicieuses recettes de thé.</target>
-      </trans-unit>
-      <trans-unit id="filter.tea.body" datatype="html">
-        <source>
-          Take 5 and discover our range of delicious tea recipes
-        </source>
-        <target>Faites une pause et découvrez notre variété de délicieuses recettes de thé.</target>
-      </trans-unit>
-      <trans-unit id="filter.better-for-you.body" datatype="html">
-        <source>
-          Our range of better for you recipes strive to promote a balanced and healthy eating pattern
-        </source>
-        <target>Nos plats meilleurs pour la santé favorisent de saines habitudes alimentaires équilibrées. </target>
-      </trans-unit>
-      <trans-unit id="filter.legal" datatype="html">
-        <source>
-          * Our Better-For-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars.
-        </source>
-        <target>* Nos recettes plus saines font la promotion de saines habitudes alimentaires équilibrées en accord avec les orientations faisant autorité, encouragent l’apport en légumes, grains entiers, fruits, légumineuses et bons gras, tout en limitant les gras saturés, le sodium et les sucres.</target>
-      </trans-unit>
-      <trans-unit id="meal-plan.body" datatype="html">
-        <source>
-          Click NEXT when you’re ready to shop ingredients for these recipes. Click – to remove recipes.
-        </source>
-        <target>Cliquez sur SUIVANT pour magasiner les ingrédients de ces recettes. Cliquez sur – pour supprimer les recettes.</target>
-      </trans-unit>
-      <trans-unit id="meal-plan.empty" datatype="html">
-        <source>
-          It looks like you haven’t added any recipes to your meal plan yet
-        </source>
-        <target>Il semble que nous n’ayez pas encore ajouté de recettes à votre plan de repas</target>
-      </trans-unit>
-      <trans-unit id="grocery-list.body" datatype="html">
-        <source>
-          Order ingredients for delivery right here, or share them to shop in store.
-        </source>
-        <target>Commandez les ingrédients à livrer, ou partagez-les pour magasiner en magasin.</target>
-      </trans-unit>
-      <trans-unit id="favourites.title" datatype="html">
-        <source>
-          My Favourites
-        </source>
-        <target>Mes favoris</target>
-      </trans-unit>
-      <trans-unit id="favourites.body" datatype="html">
-        <source>
-          When you find something you like, use the heart to save your favourites and you can find it again here.
-        </source>
-        <target>Lorsque vous trouvez une recette que vous aimez, utilisez le coeur pour l’enregistrer dans vos favoris et la consulter plus tard.</target>
-      </trans-unit>
-      <trans-unit id="favourites.empty" datatype="html">
-        <source>
-          It looks like you haven’t added any recipes to your favourites yet
-        </source>
-        <target>Il semble que nous n’ayez pas encore ajouté de recettes à vos favoris</target>
-      </trans-unit>
-      <trans-unit id="articles.body" datatype="html">
-        <source>
-          Find tips and tricks to improve your cooking skills and help you reclaim weeknight cooking
-        </source>
-        <target>Des conseils et trucs pour améliorer vos talents culinaires et cuisiner les soirs de semaine</target>
-      </trans-unit>
-      <trans-unit id="articles.read-time" datatype="html">
-        <source>
-          Read Time
-        </source>
-        <target>Temps de lecture </target>
-      </trans-unit>
-      <trans-unit id="account.personal-info" datatype="html">
-        <source>
-          Personal Info
-        </source>
-        <target>Renseignements personnels</target>
-      </trans-unit>
-      <trans-unit id="account.first-name" datatype="html">
-        <source>
-          First Name
-        </source>
-        <target>Prénom</target>
-      </trans-unit>
-      <trans-unit id="account.last-name" datatype="html">
-        <source>
-          Last Name
-        </source>
-        <target>Nom</target>
-      </trans-unit>
-      <trans-unit id="account.email" datatype="html">
-        <source>
-          Email
-        </source>
-        <target>Courriel</target>
-      </trans-unit>
-      <trans-unit id="account.postal" datatype="html">
-        <source>
-          Postal Code
-        </source>
-        <target>Code postal</target>
-      </trans-unit>
-      <trans-unit id="account.dob" datatype="html">
-        <source>
-          Date of Birth
-        </source>
-        <target>Date de naissance</target>
-      </trans-unit>
-      <trans-unit id="account.update-button" datatype="html">
-        <source>
-          Update Information
-        </source>
-        <target>Mise à jour de l’information</target>
-      </trans-unit>
-      <trans-unit id="account.valid-email" datatype="html">
-        <source>
-          This must be a valid email address
-        </source>
-        <target>Ceci doit être une adresse courriel valide</target>
-      </trans-unit>
-      <trans-unit id="account.valid-postal" datatype="html">
-        <source>
-          This must be a valid Canadian postal code – ex: A1A 1A1
-        </source>
-        <target>Ceci doit être un code postal canadien valide – p. ex. : A1A 1A1</target>
-      </trans-unit>
-      <trans-unit id="account.invalid-attributes" datatype="html">
-        <source>
-          	Invalid user attributes: email: Required attribute cannot be deleted.
-        </source>
-        <target>•	Attributs utilisateur non valides : courriel : impossible de supprimer l’attribut requis.</target>
-      </trans-unit>
-      <trans-unit id="account.invalid-email" datatype="html">
-        <source>
-          Invalid email address format.
-        </source>
-        <target>Format d’adresse courriel non valide.</target>
-      </trans-unit>
-      <trans-unit id="account.invalid-email" datatype="html">
-        <source>
-          Invalid email address format.
-        </source>
-        <target>Format d’adresse courriel non valide.</target>
-      </trans-unit>
-      <trans-unit id="account.successfully-updated" datatype="html">
-        <source>
-          Profile info successfully updated.
-        </source>
-        <target>•	Profil mis à jour avec succès.</target>
-      </trans-unit>
-      <trans-unit id="account.invalid-password" datatype="html">
-        <source>
-          Password needs a minimum of 6 characters.
-        </source>
-        <target>Le mot de passe doit avoir au moins 6 caractères.</target>
-      </trans-unit>
-      <trans-unit id="security.title" datatype="html">
-        <source>
-          Security
-        </source>
-        <target>Sécurité</target>
-      </trans-unit>
-      <trans-unit id="security.password" datatype="html">
-        <source>
-          Password
-        </source>
-        <target>Mot de passe</target>
-      </trans-unit>
-      <trans-unit id="security.new-password" datatype="html">
-        <source>
-          New Password
-        </source>
-        <target>Nouveau mot de passe</target>
-      </trans-unit>
-      <trans-unit id="security.verify-password" datatype="html">
-        <source>
-          Verify Password
-        </source>
-        <target>Vérifier le mot de passe</target>
-      </trans-unit>
-      <trans-unit id="security.update-password" datatype="html">
-        <source>
-          Update Password
-        </source>
-        <target>Modification du mot de passe</target>
-      </trans-unit>
-      <trans-unit id="contact.title" datatype="html">
-        <source>
-          Contact Us
-        </source>
-        <target>Contactez-Nous</target>
-      </trans-unit>
-      <trans-unit id="contact.subtitle" datatype="html">
-        <source>
-          Need some help? 
-        </source>
-        <target>Besoin d’aide? </target>
-      </trans-unit>
-      <trans-unit id="contact.body" datatype="html">
-        <source>
-          Questions? Comments? We value your feedback and would love to hear from you.
-You can contact us in a variety of ways, the choice is yours.
-
-        </source>
-        <target>Questions? Commentaires? Nous apprécions vos commentaires et aimons avoir de vos nouvelles.
-          Vous pouvez nous contacter de diverses façons, le choix vous appartient.
-          </target>
-      </trans-unit>
-      <trans-unit id="contact.call-us-title" datatype="html">
-        <source>
-          Call Us
-
-        </source>
-        <target>Appelez-nous 
-          </target>
-      </trans-unit>
-      <trans-unit id="contact.call-us-body" datatype="html">
-        <source>
-          If you would like to speak to a live representative, please call us at 1-800-899-1120, Monday to Friday between 8:30 AM-6:00 PM Eastern Time.
-          <br />
-          IF THIS IS A MEDICAL OR PRODUCT SAFETY EMERGENCY, PLEASE CALL 1-800-297-7421.
-          <br />
-          This number is available 24 hours a day / 7 days a week.
-        </source>
-        <target>
-          Pour parler à un représentant en direct, composez 1 800 899-1120, du lundi au vendredi de 8 h 30 à 18 h, heure de l’Est.
-          <br />
-          EN CAS D’URGENCE MÉDICALE OU DE SÉCURITÉ DE PRODUIT, COMPOSEZ 1 800 297-7421.
-          <br />
-          Ce numéro est disponible 24 heures sur 24, 7 jours sur 7.
-        </target>
-      </trans-unit>
-      <trans-unit id="contact.message-us" datatype="html">
-        <source>
-          Message Us 
-        </source>
-        <target>
-          Envoyez-nous un message 
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.title" datatype="html">
-        <source>
-          Have some questions?
-        </source>
-        <target>
-          Vous avez des questions?
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.purchase-online.title" datatype="html">
-        <source>
-          Can I purchase my meal plan online?
-        </source>
-        <target>
-          Vous avez des questions?
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.purchase-online.body" datatype="html">
-        <source>
-          If you live in Ontario, you may be able to purchase your meal plan online through Metro online grocery. Visit www.metro.ca/en/online-grocery to find out if they have pickup or delivery in your area*
-          <br />
-          If you live in BC, you may be able to purchase your meal plan online through Save on Foods online grocery. Visit https://www.saveonfoods.com/shop-online-how-it-works/# To find out if they have pickup or delivery in your area*
-        </source>
-        <target>
-          Si vous vivez au Québec, vous pouvez acheter votre plan de repas à Épicerie en ligne Metro. Visitez www.metro.ca/fr pour le ramassage ou la livraison dans votre région.*
-          <br />
-          *En raison de la COVID-19, le volume de livraison est plus élevé qu’à la normale; ainsi, les délais de livraison peuvent être retardés chez Metro.
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.build-meal-plan.title" datatype="html">
-        <source>
-          How do I build my meal plan? 
-        </source>
-        <target>
-          Comment puis-je bâtir mon plan de repas? 
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.build-meal-plan.body" datatype="html">
-        <source>
-          Easy! From the home page, click ‘get started’  and make sure you have registered. Then you’ll be directed to the ‘Select Recipes’ page. This is where you’ll start browsing through our collection of delicious  recipes.
-To add a meal to your meal plan, simply click the green ‘+ ’ button on the top right of  the recipe. To see your Meal Plan, click on the green next button on the select recipes page.
-          <b>PS:</b>
-          You can always find these pages on  the progress  bar or the side menu if you’re on your phone.
-        </source>
-        <target>
-          Facile! À la page d’accueil, cliquez sur «Débutez» et assurez-vous d’être inscrit. Puis la page Sélectionner recettes s’affichera. C’est à cet endroit que vous débuterez l’exploration de notre collection de délicieuses recettes.
-          Pour ajouter un repas à votre plan de repas, cliquez sur le bouton vert «+» dans le coin supérieur droit la recette. Pour afficher votre plan de repas, cliquez sur le bouton vert «Suivant» de la page «Sélectionner recettes».
-          <b>P. S. :</b>
-          Vous trouverez toujours ces pages dans la barre de progression ou dans le menu latéral si vous êtes au téléphone.
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.add-favourite.title" datatype="html">
-        <source>
-          How do I add a recipe to my favourite list of recipes? 
-        </source>
-        <target>
-          Comment puis-je ajouter une recette à ma liste préférée de recettes?
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.recipe-instructions.title" datatype="html">
-        <source>
-          How do I see the recipe instructions?
-        </source>
-        <target>
-          Comment-puis voir les instructions?
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.recipe-instructions.body" datatype="html">
-        <source>
-          Click on the recipe name or image and the full recipe page will open as a popup. Then you’ll find the cooking instructions in the tabs below the recipe image to the right of the ‘Ingredients’ tab.
-        </source>
-        <target>
-          Cliquez sur le nom de la recette ou l’image et la page complète de la recette s’affichera. Vous trouverez les instructions dans les onglets sous l’image à la droite de l’onglet «Ingrédients».
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.nutritional-information.title" datatype="html">
-        <source>
-          Can I see detailed nutritional information?
-        </source>
-        <target>
-          Puis-je voir la valeur nutritive détaillée?
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.nutritional-information.body" datatype="html">
-        <source>
-          Yep! When you click on the recipe name or image, the full recipe page will open as a popup. Then you’ll find nutrition facts in the tabs below the recipe image to the right of the ‘Instructions’ tab.
-        </source>
-        <target>
-          Oui! En cliquant sur le nom de la recette ou l’image, la page de la recette s’affichera. Vous trouverez la valeur nutritive dans les onglets sous l’image à la droite de l’onglet «Instructions».
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.easier-access.title" datatype="html">
-        <source>
-          Is there an easier way for me to access this website to plan my meals?
-        </source>
-        <target>
-          Y a-t-il une façon plus simple d’accéder à ce site pour planifier mes repas?
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.easier-access.body" datatype="html">
-        <source>
-          Yes! You can add the Meals That Matter website to your phone’s home screen just like an app.
-For iOS, launch the Safari browser and go to Mealsthatmatter.com. Tap the Share button, then scroll until you find the ‘Add to Home Screen’ button…and tap to download.
-For Android, launch Chrome and go to Mealsthatmatter.com. Tap the menu button, then tap ‘Add to Homescreen’.
-Once downloaded, The Meals That Matter icon will appear on your home screen for you to drag and place wherever you like.
+          <x id="ICU" equiv-text="{
+        page, select, Select Recipes {...} Meal Plan {...} Favourites {...} Grocery List {...}}" />
 
         </source>
         <target>
-          Oui! Ajoutez le site Chaque repas compte à l’écran d’accueil de votre téléphone comme une appli. Pour iOS, lancez Safari et rendez-vous sur Mealsthatmatter.com. Appuyez sur le bouton Partager, puis allez au bouton «Ajouter à l’écran d’accueil»… et appuyez pour télécharger.
-Pour Android, lancez Chrome et rendez-vous sur Mealsthatmatter.com. Appuyez sur le bouton Menu, puis sur «Ajouter à l’écran d’accueil». Une fois téléchargée, l’icône de Chaque repas compte apparaîtra à votre écran d’accueil et vous pourrez la glisser et la placer où vous voulez.
+          <x id="ICU" equiv-text="{
+        page, select, Select Recipes {...} Meal Plan {...} Favourites {...} Grocery List {...}}" />
 
         </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">authenticatedPage: name of the page</note>
       </trans-unit>
-      <trans-unit id="faq.cost.title" datatype="html">
+      <trans-unit id="62631b3f5b4f500e281f629abc65ebb9537afcff" datatype="html">
+        <source>{VAR_SELECT, select, Select Recipes {select recipes} Meal Plan {meal plan} Favourites {favourites} Grocery List {grocery list } }</source>
+        <target>{VAR_SELECT, select, Select Recipes {select recipes} Meal Plan {meal plan} Favourites {favourites} Grocery List {grocery list } }</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc547e0fa680ea96d4867e86a3de6c032e526ff4" datatype="html">
         <source>
-          How much does this cost?
+          <x id="ICU" equiv-text="{
+          subPage, select, All Recipes {...} 30 minutes or less {...} Chicken {...} Summer {...} BBQ {...} Dinner {...} Pasta {...} Slow Cooker {...} Tea {...} Breakfast and Brunch {...} Italian {...} Indian {...} Asian {...} Mexican {...} Middle Eastern {...} Mediterranean {...} Canadian {...} Salad {...} Better for you {...}}" />
         </source>
         <target>
-          Quels sont les coûts?
+          <x id="ICU" equiv-text="{
+          subPage, select, All Recipes {...} 30 minutes or less {...} Chicken {...} Summer {...} BBQ {...} Dinner {...} Pasta {...} Slow Cooker {...} Tea {...} Breakfast and Brunch {...} Italian {...} Indian {...} Asian {...} Mexican {...} Middle Eastern {...} Mediterranean {...} Canadian {...} Salad {...} Better for you {...}}" />
         </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <note priority="1" from="description">subPage: name of the subpage</note>
       </trans-unit>
-      <trans-unit id="faq.cost.body" datatype="html">
+      <trans-unit id="af0cdb4a8a5d82e69962f3ac5f5639d09175d72a" datatype="html">
+        <source>{VAR_SELECT, select, All Recipes {all recipes} 30 minutes or less {30 minutes or less} Chicken {Chicken} Summer {Summer} BBQ {BBQ} Dinner {Dinner} Pasta {Pasta} Slow Cooker {Slow Cooker} Tea {Tea} Breakfast and Brunch {Breakfast and Brunch} Italian {Italian} Indian {Indian} Asian {Asian} Mexican {Mexican} Middle Eastern {Middle Eastern} Mediterranean {Mediterranean} Canadian {Canadian} Salad {Salad} Better for you {Better for you} }</source>
+        <target>{VAR_SELECT, select, All Recipes {all recipes} 30 minutes or less {30 minutes or less} Chicken {Chicken} Summer {Summer} BBQ {BBQ} Dinner {Dinner} Pasta {Pasta} Slow Cooker {Slow Cooker} Tea {Tea} Breakfast and Brunch {Breakfast and Brunch} Italian {Italian} Indian {Indian} Asian {Asian} Mexican {Mexican} Middle Eastern {Middle Eastern} Mediterranean {Mediterranean} Canadian {Canadian} Salad {Salad} Better for you {Better for you} }</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8bb2f30f29d695c7f7051aa5c13f7403fe97a683" datatype="html">
         <source>
-          We’re pleased to offer our service free of charge! At Meals That Matter, we have a mission to help Canadians reclaim weeknight cooking, and we hope that our website helps you do just that.
-Of course, you’ll still have to pay for your groceries! Those prices and delivery charges (if applicable) are determined by the retailer you choose to shop with.
-
+          <x id="ICU" equiv-text="{
+        page, select, articles {...} about {...} contact us {...} faq {...}}" />
         </source>
         <target>
-          Nous vous offrons ce service gratuitement! La mission de Chaque repas compte est d’aider les Canadiens à cuisiner les soirs de semaine, et nous espérons que notre site vous le permettra. Bien sûr, vous devrez payer votre épicerie! Les prix et les frais de livraison (s’il y a lieu) sont déterminés par le détaillant de votre choix.
+          <x id="ICU" equiv-text="{
+        page, select, articles {...} about {...} contact us {...} faq {...}}" />
         </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <note priority="1" from="description">page: name of the page</note>
       </trans-unit>
-      <trans-unit id="faq.recipe-types.title" datatype="html">
-        <source>
-          Are there Italian/ Asian/ 30 minuntes or less recipes? 
-        </source>
-        <target>
-          Y a-t-il des recettes de plats italiens, asiatiques ou prêts en 30 minutes ou moins? 
-        </target>
+      <trans-unit id="496b7cb4ffc5d614edf2936650151122b88d96cc" datatype="html">
+        <source>{VAR_SELECT, select, articles {articles} about {about} contact us {contact us} faq {faq} }</source>
+        <target>{VAR_SELECT, select, articles {articles} about {about} contact us {contact us} faq {faq} }</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
       </trans-unit>
-      <trans-unit id="faq.recipe-types.body" datatype="html">
-        <source>
-          Yes and more 😊 The best way to explore these recipes is to use the filter feature on the ‘Select Recipes’ page. We have over 500 recipes that span across multiple recipe categories.
-We are always improving and adding to our recipe collection so stay tuned for more dietary options.
-
-        </source>
-        <target>
-          Oui et bien plus 😊 La meilleure façon d’explorer ces recettes est d’utiliser le filtre à la page «Sélectionner recettes». Notre choix de plus de 500 recettes s’étend à de multiples catégories. 
-Nous améliorons toujours et ajoutons des recettes; surveillez notre variété de plats exquis.
-
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.membership.title" datatype="html">
-        <source>
-          Is membership required in order to create a meal plan/ shop?
-        </source>
-        <target>
-          Faut-il être membre pour créer ou magasiner un plan de repas?        
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.membership.body" datatype="html">
-        <source>
-          Yes. In order to create and shop a meal plan you will need to have an account with us. To create a new account simple click the ‘get started’ button on our homepage and then fill out your details to register.
-          <br />
-          Once registered, you will have access to 500+ recipes with new recipes being added all the time as well as exclusive offers and the ability to simply shop your meal plan online or instore.
-        </source>
-        <target>
-          Oui. Pour créer et magasiner un plan de repas, vous devez avoir un compte avec nous. Pour créer un compte, cliquez sur le bouton «Débutez» à la page d’accueil et remplissez le formulaire pour vous inscrire.
-          <br />
-          Une fois inscrit, vous aurez accès à plus de 500 recettes et à de nouvelles recettes et offres exclusives, et vous pourrez magasiner votre plan de repas en ligne ou en magasin.
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.category.title" datatype="html">
-        <source>
-          Can I view by category such as breakfast, brunch, dinner?
-        </source>
-        <target>
-          Puis-je afficher les recettes par catégorie, telle que déjeuner, brunch, souper?     
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.category.body" datatype="html">
-        <source>
-          Yes! You can find those categories easily by filtering on the ‘Select Recipes’ page.
-        </source>
-        <target>
-          Oui! Vous trouverez facielement ces catégories en les filtrant à la page «Sélectionner recettes».    
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.grocery-list.title" datatype="html">
-        <source>
-          My grocery list includes every ingredient in the recipes, including staples I already have like flour, spices, and seasonings. Is there a way to edit my grocery list to remove staples?
-        </source>
-        <target>
-          Ma liste d’épicerie comprend chaque ingrédient dans les recettes, dont les essentiels comme la farine, les épices et les assaisonnements. Puis-je changer ma liste pour enlever les essentiels?
-        </target>
-      </trans-unit>
-      <trans-unit id="faq.grocery-list.body" datatype="html">
-        <source>
-          If you choose to shop your grocery list online, your items will be sent to the grocery cart on the retailer website. From there, you can remove items you already have before you checkout.
-If you choose to shop in-store, you can check off items to indicate that you already have them. Unfortunately you are not able to remove these items completely at this time. However, we’re also looking to improve our service!
-
-        </source>
-        <target>
-          Si vous magasinez votre liste d’épicerie en ligne, vos articles seront ajoutés au panier sur le site du détaillant. Vous pouvez y enlever les articles que vous avez déjà avant de passer à la caisse.
-Si vous magasinez en ligne, vous pouvez cocher les articles que vous avez déjà sous la main. Pour l’instant, nous ne pouvons pas enlever ces articles. Toutefois, nous travaillons à améliorer notre service!
-
-        </target>
-      </trans-unit>
-      <trans-unit id="no-items-found" datatype="html">
-        <source>
-          No items found
-
-        </source>
-        <target>
-          Aucun élément trouvé
-
-        </target>
-      </trans-unit>
-      <trans-unit id="no-results-matching" datatype="html">
-        <source>
-          Sorry, we couldn't find any results matching "..."
-
-        </source>
-        <target>
-          Désolé, aucun résultat ne correspond à «...»
-
-        </target>
-      </trans-unit>
-      <trans-unit id="footer.visit-knorr" datatype="html">
-        <source>
-          Visit Knorr
-
-        </source>
-        <target>
-          Visitez Knorr
-
-        </target>
-      </trans-unit>
-      <trans-unit id="footer.visit-hellmanns" datatype="html">
-        <source>
-          Visit Hellmann's
-
-        </source>
-        <target>
-          Visitez Hellmann's
-
-        </target>
-      </trans-unit>
-      <trans-unit id="footer.terms" datatype="html">
-        <source>
-          Terms of Use
-
-        </source>
-        <target>
-          Conditions d’utilisation
-
-        </target>
-      </trans-unit>
-      <trans-unit id="footer.privacy" datatype="html">
-        <source>
-          Privacy Notice
-
-        </source>
-        <target>
-          Avis de confidentialité
-
-        </target>
-      </trans-unit>
-      <trans-unit id="footer.faqs" datatype="html">
-        <source>
-          FAQS
-
-        </source>
-        <target>
-          FAQ
-
-        </target>
-      </trans-unit>
-      <trans-unit id="footer.adchoices" datatype="html">
-        <source>
-          Adchoices
-
-        </source>
-        <target>
-          Choix de pub 
-
-        </target>
-      </trans-unit>
-      <trans-unit id="footer.legal" datatype="html">
-        <source>
-          This website is intended for Canadian consumers of products and services of Unilever Canada Inc. This website is not intended for consumers outside Canada.
-
-        </source>
-        <target>
-          Ce site Web s’adresse uniquement aux consommateurs canadiens de produits et services d’Unilever Canada Inc. Ce site Web ne s’adresse pas aux consommateurs à l’extérieur du Canada.
-
-        </target>
-      </trans-unit>
-
-
     </body>
   </file>
 </xliff>

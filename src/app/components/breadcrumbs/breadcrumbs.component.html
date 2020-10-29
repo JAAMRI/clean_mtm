@@ -1,6 +1,12 @@
 <div class="breadcrumbs-container">
-    <div class="breadcrumb" *ngFor='let breadcrumb of breadcrumbs'>
+    <div class="breadcrumb" *ngFor='let breadcrumb of breadcrumbs' i18n='breadcrumb: name of breadcrumb on mobile view'>
         <span [class.active]='breadcrumb.active'></span>
-        {{breadcrumb.name}}
+        {
+            breadcrumb,
+            select,
+            select recipes {select recipes}
+            meal plan {meal plan}
+            grocery list {grocery list}
+        }
     </div>
 </div>

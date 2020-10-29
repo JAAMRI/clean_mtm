@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-CA" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="864a10a49ba0c86b34d35168a6ad12c8164ca6c6" datatype="html">
+        <source>register</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a21b4e4b7c48dc611c3774abf8d163519991638d" datatype="html">
+        <source>Already have an account?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="270329219d947cded795679e59f1110152f64745" datatype="html">
+        <source>signin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1773439ea94264b7c0b3a4db052648ec96a703a1" datatype="html">
+        <source>my account
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0ca27e0838856f23a6ce30e1e53be7b1887ea345" datatype="html">
+        <source>
+        <x id="ICU" equiv-text="{
+        page, select, Select Recipes {...} Meal Plan {...} Favourites {...} Grocery List {...}}"/>
+        
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">authenticatedPage: name of the page</note>
+      </trans-unit>
+      <trans-unit id="62631b3f5b4f500e281f629abc65ebb9537afcff" datatype="html">
+        <source>{VAR_SELECT, select, Select Recipes {select recipes} Meal Plan {meal plan} Favourites {favourites} Grocery List {grocery list } }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc547e0fa680ea96d4867e86a3de6c032e526ff4" datatype="html">
+        <source>
+          <x id="ICU" equiv-text="{
+          subPage, select, All Recipes {...} 30 minutes or less {...} Chicken {...} Summer {...} BBQ {...} Dinner {...} Pasta {...} Slow Cooker {...} Tea {...} Breakfast and Brunch {...} Italian {...} Indian {...} Asian {...} Mexican {...} Middle Eastern {...} Mediterranean {...} Canadian {...} Salad {...} Better for you {...}}"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <note priority="1" from="description">subPage: name of the subpage</note>
+      </trans-unit>
+      <trans-unit id="af0cdb4a8a5d82e69962f3ac5f5639d09175d72a" datatype="html">
+        <source>{VAR_SELECT, select, All Recipes {all recipes} 30 minutes or less {30 minutes or less} Chicken {Chicken} Summer {Summer} BBQ {BBQ} Dinner {Dinner} Pasta {Pasta} Slow Cooker {Slow Cooker} Tea {Tea} Breakfast and Brunch {Breakfast and Brunch} Italian {Italian} Indian {Indian} Asian {Asian} Mexican {Mexican} Middle Eastern {Middle Eastern} Mediterranean {Mediterranean} Canadian {Canadian} Salad {Salad} Better for you {Better for you} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8bb2f30f29d695c7f7051aa5c13f7403fe97a683" datatype="html">
+        <source>
+        <x id="ICU" equiv-text="{
+        page, select, articles {...} about {...} contact us {...} faq {...}}"/>
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <note priority="1" from="description">page: name of the page</note>
+      </trans-unit>
+      <trans-unit id="496b7cb4ffc5d614edf2936650151122b88d96cc" datatype="html">
+        <source>{VAR_SELECT, select, articles {articles} about {about} contact us {contact us} faq {faq} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ce71ef726456e80d2328559ac7f812599d5523f9" datatype="html">
+        <source>
+        SIGN OUT
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="20544a08bd3803623ac305391a75ae25755e5dbf" datatype="html">
+        <source>You&apos;re one step away from exploring 500+ recipes from around the world.
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0b15bf6fa1e5bdabc9fde97a14bee63a5d5e62f6" datatype="html">
+        <source>email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d8b81951d25439864e92f750f7c99d7426d6517c" datatype="html">
+        <source>password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bc4c71410a1244badba1d5e273ed60a96773fc9f" datatype="html">
+        <source>processing</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6a6a5a45d7df5b7f0169fd2096d78910bb5d0b7d" datatype="html">
+        <source>Forgot your password?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

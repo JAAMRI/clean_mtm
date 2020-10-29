@@ -4,6 +4,7 @@
     <body>
       <trans-unit id="register" datatype="html">
         <source>register</source>
+        <source>REGISTER</source>
 
       </trans-unit>
       <trans-unit id="have-account" datatype="html">
@@ -20,6 +21,10 @@
         <source>signout</source>
 
 
+      </trans-unit>
+      <trans-unit id="email" datatype="html">
+        <source>email</source>
+        <target>email</target>
       </trans-unit>
 
       <trans-unit id="my-account" datatype="html">

@@ -2,7 +2,14 @@
     <ng-container *ngIf='isMobile'>
         <div class="visit-brands">
             <a rel="noopener" (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'external')"
-                *ngFor='let item of footerItems.brands' target="_blank" [href]="item.href">{{item.name}}</a>
+                *ngFor='let item of footerItems.brands' target="_blank" [href]="item.href" i18n='item.name: name of footer item'>{
+                    item.name,
+                    select,
+                    visit knorr {visit knorr}
+                    visit hellmann's {visit hellmann's}
+                   
+
+                }</a>
         </div>
         <div class="social-icons">
             <a rel="noopener" *ngFor='let item of footerItems.social'
@@ -21,22 +28,29 @@
             <a class='adchoices-logo' href="https://www.unilever.ca"
                 (click)="adobeDtbTracking.footerLinks('Adchoices', 'https://www.unilever.ca', 'external')">
                 <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
-                <span>AdChoices</span>
+                <span i18n>adchoices</span>
             </a>
             <a class='unilever-logo' href="https://www.unilever.ca"
                 (click)="adobeDtbTracking.footerLinks('Unilever', 'https://www.unilever.ca', 'external')">
                 <img class='unilever-logo' src="/assets/static_images/footer/unilever-logo.svg" alt="Unilever logo">
-                <span>© 2020 Unilever</span>
+                <span i18n>© 2020 Unilever</span>
             </a>
         </div>
     </ng-container>
     <div *ngIf='!isMobile' class="desktop-wrapper">
 
         <a rel="noopener" (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'external')"
-            *ngFor='let item of footerItems.brands' target="_blank" [href]="item.href">{{item.name}}</a>
+            *ngFor='let item of footerItems.brands' target="_blank" [href]="item.href">{
+                item.name,
+                select,
+                visit knorr {visit knorr}
+                visit hellmann's {visit hellmann's}
+               
+
+            }</a>
         <a rel="noopener" *ngFor='let item of footerItems.social'
             (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'social')" target="_blank" [href]="item.href">
-            <img [class]='item.name !== "Pinterest" ? "collapse": ""' [src]="item.img" [alt]="item.name">
+            <img [class]='item.name !== "pinterest" ? "collapse": ""' [src]="item.img" [alt]="item.name">
 
         </a>
         <!-- <a id="_bapw-link" href="#" target="_blank" style="text-decoration:none !important">
@@ -47,28 +61,44 @@
         <a class='adchoices-logo' href="https://www.unilever.ca"
             (click)="adobeDtbTracking.footerLinks('Adchoices', 'https://www.unilever.ca', 'external')">
             <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
-            <span>AdChoices</span>
+            <span i18n>adchoices</span>
         </a>
         <a class='unilever-logo' href="https://www.unilever.ca"
             (click)="adobeDtbTracking.footerLinks('Unilever', 'https://www.unilever.ca', 'external')">
             <img class='unilever-logo' src="/assets/static_images/footer/unilever-logo.svg" alt="Unilever logo">
-            <span>© 2020 Unilever</span>
+            <span i18n>© 2020 Unilever</span>
         </a>
     </div>
     <div class="legal">
         <ng-container *ngFor='let item of footerItems.legal'>
             <a rel="noopener" *ngIf='item.href' [href]="item.href" target="_blank"
-                (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'external')">{{item.name}}</a>
+                (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'external')">{
+                    item.name,
+                    select,
+                    terms of use {terms of use}
+                    privacy policy {privacy policy}
+                    faq {faq}
+                   
+
+                }</a>
 
             <a *ngIf='item.routerLink' [routerLink]="item.routerLink"
-                (click)="adobeDtbTracking.pageTracking(item.name, item.href)">{{item.name}}</a>
+                (click)="adobeDtbTracking.pageTracking(item.name, item.href)">{
+                    item.name,
+                    select,
+                    terms of use {terms of use}
+                    privacy policy {privacy policy}
+                    faq {faq}
+                   
+
+                }</a>
         </ng-container>
 
     </div>
 
 
     <div class="footer-wrapper">
-        <p class='footer-text'>This website is intended for Canadian consumers of products and services
+        <p class='footer-text' i18n>This website is intended for Canadian consumers of products and services
             of
             Unilever Canada Inc.
             This website is not intended for consumers outside Canada.
