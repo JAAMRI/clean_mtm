@@ -2,28 +2,29 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-CA" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="a1aa740cc9e7e5daf2e4692b257710940a1042a3" datatype="html">
+      <trans-unit id="7398838431782174793" datatype="html">
         <source>
-          <x id="ICU" equiv-text="{
-                breadcrumb, select, select recipes {...} meal plan {...} grocery list {...}}" />
+         select recipes
         </source>
         <target>
-          <x id="ICU" equiv-text="{
-              breadcrumb, select, select recipes {...} meal plan {...} grocery list {...}}" />
+          sélectionner recettes
         </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/breadcrumbs/breadcrumbs.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-        <note priority="1" from="description">breadcrumb: name of breadcrumb on mobile view</note>
       </trans-unit>
-      <trans-unit id="0f113eb809918289410fb3167a81d32355a1ecd8" datatype="html">
-        <source>{VAR_SELECT, select, select recipes {select recipes} meal plan {meal plan} grocery list {grocery list} }</source>
-        <target>{VAR_SELECT, select, select recipes {sélectionner recettes} meal plan {plan de repas} grocery list {liste d’épicerie} }</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/breadcrumbs/breadcrumbs.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
+      <trans-unit id="4727120776259355414" datatype="html">
+        <source>
+         meal plan
+        </source>
+        <target>
+          plan de repas
+        </target>
+      </trans-unit>
+      <trans-unit id="6343387214877737779" datatype="html">
+        <source>
+          grocery list
+        </source>
+        <target>
+          liste d’épicerie
+        </target>
       </trans-unit>
       <trans-unit id="911df1fb23fe26865e49fc041f885dda8fadd887" datatype="html">
         <source>Select
@@ -37,7 +38,7 @@
       <trans-unit id="b592704f037c9ca8a3fe9657a1b3c983df5bc154" datatype="html">
         <source>Meal
           Plan</source>
-        <source>plan de repas</source>
+        <target>plan de repas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">9</context>
@@ -45,7 +46,7 @@
       </trans-unit>
       <trans-unit id="1b0c99b950c8b76a8706a657265f5663b22c40ea" datatype="html">
         <source>Grocery List</source>
-        <source>liste d’épicerie</source>
+        <target>liste d’épicerie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">12</context>
@@ -114,7 +115,7 @@
       </trans-unit>
       <trans-unit id="41203cc4d2278b2821469119010ee8ee66fe52b8" datatype="html">
         <source>adchoices</source>
-        <source>Choix de pub</source>
+        <target>Choix de pub</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
           <context context-type="linenumber">31</context>
@@ -323,7 +324,7 @@
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1773439ea94264b7c0b3a4db052648ec96a703a1" datatype="html">
+      <trans-unit id="e263273ccf7343280c3ef6841f6b0a3e25869d9a" datatype="html">
         <source>my account
       </source>
         <target>mon compte</target>
@@ -353,11 +354,11 @@
         <source>{VAR_SELECT, select, Select Recipes {select recipes} Meal Plan {meal plan} Favourites {favourites} Grocery List {grocery list} }</source>
         <target>
           {VAR_SELECT, select, Select Recipes {sélectionner recettes} Meal Plan {plan de repas} Favourites {favoris} Grocery List {liste d’épicerie} }
-          </source>
-          <context-group purpose="location">
-            <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
-            <context context-type="linenumber">30</context>
-          </context-group>
+          </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="cc547e0fa680ea96d4867e86a3de6c032e526ff4" datatype="html">
         <source>
@@ -376,7 +377,7 @@
       </trans-unit>
       <trans-unit id="af0cdb4a8a5d82e69962f3ac5f5639d09175d72a" datatype="html">
         <source>{VAR_SELECT, select, All Recipes {all recipes} 30 minutes or less {30 minutes or less} Chicken {Chicken} Summer {Summer} BBQ {BBQ} Dinner {Dinner} Pasta {Pasta} Slow Cooker {Slow Cooker} Tea {Tea} Breakfast and Brunch {Breakfast and Brunch} Italian {Italian} Indian {Indian} Asian {Asian} Mexican {Mexican} Middle Eastern {Middle Eastern} Mediterranean {Mediterranean} Canadian {Canadian} Salad {Salad} Better for you {Better for you} }</source>
-        <source>{VAR_SELECT, select, All Recipes {toutes les recettes} 30 minutes or less {30 minutes ou moins} Chicken {Poulet} Summer {été} BBQ {BBQ} Dinner {Dinner} Pasta {pâtes} Slow Cooker {mijoteuse} Tea {thé} Breakfast and Brunch {déjeuner et brunch} Italian {plats italiens} Indian {plats indiens} Asian {plats asiatiques} Mexican {Plats mexicains} Middle Eastern {plats du moyen-orient} Mediterranean {plats méditerranéens} Canadian {plats canadiens} Salad {salade} Better for you {meilleur pour la santé} }</source>
+        <target>{VAR_SELECT, select, All Recipes {toutes les recettes} 30 minutes or less {30 minutes ou moins} Chicken {Poulet} Summer {été} BBQ {BBQ} Dinner {Dinner} Pasta {pâtes} Slow Cooker {mijoteuse} Tea {thé} Breakfast and Brunch {déjeuner et brunch} Italian {plats italiens} Indian {plats indiens} Asian {plats asiatiques} Mexican {Plats mexicains} Middle Eastern {plats du moyen-orient} Mediterranean {plats méditerranéens} Canadian {plats canadiens} Salad {salade} Better for you {meilleur pour la santé} }</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">46</context>
@@ -401,11 +402,11 @@
         <source>{VAR_SELECT, select, articles {articles} about {about} contact us {contact us} faq {faq} }</source>
         <target>
           {VAR_SELECT, select, articles {articles} about {À propos} contact us {contactez-nous} faq {faq} }
-          </source>
-          <context-group purpose="location">
-            <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
-            <context context-type="linenumber">79</context>
-          </context-group>
+          </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="604071c1b98deffb6c26c8ce18c39ab882792994" datatype="html">
         <source>
@@ -435,6 +436,25 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
           <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b5a7c7d1f03a51e1010db481347940efcca4f43e" datatype="html">
+        <source>how it works</source>
+        <target>marche à suivre</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c99ae5de296768933f04db1a5e7476c32b318dae" datatype="html">
+        <source>Select delicious recipes.
+      Create instant grocery lists.
+      Delivered straight to your door.</source>
+        <target>Sélectionnez des recettes. Créez des listes d’épicerie. Faites-les livrer à votre porte.</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="990494766a0d2e4e32b3db984a962299ad738eb3" datatype="html">
@@ -512,12 +532,21 @@
       </trans-unit>
       <trans-unit id="c0c5344d25e4ff6c7c31c828858546c2efb21a7a" datatype="html">
         <source>{VAR_SELECT, select, chef curated recipes {chef curated recipes} instant grocery list {instant grocery list} shopping made easy {shopping made easy} less time prepping {less time prepping} save on costs {save on costs} }</source>
-        <source>{VAR_SELECT, select, chef curated recipes {recettes créées pas nos chefs} instant grocery list {listes d’épicerie instantanées} shopping made easy {le magasinage simplifié} less time prepping {moins de temps de préparation} save on costs {économisez} }</source>
+        <target>{VAR_SELECT, select, chef curated recipes {recettes créées pas nos chefs} instant grocery list {listes d’épicerie instantanées} shopping made easy {le magasinage simplifié} less time prepping {moins de temps de préparation} save on costs {économisez} }</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
         <note priority="1" from="description">item.header: header of item to display</note>
+      </trans-unit>
+      <trans-unit id="be67c0aa8f8fca83b172039e1ee8d300bfafc479" datatype="html">
+        <source>{VAR_SELECT, select, chef curated recipes description {chef curated recipes description} instant grocery list description {instant grocery list description} shopping made easy description {shopping made easy description} less time prepping description {less time prepping description} save on costs description {save on costs description} }</source>
+        <target>{VAR_SELECT, select, chef curated recipes description {chef curated recipes description} instant grocery list description {instant grocery list description} shopping made easy description {shopping made easy description} less time prepping description {less time prepping description} save on costs description {save on costs description} }</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">item.body: body of item to display</note>
       </trans-unit>
       <trans-unit id="2f075786462f89f3f53de95f5fa919145196845b" datatype="html">
         <source>reclaim weeknight cooking</source>
@@ -562,17 +591,16 @@
           <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
           See how a little food prep and planning gives you a head start in the kitchen today.
         </source>
-        <source>
-          <target>
-            Avec Chaque repas compte, il est plus facile d’intégrer la cuisine à votre routine quotidienne.
-            <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
-            <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
-            Voyez comment la préparation et la planification donnent un bon coup de pouce dans la cuisine.
-          </target>
-          <context-group purpose="location">
-            <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
-            <context context-type="linenumber">135</context>
-          </context-group>
+        <target>
+          Avec Chaque repas compte, il est plus facile d’intégrer la cuisine à votre routine quotidienne.
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+          Voyez comment la préparation et la planification donnent un bon coup de pouce dans la cuisine.
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+          <context context-type="linenumber">135</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3b4260c25a6ee8efeb691d8c2881eb3c5b90bea1" datatype="html">
         <source>select more meals</source>
@@ -708,6 +736,7 @@
       </trans-unit>
       <trans-unit id="0459fa82b8c8758334ed33fee7bb77219ff49e3f" datatype="html">
         <source>meal plan</source>
+        <target>plan de repas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/my-meals/my-meals.component.html</context>
           <context context-type="linenumber">3</context>
@@ -772,6 +801,8 @@
       </trans-unit>
       <trans-unit id="293d9dac1da0c707ab260d157eeaa80ab8623db8" datatype="html">
         <source> grocery list</source>
+        <target>liste d’épicerie</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/grocery-list/grocery-list/grocery-list.component.html</context>
           <context context-type="linenumber">2</context>
@@ -779,6 +810,8 @@
       </trans-unit>
       <trans-unit id="86f89f7858f5a24ba6b8513efd542ed20af02312" datatype="html">
         <source>Order ingredients for delivery right here, or share them to shop in store</source>
+        <target>Commandez les ingrédients à livrer, ou partagez-les pour magasiner en magasin.</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/grocery-list/grocery-list/grocery-list.component.html</context>
           <context context-type="linenumber">3</context>
@@ -1125,7 +1158,7 @@
           <context context-type="linenumber">196</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="dd0007958734d5dc864bde918b59f73c99145e33" datatype="html">
+      <trans-unit id="9806b4f47ad44105391b6acb0c0a1dba465a3cd7" datatype="html">
         <source>
           Yes… and more 😊 The best way to explore these recipes is to use the
                     filter
@@ -1342,6 +1375,393 @@
           <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="645b2c426c6a9d4d1c00653a78ede4673b1ec511" datatype="html">
+        <source>terms of use</source>
+        <target>Conditions d’utilisation</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="26242c2924ef6d1648455377ab4534eb94f5b4fe" datatype="html">
+        <source>privacy policy</source>
+        <target>Avis de confidentialité</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="91ac5727fcb805f97f829d07a8b1af8925d8bc15" datatype="html">
+        <source>faq</source>
+        <target>faq</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a2df5693b4e9510ca1bf4753edadf253f0c84f59" datatype="html">
+        <source>
+            visit knorr
+            </source>
+        <target>visitez knorr</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="003cf50118cc7e15d3ffd80eb3e6136d4fdddbec" datatype="html">
+        <source>
+            visit hellmann&apos;s
+        </source>
+        <target>visitez hellmann&apos;s</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a5dbc9897d8487a29929cbaa06001e6b323a6513" datatype="html">
+        <source>
+                visit knorr
+                </source>
+        <target>visitez knorr</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c4d0e1acb5ab7d17471ec7511944d06c66fb8460" datatype="html">
+        <source>
+                visit hellmann&apos;s
+            </source>
+        <target>visitez hellmann&apos;s</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id='3460233226052903860'>
+        <source>all recipes</source>
+        <target>Toutes les recettes </target>
+      </trans-unit>
+      <trans-unit id='1583016603056151395'>
+        <source>30 minutes or less</source>
+        <target>30 minutes ou moins  </target>
+      </trans-unit>
+      <trans-unit id='1913297100726531605'>
+        <source>chicken</source>
+        <target>poulet</target>
+      </trans-unit>
+      <trans-unit id='1210034473723046300'>
+        <source>summer</source>
+        <target>été </target>
+      </trans-unit>
+      <trans-unit id='3342436647696840783'>
+        <source>bbq</source>
+        <target>bbq </target>
+      </trans-unit>
+      <trans-unit id='9153656151632906764'>
+        <source>dinner</source>
+        <target>souper </target>
+      </trans-unit>
+      <trans-unit id='1557675752195711580'>
+        <source>pasta</source>
+        <target>pâtes</target>
+      </trans-unit>
+      <trans-unit id='175848959533021733'>
+        <source>slow cooker</source>
+        <target>mijoteuse </target>
+      </trans-unit>
+      <trans-unit id='7064308808324646143'>
+        <source>tea</source>
+        <target>thé</target>
+      </trans-unit>
+      <trans-unit id='6883086949945276188'>
+        <source>italian</source>
+        <target>plats italiens  </target>
+      </trans-unit>
+      <trans-unit id='8092964599184652324'>
+        <source>breakfast and brunch</source>
+        <target>déjeuner et brunch  </target>
+      </trans-unit>
+      <trans-unit id='5472571657867108316'>
+        <source>mexican</source>
+        <target>plats mexicains    </target>
+      </trans-unit>
+      <trans-unit id='924170727476094704'>
+        <source>indian</source>
+        <target>plats indiens   </target>
+      </trans-unit>
+      <trans-unit id='2540977501215568804'>
+        <source>asian</source>
+        <target>plats asiatiques   </target>
+      </trans-unit>
+      <trans-unit id='3005079591531285956'>
+        <source>middle eastern</source>
+        <target>plats du Moyen-Orient </target>
+      </trans-unit>
+      <trans-unit id='6153328898980407205'>
+        <source>mediterranean</source>
+        <target>plats méditerranéens </target>
+      </trans-unit>
+      <trans-unit id='9188581038217826706'>
+        <source>canadian</source>
+        <target>plats canadiens </target>
+      </trans-unit>
+      <trans-unit id='6914487759970815289'>
+        <source>salad</source>
+        <target>salade </target>
+      </trans-unit>
+      <trans-unit id='630294905587642904'>
+        <source>better for you</source>
+        <target>meilleur pour la santé</target>
+      </trans-unit>
+      <trans-unit id='5119984767701698513'>
+        <source>favourites</source>
+        <target>favoris</target>
+      </trans-unit>
+      <trans-unit id='2344443247187246999'>
+        <source>articles</source>
+        <target>articles</target>
+      </trans-unit>
+      <trans-unit id='8379314117913380516'>
+        <source>about</source>
+        <target>À propos</target>
+      </trans-unit>
+      <trans-unit id='1531212547408073567'>
+        <source>contact us</source>
+        <target>Contactez-nous</target>
+      </trans-unit>
+      <trans-unit id='4656883433287439415'>
+        <source>faq</source>
+        <target>faq</target>
+      </trans-unit>
+      <trans-unit id='6983269145193200120'>
+        <source>30 Minute Meals</source>
+        <target>30 Minute Meals</target>
+      </trans-unit>
+      <trans-unit id='2323169295882664330'>
+        <source>
+          Low on time but don’t want to sacrifice taste? Try one of our 30 minute or less meals tonight.
+        </source>
+        <target>À court de temps, pas prêt à sacrifier le goût? Essayez nos repas prêts en 30 minutes ou moins.</target>
+      </trans-unit>
+      <trans-unit id='16922694072975417'>
+        <source>
+          Chicken Recipes
+        </source>
+        <target>Chicken Recipes</target>
+      </trans-unit>
+      <trans-unit id='7933979204254808021'>
+        <source>
+          From a fabulous salad to a comforting carbonara, we've got you covered with our top chicken recipes.
+        </source>
+        <target>D’une fabuleuse salade aux pâtes carbonara réconfortantes, nous avons la solution avec nos délicieuses recettes de poulet.</target>
+      </trans-unit>
+      <trans-unit id='7422713008543018608'>
+        <source>
+          Summer Recipes
+        </source>
+        <target>Summer Recipes</target>
+      </trans-unit>
+      <trans-unit id='6194137689399220985'>
+        <source>
+         BBQ Recipes
+        </source>
+        <target>BBQ Recipes</target>
+      </trans-unit>
+      <trans-unit id='2667714553863565100'>
+        <source>
+          Out of backyard BBQ ideas? Turn up the heat and try our favourite BBQ recipes today.
+        </source>
+        <target>À court d’idées de BBQ? Allumez le gril et essayez nos recettes préférées en plein air.</target>
+      </trans-unit>
+      <trans-unit id='2091764502378910617'>
+        <source>
+          Pasta Recipes
+        </source>
+        <target>Pasta Recipes</target>
+      </trans-unit>
+      <trans-unit id='3064158097247486489'>
+        <source>
+          From bolognese to a creamy pasta bake, check out some of our favourite pasta recipes here.
+        </source>
+        <target>Pâtes à la bolognaise ou gratin de pâtes crémeuses, essayez nos recettes préférées.</target>
+      </trans-unit>
+      <trans-unit id='3832388266194489972'>
+        <source>
+          45+ Beef Recipes
+        </source>
+        <target>45+ Beef Recipes</target>
+      </trans-unit>
+      <trans-unit id='4762984826137004746'>
+        <source>
+          Multiple cuts, multiple options, you can do so much with beef. Browse our range of recipes below.
+        </source>
+        <target>Coupes et options multiples, vous pouvez tout faire avec du bœuf. Explorez nos recettes.</target>
+      </trans-unit>
+      <trans-unit id='6421533099307201943'>
+        <source>
+          Slow Cooker Recipes
+        </source>
+        <target>Slow Cooker Recipes</target>
+      </trans-unit>
+      <trans-unit id='687875335304107005'>
+        <source>
+          Perfect for those busy days. Explore our range of delicious slow cooker recipes below.
+        </source>
+        <target>Idéal pour un horaire chargé. Explorez nos délicieuses recettes de plats mijotés ci-dessous.</target>
+      </trans-unit>
+      <trans-unit id='5036307245742493912'>
+        <source>
+          Tea Recipes
+        </source>
+        <target>Tea Recipes</target>
+      </trans-unit>
+      <trans-unit id='7428503119080819751'>
+        <source>
+          Take 5 and discover our range of delicious tea recipes
+        </source>
+        <target>Faites une pause et découvrez notre variété de délicieuses recettes de thé.</target>
+      </trans-unit>
+      <trans-unit id='7214217444962786426'>
+        <source>
+          Breakfast and Brunch Recipes
+        </source>
+        <target>Breakfast and Brunch Recipes</target>
+      </trans-unit>
+      <trans-unit id='1447002915961086678'>
+        <source>
+          Fed up of the usual bacon and eggs? Kick it up a notch with these breakfast bites.
+        </source>
+        <target>Ras le bol des œufs et bacon? Diversifiez le choix avec nos suggestions de recettes.</target>
+      </trans-unit>
+      <trans-unit id='7929033574933445841'>
+        <source>
+          Italian Recipes
+        </source>
+        <target>Italian Recipes</target>
+      </trans-unit>
+      <trans-unit id='4349513083687095722'>
+        <source>
+          Explore the taste of Italy from your kitchen with our delicious and comforting Italian recipes.
+        </source>
+        <target>Explorez le goût de l’Italie dans votre cuisine avec nos délicieuses recettes italiennes.</target>
+      </trans-unit>
+      <trans-unit id='8533878919622492598'>
+        <source>
+          Indian Recipes
+        </source>
+        <target>Indian Recipes</target>
+      </trans-unit>
+      <trans-unit id='5350672430295628075'>
+        <source>
+          Spice up your life and learn how to cook your favourite Indian dishes at home!
+        </source>
+        <target>Pimentez votre vie et découvrez comment cuisiner vos plats indiens préférés à la maison! </target>
+      </trans-unit>
+      <trans-unit id='2492325336211034833'>
+        <source>
+          Asian Recipes
+        </source>
+        <target>Asian Recipes</target>
+      </trans-unit>
+      <trans-unit id='8807213134333212960'>
+        <source>
+          Full of flavour and fragrance, our classic Asian recipes are totally worth a try!
+        </source>
+        <target>Regorgeant de saveur et de parfum, nos plats asiatiques classiques en valent la peine!</target>
+      </trans-unit>
+      <trans-unit id='2480424988392337140'>
+        <source>
+          Mexican Recipes
+        </source>
+        <target>Mexican Recipes</target>
+      </trans-unit>
+      <trans-unit id='4153817177161635754'>
+        <source>
+          Make the most of Mexico's bold cuisine and whip up something delicious from our recipes below
+        </source>
+        <target>Tirez parti de la cuisine mexicaine et préparez nos délicieuses recettes ci-dessous.</target>
+      </trans-unit>
+      <trans-unit id='5027145517140615924'>
+        <source>
+          Middle Eastern Recipes
+        </source>
+        <target>Middle Eastern Recipes</target>
+      </trans-unit>
+      <trans-unit id='1804922144862475515'>
+        <source>
+          Discover a world of flavour with our delicious recipes inspired by the Middle East below!
+        </source>
+        <target>Découvrez un monde de saveur avec nos délicieuses recettes inspirées du Moyen-Orient!</target>
+      </trans-unit>
+      <trans-unit id='7864601118855678656'>
+        <source>
+          Mediterranean Recipes
+        </source>
+        <target>Mediterranean Recipes</target>
+      </trans-unit>
+      <trans-unit id='6843471857923669227'>
+        <source>
+          Ready to give your meals a Mediterranean twist? See our pick of top recipes below.
+        </source>
+        <target>Prêt pour une touche méditerranéenne à vos repas? Explorez nos recettes ci-dessous.</target>
+      </trans-unit>
+      <trans-unit id='5183003288088522710'>
+        <source>
+          Canadian Recipes
+                    </source>
+        <target>Canadian Recipes</target>
+      </trans-unit>
+      <trans-unit id='2718271860047497402'>
+        <source>
+          Explore our favourite iconic Canadian recipes and make them for yourself today!
+        </source>
+        <target>Explorez nos plats canadiens préférés et préparez-les dès aujourd’hui!</target>
+      </trans-unit>
+      <trans-unit id='4118415070945871821'>
+        <source>
+          Salad Recipes
+        </source>
+        <target>Salad Recipes</target>
+      </trans-unit>
+      <trans-unit id='3365875422424173384'>
+        <source>
+          Take your pick from our favourite colourful salad recipes here. There are many delicious options!
+        </source>
+        <target>Faites votre choix à partir de nos délicieuses recettes de salades colorées préférées!</target>
+      </trans-unit>
+      <trans-unit id='2553435170135718449'>
+        <source>
+          Better For You Recipes
+        </source>
+        <target>Better For You Recipes</target>
+      </trans-unit>
+      <trans-unit id='5595364612178305719'>
+        <source>
+          Our range of better for you recipes strive to promote a balanced and healthy eating pattern
+        </source>
+        <target>Nos plats meilleurs pour la santé favorisent de saines habitudes alimentaires équilibrées. </target>
+      </trans-unit>
+      <trans-unit id='2100896752540656430'>
+        <source>
+          Dinner Recipes
+        </source>
+        <target>Dinner Recipes </target>
+      </trans-unit>
+      <trans-unit id='1382900618706316920'>
+        <source>
+          What's for Dinner? Let us help you answering that question with our wide range of recipes below.
+        </source>
+        <target>Qu’est-ce qu’on mange? Laissez-nous vous aider avec notre panoplie de recettes ci-dessous.</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

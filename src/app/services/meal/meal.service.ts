@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, LOCALE_ID } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
@@ -16,7 +16,7 @@ export class MealService {
 
   private recipesUrl = '/recipes';  // URL to web api
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, @Inject(LOCALE_ID) public locale: string) {
   }
 
   //Get Meals from API
@@ -26,7 +26,7 @@ export class MealService {
       fromObject: {
         page_start: pageStart.toString(),
         page_size: pageSize.toString(),
-        lang: 'en-CA',
+        lang: `${this.locale}-CA`,
         fields: FIELDS,
         q: query || '',
         p_has_asset: "[[\"image\"]]",
@@ -55,12 +55,12 @@ export class MealService {
             cookTime: meal.cook_time,
             prepTime: meal.prep_time,
             servings: meal.yield.value + " " + meal.yield.measure,
-            ingredients: meal.ingredients.ungrouped.list,
-            instructions: meal.methods.ungrouped.list,
+            ingredients: meal.ingredients.ungrouped?.list,
+            instructions: meal.methods.ungrouped?.list,
             mainIngredient: (Object.keys(meal.main_ingredient).length === 0) ? null : meal.main_ingredient[0].description
           }))
         }
-      }), catchError((err) => { throw 'Error fetching meals, please try again later'}));
+      }), catchError((err) => { console.log(err); throw 'Error fetching meals, please try again later'}));
   }
 
 

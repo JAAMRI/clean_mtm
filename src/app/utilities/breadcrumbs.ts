@@ -2,14 +2,14 @@ import { Breadcrumb } from '../components/breadcrumbs/breadcrumbs.component';
 
 export const BREADCRUMBS: Breadcrumb[] = [
     {
-        name: 'Select Recipes',
+        name: $localize`select recipes`,
         active: false
     },
     {
-        name: 'Meal Plan',
+        name: $localize`meal plan`,
         active: false
     },
     {
-        name: 'Grocery List',
+        name: $localize`grocery list`,
         active: false
     }];

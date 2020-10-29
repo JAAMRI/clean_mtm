@@ -1,5 +1,5 @@
 
-export const SocialFooterItems = [
+export const SocialFooterItems: IFooterItems[] = [
     {
         name: 'facebook',
         href: 'https://www.facebook.com/MealsThatMatterCanada/',
@@ -22,48 +22,6 @@ export const SocialFooterItems = [
     },
 
 ];
-
-export const AdFooterItems: IFooterItems[] = [{
-    name: 'unilever',
-    href: 'https://www.unilever.ca',
-    img: '/assets/static_images/footer/unilever-logo.svg'
-}];
-
-export const LegalFooterItems: IFooterItems[] = [{
-    name: 'terms of use',
-    href: 'https://www.unilever.ca/legal.html',
-
-}, {
-    name: 'privacy policy',
-    href: 'https://www.unilevernotices.com/canada/english/privacy-notice/notice.html'
-},
-{
-    name: 'FAQs',
-    routerLink: '/faqs'
-},
-
-]
-
-export const BrandsFooterItems: IFooterItems[] = [{
-    name: 'visit knorr',
-    href: 'https://www.knorr.com/ca/en/home.html'
-},
-{
-    name: "visit hellmann's",
-    href: 'https://www.hellmanns.com/ca/en/home.html'
-},
-
-]
-
-
-export const FooterItems: { [type: string]: IFooterItems[] } = {
-    social: SocialFooterItems,
-    ad: AdFooterItems,
-    legal: LegalFooterItems,
-    brands: BrandsFooterItems
-
-}
-
 
 export interface IFooterItems {
     name: string;

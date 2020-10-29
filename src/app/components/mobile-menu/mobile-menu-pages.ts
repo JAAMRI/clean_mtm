@@ -1,95 +1,95 @@
 export const AuthenticatedPages = [
     {
-        name: 'SELECT RECIPES',
+        name: $localize `select recipes`,
         route: '/recipes/discover',
         toggled: false,
         subPages: [
             {
-                name: 'All Recipes',
+                name: $localize `all recipes`,
                 route: '/recipes/discover',
             },
             {
-                name: '30 minutes or less',
+                name: $localize `30 minutes or less`,
                 route: '/recipes/discover/30_minutes_or_less',
             },
             {
-                name: 'Chicken',
+                name:  $localize `chicken`,
                 route: '/recipes/discover/chicken',
             },
             {
-                name: 'Summer',
+                name: $localize `summer`,
                 route: '/recipes/discover/summer',
             },
             {
-                name: 'BBQ',
+                name: $localize `bbq`,
                 route: '/recipes/discover/bbq',
             },
             {
-                name: 'Dinner',
+                name: $localize `dinner`,
                 route: '/recipes/discover/dinner',
             },
             {
-                name: 'Pasta',
+                name: $localize `pasta`,
                 route: '/recipes/discover/pasta',
             },
             {
-                name: 'Slow Cooker',
+                name: $localize `slow cooker`,
                 route: '/recipes/discover/slow_cooker',
             },
             {
-                name: 'Tea',
+                name: $localize `tea`,
                 route: '/recipes/discover/tea',
             },
             {
-                name: 'Breakfast and Brunch',
+                name: $localize `breakfast and brunch`,
                 route: '/recipes/discover/breakfast_and_brunch',
             },
             {
-                name: 'Italian',
+                name: $localize `italian`,
                 route: '/recipes/discover/italian',
             },
             {
-                name: 'Indian',
+                name: $localize `indian`,
                 route: '/recipes/discover/indian',
             },
             {
-                name: 'Asian',
+                name: $localize `asian`,
                 route: '/recipes/discover/asian',
             },
             {
-                name: 'Mexican',
+                name: $localize `mexican`,
                 route: '/recipes/discover/mexican',
             },
             {
-                name: 'Middle Eastern',
+                name: $localize `middle eastern`,
                 route: '/recipes/discover/middle_eastern',
             },
             {
-                name: 'Mediterranean',
+                name: $localize `mediterranean`,
                 route: '/recipes/discover/mediterranean',
             },
             {
-                name: 'Canadian',
+                name: $localize `canadian`,
                 route: '/recipes/discover/canadian',
             },
             {
-                name: 'Salad',
+                name: $localize `salad`,
                 route: '/recipes/discover/salad',
             },
             {
-                name: 'Better for you',
+                name: $localize `better for you`,
                 route: '/recipes/discover/better_for_you',
             },
         ]
     },
-    { name: `MEAL PLAN`, route: '/recipes/my-meals' },
-    { name: 'GROCERY LIST', route: '/recipes/grocery-list' },
-    { name: `FAVOURITES`, route: '/recipes/favourites', }, // TODO when favourites page is created
+    { name: $localize `meal plan`, route: '/recipes/my-meals' },
+    { name: $localize `grocery list`, route: '/recipes/grocery-list' },
+    { name: $localize `favourites`, route: '/recipes/favourites', }, // TODO when favourites page is created
 ];
 
 export const MenuPages = [
-    { name: 'ARTICLES', route: '/article', },
-    { name: `ABOUT`, route: '/about', }, // TODO when favourites page is created
-    { name: `CONTACT US`, route: '/contact-us' },
-    { name: 'FAQ', route: '/faqs' },
+    { name: $localize `articles`, route: '/article', },
+    { name: $localize `about`, route: '/about', }, // TODO when favourites page is created
+    { name: $localize `contact us`, route: '/contact-us' },
+    { name: $localize `faq`, route: '/faqs' },
 ];

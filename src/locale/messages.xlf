@@ -2,24 +2,6 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-CA" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="a1aa740cc9e7e5daf2e4692b257710940a1042a3" datatype="html">
-        <source>
-            <x id="ICU" equiv-text="{
-                breadcrumb, select, select recipes {...} meal plan {...} grocery list {...}}"/>
-        </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/breadcrumbs/breadcrumbs.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-        <note priority="1" from="description">breadcrumb: name of breadcrumb on mobile view</note>
-      </trans-unit>
-      <trans-unit id="0f113eb809918289410fb3167a81d32355a1ecd8" datatype="html">
-        <source>{VAR_SELECT, select, select recipes {select recipes} meal plan {meal plan} grocery list {grocery list} }</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/breadcrumbs/breadcrumbs.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="911df1fb23fe26865e49fc041f885dda8fadd887" datatype="html">
         <source>Select
         Recipes</source>
@@ -87,34 +69,83 @@
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8e93ff8a1cd4789ebe9fc6d17b54ce56b5b05e96" datatype="html">
-        <source>{VAR_SELECT, select, visit knorr {visit knorr} visit hellmann&apos;s {visit hellmann&apos;s} }</source>
+      <trans-unit id="a5dbc9897d8487a29929cbaa06001e6b323a6513" datatype="html">
+        <source>
+                visit knorr
+                </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="linenumber">6</context>
         </context-group>
-        <note priority="1" from="description">item.name: name of footer item</note>
+      </trans-unit>
+      <trans-unit id="c4d0e1acb5ab7d17471ec7511944d06c66fb8460" datatype="html">
+        <source>
+                visit hellmann&apos;s
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="41203cc4d2278b2821469119010ee8ee66fe52b8" datatype="html">
         <source>adchoices</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">32</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="09022ea32dc02e1a0e223709320b7c4f812b4ac0" datatype="html">
         <source>© 2020 Unilever</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">37</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">69</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a2df5693b4e9510ca1bf4753edadf253f0c84f59" datatype="html">
+        <source>
+            visit knorr
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="003cf50118cc7e15d3ffd80eb3e6136d4fdddbec" datatype="html">
+        <source>
+            visit hellmann&apos;s
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="645b2c426c6a9d4d1c00653a78ede4673b1ec511" datatype="html">
+        <source>terms of use</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="26242c2924ef6d1648455377ab4534eb94f5b4fe" datatype="html">
+        <source>privacy policy</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="91ac5727fcb805f97f829d07a8b1af8925d8bc15" datatype="html">
+        <source>faq</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c39b22b76add25401f3aa67f50b0576206cef8c6" datatype="html">
@@ -125,7 +156,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">101</context>
+          <context context-type="linenumber">87</context>
         </context-group>
       </trans-unit>
       <trans-unit id="47dfe78bf9cd27e72ed5072223ed120191589dd1" datatype="html">
@@ -147,7 +178,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="0b15bf6fa1e5bdabc9fde97a14bee63a5d5e62f6" datatype="html">
@@ -166,7 +197,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">27</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/forgot-password/forgot-password.component.html</context>
@@ -181,7 +212,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d8b81951d25439864e92f750f7c99d7426d6517c" datatype="html">
@@ -196,7 +227,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="966ca7c5a5c2a131698322a3eaa54d88336950b2" datatype="html">
@@ -207,7 +238,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="437cda6f4c6acb01a417453b6547f30a9b339f7e" datatype="html">
@@ -311,10 +342,10 @@
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="cc547e0fa680ea96d4867e86a3de6c032e526ff4" datatype="html">
+      <trans-unit id="4a3136b75b42ce3596451cdc22f3018a37c9b6da" datatype="html">
         <source>
           <x id="ICU" equiv-text="{
-          subPage, select, All Recipes {...} 30 minutes or less {...} Chicken {...} Summer {...} BBQ {...} Dinner {...} Pasta {...} Slow Cooker {...} Tea {...} Breakfast and Brunch {...} Italian {...} Indian {...} Asian {...} Mexican {...} Middle Eastern {...} Mediterranean {...} Canadian {...} Salad {...} Better for you {...}}"/>
+          subPage, select, all recipes {...} 30 minutes or less {...} Chicken {...} Summer {...} BBQ {...} Dinner {...} Pasta {...} Slow Cooker {...} Tea {...} Breakfast and Brunch {...} Italian {...} Indian {...} Asian {...} Mexican {...} Middle Eastern {...} Mediterranean {...} Canadian {...} Salad {...} Better for you {...}}"/>
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
@@ -322,8 +353,8 @@
         </context-group>
         <note priority="1" from="description">subPage: name of the subpage</note>
       </trans-unit>
-      <trans-unit id="af0cdb4a8a5d82e69962f3ac5f5639d09175d72a" datatype="html">
-        <source>{VAR_SELECT, select, All Recipes {all recipes} 30 minutes or less {30 minutes or less} Chicken {Chicken} Summer {Summer} BBQ {BBQ} Dinner {Dinner} Pasta {Pasta} Slow Cooker {Slow Cooker} Tea {Tea} Breakfast and Brunch {Breakfast and Brunch} Italian {Italian} Indian {Indian} Asian {Asian} Mexican {Mexican} Middle Eastern {Middle Eastern} Mediterranean {Mediterranean} Canadian {Canadian} Salad {Salad} Better for you {Better for you} }</source>
+      <trans-unit id="7161bb6f9527e20b0c764e9eafddf2b6b925e600" datatype="html">
+        <source>{VAR_SELECT, select, all recipes {all recipes } 30 minutes or less {30 minutes or less} Chicken {Chicken} Summer {Summer} BBQ {BBQ} Dinner {Dinner} Pasta {Pasta} Slow Cooker {Slow Cooker} Tea {Tea} Breakfast and Brunch {Breakfast and Brunch} Italian {Italian} Indian {Indian} Asian {Asian} Mexican {Mexican} Middle Eastern {Middle Eastern} Mediterranean {Mediterranean} Canadian {Canadian} Salad {Salad} Better for you {Better for you} }</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">46</context>
@@ -372,6 +403,22 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
           <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b5a7c7d1f03a51e1010db481347940efcca4f43e" datatype="html">
+        <source>how it works</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c99ae5de296768933f04db1a5e7476c32b318dae" datatype="html">
+        <source>Select delicious recipes.
+      Create instant grocery lists.
+      Delivered straight to your door.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="990494766a0d2e4e32b3db984a962299ad738eb3" datatype="html">
@@ -444,6 +491,14 @@
           <context context-type="linenumber">16</context>
         </context-group>
         <note priority="1" from="description">item.header: header of item to display</note>
+      </trans-unit>
+      <trans-unit id="be67c0aa8f8fca83b172039e1ee8d300bfafc479" datatype="html">
+        <source>{VAR_SELECT, select, chef curated recipes description {chef curated recipes description} instant grocery list description {instant grocery list description} shopping made easy description {shopping made easy description} less time prepping description {less time prepping description} save on costs description {save on costs description} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">item.body: body of item to display</note>
       </trans-unit>
       <trans-unit id="2f075786462f89f3f53de95f5fa919145196845b" datatype="html">
         <source>reclaim weeknight cooking</source>
@@ -675,7 +730,7 @@
                         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">114</context>
+          <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d96670223d6053791c86b22183c73be94ccfa39c" datatype="html">
@@ -684,7 +739,7 @@
                         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">123</context>
+          <context context-type="linenumber">127</context>
         </context-group>
       </trans-unit>
       <trans-unit id="e2af3b485a0e9ea7c0cd6efad56f4b9a32372cd1" datatype="html">
@@ -869,13 +924,13 @@
           <context context-type="linenumber">196</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="dd0007958734d5dc864bde918b59f73c99145e33" datatype="html">
+      <trans-unit id="9806b4f47ad44105391b6acb0c0a1dba465a3cd7" datatype="html">
         <source>Yes… and more 😊 The best way to explore these recipes is to use the
                     filter
                     feature on the ‘Select Recipes’ page. We have over 500 recipes that span across multiple recipe
                     categories.
 
-                    <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>&gt;We are always improving and adding to our recipe collection so stay tuned for
+                    <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>We are always improving and adding to our recipe collection so stay tuned for
                     more dietary options.
                 </source>
         <context-group purpose="location">
@@ -1028,6 +1083,102 @@
           <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
           <context context-type="linenumber">43</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id='3460233226052903860'>
+        <source>all recipes</source>
+        <target>Toutes les recettes </target>
+      </trans-unit>
+      <trans-unit id='1583016603056151395'>
+        <source>30 minutes or less</source>
+        <target>30 minutes ou moins  </target>
+      </trans-unit>
+      <trans-unit id='1913297100726531605'>
+        <source>chicken</source>
+        <target>poulet</target>
+      </trans-unit>
+      <trans-unit id='1210034473723046300'>
+        <source>summer</source>
+        <target>été </target>
+      </trans-unit>
+      <trans-unit id='3342436647696840783'>
+        <source>bbq</source>
+        <target>bbq </target>
+      </trans-unit>
+      <trans-unit id='9153656151632906764'>
+        <source>dinner</source>
+        <target>souper </target>
+      </trans-unit>
+      <trans-unit id='1557675752195711580'>
+        <source>pasta</source>
+        <target>pâtes</target>
+      </trans-unit>
+      <trans-unit id='175848959533021733'>
+        <source>slow cooker</source>
+        <target>mijoteuse </target>
+      </trans-unit>
+      <trans-unit id='7064308808324646143'>
+        <source>tea</source>
+        <target>thé</target>
+      </trans-unit>
+      <trans-unit id='6883086949945276188'>
+        <source>italian</source>
+        <target>plats italiens  </target>
+      </trans-unit>
+      <trans-unit id='8092964599184652324'>
+        <source>breakfast and brunch</source>
+        <target>déjeuner et brunch  </target>
+      </trans-unit>
+      <trans-unit id='5472571657867108316'>
+        <source>mexican</source>
+        <target>plats mexicains    </target>
+      </trans-unit>
+      <trans-unit id='924170727476094704'>
+        <source>indian</source>
+        <target>plats indiens   </target>
+      </trans-unit>
+      <trans-unit id='2540977501215568804'>
+        <source>asian</source>
+        <target>plats asiatiques   </target>
+      </trans-unit>
+      <trans-unit id='3005079591531285956'>
+        <source>middle eastern</source>
+        <target>plats du Moyen-Orient </target>
+      </trans-unit>
+      <trans-unit id='6153328898980407205'>
+        <source>mediterranean</source>
+        <target>plats méditerranéens </target>
+      </trans-unit>
+      <trans-unit id='9188581038217826706'>
+        <source>canadian</source>
+        <target>plats canadiens </target>
+      </trans-unit>
+      <trans-unit id='6914487759970815289'>
+        <source>salad</source>
+        <target>salade </target>
+      </trans-unit>
+      <trans-unit id='630294905587642904'>
+        <source>better for you</source>
+        <target>meilleur pour la santé</target>
+      </trans-unit>
+      <trans-unit id='5119984767701698513'>
+        <source>favourites</source>
+        <target>favoris</target>
+      </trans-unit>
+      <trans-unit id='2344443247187246999'>
+        <source>articles</source>
+        <target>articles</target>
+      </trans-unit>
+      <trans-unit id='8379314117913380516'>
+        <source>about</source>
+        <target>À propos</target>
+      </trans-unit>
+      <trans-unit id='1531212547408073567'>
+        <source>contact us</source>
+        <target>Contactez-nous</target>
+      </trans-unit>
+      <trans-unit id='4656883433287439415'>
+        <source>faq</source>
+        <target>faq</target>
       </trans-unit>
     </body>
   </file>

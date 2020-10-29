@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, LOCALE_ID } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
@@ -18,15 +18,18 @@ export class MealPlanService {
   constructor(
     private http: HttpClient,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    @Inject(LOCALE_ID) public locale: string
   ) { }
 
   saveMealPlan(mealPlan: any[], mealId?: string, action: string = 'add'): Promise<any> {
     if (!this.accountService.loggedIn) {
       const currentRoute = this.router.url;
-      this.router.navigate(['/auth/login'], {queryParams: {
-        returnUrl: currentRoute
-      },})
+      this.router.navigate(['/auth/login'], {
+        queryParams: {
+          returnUrl: currentRoute
+        },
+      })
       return;
     }
     return this.accountService.loggedIn ? this.saveMealPlanToServer(mealPlan, mealId, action) : this.saveMealPlanToLocalStorage(mealPlan, mealId, action);
@@ -127,17 +130,18 @@ export class MealPlanService {
       }
       return this.http.get(this.apiHost + this.mealPlanUrl, options).pipe(
         map((meals: any) =>
-
-          meals.map((meal: any) => ({
-            id: meal.recipe_id,
-            title: meal.recipe_title,
-            nutrition: meal.recipe_nutrition,
-            image: meal.recipe_image_path,
-            servings: meal.recipe_servings,
-            cookTime: meal.recipe_cook_time,
-            mainIngredient: meal.recipe_main_ingredient,
-            prepTime: meal.recipe_prep_time
-          })) || []
+        {
+            return meals.map((meal: any) => ({
+              id: meal.recipe_id,
+              title: meal.recipe_title,
+              nutrition: meal.recipe_nutrition,
+              image: meal.recipe_image_path,
+              servings: meal.recipe_servings,
+              cookTime: meal.recipe_cook_time,
+              mainIngredient: meal.recipe_main_ingredient,
+              prepTime: meal.recipe_prep_time
+            })) || []
+          }
         ),
         catchError(handleError('getMealPlan', []))).toPromise()
     }).catch(err => {
