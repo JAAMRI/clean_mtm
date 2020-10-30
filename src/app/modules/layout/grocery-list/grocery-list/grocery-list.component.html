@@ -1,6 +1,7 @@
 <div class="grocery-list-page">
   <h1 class='title uppercase' i18n> grocery list</h1>
   <p i18n>Order ingredients for delivery right here, or share them to shop in store</p>
+
   <div *ngIf="!isMealPlanEmpty && groceryListWidget" class="grocery-container" [innerHtml]='groceryListWidget | safeHtml'></div>
   <ng-container *ngIf='isMealPlanEmpty'>
     <p class='no-items-text' i18n>

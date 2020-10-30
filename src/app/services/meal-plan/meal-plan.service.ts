@@ -6,6 +6,7 @@ import { handleError } from '../../../app/utilities/helper-functions';
 import { AccountService } from '../account/account.service';
 import Auth from '@aws-amplify/auth';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
 
 
 @Injectable({
@@ -43,10 +44,11 @@ export class MealPlanService {
       "recipe_title": recipe.title,
       "recipe_image_path": recipe.image
     }
+    console.log(recipe.cookTime);
     //These values could be null
     payload['recipe_nutrition'] = (recipe.hasOwnProperty('nutrition')) ? recipe.nutrition : null;
     payload['recipe_main_ingredient'] = (recipe.hasOwnProperty('mainIngredient')) ? recipe.mainIngredient : null;
-    payload['recipe_cook_time'] = (recipe.hasOwnProperty('cookTime')) ? recipe.cookTime : null;
+    payload['recipe_cook_time'] = (recipe.cookTime) ? recipe.cookTime : 0;
     payload['recipe_prep_time'] = (recipe.hasOwnProperty('prepTime')) ? recipe.prepTime : null;
     payload['recipe_servings'] = (recipe.hasOwnProperty('servings')) ? recipe.servings : null;
 
@@ -57,7 +59,12 @@ export class MealPlanService {
           .set('Content-Type', 'application/json')
       }
       if (action === 'add') {
-        return this.http.post(this.apiHost + this.mealPlanUrl, payload, headers).pipe(catchError(handleError('saveMealPlan', []))).toPromise();
+        try {
+          return this.http.post(this.apiHost + this.mealPlanUrl, payload, headers).toPromise()
+        } catch(error) {
+          console.error(error)
+        }
+        
       }
       if (action === 'remove') {
         return this.http.delete(this.apiHost + this.mealPlanUrl + `/${recipeId}`, headers).pipe(catchError(handleError('saveMealPlan', []))).toPromise();

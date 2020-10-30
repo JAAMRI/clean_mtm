@@ -94,6 +94,8 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
         this.pageTitle = RecipeInformationByFilterName[filter].title;
         this.pageDescription = RecipeInformationByFilterName[filter].description;
         this.setSeo(filter)
+      } else {
+        this.resetSeo()
       }
 
       this.getMeals(this.meals.length, this.pageSize, 'right', this.searchQuery)
@@ -104,6 +106,13 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.seoService.generateTags({
       title: RecipeInformationByFilterName[filter].titleTag,
       description: RecipeInformationByFilterName[filter].seoDescription,
+      slug: this.router.url
+    })
+  }
+  resetSeo() {
+    this.seoService.generateTags({
+      title: '',
+      description: '',
       slug: this.router.url
     })
   }
