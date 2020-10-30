@@ -93,18 +93,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     }
   }
 
-  async addToMealPlan(meal: any) {
-    // add to mealplan
-    const status = await this.mealPlanService.saveMealPlan([...this.mealPlan, meal], meal.id);
-    if (status !== 'Successfully created') {
-      this.snackbar.open('Error adding to meal plan.', null, { duration: 2000, verticalPosition: 'top' });
-      return;
-    }
-    this.mealPlan.push(meal);
-    this.snackbar.open('Added.', null, { duration: 2000, verticalPosition: 'top' });
-
-  }
-
   async removeFromMealPlan(mealId: any) {
     const status = await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove');
     if (status !== 'Successfully deleted') {
@@ -112,7 +100,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
       return;
     }
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
-    this.snackbar.open('Removed.', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackbar.open($localize`Removed!`, null, { duration: 2000, verticalPosition: 'top' });
 
   }
 
@@ -138,7 +126,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   removeFavourite(mealId: string) {
     this.favouriteMeals = this.favouriteMeals.filter((meal: any) => meal.id !== mealId)
     this.favouriteMealIds = this.favouriteMealIds.replace(mealId + '|', '');
-    this.snackbar.open('Removed from favourites.', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackbar.open($localize`Removed from favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
 
   }
@@ -146,7 +134,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   addFavourite(favouriteMeal: any) {
     this.favouriteMeals.push(favouriteMeal)
     this.favouriteMealIds += (favouriteMeal.id + '|');
-    this.snackbar.open('Added to favourites.', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackbar.open($localize`Added to favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
 
   }

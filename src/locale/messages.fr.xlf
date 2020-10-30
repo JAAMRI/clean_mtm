@@ -1543,7 +1543,7 @@
       </trans-unit>
       <trans-unit id='6983269145193200120'>
         <source>30 Minute Meals</source>
-        <target>30 Minute Meals</target>
+        <target>Repas 30 minutes</target>
       </trans-unit>
       <trans-unit id='2323169295882664330'>
         <source>
@@ -1555,7 +1555,7 @@
         <source>
           Chicken Recipes
         </source>
-        <target>Chicken Recipes</target>
+        <target>Recettes de Poulet</target>
       </trans-unit>
       <trans-unit id='7933979204254808021'>
         <source>
@@ -1567,13 +1567,19 @@
         <source>
           Summer Recipes
         </source>
-        <target>Summer Recipes</target>
+        <target>Recettes de Estivales</target>
+      </trans-unit>
+      <trans-unit id='5259166658608193350'>
+        <source>
+          Celebrate summer with our top pick of bright and delicious recipes below!
+        </source>
+        <target>Célébrez l’été avec nos meilleures recettes colorées et délicieuses ci-dessous!</target>
       </trans-unit>
       <trans-unit id='6194137689399220985'>
         <source>
          BBQ Recipes
         </source>
-        <target>BBQ Recipes</target>
+        <target>Recettes sur le Gril</target>
       </trans-unit>
       <trans-unit id='2667714553863565100'>
         <source>
@@ -1585,7 +1591,7 @@
         <source>
           Pasta Recipes
         </source>
-        <target>Pasta Recipes</target>
+        <target>Recettes de Pâtes </target>
       </trans-unit>
       <trans-unit id='3064158097247486489'>
         <source>
@@ -1597,7 +1603,7 @@
         <source>
           45+ Beef Recipes
         </source>
-        <target>45+ Beef Recipes</target>
+        <target>45+ Recettes de Boeuf</target>
       </trans-unit>
       <trans-unit id='4762984826137004746'>
         <source>
@@ -1609,7 +1615,7 @@
         <source>
           Slow Cooker Recipes
         </source>
-        <target>Slow Cooker Recipes</target>
+        <target>Recettes de Plats à la Mijoteuse</target>
       </trans-unit>
       <trans-unit id='687875335304107005'>
         <source>
@@ -1621,9 +1627,9 @@
         <source>
           Tea Recipes
         </source>
-        <target>Tea Recipes</target>
+        <target>Recettes de Thé</target>
       </trans-unit>
-      <trans-unit id='7428503119080819751'>
+      <trans-unit id='1893979219391390118'>
         <source>
           Take 5 and discover our range of delicious tea recipes
         </source>
@@ -1633,7 +1639,7 @@
         <source>
           Breakfast and Brunch Recipes
         </source>
-        <target>Breakfast and Brunch Recipes</target>
+        <target>Recettes Déjeuner et Brunch</target>
       </trans-unit>
       <trans-unit id='1447002915961086678'>
         <source>
@@ -1645,7 +1651,7 @@
         <source>
           Italian Recipes
         </source>
-        <target>Italian Recipes</target>
+        <target>Plats Italiens</target>
       </trans-unit>
       <trans-unit id='4349513083687095722'>
         <source>
@@ -1657,7 +1663,7 @@
         <source>
           Indian Recipes
         </source>
-        <target>Indian Recipes</target>
+        <target>Plats Indiens</target>
       </trans-unit>
       <trans-unit id='5350672430295628075'>
         <source>
@@ -1669,7 +1675,7 @@
         <source>
           Asian Recipes
         </source>
-        <target>Asian Recipes</target>
+        <target>Plats Asiatique</target>
       </trans-unit>
       <trans-unit id='8807213134333212960'>
         <source>
@@ -1681,7 +1687,7 @@
         <source>
           Mexican Recipes
         </source>
-        <target>Mexican Recipes</target>
+        <target>Plats Mexicains</target>
       </trans-unit>
       <trans-unit id='4153817177161635754'>
         <source>
@@ -1693,7 +1699,7 @@
         <source>
           Middle Eastern Recipes
         </source>
-        <target>Middle Eastern Recipes</target>
+        <target>Plats du Moyen-Orient</target>
       </trans-unit>
       <trans-unit id='1804922144862475515'>
         <source>
@@ -1705,7 +1711,7 @@
         <source>
           Mediterranean Recipes
         </source>
-        <target>Mediterranean Recipes</target>
+        <target>Plats Méditerranéens</target>
       </trans-unit>
       <trans-unit id='6843471857923669227'>
         <source>
@@ -1717,7 +1723,7 @@
         <source>
           Canadian Recipes
                     </source>
-        <target>Canadian Recipes</target>
+        <target>Plats Canadiens</target>
       </trans-unit>
       <trans-unit id='2718271860047497402'>
         <source>
@@ -1729,7 +1735,7 @@
         <source>
           Salad Recipes
         </source>
-        <target>Salad Recipes</target>
+        <target>Salades</target>
       </trans-unit>
       <trans-unit id='3365875422424173384'>
         <source>
@@ -1741,7 +1747,7 @@
         <source>
           Better For You Recipes
         </source>
-        <target>Better For You Recipes</target>
+        <target>Plats Meilleurs pour la Santé</target>
       </trans-unit>
       <trans-unit id='5595364612178305719'>
         <source>
@@ -1753,13 +1759,304 @@
         <source>
           Dinner Recipes
         </source>
-        <target>Dinner Recipes </target>
+        <target>Recettes de Souper </target>
       </trans-unit>
       <trans-unit id='1382900618706316920'>
         <source>
           What's for Dinner? Let us help you answering that question with our wide range of recipes below.
         </source>
         <target>Qu’est-ce qu’on mange? Laissez-nous vous aider avec notre panoplie de recettes ci-dessous.</target>
+      </trans-unit>
+      <trans-unit id='1236487209085580750'>
+        <source>
+          Removed!
+        </source>
+        <target>Supprimé!</target>
+      </trans-unit>
+      <trans-unit id='8574900406010608874'>
+        <source>
+          Removed from favourites!
+        </source>
+        <target>Supprimé de vos favoris!</target>
+      </trans-unit>
+      <trans-unit id='8202496212529080869'>
+        <source>
+          Added to favourites!
+        </source>
+        <target>Ajouté à vos favoris!</target>
+      </trans-unit>
+      <trans-unit id='2857562763562588169'>
+        <source>
+          Added to meal plan!
+        </source>
+        <target>Ajouté au plan de repas!</target>
+      </trans-unit>
+      <trans-unit id='6202548095070066199'>
+        <source>
+          Removed from meal plan!
+        </source>
+        <target>Supprimé du plan de repas!</target>
+      </trans-unit>
+      <trans-unit id='6010954430652425261'>
+        <source>
+          Recipes in 30 Minutes or Less | Meals That Matter
+        </source>
+        <target>Recettes en 30 minutes ou moins | Chaque repas compte</target>
+      </trans-unit>
+      <trans-unit id='8406002248553116832'>
+        <source>
+          Get your meal on the table in 30 minutes or less with these fast, delicious recipe options!
+        </source>
+        <target>Mettez votre repas sur la table en 30 minutes ou moins avec ces délicieuses recettes rapides!</target>
+      </trans-unit>
+      <trans-unit id='2228216304881598051'>
+        <source>
+          50+ Chicken Recipes | Meals That Matter
+        </source>
+        <target>Plus de 50 recettes de poulet | Chaque repas compte</target>
+      </trans-unit>
+      <trans-unit id='3619084998485019177'>
+        <source>
+          These delicious, budget-friendly chicken dinner ideas are perfect for weeknight dinners.
+        </source>
+        <target>Ces délicieuses idées de recettes de poulet abordables sont parfaites pour les soupers de semaine.</target>
+      </trans-unit>
+      <trans-unit id='3457293454090396000'>
+        <source>
+          110+ Summer Recipes | Meals That Matter
+        </source>
+        <target>Plus de 110 recettes estivales | Chaque repas compte</target>
+      </trans-unit>
+      <trans-unit id='3537122650673978633'>
+        <source>
+          From colourful salads to becoming a grillmaster, try some of these recipes and make the Summer last!
+        </source>
+        <target>Des salades colorées à l'art de devenir un pro du gril, essayez certaines de ces recettes et faites durer l'été!</target>
+      </trans-unit>
+      <trans-unit id='1361070280965273774'>
+        <source>
+          90+ BBQ Recipes - Grilling | Meals That Matter
+        </source>
+        <target>Plus de 90 recettes sur le gril | Chaque repas compte</target>
+      </trans-unit>
+      <trans-unit id='7555699573092856012'>
+        <source>
+          Looking for some tasty BBQ recipes? Fire up the grill and try one of our recipes  here today.
+        </source>
+        <target>À la recherche de délicieuses recettes sur le BBQ? Allumez le gril et essayez l'une de nos recettes dès aujourd'hui.</target>
+      </trans-unit>
+      <trans-unit id='7226181575644986784'>
+        <source>
+          25+ Pasta Recipes | Meals That Matter
+        </source>
+        <target>Plus de 25 recettes de pâtes | Chaque repas compte</target>
+      </trans-unit>
+      <trans-unit id='1542678784757383893'>
+        <source>
+          From bolognese to a classic alfredo, you can take pasta either way. Check out some of our favourite selections here.</source>
+        <target>Accompagnez vos pâtes d'une savoureuse sauce bolognaise ou alfredo classique. Explorez quelques-unes de nos recettes préférées.</target>
+      </trans-unit>
+      <trans-unit id='2778399444133170989'>
+        <source>
+          45+ Beef Recipes | Meals That Matter
+        </source>
+        <target>Plus de 45 recettes de boeuf | Chaque repas compte</target>
+      </trans-unit>
+      <trans-unit id='2145784160019934255'>
+        <source>
+          Multiple cuts, multiple options, you can do anything with beef. See some of our favourites here and try one out today!</source>
+        <target>Coupes multiples, options multiples, vous pouvez tout faire avec du bœuf. Affichez certaines de nos recettes préférées et essayez-en une dès aujourd'hui!</target>
+      </trans-unit>
+      <trans-unit id='6890027794951389949'>
+        <source>
+          Slow Cooker Recipes | Meals That Matter</source>
+        <target>
+          Recettes de plats à la mijoteuse | Chaque repas compte
+        </target>
+      </trans-unit>
+      <trans-unit id='5010418105634394545'>
+        <source>
+          Perfect for those busy days, a slow cooker recipe is convenient enough to not require much attention. Check out our favourites here.
+        </source>
+        <target>
+          Idéal lorsque votre horaire est chargé, un plat mijoté est pratique et ne nécessite pas beaucoup d'attention. Vous trouverez ici nos recettes préférées.        </target>
+      </trans-unit>
+      <trans-unit id='618168585703725242'>
+        <source>
+          Tea Recipes - Recharge | Meals That Matter</source>
+        <target>
+          Recettes de thé réconfortant | Chaque repas compte
+        </target>
+      </trans-unit>
+      <trans-unit id='2666845306088175439'>
+        <source>
+          Mix up your routine and discover our range of delicious tea recipes</source>
+        <target>
+          Changez votre routine et découvrez notre variété de délicieuses recettes de thé.         </target>
+      </trans-unit>
+      <trans-unit id='7642296343487294199'>
+        <source>
+          40+ Breakfast & Brunch Ideas | Meals That Matter</source>
+        <target>
+          Plus de 40 idées de déjeuner et brunch | Chaque repas compte
+        </target>
+      </trans-unit>
+      <trans-unit id='8927726537409007056'>
+        <source>
+          Fed up of the usual bacon and eggs? We have some eggcelent other suggestions you can try for your next brunch.</source>
+        <target>
+          Ras le bol des traditionnels œufs et bacon? Nous vous proposons d'autres excellentes suggestions que vous pourrez essayer lors de votre prochain brunch.        </target>
+      </trans-unit>
+      <trans-unit id='8923878186502784706'>
+        <source>
+          Italian Recipes - Classic | Meals That Matter</source>
+        <target>
+          Plats italiens classiques | Chaque repas compte
+        </target>
+      </trans-unit>
+      <trans-unit id='3266838887438145362'>
+        <source>
+          Whether it’s a classic pasta or something a little more complex, Italian cooking is all about taking quality ingredients and cooking them simply.</source>
+        <target>
+          Pour les pâtes classiques ou les plats de nature plus complexe, les ingrédients de qualité et leur cuisson simple sont à la base de la cuisine italienne.
+        </target>
+      </trans-unit>
+      <trans-unit id='4911604160606090644'>
+        <source>
+          Indian Recipes - Authentic | Meals That Matter</source>
+        <target>
+          Plats indiens authentiques | Chaque repas compte
+        </target>
+      </trans-unit>
+      <trans-unit id='5725785396450154449'>
+        <source>
+          Spice up your life and learn how to cook your favorite Indian restaurant dishes at home such as a chicken curry or naan bread.</source>
+        <target>
+          Pimentez votre vie et découvrez comment cuisiner à la maison vos plats indiens préférés du restaurant comme le cari de poulet ou le pain naan.        </target>
+      </trans-unit>
+      <trans-unit id='957470247377385970'>
+        <source>
+          Asian Inspired Recipes | Meals That Matter
+        </source>
+        <target>
+          Plats d'inspiration asiatique | Chaque repas compte
+        </target>
+      </trans-unit>
+      <trans-unit id='6227458844949263876'>
+        <source>
+          Soups, stir-fries, salads and more, these classic Asian recipes are deliciously diverse, but all possess fantastic flavour and fragrance.
+        </source>
+        <target>
+          Soupes, sautés, salades et bien plus, ces plats asiatiques classiques sont délicieusement diversifiés et tous relevés de saveurs et parfums fantastiques.        </target>
+      </trans-unit>
+      <trans-unit id='6652686194969669742'>
+        <source>
+          Mexican Recipes - Traditional | Meals That Matter
+        </source>
+        <target>
+          Plats mexicains traditionnels | Chaque repas compte        
+        </target>
+      </trans-unit>
+      <trans-unit id='5789770230864697423'>
+        <source>
+          From tacos and nachos to enchiladas, pick delicious recipes to cook up for your next dinner or party.
+        </source>
+        <target>
+          Des tacos aux nachos et enchiladas, choisissez nos délicieuses recettes pour en cuisiner lors de votre prochain souper ou de votre prochaine fête.        </target>
+      </trans-unit>
+      <trans-unit id='3655223184523305750'>
+        <source>
+          Middle Eastern Recipes | Meals That Matter
+        </source>
+        <target>
+          Plats du Moyen-Orient | Chaque repas compte
+        </target>
+      </trans-unit>
+      <trans-unit id='4668041295928404932'>
+        <source>
+          From hummus to shakshuka, discover a whole new world of delicious flavours with these recipes inspired by the Middle East.
+        </source>
+        <target>
+          De l'houmous au chakchouka, découvrez un tout nouveau monde de délicieuses saveurs avec ces recettes inspirées du Moyen-Orient.        </target>
+      </trans-unit>
+      <trans-unit id='4173758664243304712'>
+        <source>
+          Mediterranean Recipes - Colourful | Meals That Matter        
+        </source>
+        <target>
+          Plats méditerranéens colorés | Chaque repas compte        
+        </target>
+      </trans-unit>
+      <trans-unit id='5447005576654292486'>
+        <source>
+          Known for having numerous health benefits, the Mediterranean diet is loaded with excellent and tasty recipes.
+        </source>
+        <target>
+          Reconnu pour ses nombreux bienfaits pour la santé, le régime méditerranéen regorge d'excellentes et de délicieuses recettes.
+        </target>
+      </trans-unit>
+      <trans-unit id='8083427643244712413'>
+        <source>
+          Canadian Recipes - Iconic | Meals That Matter
+        </source>
+        <target>
+          Plats canadiens emblématiques | Chaque repas compte
+        </target>
+      </trans-unit>
+      <trans-unit id='2481368508438617128'>
+        <source>
+          See what iconic Canadian recipes we like and make them for yourself today!
+        </source>
+        <target>
+          Explorez les recettes de plats canadiens emblématiques que nous adorons et préparez-les dès aujourd'hui!
+        </target>
+      </trans-unit>
+      <trans-unit id='2400977320370759542'>
+        <source>
+          here are tons of different kinds of salad recipes here. You will find great recipes incorporating veggies, fruits, meats and more.        </source>
+        <target>
+          Vous trouverez ici une foule de différentes recettes de salades. Nos délicieuses recettes contiennent des légumes, des fruits, des viandes et bien plus.
+        </target>
+      </trans-unit>
+      <trans-unit id='3522325638869470059'>
+        <source>
+          Salad Recipes - Fresh, Healthy, Delicious | Meals That Matter
+        </source>
+        <target>
+          Salades fraîches, saines, délicieuses | Chaque repas compte
+        </target>
+      </trans-unit>
+      <trans-unit id='4786084074667442345'>
+        <source>
+          Better For You Recipes | Meals That Matter
+        </source>
+        <target>
+          Plats meilleurs pour la santé | Chaque repas compte
+        </target>
+      </trans-unit>
+      <trans-unit id='5227953878317070831'>
+        <source>
+          Pick from our range of better for you recipes that strive to promote a balanced and healthy eating pattern.
+        </source>
+        <target>
+          Choisissez parmi nos plats meilleurs pour la santé afin de promouvoir une alimentation équilibrée et de saines habitudes alimentaires.
+        </target>
+      </trans-unit>
+      <trans-unit id='7500291130112723382'>
+        <source>
+          220+ Dinner Ideas | Meals That Matter
+        </source>
+        <target>
+          Plus de 220 idées de souper | Chaque repas compte
+        </target>
+      </trans-unit>
+      <trans-unit id='2658471118325893936'>
+        <source>
+          Whats for Dinner? Let us help you answering that question with our wide range of delicious recipes
+        </source>
+        <target>
+          Une idée de souper? Laissez-nous vous aider à répondre à cette question avec notre large éventail de délicieuses recettes.
+        </target>
       </trans-unit>
 
     </body>

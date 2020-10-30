@@ -25,7 +25,7 @@ import { RecipeInformationByFilterName } from './discover-meals.data';
 })
 export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  defaultPageTitle = 'SELECT RECIPES';
+  defaultPageTitle = $localize`select recipes`;
   production = environment.production; // check if env is prod
   meals: any = [];
   favouriteMeals: any = []
@@ -307,13 +307,13 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     if (status !== 'Successfully created') {
       if (status !== undefined) {
         // if the status is not undefined, that means there was an error sent back, otherwise a req to server may not have been made
-        this.snackBar.open('Error adding to meal plan.', null, { duration: 2000, verticalPosition: 'top' });
+        this.snackBar.open(`Error adding to meal plan.`, null, { duration: 2000, verticalPosition: 'top' });
       }
       return;
     } else {
       this.mealPlanIds[mealId] = true;
       this.mealPlan.push(meal);
-      this.snackBar.open('Added to meal plan!', null, { duration: 2000, verticalPosition: 'top' });
+      this.snackBar.open($localize`Added to meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
     }
 
   }
@@ -333,7 +333,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     delete this.mealPlanIds[mealId];
     const meal = this.meals.find((meal) => meal.id === mealId);
     this.adobeDtbTracking.anchorLinkMeal('Removing from Meal Plan: ', meal.title);
-    this.snackBar.open('Removed from meal plan!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackBar.open($localize`Removed from meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
   }
 
   updateFavourites(favouriteMeal: any) {
@@ -361,7 +361,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     delete this.favouriteMealIds[favouriteMeal.id];
     const meal = this.meals.find((meal) => meal.id === favouriteMeal.id);
     this.adobeDtbTracking.anchorLinkMeal('Removing from Favourites: ', meal.title);
-    this.snackBar.open('Removed from favourites!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackBar.open($localize`Removed from favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
   }
 
@@ -378,7 +378,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.favouriteMealIds[favouriteMeal.id] = true;
     const meal = this.meals.find((meal) => meal.id === favouriteMeal.id);
     this.adobeDtbTracking.anchorLinkMeal('Adding to Favourites: ', meal.title);
-    this.snackBar.open('Added to favourites!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackBar.open($localize`Added to favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
   }
 
