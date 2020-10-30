@@ -541,7 +541,7 @@
       </trans-unit>
       <trans-unit id="be67c0aa8f8fca83b172039e1ee8d300bfafc479" datatype="html">
         <source>{VAR_SELECT, select, chef curated recipes description {chef curated recipes description} instant grocery list description {instant grocery list description} shopping made easy description {shopping made easy description} less time prepping description {less time prepping description} save on costs description {save on costs description} }</source>
-        <target>{VAR_SELECT, select, chef curated recipes description {chef curated recipes description} instant grocery list description {instant grocery list description} shopping made easy description {shopping made easy description} less time prepping description {less time prepping description} save on costs description {save on costs description} }</target>
+        <target>{VAR_SELECT, select, chef curated recipes description {Explorez un monde de saveurs avec des recettes créées et testées par nos chefs de renom.} instant grocery list description {Générez des listes d’épicerie instantanées et ajoutez ou enlevez les articles de votre choix.} shopping made easy description {Découvez des produits en ligne et évitez les files avec la livraison ou le ramassage de vos articles.} less time prepping description {Les plans de repas et les listes d’épicerie instantanées vous feront gagner du temps.} save on costs description {Économisez en cuisinant à la maison avec la liste d’ingrédients nécessaires pour vos recettes.} }</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
           <context context-type="linenumber">25</context>
@@ -827,6 +827,22 @@
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="4f94eaa3c972a07aae0605dc6d98e780c2804d3a" datatype="html">
+        <source>new password</source>
+        <target>Nouveau mot de passe</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/change-password/change-password.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a920409b2cad444da0cc64b1880a90a66c55568a" datatype="html">
+        <source>verify password</source>
+        <target>Confirmer le mot de passe</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/change-password/change-password.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="50c1610cfedda7185507a9a21dad87ae1bc5c76d" datatype="html">
         <source>update password</source>
         <target>Modification du mot de passe</target>
@@ -878,6 +894,18 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
           <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4dfbe8e9e0b5fd0f16d3d888ba2359495c7f996f" datatype="html">
+        <source>Date of birth</source>
+        <target>Date de naissance</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/personal-info/personal-info.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
       <trans-unit id="85c1a4cd231047c92c14da54a870ce1044324e3e" datatype="html">
@@ -932,6 +960,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/forgot-password/forgot-password.component.html</context>
           <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="39960e72b3ff67e4d411eaadb6f5b3225686b305" datatype="html">
+        <source>Have Some Questions?</source>
+        <target>Vous avez des questions?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fe51519b1dda4099c164ac345dd080a8be09699d" datatype="html">
@@ -1005,16 +1041,23 @@
           <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="4a43190d55d4a7a75b4925493bde459d18d75856" datatype="html">
+        <source>
+                            How do I add a recipe to my favourite list of recipes?
+                        </source>
+        <target>Comment puis-je ajouter une recette à ma liste préférée de recettes?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="cfdec31ae55a96f21faab024cd79fc7d9ce2e86a" datatype="html">
         <source>First, click on the little heart icon on the bottom left corner of the
                     recipe
                     image. Second, to see the recipes you’ve previously added to your favourites, click ‘Favourites’ in
                     the side menu on your phone or the navigation bar on desktop.
                 </source>
-        <target>First, click on the little heart icon on the bottom left corner of the
-                  recipe
-                  image. Second, to see the recipes you’ve previously added to your favourites, click ‘Favourites’ in
-                  the side menu on your phone or the navigation bar on desktop.
+        <target>D’abord, cliquez sur le petit cœur dans le coin inférieur gauche de la recette. Ensuite, pour voir les recettes que vous avez ajoutées à vos favoris, cliquez sur «Favoris» dans le menu latéral de votre mobile ou dans la barre de navigation de votre ordinateur de bureau.
               </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
@@ -1333,6 +1376,16 @@
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="f8f10f3dcd33eb2f7ab502742d5950e21c59a05a" datatype="html">
+        <source>
+                            call us
+                        </source>
+                        <target>appelez-nous </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="64b5a678c9d65648b11dd1b6bcbc96abbc961874" datatype="html">
         <source>
           If you would like to speak to a live representative, please call
@@ -1341,6 +1394,7 @@
                     Monday to Friday between 8:30 AM-6:00 PM Eastern Time.
           <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
           IF THIS IS A MEDICAL OR PRODUCT SAFETY EMERGENCY, PLEASE CALL
+          
           <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;" />
           1-800-297-7421.
           <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
@@ -1351,6 +1405,8 @@
           Pour parler à un représentant en direct, composez 1 800 899-1120, du lundi au vendredi de 8 h 30 à 18 h, heure de l’Est.
           <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
           EN CAS D’URGENCE MÉDICALE OU DE SÉCURITÉ DE PRODUIT, COMPOSEZ
+          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
+
           <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;" />
           1 800 297-7421.
           <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />

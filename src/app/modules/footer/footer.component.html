@@ -1,12 +1,12 @@
 <footer class="app-footer">
     <ng-container *ngIf='isMobile'>
         <div class="visit-brands">
-            <a rel="noopener"
+            <a rel="noopener" class='titlecase'
                 (click)="adobeDtbTracking.footerLinks('visit knorr', 'https://www.knorr.com/ca/en/home.html', 'external')"
                 target="_blank" href="https://www.knorr.com/ca/en/home.html" i18n>
                 visit knorr
                 </a>
-            <a rel="noopener"
+            <a rel="noopener" class='titlecase'
                 (click)="adobeDtbTracking.footerLinks('visit hellmanns', 'https://www.hellmanns.com/ca/en/home.html', 'external')"
                 target="_blank" href="https://www.hellmanns.com/ca/en/home.html" i18n>
                 visit hellmann's
@@ -29,7 +29,7 @@
             <a class='adchoices-logo' href="https://www.unilever.ca"
                 (click)="adobeDtbTracking.footerLinks('Adchoices', 'https://www.unilever.ca', 'external')">
                 <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
-                <span i18n>adchoices</span>
+                <span i18n class='titlecase'>adchoices</span>
             </a>
             <a class='unilever-logo' href="https://www.unilever.ca"
                 (click)="adobeDtbTracking.footerLinks('Unilever', 'https://www.unilever.ca', 'external')">
@@ -39,12 +39,12 @@
         </div>
     </ng-container>
     <div *ngIf='!isMobile' class="desktop-wrapper">
-        <a rel="noopener"
+        <a rel="noopener" class='titlecase'
             (click)="adobeDtbTracking.footerLinks('visit knorr', 'https://www.knorr.com/ca/en/home.html', 'external')"
             target="_blank" href="https://www.knorr.com/ca/en/home.html" i18n>
             visit knorr
             </a>
-        <a rel="noopener"
+        <a rel="noopener" class='titlecase'
             (click)="adobeDtbTracking.footerLinks('visit hellmanns', 'https://www.hellmanns.com/ca/en/home.html', 'external')"
             target="_blank" href="https://www.hellmanns.com/ca/en/home.html" i18n>
             visit hellmann's
@@ -63,7 +63,7 @@
         <a class='adchoices-logo' href="https://www.unilever.ca"
             (click)="adobeDtbTracking.footerLinks('Adchoices', 'https://www.unilever.ca', 'external')">
             <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
-            <span i18n>adchoices</span>
+            <span i18n class='titlecase'>adchoices</span>
         </a>
         <a class='unilever-logo' href="https://www.unilever.ca"
             (click)="adobeDtbTracking.footerLinks('Unilever', 'https://www.unilever.ca', 'external')">
@@ -74,12 +74,12 @@
     <div class="legal">
         <a rel="noopener" href="https://www.unilever.ca/legal.html" target="_blank"
             (click)="adobeDtbTracking.footerLinks('terms of use', 'https://www.unilever.ca/legal.html', 'external')"
-            i18n>terms of use</a>
+            i18n class='titlecase'>terms of use</a>
         <a rel="noopener" href="https://www.unilevernotices.com/canada/english/privacy-notice/notice.html"
             target="_blank"
             (click)="adobeDtbTracking.footerLinks('privacy policy', 'https://www.unilevernotices.com/canada/english/privacy-notice/notice.html', 'external')"
-            i18n>privacy policy</a>
-        <a routerLink="/faqs" (click)="adobeDtbTracking.pageTracking('faq', '/faqs')" i18n>faq</a>
+            i18n class='titlecase'>privacy policy</a>
+        <a routerLink="/faqs" class='uppercase' (click)="adobeDtbTracking.pageTracking('faq', '/faqs')" i18n>faq</a>
     </div>
 
 

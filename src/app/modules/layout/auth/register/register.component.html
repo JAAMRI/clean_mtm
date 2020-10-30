@@ -64,7 +64,7 @@
                 </mat-error>
             </mat-form-field>
             <mat-form-field *ngIf='onProfilePage'>
-                <input matInput (click)='picker.open()' [matDatepicker]="picker" placeholder="Date of birth"
+                <input matInput (click)='picker.open()' [matDatepicker]="picker" i18n-placeholder placeholder="Date of birth"
                     formControlName='birthdate'>
                 <mat-datepicker-toggle matPrefix [for]="picker">
                     <mat-icon matDatepickerToggleIcon>cake</mat-icon>

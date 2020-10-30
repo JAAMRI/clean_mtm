@@ -88,7 +88,7 @@ export const AuthenticatedPages = [
 ];
 
 export const MenuPages = [
-    { name: $localize `articles`, route: '/article', },
+    { name: $localize `articles`, route: '/articles', },
     { name: $localize `about`, route: '/about', }, // TODO when favourites page is created
     { name: $localize `contact us`, route: '/contact-us' },
     { name: $localize `faq`, route: '/faqs' },

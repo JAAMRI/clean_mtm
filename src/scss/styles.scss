@@ -28,6 +28,10 @@ body {
   text-transform: uppercase;
 }
 
+.titlecase{
+  text-transform: capitalize;
+}
+
 mat-icon {
   vertical-align: middle;
 }
