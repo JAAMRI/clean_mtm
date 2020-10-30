@@ -539,15 +539,6 @@
         </context-group>
         <note priority="1" from="description">item.header: header of item to display</note>
       </trans-unit>
-      <trans-unit id="be67c0aa8f8fca83b172039e1ee8d300bfafc479" datatype="html">
-        <source>{VAR_SELECT, select, chef curated recipes description {chef curated recipes description} instant grocery list description {instant grocery list description} shopping made easy description {shopping made easy description} less time prepping description {less time prepping description} save on costs description {save on costs description} }</source>
-        <target>{VAR_SELECT, select, chef curated recipes description {Explorez un monde de saveurs avec des recettes créées et testées par nos chefs de renom.} instant grocery list description {Générez des listes d’épicerie instantanées et ajoutez ou enlevez les articles de votre choix.} shopping made easy description {Découvez des produits en ligne et évitez les files avec la livraison ou le ramassage de vos articles.} less time prepping description {Les plans de repas et les listes d’épicerie instantanées vous feront gagner du temps.} save on costs description {Économisez en cuisinant à la maison avec la liste d’ingrédients nécessaires pour vos recettes.} }</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
-        <note priority="1" from="description">item.body: body of item to display</note>
-      </trans-unit>
       <trans-unit id="2f075786462f89f3f53de95f5fa919145196845b" datatype="html">
         <source>reclaim weeknight cooking</source>
         <target>cuisinez à la maison les soirs de semaine</target>
@@ -574,6 +565,34 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search-bar/search-bar.component.html</context>
           <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="33c01e6c010f31af0ea595a9be4e428ef8b0b284" datatype="html">
+        <source>filter recipes</source>
+        <target>filtres les recettes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/dialogs/filter/filter.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/discover-meals/discover-meals.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f3a78c7e32ace9a9c469c120f05faaaa9b21627d" datatype="html">
+        <source>Select the filters below to narrow down your search.</source>
+        <target>Sélectionnez les filtres ci-dessous pour réduire votre recherche.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/dialogs/filter/filter.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b56ccdf3c4b4032bc18705776039903a28d45ad1" datatype="html">
+        <source>Clear Filter</source>
+        <target>Supprimer le filtre</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/dialogs/filter/filter.component.html</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="41462791cb4d5b05e9b57b8e04673c4663735c44" datatype="html">
@@ -637,14 +656,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/discover-meals/discover-meals.component.html</context>
           <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="33c01e6c010f31af0ea595a9be4e428ef8b0b284" datatype="html">
-        <source>filter recipes</source>
-        <target>Filtrer les recettes</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/layout/discover-meals/discover-meals.component.html</context>
-          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8704879e76649f75451089c06361fbf9cadfd922" datatype="html">
@@ -1380,7 +1391,7 @@
         <source>
                             call us
                         </source>
-                        <target>appelez-nous </target>
+        <target>appelez-nous </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
           <context context-type="linenumber">14</context>
@@ -1394,7 +1405,6 @@
                     Monday to Friday between 8:30 AM-6:00 PM Eastern Time.
           <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
           IF THIS IS A MEDICAL OR PRODUCT SAFETY EMERGENCY, PLEASE CALL
-          
           <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;" />
           1-800-297-7421.
           <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
@@ -1519,7 +1529,7 @@
       </trans-unit>
       <trans-unit id='3342436647696840783'>
         <source>bbq</source>
-        <target>bbq </target>
+        <target>BBQ </target>
       </trans-unit>
       <trans-unit id='9153656151632906764'>
         <source>dinner</source>
@@ -2113,6 +2123,53 @@
         <target>
           Une idée de souper? Laissez-nous vous aider à répondre à cette question avec notre large éventail de délicieuses recettes.
         </target>
+      </trans-unit>
+      <trans-unit id='7605164166440165194'>
+        <source>
+          Explore a world of flavour with recipes hand-crafted and tested by our trusted global chefs.
+        </source>
+        <target>
+          Explorez un monde de saveurs avec des recettes créées et testées par nos chefs de renom.
+        </target>
+      </trans-unit>
+      <trans-unit id='407168697147086256'>
+        <source>
+          Generate instant grocery lists from your meal plan and add or remove items as you wish.
+        </source>
+        <target>
+          Générez des listes d’épicerie instantanées et ajoutez ou enlevez les articles de votre choix.
+          </target>
+      </trans-unit>
+      <trans-unit id='2310237183377500208'>
+        <source>
+          Find products easily online and avoid lines by getting groceries delivered or ready for pick up.
+        </source>
+        <target>
+          Découvez des produits en ligne et évitez les files avec la livraison ou le ramassage de vos articles.
+        </target>
+      </trans-unit>
+      <trans-unit id='4984466772226324608'>
+        <source>
+          Easy-to-create meal plans and instant grocery lists will give you more time back in your day
+        </source>
+        <target>
+          Les plans de repas et les listes d’épicerie instantanées vous feront gagner du temps.
+        </target>
+      </trans-unit>
+      <trans-unit id='7204906941777080291'>
+        <source>
+          Save by cooking at home and using just the right amount of groceries for the recipes you love.
+        </source>
+        <target>
+          Économisez en cuisinant à la maison avec la liste d’ingrédients nécessaires pour vos recettes.
+        </target>
+      </trans-unit>
+      <trans-unit id='4732813123619883216'>
+        <source>
+          Our Better-For-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars
+        </source>
+        <target>
+          Nos recettes plus saines font la promotion de saines habitudes alimentaires équilibrées en accord avec les orientations faisant autorité, encouragent l’apport en légumes, grains entiers, fruits, légumineuses et bons gras, tout en limitant les gras saturés, le sodium et les sucres.        </target>
       </trans-unit>
 
     </body>

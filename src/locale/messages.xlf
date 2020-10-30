@@ -362,7 +362,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="b5a7c7d1f03a51e1010db481347940efcca4f43e" datatype="html">
@@ -452,14 +452,6 @@
         </context-group>
         <note priority="1" from="description">item.header: header of item to display</note>
       </trans-unit>
-      <trans-unit id="be67c0aa8f8fca83b172039e1ee8d300bfafc479" datatype="html">
-        <source>{VAR_SELECT, select, chef curated recipes description {chef curated recipes description} instant grocery list description {instant grocery list description} shopping made easy description {shopping made easy description} less time prepping description {less time prepping description} save on costs description {save on costs description} }</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
-        <note priority="1" from="description">item.body: body of item to display</note>
-      </trans-unit>
       <trans-unit id="2f075786462f89f3f53de95f5fa919145196845b" datatype="html">
         <source>reclaim weeknight cooking</source>
         <context-group purpose="location">
@@ -482,6 +474,31 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search-bar/search-bar.component.html</context>
           <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="33c01e6c010f31af0ea595a9be4e428ef8b0b284" datatype="html">
+        <source>filter recipes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/dialogs/filter/filter.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/discover-meals/discover-meals.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f3a78c7e32ace9a9c469c120f05faaaa9b21627d" datatype="html">
+        <source>Select the filters below to narrow down your search.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/dialogs/filter/filter.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b56ccdf3c4b4032bc18705776039903a28d45ad1" datatype="html">
+        <source>Clear Filter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/dialogs/filter/filter.component.html</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="41462791cb4d5b05e9b57b8e04673c4663735c44" datatype="html">
@@ -513,13 +530,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/discover-meals/discover-meals.component.html</context>
           <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="33c01e6c010f31af0ea595a9be4e428ef8b0b284" datatype="html">
-        <source>filter recipes</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/layout/discover-meals/discover-meals.component.html</context>
-          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8704879e76649f75451089c06361fbf9cadfd922" datatype="html">

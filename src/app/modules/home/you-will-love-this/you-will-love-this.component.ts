@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { CarouselData } from '../home-carousel-helper';
+import { CarouselData } from '../../../utilities/carousel-data';
 
 @Component({
   selector: 'app-you-will-love-this',
@@ -8,12 +8,13 @@ import { CarouselData } from '../home-carousel-helper';
 })
 export class YouWillLoveThisComponent implements OnInit {
   carouselData = CarouselData;
+
   @Output() navigate = new EventEmitter();
   @Output() onGetStarted = new EventEmitter();
 
 
   constructor(
-  ) {}
+  ) { }
 
   ngOnInit(): void {
   }

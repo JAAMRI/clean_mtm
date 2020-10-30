@@ -13,3 +13,5 @@ export const BREADCRUMBS: Breadcrumb[] = [
         name: $localize`grocery list`,
         active: false
     }];
+
+    
