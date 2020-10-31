@@ -12,7 +12,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        span{
+        .bar{
             margin: 8px;
             box-shadow: $mtm-box-shadow;
             width: 60px;

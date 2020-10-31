@@ -79,7 +79,7 @@ export class FavouritesComponent implements OnInit {
   }
 
   selectRecipes() {
-    this.router.navigate(['/recipes/discover']);
+    this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
     this.adobeDtbTracking.pageTracking('SELECT RECIPES', '/recipes/discover');
   }
 
@@ -114,7 +114,7 @@ export class FavouritesComponent implements OnInit {
     }
     this.mealPlan.push(meal);
     this.mealPlanIds[mealId] = true;
-    this.snackbar.open('Added to meal plan!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackbar.open($localize`Added to meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
 
   }
 
@@ -127,7 +127,7 @@ export class FavouritesComponent implements OnInit {
     }
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
     delete this.mealPlanIds[mealId];
-    this.snackbar.open('Removed from meal plan!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackbar.open($localize`Removed from meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
 
   }
 
@@ -139,7 +139,7 @@ export class FavouritesComponent implements OnInit {
         return;
       }
       this.favouriteMeals = this.favouriteMeals.filter((meal) => meal.id !== favouriteMeal.id)
-      this.snackbar.open('Removed!', null, { duration: 2000, verticalPosition: 'top' });
+      this.snackbar.open($localize`Removed!`, null, { duration: 2000, verticalPosition: 'top' });
 
     } else {
       const status = await this.mealFavouritesService.saveMealFavourites([...this.favouriteMeals, favouriteMeal], favouriteMeal.id);

@@ -25,7 +25,7 @@ import { RecipeInformationByFilterName } from './discover-meals.data';
 })
 export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  defaultPageTitle = 'SELECT RECIPES';
+  defaultPageTitle = $localize`select recipes`;
   production = environment.production; // check if env is prod
   meals: any = [];
   favouriteMeals: any = []
@@ -94,6 +94,8 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
         this.pageTitle = RecipeInformationByFilterName[filter].title;
         this.pageDescription = RecipeInformationByFilterName[filter].description;
         this.setSeo(filter)
+      } else {
+        this.resetSeo()
       }
 
       this.getMeals(this.meals.length, this.pageSize, 'right', this.searchQuery)
@@ -104,6 +106,13 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.seoService.generateTags({
       title: RecipeInformationByFilterName[filter].titleTag,
       description: RecipeInformationByFilterName[filter].seoDescription,
+      slug: this.router.url
+    })
+  }
+  resetSeo() {
+    this.seoService.generateTags({
+      title: 'Select Recipes | Meals That Matter',
+      description: 'The all-in-one meal preparation tool, where you can choose from a wide range of flavorful recipes to take your meal prep for the week to a whole new level!',
       slug: this.router.url
     })
   }
@@ -241,7 +250,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     filterDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe((filter: IFilter) => {
       if (filter) {
 
-        this.router.navigate([`/recipes/discover/${filter.key || ''}`]);
+        this.router.navigate([`/recipes/discover/${filter.key || ''}`], { queryParamsHandling: "preserve" });
         this.searchQuery = '';
         this.resetAllGlobalValues()
       }
@@ -256,7 +265,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   visitMealPlan() {
-    this.router.navigate(['/recipes/my-meals']);
+    this.router.navigate(['/recipes/my-meals'], { queryParamsHandling: "preserve" });
     this.adobeDtbTracking.pageTracking('MEAL PLAN', '/recipes/my-meals');
   }
 
@@ -289,14 +298,14 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     ref.afterClosed().toPromise().then((newDialog: string) => {
       if (!newDialog) {
         // if no new dialog is openning
-        this.router.navigate(['.'], { queryParams: {}, skipLocationChange:true, relativeTo: this.route })
+        this.router.navigate(['.'], { queryParamsHandling: "preserve", relativeTo: this.route  })
       }
     })
 
   }
 
   promptUserForAuth() {
-    this.router.navigate(['/auth']);
+    this.router.navigate(['/auth'], { queryParamsHandling: "preserve" });
   }
 
   async addToMealPlan(mealId: string) {
@@ -307,13 +316,13 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     if (status !== 'Successfully created') {
       if (status !== undefined) {
         // if the status is not undefined, that means there was an error sent back, otherwise a req to server may not have been made
-        this.snackBar.open('Error adding to meal plan.', null, { duration: 2000, verticalPosition: 'top' });
+        this.snackBar.open(`Error adding to meal plan.`, null, { duration: 2000, verticalPosition: 'top' });
       }
       return;
     } else {
       this.mealPlanIds[mealId] = true;
       this.mealPlan.push(meal);
-      this.snackBar.open('Added to meal plan!', null, { duration: 2000, verticalPosition: 'top' });
+      this.snackBar.open($localize`Added to meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
     }
 
   }
@@ -333,7 +342,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     delete this.mealPlanIds[mealId];
     const meal = this.meals.find((meal) => meal.id === mealId);
     this.adobeDtbTracking.anchorLinkMeal('Removing from Meal Plan: ', meal.title);
-    this.snackBar.open('Removed from meal plan!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackBar.open($localize`Removed from meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
   }
 
   updateFavourites(favouriteMeal: any) {
@@ -361,7 +370,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     delete this.favouriteMealIds[favouriteMeal.id];
     const meal = this.meals.find((meal) => meal.id === favouriteMeal.id);
     this.adobeDtbTracking.anchorLinkMeal('Removing from Favourites: ', meal.title);
-    this.snackBar.open('Removed from favourites!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackBar.open($localize`Removed from favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
   }
 
@@ -378,7 +387,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.favouriteMealIds[favouriteMeal.id] = true;
     const meal = this.meals.find((meal) => meal.id === favouriteMeal.id);
     this.adobeDtbTracking.anchorLinkMeal('Adding to Favourites: ', meal.title);
-    this.snackBar.open('Added to favourites!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackBar.open($localize`Added to favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
   }
 
@@ -388,3 +397,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
 }
+
+
+

@@ -1,15 +1,16 @@
 <div class="grocery-list-page">
-  <h1 class='title'> GROCERY LIST </h1>
-  <p>Order ingredients for delivery right here, or share them to shop in store</p>
+  <h1 class='title uppercase' i18n> grocery list</h1>
+  <p i18n>Order ingredients for delivery right here, or share them to shop in store</p>
+
   <div *ngIf="!isMealPlanEmpty && groceryListWidget" class="grocery-container" [innerHtml]='groceryListWidget | safeHtml'></div>
   <ng-container *ngIf='isMealPlanEmpty'>
-    <p class='no-items-text'>
+    <p class='no-items-text' i18n>
       No meals found
     </p>
     <div class="button-wrapper">
       <button aria-label="Select recipes" mat-raised-button  color='primary'
-        routerLink='/recipes/discover' (click)="adobeDtbTracking.pageTracking('SELECT RECIPES','/recipes/discover')">
-        SELECT RECIPES
+        routerLink='/recipes/discover' queryParamsHandling='preserve' (click)="adobeDtbTracking.pageTracking('SELECT RECIPES','/recipes/discover')" class='uppercase' i18n>
+        select recipes
       </button>
     </div>
   </ng-container>

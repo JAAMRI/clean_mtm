@@ -151,16 +151,16 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
     } catch (error) {
 
-      this.router.navigate(['/recipes/discover'])
+      this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" })
 
     }
   }
 
   checkAuth() {
     if (this.accountService.loggedIn) {
-      this.router.navigate(['/recipes/discover'])
+      this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" })
     } else {
-      this.router.navigate(['/auth'])
+      this.router.navigate(['/auth'], { queryParamsHandling: "preserve" })
 
     }
   }
@@ -202,7 +202,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       this.getMealById();
     } else {
       this.mealId = meal.id;
-      this.router.navigate(['/recipes', meal.title.split(',').join('').split(' ').join('-').split('&').join('and') + '-' + meal.id]);
+      this.router.navigate(['/recipes', meal.title.split(',').join('').split(' ').join('-').split('&').join('and') + '-' + meal.id], { queryParamsHandling: "preserve" });
       this.getMealById();
       this.scrollToTop()
     }
@@ -229,7 +229,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   promptUserForAuth() {
-    this.router.navigate(['/auth']);
+    this.router.navigate(['/auth'], { queryParamsHandling: "preserve" });
   }
 
   pushStart() {
@@ -261,7 +261,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'add' });
     }
     this.adobeDtbTracking.anchorLinkMeal('Adding to Meal Plan: ', meal.title);
-    this.snackBar.open('Added to meal plan', null, { duration: 1000, verticalPosition: 'top' });
+    this.snackBar.open($localize`Added to meal plan!`, null, { duration: 1000, verticalPosition: 'top' });
 
   }
 
@@ -284,7 +284,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       this.dialogParams.onAddOrRemoveMealPlan({ 'meal': meal, 'action': 'remove' });
     }
     this.adobeDtbTracking.anchorLinkMeal('Removing From Meal Plan: ', meal.title);
-    this.snackBar.open('Removed from meal plan', null, { duration: 1000, verticalPosition: 'top' });
+    this.snackBar.open($localize`Removed from meal plan!`, null, { duration: 1000, verticalPosition: 'top' });
 
   }
 
@@ -328,7 +328,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     if (favouriteMeal.id === this.meal.id) {
       this.favourited = false;
     }
-    this.snackBar.open('Removed from favourites!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackBar.open($localize`Removed from favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
   }
 
@@ -339,7 +339,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       this.favourited = true;
     }
     this.adobeDtbTracking.anchorLinkMeal('Adding to Favourite: ', this.meal.title);
-    this.snackBar.open('Added to favourites!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackBar.open($localize`Added to favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
   }
 

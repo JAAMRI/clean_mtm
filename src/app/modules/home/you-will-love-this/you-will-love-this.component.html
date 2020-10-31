@@ -1,7 +1,7 @@
 <div class='product-benefits'>
   <div class="copy">
-    <h1>WHY YOU'LL LOVE THIS</h1>
-    <p>
+    <h1 i18n class='uppercase'>why you'll love this</h1>
+    <p i18n>
       Enjoy delicious recipe inspiration, personalized meal plans and delivery for a great cooking experience.
     </p>
   </div>
@@ -13,7 +13,15 @@
 
       </div>
       <div class='content'>
-        <h3 class='meal-title'>{{item.header}}</h3>
+        <h3 class='meal-title uppercase' i18n='item.header: header of item to display'>{
+          item.header,
+          select,
+          chef curated recipes {chef curated recipes}
+          instant grocery list {instant grocery list}
+          shopping made easy {shopping made easy}
+          less time prepping {less time prepping}
+          save on costs {save on costs}
+        }</h3>
         <p class='meal-body'>{{item.body}}</p>
 
       </div>
@@ -21,6 +29,6 @@
 
   </app-mtm-slider>
   <div class="get-started-button copy">
-      <button  (click)='emitNavigation()' mat-flat-button color='accent'>GET STARTED</button>
+      <button  (click)='emitNavigation()' mat-flat-button color='accent' class='uppercase' i18n>get started</button>
   </div>
 </div>

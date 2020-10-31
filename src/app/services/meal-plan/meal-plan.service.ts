@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, LOCALE_ID } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
@@ -6,6 +6,7 @@ import { handleError } from '../../../app/utilities/helper-functions';
 import { AccountService } from '../account/account.service';
 import Auth from '@aws-amplify/auth';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
 
 
 @Injectable({
@@ -18,15 +19,19 @@ export class MealPlanService {
   constructor(
     private http: HttpClient,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    @Inject(LOCALE_ID) public locale: string
   ) { }
 
   saveMealPlan(mealPlan: any[], mealId?: string, action: string = 'add'): Promise<any> {
     if (!this.accountService.loggedIn) {
       const currentRoute = this.router.url;
-      this.router.navigate(['/auth/login'], {queryParams: {
-        returnUrl: currentRoute
-      },})
+      this.router.navigate(['/auth/login'], {
+        queryParams: {
+          returnUrl: currentRoute
+        },
+        queryParamsHandling: "merge" 
+      })
       return;
     }
     return this.accountService.loggedIn ? this.saveMealPlanToServer(mealPlan, mealId, action) : this.saveMealPlanToLocalStorage(mealPlan, mealId, action);
@@ -40,10 +45,11 @@ export class MealPlanService {
       "recipe_title": recipe.title,
       "recipe_image_path": recipe.image
     }
+    console.log(recipe.cookTime);
     //These values could be null
     payload['recipe_nutrition'] = (recipe.hasOwnProperty('nutrition')) ? recipe.nutrition : null;
     payload['recipe_main_ingredient'] = (recipe.hasOwnProperty('mainIngredient')) ? recipe.mainIngredient : null;
-    payload['recipe_cook_time'] = (recipe.hasOwnProperty('cookTime')) ? recipe.cookTime : null;
+    payload['recipe_cook_time'] = (recipe.cookTime) ? recipe.cookTime : 0;
     payload['recipe_prep_time'] = (recipe.hasOwnProperty('prepTime')) ? recipe.prepTime : null;
     payload['recipe_servings'] = (recipe.hasOwnProperty('servings')) ? recipe.servings : null;
 
@@ -54,7 +60,12 @@ export class MealPlanService {
           .set('Content-Type', 'application/json')
       }
       if (action === 'add') {
-        return this.http.post(this.apiHost + this.mealPlanUrl, payload, headers).pipe(catchError(handleError('saveMealPlan', []))).toPromise();
+        try {
+          return this.http.post(this.apiHost + this.mealPlanUrl, payload, headers).toPromise()
+        } catch(error) {
+          console.error(error)
+        }
+        
       }
       if (action === 'remove') {
         return this.http.delete(this.apiHost + this.mealPlanUrl + `/${recipeId}`, headers).pipe(catchError(handleError('saveMealPlan', []))).toPromise();
@@ -127,17 +138,18 @@ export class MealPlanService {
       }
       return this.http.get(this.apiHost + this.mealPlanUrl, options).pipe(
         map((meals: any) =>
-
-          meals.map((meal: any) => ({
-            id: meal.recipe_id,
-            title: meal.recipe_title,
-            nutrition: meal.recipe_nutrition,
-            image: meal.recipe_image_path,
-            servings: meal.recipe_servings,
-            cookTime: meal.recipe_cook_time,
-            mainIngredient: meal.recipe_main_ingredient,
-            prepTime: meal.recipe_prep_time
-          })) || []
+        {
+            return meals.map((meal: any) => ({
+              id: meal.recipe_id,
+              title: meal.recipe_title,
+              nutrition: meal.recipe_nutrition,
+              image: meal.recipe_image_path,
+              servings: meal.recipe_servings,
+              cookTime: meal.recipe_cook_time,
+              mainIngredient: meal.recipe_main_ingredient,
+              prepTime: meal.recipe_prep_time
+            })) || []
+          }
         ),
         catchError(handleError('getMealPlan', []))).toPromise()
     }).catch(err => {

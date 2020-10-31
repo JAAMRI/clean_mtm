@@ -25,10 +25,13 @@ export class MealFavouritesService {
   saveMealFavourites(favourites: any, recipeId: string, action: string = 'add'): Promise<any> {
     if (!this.accountService.loggedIn) {
       const currentRoute = this.router.url;
-      
-      this.router.navigate(['/auth/login'], {queryParams: {
-        returnUrl: currentRoute
-      },})
+
+      this.router.navigate(['/auth/login'], {
+        queryParams: {
+          returnUrl: currentRoute
+        },
+        queryParamsHandling: "merge" 
+      })
       return;
     }
     return this.accountService.loggedIn ? this.saveMealFavouritesToServer(favourites, recipeId, action) : this.storeMealFavourites(favourites, recipeId, action);

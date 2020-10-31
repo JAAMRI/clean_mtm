@@ -30,7 +30,7 @@ export class ArticleItemComponent implements OnInit {
         const article = params['id'];
 
       } else {
-        this.router.navigate(['/recipes/discover']);
+        this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
 
       }
     })

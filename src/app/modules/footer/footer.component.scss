@@ -50,11 +50,20 @@
     display: flex;
     justify-content: center;
     margin: 1em 0;
+    text-align: center;
     a{
       margin: 0 2em;
     }
 
 
+  }
+  .accessibility{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    a{
+      margin: 0 2em;
+    }
   }
   .footer-text {
     font-size: 10px;

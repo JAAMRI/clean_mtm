@@ -6,7 +6,7 @@
     <p *ngIf='pageDescription' class='subheader'>
       {{pageDescription}}
     </p>
-    <p  *ngIf='!pageDescription' class='subheader'>Click <mat-icon>add</mat-icon> to add a recipe to your 'Meal Plan'. Click <mat-icon>
+    <p  *ngIf='!pageDescription' class='subheader' i18n>Click <mat-icon>add</mat-icon> to add a recipe to your 'Meal Plan'. Click <mat-icon>
         favorite_border</mat-icon> to save it to your favourites for later.</p>
   </div>
   <div class="search">
@@ -16,7 +16,7 @@
     </p>
   </div>
   <div class="filter">
-    <p>FILTER RECIPES</p>
+    <p class='uppercase' i18n>filter recipes</p>
     <button mat-icon-button (click)='renderFilterDialog()' *ngIf='!loading'>
       <mat-icon>filter_list</mat-icon>
     </button>
@@ -46,7 +46,7 @@
     </app-meal-item>
   </app-mtm-slider>
 
-  <p  *ngIf='pageDescription && !loading' class='add-to-meal-plan-description'>Click <mat-icon>add</mat-icon> to add a recipe to your 'Meal Plan'. Click <mat-icon>
+  <p  *ngIf='pageDescription && !loading' class='add-to-meal-plan-description' i18n>Click <mat-icon>add</mat-icon> to add a recipe to your 'Meal Plan'. Click <mat-icon>
     favorite_border</mat-icon> to save it to your favourites for later.</p>
 
   <!-- for pixel script -->

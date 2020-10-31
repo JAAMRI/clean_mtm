@@ -9,7 +9,8 @@ export const environment = {
     local: false,
     host: 'https://4w0hc7sglf.execute-api.us-east-1.amazonaws.com/dev',
     baseHref: '/',
-    baseUrl: 'https://dev.mealsthatmatter.com'
+    baseUrl: 'https://dev.mealsthatmatter.com',
+    urlKey: 'UniMTM@devTWH'
   };
   
   /*

@@ -1,9 +1,9 @@
 <div class="contact-us-page">
     <div class="contact-us-copy">
-        <h2>Need some help?</h2>
-        <h1>CONTACT US</h1>
-        <p>Questions? Comments? We value your feedback and would love to hear from you.</p>
-        <p>You can contact us in a variety of ways, the choice is yours.</p>
+        <h2 i18n>Need some help?</h2>
+        <h1 class='uppercase' i18n>contact us</h1>
+        <p i18n>Questions? Comments? We value your feedback and would love to hear from you.</p>
+        <p i18n>You can contact us in a variety of ways, the choice is yours.</p>
     </div>
     <div class="contact-us-accordion">
         <mat-accordion class="contact-us-align">
@@ -11,7 +11,9 @@
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         <mat-icon>phone</mat-icon>
-                        CALL US
+                        <span class='uppercase' i18n>
+                            call us
+                        </span>
                     </mat-panel-title>
                     <mat-panel-description>
                         <button aria-label="Expand accordion" mat-icon-button>
@@ -19,15 +21,15 @@
                         </button>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
-                <p class='contact-us-description'>If you would like to speak to a live representative, please call us at
+                <p class='contact-us-description' i18n>If you would like to speak to a live representative, please call
+                    us at
                     1-800-899-1120,
                     Monday to Friday between 8:30 AM-6:00 PM Eastern Time.
-                </p>
-                <p class='contact-us-description'> IF THIS IS A MEDICAL OR PRODUCT SAFETY EMERGENCY, PLEASE CALL
-                </p>
-                <p class='contact-us-description'> <span class='phone-number'>1-800-297-7421.</span>
-                </p>
-                <p class='contact-us-description'> This number is available 24 hours a day / 7 days a week.</p>
+                    <br />
+                    IF THIS IS A MEDICAL OR PRODUCT SAFETY EMERGENCY, PLEASE CALL
+                    <span class='phone-number'>1-800-297-7421.</span>
+                    <br />
+                    This number is available 24 hours a day / 7 days a week.</p>
 
 
 
@@ -38,7 +40,9 @@
                 <mat-expansion-panel-header class='no-expand'>
                     <mat-panel-title>
                         <mat-icon>email</mat-icon>
-                        MESSAGE US
+                        <span i18n class='uppercase'>
+                            message us
+                        </span>
                     </mat-panel-title>
                     <mat-panel-description>
                         <a class='action-button' (click)='stopPropogation($event)'

@@ -1,12 +1,12 @@
 <div class="article-page">
     <div class="copy">
-        <h1>ARTICLES</h1>
-        <p>
+        <h1 i18n class='uppercase'>articles</h1>
+        <p i18n>
             Find tips & tricks to improve your cooking skills and help you reclaim weeknight cooking
         </p>
     </div>
     <div class="article-container">
-        <app-article-list-item (click)='track(article.title)' [routerLink]='article.url' *ngFor='let article of articles' [article]='article'>
+        <app-article-list-item (click)='track(article.title)' [routerLink]='article.url' queryParamsHandling='preserve' *ngFor='let article of articles' [article]='article'>
 
         </app-article-list-item >
     </div>

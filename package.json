@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "serve-french": "ng serve --configuration=fr",
     "build": "ng build && gzip -9 ./dist/*.{html,css,js}",
     "test": "ng test",
     "lint": "ng lint",
@@ -28,6 +29,7 @@
     "@angular/compiler": "~9.0.0",
     "@angular/core": "~9.0.0",
     "@angular/forms": "~9.0.0",
+    "@angular/localize": "^9.1.12",
     "@angular/material": "^9.0.0",
     "@angular/platform-browser": "~9.0.0",
     "@angular/platform-browser-dynamic": "~9.0.0",
