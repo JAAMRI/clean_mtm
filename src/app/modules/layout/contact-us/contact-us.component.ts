@@ -47,7 +47,7 @@ export class ContactUsComponent implements OnInit {
 
   startLiveChat(event: any) {
     event.stopPropagation();
-    this.router.navigate(['/contact-us/live-chat'])
+    this.router.navigate(['/contact-us/live-chat'], { queryParamsHandling: "preserve" })
   }
 
 }

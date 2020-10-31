@@ -79,7 +79,7 @@ export class FavouritesComponent implements OnInit {
   }
 
   selectRecipes() {
-    this.router.navigate(['/recipes/discover']);
+    this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
     this.adobeDtbTracking.pageTracking('SELECT RECIPES', '/recipes/discover');
   }
 

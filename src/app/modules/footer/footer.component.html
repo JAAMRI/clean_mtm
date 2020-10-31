@@ -83,15 +83,15 @@
             target="_blank"
             (click)="adobeDtbTracking.footerLinks('privacy policy', 'https://www.unilevernotices.com/', 'external')"
             i18n class='titlecase'>cookie and privacy notice</a>
-        <a routerLink="/faqs" class='uppercase' (click)="adobeDtbTracking.pageTracking('faq', '/faqs')" i18n>faq</a>
+        <a routerLink="/faqs" queryParamsHandling='preserve' class='uppercase' (click)="adobeDtbTracking.pageTracking('faq', '/faqs')" i18n>faq</a>
     </div>
     <div class="accessibility">
         <a rel="noopener" class='titlecase' (click)="adobeDtbTracking.pageTracking('sitemap', '/sitemap')"
-            routerLink='/sitemap' i18n>
+            routerLink='/sitemap' queryParamsHandling='preserve' i18n>
             sitemap
         </a>
         <a rel="noopener" class='titlecase' (click)="adobeDtbTracking.pageTracking('contact-us', '/contact-us')"
-            routerLink='/contact-us' i18n>
+            routerLink='/contact-us' queryParamsHandling='preserve' i18n>
             contact us
         </a>
 

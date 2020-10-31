@@ -12,7 +12,7 @@
         any recipes to your meal plan yet</p>
       <div class="select-recipes-button-wrapper">
 
-        <button aria-label="Select recipes" mat-raised-button color='primary' routerLink='/recipes/discover'
+        <button aria-label="Select recipes" mat-raised-button color='primary' queryParamsHandling='preserve' routerLink='/recipes/discover'
           (click)="adobeDtbTracking.pageTracking('SELECT RECIPES','/recipes/discover')" class='uppercase' i18n>
           select recipes
         </button>

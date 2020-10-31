@@ -6,7 +6,7 @@
         </p>
     </div>
     <div class="article-container">
-        <app-article-list-item (click)='track(article.title)' [routerLink]='article.url' *ngFor='let article of articles' [article]='article'>
+        <app-article-list-item (click)='track(article.title)' [routerLink]='article.url' queryParamsHandling='preserve' *ngFor='let article of articles' [article]='article'>
 
         </app-article-list-item >
     </div>

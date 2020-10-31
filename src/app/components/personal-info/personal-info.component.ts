@@ -90,7 +90,7 @@ export class PersonalInfoComponent implements OnInit {
         .catch(err => {
           console.log(err);
           this.accountService.loggedIn = false;
-          this.router.navigateByUrl("./");
+          this.router.navigateByUrl("./", { queryParamsHandling: "preserve" });
         }
         );
     } catch (err) {
@@ -176,7 +176,7 @@ export class PersonalInfoComponent implements OnInit {
     Auth.signOut()
       .then(data => {
         this.accountService.loggedIn = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/'], { queryParamsHandling: "preserve" });
       })
       .catch(err => {
         alert(err.message);

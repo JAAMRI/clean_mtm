@@ -151,16 +151,16 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
     } catch (error) {
 
-      this.router.navigate(['/recipes/discover'])
+      this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" })
 
     }
   }
 
   checkAuth() {
     if (this.accountService.loggedIn) {
-      this.router.navigate(['/recipes/discover'])
+      this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" })
     } else {
-      this.router.navigate(['/auth'])
+      this.router.navigate(['/auth'], { queryParamsHandling: "preserve" })
 
     }
   }
@@ -202,7 +202,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       this.getMealById();
     } else {
       this.mealId = meal.id;
-      this.router.navigate(['/recipes', meal.title.split(',').join('').split(' ').join('-').split('&').join('and') + '-' + meal.id]);
+      this.router.navigate(['/recipes', meal.title.split(',').join('').split(' ').join('-').split('&').join('and') + '-' + meal.id], { queryParamsHandling: "preserve" });
       this.getMealById();
       this.scrollToTop()
     }
@@ -229,7 +229,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   promptUserForAuth() {
-    this.router.navigate(['/auth']);
+    this.router.navigate(['/auth'], { queryParamsHandling: "preserve" });
   }
 
   pushStart() {

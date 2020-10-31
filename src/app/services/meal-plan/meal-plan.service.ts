@@ -30,6 +30,7 @@ export class MealPlanService {
         queryParams: {
           returnUrl: currentRoute
         },
+        queryParamsHandling: "merge" 
       })
       return;
     }

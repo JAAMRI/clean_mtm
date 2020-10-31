@@ -129,10 +129,10 @@ export class AuthComponent implements OnInit, OnDestroy {
         // check if there is a redirectTo in the query params and redirect to this instead
         const redirectRoute = this.route.snapshot.queryParams['returnUrl'];
 
-        this.router.navigateByUrl(redirectRoute);
+        this.router.navigateByUrl(redirectRoute, { queryParamsHandling: "preserve" });
       } else {
 
-        this.router.navigate(['/recipes/discover']);
+        this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
       }
       this.loading = false;
 
