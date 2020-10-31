@@ -1,10 +1,13 @@
 <div class="register-page">
+
     <button aria-label="Go back" *ngIf='!onProfilePage' class='register-back-button' mat-button (click)='goBack()'
         type='button'>
         <mat-icon>chevron_left</mat-icon> Back
     </button>
     <form [class]='onProfilePage ? "register-form" : "register-form account-dialog"' [formGroup]='registerForm'
         (ngSubmit)='submitForm()'>
+    <h1 class='uppercase' i18n>register</h1>
+
         <div class="input-fields">
             <mat-form-field>
                 <mat-icon matPrefix class='prefix-icon'>face</mat-icon>

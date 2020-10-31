@@ -1,4 +1,5 @@
 <div [class]="isMobile ? 'mobile-profile-page' : 'profile-page'">
+  <h1 i18n class='uppercase my-account-title'>my account</h1>
   <div [class]="isMobile ? 'mobile-profile-tabs' : 'profile-tabs'">
     <mat-tab-group (selectedTabChange)="adobeDtbTracking.anchorLinkTab($event.index, 'profile page','')">
       <mat-tab>

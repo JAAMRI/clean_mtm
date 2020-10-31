@@ -49,10 +49,6 @@
             target="_blank" href="https://www.hellmanns.com/ca/en/home.html" i18n>
             visit hellmann's
         </a>
-        <a rel="noopener" class='titlecase' (click)="adobeDtbTracking.pageTracking('sitemap', '/sitemap')"
-            target="_blank" routerLink='/sitemap' i18n>
-            sitemap
-        </a>
 
         <a rel="noopener" *ngFor='let item of socialFooterItems'
             (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'social')" target="_blank" [href]="item.href">
@@ -69,7 +65,7 @@
             <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
             <span i18n class='titlecase'>adchoices</span>
         </a>
-        <a class='unilever-logo' href="https://www.unilever.ca"
+        <a class='unilever-logo' href="https://www.unilever.ca/"
             (click)="adobeDtbTracking.footerLinks('Unilever', 'https://www.unilever.ca', 'external')">
             <img class='unilever-logo' src="/assets/static_images/footer/unilever-logo.svg" alt="Unilever logo">
             <span i18n>© 2020 Unilever</span>
@@ -81,8 +77,8 @@
             i18n class='titlecase'>terms of use</a>
         <a rel="noopener" href="https://www.unilevernotices.com/canada/english/privacy-notice/notice.html"
             target="_blank"
-            (click)="adobeDtbTracking.footerLinks('privacy policy', 'https://www.unilevernotices.com/', 'external')"
-            i18n class='titlecase'>cookie and privacy notice</a>
+            (click)="adobeDtbTracking.footerLinks('privacy policy', 'https://www.unilevernotices.com/canada/english/privacy-notice/notice.html', 'external')"
+            i18n class='titlecase' title='privacy notice'>privacy notice</a>
         <a routerLink="/faqs" queryParamsHandling='preserve' class='uppercase' (click)="adobeDtbTracking.pageTracking('faq', '/faqs')" i18n>faq</a>
     </div>
     <div class="accessibility">
