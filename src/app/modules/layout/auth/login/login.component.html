@@ -15,7 +15,7 @@
   </div>
   <form class='auth-form' [formGroup]='loginForm' (ngSubmit)='emitLogin()'>
     <div class="sign-in-wrapper">
-      <h1 i18n class='uppercase'>signin</h1>
+      <h1 i18n class='uppercase'>sign in</h1>
       <mat-form-field>
         <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
         <input matInput type="email" i18n-placeholder placeholder='email' #signInUsername formControlName='email'
@@ -30,9 +30,9 @@
           info_outline</mat-icon>
       </mat-form-field>
       <button *ngIf='loading' aria-label="Sign in" type="submit" mat-flat-button i18n
-        class='sign-in-button'>processing</button>
+        class='sign-in-button uppercase'>processing</button>
       <button *ngIf='!loading' aria-label="Sign in" type="submit" mat-flat-button
-        class='sign-in-button' i18n>signin</button>
+        class='sign-in-button uppercase' i18n>sign in</button>
       <div class="login-action-row">
         <a class='forgot-button' mat-link-button (click)='emitForgotPassword()' i18n>Forgot your password?</a>
         <p class='required-field'>* Required field</p>

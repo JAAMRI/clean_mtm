@@ -169,7 +169,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     ref.afterClosed().toPromise().then((newDialog: string) => {
       if (!newDialog) {
 
-        this.router.navigate(['/recipes/my-meals'], { queryParams: {} })
+        this.router.navigate(['/recipes/my-meals'], {  queryParamsHandling: "preserve" } )
       }
     })
 
@@ -184,7 +184,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   }
 
   viewFavourites() {
-    this.router.navigate(['/recipes/favourites']);
+    this.router.navigate(['/recipes/favourites'],{ queryParamsHandling: "preserve" });
     this.adobeDtbTracking.pageTracking('FAVOURITES', '/mtmfavourites');
   }
 

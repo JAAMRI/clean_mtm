@@ -107,7 +107,7 @@ export class AppComponent implements OnInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       this.activeRoute = event.url;
-      if (environment.local) {
+      if (environment.dev) {
         this.checkDevUrl()
         // http://localhost:4200/?s=UniMTM@devTWH
       }

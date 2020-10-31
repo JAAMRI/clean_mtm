@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
       })
         .catch(err => {
           this.accountService.loggedIn = false;
-          this.router.navigateByUrl("./");
+          this.router.navigateByUrl("./", { queryParamsHandling: "preserve" });
         }
         );
     } catch (err) {
@@ -163,7 +163,7 @@ export class RegisterComponent implements OnInit {
     Auth.signOut()
       .then(data => {
         this.accountService.loggedIn = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/'], { queryParamsHandling: "preserve" });
       })
       .catch(err => {
         alert(err.message);

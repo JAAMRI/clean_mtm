@@ -3,7 +3,7 @@
     <button aria-label="Close menu" mat-icon-button (click)="closeMobileMenu('', '')">
       <mat-icon>menu</mat-icon>
     </button>
-    <a routerLink='/' (click)="closeMobileMenu('HOME', '/')" class="logo">
+    <a routerLink='/' queryParamsHandling='preserve' (click)="closeMobileMenu('HOME', '/')" class="logo">
       <img alt="Favorite icon" src="/assets/static_images/MTM_Favicon_4c_2.svg">
     </a>
     <button aria-label="Close menu" mat-icon-button class='close-button' (click)="closeMobileMenu('HOME', '/')">
@@ -15,11 +15,11 @@
     <div class="sign-in-btn-wrapper">
       <small i18n>Already have an account?</small>
       <button mat-flat-button class='sign-in-button' (click)='promptUserForAuth()' i18n
-        class='uppercase'>signin</button>
+        class='uppercase'>sign in</button>
     </div>
   </div>
   <div class="auth-section" *ngIf='loggedIn'>
-    <button mat-flat-button color='primary' routerLink='/profile' (click)='closeMobileMenu("Profile", "/profile")' i18n
+    <button mat-flat-button color='primary' routerLink='/profile' queryParamsHandling='preserve' (click)='closeMobileMenu("Profile", "/profile")' i18n
       class='uppercase'>my account
     </button>
 
@@ -32,7 +32,7 @@
       </mat-list-item>
       <mat-nav-list class='sub-list' *ngIf='page.subPages && page.toggled'>
         <mat-list-item *ngFor="let subPage of page.subPages; let last=last;" class='page-item uppercase' mat-list-item
-          [class.active]='subPage.active' [routerLink]='subPage.route' [class.pushDown]='last'
+          [class.active]='subPage.active' [routerLink]='subPage.route' queryParamsHandling='preserve' [class.pushDown]='last'
           (click)="closeMobileMenu(subPage.name, subPage.route)">
           {{subPage.name}}
 
@@ -44,7 +44,7 @@
   <div class="bottom-wrapper">
     <mat-nav-list class='menu-list'>
       <a *ngFor="let page of menuPages" class='page-item uppercase' mat-list-item [class.active]='page.active'
-        [routerLink]='page.route' [fragment]="page.route === '/about' ? 'howitworks' : ''"
+        [routerLink]='page.route' queryParamsHandling='preserve' [fragment]="page.route === '/about' ? 'howitworks' : ''"
         (click)="closeMobileMenu(page.name, page.route)">
         {{page.name}}
 

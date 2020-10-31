@@ -9,7 +9,7 @@
     </p>
     <div class="button-wrapper">
       <button aria-label="Select recipes" mat-raised-button  color='primary'
-        routerLink='/recipes/discover' (click)="adobeDtbTracking.pageTracking('SELECT RECIPES','/recipes/discover')" class='uppercase' i18n>
+        routerLink='/recipes/discover' queryParamsHandling='preserve' (click)="adobeDtbTracking.pageTracking('SELECT RECIPES','/recipes/discover')" class='uppercase' i18n>
         select recipes
       </button>
     </div>

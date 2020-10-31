@@ -250,7 +250,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     filterDialog.afterClosed().pipe(takeUntil(this.unsubscribeAll)).subscribe((filter: IFilter) => {
       if (filter) {
 
-        this.router.navigate([`/recipes/discover/${filter.key || ''}`]);
+        this.router.navigate([`/recipes/discover/${filter.key || ''}`], { queryParamsHandling: "preserve" });
         this.searchQuery = '';
         this.resetAllGlobalValues()
       }
@@ -265,7 +265,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   visitMealPlan() {
-    this.router.navigate(['/recipes/my-meals']);
+    this.router.navigate(['/recipes/my-meals'], { queryParamsHandling: "preserve" });
     this.adobeDtbTracking.pageTracking('MEAL PLAN', '/recipes/my-meals');
   }
 
@@ -298,14 +298,14 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     ref.afterClosed().toPromise().then((newDialog: string) => {
       if (!newDialog) {
         // if no new dialog is openning
-        this.router.navigate(['.'], { queryParams: {}, skipLocationChange:true, relativeTo: this.route })
+        this.router.navigate(['.'], { queryParamsHandling: "preserve", relativeTo: this.route  })
       }
     })
 
   }
 
   promptUserForAuth() {
-    this.router.navigate(['/auth']);
+    this.router.navigate(['/auth'], { queryParamsHandling: "preserve" });
   }
 
   async addToMealPlan(mealId: string) {
