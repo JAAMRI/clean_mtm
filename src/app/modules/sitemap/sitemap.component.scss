@@ -1,0 +1,24 @@
+.sitemap{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    h1{
+        text-align: center;
+    }
+    .sitemap-grid{
+        display: grid;
+        width: 100%;
+        max-width: 800px;
+        grid-template-columns: 1fr 1fr;
+        .item{
+            justify-self: center;
+            align-self: center;
+            a{
+                display: block;
+                margin: 6px 0;
+                text-decoration: none;
+            }
+        }
+    }
+}

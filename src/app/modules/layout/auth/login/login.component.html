@@ -2,7 +2,7 @@
   <p i18n class='header'>You're one step away from exploring 500+ recipes from around the world.
   </p>
   <div class="register-container">
-    <h2 class='uppercase' i18n>register</h2>
+    <h1 class='uppercase' i18n>register</h1>
     <form (ngSubmit)='emitRegister()' class="register-form" [formGroup]='emailForm'>
 
       <mat-form-field>
@@ -15,7 +15,7 @@
   </div>
   <form class='auth-form' [formGroup]='loginForm' (ngSubmit)='emitLogin()'>
     <div class="sign-in-wrapper">
-      <h2 i18n class='uppercase'>signin</h2>
+      <h1 i18n class='uppercase'>signin</h1>
       <mat-form-field>
         <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
         <input matInput type="email" i18n-placeholder placeholder='email' #signInUsername formControlName='email'

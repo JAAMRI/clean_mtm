@@ -111,8 +111,8 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
   resetSeo() {
     this.seoService.generateTags({
-      title: '',
-      description: '',
+      title: 'Select Recipes | Meals That Matter',
+      description: 'The all-in-one meal preparation tool, where you can choose from a wide range of flavorful recipes to take your meal prep for the week to a whole new level!',
       slug: this.router.url
     })
   }
@@ -397,3 +397,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
 }
+
+
+

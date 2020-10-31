@@ -5,7 +5,7 @@
                 (click)="adobeDtbTracking.footerLinks('visit knorr', 'https://www.knorr.com/ca/en/home.html', 'external')"
                 target="_blank" href="https://www.knorr.com/ca/en/home.html" i18n>
                 visit knorr
-                </a>
+            </a>
             <a rel="noopener" class='titlecase'
                 (click)="adobeDtbTracking.footerLinks('visit hellmanns', 'https://www.hellmanns.com/ca/en/home.html', 'external')"
                 target="_blank" href="https://www.hellmanns.com/ca/en/home.html" i18n>
@@ -43,11 +43,15 @@
             (click)="adobeDtbTracking.footerLinks('visit knorr', 'https://www.knorr.com/ca/en/home.html', 'external')"
             target="_blank" href="https://www.knorr.com/ca/en/home.html" i18n>
             visit knorr
-            </a>
+        </a>
         <a rel="noopener" class='titlecase'
             (click)="adobeDtbTracking.footerLinks('visit hellmanns', 'https://www.hellmanns.com/ca/en/home.html', 'external')"
             target="_blank" href="https://www.hellmanns.com/ca/en/home.html" i18n>
             visit hellmann's
+        </a>
+        <a rel="noopener" class='titlecase' (click)="adobeDtbTracking.pageTracking('sitemap', '/sitemap')"
+            target="_blank" routerLink='/sitemap' i18n>
+            sitemap
         </a>
 
         <a rel="noopener" *ngFor='let item of socialFooterItems'
@@ -77,9 +81,20 @@
             i18n class='titlecase'>terms of use</a>
         <a rel="noopener" href="https://www.unilevernotices.com/canada/english/privacy-notice/notice.html"
             target="_blank"
-            (click)="adobeDtbTracking.footerLinks('privacy policy', 'https://www.unilevernotices.com/canada/english/privacy-notice/notice.html', 'external')"
-            i18n class='titlecase'>privacy policy</a>
+            (click)="adobeDtbTracking.footerLinks('privacy policy', 'https://www.unilevernotices.com/', 'external')"
+            i18n class='titlecase'>cookie and privacy notice</a>
         <a routerLink="/faqs" class='uppercase' (click)="adobeDtbTracking.pageTracking('faq', '/faqs')" i18n>faq</a>
+    </div>
+    <div class="accessibility">
+        <a rel="noopener" class='titlecase' (click)="adobeDtbTracking.pageTracking('sitemap', '/sitemap')"
+            routerLink='/sitemap' i18n>
+            sitemap
+        </a>
+        <a rel="noopener" class='titlecase' (click)="adobeDtbTracking.pageTracking('contact-us', '/contact-us')"
+            routerLink='/contact-us' i18n>
+            contact us
+        </a>
+
     </div>
 
 

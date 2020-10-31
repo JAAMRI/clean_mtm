@@ -112,7 +112,7 @@
         <button aria-label="Update information" class='save-button' matSuffix mat-flat-button>
           <div class="spinner-wrapper">
             <mat-spinner *ngIf='loading' class='spinner' diameter='20'></mat-spinner>
-            <span i18n>
+            <span i18n class='uppercase'>
               update information
 
             </span>
@@ -121,7 +121,7 @@
         <button aria-label="Sign out" class='signout-button' matSuffix mat-flat-button (click)="signOut()">
           <div class="spinner-wrapper">
             <mat-spinner *ngIf='loading' class='spinner' diameter='20'></mat-spinner>
-            <span i18n>
+            <span i18n class='uppercase'>
               sign out
             </span>
           </div>
