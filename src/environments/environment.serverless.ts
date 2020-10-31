@@ -4,5 +4,7 @@ export const environment = {
   host: 'https://4w0hc7sglf.execute-api.us-east-1.amazonaws.com/UAT',
   baseHref: '/',
   local: false,
+  devUrlKey: ''
+
   
 };

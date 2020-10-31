@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
 
 
   checkDevUrl() {
-    if (this.route.snapshot.queryParamMap.get('s') !== environment.urlKey) {
+    if (this.route.snapshot.queryParamMap.get('s') !== environment.devUrlKey) {
       window.location.href = 'https://www.mealsthatmatter.com'
     } else {
       this.loadRobotsInHeader()

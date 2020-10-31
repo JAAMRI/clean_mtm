@@ -15,7 +15,7 @@
     "build:client-and-server-bundles_bak": "ng build --prod && ng run mtm-pwa-front-end:server:production",
     "dev:ssr": "ng run mtm-pwa-front-end:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
-    "build:ssr": "ng build --prod --aot --sourceMap=true && ng run mtm-pwa-front-end:server:production",
+    "build:ssr": "ng build --prod && ng run mtm-pwa-front-end:server:production",
     "prerender": "ng run mtm-pwa-front-end:prerender",
     "sme": "source-map-explorer",
     "dist-with-maps": "ng build --prod -- --sourcemaps=true"
