@@ -189,7 +189,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       })
       .catch(err => {
         console.log(err);
-        this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
+        this.snackBar.open("Sorry! An error has occured updating your password" , null, { duration: 2500 });
       });
   }
 
