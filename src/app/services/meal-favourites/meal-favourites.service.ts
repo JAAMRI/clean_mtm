@@ -32,7 +32,6 @@ export class MealFavouritesService {
         },
         queryParamsHandling: "merge" 
       })
-      return;
     }
     return this.accountService.loggedIn ? this.saveMealFavouritesToServer(favourites, recipeId, action) : this.storeMealFavourites(favourites, recipeId, action);
   }
@@ -59,12 +58,12 @@ export class MealFavouritesService {
         headers: new HttpHeaders().set('Authorization', accessToken)
           .set('Content-Type', 'application/json')
       }
-      if (action === 'add') {
-        return this.http.post(this.apiHost + this.favouritesUrl, payload, headers).pipe(catchError(handleError('saveMealPlan', []))).toPromise();
-      }
+
       if (action === 'remove') {
         return this.http.delete(this.apiHost + this.favouritesUrl + `/${recipeId}`, headers).pipe(catchError(handleError('saveMealPlan', []))).toPromise();
       }
+      return this.http.post(this.apiHost + this.favouritesUrl, payload, headers).pipe(catchError(handleError('saveMealPlan', []))).toPromise();
+
     }).catch(err => {
       alert('We could not save your meal plan, please try again later');
       console.log(err)

@@ -30,9 +30,8 @@ export class MealPlanService {
         queryParams: {
           returnUrl: currentRoute
         },
-        queryParamsHandling: "merge" 
+        queryParamsHandling: "merge"
       })
-      return;
     }
     return this.accountService.loggedIn ? this.saveMealPlanToServer(mealPlan, mealId, action) : this.saveMealPlanToLocalStorage(mealPlan, mealId, action);
 
@@ -62,14 +61,14 @@ export class MealPlanService {
       if (action === 'add') {
         try {
           return this.http.post(this.apiHost + this.mealPlanUrl, payload, headers).toPromise()
-        } catch(error) {
+        } catch (error) {
           console.error(error)
         }
-        
+
       }
-      if (action === 'remove') {
-        return this.http.delete(this.apiHost + this.mealPlanUrl + `/${recipeId}`, headers).pipe(catchError(handleError('saveMealPlan', []))).toPromise();
-      }
+      return this.http.delete(this.apiHost + this.mealPlanUrl + `/${recipeId}`, headers).pipe(catchError(handleError('saveMealPlan', []))).toPromise();
+
+
     }).catch(err => {
       alert('We could not save your meal plan, please try again later');
       console.log(err)
@@ -137,19 +136,18 @@ export class MealPlanService {
           .set('Content-Type', 'application/json')
       }
       return this.http.get(this.apiHost + this.mealPlanUrl, options).pipe(
-        map((meals: any) =>
-        {
-            return meals.map((meal: any) => ({
-              id: meal.recipe_id,
-              title: meal.recipe_title,
-              nutrition: meal.recipe_nutrition,
-              image: meal.recipe_image_path,
-              servings: meal.recipe_servings,
-              cookTime: meal.recipe_cook_time,
-              mainIngredient: meal.recipe_main_ingredient,
-              prepTime: meal.recipe_prep_time
-            })) || []
-          }
+        map((meals: any) => {
+          return meals.map((meal: any) => ({
+            id: meal.recipe_id,
+            title: meal.recipe_title,
+            nutrition: meal.recipe_nutrition,
+            image: meal.recipe_image_path,
+            servings: meal.recipe_servings,
+            cookTime: meal.recipe_cook_time,
+            mainIngredient: meal.recipe_main_ingredient,
+            prepTime: meal.recipe_prep_time
+          })) || []
+        }
         ),
         catchError(handleError('getMealPlan', []))).toPromise()
     }).catch(err => {

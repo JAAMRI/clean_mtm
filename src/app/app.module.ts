@@ -49,12 +49,6 @@ export class StandardUrlSerializer implements UrlSerializer {
     HomeModule,
     ToolbarModule,
     FooterModule,
-    // environment.production ?
-      // [] : 
-      // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      //   passThruUnknownUrl: true,
-      //   delay: 100
-      // }),
     SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

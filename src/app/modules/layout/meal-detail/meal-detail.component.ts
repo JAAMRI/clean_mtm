@@ -112,6 +112,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
           return mealId;
         }
       }
+      return ''
     }
   }
 

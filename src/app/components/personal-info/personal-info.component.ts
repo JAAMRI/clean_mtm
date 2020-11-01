@@ -141,7 +141,7 @@ export class PersonalInfoComponent implements OnInit {
         //End Sign user In automatically
       })
       .catch(err => {
-        this.snackBar.open("Oops! " + err.message, null, { duration: 2500 });
+        this.snackBar.open("Oops, an error has occured. Try again later", null, { duration: 2500 });
       });
   }//End signUp function
 
@@ -166,7 +166,7 @@ export class PersonalInfoComponent implements OnInit {
         this.snackBar.open("Profile info successfully updated.", null, { duration: 3000 });
       })
       .catch(err => {
-        this.snackBar.open(err.message, null, { duration: 3000 });//Show err message
+        this.snackBar.open('Error updating profile', null, { duration: 3000 });//Show err message
       });
     this.adobeDtbTracking.updateInformation();
   }
