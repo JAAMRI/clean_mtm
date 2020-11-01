@@ -128,7 +128,7 @@ export class RegisterComponent implements OnInit {
         //End Sign user In automatically
       })
       .catch(err => {
-        this.snackBar.open("Oops! " + err.message, null, { duration: 2500 });
+        this.snackBar.open("Oops! An error has occured", null, { duration: 2500 });
       });
   }//End signUp function
 
@@ -153,7 +153,7 @@ export class RegisterComponent implements OnInit {
         this.snackBar.open("Profile info successfully updated.", null, { duration: 3000 });
       })
       .catch(err => {
-        this.snackBar.open(err.message, null, { duration: 3000 });//Show err message
+        this.snackBar.open('Oops an error has occured', null, { duration: 3000 });//Show err message
       });
     this.adobeDtbTracking.updateInformation();
   }

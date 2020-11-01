@@ -14,7 +14,7 @@
 
   </div>
   <div class="meal-content">
-    <h4 class='meal-title' [class.title-active]='inMealPlan || favourited'>{{mealItem.title | truncate:50}}</h4>
+    <p class='meal-title' [class.title-active]='inMealPlan || favourited'>{{mealItem.title | truncate:50}}</p>
     <div class="meal-description" *ngIf='showDescription'>
       <p class='meal-description'>
         <ng-container *ngIf='mealItem.cookTime'>

@@ -11,8 +11,10 @@
     }
     .article-content{
         padding: 4px;
-        h3{
+        .title{
             margin: unset;
+            font-size: 1.25em;
+            font-weight: bold;
          
         }
         p{

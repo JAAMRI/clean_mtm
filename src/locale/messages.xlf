@@ -2,6 +2,114 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-CA" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="d18d6b442f756cb7e078e5b814d2cf01f780bca2" datatype="html">
+        <source>
+                visit knorr
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c4d0e1acb5ab7d17471ec7511944d06c66fb8460" datatype="html">
+        <source>
+                visit hellmann&apos;s
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="41203cc4d2278b2821469119010ee8ee66fe52b8" datatype="html">
+        <source>adchoices</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="09022ea32dc02e1a0e223709320b7c4f812b4ac0" datatype="html">
+        <source>© 2020 Unilever</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5a4bab30940a1835ca4b51684f7b606bebe42ec0" datatype="html">
+        <source>
+            visit knorr
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="003cf50118cc7e15d3ffd80eb3e6136d4fdddbec" datatype="html">
+        <source>
+            visit hellmann&apos;s
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0d30bff5ccb8147797f51a78c73c6aa323b4538e" datatype="html">
+        <source>terms of use</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7bd4803d5ae8090607e56125a4623e0cadd64820" datatype="html">
+        <source>privacy notice</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="91ac5727fcb805f97f829d07a8b1af8925d8bc15" datatype="html">
+        <source>faq</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3088d6e5a1198041af5fbde637c75b929fd72d18" datatype="html">
+        <source>
+            sitemap
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc21a5c8427b3308354203bb5c0f01b88b5c8fed" datatype="html">
+        <source>
+            contact us
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c39b22b76add25401f3aa67f50b0576206cef8c6" datatype="html">
+        <source>This website is intended for Canadian consumers of products and services
+            of
+            Unilever Canada Inc.
+            This website is not intended for consumers outside Canada.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="911df1fb23fe26865e49fc041f885dda8fadd887" datatype="html">
         <source>Select
         Recipes</source>
@@ -69,118 +177,6 @@
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="d18d6b442f756cb7e078e5b814d2cf01f780bca2" datatype="html">
-        <source>
-                visit knorr
-            </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="c4d0e1acb5ab7d17471ec7511944d06c66fb8460" datatype="html">
-        <source>
-                visit hellmann&apos;s
-            </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="41203cc4d2278b2821469119010ee8ee66fe52b8" datatype="html">
-        <source>adchoices</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">70</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="09022ea32dc02e1a0e223709320b7c4f812b4ac0" datatype="html">
-        <source>© 2020 Unilever</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">75</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5a4bab30940a1835ca4b51684f7b606bebe42ec0" datatype="html">
-        <source>
-            visit knorr
-        </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">44</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="003cf50118cc7e15d3ffd80eb3e6136d4fdddbec" datatype="html">
-        <source>
-            visit hellmann&apos;s
-        </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">49</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3088d6e5a1198041af5fbde637c75b929fd72d18" datatype="html">
-        <source>
-            sitemap
-        </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">53</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">90</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="645b2c426c6a9d4d1c00653a78ede4673b1ec511" datatype="html">
-        <source>terms of use</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">81</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="07f8f8d02135f5665a002de47d54e11c3f5550ba" datatype="html">
-        <source>cookie and privacy notice</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">85</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="91ac5727fcb805f97f829d07a8b1af8925d8bc15" datatype="html">
-        <source>faq</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">86</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="cc21a5c8427b3308354203bb5c0f01b88b5c8fed" datatype="html">
-        <source>
-            contact us
-        </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">94</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="c39b22b76add25401f3aa67f50b0576206cef8c6" datatype="html">
-        <source>This website is intended for Canadian consumers of products and services
-            of
-            Unilever Canada Inc.
-            This website is not intended for consumers outside Canada.
-        </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">102</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="47dfe78bf9cd27e72ed5072223ed120191589dd1" datatype="html">
         <source>first name</source>
         <context-group purpose="location">
@@ -189,7 +185,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d9fe613f150fdf789a9b67dccec2f6da619101b3" datatype="html">
@@ -200,7 +196,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="0b15bf6fa1e5bdabc9fde97a14bee63a5d5e62f6" datatype="html">
@@ -219,7 +215,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/forgot-password/forgot-password.component.html</context>
@@ -234,7 +230,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d8b81951d25439864e92f750f7c99d7426d6517c" datatype="html">
@@ -253,7 +249,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="966ca7c5a5c2a131698322a3eaa54d88336950b2" datatype="html">
@@ -264,7 +260,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4dfbe8e9e0b5fd0f16d3d888ba2359495c7f996f" datatype="html">
@@ -275,7 +271,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="437cda6f4c6acb01a417453b6547f30a9b339f7e" datatype="html">
@@ -328,6 +324,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
           <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="a21b4e4b7c48dc611c3774abf8d163519991638d" datatype="html">
@@ -448,6 +448,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
           <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eddeb18ca143a5ea736a490be0e0cc892a09e2b8" datatype="html">
+        <source>WATCH HOW TO VIDEO</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8964708b496aa9a5973e79afccd8368730bd576e" datatype="html">
@@ -572,6 +579,10 @@
           <context context-type="sourcefile">src/app/modules/layout/favourites/favourites.component.html</context>
           <context context-type="linenumber">10</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/favourites/favourites.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="9db88f609368a9f873f78143802c4fe9aa6cab53" datatype="html">
         <source>When you find something you like, use the heart to save your favourites and you can find it again here.</source>
@@ -608,7 +619,7 @@
     </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/favourites/favourites.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="0459fa82b8c8758334ed33fee7bb77219ff49e3f" datatype="html">
@@ -690,13 +701,20 @@
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="247e26160249914515875ec199470eeb672529cb" datatype="html">
+        <source>my account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/profile.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="c55a76bdfe1075ba87f0e72d99361d3055b28166" datatype="html">
         <source>
             Personal Info
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/profile.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="411c1e72a8caa1e5cd50b2c1582cb515ceeb664c" datatype="html">
@@ -705,7 +723,7 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/profile.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="20544a08bd3803623ac305391a75ae25755e5dbf" datatype="html">
@@ -736,7 +754,7 @@
                         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">118</context>
+          <context context-type="linenumber">121</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d96670223d6053791c86b22183c73be94ccfa39c" datatype="html">
@@ -745,7 +763,7 @@
                         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">127</context>
+          <context context-type="linenumber">130</context>
         </context-group>
       </trans-unit>
       <trans-unit id="e2af3b485a0e9ea7c0cd6efad56f4b9a32372cd1" datatype="html">
@@ -1091,14 +1109,16 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="64b5a678c9d65648b11dd1b6bcbc96abbc961874" datatype="html">
+      <trans-unit id="073d4b17c2052b079e6ab5f27ded3d6cb5576f8e" datatype="html">
         <source>If you would like to speak to a live representative, please call
                     us at
                     1-800-899-1120,
                     Monday to Friday between 8:30 AM-6:00 PM Eastern Time.
                     <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
-                    IF THIS IS A MEDICAL OR PRODUCT SAFETY EMERGENCY, PLEASE CALL
-                    <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>1-800-297-7421.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+                    <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>
+                        If this is a medical or product safety emergency, please call
+                    <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+                    <x id="START_TAG_SPAN_1" ctype="x-span" equiv-text="&lt;span&gt;"/>1-800-297-7421.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
                     <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
                     This number is available 24 hours a day / 7 days a week.</source>
         <context-group purpose="location">
@@ -1112,7 +1132,7 @@
                         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
     </body>

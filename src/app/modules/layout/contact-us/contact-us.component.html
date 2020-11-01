@@ -26,7 +26,9 @@
                     1-800-899-1120,
                     Monday to Friday between 8:30 AM-6:00 PM Eastern Time.
                     <br />
-                    IF THIS IS A MEDICAL OR PRODUCT SAFETY EMERGENCY, PLEASE CALL
+                    <span class='bold emergency'>
+                        If this is a medical or product safety emergency, please call
+                    </span>
                     <span class='phone-number'>1-800-297-7421.</span>
                     <br />
                     This number is available 24 hours a day / 7 days a week.</p>
@@ -60,7 +62,7 @@
         <div class="live-chat">
             <img alt="Live chat online" id="liveagent_button_online_5734J0000000EkV"
                 style="display: none; border: 0px none; cursor: pointer;"
-                onclick="liveagent.startChat('5734J0000000EkV')" (click)="adobeDtbTracking.contactUs('Live Chat');"
+                (click)="handleLiveChat()"
                 src="https://uwsites.secure.force.com/UnileverLiveChat/resource/1569427152000/CEC_ChatOnlineMealsthatMatterCanadaEnglish" />
             <img alt="Live chat offline" id="liveagent_button_offline_5734J0000000EkV"
                 style="display: none; border: 0px none;"

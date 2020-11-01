@@ -97,7 +97,7 @@ export class AppComponent implements OnInit {
     // await this.loadjscssfile("../lazyloadedstyles.js", "js");
     // await this.loadjscssfile("./lazyloadedstyles.css", "css");
     // }
-    this.insertAdChoice();
+    // this.insertAdChoice();
 
 
   }
@@ -184,29 +184,6 @@ export class AppComponent implements OnInit {
       s.src = '//c.evidon.com/pub/gdprnotice.js';
       ts.parentNode.insertBefore(s, ts);
     })('20844', '6368', 'g_consentGiven');
-
-    /* 
-        Function used for consent callback.  Put any script or tag manager
-        calls in here to execute after consent is detected.  Note, this
-        needs to be part of the window namespace so either leave this out of any self executing
-        function calls, or assign it to the window namespace (window.g_consentGiven = function() {}
-    */
-    function g_consentGiven() {
-    }
-
-    /*
-    // example function which can be used to load a script after consent has been given.
-    // Ex:  g_addScript('https://some.tag.com/tracker');
-    function g_addScript(url) {
-        var head = document.head;
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.async = true;
-        script.src = url;
-        head.appendChild(script);
-    }
-    */
-    // end AdChoice
   }
 
   async loadjscssfile(filename: string, filetype: string) {

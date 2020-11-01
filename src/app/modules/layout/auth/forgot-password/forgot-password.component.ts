@@ -77,7 +77,7 @@ export class ForgotPasswordComponent implements OnInit {
       })
       .catch(err => {
         console.log(err)
-        this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
+        this.snackBar.open("Oops, an error has occured. Try again later", null, { duration: 2500 });
       });
   }
 

@@ -9,7 +9,7 @@ import { scrollToTop } from '../../../app/utilities/helper-functions';
 import { AccountService } from '../../services/account/account.service';
 
 // use this to scroll on safari
-smoothscroll.polyfill();
+// smoothscroll.polyfill();
 
 @Component({
   selector: 'app-home',
@@ -23,9 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   onLandingPage: boolean;
   @ViewChild('howItWorks') howItWorks: ElementRef;
   isLoggedIn: boolean;
-  isMobile: boolean = (window.innerWidth < 768);
-
-
+  isMobile = null;
 
   constructor(private router: Router,
     private accountService: AccountService,

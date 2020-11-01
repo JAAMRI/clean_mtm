@@ -3,7 +3,7 @@
         <img [src]="article.image" [alt]="article.title">
     </div>
     <div class="article-content">
-        <h3>{{article.title | truncate:60}}</h3>
+        <p class='title'>{{article.title | truncate:60}}</p>
         <p>{{article.content | truncate:60}}</p>
         <p> <span i18n>read time</span> : {{article.readTime}}</p>
     </div>

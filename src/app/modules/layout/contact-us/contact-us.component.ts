@@ -15,11 +15,11 @@ import { environment } from '../../../../environments/environment';
 })
 export class ContactUsComponent implements OnInit {
 
-  constructor(private router: Router, 
+  constructor(private router: Router,
     private dynamicScriptLoader: DynamicScriptLoaderService,
     private sharedService: SharedService, private seo: SeoService, private title: Title, public adobeDtbTracking: AdobeDtbTracking) { }
 
-  async ngOnInit(){
+  async ngOnInit() {
     setTimeout(() => {
       this.adobeDtbTracking.pageLoad("contact us page");
     },
@@ -38,6 +38,15 @@ export class ContactUsComponent implements OnInit {
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/contact-us'
     })
+  }
+
+  handleLiveChat() {
+    //@ts-ignore
+    if (liveagent) {
+      //@ts-ignore
+      liveagent.startChat('5734J0000000EkV');
+    }
+    this.adobeDtbTracking.contactUs('Live Chat');
   }
 
   stopPropogation(event: any) {

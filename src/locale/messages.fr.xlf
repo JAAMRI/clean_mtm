@@ -308,14 +308,7 @@
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="07f8f8d02135f5665a002de47d54e11c3f5550ba" datatype="html">
-        <source>cookie and privacy notice</source>
-        <target>cookie and privacy notice</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">85</context>
-        </context-group>
-      </trans-unit>
+     
       <trans-unit id="cc21a5c8427b3308354203bb5c0f01b88b5c8fed" datatype="html">
         <source>
             contact us
@@ -1451,14 +1444,14 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="64b5a678c9d65648b11dd1b6bcbc96abbc961874" datatype="html">
+      <trans-unit id="073d4b17c2052b079e6ab5f27ded3d6cb5576f8e" datatype="html">
         <source>
           If you would like to speak to a live representative, please call
                     us at
                     1-800-899-1120,
                     Monday to Friday between 8:30 AM-6:00 PM Eastern Time.
           <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
-          IF THIS IS A MEDICAL OR PRODUCT SAFETY EMERGENCY, PLEASE CALL
+          If this is a medical or product safety emergency, please call
           <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;" />
           1-800-297-7421.
           <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
@@ -1468,7 +1461,7 @@
         <target>
           Pour parler à un représentant en direct, composez 1 800 899-1120, du lundi au vendredi de 8 h 30 à 18 h, heure de l’Est.
           <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
-          EN CAS D’URGENCE MÉDICALE OU DE SÉCURITÉ DE PRODUIT, COMPOSEZ
+          en cas d’urgence médicale ou de sécurité de produit, composez
           <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
 
           <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;" />
@@ -1495,7 +1488,7 @@
           <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="645b2c426c6a9d4d1c00653a78ede4673b1ec511" datatype="html">
+      <trans-unit id="0d30bff5ccb8147797f51a78c73c6aa323b4538e" datatype="html">
         <source>terms of use</source>
         <target>Conditions d’utilisation</target>
         <context-group purpose="location">
@@ -1503,13 +1496,13 @@
           <context context-type="linenumber">77</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="26242c2924ef6d1648455377ab4534eb94f5b4fe" datatype="html">
-        <source>privacy policy</source>
+      <trans-unit id="7bd4803d5ae8090607e56125a4623e0cadd64820" datatype="html">
+        <source>privacy notice</source>
         <target>Avis de confidentialité</target>
 
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">83</context>
         </context-group>
       </trans-unit>
       <trans-unit id="91ac5727fcb805f97f829d07a8b1af8925d8bc15" datatype="html">

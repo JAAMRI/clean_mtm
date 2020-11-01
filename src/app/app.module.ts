@@ -20,6 +20,7 @@ import { RouterModule, UrlSerializer } from '@angular/router';
 // StandardUrlSerializer 
 import { DefaultUrlSerializer, UrlTree } from "@angular/router";
 import { AuthGuard } from './guards/auth.guard';
+import { FooterModule } from './modules/footer/footer.module';
 
 export class StandardUrlSerializer implements UrlSerializer {
     private _defaultUrlSerializer: DefaultUrlSerializer = new DefaultUrlSerializer();
@@ -36,8 +37,7 @@ export class StandardUrlSerializer implements UrlSerializer {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FooterComponent
+    AppComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -48,6 +48,7 @@ export class StandardUrlSerializer implements UrlSerializer {
     HttpClientModule,
     HomeModule,
     ToolbarModule,
+    FooterModule,
     // environment.production ?
       // [] : 
       // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {

@@ -96,7 +96,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   async removeFromMealPlan(mealId: any) {
     const status = await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove');
     if (status !== 'Successfully deleted') {
-      this.snackbar.open('Error deleting from meal plan.', null, { duration: 2000, verticalPosition: 'top' });
+      this.snackbar.open('Error removing from meal plan.', null, { duration: 2000, verticalPosition: 'top' });
       return;
     }
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
@@ -108,7 +108,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
       const status = await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove');
       if (status !== 'Successfully deleted') {
-        this.snackbar.open('Error deleting from favourites.', null, { duration: 2000, verticalPosition: 'top' });
+        this.snackbar.open('Error removing from favourites.', null, { duration: 2000, verticalPosition: 'top' });
         return;
       }
       this.removeFavourite(favouriteMeal.id);
