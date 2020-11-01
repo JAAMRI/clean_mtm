@@ -1,19 +1,19 @@
 <footer class="app-footer">
     <ng-container *ngIf='isMobile'>
         <div class="visit-brands">
-            <a rel="noopener" class='titlecase' matTooltip='Opens in a new window'
+            <a rel="noopener" class='titlecase' matTooltip='Opens in a new tab'
                 (click)="adobeDtbTracking.footerLinks('visit knorr', 'https://www.knorr.com/ca/en/home.html', 'external')"
                 target="_blank" href="https://www.knorr.com/ca/en/home.html" i18n>
                 visit knorr
             </a>
-            <a rel="noopener" class='titlecase' matTooltip='Opens in a new window'
+            <a rel="noopener" class='titlecase' matTooltip='Opens in a new tab'
                 (click)="adobeDtbTracking.footerLinks('visit hellmanns', 'https://www.hellmanns.com/ca/en/home.html', 'external')"
                 target="_blank" href="https://www.hellmanns.com/ca/en/home.html" i18n>
                 visit hellmann's
             </a>
         </div>
         <div class="social-icons">
-            <a matTooltip='Opens in a new window' rel="noopener" *ngFor='let item of socialFooterItems'
+            <a matTooltip='Opens in a new tab' rel="noopener" *ngFor='let item of socialFooterItems'
                 (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'social')" target="_blank"
                 [href]="item.href">
                 <img [class]='item.name !== "pinterest" ? "collapse": ""' [src]="item.img" [alt]="item.name">
@@ -26,13 +26,13 @@
                     style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;" />
                 <span style="vertical-align:middle !important">AdChoices</span>
             </a> -->
-            <a class='adchoices-logo' href="https://www.unilever.ca" matTooltip='Opens in a new window'
+            <a class='adchoices-logo' href="https://www.unilever.ca" matTooltip='Opens in a new tab'
                 (click)="adobeDtbTracking.footerLinks('Adchoices', 'https://www.unilever.ca', 'external')">
                 <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
                 <span i18n class='titlecase'>adchoices</span>
 
             </a>
-            <a class='unilever-logo' href="https://www.unilever.ca" matTooltip='Opens in a new window'
+            <a class='unilever-logo' href="https://www.unilever.ca" matTooltip='Opens in a new tab'
                 (click)="adobeDtbTracking.footerLinks('Unilever', 'https://www.unilever.ca', 'external')">
                 <img class='unilever-logo' src="/assets/static_images/footer/unilever-logo.svg" alt="Unilever logo">
                 <span i18n>© 2020 Unilever</span>
@@ -40,18 +40,18 @@
         </div>
     </ng-container>
     <div *ngIf='!isMobile' class="desktop-wrapper">
-        <a rel="noopener" class='titlecase' matTooltip='Opens in a new window'
+        <a rel="noopener" class='titlecase' matTooltip='Opens in a new tab'
             (click)="adobeDtbTracking.footerLinks('visit knorr', 'https://www.knorr.com/ca/en/home.html', 'external')"
             target="_blank" href="https://www.knorr.com/ca/en/home.html" i18n>
             visit knorr
         </a>
-        <a rel="noopener" class='titlecase' matTooltip='Opens in a new window'
+        <a rel="noopener" class='titlecase' matTooltip='Opens in a new tab'
             (click)="adobeDtbTracking.footerLinks('visit hellmanns', 'https://www.hellmanns.com/ca/en/home.html', 'external')"
             target="_blank" href="https://www.hellmanns.com/ca/en/home.html" i18n>
             visit hellmann's
         </a>
 
-        <a rel="noopener" *ngFor='let item of socialFooterItems' matTooltip='Opens in a new window'
+        <a rel="noopener" *ngFor='let item of socialFooterItems' matTooltip='Opens in a new tab'
             (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'social')" target="_blank" [href]="item.href">
             <img [class]='item.name !== "pinterest" ? "collapse": ""' [src]="item.img" [alt]="item.name">
 
@@ -61,23 +61,23 @@
                 style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;" />
             <span style="vertical-align:middle !important">AdChoices</span>
         </a> -->
-        <a class='adchoices-logo' href="https://www.unilever.ca" matTooltip='Opens in a new window'
+        <a class='adchoices-logo' href="https://www.unilever.ca" matTooltip='Opens in a new tab'
             (click)="adobeDtbTracking.footerLinks('Adchoices', 'https://www.unilever.ca', 'external')">
             <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
             <span i18n class='titlecase'>adchoices</span>
         </a>
-        <a class='unilever-logo' href="https://www.unilever.ca/" matTooltip='Opens in a new window'
+        <a class='unilever-logo' href="https://www.unilever.ca/" matTooltip='Opens in a new tab'
             (click)="adobeDtbTracking.footerLinks('Unilever', 'https://www.unilever.ca', 'external')">
             <img class='unilever-logo' src="/assets/static_images/footer/unilever-logo.svg" alt="Unilever logo">
             <span i18n>© 2020 Unilever</span>
         </a>
     </div>
     <div class="legal">
-        <a rel="noopener" href="https://www.unilever.ca/legal.html" target="_blank" matTooltip='Opens in a new window'
+        <a rel="noopener" href="https://www.unilever.ca/legal.html" target="_blank" matTooltip='Opens in a new tab'
             (click)="adobeDtbTracking.footerLinks('terms of use', 'https://www.unilever.ca/legal.html', 'external')"
             i18n class='titlecase'>terms of use</a>
         <a rel="noopener" href="https://www.unilevernotices.com/canada/english/privacy-notice/notice.html"
-            target="_blank" matTooltip='Opens in a new window'
+            target="_blank" matTooltip='Opens in a new tab'
             (click)="adobeDtbTracking.footerLinks('privacy policy', 'https://www.unilevernotices.com/canada/english/privacy-notice/notice.html', 'external')"
             i18n class='titlecase' title='privacy notice'>privacy notice</a>
         <a routerLink="/faqs" queryParamsHandling='preserve' class='uppercase'
@@ -88,8 +88,8 @@
             routerLink='/sitemap' queryParamsHandling='preserve' i18n>
             sitemap
         </a>
-        <a rel="noopener" class='titlecase' (click)="adobeDtbTracking.pageTracking('contact-us', '/contact-us')"
-            routerLink='/contact-us' queryParamsHandling='preserve' i18n>
+        <a matTooltip='Opens in a new tab' target="_blank" rel="noopener" class='titlecase' (click)="adobeDtbTracking.pageTracking('contact-us', '/contact-us')"
+            href='https://mealsthatmatter.com/contact-us' queryParamsHandling='preserve' i18n>
             contact us
         </a>
 
