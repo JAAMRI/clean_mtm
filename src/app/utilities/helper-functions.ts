@@ -1,7 +1,7 @@
 import { Observable, of } from 'rxjs';
 
-export function scrollToTop() {
-  window.scroll(0, 0)
+export function  scrollToTop() {
+  // window.scroll(0, 0)
 }
 
 /**

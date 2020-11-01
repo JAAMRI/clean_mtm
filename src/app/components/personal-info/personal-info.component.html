@@ -9,21 +9,21 @@
       <div class="input-fields">
         <mat-form-field>
           <mat-icon matPrefix class='prefix-icon'>face</mat-icon>
-          <input matInput type="text" placeholder='First name' formControlName='given_name' required>
+          <input matInput type="text" i18n-placeholder placeholder='first name' formControlName='given_name' required>
           <!-- <mat-icon matSuffix matTooltip='Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, amet?'>
             info_outline</mat-icon> -->
 
         </mat-form-field>
         <mat-form-field>
           <mat-icon matPrefix class='prefix-icon'>face</mat-icon>
-          <input matInput type="text" placeholder='Last name' formControlName='family_name' required>
+          <input matInput type="text" i18n-placeholder placeholder='last name' formControlName='family_name' required>
           <!-- <mat-icon matSuffix matTooltip='Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, amet?'>
             info_outline</mat-icon> -->
 
         </mat-form-field>
         <mat-form-field>
           <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
-          <input matInput type="email" placeholder='Email' #theEmail formControlName='email' required>
+          <input matInput type="email" i18n-placeholder placeholder='email' #theEmail formControlName='email' required>
           <mat-icon matSuffix matTooltip='This must be a valid email address'>
             info_outline</mat-icon>
 
@@ -36,13 +36,13 @@
         </mat-form-field>
         <mat-form-field>
           <mat-icon matPrefix class='prefix-icon'>location_on</mat-icon>
-          <input matInput type="text" placeholder='Postal code' formControlName='postal_code' required>
+          <input matInput type="text" i18n-placeholder placeholder='postal code' formControlName='postal_code' required>
           <mat-icon matSuffix matTooltip='This must be a valid canadian postal code - ex. H3N 3G6'>
             info_outline</mat-icon>
         </mat-form-field>
         <mat-form-field *ngIf='!onProfilePage'>
           <mat-icon matPrefix class='prefix-icon'>lock_open</mat-icon>
-          <input matInput type="password" placeholder='Password' formControlName='password' required>
+          <input matInput type="password" i18n-placeholder placeholder='password' formControlName='password' required>
           <mat-icon matSuffix
             matTooltip='Please enter a combination of at least 8 letters, numbers or symbols (!,@...)'>
             info_outline</mat-icon>
@@ -50,7 +50,7 @@
         </mat-form-field>
         <mat-form-field *ngIf='!onProfilePage'>
           <mat-icon matPrefix class='prefix-icon'>lock_open</mat-icon>
-          <input matInput type="password" placeholder='Confirm Password' formControlName='confirm_password'
+          <input matInput type="password" i18n-placeholder placeholder='confirm password' formControlName='confirm_password'
             [errorStateMatcher]="passwordMatcher" required>
           <mat-icon matSuffix matTooltip='Please confirm your password'>
             info_outline</mat-icon>
@@ -60,7 +60,7 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field *ngIf='onProfilePage'>
-          <input matInput (click)='picker.open()' [matDatepicker]="picker" placeholder="Date of birth"
+          <input matInput (click)='picker.open()' [matDatepicker]="picker" i18n-placeholder placeholder="Date of birth"
             formControlName='birthdate'>
           <mat-datepicker-toggle matPrefix [for]="picker">
             <mat-icon matDatepickerToggleIcon>cake</mat-icon>
@@ -112,13 +112,18 @@
         <button aria-label="Update information" class='save-button' matSuffix mat-flat-button>
           <div class="spinner-wrapper">
             <mat-spinner *ngIf='loading' class='spinner' diameter='20'></mat-spinner>
-            UPDATE INFORMATION
+            <span i18n class='uppercase'>
+              update information
+
+            </span>
           </div>
         </button>
         <button aria-label="Sign out" class='signout-button' matSuffix mat-flat-button (click)="signOut()">
           <div class="spinner-wrapper">
             <mat-spinner *ngIf='loading' class='spinner' diameter='20'></mat-spinner>
-            SIGN OUT
+            <span i18n class='uppercase'>
+              sign out
+            </span>
           </div>
         </button>
       </div>

@@ -16,10 +16,11 @@ import { SeoService } from './services/seo.service';
 import { DynamicScriptLoaderService } from './services/dynamic-script-loader/dynamic-script-loader.service';
 import { FooterComponent } from './modules/footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { UrlSerializer } from '@angular/router';
+import { RouterModule, UrlSerializer } from '@angular/router';
 // StandardUrlSerializer 
 import { DefaultUrlSerializer, UrlTree } from "@angular/router";
 import { AuthGuard } from './guards/auth.guard';
+import { FooterModule } from './modules/footer/footer.module';
 
 export class StandardUrlSerializer implements UrlSerializer {
     private _defaultUrlSerializer: DefaultUrlSerializer = new DefaultUrlSerializer();
@@ -36,8 +37,7 @@ export class StandardUrlSerializer implements UrlSerializer {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FooterComponent
+    AppComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -48,12 +48,7 @@ export class StandardUrlSerializer implements UrlSerializer {
     HttpClientModule,
     HomeModule,
     ToolbarModule,
-    // environment.production ?
-      // [] : 
-      // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      //   passThruUnknownUrl: true,
-      //   delay: 100
-      // }),
+    FooterModule,
     SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

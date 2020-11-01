@@ -6,7 +6,6 @@ import { environment } from './environments/environment';
 
 import Amplify from "@aws-amplify/core"
 import awsExports from './aws-exports';
-import 'hammerjs';
 
 Amplify.configure({
   ...awsExports,

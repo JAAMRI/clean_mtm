@@ -123,7 +123,7 @@ export class UserFormComponent implements OnInit {
       } else {
         console.log(err);
       }
-      this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
+      this.snackBar.open("Sorry! We could not sign you in at this time. PLease try again later.", null, { duration: 2500 });
     }
   }
 

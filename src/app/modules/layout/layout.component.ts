@@ -57,7 +57,7 @@ export class LayoutComponent {
   }
 
   navigate(pageName: string) {
-    this.router.navigate([MTMPages[pageName].route]);
+    this.router.navigate([MTMPages[pageName].route], { queryParamsHandling: "preserve" });
     if (MTMPages[pageName]) {
       this.adobeDtbTracking.pageTracking(MTMPages[pageName].name, MTMPages[pageName].route);
     }
@@ -79,10 +79,10 @@ export class LayoutComponent {
   next() {
     const activePageName = this.getActivePage().name;
     if (activePageName === MTMPageNames.SELECT_MEALS) {
-      this.router.navigate(['/recipes/my-meals']);
+      this.router.navigate(['/recipes/my-meals'], { queryParamsHandling: "preserve" });
       this.adobeDtbTracking.pageTracking('NEXT', '/recipes/my-meals');
     } else if (activePageName === MTMPageNames.MEAL_PLAN) {
-      this.router.navigate(['/recipes/grocery-list']);
+      this.router.navigate(['/recipes/grocery-list'], { queryParamsHandling: "preserve" });
       this.adobeDtbTracking.pageTracking('NEXT', '/recipes/grocery-list');
 
     } 
@@ -91,11 +91,11 @@ export class LayoutComponent {
   back() {
     const activePageName = this.getActivePage().name;
     if (activePageName === MTMPageNames.MEAL_PLAN) {
-      this.router.navigate(['/recipes/discover']);
+      this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
       this.adobeDtbTracking.pageTracking('BACK', '/recipes/discover');
 
     } else if (activePageName === MTMPageNames.GROCERY_LIST) {
-      this.router.navigate(['/recipes/my-meals']);
+      this.router.navigate(['/recipes/my-meals'], { queryParamsHandling: "preserve" });
       this.adobeDtbTracking.pageTracking('BACK', '/recipes/my-meals');
 
     }
@@ -104,6 +104,16 @@ export class LayoutComponent {
   get activeRouteOnDiscoverPage() {
     // using this as a getter in the html to check if the route is in discover page and has q param
     return this.activeRoute.includes('/recipes/discover');
+  }
+
+  get activeRouteOnMyMeals() {
+    // using this as a getter in the html to check if the route is in discover page and has q param
+    return this.activeRoute.includes('/recipes/my-meals');
+  }
+
+  get activeRouteOnGroceryList() {
+    // using this as a getter in the html to check if the route is in discover page and has q param
+    return this.activeRoute.includes('/recipes/grocery-list');
   }
 
   activateBreadcrumb() {
@@ -157,7 +167,7 @@ export class LayoutComponent {
     Auth.signOut()
       .then(data => {
         this.accountService.loggedIn = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/'], { queryParamsHandling: "preserve" });
 
       })
       .catch(err => {
@@ -180,7 +190,7 @@ export class LayoutComponent {
   }
 
   routeHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/'], { queryParamsHandling: "preserve" });
   }
 
 

@@ -113,7 +113,7 @@
 
   <section class='other-recommended-meals' #recommendedMeals>
     <div class="text-wrapper">
-      <h1>OTHER RECOMMENDED RECIPES</h1>
+      <h1 class='uppercase' i18n>other recommended recipes</h1>
       <!-- <p>Click on the meals you’d like to make. -->
       <!-- </p> -->
     </div>
@@ -132,14 +132,13 @@
   </section>
   <div class="meal-details-footer-wrapper">
     <div class="text-wrapper">
-      <p>With Meals That Matter, cooking is an easier, more manageable part of your busy routine. <br />
+      <p i18n>With Meals That Matter, cooking is an easier, more manageable part of your busy routine. <br />
         <br />
         See how a little food prep and planning gives you a head start in the kitchen today.</p>
     </div>
     <div class="meal-detail-action-button">
       <button aria-label="Select more meals" mat-stroked-button mat-dialog-close (click)='checkAuth()'
-        (click)="adobeDtbTracking.anchorLinkMeal('SELECT MORE MEALS', meal.title)">SELECT
-        MORE MEALS</button>
+        (click)="adobeDtbTracking.anchorLinkMeal('SELECT MORE MEALS', meal.title)" class='uppercase' i18n>select more meals</button>
     </div>
 
   </div>

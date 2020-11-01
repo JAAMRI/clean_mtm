@@ -7,18 +7,21 @@
     <mat-sidenav-content>
       <app-toolbar [breadcrumbs]='breadcrumbs' [showBreadcrumbs]='showBreadcrumbs' (toggle)='snav.open()'
         (onLogoClick)='routeHome()'></app-toolbar>
-        <div class="mobile-router-wrapper">
-          <router-outlet></router-outlet>
-        </div>
-        <div class="nav-buttons"
+      <div class="mobile-router-wrapper">
+        <router-outlet *ngIf='activeRoute'></router-outlet>
+      </div>
+      <div class="nav-buttons"
         *ngIf='!onAuthPage && (activeRouteOnDiscoverPage || activeRoute === "/recipes/my-meals" || activeRoute === "/recipes/grocery-list")'>
         <div [class]='activeRoute === "/recipes/grocery-list" ? "nav-buttons-wrapper gl" : "nav-buttons-wrapper"'>
           <button class='back' *ngIf='!activeRouteOnDiscoverPage' mat-mini-fab (click)='back()'>
             <mat-icon>chevron_left</mat-icon>
           </button>
-          <button  *ngIf="activeRoute !== '/recipes/grocery-list'" class='next' mat-flat-button color='primary'
-          (click)='next()'>NEXT</button>
+          <button *ngIf="!activeRouteOnGroceryList" class='next' mat-flat-button color='primary'
+            (click)='next()'>NEXT</button>
+
+          <div [class.hidden]="!activeRouteOnGroceryList" class="cc-mealplan-start-shopping"></div>
         </div>
+
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
@@ -30,17 +33,18 @@
     <div class="router-wrapper">
       <router-outlet></router-outlet>
       <div class="desktop-nav-buttons"
-        *ngIf='activeRouteOnDiscoverPage || activeRoute === "/recipes/my-meals" || activeRoute === "/recipes/grocery-list"'>
-        <div [class]='activeRoute === "/recipes/grocery-list" ? "nav-buttons-wrapper gl" : "nav-buttons-wrapper"'>
-    
+        *ngIf='activeRouteOnDiscoverPage || activeRouteOnMyMeals || activeRouteOnGroceryList'>
+        <div [class]='activeRouteOnGroceryList ? "nav-buttons-wrapper gl" : "nav-buttons-wrapper"'>
+
           <button class='back' *ngIf='!activeRouteOnDiscoverPage' mat-mini-fab (click)='back()'>
             <mat-icon>chevron_left</mat-icon>
           </button>
-          <button  *ngIf="activeRoute !== '/recipes/grocery-list'" class='next' mat-flat-button color='primary'
-            (click)='next()'>NEXT</button>
+          <button *ngIf="!activeRouteOnGroceryList" mat-flat-button color='primary' (click)='next()' i18n
+            class='next uppercase'>next</button>
+          <div *ngIf="activeRouteOnGroceryList" class="cc-mealplan-start-shopping"></div>
         </div>
       </div>
-    </div>
-  </div>
 
-</div>
+    </div>
+
+  </div>

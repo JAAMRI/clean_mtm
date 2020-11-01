@@ -69,17 +69,17 @@ export class FavouritesComponent implements OnInit {
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
     }
-    this.title.setTitle('Favorite Recipes & Dishes | Meals That Matter'); //updating page title
+    this.title.setTitle('Favourite Recipes & Dishes | Meals That Matter'); //updating page title
     this.seo.generateTags({
-      title: 'Favorite Recipes & Dishes | Meals That Matter',
-      description: 'View your favorite recipes and dishes as selected by yourself here.',
+      title: 'Favourite Recipes & Dishes | Meals That Matter',
+      description: 'View your favourite recipes and dishes as selected by yourself here.',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/recipes/favourites'
     })
   }
 
   selectRecipes() {
-    this.router.navigate(['/recipes/discover']);
+    this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
     this.adobeDtbTracking.pageTracking('SELECT RECIPES', '/recipes/discover');
   }
 
@@ -114,7 +114,7 @@ export class FavouritesComponent implements OnInit {
     }
     this.mealPlan.push(meal);
     this.mealPlanIds[mealId] = true;
-    this.snackbar.open('Added to meal plan!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackbar.open($localize`Added to meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
 
   }
 
@@ -122,12 +122,12 @@ export class FavouritesComponent implements OnInit {
     // add to mealplan
     const status = await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove')
     if (status !== 'Successfully deleted') {
-      this.snackbar.open('Error deleting from meal plan.', null, { duration: 2000, verticalPosition: 'top' });
+      this.snackbar.open('Error removing from meal plan.', null, { duration: 2000, verticalPosition: 'top' });
       return;
     }
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
     delete this.mealPlanIds[mealId];
-    this.snackbar.open('Removed from meal plan!', null, { duration: 2000, verticalPosition: 'top' });
+    this.snackbar.open($localize`Removed from meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
 
   }
 
@@ -135,11 +135,11 @@ export class FavouritesComponent implements OnInit {
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
       const status = await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove')
       if (status !== 'Successfully deleted') {
-        this.snackbar.open('Error deleting from favourites.', null, { duration: 2000, verticalPosition: 'top' });
+        this.snackbar.open('Error removing from favourites.', null, { duration: 2000, verticalPosition: 'top' });
         return;
       }
       this.favouriteMeals = this.favouriteMeals.filter((meal) => meal.id !== favouriteMeal.id)
-      this.snackbar.open('Removed!', null, { duration: 2000, verticalPosition: 'top' });
+      this.snackbar.open($localize`Removed!`, null, { duration: 2000, verticalPosition: 'top' });
 
     } else {
       const status = await this.mealFavouritesService.saveMealFavourites([...this.favouriteMeals, favouriteMeal], favouriteMeal.id);

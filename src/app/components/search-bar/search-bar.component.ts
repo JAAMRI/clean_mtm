@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs/operators';
@@ -6,7 +6,8 @@ import { debounceTime, takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss']
+  styleUrls: ['./search-bar.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SearchBarComponent implements OnInit, OnChanges {
 

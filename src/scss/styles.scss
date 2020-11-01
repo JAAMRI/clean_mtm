@@ -24,6 +24,18 @@ body {
 
 }
 
+.uppercase{
+  text-transform: uppercase;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.titlecase{
+  text-transform: capitalize;
+}
+
 mat-icon {
   vertical-align: middle;
 }

@@ -1,5 +1,4 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, ViewEncapsulation, HostListener } from '@angular/core';
+import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';

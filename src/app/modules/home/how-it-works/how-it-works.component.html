@@ -1,57 +1,57 @@
 <section class='how-it-works'>
   <div class="copy how-it-works-bg">
-    <h1>HOW IT WORKS</h1>
-    <p>Select delicious recipes.
+    <h1 class='uppercase' i18n>how it works</h1>
+    <p i18n>Select delicious recipes.
       Create instant grocery lists.
       Delivered straight to your door.</p>
   </div>
 
   <div class="browse-our-recipes">
     <div class="copy">
-      <img class='number' src="/assets/static_images/home-page/one.png" alt="">
-      <h1>BROWSE OUR RECIPES</h1>
-      <p>Make every meal an adventure with 500+ chef curated dishes.</p>
+      <img class='number' src="/assets/static_images/home-page/one.png" alt="one">
+      <h1 class='uppercase' i18n>browse our recipes</h1>
+      <p i18n>Make every meal an adventure with 500+ chef curated dishes.</p>
     </div>
     <app-mtm-slider [showArrows]='!isMobile' [scrollDistance]='291' [offset]='150' (onRightClicked)='pushEnd()' (onLeftClicked)='pushStart()'>
       <div class='carousel-img-wrapper' *ngFor='let recipe of recipes; trackBy: trackByIndex; let i=index;'
         (click)='emitNavigation(recipe.link)'>
-        <img class='carousel-image' [src]="recipe.image" alt="recipe">
+        <img class='carousel-image' [src]="recipe.image" [alt]="recipe + '_' + i">
       </div>
     </app-mtm-slider>
   </div>
   <div class="create-meal-plan" (click)='emitNavigation("/recipes/my-meals")'>
     <div class="copy">
-      <img class='number' src="/assets/static_images/home-page/two.png" alt="">
-      <h1>CREATE YOUR MEAL PLAN</h1>
-      <p>Add recipes from around the world to your personalized 'Meal Plan'. Make cooking an adventure with deliciously
+      <img class='number' src="/assets/static_images/home-page/two.png" alt="two">
+      <h1 i18n class='uppercase'>create your meal plan</h1>
+      <p i18n>Add recipes from around the world to your personalized 'Meal Plan'. Make cooking an adventure with deliciously
         diverse meals.
       </p>
     </div>
     <div class="img-wrapper">
-      <img src="/assets/static_images/home-page/Create_Meal_Image.jpg" alt="Shop meal plan">
+      <img src="/assets/static_images/home-page/Create_Meal_Image.jpg" alt="Create">
     </div>
 
   </div>
   <div class="shop-your-meal-plan" (click)='emitNavigation("/recipes/grocery-list")'>
     <div class="copy">
-      <img class='number' src="/assets/static_images/home-page/three.png" alt="">
+      <img class='number' src="/assets/static_images/home-page/three.png" alt="three">
 
 
-      <h1>SHOP YOUR MEAL PLAN</h1>
-      <p>Your chosen ingredients,
+      <h1 class='uppercase' i18n>shop your meal plan</h1>
+      <p i18n>Your chosen ingredients,
         delivered to your door,
         from your go-to grocery store.
       </p>
     </div>
     <div class="img-wrapper">
-      <img src="/assets/static_images/home-page/Shop_Meal_Image.jpg" alt="Shop meal plan">
+      <img src="/assets/static_images/home-page/Shop_Meal_Image.jpg" alt="shop">
 
     </div>
   </div>
-  <!-- <div class="watch-how-to-video">
-    <h1>WATCH HOW TO VIDEO</h1>
-    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
-    </iframe>
-  </div> -->
+  <div class="watch-how-to-video">
+    <h1 i18n>WATCH HOW TO VIDEO</h1>
+    <iframe width="420" title='how to video' height="315" src="https://www.youtube.com/embed/gVFtIzFRv00" frameborder="0" allowfullscreen></iframe>
+
+  </div>
 
 </section>

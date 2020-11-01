@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
-import { FooterItems } from './footer.items';
+import { SocialFooterItems } from './footer.items';
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +8,7 @@ import { FooterItems } from './footer.items';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  footerItems = FooterItems;
+  socialFooterItems = SocialFooterItems;
   isMobile = window.innerWidth < 1024;
 
   constructor(public adobeDtbTracking: AdobeDtbTracking,

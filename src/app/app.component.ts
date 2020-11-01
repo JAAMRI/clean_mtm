@@ -1,8 +1,9 @@
 import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectorRef, Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
+import { env } from 'process';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { environment } from '../environments/environment';
@@ -32,7 +33,8 @@ export class AppComponent implements OnInit {
     private seoService: SeoService,
     private title: Title,
     private cdr: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
 
   ) { }
 
@@ -49,6 +51,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+    
     this.isLoggedIn();
     this.activeRoute = this.router.url;
     this.watchRoute();
@@ -62,8 +65,19 @@ export class AppComponent implements OnInit {
     }
   }
 
+
+  checkDevUrl() {
+    if (this.route.snapshot.queryParamMap.get('s') !== environment.devUrlKey) {
+      window.location.href = 'https://www.mealsthatmatter.com'
+    } else {
+      this.loadRobotsInHeader()
+
+    }
+  }
+
   async ngAfterViewInit() {
     // this.loadFooter();
+    
     this.loadFontIcons();
     // this.pixelImplementation();
     if (environment.production) {
@@ -83,7 +97,7 @@ export class AppComponent implements OnInit {
     // await this.loadjscssfile("../lazyloadedstyles.js", "js");
     // await this.loadjscssfile("./lazyloadedstyles.css", "css");
     // }
-    this.insertAdChoice();
+    // this.insertAdChoice();
 
 
   }
@@ -93,6 +107,10 @@ export class AppComponent implements OnInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       this.activeRoute = event.url;
+      if (environment.dev) {
+        this.checkDevUrl()
+        // http://localhost:4200/?s=UniMTM@devTWH
+      }
     });
   }
 
@@ -166,29 +184,6 @@ export class AppComponent implements OnInit {
       s.src = '//c.evidon.com/pub/gdprnotice.js';
       ts.parentNode.insertBefore(s, ts);
     })('20844', '6368', 'g_consentGiven');
-
-    /* 
-        Function used for consent callback.  Put any script or tag manager
-        calls in here to execute after consent is detected.  Note, this
-        needs to be part of the window namespace so either leave this out of any self executing
-        function calls, or assign it to the window namespace (window.g_consentGiven = function() {}
-    */
-    function g_consentGiven() {
-    }
-
-    /*
-    // example function which can be used to load a script after consent has been given.
-    // Ex:  g_addScript('https://some.tag.com/tracker');
-    function g_addScript(url) {
-        var head = document.head;
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.async = true;
-        script.src = url;
-        head.appendChild(script);
-    }
-    */
-    // end AdChoice
   }
 
   async loadjscssfile(filename: string, filetype: string) {
@@ -243,6 +238,15 @@ export class AppComponent implements OnInit {
     }).catch(console.error)
   }
 
+  loadRobotsInHeader() {
+    // this.loadNewRelic = true;
+    const meta = document.createElement('meta');
+    meta.name = "robots";
+    meta.content = "noindex";
+    document.getElementsByTagName('head')[0].appendChild(meta);
+
+  }
+
   newRelicImplementation() {
     // this.loadNewRelic = true;
     this.dynamicScriptLoader.load('new-relic').then((data: any) => {
@@ -277,6 +281,6 @@ export class AppComponent implements OnInit {
     }).catch(console.error)
   }
 
-  
+
 
 }

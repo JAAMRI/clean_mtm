@@ -7,6 +7,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [FaqComponent],
@@ -17,7 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatExpansionModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule
 
   ]
 })
