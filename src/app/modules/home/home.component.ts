@@ -7,6 +7,7 @@ import * as smoothscroll from "smoothscroll-polyfill";
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
 import { scrollToTop } from '../../../app/utilities/helper-functions';
 import { AccountService } from '../../services/account/account.service';
+import { SeoService } from '../../services/seo.service';
 
 // use this to scroll on safari
 // smoothscroll.polyfill();
@@ -28,6 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(private router: Router,
     private accountService: AccountService,
     public adobeDtbTracking: AdobeDtbTracking,
+    private seoService: SeoService
   ) {
   }
 
@@ -40,7 +42,16 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     scrollToTop();
     this.isLoggedIn = this.accountService.loggedIn;
     this.onLandingPage = (this.router.url === '/'); // check if we are on landing page which is /
+    this.updateSeoTags()
   }//end ngOnInit
+
+  updateSeoTags() {
+    this.seoService.generateTags({
+      title: 'Meals That Matter | Plan. Prep. Plate.',
+      description: 'Welcome to the all-in-one meal preparation tool, where you can choose from a wide range of seasonal and flavorful recipes to take your meal prep for the week to a whole new level!',
+      slug: this.router.url
+    })
+  }
 
 
 
