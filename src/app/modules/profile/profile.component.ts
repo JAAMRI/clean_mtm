@@ -76,7 +76,7 @@ export class ProfileComponent {
 
   savePreferences(preferences: string) {
     // save preferences in backend
-    this.preferencesService.savePreferences(preferences).then((_) => this.snackBar.open('Preferences saved', null, { duration: 3000 }))
+    this.preferencesService.savePreferences(preferences).then((_) => this.snackBar.open($localize`Preferences saved`, null, { duration: 3000 }))
   }
 
 
@@ -91,7 +91,7 @@ export class ProfileComponent {
     }
     let result = await Auth.updateUserAttributes(user, { 'custom:opt_in': opt_in.toString() })
       .then(res => {
-        this.snackBar.open("Notifications successfully updated.", null, { duration: 3000 });
+        this.snackBar.open($localize`Notifications successfully updated.`, null, { duration: 3000 });
         if (opt_in) {
           this.optInModify = false;
         }

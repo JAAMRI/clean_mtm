@@ -124,11 +124,11 @@ export class RegisterComponent implements OnInit {
         const credentials: ICredentials = { username: username, password: password, firstTime: true };
         this.signIn.emit(credentials);
 
-        this.snackBar.open("Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!", null, { duration: 4500 });
+        this.snackBar.open($localize`Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!`, null, { duration: 4500 });
         //End Sign user In automatically
       })
       .catch(err => {
-        this.snackBar.open("Oops! An error has occured", null, { duration: 2500 });
+        this.snackBar.open($localize`Oops! An error has occured`, null, { duration: 2500 });
       });
   }//End signUp function
 
@@ -150,10 +150,10 @@ export class RegisterComponent implements OnInit {
     }
     let result = await Auth.updateUserAttributes(user, attributes)
       .then(res => {
-        this.snackBar.open("Profile info successfully updated.", null, { duration: 3000 });
+        this.snackBar.open($localize`Profile info successfully updated.`, null, { duration: 3000 });
       })
       .catch(err => {
-        this.snackBar.open('Oops an error has occured', null, { duration: 3000 });//Show err message
+        this.snackBar.open($localize`Oops an error has occured`, null, { duration: 3000 });//Show err message
       });
     this.adobeDtbTracking.updateInformation();
   }
