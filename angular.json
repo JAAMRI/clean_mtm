@@ -262,8 +262,8 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "mtm-pwa-front-end:build:production",
-            "serverTarget": "mtm-pwa-front-end:server:production",
+            "browserTarget": "mtm-pwa-front-end:build:dev",
+            "serverTarget": "mtm-pwa-front-end:server:dev",
             "routes": [
               "/"
             ]
