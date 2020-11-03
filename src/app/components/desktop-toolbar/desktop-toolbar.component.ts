@@ -65,7 +65,7 @@ export const MTMPages: { [name: string]: MTMPage } = {
   },
   'ARTICLES': {
     name: 'ARTICLES',
-    route: '/article'
+    route: '/articles'
   },
 
   'AUTH': {

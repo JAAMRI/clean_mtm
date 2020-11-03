@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, LOCALE_ID } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
@@ -16,7 +16,7 @@ export class MealService {
 
   private recipesUrl = '/recipes';  // URL to web api
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, @Inject(LOCALE_ID) public locale: string) {
   }
 
   //Get Meals from API
@@ -26,14 +26,14 @@ export class MealService {
       fromObject: {
         page_start: pageStart.toString(),
         page_size: pageSize.toString(),
-        lang: 'en-CA',
-        fields: FIELDS,
+        lang: this.locale === 'fr' ? `fr-CA` : 'en-CA',
+        fields: FIELDS ,
         q: query || '',
         p_has_asset: "[[\"image\"]]",
         ...params
       }
     })
-
+    // +  `, p_translate_nutrients=${this.locale === 'fr'}`,
     let options = {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
     };
@@ -55,12 +55,12 @@ export class MealService {
             cookTime: meal.cook_time,
             prepTime: meal.prep_time,
             servings: meal.yield.value + " " + meal.yield.measure,
-            ingredients: meal.ingredients.ungrouped.list,
-            instructions: meal.methods.ungrouped.list,
+            ingredients: meal.ingredients[this.locale === 'fr' ? 'non classés' : 'ungrouped'].list,
+            instructions: meal.methods[this.locale === 'fr' ? 'non classés' : 'ungrouped'].list,
             mainIngredient: (Object.keys(meal.main_ingredient).length === 0) ? null : meal.main_ingredient[0].description
           }))
         }
-      }), catchError((err) => { throw 'Error fetching meals, please try again later'}));
+      }), catchError((err) => { console.log(err); throw 'Error fetching meals, please try again later'}));
   }
 
 
@@ -70,6 +70,7 @@ export class MealService {
       fromObject: {
         fieldset: 'all',
         fields: FIELDS,
+        lang: this.locale === 'fr' ? `fr-CA` : 'en-CA'
       }
     })
 
@@ -91,8 +92,8 @@ export class MealService {
           mainIngredient: (Object.keys(meal.data.main_ingredient).length === 0) ? null : meal.data.main_ingredient[0].description,
           prepTime: meal.data.prep_time,
           servings: meal.data.yield ? `${(meal.data.yield.value || meal.data.yield.value_display)} ${meal.data.yield.measure}` : `0 servings`,
-          ingredients: meal.data.ingredients.ungrouped.list,
-          instructions: meal.data.methods.ungrouped.list,
+          ingredients:  meal.data.ingredients[this.locale === 'fr' ? 'non classés' : 'ungrouped'].list,
+          instructions: meal.data.methods[this.locale === 'fr' ? 'non classés' : 'ungrouped'].list,
           cuisine: (Object.keys(meal.data.cuisines).length === 0) ? null : meal.data.cuisines[0].description,
           relatedRecipes: meal.data.related_recipes.map((recipe: any) => ({
             id: recipe.recipe_id,
@@ -100,7 +101,7 @@ export class MealService {
             image: recipe.assets.image.default[0].url,
           }))
         }
-      }))
+      }), catchError((err) => { console.log(err); throw 'Error fetching meal, please try again later'}))
 
   }
 }

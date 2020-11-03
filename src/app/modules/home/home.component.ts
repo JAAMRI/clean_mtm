@@ -9,7 +9,7 @@ import { scrollToTop } from '../../../app/utilities/helper-functions';
 import { AccountService } from '../../services/account/account.service';
 
 // use this to scroll on safari
-smoothscroll.polyfill();
+// smoothscroll.polyfill();
 
 @Component({
   selector: 'app-home',
@@ -23,9 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   onLandingPage: boolean;
   @ViewChild('howItWorks') howItWorks: ElementRef;
   isLoggedIn: boolean;
-  isMobile: boolean = (window.innerWidth < 768);
-
-
+  isMobile = null;
 
   constructor(private router: Router,
     private accountService: AccountService,
@@ -52,7 +50,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   routeToLogin() {
-    this.router.url === '/login' ? this.promptUserForAuth() : this.router.navigate(['/login']);
+    this.router.url === '/login' ? this.promptUserForAuth() : this.router.navigate(['/login'], { queryParamsHandling: "preserve" });
     this.adobeDtbTracking.anchorLink('Login ');
 
     // if user is already on login and clicked button, show auth, else route to login and router will show auth
@@ -62,13 +60,13 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     Auth.signOut().then(_ => {
       this.accountService.loggedIn = false;
       this.isLoggedIn = false;
-      this.router.navigate(['/']);
+      this.router.navigate(['/'], { queryParamsHandling: "preserve" });
 
     })
   }
 
   promptUserForAuth() {
-    this.router.navigate(['/auth'])
+    this.router.navigate(['/auth'], { queryParamsHandling: "preserve" })
   }
 
   watchRoute() {
@@ -111,12 +109,12 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     const route = this.accountService.loggedIn ? '/recipes/discover' : '/auth';
     this.adobeDtbTracking.pageTracking('GET STARTED', '/recipes/discover');
 
-    this.router.navigate([route])
+    this.router.navigate([route], { queryParamsHandling: "preserve" })
   }
 
   routeToRecipes(link?: string, comingFrom?: string) {
     const route = link || '/recipes/discover';
-    this.router.navigate([route]);
+    this.router.navigate([route], { queryParamsHandling: "preserve" });
     this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
   }

@@ -90,7 +90,7 @@ export class PersonalInfoComponent implements OnInit {
         .catch(err => {
           console.log(err);
           this.accountService.loggedIn = false;
-          this.router.navigateByUrl("./");
+          this.router.navigateByUrl("./", { queryParamsHandling: "preserve" });
         }
         );
     } catch (err) {
@@ -141,7 +141,7 @@ export class PersonalInfoComponent implements OnInit {
         //End Sign user In automatically
       })
       .catch(err => {
-        this.snackBar.open("Oops! " + err.message, null, { duration: 2500 });
+        this.snackBar.open("Oops, an error has occured. Try again later", null, { duration: 2500 });
       });
   }//End signUp function
 
@@ -166,7 +166,7 @@ export class PersonalInfoComponent implements OnInit {
         this.snackBar.open("Profile info successfully updated.", null, { duration: 3000 });
       })
       .catch(err => {
-        this.snackBar.open(err.message, null, { duration: 3000 });//Show err message
+        this.snackBar.open('Error updating profile', null, { duration: 3000 });//Show err message
       });
     this.adobeDtbTracking.updateInformation();
   }
@@ -176,7 +176,7 @@ export class PersonalInfoComponent implements OnInit {
     Auth.signOut()
       .then(data => {
         this.accountService.loggedIn = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/'], { queryParamsHandling: "preserve" });
       })
       .catch(err => {
         alert(err.message);

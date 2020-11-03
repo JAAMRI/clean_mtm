@@ -1,35 +1,40 @@
 <div class="login-wrapper">
-  <p class='header'>You're one step away from exploring 500+ recipes from around the world.
+  <p i18n class='header'>You're one step away from exploring 500+ recipes from around the world.
   </p>
   <div class="register-container">
-    <h2>REGISTER</h2>
+    <h1 class='uppercase' i18n>register</h1>
     <form (ngSubmit)='emitRegister()' class="register-form" [formGroup]='emailForm'>
 
       <mat-form-field>
         <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
-        <input matInput type="email" placeholder='Email (required)' formControlName='email' required>
+        <input matInput type="email" i18n-placeholder placeholder="email" formControlName='email' required>
         <mat-icon matSuffix matTooltip='This must be a valid email address.'>info_outline</mat-icon>
       </mat-form-field>
-      <button aria-label="Create my account" mat-flat-button color='primary' [disabled]='!emailForm.valid'>CREATE MY ACCOUNT</button>
+      <button aria-label="Create my account" mat-flat-button color='primary' [disabled]='!emailForm.valid' class='uppercase'>create my account</button>
     </form>
   </div>
   <form class='auth-form' [formGroup]='loginForm' (ngSubmit)='emitLogin()'>
     <div class="sign-in-wrapper">
-      <h2>SIGN IN</h2>
+      <h1 i18n class='uppercase'>sign in</h1>
       <mat-form-field>
         <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
-        <input matInput type="email" placeholder='Email (required)' #signInUsername formControlName='email' required>
+        <input matInput type="email" i18n-placeholder placeholder='email' #signInUsername formControlName='email'
+          required>
         <mat-icon matSuffix matTooltip='This must be a valid email address.'>info_outline</mat-icon>
       </mat-form-field>
       <mat-form-field>
         <mat-icon matPrefix class='prefix-icon'>lock_open</mat-icon>
-        <input matInput type="password" placeholder='Password (required)' #signInPassword formControlName='password' required>
+        <input matInput type="password" i18n-placeholder placeholder='password' #signInPassword
+          formControlName='password' required>
         <mat-icon matSuffix matTooltip='Please enter a combination of at least 8 letters, numbers or symbols (!,@...)'>
           info_outline</mat-icon>
       </mat-form-field>
-      <button aria-label="Sign in" type="submit" mat-flat-button class='sign-in-button'>{{loading ? 'PROCESSING...' : 'SIGN IN'}}</button>
+      <button *ngIf='loading' aria-label="Sign in" type="submit" mat-flat-button i18n
+        class='sign-in-button uppercase'>processing</button>
+      <button *ngIf='!loading' aria-label="Sign in" type="submit" mat-flat-button
+        class='sign-in-button uppercase' i18n>sign in</button>
       <div class="login-action-row">
-        <a class='forgot-button' mat-link-button (click)='emitForgotPassword()'>Forgot your password?</a>
+        <a class='forgot-button' mat-link-button (click)='emitForgotPassword()' i18n>Forgot your password?</a>
         <p class='required-field'>* Required field</p>
       </div>
     </div>

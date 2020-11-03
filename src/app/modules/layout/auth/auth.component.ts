@@ -129,10 +129,10 @@ export class AuthComponent implements OnInit, OnDestroy {
         // check if there is a redirectTo in the query params and redirect to this instead
         const redirectRoute = this.route.snapshot.queryParams['returnUrl'];
 
-        this.router.navigateByUrl(redirectRoute);
+        this.router.navigateByUrl(redirectRoute, { queryParamsHandling: "preserve" });
       } else {
 
-        this.router.navigate(['/recipes/discover']);
+        this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
       }
       this.loading = false;
 
@@ -162,7 +162,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       // } else {
       // }
       console.log(err);
-      this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
+      this.snackBar.open("Sorry! We could not sign you in at this time. PLease try again later.", null, { duration: 2500 });
       this.loading = false;
     }
   }
@@ -189,7 +189,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       })
       .catch(err => {
         console.log(err);
-        this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
+        this.snackBar.open("Sorry! An error has occured updating your password" , null, { duration: 2500 });
       });
   }
 

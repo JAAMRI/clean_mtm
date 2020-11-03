@@ -23,13 +23,13 @@ export const FilterIdsByName = {
 
 export const Filters: IFilter[] = [
     {
-        name: '30 minutes or less',
+        name: $localize`30 minutes or less`,
         key: '30_minutes_or_less',
         id: 1588,
        
     },
     {
-        name: 'Chicken',
+        name: $localize`chicken`,
         key: 'chicken',
 
         id: 1503,
@@ -37,7 +37,7 @@ export const Filters: IFilter[] = [
 
     },
     {
-        name: 'Summer',
+        name: $localize`summer`,
         key: 'summer',
 
         id: 1544,
@@ -45,7 +45,7 @@ export const Filters: IFilter[] = [
 
     },
     {
-        name: 'BBQ',
+        name: $localize`bbq`,
         key: 'bbq',
 
         id: 1393,
@@ -62,7 +62,7 @@ export const Filters: IFilter[] = [
 
     // },
     {
-        name: 'Dinner',
+        name: $localize`dinner`,
         key: 'dinner',
 
         id: 1400,
@@ -70,7 +70,7 @@ export const Filters: IFilter[] = [
 
     },
     {
-        name: 'Pasta',
+        name: $localize`pasta`,
         key: 'pasta',
 
         id: 1047,
@@ -91,76 +91,76 @@ export const Filters: IFilter[] = [
 
     },
     {
-        name: 'Tea',
+        name: $localize`tea`,
         key: 'tea',
 
         id: 1368,
 
     },
     {
-        name: 'Breakfast & Brunch',
+        name: $localize`breakfast and brunch`,
         key: 'breakfast_and_brunch',
 
         id: '1551,619'
 
     },
     {
-        name: 'Italian',
+        name: $localize`italian`,
         key: 'italian',
 
         id: 1422,
 
     },
     {
-        name: 'Indian',
+        name: $localize`indian`,
         key: 'indian',
 
         id: 1419,
 
     },
     {
-        name: 'Asian',
+        name: $localize`asian`,
         key: 'asian',
 
         id: 1433,
 
     },
     {
-        name: 'Mexican',
+        name: $localize`mexican`,
         id: 1427,
         key: 'mexican',
 
 
     },
     {
-        name: 'Middle Eastern',
+        name: $localize`middle eastern`,
         id: 1428,
         key: 'middle_eastern',
 
     },
     {
-        name: 'Mediterranean',
+        name: $localize`mediterranean`,
         id: 1435,
         key: 'mediterranean',
 
 
     },
     {
-        name: 'Canadian',
+        name: $localize`canadian`,
         id: 1295,
         key: 'canadian',
 
 
     },
     {
-        name: 'Salad',
+        name: $localize`salad`,
         id: 1487,
         key: 'salad',
 
 
     },
     {
-        name: 'Better-For-You',
+        name: $localize`better for you`,
         disclaimerId: '*',
         id: 9870,
         key: 'better_for_you',
@@ -178,7 +178,7 @@ export const Disclaimers = [
 {
     disclaimerId: '*',
     title: 'Better-For-You',
-    text: 'Our Better-For-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars.'
+    text: $localize`Our Better-For-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars.`
 
 },
 ]

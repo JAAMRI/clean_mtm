@@ -1,15 +1,13 @@
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
 import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
 import { SeoService } from '../../../../../app/services/seo.service';
 import { SharedService } from '../../../../../app/shared/shared.service';
 import { scrollToTop } from '../../../../../app/utilities/helper-functions';
+import { environment } from '../../../../../environments/environment';
 import { DynamicScriptLoaderService } from '../../../../services/dynamic-script-loader/dynamic-script-loader.service';
-import { WidgetHelperService } from '../../../../services/widget-helper/widget-helper.service';
 
 @Component({
   selector: 'app-grocery-list',
@@ -30,7 +28,8 @@ export class GroceryListComponent implements OnInit {
     private dynamicScriptLoader: DynamicScriptLoaderService,
     private seo: SeoService,
     private title: Title,
-    public adobeDtbTracking: AdobeDtbTracking
+    public adobeDtbTracking: AdobeDtbTracking,
+    @Inject(LOCALE_ID) public locale: string
   ) {
 
   }
@@ -64,10 +63,31 @@ export class GroceryListComponent implements OnInit {
 
   loadGroceryListWidget() {
     if (!this.sharedService.groceryListPageVisited) {
-      this.dynamicScriptLoader.load('grocery-list').then((data: any) => {
-        console.log('Grocery list loaded');
-        this.sharedService.groceryListPageVisited = true
-      }).catch(console.error)
+      if (environment.production) {
+        if (this.locale === 'fr') {
+          this.dynamicScriptLoader.load('grocery-list-fr').then((data: any) => {
+            console.log('Grocery list loaded');
+            this.sharedService.groceryListPageVisited = true
+          }).catch(console.error)
+        } else {
+          this.dynamicScriptLoader.load('grocery-list').then((data: any) => {
+            console.log('Grocery list loaded');
+            this.sharedService.groceryListPageVisited = true
+          }).catch(console.error)
+        }
+      } else {
+        if (this.locale === 'fr') {
+          this.dynamicScriptLoader.load('grocery-list-uat-fr').then((data: any) => {
+            console.log('Grocery list loaded');
+            this.sharedService.groceryListPageVisited = true
+          }).catch(console.error)
+        } else {
+          this.dynamicScriptLoader.load('grocery-list-uat').then((data: any) => {
+            console.log('Grocery list loaded');
+            this.sharedService.groceryListPageVisited = true
+          }).catch(console.error)
+        }
+      }
     }
   }
 
