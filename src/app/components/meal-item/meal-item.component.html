@@ -14,20 +14,20 @@
 
   </div>
   <div class="meal-content">
-    <h4 class='meal-title' [class.title-active]='inMealPlan || favourited'>{{mealItem.title | truncate:50}}</h4>
+    <p class='meal-title' [class.title-active]='inMealPlan || favourited'>{{mealItem.title | truncate:50}}</p>
     <div class="meal-description" *ngIf='showDescription'>
       <p class='meal-description'>
         <ng-container *ngIf='mealItem.cookTime'>
-          <strong>Cook</strong>
+          <strong i18n class='titlecase'>cook</strong>
           {{mealItem.cookTime > 60 ? (mealItem.cookTime / 60 | floor )+ 'H ' + mealItem.cookTime % 60 : mealItem.cookTime}}
           Min.
         </ng-container>
         <ng-container *ngIf='mealItem.prepTime'>
-          <strong>Prep</strong>
+          <strong class='titlecase' i18n>prep</strong>
           {{mealItem.prepTime}} Min.
         </ng-container>
         <ng-container *ngIf='mealItem.servings'>
-          <strong>Serves</strong> {{mealItem.servings.substr(0,1)}}
+          <strong class='titlecase' i18n>serves</strong> {{mealItem.servings.substr(0,1)}}
         </ng-container>
       </p>
     </div>
@@ -35,15 +35,15 @@
       <div class="macros-wrapper">
         <div class="macro">
           <mat-icon class='bread' svgIcon='mtmbread'></mat-icon>
-          <span>Carbs: {{mealMacros.carbs}} g</span>
+          <span i18n class='titlecase'>carbs </span> <span> {{mealMacros.carbs}} g</span>
         </div>
         <div class="macro">
           <mat-icon class='burger' svgIcon='mtmblob'></mat-icon>
-          <span>Fat: {{mealMacros.fat}} g</span>
+          <span i18n class='titlecase'>fat  </span> <span>  {{mealMacros.fat}} g</span>
         </div>
         <div class="macro">
           <mat-icon class='blob' svgIcon='mtmfire'></mat-icon>
-          <span>Calories: {{mealMacros.calories}}</span>
+          <span i18n class='titlecase'>calories  </span> <span>  {{mealMacros.calories}}</span>
         </div>
 
       </div>

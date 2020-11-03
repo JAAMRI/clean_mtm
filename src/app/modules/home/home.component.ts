@@ -7,9 +7,10 @@ import * as smoothscroll from "smoothscroll-polyfill";
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
 import { scrollToTop } from '../../../app/utilities/helper-functions';
 import { AccountService } from '../../services/account/account.service';
+import { SeoService } from '../../services/seo.service';
 
 // use this to scroll on safari
-smoothscroll.polyfill();
+// smoothscroll.polyfill();
 
 @Component({
   selector: 'app-home',
@@ -23,13 +24,12 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   onLandingPage: boolean;
   @ViewChild('howItWorks') howItWorks: ElementRef;
   isLoggedIn: boolean;
-  isMobile: boolean = (window.innerWidth < 768);
-
-
+  isMobile = null;
 
   constructor(private router: Router,
     private accountService: AccountService,
     public adobeDtbTracking: AdobeDtbTracking,
+    private seoService: SeoService
   ) {
   }
 
@@ -42,7 +42,16 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     scrollToTop();
     this.isLoggedIn = this.accountService.loggedIn;
     this.onLandingPage = (this.router.url === '/'); // check if we are on landing page which is /
+    this.updateSeoTags()
   }//end ngOnInit
+
+  updateSeoTags() {
+    this.seoService.generateTags({
+      title: 'Meals That Matter | Plan. Prep. Plate.',
+      description: 'Welcome to the all-in-one meal preparation tool, where you can choose from a wide range of seasonal and flavorful recipes to take your meal prep for the week to a whole new level!',
+      slug: this.router.url
+    })
+  }
 
 
 
@@ -52,7 +61,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   routeToLogin() {
-    this.router.url === '/login' ? this.promptUserForAuth() : this.router.navigate(['/login']);
+    this.router.url === '/login' ? this.promptUserForAuth() : this.router.navigate(['/login'], { queryParamsHandling: "preserve" });
     this.adobeDtbTracking.anchorLink('Login ');
 
     // if user is already on login and clicked button, show auth, else route to login and router will show auth
@@ -62,13 +71,13 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     Auth.signOut().then(_ => {
       this.accountService.loggedIn = false;
       this.isLoggedIn = false;
-      this.router.navigate(['/']);
+      this.router.navigate(['/'], { queryParamsHandling: "preserve" });
 
     })
   }
 
   promptUserForAuth() {
-    this.router.navigate(['/auth'])
+    this.router.navigate(['/auth'], { queryParamsHandling: "preserve" })
   }
 
   watchRoute() {
@@ -111,12 +120,12 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     const route = this.accountService.loggedIn ? '/recipes/discover' : '/auth';
     this.adobeDtbTracking.pageTracking('GET STARTED', '/recipes/discover');
 
-    this.router.navigate([route])
+    this.router.navigate([route], { queryParamsHandling: "preserve" })
   }
 
   routeToRecipes(link?: string, comingFrom?: string) {
     const route = link || '/recipes/discover';
-    this.router.navigate([route]);
+    this.router.navigate([route], { queryParamsHandling: "preserve" });
     this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
   }

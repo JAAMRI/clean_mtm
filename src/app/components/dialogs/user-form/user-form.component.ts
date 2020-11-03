@@ -123,7 +123,7 @@ export class UserFormComponent implements OnInit {
       } else {
         console.log(err);
       }
-      this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
+      this.snackBar.open($localize`Sorry! We could not sign you in at this time. PLease try again later.`, null, { duration: 2500 });
     }
   }
 
@@ -145,14 +145,14 @@ export class UserFormComponent implements OnInit {
   }
 
   sendEmailVerification() {
-    this.snackBar.open('Email verification on is way! Check your inbox for details..', null, { duration: 2000 });
+    this.snackBar.open($localize`Email verification on is way! Check your inbox for details..`, null, { duration: 2000 });
     //  just a test email verificatio
   }
 
   validateEmail(email: string) {
     // this is for forgot password
     this.emailValidated = true;
-    this.snackBar.open('A code has been sent to your email, please enter it for verification purposes!', null, { duration: 3000 })
+    this.snackBar.open($localize`A code has been sent to your email, please enter it for verification purposes!`, null, { duration: 3000 })
   }
 
   updatePassword(data: { email: string, code: string, password: string }) {
@@ -161,14 +161,14 @@ export class UserFormComponent implements OnInit {
     let code = data.code;
     Auth.forgotPasswordSubmit(username, code, newPassword)
       .then(data => {
-        this.snackBar.open('Your password has been successfully updated', null, { duration: 3000 })
+        this.snackBar.open($localize`Your password has been successfully updated`, null, { duration: 3000 })
         //Automatically sign in User
         this.signIn({ username: username, password: newPassword })
         //
       })
       .catch(err => {
         console.log(err);
-        this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
+        this.snackBar.open($localize`Sorry! ` + err.message, null, { duration: 2500 });
       });
   }
 

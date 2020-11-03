@@ -1,27 +1,32 @@
 <div class="nutrition-container">
   <div class="nutrition-facts" *ngIf='nutritionFacts'>
     <header class="performance-facts__header">
-      <h1 class="performance-facts__title">Nutrition Facts</h1>
-      <p>Serving Size: {{caloricInfo.portionSize}}
+      <h1 class="performance-facts__title">nutrition facts</h1>
+      <p> <span class='titlecase' i18n>serving size</span> : {{caloricInfo.portionSize}}
     </header>
     <table class="performance-facts__table">
       <thead>
         <tr>
           <th colspan="3" class="small-info">
-            Amount Per Serving
+            <span class='titlecase' i18n>
+              amount per serving
+            </span>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th colspan="2">
-            <b>Calories</b>
+            <b> <span class='titlecase' i18n>calories</span> </b>
             {{caloricInfo.value}}
           </th>
         </tr>
         <tr class="thick-row">
           <td colspan="3" class="small-info">
-            <b>% Daily Value*</b>
+            <b>% <span class='titlecase' i18n>
+                Daily Value
+              </span>
+              *</b>
           </td>
         </tr>
         <tr *ngFor='let fact of mappedNutrition'>
@@ -37,7 +42,7 @@
               {{fact.value}} {{fact.unit}}
             </th>
           </ng-container>
-          <td >
+          <td>
             <strong>{{dailyValues[fact.name] ? ((fact.value / dailyValues[fact.name]) | percent) : ''}}</strong>
           </td>
         </tr>
@@ -49,74 +54,90 @@
           {{vitamin.name + ' ' + vitamin.value + '' + vitamin.unit}}
         </span>
         <!-- this is a hack to get border bottom all the way across -->
-        <span class='vitamin-entry' *ngIf='last && (i % 2 !== 0)'></span> 
+        <span class='vitamin-entry' *ngIf='last && (i % 2 !== 0)'></span>
 
       </ng-container>
     </div>
-    <p class="small-info">* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or
-      lower depending on your calorie needs:</p>
+    <p class="small-info">*
+      <span class='titlecase' i18n>
+        Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or
+        lower depending on your calorie needs
+      </span>
+      :</p>
 
     <table class="performance-facts__table--small small-info">
       <thead>
         <tr>
           <td colspan="2"></td>
-          <th>Calories:</th>
+          <th class='titlecase' i18n>calories:</th>
           <th>2,000</th>
           <th>2,500</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th colspan="2">Total Fat</th>
-          <td>Less than</td>
+          <th colspan="2" class='titlecase' i18n>total fat</th>
+          <td class='titlecase' i18n>less than</td>
           <td>65g</td>
           <td>80g</td>
         </tr>
         <tr>
           <td class="blank-cell"></td>
-          <th>Saturated Fat</th>
-          <td>Less than</td>
+          <th class='titlecase' i18n>saturated fat</th>
+          <td class='titlecase' i18n>less than</td>
           <td>20g</td>
           <td>25g</td>
         </tr>
         <tr>
-          <th colspan="2">Cholesterol</th>
-          <td>Less than</td>
+          <th colspan="2" mclass='titlecase' i18n>cholesterol</th>
+          <td class='titlecase' i18n>less than</td>
           <td>300mg</td>
           <td>300 mg</td>
         </tr>
         <tr>
           <th colspan="2">Sodium</th>
-          <td>Less than</td>
+          <td class='titlecase' i18n>less than</td>
           <td>2,400mg</td>
           <td>2,400mg</td>
         </tr>
         <tr>
-          <th colspan="3">Total Carbohydrate</th>
+          <th colspan="3" class='titlecase' i18n>total carbohydrate</th>
           <td>300g</td>
           <td>375g</td>
         </tr>
         <tr>
           <td class="blank-cell"></td>
-          <th colspan="2">Dietary Fiber</th>
+          <th colspan="2" class='titlecase' i18n>dietary fiber</th>
           <td>25g</td>
           <td>30g</td>
         </tr>
       </tbody>
     </table>
 
-    <p class="small-info">
-      Calories per gram:
+    <p class="small-info titlecase" i18n>
+      calories per gram:
     </p>
     <p class="small-info text-center">
-      Fat 9
+      <span class='titlecase' i18n>
+
+        fat
+      </span>
+      9
       &bull;
-      Carbohydrate 4
+      <span class='titlecase' i18n>
+
+        carbohydrate
+      </span>
+      4
       &bull;
-      Protein 4
+      <span class='titlecase' i18n>
+
+        protein
+      </span>
+      4
     </p>
   </div>
-  <p class='empty-nutrition' *ngIf='!nutritionFacts'>Nutrition information is not available at this time</p>
+  <p class='empty-nutrition title' *ngIf='!nutritionFacts' i18n>Nutrition information is not available at this time</p>
 
 
 </div>

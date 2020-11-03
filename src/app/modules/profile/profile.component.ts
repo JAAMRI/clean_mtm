@@ -1,5 +1,4 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, ViewEncapsulation, HostListener } from '@angular/core';
+import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -38,7 +37,7 @@ export class ProfileComponent {
     });
     this.title.setTitle('MealsThatMatter – Profile'); //updating page title
     this.seo.generateTags({
-      title: 'MealsThatMatter – Profile',
+      title: 'My Account | Meals That Matter',
       description: 'View your profile.',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '//profile'
@@ -77,7 +76,7 @@ export class ProfileComponent {
 
   savePreferences(preferences: string) {
     // save preferences in backend
-    this.preferencesService.savePreferences(preferences).then((_) => this.snackBar.open('Preferences saved', null, { duration: 3000 }))
+    this.preferencesService.savePreferences(preferences).then((_) => this.snackBar.open($localize`Preferences saved`, null, { duration: 3000 }))
   }
 
 
@@ -92,7 +91,7 @@ export class ProfileComponent {
     }
     let result = await Auth.updateUserAttributes(user, { 'custom:opt_in': opt_in.toString() })
       .then(res => {
-        this.snackBar.open("Notifications successfully updated.", null, { duration: 3000 });
+        this.snackBar.open($localize`Notifications successfully updated.`, null, { duration: 3000 });
         if (opt_in) {
           this.optInModify = false;
         }

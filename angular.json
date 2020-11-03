@@ -11,11 +11,21 @@
           "bundleName": "lazyloadedstyles"
         }
       },
+      "i18n": {
+        "sourceLocale": "en-CA",
+        "locales": {
+          "fr": {
+            "translation" : "src/locale/messages.fr.xlf",
+            "baseHref": "/"
+          }
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
+          "localize": true,
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "sourceMap": {
@@ -38,13 +48,13 @@
               "src/manifest.json"
             ],
             "styles": [
-              
               "src/scss/styles.scss"
-            
             ]
-            
           },
           "configurations": {
+            "fr": {
+              "localize": ["fr"]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -69,8 +79,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "100kb",
+                  "maximumError": "200kb"
                 }
               ]
             },
@@ -97,8 +107,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "100kb",
+                  "maximumError": "200kb"
                 }
               ]
             },
@@ -125,8 +135,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "100kb",
+                  "maximumError": "200kb"
                 }
               ]
             }
@@ -145,6 +155,9 @@
           "configurations": {
             "production": {
               "browserTarget": "mtm-pwa-front-end:build:production"
+            },
+            "fr": {
+              "browserTarget": "mtm-pwa-front-end:build:fr"
             }
           }
         },
@@ -172,7 +185,6 @@
                 "bundleName": "lazyloadedstyles"
               }
             ]
-           
           }
         },
         "lint": {

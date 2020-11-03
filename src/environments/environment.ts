@@ -9,7 +9,8 @@ export const environment = {
   local: true,
   host: 'https://4w0hc7sglf.execute-api.us-east-1.amazonaws.com/dev',
   baseHref: '/',
-  baseUrl: 'localhost:4200'
+  baseUrl: 'localhost:4200',
+  devUrlKey: 'UniMTM@devTWH'
 };
 
 /*

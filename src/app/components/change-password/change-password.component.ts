@@ -62,10 +62,10 @@ export class ChangePasswordComponent implements OnInit {
         return Auth.changePassword(user, this.securityForm.controls.password.value, this.securityForm.controls.newPassword.value);
       })
       .then(data => {
-        this.snackBar.open("Password successfully changed!", null, { duration: 2500 });
+        this.snackBar.open($localize`Password successfully changed!`, null, { duration: 2500 });
       })
       .catch(err => {
-        this.snackBar.open(err.message, null, { duration: 2500 });
+        this.snackBar.open($localize`Error changing password. Please try again later`, null, { duration: 2500 });
       });
 
   }

@@ -90,7 +90,7 @@ export class PersonalInfoComponent implements OnInit {
         .catch(err => {
           console.log(err);
           this.accountService.loggedIn = false;
-          this.router.navigateByUrl("./");
+          this.router.navigateByUrl("./", { queryParamsHandling: "preserve" });
         }
         );
     } catch (err) {
@@ -137,11 +137,11 @@ export class PersonalInfoComponent implements OnInit {
         //Sign User Automatically
         this.signIn.emit({ username: username, password: password, firstTimeSignIn: true })
 
-        this.snackBar.open("Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!", null, { duration: 4500 });
+        this.snackBar.open($localize`Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!`, null, { duration: 4500 });
         //End Sign user In automatically
       })
       .catch(err => {
-        this.snackBar.open("Oops! " + err.message, null, { duration: 2500 });
+        this.snackBar.open($localize`Oops, an error has occured. Try again later`, null, { duration: 2500 });
       });
   }//End signUp function
 
@@ -163,10 +163,10 @@ export class PersonalInfoComponent implements OnInit {
     }
     let result = await Auth.updateUserAttributes(user, attributes)
       .then(res => {
-        this.snackBar.open("Profile info successfully updated.", null, { duration: 3000 });
+        this.snackBar.open($localize`Profile info successfully updated.`, null, { duration: 3000 });
       })
       .catch(err => {
-        this.snackBar.open(err.message, null, { duration: 3000 });//Show err message
+        this.snackBar.open($localize`Error updating profile`, null, { duration: 3000 });//Show err message
       });
     this.adobeDtbTracking.updateInformation();
   }
@@ -176,7 +176,7 @@ export class PersonalInfoComponent implements OnInit {
     Auth.signOut()
       .then(data => {
         this.accountService.loggedIn = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/'], { queryParamsHandling: "preserve" });
       })
       .catch(err => {
         alert(err.message);

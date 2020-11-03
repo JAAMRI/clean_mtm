@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   declarations: [ArticleItemComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [ArticleItemComponent]
 })
 export class ArticleItemModule { }

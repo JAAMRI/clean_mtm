@@ -35,6 +35,12 @@ const routes: Routes = [
     loadChildren: () => import('./modules/layout/faq/faq.module').then(m => m.FaqModule)
   },
   {
+    path: 'sitemap',
+    component: LayoutComponent,
+
+    loadChildren: () => import('./modules/sitemap/sitemap.module').then(m => m.SitemapModule)
+  },
+  {
     path: 'articles',
     component: LayoutComponent,
 
@@ -59,7 +65,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabled'
-  })],
+})],
   exports: [RouterModule]
 })
 export class AppRouting { }

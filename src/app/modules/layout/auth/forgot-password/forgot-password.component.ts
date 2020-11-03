@@ -68,7 +68,7 @@ export class ForgotPasswordComponent implements OnInit {
   validateEmail() {
     const email = this.forgotPasswordForm.get('email').value.toLowerCase();
     if (email == "") {
-      this.snackBar.open("Sorry! Email address is required", null, { duration: 2500 });
+      this.snackBar.open($localize`Sorry! Email address is required`, null, { duration: 2500 });
       return;
     }
     Auth.forgotPassword(email)
@@ -77,20 +77,20 @@ export class ForgotPasswordComponent implements OnInit {
       })
       .catch(err => {
         console.log(err)
-        this.snackBar.open("Sorry! " + err.message, null, { duration: 2500 });
+        this.snackBar.open($localize`Oops, an error has occured. Try again later`, null, { duration: 2500 });
       });
   }
 
   validateCodeAndPassword() {
     if (this.forgotPasswordForm.get('code').errors) {
-      if (this.forgotPasswordForm.get('code').errors.hasOwnProperty('required')) { this.snackBar.open('Code is required', null, { duration: 1500 }); return; }
+      if (this.forgotPasswordForm.get('code').errors.hasOwnProperty('required')) { this.snackBar.open($localize`Code is required`, null, { duration: 1500 }); return; }
     }
     if (this.forgotPasswordForm.get('password').errors) {
-      if (this.forgotPasswordForm.get('password').errors.hasOwnProperty('required')) { this.snackBar.open('Password is required', null, { duration: 1500 }); return; }
-      if (this.forgotPasswordForm.get('password').errors.hasOwnProperty('minlength')) { this.snackBar.open('Password must be at least 8 characters', null, { duration: 1500 }); return; }
+      if (this.forgotPasswordForm.get('password').errors.hasOwnProperty('required')) { this.snackBar.open($localize`Password is required`, null, { duration: 1500 }); return; }
+      if (this.forgotPasswordForm.get('password').errors.hasOwnProperty('minlength')) { this.snackBar.open($localize`Password must be at least 8 characters`, null, { duration: 1500 }); return; }
     }
     if (this.forgotPasswordForm.get('confirmPassword').errors) {
-      if (this.forgotPasswordForm.get('confirmPassword').errors.hasOwnProperty('mustMatch')) { this.snackBar.open('Oops! Passwords Must Match', null, { duration: 1500 }); return; }
+      if (this.forgotPasswordForm.get('confirmPassword').errors.hasOwnProperty('mustMatch')) { this.snackBar.open($localize`Oops! Passwords Must Match`, null, { duration: 1500 }); return; }
     }
 
     const email = this.forgotPasswordForm.get('email').value.toLowerCase();
