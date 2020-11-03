@@ -316,7 +316,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     if (status !== 'Successfully created') {
       if (status !== undefined) {
         // if the status is not undefined, that means there was an error sent back, otherwise a req to server may not have been made
-        this.snackBar.open($localize`Error adding to meal plan.`, null, { duration: 2000, verticalPosition: 'top' });
+        this.snackBar.open($localize`Error adding to meal plan`, null, { duration: 2000, verticalPosition: 'top' });
       }
       return;
     } else {
@@ -334,7 +334,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     if (status !== 'Successfully deleted') {
       if (status !== undefined) {
         // if the status is not undefined, that means there was an error sent back, otherwise a req to server may not have been made
-        this.snackBar.open($localize`Error removing from meal plan.`, null, { duration: 2000, verticalPosition: 'top' });
+        this.snackBar.open($localize`Error removing from meal plan`, null, { duration: 2000, verticalPosition: 'top' });
       }
       return;
     }
@@ -362,7 +362,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     if (status !== 'Successfully deleted') {
       if (status !== undefined) {
 
-        this.snackBar.open($localize`Error removing from favourites.`, null, { duration: 2000, verticalPosition: 'top' });
+        this.snackBar.open($localize`Error removing from favourites`, null, { duration: 2000, verticalPosition: 'top' });
       }
       return;
     }
@@ -379,7 +379,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     if (status !== 'Successfully created') {
       if (status !== undefined) {
 
-        this.snackBar.open($localize`Error adding to favourites.`, null, { duration: 2000, verticalPosition: 'top' });
+        this.snackBar.open($localize`Error adding to favourites`, null, { duration: 2000, verticalPosition: 'top' });
       }
       return;
     }
