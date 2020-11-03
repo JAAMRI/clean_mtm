@@ -15,22 +15,22 @@ import { existsSync } from 'fs';
 
 //Added to solve window not defined issue
 const domino = require("domino");
+const distFolder = join(process.cwd(), 'dist/browser');
+const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
+const win = domino.createWindow(indexHtml);
+win.Object = Object;
+win.Math = Math;
+
+global["window"] = win;
+global["document"] = win.document;
+global["localStorage"] = win.localStorage;
+global["branch"] = null;
+global["object"] = win.object;
+global['HTMLElement'] = win.HTMLElement;
+global['navigator'] = win.navigator;
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist/browser');
-  const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
-  const win = domino.createWindow(indexHtml);
-  win.Object = Object;
-  win.Math = Math;
-  
-  global["window"] = win;
-  global["document"] = win.document;
-  global["localStorage"] = win.localStorage;
-  global["branch"] = null;
-  global["object"] = win.object;
-  global['HTMLElement'] = win.HTMLElement;
-  global['navigator'] = win.navigator;
   //End Added to solve window not defined issue
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
   server.engine('html', ngExpressEngine({

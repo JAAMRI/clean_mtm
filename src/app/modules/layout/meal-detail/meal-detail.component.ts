@@ -255,7 +255,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     const status = await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'add')
     if (status !== 'Successfully created') {
       this.dialogRef.close()
-      this.snackBar.open('Error adding to meal plan', null, { duration: 1000, verticalPosition: 'top' });
+      this.snackBar.open($localize`Error adding to meal plan`, null, { duration: 1000, verticalPosition: 'top' });
       return;
     }
     if (this.inDialog) {
@@ -276,7 +276,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     const status = await this.mealPlanService.saveMealPlan(this.currentMealPlan, mealId, 'remove')
     if (status !== 'Successfully deleted') {
       this.dialogParams.close()
-      this.snackBar.open('Error removing from meal plan', null, { duration: 1000, verticalPosition: 'top' });
+      this.snackBar.open($localize`Error removing from meal plan`, null, { duration: 1000, verticalPosition: 'top' });
       return;
     }
     this.currentMealPlan = this.currentMealPlan.filter((m) => m).filter((meal) => meal.id !== mealId)
@@ -298,7 +298,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       if (status !== 'Successfully deleted') {
         this.dialogRef.close()
 
-        this.snackBar.open('Error removing from favourites', null, { duration: 1000, verticalPosition: 'top' });
+        this.snackBar.open($localize`Error removing from favourites`, null, { duration: 1000, verticalPosition: 'top' });
         return;
       }
       if (this.inDialog) {
@@ -312,7 +312,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       if (status !== 'Successfully created') {
         this.dialogRef.close()
 
-        this.snackBar.open('Error adding to favourites', null, { duration: 1000, verticalPosition: 'top' });
+        this.snackBar.open($localize`Error adding to favourites`, null, { duration: 1000, verticalPosition: 'top' });
         return;
       }
       this.addFavourite(favouriteMeal)

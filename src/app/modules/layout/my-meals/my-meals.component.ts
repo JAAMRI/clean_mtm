@@ -54,7 +54,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     }
     this.title.setTitle('MealsThatMatter – My Meal Plan'); //updating page title
     this.seo.generateTags({
-      title: 'MealsThatMatter – My Meal Plan',
+      title: 'My Meal Plan | Meals That Matter',
       description: 'View my meal plan',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/recipes/my-meals'
@@ -96,7 +96,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   async removeFromMealPlan(mealId: any) {
     const status = await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove');
     if (status !== 'Successfully deleted') {
-      this.snackbar.open('Error removing from meal plan.', null, { duration: 2000, verticalPosition: 'top' });
+      this.snackbar.open($localize`Error removing from meal plan.`, null, { duration: 2000, verticalPosition: 'top' });
       return;
     }
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
@@ -108,14 +108,14 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     if (this.favouriteMeals.find((meal) => meal.id === favouriteMeal.id)) {
       const status = await this.mealFavouritesService.saveMealFavourites(this.favouriteMeals, favouriteMeal.id, 'remove');
       if (status !== 'Successfully deleted') {
-        this.snackbar.open('Error removing from favourites.', null, { duration: 2000, verticalPosition: 'top' });
+        this.snackbar.open($localize`Error removing from favourites`, null, { duration: 2000, verticalPosition: 'top' });
         return;
       }
       this.removeFavourite(favouriteMeal.id);
     } else {
       const status = await this.mealFavouritesService.saveMealFavourites([...this.favouriteMeals, favouriteMeal], favouriteMeal.id)
       if (status !== 'Successfully created') {
-        this.snackbar.open('Error adding to favourites.', null, { duration: 2000, verticalPosition: 'top' });
+        this.snackbar.open($localize`Error adding to favourites`, null, { duration: 2000, verticalPosition: 'top' });
         return;
       }
       this.addFavourite(favouriteMeal)

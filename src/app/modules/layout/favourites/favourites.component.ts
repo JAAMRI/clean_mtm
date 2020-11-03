@@ -122,7 +122,7 @@ export class FavouritesComponent implements OnInit {
     // add to mealplan
     const status = await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove')
     if (status !== 'Successfully deleted') {
-      this.snackbar.open('Error removing from meal plan.', null, { duration: 2000, verticalPosition: 'top' });
+      this.snackbar.open($localize`Error removing from meal plan`, null, { duration: 2000, verticalPosition: 'top' });
       return;
     }
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
@@ -144,7 +144,7 @@ export class FavouritesComponent implements OnInit {
     } else {
       const status = await this.mealFavouritesService.saveMealFavourites([...this.favouriteMeals, favouriteMeal], favouriteMeal.id);
       if (status !== 'Successfully created') {
-        this.snackbar.open('Error adding to favourites.', null, { duration: 2000, verticalPosition: 'top' });
+        this.snackbar.open('Error adding to favourites', null, { duration: 2000, verticalPosition: 'top' });
         return;
       }
       this.addFavourite(favouriteMeal)
