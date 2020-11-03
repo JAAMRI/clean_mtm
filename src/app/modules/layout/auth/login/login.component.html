@@ -35,7 +35,7 @@
         class='sign-in-button uppercase' i18n>sign in</button>
       <div class="login-action-row">
         <a class='forgot-button' mat-link-button (click)='emitForgotPassword()' i18n>Forgot your password?</a>
-        <p class='required-field'>* Required field</p>
+        <p class='required-field'>* <span i18n>Required field</span> </p>
       </div>
     </div>
     <div class="gif-wrapper" *ngIf='loading'>

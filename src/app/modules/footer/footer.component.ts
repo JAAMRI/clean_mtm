@@ -19,7 +19,4 @@ export class FooterComponent {
     this.isMobile = event.target.innerWidth < 1024;
   }
 
-
-
-
 }

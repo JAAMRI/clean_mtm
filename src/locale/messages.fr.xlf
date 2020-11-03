@@ -308,7 +308,7 @@
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
-     
+
       <trans-unit id="cc21a5c8427b3308354203bb5c0f01b88b5c8fed" datatype="html">
         <source>
             contact us
@@ -323,7 +323,7 @@
         <source>
                 visit knorr
             </source>
-            <target>visitez knorr</target>
+        <target>visitez knorr</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
           <context context-type="linenumber">6</context>
@@ -333,19 +333,19 @@
         <source>
                 visit knorr
             </source>
-            <target>visitez knorr</target>
+        <target>visitez knorr</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
-      
+
       <trans-unit id="3088d6e5a1198041af5fbde637c75b929fd72d18" datatype="html">
         <source>
             sitemap
         </source>
         <target>sitemap</target>
-        
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
           <context context-type="linenumber">53</context>
@@ -2218,7 +2218,304 @@
         <target>
           Nos recettes plus saines font la promotion de saines habitudes alimentaires équilibrées en accord avec les orientations faisant autorité, encouragent l’apport en légumes, grains entiers, fruits, légumineuses et bons gras, tout en limitant les gras saturés, le sodium et les sucres.        </target>
       </trans-unit>
+      <trans-unit id="65fa36c3fcd756bd22d6eed35208fa4b5b760360" datatype="html">
+        <source>cook</source>
+        <target>cuisson</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/meal-item/meal-item.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7f64af9255641a661854dadfab69321396323e3a" datatype="html">
+        <source>prep</source>
+        <target>préparation</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/meal-item/meal-item.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="71f02e113da0c7a2b486619f0b0a1e475dbaa484" datatype="html">
+        <source>serves</source>
+        <target>rendement</target>
 
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/meal-item/meal-item.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="007ca33109631096cc260aca9c057229a0830231" datatype="html">
+        <source>carbs </source>
+        <target>glucides </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/meal-item/meal-item.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b0427421112b53660f8da4a1fedfe2e3969c55e8" datatype="html">
+        <source>fat  </source>
+        <target>lipides</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/meal-item/meal-item.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="994d1be80049f0e4bc89ca3ed9e6db049e93e7ad" datatype="html">
+        <source>calories  </source>
+        <target>calories</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/meal-item/meal-item.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3b4260c25a6ee8efeb691d8c2881eb3c5b90bea1" datatype="html">
+        <source>select more meals</source>
+        <target>sélectionner d’autres repas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a2bc5c6ed4473f41d1663fdbfe5a580c9b1ce638" datatype="html">
+        <source>serving size</source>
+        <target>
+          taille par portion
+        </target>
+          <context-group purpose="location">
+            <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+            <context context-type="linenumber">5</context>
+          </context-group>
+      </trans-unit>
+      <trans-unit id="a062c0d859447b4dfa7443edfa80b885493cc2ad" datatype="html">
+        <source>
+              amount per serving
+            </source>
+        <target>amount per serving</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="25d73f2638e1f4e47c919c63567be44d1cf1be51" datatype="html">
+        <source>calories</source>
+        <target>calories</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4aab2de81e88cae38eaa61d20370f74136e10bbc" datatype="html">
+        <source>
+                Daily Value
+              </source>
+        <target>valeur quotidienne</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="340f094146e7d6b26707f1e4c3daa3a5a0761f2f" datatype="html">
+        <source>
+        Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or
+        lower depending on your calorie needs
+      </source>
+        <target>
+        Les valeurs quotidiennes sont fondées sur un régime de 2 000 calories. Elles peuvent être supérieures ou inférieures selon vos besoins en calories
+      </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="269bd246f00246ddb2663edbcda886b0f5566371" datatype="html">
+        <source>calories:</source>
+        <target>calories:</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="19ac6c1fe824a3f99a68f4f5987c881cc214410e" datatype="html">
+        <source>total fat</source>
+        <target>total des lipides</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4af1d6466f0c5c48a00bc0bd388bc4b10176cc34" datatype="html">
+        <source>less than</source>
+        <target>moins de</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="94e90e8dff9bd1273185a8acc9daa26bff190ad5" datatype="html">
+        <source>saturated fat</source>
+        <target>lipides saturés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7c14277d3200ddd79616ed4b5db0957ce6c46195" datatype="html">
+        <source>cholesterol</source>
+        <target>cholestérol</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="43eb3b00b2b7bd62a5482f7476016979690ac341" datatype="html">
+        <source>total carbohydrate</source>
+        <target>total des glucides</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="73380b945552a1c7c68b5574f02d1283a9c23e12" datatype="html">
+        <source>dietary fiber</source>
+        <target>fibres</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="93244676b680f2814ebb21460dd0c33c1a4056c0" datatype="html">
+        <source>
+      calories per gram:
+    </source>
+        <target>calories par gramme</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c871feda69aeb0d774b90c6909b47704371a5b6a" datatype="html">
+        <source>
+
+        fat
+      </source>
+        <target>lipides</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8111a15c8f36537547c1ebb38ecebafe625d0a2a" datatype="html">
+        <source>
+
+        carbohydrate
+      </source>
+        <target>glucides</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc7373e4d3f87c5c52e5b4710b02276df88d2c3a" datatype="html">
+        <source>
+
+        protein
+      </source>
+        <target>protéine</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d4976fa43dc4713ad7e6754d93a28f4748ecde4a" datatype="html">
+        <source>Nutrition information is not available at this time</source>
+        <target>Nutrition information is not available at this time</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/nutrition-table/nutrition-table.component.html</context>
+          <context context-type="linenumber">140</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="165403557112987520" datatype="html">
+        <source>protein</source>
+        <target>protéine</target>
+      </trans-unit>
+      <trans-unit id="165403557112987520" datatype="html">
+        <source>Sorry! An error has occured updating your password</source>
+        <target>Désolé! Une erreur est survenue à la modification du mot de passe.</target>
+      </trans-unit>
+      <trans-unit id="5044475844096234227" datatype="html">
+        <source>Your password has been successfully updated</source>
+        <target>Votre mot de passe a été modifié avec succès</target>
+      </trans-unit>
+      <trans-unit id="8496313054062600676" datatype="html">
+        <source>A code has been sent to your email, please enter it for verification purposes!</source>
+        <target>Un code vous a été envoyé par courriel; entrez-le à des fins de vérification!</target>
+      </trans-unit>
+      <trans-unit id="7080784053371099344" datatype="html">
+        <source>Email verification on is way! Check your inbox for details..</source>
+        <target>Vérification par courriel en cours! Surveillez votre boîte de réception pour plus de détails.</target>
+      </trans-unit>
+      <trans-unit id="1362540115973237298" datatype="html">
+        <source>Sorry! We could not sign you in at this time. PLease try again later.</source>
+        <target>Désolé! Ouverture de session impossible pour l’instant. Essayez à nouveau plus tard.</target>
+      </trans-unit>
+      <trans-unit id="2175784236523326802" datatype="html">
+        <source>Required field</source>
+        <target>Champ obligatoire</target>
+      </trans-unit>
+      <trans-unit id="5023740706225338402" datatype="html">
+        <source>Oops an error has occured</source>
+        <target>Oups, une erreur est survenue. Essayez à nouveau plus tard.</target>
+      </trans-unit>
+      <trans-unit id="7902686822014815667" datatype="html">
+        <source>Profile info successfully updated.</source>
+        <target>Le profil a été modifié avec succès.</target>
+      </trans-unit>
+      <trans-unit id="1344789991812964220" datatype="html">
+        <source>Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!</source>
+        <target>Félicitations! Votre profil a été créé. Vous pouvez enregistrer vos plans de repas personnalisés une fois qu’ils sont créés. À plus tard dans la cuisine!</target>
+      </trans-unit>
+      <trans-unit id="9045024414252833519" datatype="html">
+        <source>Error adding to favourites</source>
+        <target>Erreur à l’ajout aux favoris.</target>
+      </trans-unit>
+      <trans-unit id="107009174379259909" datatype="html">
+        <source>Error removing from meal plan</source>
+        <target>Erreur au retrait du plan de repas.</target>
+      </trans-unit>
+      <trans-unit id="7035119321093725293" datatype="html">
+        <source>Error removing from favourites</source>
+        <target>Erreur au retrait des favoris.</target>
+      </trans-unit>
+      <trans-unit id="2336075142911669406" datatype="html">
+        <source>Error adding to meal plan</source>
+        <target>Erreur à l’ajout au plan de repas.</target>
+      </trans-unit>
+      <trans-unit id="13515d0c961c189e81c036079262f608e150918f" datatype="html">
+        <source>watch how to video</source>
+        <target>regarder la vidéo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      
     </body>
   </file>
 </xliff>
