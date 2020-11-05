@@ -12,7 +12,9 @@
     "dev:ssr": "ng run mtm-pwa-front-end:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run mtm-pwa-front-end:server:production",
-    "prerender": "ng run mtm-pwa-front-end:prerender"
+    "dev:prerender": "ng run mtm-pwa-front-end:prerender:dev",
+    "uat:prerender": "ng run mtm-pwa-front-end:prerender:uat",
+    "prerender": "ng run mtm-pwa-front-end:prerender:production"
   },
   "private": true,
   "dependencies": {
@@ -40,13 +42,9 @@
     "cors": "~2.8.4",
     "domino": "^2.1.6",
     "express": "^4.15.2",
-    "moment": "^2.24.0",
     "rxjs": "~6.6.3",
     "rxjs-compat": "^6.4.0",
-    "smoothscroll-polyfill": "^0.4.4",
     "tslib": "^2.0.0",
-    "url-search-params-polyfill": "^7.0.0",
-    "web-animations-js": "^2.3.2",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {

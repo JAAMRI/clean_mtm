@@ -145,4 +145,29 @@ export class DynamicScriptLoaderService {
     });
   }
 
+  insertAdChoice() {
+    // return;
+    //AdChoice
+    (function () {
+      var ev = document.createElement('script'); ev.type = 'text/javascript'; ev.async = true; ev.setAttribute('data-ev-tag-pid', '20844'); ev.setAttribute('data-ev-tag-ocid', '6368');
+      ev.setAttribute("rel", "prefetch");
+      ev.src = '//c.evidon.com/pub/tag.js';
+      ev.defer = true;
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ev, s);
+    })();
+    (function (id, cid, cb) {
+      var d = document
+        , s = d.createElement('script')
+        , ts = d.getElementsByTagName('script')[0];
+      s.type = 'text/javascript';
+      s.async = true;
+      s.setAttribute('data-ev-noticeid', id);
+      s.setAttribute('data-ev-coid', cid);
+      s.setAttribute('data-ev-consent-callback', cb);
+      s.setAttribute('data-ev-consent-type', 'c');
+      s.src = '//c.evidon.com/pub/gdprnotice.js';
+      ts.parentNode.insertBefore(s, ts);
+    })('20844', '6368', 'g_consentGiven');
+  }
+
 }

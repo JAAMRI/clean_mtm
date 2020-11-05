@@ -1,20 +1,18 @@
-import { Component, OnInit, Input, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from "@angular/router";
 import Auth from '@aws-amplify/auth';
-import * as moment from 'moment';
 import { Subject } from 'rxjs';
 import { AccountService } from '../../../../../app/services/account/account.service';
-import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
-import { ICredentials } from '../../../../interfaces/auth/credentials';
-import { PasswordErrorMatcher } from '../auth.forms';
-import { PinterestTrackingService } from '../../../../services/pinterest-tracking.service';
+import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
 import { environment } from '../../../../../environments/environment';
+import { ICredentials } from '../../../../interfaces/auth/credentials';
+import { PinterestTrackingService } from '../../../../services/pinterest-tracking.service';
+import { PasswordErrorMatcher } from '../auth.forms';
 
 
 
@@ -66,7 +64,11 @@ export class RegisterComponent implements OnInit {
         this.registerForm.controls.family_name.setValue(currentUser.attributes.family_name);
         this.registerForm.controls.given_name.setValue(currentUser.attributes.given_name);
         this.registerForm.controls.email.setValue(currentUser.attributes.email);
-        currentUser.attributes.birthdate && this.registerForm.controls.birthdate.setValue(moment(currentUser.attributes.birthdate).toISOString());
+        if (currentUser.attributes.birthdate) {
+          const userBirthdate = new Date(currentUser.attributes.birthdate);
+          userBirthdate.setMinutes(userBirthdate.getMinutes() + userBirthdate.getTimezoneOffset())
+          this.registerForm.controls.birthdate.setValue(userBirthdate);
+        }
         this.registerForm.controls.postal_code.setValue(currentUser.attributes['custom:postal_code']);
       })
         .catch(err => {
@@ -144,9 +146,8 @@ export class RegisterComponent implements OnInit {
       attributes['custom:postal_code'] = this.registerForm.controls.postal_code.value;
     }
     if (this.registerForm.controls.birthdate.value) {
-      const momentDate = new Date(this.registerForm.controls.birthdate.value);
-      const formattedDate = moment(momentDate).format("YYYY-MM-DD");
-      attributes['birthdate'] = formattedDate;
+      const birthdate = new Date(this.registerForm.controls.birthdate.value)
+      attributes['birthdate'] = birthdate.toJSON().slice(0,10);;
     }
     let result = await Auth.updateUserAttributes(user, attributes)
       .then(res => {

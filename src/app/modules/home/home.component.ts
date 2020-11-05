@@ -3,7 +3,6 @@ import { NavigationEnd, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import * as smoothscroll from "smoothscroll-polyfill";
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
 import { scrollToTop } from '../../../app/utilities/helper-functions';
 import { AccountService } from '../../services/account/account.service';
