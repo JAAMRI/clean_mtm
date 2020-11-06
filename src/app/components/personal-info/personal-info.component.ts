@@ -6,7 +6,6 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from "@angular/router";
 import Auth from '@aws-amplify/auth';
-import * as moment from 'moment';
 import { Subject } from 'rxjs';
 import { AccountService } from '../../../app/services/account/account.service';
 import { MealPlanService } from '../../../app/services/meal-plan/meal-plan.service';
@@ -84,7 +83,11 @@ export class PersonalInfoComponent implements OnInit {
         this.userForm.controls.family_name.setValue(currentUser.attributes.family_name);
         this.userForm.controls.given_name.setValue(currentUser.attributes.given_name);
         this.userForm.controls.email.setValue(currentUser.attributes.email);
-        currentUser.attributes.birthdate && this.userForm.controls.birthdate.setValue(moment(currentUser.attributes.birthdate).toISOString());
+        if (currentUser.attributes.birthdate) {
+          const userBirthdate = new Date(currentUser.attributes.birthdate);
+          userBirthdate.setMinutes(userBirthdate.getMinutes() + userBirthdate.getTimezoneOffset())
+          this.userForm.controls.birthdate.setValue(userBirthdate);
+        }
         this.userForm.controls.postal_code.setValue(currentUser.attributes['custom:postal_code']);
       })
         .catch(err => {
@@ -157,9 +160,8 @@ export class PersonalInfoComponent implements OnInit {
       attributes['custom:postal_code'] = this.userForm.controls.postal_code.value;
     }
     if (this.userForm.controls.birthdate.value) {
-      const momentDate = new Date(this.userForm.controls.birthdate.value);
-      const formattedDate = moment(momentDate).format("YYYY-MM-DD");
-      attributes['birthdate'] = formattedDate;
+      const birthdate = new Date(this.userForm.controls.birthdate.value)
+      attributes['birthdate'] = birthdate.toJSON().slice(0,10);
     }
     let result = await Auth.updateUserAttributes(user, attributes)
       .then(res => {

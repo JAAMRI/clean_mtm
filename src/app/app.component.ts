@@ -51,7 +51,9 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    
+    if (environment.dev) {
+      this.loadRobotsInHeader()
+    }
     this.isLoggedIn();
     this.activeRoute = this.router.url;
     this.watchRoute();
@@ -69,9 +71,6 @@ export class AppComponent implements OnInit {
   checkDevUrl() {
     if (this.route.snapshot.queryParamMap.get('s') !== environment.devUrlKey) {
       window.location.href = 'https://www.mealsthatmatter.com'
-    } else {
-      this.loadRobotsInHeader()
-
     }
   }
 
@@ -80,7 +79,7 @@ export class AppComponent implements OnInit {
     
     this.loadFontIcons();
     // this.pixelImplementation();
-    if (environment.production) {
+    if (environment.uat || environment.production) {
       this.pinterestImplementation();
       this.bodyhidingImplementation()
       this.adobeImplementation();
@@ -92,14 +91,8 @@ export class AppComponent implements OnInit {
 
 
     }//If production or uat, lazyload main css
-    // else {
     this.cdr.detectChanges()
-    // await this.loadjscssfile("../lazyloadedstyles.js", "js");
-    // await this.loadjscssfile("./lazyloadedstyles.css", "css");
-    // }
-    // this.insertAdChoice();
-
-
+    this.dynamicScriptLoader.insertAdChoice();
   }
 
   watchRoute() {
@@ -161,63 +154,7 @@ export class AppComponent implements OnInit {
     this.title.setTitle(activePage.title);
   }
 
-  insertAdChoice() {
-    // return;
-    //AdChoice
-    (function () {
-      var ev = document.createElement('script'); ev.type = 'text/javascript'; ev.async = true; ev.setAttribute('data-ev-tag-pid', '20844'); ev.setAttribute('data-ev-tag-ocid', '6368');
-      ev.setAttribute("rel", "prefetch");
-      ev.src = '//c.evidon.com/pub/tag.js';
-      ev.defer = true;
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ev, s);
-    })();
-    (function (id, cid, cb) {
-      var d = document
-        , s = d.createElement('script')
-        , ts = d.getElementsByTagName('script')[0];
-      s.type = 'text/javascript';
-      s.async = true;
-      s.setAttribute('data-ev-noticeid', id);
-      s.setAttribute('data-ev-coid', cid);
-      s.setAttribute('data-ev-consent-callback', cb);
-      s.setAttribute('data-ev-consent-type', 'c');
-      s.src = '//c.evidon.com/pub/gdprnotice.js';
-      ts.parentNode.insertBefore(s, ts);
-    })('20844', '6368', 'g_consentGiven');
-  }
-
-  async loadjscssfile(filename: string, filetype: string) {
-    // return asynchronously
-    if (filetype == "js") { //if filename is a external JavaScript file
-      return new Promise(resolve => {
-        let fileref = document.createElement('script')
-        fileref.setAttribute("type", "text/javascript")
-        fileref.setAttribute("src", filename)
-        fileref.onload = resolve;
-        document.getElementsByTagName("head")[0].appendChild(fileref)
-      });
-
-    } else if (filetype == "css") { //if filename is an external CSS file
-      return new Promise(resolve => {
-        let fileref = document.createElement("link")
-        fileref.setAttribute("as", "style")
-        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 || navigator.userAgent.toLowerCase().indexOf('msie') > -1 || navigator.appVersion.indexOf('Trident/') > -1) {//Do not use preload if using Firefox or Internet explorer
-          fileref.setAttribute("rel", "stylesheet")
-          fileref.onload = resolve
-
-        } else {
-          fileref.setAttribute("rel", "preload")
-          fileref.onload = () => { fileref.setAttribute('rel', 'stylesheet'); resolve() };
-
-        }
-        fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", filename)
-        document.getElementsByTagName("head")[0].appendChild(fileref)
-
-      })
-    }
-
-  }
+  
 
   facebookImplementation() {
     this.dynamicScriptLoader.load('facebook-pixel').then((data: any) => {
@@ -261,13 +198,13 @@ export class AppComponent implements OnInit {
   }
 
   pixelImplementation() {
-    this.dynamicScriptLoader.loadInFooter('pixel-min', 'pixel').then((data: any) => {
+    this.dynamicScriptLoader.load('pixel-min', 'pixel').then((data: any) => {
       console.log('Pixel loaded successfully');
     }).catch(console.error)
   }
 
   amazonPixelImplementation() {
-    this.dynamicScriptLoader.loadInFooter('loyalty-amazon', 'awareness-amazon').then((data: any) => {
+    this.dynamicScriptLoader.load('loyalty-amazon', 'awareness-amazon').then((data: any) => {
       console.log('Amazon loyalty and awareness loaded successfully');
       this.loadAwarenessAmazonPixel = true;
       this.loadLoyaltyAmazonPixel = true;
