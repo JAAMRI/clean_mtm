@@ -29,17 +29,14 @@
     "@angular/service-worker": "~10.2.1",
     "@aws-amplify/auth": "^2.1.8",
     "@aws-amplify/core": "^2.3.0",
-    "@nguniversal/express-engine": "^10.1.0",
     "aws-serverless-express": "^3.2.0",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.6.10",
     "cors": "~2.8.4",
-    "domino": "^2.1.6",
-    "express": "^4.15.2",
     "rxjs": "~6.6.3",
     "rxjs-compat": "^6.4.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.3"
+    "zone.js": "0.8.16"
   },
   "devDependencies": {
     "@angular-devkit/core": "^10.2.0",
