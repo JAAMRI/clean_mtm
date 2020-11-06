@@ -8,13 +8,7 @@
     "build": "ng build && gzip -9 ./dist/*.{html,css,js}",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "dev:ssr": "ng run mtm-pwa-front-end:serve-ssr",
-    "serve:ssr": "node dist/server/main.js",
-    "build:ssr": "ng build --prod && ng run mtm-pwa-front-end:server:production",
-    "dev:prerender": "ng run mtm-pwa-front-end:prerender:dev",
-    "uat:prerender": "ng run mtm-pwa-front-end:prerender:uat",
-    "prerender": "ng run mtm-pwa-front-end:prerender:production"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

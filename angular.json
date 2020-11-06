@@ -213,63 +213,6 @@
               "devServerTarget": "mtm-pwa-front-end:serve:production"
             }
           }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/server",
-            "main": "server.ts",
-            "tsConfig": "tsconfig.server.json"
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "uat": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.uat.ts"
-                }
-              ]
-            },
-            "dev": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.dev.ts"
-                }
-              ]
-            }
-          }
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "browserTarget": "mtm-pwa-front-end:build",
-            "serverTarget": "mtm-pwa-front-end:server",
-            "routesFile": "./routes.txt",
-            "guessRoutes": false
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "mtm-pwa-front-end:build:production",
-              "serverTarget": "mtm-pwa-front-end:server:production"
-            },
-            "uat": {
-              "browserTarget": "mtm-pwa-front-end:build:uat",
-              "serverTarget": "mtm-pwa-front-end:server:uat"
-            },
-            "dev": {
-              "browserTarget": "mtm-pwa-front-end:build:dev",
-              "serverTarget": "mtm-pwa-front-end:server:dev"
-            }
-          }
         }
       }
     }
