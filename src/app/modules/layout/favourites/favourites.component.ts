@@ -30,15 +30,6 @@ export class FavouritesComponent implements OnInit {
   mealPlanIds = {};
   carouselIsChanging: boolean;
 
-  slideConfig = {
-    "slidesToShow": 4,
-    "slidesToScroll": 1,
-    'infinite': false,
-    "nextArrow": "<div class='nav-btn next-slide'></div>",
-    "prevArrow": "<div class='nav-btn prev-slide'></div>",
-  };
-
-
   constructor(private snackbar: MatSnackBar,
 
     private mealFavouritesService: MealFavouritesService,

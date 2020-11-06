@@ -90,21 +90,6 @@ mat-dialog-container{
   margin: 0 auto;
 }
 
-.nav-btn {
-  height: 47px;
-  position: absolute;
-  width: 42px;
-  cursor: pointer;
-  top: 100px;
-}
-.disable-next-button {
-  .nav-btn.next-slide {
-    pointer-events: none;
-    opacity: 0.5;
-  }
-}
-
-
 // cookies on this site
 #_ghostery-title{
   font-family: Arial !important;
