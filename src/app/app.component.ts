@@ -81,16 +81,16 @@ export class AppComponent implements OnInit {
     // this.pixelImplementation();
     if (environment.uat || environment.production) {
       this.pinterestImplementation();
-      this.bodyhidingImplementation()
       this.adobeImplementation();
       this.facebookImplementation();
       this.newRelicImplementation();
       // this.hotjarImplementation();
       this.pixelImplementation();
       this.amazonPixelImplementation();
+    }
 
 
-    }//If production or uat, lazyload main css
+    // }//If production or uat, lazyload main css
     this.cdr.detectChanges()
     this.dynamicScriptLoader.insertAdChoice();
   }
@@ -165,6 +165,9 @@ export class AppComponent implements OnInit {
   adobeImplementation() {
     this.dynamicScriptLoader.load('adobe-tracking', 'adobe-tracking-min').then((data: any) => {
       console.log('Adobe tracking loaded successfully');
+      // implements body hiding after adobe is loaded sinc eit depends on it
+      this.bodyhidingImplementation()
+
     }).catch(console.error)
   }
 
