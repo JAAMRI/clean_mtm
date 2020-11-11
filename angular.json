@@ -15,7 +15,7 @@
         "sourceLocale": "en-CA",
         "locales": {
           "fr": {
-            "translation" : "src/locale/messages.fr.xlf",
+            "translation": "src/locale/messages.fr.xlf",
             "baseHref": "/"
           }
         }
@@ -41,7 +41,7 @@
             "aot": true,
             "serviceWorker": true,
             "assets": [
-              "src/splashscreens",
+              "src/splash_screens",
               "src/assets",
               "src/icons",
               "src/robots.txt",
@@ -53,7 +53,9 @@
           },
           "configurations": {
             "fr": {
-              "localize": ["fr"]
+              "localize": [
+                "fr"
+              ]
             },
             "production": {
               "fileReplacements": [
@@ -210,68 +212,6 @@
             "production": {
               "devServerTarget": "mtm-pwa-front-end:serve:production"
             }
-          }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/server",
-            "main": "server.ts",
-            "tsConfig": "tsconfig.server.json"
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "uat": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.uat.ts"
-                }
-              ]
-            },
-            "dev": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.dev.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "options": {
-            "browserTarget": "mtm-pwa-front-end:build",
-            "serverTarget": "mtm-pwa-front-end:server"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "mtm-pwa-front-end:build:production",
-              "serverTarget": "mtm-pwa-front-end:server:production"
-            }
-          }
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "browserTarget": "mtm-pwa-front-end:build:production",
-            "serverTarget": "mtm-pwa-front-end:server:production",
-            "routes": [
-              "/"
-            ]
-          },
-          "configurations": {
-            "production": {},
-            "uat": {},
-            "dev": {}
           }
         }
       }

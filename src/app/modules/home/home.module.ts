@@ -1,34 +1,31 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
-import { UserFormModule } from '../../components/dialogs/user-form/user-form.module';
-import { OnBoardModule } from './on-board/on-board.module';
+import { MobileMenuModule } from '../../components/mobile-menu/mobile-menu.module';
 import { HomeComponent } from './home.component';
 import { HomeRouting } from './home.routing';
-import { HowItWorksComponent } from './how-it-works/how-it-works.component';
-import { YouWillLoveThisComponent } from './you-will-love-this/you-will-love-this.component';
-import { ReclaimWeeknightCookingComponent } from './reclaim-weeknight-cooking/reclaim-weeknight-cooking.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MobileMenuModule } from '../../components/mobile-menu/mobile-menu.module';
-import { MtmSliderModule } from '../../components/mtm-slider/mtm-slider.module';
+import { HowItWorksModule } from './how-it-works/how-it-works.module';
+import { OnBoardModule } from './on-board/on-board.module';
+import { ReclaimWeeknightCookingModule } from './reclaim-weeknight-cooking/reclaim-weeknight-cooking.module';
+import { YouWillLoveThisModule } from './you-will-love-this/you-will-love-this.module';
 
 @NgModule({
-  declarations: [HomeComponent, HowItWorksComponent, YouWillLoveThisComponent, ReclaimWeeknightCookingComponent],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
     HomeRouting,
     RouterModule,
     MatButtonModule,
-    MatCardModule,
     MatIconModule,
     OnBoardModule,
-    UserFormModule,
     MatSidenavModule,
     MobileMenuModule,
-    MtmSliderModule
+    YouWillLoveThisModule,
+    ReclaimWeeknightCookingModule,
+    HowItWorksModule
   ]
 })
 export class HomeModule { }

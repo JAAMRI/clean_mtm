@@ -8,5 +8,5 @@
     s.parentNode.insertBefore(t, s)
 }(window, document, 'script',
     'https://connect.facebook.net/en_US/fbevents.js?ngsw-bypass');
-fbq('init', '194312168116213');
-fbq('track', 'PageView');
+    fbq('init', '194312168116213');
+    fbq('track', 'PageView');

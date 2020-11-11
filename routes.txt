@@ -1,0 +1,11 @@
+/
+/recipes/discover
+/recipes/my-meals
+/recipes/favourites
+/recipes/grocery-list
+/articles
+/faqs
+/auth/login
+/auth/register
+/auth/forgot-password
+/contact-us
