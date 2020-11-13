@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, LOCALE_ID, Inject } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 export enum MTMPageNames {
   SELECT_MEALS = 'SELECT RECIPES',
@@ -85,10 +86,13 @@ export class DesktopToolbarComponent implements OnInit {
   @Output() onSignOutClicked = new EventEmitter<string>();
   @Input() activePage: string;
   @Input() loggedIn: boolean;
+  mainImage = this.locale === 'fr' ? environment.frenchImage : environment.englishImage
 
-  constructor() { }
+  constructor(@Inject(LOCALE_ID) public locale: string
+  ) { }
 
   ngOnInit(): void {
+    console.log(LOCALE_ID)
   }
 
   emitNavigation(link: string) {

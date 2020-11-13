@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation, Inject, LOCALE_ID } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 import { AccountService } from '../../../services/account/account.service';
 import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 
@@ -11,10 +12,12 @@ import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 export class OnBoardComponent  {
   @Output() login = new EventEmitter();
   @Output() scroll = new EventEmitter();
+  mainImage = this.locale === 'fr' ? environment.frenchImage : environment.englishImage
 
   constructor(
     public accountService: AccountService,
-    public adobeDtbTracking: AdobeDtbTracking
+    public adobeDtbTracking: AdobeDtbTracking,
+    @Inject(LOCALE_ID) public locale: string
   ) {
  
   }

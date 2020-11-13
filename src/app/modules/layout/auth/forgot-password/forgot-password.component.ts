@@ -77,7 +77,7 @@ export class ForgotPasswordComponent implements OnInit {
       })
       .catch(err => {
         console.log(err)
-        this.snackBar.open($localize`Oops, an error has occured. Try again later`, null, { duration: 2500 });
+        this.snackBar.open($localize`Oops an error has occured`, null, { duration: 2500 });
       });
   }
 

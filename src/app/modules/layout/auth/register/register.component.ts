@@ -130,7 +130,7 @@ export class RegisterComponent implements OnInit {
         //End Sign user In automatically
       })
       .catch(err => {
-        this.snackBar.open($localize`Oops! An error has occured`, null, { duration: 2500 });
+        this.snackBar.open($localize`Oops an error has occured`, null, { duration: 2500 });
       });
   }//End signUp function
 
