@@ -12,7 +12,8 @@ export const environment = {
   baseUrl: 'localhost:4200',
   devUrlKey: 'UniMTM@devTWH',
   frenchImage: '/assets/static_images/MTM_FINAL_LOGO_FR.png',
-  englishImage: '/assets/static_images/MTM_FINAL_LOGO.svg'
+  englishImage: '/assets/static_images/MTM_FINAL_LOGO.svg',
+  dropSecret: '2557749db3be79907ec7ec7a139f8b288eb948628955ae0942a59b61dfd8a97f'
 };
 
 /*

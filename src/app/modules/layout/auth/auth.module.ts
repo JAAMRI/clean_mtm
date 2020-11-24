@@ -18,6 +18,7 @@ import { PipesModule } from '../../../pipes/pipes.module';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PinterestTrackingService } from '../../../services/pinterest-tracking.service';
+import { ThirdPartyService } from '../../../services/third-party.service';
 
 
 
@@ -41,6 +42,6 @@ import { PinterestTrackingService } from '../../../services/pinterest-tracking.s
     PipesModule,
 
 
-  ], providers: [PinterestTrackingService]
+  ], providers: [PinterestTrackingService, ThirdPartyService]
 })
 export class AuthModule { }
