@@ -79,8 +79,8 @@ export class AppComponent implements OnInit {
     
     this.loadFontIcons();
     if (environment.uat || environment.production) {
-      this.pinterestImplementation();
       this.adobeImplementation();
+      this.pinterestImplementation();
       this.facebookImplementation();
       this.newRelicImplementation();
       // this.hotjarImplementation();

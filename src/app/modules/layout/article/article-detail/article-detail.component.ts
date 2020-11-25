@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { takeUntil } from 'rxjs/operators';
-import { WhatAndWhatNotToFreeze } from '../articles/what-and-what-not-to-freeze';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-detail',
@@ -11,9 +8,10 @@ import { WhatAndWhatNotToFreeze } from '../articles/what-and-what-not-to-freeze'
 })
 export class ArticleDetailComponent implements OnInit {
 
-  articles = {
-    'what-and-what-not-to-freeze': WhatAndWhatNotToFreeze
-  }
+  articles = [
+    'what-and-what-not-to-freeze',
+    'jackys-deviled-eggs-recipe',
+  ]
   articleId: string;
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -23,7 +21,7 @@ export class ArticleDetailComponent implements OnInit {
 
   loadArticleBasedOffRoute(): void {
     this.articleId = this.route.snapshot.params['id'];
-    if (!this.articles[this.articleId]) {
+    if (!this.articles.includes(this.articleId)) {
       this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
     }
   }
