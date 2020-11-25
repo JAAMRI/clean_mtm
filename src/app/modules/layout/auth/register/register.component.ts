@@ -127,12 +127,12 @@ export class RegisterComponent implements OnInit {
       }
     })
       .then(data => {
-        this.checkDrop();
         //Sign User Automatically
         const credentials: ICredentials = { username: username, password: password, firstTime: true };
         this.signIn.emit(credentials);
 
         this.snackBar.open($localize`Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!`, null, { duration: 4500 });
+        this.checkDrop();
         //End Sign user In automatically
       })
       .catch(err => {
