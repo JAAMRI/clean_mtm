@@ -17,7 +17,14 @@ export class ArticleComponent {
       content: 'Freezing is a great way to retain the texture, flavour and colour of foods and can help you with your weekly menu planning so avoiding waste.',
       readTime: '3min',
       url: 'what-and-what-not-to-freeze',
-      image: '/assets/static_images/articles/what-and-what-not-to-freeze.jpg'
+      image: '/assets/static_images/articles/what-and-what-not-to-freeze/what-and-what-not-to-freeze.jpg'
+    },
+    {
+      title: 'Jackys Devilled Eggs',
+      content: 'Time is our most valuable resource. It’s precious. It’s something we can’t ever get back, and some days there just never seems to be enough of it.”',
+      readTime: '4min',
+      url: 'jackys-deviled-eggs-recipe',
+      image: '/assets/static_images/articles/jackys-deviled-eggs/finished-dish.jpeg'
     },
 
   ]

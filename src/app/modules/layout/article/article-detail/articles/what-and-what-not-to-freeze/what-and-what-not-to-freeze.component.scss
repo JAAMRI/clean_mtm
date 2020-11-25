@@ -7,6 +7,9 @@
     min-height: calc(100vh - 64px); 
     position: relative;
     z-index: 1;
+    @media(min-width: 768px) {
+        margin-top: 1em;
+    }
 }
 @media(min-width: 1024px) {
     .img-wrapper{

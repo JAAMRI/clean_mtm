@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SeoService } from '../../../../../../services/seo.service';
 
 @Component({
   selector: 'app-jackys-deviled-eggs',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JackysDeviledEggsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private seoService: SeoService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.seoService.generateTags({
+      title: 'Jackys Devilled Eggs Recipe | Meals That Matter',
+      description: 'Devilled Eggs is inspired by my childhood memory of Mom making it for our guests. They are easy, delicious and presented beautifully. Try today with help from Meals That Matter.',
+      slug: this.router.url
+    })
   }
 
 }
