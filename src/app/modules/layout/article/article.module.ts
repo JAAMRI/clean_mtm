@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
+import { ArticleListItemModule } from '../../../components/article-list-item/article-list-item.module';
+import { ArticleDetailModule } from './article-item/article-detail.module';
 import { ArticleComponent } from './article.component';
 import { ArticleRouting } from './article.routing';
-import { MatCardModule } from '@angular/material/card';
-import { ArticleListItemModule } from '../../../components/article-list-item/article-list-item.module';
-import { RouterModule } from '@angular/router';
-import { ArticleItemModule } from './article-item/article-item.module';
 
 @NgModule({
   declarations: [ArticleComponent],
@@ -15,7 +15,7 @@ import { ArticleItemModule } from './article-item/article-item.module';
     MatCardModule,
     ArticleListItemModule,
     RouterModule,
-    ArticleItemModule
+    ArticleDetailModule
   ]
 })
 export class ArticleModule { }

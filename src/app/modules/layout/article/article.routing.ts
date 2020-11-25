@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleComponent } from './article.component';
-import { ArticleItemComponent } from './article-item/article-item.component';
+import { ArticleDetailComponent } from './article-item/article-detail.component';
 
 const ArticleRoutes: Routes = [
   {
@@ -13,7 +13,7 @@ const ArticleRoutes: Routes = [
 
       {
         path: ':id',
-        component: ArticleItemComponent,
+        component: ArticleDetailComponent,
       },
 
     ]

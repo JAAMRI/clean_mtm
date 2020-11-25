@@ -10,8 +10,8 @@ export class ThirdPartyService {
 
   constructor(private route: ActivatedRoute, private httpClient: HttpClient) { }
 
-  handleDropAction(sharedId: string) {
+  async handleDropAction(sharedId: string) {
       const clientSecret = environment.dropSecret;
-      this.httpClient.get(`https://admin.dropinternal.com/partners/postbacks?partner_id=61&secret=${clientSecret}&shared_id=${sharedId}`)
+      await this.httpClient.get(`https://admin.dropinternal.com/partners/postbacks?partner_id=61&secret=${clientSecret}&shared_id=${sharedId}&status=APPROVED`).toPromise();
   }
 }

@@ -126,13 +126,13 @@ export class RegisterComponent implements OnInit {
         'custom:postal_code': postal_code.toString()
       }
     })
-      .then(data => {
-        this.checkDrop();
+      .then((data) => {
         //Sign User Automatically
         const credentials: ICredentials = { username: username, password: password, firstTime: true };
         this.signIn.emit(credentials);
-
+        
         this.snackBar.open($localize`Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!`, null, { duration: 4500 });
+        this.checkDrop();
         //End Sign user In automatically
       })
       .catch(err => {
@@ -140,7 +140,7 @@ export class RegisterComponent implements OnInit {
       });
   }//End signUp function
 
-  checkDrop() {
+  async checkDrop() {
     if (this.route.snapshot.queryParams['drop']) {
       const dropSharedId = this.route.snapshot.queryParams['drop'];
       this.thirdPartyService.handleDropAction(dropSharedId);

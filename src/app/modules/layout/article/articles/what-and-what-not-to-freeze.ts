@@ -1,3 +1,53 @@
+const WhatAndWhatNotToFreezeStyles = `<style>
+
+.article-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 64px); // height subrating toolbar
+    min-height: calc(100vh - 64px); 
+    position: relative;
+    z-index: 1;
+}
+@media(min-width: 1024px) {
+    .img-wrapper{
+        height: 300px;
+
+    }
+}
+@media(max-width: 1024px) {
+    .img-wrapper{
+        height: 200px;
+    }
+}
+.img-wrapper{
+    width: 100%;
+}
+
+img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.article{
+    
+    padding: 3em;
+    
+}
+@media(min-width: 1024px) {
+    .article{
+
+        width: 65vw;
+    }
+}
+p{
+    font-size: 12px;
+}
+</style>`
+
+export const WhatAndWhatNotToFreeze = `
+${WhatAndWhatNotToFreezeStyles}
 <div class="article-page">
     <div class="img-wrapper">
        <img src="/assets/static_images/articles/what-and-what-not-to-freeze.jpg" alt="">
@@ -55,4 +105,4 @@
             in ice-cube trays and use in cooking with great results.</p>
 
     </div>
-</div>
+</div>`;
