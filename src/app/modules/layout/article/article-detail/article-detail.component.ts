@@ -12,7 +12,9 @@ export class ArticleDetailComponent implements OnInit {
     'what-and-what-not-to-freeze',
     'jackys-deviled-eggs-recipe',
     'kimias-middle-eastern-meatball-wrap',
-    'kirbys-japanese-macaroni-salad'
+    'kirbys-japanese-macaroni-salad',
+    'yiayias-greek-pastitsio',
+    'viranllys-korean-rice-bowl'
   ]
   articleName: string;
   constructor(private route: ActivatedRoute, private router: Router) { }

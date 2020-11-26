@@ -40,6 +40,20 @@ export class ArticleComponent {
       url: 'kirbys-japanese-macaroni-salad',
       image: '/assets/static_images/articles/kirbys-japanese-mac-salad/finished-dish.jpg'
     },
+    {
+      title: 'Yiayia’s Greek Pastitsio (Lasagna) Recipe: Made with Love',
+      content: '“Pastitsio is traditional Greek comfort food. Pasta layered with meat, cheese and a creamy Béchamel sauce that’s baked together to form Lasagna. "',
+      readTime: '3min',
+      url: 'yiayias-greek-pastitsio',
+      image: '/assets/static_images/articles/yiayias-greek-pastitsio/finished-dish.jpg'
+    },
+    {
+      title: 'Find Adventure in Food with my Korean Rice Bowl',
+      content: '“For most of us, at this day and age, travelling the world is just a fading memory that we’re holding on oh so dearly. The experience of discovering new things, eating and drinking at new places, "',
+      readTime: '2min',
+      url: 'viranllys-korean-rice-bowl',
+      image: '/assets/static_images/articles/viranllys-korean-rice-bowl/finished-dish.jpg'
+    }
 
   ]
 

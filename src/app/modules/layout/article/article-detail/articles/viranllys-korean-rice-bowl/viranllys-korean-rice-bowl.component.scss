@@ -1,0 +1,136 @@
+@import "../../../../../../../scss/variables.scss";
+
+.article-page {
+    .header {
+        border-top: 3em solid $mtm_dark_green_color;
+    }
+    .sub-header {
+        border-top: 0.5em solid $mtm_dark_green_color;
+        margin-top: 0.5em;
+    }
+    .footer {
+        border-bottom: 0.5em solid $mtm_dark_green_color;
+    }
+    .sub-footer {
+        border-bottom: 3em solid $mtm_dark_green_color;
+        margin-bottom: 0.5em;
+    }
+    .content {
+        max-width: 800px;
+        margin: 1em auto;
+        .heading {
+            text-align: center;
+            .title {
+                font-weight: 700;
+                font-size: 2em;
+            }
+            .underline {
+                border-bottom: 0.5em solid $mtm_dark_grey;
+                width: 10vw;
+                margin: 0.25em auto 1em auto;
+            }
+            .author {
+                font-size: 1.5em;
+            }
+        }
+        .img-wrapper {
+            display: flex;
+            justify-content: center;
+            img {
+                border-radius: 1em;
+                max-height: 350px;
+                width: 500px;
+                object-fit: cover;
+                margin: 0 auto;
+            }
+        }
+        .article-block {
+            border-top: 0.5em dotted $mtm_dark_green_color;
+            padding-top: 2em;
+            margin-top: 2em;
+        }
+        .article-button-wrapper {
+            padding: 0 2em;
+            .article-button {
+                background-color: $mtm_grey !important;
+                color: $mtm_dark_green_color !important;
+                padding: 4px !important;
+                font-size: 1.5em;
+                width: 100%;
+            }
+        }
+        .instructions-block {
+            margin-bottom: 2em;
+            .heading {
+                text-align: center;
+                .title {
+                    font-weight: 700;
+                    font-size: 2em;
+                }
+                .servings-wrapper {
+                    border: 4px dotted $mtm_dark_green_color;
+                    padding: 4px;
+                    border-radius: 6px;
+                    margin: 1em;
+                    font-size: 1.25em;
+                    span {
+                        color: $mtm_dark_green_color;
+                    }
+                }
+            }
+            .ingredients {
+                max-width: 500px;
+                margin: 0 auto;
+                .ingredient {
+                    margin-top: 1em;
+                    display: grid;
+                    grid-template-columns: 1fr 4fr;
+                    align-items: center;
+                    column-gap: 1em;
+                    .ingredient-amount {
+                        color: $mtm_dark_green_color;
+                        justify-self: center;
+                        align-self: center;
+                    }
+                }
+            }
+            .instruction {
+                margin-top: 1em;
+                display: grid;
+                grid-template-columns: 1fr 7fr;
+                align-items: center;
+                .instruction-step {
+                    border-radius: 50%;
+                    width: 36px;
+                    height: 36px;
+                    padding: 8px;
+
+                    background: #fff;
+                    border: 2px solid $mtm_grey;
+                    color: $mtm_dark_green_color;
+                    text-align: center;
+
+                    font-size: 32px;
+                }
+                &.tip{
+                    font-size: 1em;
+                    .instruction-step{
+                        border-radius: unset;
+                        border: unset;
+                    }
+                }
+            }
+        }
+    }
+    .center{
+        text-align: center;
+    }
+    .subtitle{
+        font-weight: 700;
+        font-size: 1.25em;
+        text-decoration: underline;
+        text-transform: uppercase;
+        text-align: center;
+        padding-top: 1em;
+    }
+}
