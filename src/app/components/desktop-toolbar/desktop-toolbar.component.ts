@@ -92,7 +92,6 @@ export class DesktopToolbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(LOCALE_ID)
   }
 
   emitNavigation(link: string) {
