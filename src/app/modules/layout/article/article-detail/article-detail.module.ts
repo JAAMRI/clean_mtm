@@ -7,11 +7,12 @@ import { WhatAndWhatNotToFreezeComponent } from './articles/what-and-what-not-to
 import { JackysDeviledEggsComponent } from './articles/jackys-deviled-eggs/jackys-deviled-eggs.component';
 import { KimiasMeatballWrapComponent } from './articles/kimias-meatball-wrap/kimias-meatball-wrap.component';
 import { RouterModule } from '@angular/router';
+import { KirbysMacaroniSaladComponent } from './articles/kirbys-macaroni-salad/kirbys-macaroni-salad.component';
 
 
 
 @NgModule({
-  declarations: [ArticleDetailComponent, WhatAndWhatNotToFreezeComponent, JackysDeviledEggsComponent, KimiasMeatballWrapComponent],
+  declarations: [ArticleDetailComponent, WhatAndWhatNotToFreezeComponent, JackysDeviledEggsComponent, KimiasMeatballWrapComponent, KirbysMacaroniSaladComponent],
   imports: [
     CommonModule,
     SharedModule,

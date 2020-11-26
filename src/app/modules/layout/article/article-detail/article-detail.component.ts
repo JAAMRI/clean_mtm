@@ -11,7 +11,8 @@ export class ArticleDetailComponent implements OnInit {
   articles = [
     'what-and-what-not-to-freeze',
     'jackys-deviled-eggs-recipe',
-    'kimias-middle-eastern-meatball-wrap'
+    'kimias-middle-eastern-meatball-wrap',
+    'kirbys-japanese-macaroni-salad'
   ]
   articleName: string;
   constructor(private route: ActivatedRoute, private router: Router) { }

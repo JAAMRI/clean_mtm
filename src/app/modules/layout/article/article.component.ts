@@ -33,6 +33,13 @@ export class ArticleComponent {
       url: 'kimias-middle-eastern-meatball-wrap',
       image: '/assets/static_images/articles/kimias-meatball-wrap/finished-dish.jpg'
     },
+    {
+      title: 'Kirbys Japanese Macaroni Salad',
+      content: '“I don’t know about you but I’m a huge fan of meal prepping and meal planning. As a food blogger and working professional with a Monday to Friday, "',
+      readTime: '3min',
+      url: 'kirbys-japanese-macaroni-salad',
+      image: '/assets/static_images/articles/kirbys-japanese-mac-salad/finished-dish.jpg'
+    },
 
   ]
 
