@@ -146,13 +146,13 @@ export class DynamicScriptLoaderService {
   }
 
   insertAdChoice() {
-    const isFrench = this.locale === 'fr';
+    const isFrench = (this.locale === 'fr');
     // return;
     //AdChoice
     if (isFrench) {
-      this.loadEnglishAdChoice()
-    } else {
       this.loadFrenchAdChoice()
+    } else {
+      this.loadEnglishAdChoice()
     }
   }
 
