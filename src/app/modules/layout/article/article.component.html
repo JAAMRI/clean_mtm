@@ -1,7 +1,7 @@
 <div class="article-page">
     <div class="copy">
         <h1 i18n class='uppercase'>articles</h1>
-        <p i18n>
+        <p *ngIf='articles.length' i18n>
             Find tips & tricks to improve your cooking skills and help you reclaim weeknight cooking
         </p>
     </div>
@@ -10,5 +10,6 @@
 
         </app-article-list-item >
     </div>
+    <p *ngIf='!articles.length'>No articles to display at this time</p>
 </div>
 
