@@ -21,10 +21,17 @@ export class ArticleComponent {
     },
     {
       title: 'Jackys Devilled Eggs',
-      content: 'Time is our most valuable resource. It’s precious. It’s something we can’t ever get back, and some days there just never seems to be enough of it.”',
+      content: '"Time is our most valuable resource. It’s precious. It’s something we can’t ever get back, and some days there just never seems to be enough of it."',
       readTime: '4min',
       url: 'jackys-deviled-eggs-recipe',
       image: '/assets/static_images/articles/jackys-deviled-eggs/finished-dish.jpeg'
+    },
+    {
+      title: 'Kimia’s Middle Eastern Meatball Wrap',
+      content: '"Cooking at home is more fun if you plan and have all ingredients ready to use. I usually find myself scrolling down my social media, getting lost in fancy recipes which looks appealing but confusing to make."',
+      readTime: '2min',
+      url: 'kimias-middle-eastern-meatball-wrap',
+      image: '/assets/static_images/articles/kimias-meatball-wrap/finished-dish.jpg'
     },
 
   ]

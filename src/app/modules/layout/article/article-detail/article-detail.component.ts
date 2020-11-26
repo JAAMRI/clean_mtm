@@ -11,8 +11,9 @@ export class ArticleDetailComponent implements OnInit {
   articles = [
     'what-and-what-not-to-freeze',
     'jackys-deviled-eggs-recipe',
+    'kimias-middle-eastern-meatball-wrap'
   ]
-  articleId: string;
+  articleName: string;
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -20,8 +21,8 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   loadArticleBasedOffRoute(): void {
-    this.articleId = this.route.snapshot.params['id'];
-    if (!this.articles.includes(this.articleId)) {
+    this.articleName = this.route.snapshot.params['id'];
+    if (!this.articles.includes(this.articleName)) {
       this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
     }
   }

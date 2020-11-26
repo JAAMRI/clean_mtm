@@ -112,6 +112,13 @@
 
                     font-size: 32px;
                 }
+                &.tip{
+                    font-size: 1em;
+                    .instruction-step{
+                        border-radius: unset;
+                        border: unset;
+                    }
+                }
             }
         }
     }
