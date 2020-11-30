@@ -12,6 +12,6 @@ export class ThirdPartyService {
 
   async handleDropAction(sharedId: string) {
       const clientSecret = environment.dropSecret;
-      await this.httpClient.get(`https://admin.dropinternal.com/partners/postbacks?partner_id=61&secret=${clientSecret}&shared_id=${sharedId}&status=APPROVED`).toPromise();
+      await this.httpClient.get(`https://joindrop.com/partners/completions?partner_id=61&secret=${clientSecret}&shared_id=${sharedId}&status=APPROVED`).toPromise();
   }
 }
