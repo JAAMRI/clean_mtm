@@ -56,7 +56,9 @@
                 background-color: $mtm_grey !important;
                 color: $mtm_dark_green_color !important;
                 padding: 4px !important;
-                font-size: 1.5em;
+                @media(min-width: 768px) {
+                    font-size: 1.5em;
+                }
                 width: 100%;
             }
         }
