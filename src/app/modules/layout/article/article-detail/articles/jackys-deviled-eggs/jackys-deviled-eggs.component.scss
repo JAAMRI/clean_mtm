@@ -18,6 +18,7 @@
     .content {
         max-width: 800px;
         margin: 1em auto;
+        padding: 1em;
         .heading {
             text-align: center;
             .title {
@@ -50,13 +51,15 @@
             margin-top: 2em;
         }
         .article-button-wrapper {
-            padding: 0 2em;
+            padding: 0 1.5em;
             .article-button {
                 background-color: $mtm_grey !important;
                 color: $mtm_dark_green_color !important;
                 padding: 4px !important;
-                font-size: 1.5em;
                 width: 100%;
+                @media (min-width: 768px) {
+                    font-size: 1.5em;
+                }
             }
         }
         .instructions-block {
@@ -97,6 +100,7 @@
             .instruction {
                 margin-top: 1em;
                 display: grid;
+                column-gap: 1em;
                 grid-template-columns: 1fr 7fr;
                 align-items: center;
                 .instruction-step {
@@ -104,7 +108,7 @@
                     width: 36px;
                     height: 36px;
                     padding: 8px;
-
+                    align-self: start;
                     background: #fff;
                     border: 2px solid $mtm_grey;
                     color: $mtm_dark_green_color;

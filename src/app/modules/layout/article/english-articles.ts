@@ -7,7 +7,7 @@ export const EnglishArticles = [
       image: '/assets/static_images/articles/what-and-what-not-to-freeze/what-and-what-not-to-freeze.jpg'
     },
     {
-      title: 'Jackys Devilled Eggs',
+      title: 'Jackys Deviled Eggs',
       content: '"Time is our most valuable resource. It’s precious. It’s something we can’t ever get back, and some days there just never seems to be enough of it."',
       readTime: '4min',
       url: 'jackys-deviled-eggs-recipe',

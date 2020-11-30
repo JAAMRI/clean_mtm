@@ -13,8 +13,8 @@ export class JackysDeviledEggsComponent implements OnInit {
 
   ngOnInit() {
     this.seoService.generateTags({
-      title: 'Jackys Devilled Eggs Recipe | Meals That Matter',
-      description: 'Devilled Eggs is inspired by my childhood memory of Mom making it for our guests. They are easy, delicious and presented beautifully. Try today with help from Meals That Matter.',
+      title: 'Jackys Deviled Eggs Recipe | Meals That Matter',
+      description: 'Deviled Eggs is inspired by my childhood memory of Mom making it for our guests. They are easy, delicious and presented beautifully. Try today with help from Meals That Matter.',
       slug: this.router.url
     })
   }
