@@ -168,7 +168,7 @@ export class UserFormComponent implements OnInit {
       })
       .catch(err => {
         console.log(err);
-        this.snackBar.open($localize`Sorry! ` + err.message, null, { duration: 2500 });
+        this.snackBar.open($localize`Oops an error has occured`, null, { duration: 2500 });
       });
   }
 

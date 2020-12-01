@@ -371,9 +371,8 @@
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="e263273ccf7343280c3ef6841f6b0a3e25869d9a" datatype="html">
-        <source>my account
-      </source>
+      <trans-unit id="2993193904225803286" datatype="html">
+        <source>my account</source>
         <target>mon compte</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
@@ -1488,7 +1487,7 @@
           <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="0d30bff5ccb8147797f51a78c73c6aa323b4538e" datatype="html">
+      <trans-unit id="4179473643287338363" datatype="html">
         <source>terms of use</source>
         <target>Conditions d’utilisation</target>
         <context-group purpose="location">
@@ -2503,9 +2502,41 @@
         <source>Error removing from favourites</source>
         <target>Erreur au retrait des favoris.</target>
       </trans-unit>
+      <trans-unit id="98835010398601456" datatype="html">
+        <source>Error changing password. Please try again later</source>
+        <target>Erreur de modification du mot de passe. Essayez à nouveau plus tard.</target>
+      </trans-unit>
       <trans-unit id="2336075142911669406" datatype="html">
-        <source>Error adding to meal plan</source>
-        <target>Erreur à l’ajout au plan de repas.</target>
+        <source>Password successfully changed!</source>
+        <target>Mot de passe modifié avec succès!</target>
+      </trans-unit>
+      <trans-unit id="2228139732738145434" datatype="html">
+        <source>Notifications successfully updated.</source>
+        <target>Notifications successfully updated.</target>
+      </trans-unit>
+      <trans-unit id="5095562193296630034" datatype="html">
+        <source>Preferences saved</source>
+        <target>Preferences saved</target>
+      </trans-unit>
+      <trans-unit id="8674393701528742233" datatype="html">
+        <source>Error updating profile</source>
+        <target>Erreur à la modification du profil</target>
+      </trans-unit>
+      <trans-unit id="6817536289266680171" datatype="html">
+        <source>Oops! Passwords Must Match</source>
+        <target>Oups! Les mots de passe doivent correspondre.</target>
+      </trans-unit>
+      <trans-unit id="205044832662301680" datatype="html">
+        <source>Password is required</source>
+        <target>Le mot de passe est requis.</target>
+      </trans-unit>
+      <trans-unit id="8881952964804049753" datatype="html">
+        <source>Code is required</source>
+        <target>Le code est requis.</target>
+      </trans-unit>
+      <trans-unit id="7260485558504087505" datatype="html">
+        <source>Sorry! Email address is required</source>
+        <target>Désolé! L’adresse courriel est requise.</target>
       </trans-unit>
       <trans-unit id="13515d0c961c189e81c036079262f608e150918f" datatype="html">
         <source>watch how to video</source>

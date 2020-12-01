@@ -9,8 +9,10 @@
         <mat-icon *ngIf='!snav.opened'>menu</mat-icon>
       </button>
       <app-on-board (scroll)='scrollToHowItWorks()' (login)='routeToLogin()'></app-on-board>
-      <app-how-it-works #howItWorks [isMobile]='isMobile' (navigate)='routeToRecipes($event, "how-it-works")'>
-      </app-how-it-works>
+      <div #howItWorks >
+        <app-how-it-works [isMobile]='isMobile' (navigate)='routeToRecipes($event, "how-it-works")'>
+        </app-how-it-works>
+      </div>
 
       <app-you-will-love-this (navigate)='checkAuth("", "you-will-love-this")'></app-you-will-love-this>
 

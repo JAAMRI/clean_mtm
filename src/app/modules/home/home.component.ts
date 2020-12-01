@@ -130,7 +130,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   scrollToHowItWorks() {
-   
     this.howItWorks.nativeElement.scrollIntoView({ behavior: 'smooth' });
     // scroll down to how it works when clicking on button
   }
