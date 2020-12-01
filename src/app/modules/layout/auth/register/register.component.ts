@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { AccountService } from '../../../../../app/services/account/account.service';
@@ -12,6 +12,7 @@ import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan
 import { environment } from '../../../../../environments/environment';
 import { ICredentials } from '../../../../interfaces/auth/credentials';
 import { PinterestTrackingService } from '../../../../services/pinterest-tracking.service';
+import { ThirdPartyService } from '../../../../services/third-party.service';
 import { PasswordErrorMatcher } from '../auth.forms';
 
 
@@ -42,6 +43,8 @@ export class RegisterComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private snackBar: MatSnackBar,
     private router: Router,
+    private thirdPartyService: ThirdPartyService,
+    private route: ActivatedRoute,
     private mealPlanService: MealPlanService,
     public adobeDtbTracking: AdobeDtbTracking,
     public pinterestService: PinterestTrackingService
@@ -89,6 +92,8 @@ export class RegisterComponent implements OnInit {
     (this.onProfilePage) ? this.update() : this.signUp();
   }
 
+
+
   async signUp() {
     if (environment.production) {
       this.loadPinterestNoScript = true;
@@ -121,18 +126,27 @@ export class RegisterComponent implements OnInit {
         'custom:postal_code': postal_code.toString()
       }
     })
-      .then(data => {
+      .then((data) => {
         //Sign User Automatically
         const credentials: ICredentials = { username: username, password: password, firstTime: true };
         this.signIn.emit(credentials);
-
+        
         this.snackBar.open($localize`Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!`, null, { duration: 4500 });
+        this.checkDrop();
         //End Sign user In automatically
       })
       .catch(err => {
-        this.snackBar.open($localize`Oops! An error has occured`, null, { duration: 2500 });
+        this.snackBar.open($localize`Oops an error has occured`, null, { duration: 2500 });
       });
   }//End signUp function
+
+  async checkDrop() {
+    if (this.route.snapshot.queryParams['drop']) {
+      const dropSharedId = this.route.snapshot.queryParams['drop'];
+      this.thirdPartyService.handleDropAction(dropSharedId);
+    }
+
+  }
 
   async update() {
     let user = await Auth.currentAuthenticatedUser();

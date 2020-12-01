@@ -96,7 +96,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   async removeFromMealPlan(mealId: any) {
     const status = await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove');
     if (status !== 'Successfully deleted') {
-      this.snackbar.open($localize`Error removing from meal plan.`, null, { duration: 2000, verticalPosition: 'top' });
+      this.snackbar.open($localize`Error removing from meal plan`, null, { duration: 2000, verticalPosition: 'top' });
       return;
     }
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
