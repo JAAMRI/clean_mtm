@@ -379,6 +379,16 @@
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="e263273ccf7343280c3ef6841f6b0a3e25869d9a" datatype="html">
+        <source>my account
+</source>
+        <target>mon compte</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="247e26160249914515875ec199470eeb672529cb" datatype="html">
         <source>my account</source>
         <target>mon compte</target>

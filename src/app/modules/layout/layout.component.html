@@ -16,7 +16,7 @@
           <button class='back' *ngIf='!activeRouteOnDiscoverPage' mat-mini-fab (click)='back()'>
             <mat-icon>chevron_left</mat-icon>
           </button>
-          <button *ngIf="!activeRouteOnGroceryList" class='next' mat-flat-button color='primary' i18n
+          <button *ngIf="!activeRouteOnGroceryList" class='next uppercase' mat-flat-button color='primary' i18n
             (click)='next()'>next</button>
           <div class="on-grocery-list" *ngIf="activeRouteOnGroceryList">
             <div class="cc-mealplan-start-shopping"></div>
