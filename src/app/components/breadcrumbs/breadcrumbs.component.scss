@@ -1,9 +1,10 @@
 @import '../../../scss/variables.scss';
 
 .breadcrumbs-container{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-content: center;
+    justify-items: center;
     @media(min-width:1024px) {
         max-width: 50%;
         margin: 1em auto 0 auto;
@@ -12,6 +13,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
         .bar{
             margin: 8px;
             box-shadow: $mtm-box-shadow;

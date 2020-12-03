@@ -15,8 +15,9 @@
     flex-direction: column;
     position: relative;
     .logo-wrapper {
-        height: 25vh;
-        width: 25vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .copy {
         text-align: center;

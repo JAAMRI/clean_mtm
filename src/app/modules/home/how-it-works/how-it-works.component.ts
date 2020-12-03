@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output } from '@angular/core';
 import { FeaturedRecipes } from './featured-recipes';
 
 @Component({
@@ -9,11 +9,9 @@ import { FeaturedRecipes } from './featured-recipes';
 export class HowItWorksComponent implements OnInit {
   @Output() navigate = new EventEmitter();
   @Input() isMobile: boolean;
-
+  isFrench = this.locale === 'fr';
   recipes = FeaturedRecipes;
-  constructor( 
-    
-  ) {}
+  constructor(@Inject(LOCALE_ID) private locale: string) {}
 
   ngOnInit(): void {
   }

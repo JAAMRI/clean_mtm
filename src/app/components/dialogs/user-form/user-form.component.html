@@ -21,8 +21,8 @@
                   <input matInput type="email" placeholder='Email (required)' formControlName='email' required>
                   <mat-icon matSuffix matTooltip='This must be a valid email address.'>info_outline</mat-icon>
                 </mat-form-field>
-                <button aria-label="Create my account" mat-flat-button color='primary'
-                  (click)="adobeDtbTracking.anchorLink('RegistrationFirstStep')">Create my account</button>
+                <button aria-label="Create my account" mat-flat-button color='primary' i18n
+                  (click)="adobeDtbTracking.anchorLink('RegistrationFirstStep')">create my account</button>
               </div>
             </form>
             <form class='auth-form' [formGroup]='authForm'

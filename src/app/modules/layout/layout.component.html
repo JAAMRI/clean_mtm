@@ -19,7 +19,7 @@
           <button *ngIf="!activeRouteOnGroceryList" class='next' mat-flat-button color='primary'
             (click)='next()'>NEXT</button>
 
-          <div [class.hidden]="!activeRouteOnGroceryList" class="cc-mealplan-start-shopping"></div>
+          <div *ngIf="activeRouteOnGroceryList" class="cc-mealplan-start-shopping"></div>
         </div>
 
       </div>
