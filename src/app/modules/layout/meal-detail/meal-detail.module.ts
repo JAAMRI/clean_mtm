@@ -6,7 +6,6 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
-import { UserFormModule } from '../../../../app/components/dialogs/user-form/user-form.module';
 import { NutritionTableModule } from '../../../../app/components/nutrition-table/nutrition-table.module';
 import { SharedModule } from '../../../../app/shared/shared.module';
 import { MealTabModule } from '../../../../app/components/meal-tab/meal-tab.module';
@@ -29,7 +28,6 @@ import { RouterModule } from '@angular/router';
     MealTabModule,
     NutritionTableModule,
     MatProgressSpinnerModule,
-    UserFormModule,
     SharedModule,
     MtmSliderModule,
     MealItemModule,

@@ -28,7 +28,7 @@
 
   <!-- DESKTOP VIEW -->
   <div class="desktop-view" *ngIf='!(isMobile || onAuthPage)'>
-    <app-desktop-toolbar [loggedIn]='loggedIn' (onSignOutClicked)='signOut()' (onAuthClicked)='authControl()'
+    <app-desktop-toolbar [loggedIn]='loggedIn' (onSignOutClicked)='signOut()'
       [activePage]='activeRoute' (navigate)='navigate($event)'></app-desktop-toolbar>
     <div class="router-wrapper">
       <router-outlet></router-outlet>

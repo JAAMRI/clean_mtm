@@ -5,7 +5,7 @@
 
 
   </div>
-  
+
   <div class='no-favourites' *ngIf='favouriteMeals.length === 0 && !loading'>
     <h1 class='uppercase' i18n>my favourites</h1>
     <p i18n>It looks like you haven’t added
@@ -20,20 +20,17 @@
   </div>
   <div class="gif-wrapper" *ngIf='loading'>
     <h1 class='uppercase' i18n>my favourites</h1>
-
     <p i18n>
-
-      Loading your favourites
+      loading your favourites
     </p>
-
     <img class='loading-text' src="/assets/static_images/Whisk-Stat-Transp.png" />
   </div>
 
   <div class="favourites-container">
     <div class="favourite-item" *ngFor="let meal of favouriteMeals">
 
-      <app-meal-item  (add)='addToMealPlan($event)' 
-        (remove)='removeFromMealPlan($event)' [inMealPlan]='mealPlanIds[meal.id]' parent='favourites' [favourited]='true'
+      <app-meal-item (add)='addToMealPlan($event)' (remove)='removeFromMealPlan($event)'
+        [inMealPlan]='mealPlanIds[meal.id]' parent='favourites' [favourited]='true'
         (wasClicked)='visitMealDetailPage($event)' (favouriteToggled)='updateFavourites($event)' [mealItem]='meal'>
       </app-meal-item>
     </div>
