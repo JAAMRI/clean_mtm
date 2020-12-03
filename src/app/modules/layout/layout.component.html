@@ -16,10 +16,11 @@
           <button class='back' *ngIf='!activeRouteOnDiscoverPage' mat-mini-fab (click)='back()'>
             <mat-icon>chevron_left</mat-icon>
           </button>
-          <button *ngIf="!activeRouteOnGroceryList" class='next' mat-flat-button color='primary'
-            (click)='next()'>NEXT</button>
-
-          <div *ngIf="activeRouteOnGroceryList" class="cc-mealplan-start-shopping"></div>
+          <button *ngIf="!activeRouteOnGroceryList" class='next' mat-flat-button color='primary' i18n
+            (click)='next()'>next</button>
+          <div class="on-grocery-list" *ngIf="activeRouteOnGroceryList">
+            <div class="cc-mealplan-start-shopping"></div>
+          </div>
         </div>
 
       </div>
@@ -28,8 +29,8 @@
 
   <!-- DESKTOP VIEW -->
   <div class="desktop-view" *ngIf='!(isMobile || onAuthPage)'>
-    <app-desktop-toolbar [loggedIn]='loggedIn' (onSignOutClicked)='signOut()'
-      [activePage]='activeRoute' (navigate)='navigate($event)'></app-desktop-toolbar>
+    <app-desktop-toolbar [loggedIn]='loggedIn' (onSignOutClicked)='signOut()' [activePage]='activeRoute'
+      (navigate)='navigate($event)'></app-desktop-toolbar>
     <div class="router-wrapper">
       <router-outlet></router-outlet>
       <div class="desktop-nav-buttons"
@@ -41,7 +42,9 @@
           </button>
           <button *ngIf="!activeRouteOnGroceryList" mat-flat-button color='primary' (click)='next()' i18n
             class='next uppercase'>next</button>
-          <div *ngIf="activeRouteOnGroceryList" class="cc-mealplan-start-shopping"></div>
+          <div class="on-grocery-list" *ngIf="activeRouteOnGroceryList">
+            <div class="cc-mealplan-start-shopping"></div>
+          </div>
         </div>
       </div>
 

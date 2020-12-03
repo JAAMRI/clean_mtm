@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output } from '@angular/core';
-import { FeaturedRecipes } from './featured-recipes';
+import { FeaturedRecipes, getFeaturedRecipes } from './featured-recipes';
 
 @Component({
   selector: 'app-how-it-works',
@@ -21,11 +21,11 @@ export class HowItWorksComponent implements OnInit {
   }
 
   pushEnd() {
-    this.recipes = [...this.recipes, ...FeaturedRecipes]
+    this.recipes = [...this.recipes, ...getFeaturedRecipes(this.locale)]
   }
 
   pushStart() {
-    this.recipes = [ ...FeaturedRecipes, ...this.recipes]
+    this.recipes = [ ...getFeaturedRecipes(this.locale), ...this.recipes]
   }
 
   trackByIndex(i: number) {
