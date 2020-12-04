@@ -71,7 +71,9 @@ export class LayoutComponent {
     });
   }
 
-
+  get showNavButtons() {
+    return  this.activeRouteOnDiscoverPage || this.activeRouteOnGroceryList || this.activeRouteOnMyMeals;
+  }
 
 
 

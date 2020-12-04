@@ -10,10 +10,19 @@ export class HowItWorksComponent implements OnInit {
   @Output() navigate = new EventEmitter();
   @Input() isMobile: boolean;
   isFrench = this.locale === 'fr';
-  recipes = FeaturedRecipes;
+  recipes: any[] = [];
   constructor(@Inject(LOCALE_ID) private locale: string) {}
 
   ngOnInit(): void {
+    this.recipes = getFeaturedRecipes(this.locale)
+  }
+
+  get shopMealImage() {
+    return this.isFrench ? '/assets/static_images/home-page/fr/Shop_Meal_Image.jpg' : '/assets/static_images/home-page/Shop_Meal_Image.jpg';
+  }
+
+  get createMealImage() {
+    return this.isFrench ? '/assets/static_images/home-page/fr/Create_Meal_Image.jpg' : '/assets/static_images/home-page/Create_Meal_Image.jpg';
   }
 
   emitNavigation(recipeLink?: string) {
