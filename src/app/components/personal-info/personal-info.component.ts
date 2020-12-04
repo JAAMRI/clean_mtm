@@ -110,17 +110,13 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   async signUp() {
-    let currentMealPlan = await this.mealPlanService.getMealPlan();
-    let meal_plan_started = currentMealPlan && currentMealPlan.length ? 1 : 0; //Check wether the user signed up after having created a mealplan or before
+   
     let username = this.userForm.controls.email.value.toLowerCase();
     let password = this.userForm.controls.password.value;
     let postal_code = this.userForm.controls.postal_code.value;
     let given_name = this.userForm.controls.given_name.value;
     let family_name = this.userForm.controls.family_name.value;
     let opt_in = this.userForm.controls.opt_in.value;
-    let locale = "CA-en"
-    let website = "mealsthatmatter.com";
-    let updated_at = new Date().getTime().toString();
 
     Auth.signUp({
       username,
@@ -128,11 +124,10 @@ export class PersonalInfoComponent implements OnInit {
       attributes: {
         'given_name': given_name,
         'family_name': family_name,
-        'locale': locale,
+        'locale': "CA-en",
         'custom:opt_in': opt_in ? opt_in.toString() : 'false',
-        'website': website,
-        'updated_at': updated_at,
-        'custom:meal_plan_started': meal_plan_started.toString(),
+        'website': "mealsthatmatter.com",
+        'updated_at': new Date().getTime().toString(),
         'custom:postal_code': postal_code.toString()
       }
     })

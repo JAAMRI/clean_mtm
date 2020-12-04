@@ -1,5 +1,6 @@
 <div class="auth-container" >
-    <div class="login-wrapper" *ngIf='activeRoute === "LOGIN"'>
+    <router-outlet></router-outlet>
+    <!-- <div class="login-wrapper" *ngIf='activeRoute === "LOGIN"'>
 
         <app-login [loading]='loading' (forgotPassword)='viewForgotPassword()' [loginForm]='loginForm' (register)='viewRegister()' (login)='signIn($event)' [emailForm]='emailForm'></app-login>
     </div>
@@ -8,6 +9,6 @@
     </div>
     <div class="forgot-password-wrapper" *ngIf='activeRoute === "FORGOT_PASSWORD"'>
         <app-forgot-password [emailValidated]='emailValidated' (update)='updatePassword($event)' (validate)='validateEmail()' (back)='viewLogin()' ></app-forgot-password>
-    </div>  
+    </div>   -->
 
 </div>

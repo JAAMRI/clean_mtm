@@ -13,7 +13,7 @@ import { environment } from '../../../../../environments/environment';
 import { ICredentials } from '../../../../interfaces/auth/credentials';
 import { PinterestTrackingService } from '../../../../services/pinterest-tracking.service';
 import { ThirdPartyService } from '../../../../services/third-party.service';
-import { PasswordErrorMatcher } from '../auth.forms';
+import { PasswordErrorMatcher, RegisterForm } from '../auth.forms';
 
 
 
@@ -27,7 +27,6 @@ export class RegisterComponent implements OnInit {
 
   passwordMatcher = new PasswordErrorMatcher();
 
-  @Output() signIn = new EventEmitter<ICredentials>();
   loadPinterestNoScript: boolean;
   unsubscribeAll = new Subject();
   loading = false;
@@ -35,7 +34,8 @@ export class RegisterComponent implements OnInit {
   // @Input() email: string;
   @Input() onProfilePage: boolean;
   @Input() isMobile: boolean;
-  @Input() registerForm: FormGroup;
+  registerForm = RegisterForm;
+
   @Output() back = new EventEmitter();
   constructor(
     private matIconRegistry: MatIconRegistry,
@@ -56,6 +56,16 @@ export class RegisterComponent implements OnInit {
     if (this.onProfilePage) {
       this.getUserAttributes();
     }
+    this.patchRegisterFormWithEmail()
+  }
+
+  patchRegisterFormWithEmail() {
+    if (this.route.snapshot.queryParams['email']) {
+      const email = this.route.snapshot.queryParams['email'];
+      this.registerForm.patchValue(email);
+    }
+   
+
   }
 
   async getUserAttributes() {
@@ -110,7 +120,7 @@ export class RegisterComponent implements OnInit {
     let locale = "CA-en"
     let website = "mealsthatmatter.com";
     let updated_at = new Date().getTime().toString();
-    
+
 
     Auth.signUp({
       username,
@@ -129,8 +139,8 @@ export class RegisterComponent implements OnInit {
       .then((data) => {
         //Sign User Automatically
         const credentials: ICredentials = { username: username, password: password, firstTime: true };
-        this.signIn.emit(credentials);
-        
+        this.signIn(credentials);
+
         this.snackBar.open($localize`Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!`, null, { duration: 4500 });
         this.checkDrop();
         //End Sign user In automatically
@@ -148,6 +158,39 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  async signIn(credentials: ICredentials) {
+
+    try {
+      const { username, password, firstTime } = credentials;
+      this.loading = true;
+
+      await Auth.signIn(username.toLowerCase(), password);
+      if (this.route.snapshot.queryParams && this.route.snapshot.queryParams['returnUrl']) {
+        // check if there is a redirectTo in the query params and redirect to this instead
+        const redirectRoute = this.route.snapshot.queryParams['returnUrl'];
+
+        this.router.navigateByUrl(redirectRoute, { queryParamsHandling: "preserve" });
+      } else {
+
+        this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
+      }
+      this.loading = false;
+
+      // Update only if user is signing in for the first time right after signing up
+      if (firstTime) {
+        this.adobeDtbTracking.firstTimeUser('New Registration');
+      } else {
+        this.adobeDtbTracking.returningUser();
+      }
+      this.accountService.emitAuthStateChanged();
+      this.accountService.setLoggedIn(true);
+    } catch (err) {
+      console.log(err);
+      this.snackBar.open($localize`Sorry! We could not sign you in at this time. PLease try again later.`, null, { duration: 2500 });
+      this.loading = false;
+    }
+  }
+
   async update() {
     let user = await Auth.currentAuthenticatedUser();
     let attributes = {
@@ -161,7 +204,7 @@ export class RegisterComponent implements OnInit {
     }
     if (this.registerForm.controls.birthdate.value) {
       const birthdate = new Date(this.registerForm.controls.birthdate.value)
-      attributes['birthdate'] = birthdate.toJSON().slice(0,10);;
+      attributes['birthdate'] = birthdate.toJSON().slice(0, 10);;
     }
     let result = await Auth.updateUserAttributes(user, attributes)
       .then(res => {
@@ -187,6 +230,6 @@ export class RegisterComponent implements OnInit {
   }
 
   goBack() {
-    this.back.emit();
+    this.router.navigate(['/auth/login'], { queryParamsHandling: 'preserve' });
   }
 }
