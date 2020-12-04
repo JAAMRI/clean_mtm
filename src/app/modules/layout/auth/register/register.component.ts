@@ -30,32 +30,20 @@ export class RegisterComponent implements OnInit {
   loadPinterestNoScript: boolean;
   unsubscribeAll = new Subject();
   loading = false;
-  viewMore = false;
-  // @Input() email: string;
-  @Input() onProfilePage: boolean;
-  @Input() isMobile: boolean;
   registerForm = RegisterForm;
 
-  @Output() back = new EventEmitter();
   constructor(
-    private matIconRegistry: MatIconRegistry,
     private accountService: AccountService,
-    private sanitizer: DomSanitizer,
     private snackBar: MatSnackBar,
     private router: Router,
     private thirdPartyService: ThirdPartyService,
     private route: ActivatedRoute,
-    private mealPlanService: MealPlanService,
     public adobeDtbTracking: AdobeDtbTracking,
     public pinterestService: PinterestTrackingService
   ) {
-    this.matIconRegistry.addSvgIcon('gender', this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/profile-icons/gender.svg'));
   }
 
   ngOnInit() {
-    if (this.onProfilePage) {
-      this.getUserAttributes();
-    }
     this.patchRegisterFormWithEmail()
   }
 
@@ -64,8 +52,6 @@ export class RegisterComponent implements OnInit {
       const email = this.route.snapshot.queryParams['email'];
       this.registerForm.patchValue(email);
     }
-   
-
   }
 
   async getUserAttributes() {
@@ -94,23 +80,11 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  setEmailFromStep1(emailFromLastStep: string) {
-    this.registerForm.controls.email.setValue(emailFromLastStep);
-  }
-
-  submitForm() {
-    (this.onProfilePage) ? this.update() : this.signUp();
-  }
-
-
-
-  async signUp() {
+  async signup() {
     if (environment.production) {
       this.loadPinterestNoScript = true;
       this.pinterestService.trackSignup();
     }
-    let currentMealPlan = await this.mealPlanService.getMealPlan();
-    let meal_plan_started = currentMealPlan && currentMealPlan.length ? 1 : 0; //Check wether the user signed up after having created a mealplan or before
     let username = this.registerForm.controls.email.value.toLowerCase();
     let password = this.registerForm.controls.password.value;
     let postal_code = this.registerForm.controls.postal_code.value;
@@ -132,7 +106,6 @@ export class RegisterComponent implements OnInit {
         'custom:opt_in': opt_in ? opt_in.toString() : 'false',
         'website': website,
         'updated_at': updated_at,
-        'custom:meal_plan_started': meal_plan_started.toString(),
         'custom:postal_code': postal_code.toString()
       }
     })

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
@@ -16,7 +16,7 @@ import { LoginForm } from '../auth.forms';
 export class LoginComponent {
   loginForm = LoginForm;
   loading: boolean;
-  email = new FormControl();
+  email = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
     private accountService: AccountService,

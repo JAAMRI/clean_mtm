@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { ToolbarModule } from '../../../components/toolbar/toolbar.module';
 import { PipesModule } from '../../../pipes/pipes.module';
 import { PinterestTrackingService } from '../../../services/pinterest-tracking.service';
@@ -23,20 +25,8 @@ import { AuthRouting } from './auth.routing';
   declarations: [AuthComponent],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    ToolbarModule,
-    MatIconModule,
     AuthRouting,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatProgressSpinnerModule,
-    MatCheckboxModule,
-    MatTooltipModule,
-    PipesModule
-  ], providers: [PinterestTrackingService, ThirdPartyService]
+    RouterModule
+  ]
 })
 export class AuthModule { }

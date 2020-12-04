@@ -9,7 +9,7 @@
         <input matInput type="email" i18n-placeholder placeholder="email" [formControl]='email' required>
         <mat-icon matSuffix matTooltip='This must be a valid email address.'>info_outline</mat-icon>
       </mat-form-field>
-      <button aria-label="Create my account" (click)='register' mat-flat-button color='primary' [disabled]='!emailForm.valid' i18n class='uppercase'>create my account</button>
+      <button (click)='register()' aria-label="Create my account" (click)='register' mat-flat-button color='primary' [disabled]='!email.valid' i18n class='uppercase'>create my account</button>
   </div>
   <form class='auth-form' [formGroup]='loginForm' (ngSubmit)='login()'>
     <div class="sign-in-wrapper">

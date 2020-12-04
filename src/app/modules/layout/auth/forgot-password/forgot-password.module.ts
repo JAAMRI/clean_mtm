@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
 import { ForgotPasswordComponent } from './forgot-password.component';
 import { ForgotPasswordRouting } from './forgot-password.routing';
@@ -17,7 +19,9 @@ import { ForgotPasswordRouting } from './forgot-password.routing';
         MatButtonModule,
         ReactiveFormsModule,
         MatFormFieldModule,
-        RouterModule
+        RouterModule,
+        MatInputModule,
+        MatSnackBarModule
     ], 
     providers: []
 })
