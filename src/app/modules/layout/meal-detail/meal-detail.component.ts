@@ -73,7 +73,6 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       // if one of the recipes is part of the seo tags to add to the header
       this.addRecipeToHeader()
     }
-
     this.getMealById()
 
     if (!this.accountService.loggedIn) {
