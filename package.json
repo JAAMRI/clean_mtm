@@ -33,6 +33,7 @@
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.6.10",
     "cors": "~2.8.4",
+    "http-server": "^0.12.3",
     "rxjs": "~6.6.3",
     "rxjs-compat": "^6.4.0",
     "tslib": "^2.0.0",
