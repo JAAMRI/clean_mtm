@@ -10,6 +10,7 @@ import { LayoutRouting } from './layout.routing';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthGuard } from '../../guards/auth.guard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [LayoutComponent],
@@ -22,7 +23,8 @@ import { AuthGuard } from '../../guards/auth.guard';
     MatIconModule,
     MatButtonModule,
     ToolbarModule,
-    DesktopToolbarModule
+    DesktopToolbarModule,
+    MatSnackBarModule
   ],
   providers: [AuthGuard]
 })

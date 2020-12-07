@@ -82,7 +82,6 @@ export const MTMPages: { [name: string]: MTMPage } = {
 })
 export class DesktopToolbarComponent implements OnInit {
   @Output() navigate = new EventEmitter<string>();
-  @Output() onAuthClicked = new EventEmitter<string>();
   @Output() onSignOutClicked = new EventEmitter<string>();
   @Input() activePage: string;
   @Input() loggedIn: boolean;
@@ -96,10 +95,6 @@ export class DesktopToolbarComponent implements OnInit {
 
   emitNavigation(link: string) {
     this.navigate.emit(link);
-  }
-
-  authClicked() {
-    this.onAuthClicked.emit();
   }
 
   signOut() {

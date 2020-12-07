@@ -10,11 +10,10 @@ import { MealItemModule } from '../../../../app/components/meal-item/meal-item.m
 import { SearchBarModule } from '../../../../app/components/search-bar/search-bar.module';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
 import { MealPlanService } from '../../../../app/services/meal-plan/meal-plan.service';
-import { UserFormModule } from '../../../components/dialogs/user-form/user-form.module';
+import { FilterModule } from '../../../components/dialogs/filter/filter.module';
+import { MtmSliderModule } from '../../../components/mtm-slider/mtm-slider.module';
 import { DiscoverMealsComponent } from './discover-meals.component';
 import { DiscoverMealsRouting } from './discover-meals.routing';
-import { MtmSliderModule } from '../../../components/mtm-slider/mtm-slider.module';
-import { FilterModule } from '../../../components/dialogs/filter/filter.module';
 
 @NgModule({
   declarations: [DiscoverMealsComponent],
@@ -28,7 +27,6 @@ import { FilterModule } from '../../../components/dialogs/filter/filter.module';
     MatProgressBarModule,
     ScrollingModule,
     MatIconModule,
-    UserFormModule,
     MatDialogModule,
     MtmSliderModule,
     FilterModule,

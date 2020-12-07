@@ -371,12 +371,30 @@
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2993193904225803286" datatype="html">
+      <trans-unit id="fb6a6e9a8965c0646bfd695771e0bead4b7ed99c" datatype="html">
+        <source>No articles found.</source>
+        <target>Aucun article trouvé.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/article/article.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e263273ccf7343280c3ef6841f6b0a3e25869d9a" datatype="html">
+        <source>my account
+</source>
+        <target>mon compte</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="247e26160249914515875ec199470eeb672529cb" datatype="html">
         <source>my account</source>
         <target>mon compte</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="sourcefile">src/app/modules/profile/profile.component.html</context>
+          <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
       <trans-unit id="0ca27e0838856f23a6ce30e1e53be7b1887ea345" datatype="html">
@@ -777,18 +795,14 @@
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="aaa171084d54c4c8c1ef643df02aa71efeb1bc04" datatype="html">
+      <trans-unit id="2591a646ace7311b6ac61c2b2f5d887f2cdac8bc" datatype="html">
         <source>
-
-      Loading your favourites
+      loading your favourites
     </source>
-        <target>
-
-      Loading your favourites
-    </target>
+    <target>Chargement de vos favoris…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/favourites/favourites.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="0459fa82b8c8758334ed33fee7bb77219ff49e3f" datatype="html">
@@ -848,8 +862,7 @@
         loading your meals
       </source>
         <target>
-
-        Loading your meals
+        Chargement de vos repas…
       </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/my-meals/my-meals.component.html</context>
@@ -2201,6 +2214,14 @@
         <target>
           Les plans de repas et les listes d’épicerie instantanées vous feront gagner du temps.
         </target>
+      </trans-unit>
+      <trans-unit id="66548a006dcae1795b3cfcc419cb7301e44c48ee" datatype="html">
+        <source>create my account</source>
+        <source>créer mon compte</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
       </trans-unit>
       <trans-unit id='7204906941777080291'>
         <source>

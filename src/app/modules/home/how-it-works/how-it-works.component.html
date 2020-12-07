@@ -28,7 +28,7 @@
       </p>
     </div>
     <div class="img-wrapper">
-      <img src="/assets/static_images/home-page/Create_Meal_Image.jpg" alt="Create meal">
+      <img [src]="createMealImage" alt="Create meal">
     </div>
 
   </div>
@@ -44,11 +44,11 @@
       </p>
     </div>
     <div class="img-wrapper">
-      <img src="/assets/static_images/home-page/Shop_Meal_Image.jpg" alt="shop meals">
+      <img [src]="shopMealImage" alt="shop meals">
 
     </div>
   </div>
-  <div class="watch-how-to-video">
+  <div class="watch-how-to-video" *ngIf='!isFrench'>
     <h1 i18n class='uppercase'>watch how to video</h1>
     <iframe width="420" title='how to video' height="315" src="https://www.youtube.com/embed/gVFtIzFRv00" frameborder="0" allowfullscreen></iframe>
 
