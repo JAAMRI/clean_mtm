@@ -2,12 +2,12 @@
   <div class="copy">
     <h1 i18n class='uppercase'>why you'll love this</h1>
     <p i18n>
-      Enjoy delicious recipe inspiration, personalized meal plans and delivery for a great cooking experience.
+      Enjoy delicious recipe inspiration, unique meal plans and personalized shopping lists today.
     </p>
   </div>
 
   <app-mtm-slider (onEndReached)='pushEnd()' (onStartReached)='pushStart()'>
-    <div class='youll-love-this-meal-item' *ngFor="let item of carouselData; trackBy: trackByIndex; let i=index;" (click)='emitNavigation()'>
+    <div class='youll-love-this-meal-item' [class.hidden]='locale === item.hidden' *ngFor="let item of carouselData; trackBy: trackByIndex; let i=index;" (click)='emitNavigation()'>
       <div class="img-wrapper">
         <img [alt]="item.header" [src]='item.img' [alt]='item.header' />
 

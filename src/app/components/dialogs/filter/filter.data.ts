@@ -26,14 +26,14 @@ export const Filters: IFilter[] = [
         name: $localize`30 minutes or less`,
         key: '30_minutes_or_less',
         id: 1588,
-       
+        hidden: 'fr',
     },
     {
         name: $localize`chicken`,
         key: 'chicken',
 
         id: 1503,
-     
+
 
     },
     {
@@ -41,7 +41,7 @@ export const Filters: IFilter[] = [
         key: 'summer',
 
         id: 1544,
-      
+
 
     },
     {
@@ -93,7 +93,7 @@ export const Filters: IFilter[] = [
     {
         name: $localize`tea`,
         key: 'tea',
-
+        hidden: 'fr',
         id: 1368,
 
     },
@@ -163,24 +163,26 @@ export const Filters: IFilter[] = [
         name: $localize`better for you`,
         disclaimerId: '*',
         id: 9870,
+        hidden: 'fr',
         key: 'better_for_you',
     }
 ]
 
 export const Disclaimers = [
-//     {
-//     disclaimerId: '*',
-//     title: 'Vegetarian',
-//     text: 'Our (ovo-lacto) vegetarian recipes may contain dairy products and eggs, but no other animal products.',
-//     italic: 'The Hellmann’s/Knorr product in these recipes are vegetarian. Always check the label of all other ingredients you use to ensure they are free of animal products',
+    //     {
+    //     disclaimerId: '*',
+    //     title: 'Vegetarian',
+    //     text: 'Our (ovo-lacto) vegetarian recipes may contain dairy products and eggs, but no other animal products.',
+    //     italic: 'The Hellmann’s/Knorr product in these recipes are vegetarian. Always check the label of all other ingredients you use to ensure they are free of animal products',
 
-// },
-{
-    disclaimerId: '*',
-    title: 'Better-For-You',
-    text: $localize`Our Better-For-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars.`
+    // },
+    {
+        disclaimerId: '*',
+        title: 'Better-For-You',
+        hidden: 'fr',
+        text: $localize`Our Better-For-You recipes strive to promote a balanced and healthy eating pattern that is aligned with Authoritative Guidance, encouraging the intake of vegetables, whole grains, fruit, legumes and good fats, while limiting saturated fat, sodium and sugars.`
 
-},
+    },
 ]
 
 export interface IFilter {
