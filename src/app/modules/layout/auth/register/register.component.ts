@@ -1,14 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { MatIconRegistry } from '@angular/material/icon';
+import { Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from "@angular/router";
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { AccountService } from '../../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
-import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
 import { environment } from '../../../../../environments/environment';
 import { ICredentials } from '../../../../interfaces/auth/credentials';
 import { PinterestTrackingService } from '../../../../services/pinterest-tracking.service';
@@ -39,7 +35,8 @@ export class RegisterComponent implements OnInit {
     private thirdPartyService: ThirdPartyService,
     private route: ActivatedRoute,
     public adobeDtbTracking: AdobeDtbTracking,
-    public pinterestService: PinterestTrackingService
+    public pinterestService: PinterestTrackingService,
+    @Inject(LOCALE_ID) private locale: string
   ) {
   }
 
@@ -80,6 +77,16 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+
+  getLocale() {
+    // return a mapped locale on how MTM wants it
+    if (this.locale === 'fr') {
+      return 'fr-CA'
+    } else {
+      return 'en-CA'
+    }
+  }
+
   async signup() {
     if (environment.production) {
       this.loadPinterestNoScript = true;
@@ -91,7 +98,7 @@ export class RegisterComponent implements OnInit {
     let given_name = this.registerForm.controls.given_name.value;
     let family_name = this.registerForm.controls.family_name.value;
     let opt_in = this.registerForm.controls.opt_in.value;
-    let locale = "CA-en"
+    let locale = this.getLocale(); // get proper locale
     let website = "mealsthatmatter.com";
     let updated_at = new Date().getTime().toString();
 

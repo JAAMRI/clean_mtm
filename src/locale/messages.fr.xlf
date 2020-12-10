@@ -360,7 +360,7 @@
         <target>connexion</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
@@ -484,7 +484,7 @@
       </trans-unit>
       <trans-unit id="c7580f51747559366d754aecab7ddf626956ced8" datatype="html">
         <source>Find mealtime inspiration and start planning your week today</source>
-        <target>trouvez des repas inspirants et commencez à planifier votre semaine aujourd’hui</target>
+        <target>Trouvez des repas inspirants et commencez à planifier votre semaine aujourd’hui</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/home.component.html</context>
           <context context-type="linenumber">27</context>
@@ -523,7 +523,7 @@
       </trans-unit>
       <trans-unit id="990494766a0d2e4e32b3db984a962299ad738eb3" datatype="html">
         <source>browse our recipes</source>
-        <target>explorez nos recettes.</target>
+        <target>explorez nos recettes</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
           <context context-type="linenumber">12</context>
@@ -564,15 +564,14 @@
           <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2be842287fd4faf6caeb481fd318bcc70048c3a9" datatype="html">
+      <trans-unit id="938f3a4c2d72c10c893b266ae4ab9951692982ad" datatype="html">
         <source>Your chosen ingredients,
-        delivered to your door,
-        from your go-to grocery store.
+        personalized into a shopping list, to take to your go-to grocery store.
       </source>
-        <target>Vos ingrédients sélectionnés, livrés à votre porte, par votre supermarché préféré. </target>
+      <target>Vos ingrédients sélectionnés, personnalisés dans une liste d'épicerie, livrés par votre supermarché.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8964708b496aa9a5973e79afccd8368730bd576e" datatype="html">
@@ -583,12 +582,11 @@
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="66b81ee8288cd3b72b8acc9f75955722e7ff6e11" datatype="html">
+      <trans-unit id="d61f5226a52709e565b02397b19e37ffe0032a4d" datatype="html">
         <source>
-      Enjoy delicious recipe inspiration, personalized meal plans and delivery for a great cooking experience.
+      Enjoy delicious recipe inspiration, unique meal plans and personalized shopping lists today.
     </source>
-        <target>Vous apprécierez nos recettes, nos plans de repas personnalisés et la livraison des ingrédients pour une belle expérience culinaire.</target>
-
+    <target>Vous apprécierez, nos plans de repas personnalisés et la livraison des ingrédients pour une belle expérience culinaire.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
           <context context-type="linenumber">4</context>
