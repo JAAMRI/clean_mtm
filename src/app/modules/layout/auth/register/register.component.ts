@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
   patchRegisterFormWithEmail() {
     if (this.route.snapshot.queryParams['email']) {
       const email = this.route.snapshot.queryParams['email'];
-      this.registerForm.patchValue(email);
+      this.registerForm.patchValue({ email });
     }
   }
 
