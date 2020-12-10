@@ -1,11 +1,10 @@
 import { Component, HostListener, ViewEncapsulation } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { NavigationEnd, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
+import { MTMPage, MTMPageNames, MTMPages } from 'src/app/components/desktop-toolbar/desktop-pages';
 import { Breadcrumb } from '../../components/breadcrumbs/breadcrumbs.component';
-import { MTMPage, MTMPageNames, MTMPages } from '../../components/desktop-toolbar/desktop-toolbar.component';
 import { AccountService } from '../../services/account/account.service';
 import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
 import { BREADCRUMBS } from '../../utilities/breadcrumbs';
@@ -28,7 +27,6 @@ export class LayoutComponent {
 
   constructor(
     private router: Router,
-    private dialog: MatDialog,
     public accountService: AccountService,
     public adobeDtbTracking: AdobeDtbTracking,
   ) { }

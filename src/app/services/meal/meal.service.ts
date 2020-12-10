@@ -21,7 +21,6 @@ export class MealService {
 
   //Get Meals from API
   getMeals(pageStart: number, pageSize: number, query?: string, params?: any): Observable<any> {
-    
     const httpParams = new HttpParams({
       fromObject: {
         page_start: pageStart.toString(),

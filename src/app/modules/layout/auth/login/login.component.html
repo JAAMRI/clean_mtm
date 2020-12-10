@@ -3,17 +3,15 @@
   </p>
   <div class="register-container">
     <h1 class='uppercase' i18n>register</h1>
-    <form (ngSubmit)='emitRegister()' class="register-form" [formGroup]='emailForm'>
 
       <mat-form-field>
         <mat-icon matPrefix class='prefix-icon'>email</mat-icon>
-        <input matInput type="email" i18n-placeholder placeholder="email" formControlName='email' required>
+        <input matInput type="email" i18n-placeholder placeholder="email" [formControl]='email' required>
         <mat-icon matSuffix matTooltip='This must be a valid email address.'>info_outline</mat-icon>
       </mat-form-field>
-      <button aria-label="Create my account" mat-flat-button color='primary' [disabled]='!emailForm.valid' i18n class='uppercase'>create my account</button>
-    </form>
+      <button (click)='register()' aria-label="Create my account" (click)='register' mat-flat-button color='primary' [disabled]='!email.valid' i18n class='uppercase'>create my account</button>
   </div>
-  <form class='auth-form' [formGroup]='loginForm' (ngSubmit)='emitLogin()'>
+  <form class='auth-form' [formGroup]='loginForm' (ngSubmit)='login()'>
     <div class="sign-in-wrapper">
       <h1 i18n class='uppercase'>sign in</h1>
       <mat-form-field>
@@ -34,7 +32,7 @@
       <button *ngIf='!loading' aria-label="Sign in" type="submit" mat-flat-button
         class='sign-in-button uppercase' i18n>sign in</button>
       <div class="login-action-row">
-        <a class='forgot-button' mat-link-button (click)='emitForgotPassword()' i18n>Forgot your password?</a>
+        <a class='forgot-button' mat-link-button (click)='forgotPassword()' i18n>Forgot your password?</a>
         <p class='required-field'>* <span i18n>Required field</span> </p>
       </div>
     </div>

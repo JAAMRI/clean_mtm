@@ -21,7 +21,7 @@ import { MyMealsRouting } from './my-meals.routing';
     SearchBarModule,
     MatDialogModule,
     MatSnackBarModule,
-    ScrollingModule,
+    ScrollingModule
   ],
 })
 export class MyMealsModule { }

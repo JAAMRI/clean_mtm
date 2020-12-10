@@ -4,27 +4,28 @@
   </a>
   <div class="call-to-actions">
     <div class="tabs">
-      <a class='titlecase' [class.active]='activePage === "/recipes/discover"' mat-button (click)="emitNavigation('SELECT RECIPES')" i18n>Select
+      <a class='titlecase' [class.active]='activePage === "/recipes/discover"' mat-button
+        (click)="emitNavigation('SELECT RECIPES')" i18n>Select
         Recipes</a>
-        <a class='titlecase' [class.active]='activePage === "/recipes/my-meals"' mat-button (click)="emitNavigation('MEAL PLAN')" i18n>Meal
-          Plan</a>
-          <a class='titlecase' [class.active]='activePage === "/recipes/grocery-list"' mat-button
-          (click)="emitNavigation('GROCERY LIST')" i18n>Grocery List</a>
-          <a class='titlecase' [class.active]='activePage === "/recipes/favourites"' mat-button
-            (click)="emitNavigation('FAVOURITES')" i18n>Favourites</a>
+      <a class='titlecase' [class.active]='activePage === "/recipes/my-meals"' mat-button
+        (click)="emitNavigation('MEAL PLAN')" i18n>Meal
+        Plan</a>
+      <a class='titlecase' [class.active]='activePage === "/recipes/grocery-list"' mat-button
+        (click)="emitNavigation('GROCERY LIST')" i18n>Grocery List</a>
+      <a class='titlecase' [class.active]='activePage === "/recipes/favourites"' mat-button
+        (click)="emitNavigation('FAVOURITES')" i18n>Favourites</a>
     </div>
     <div class="actions">
-      <a class='titlecase' [class.active]='activePage === "/articles"' mat-button (click)="emitNavigation('ARTICLES')" i18n>Articles</a>
-      <a class='titlecase'  [class.active]='activePage === "/profile"' *ngIf="loggedIn" mat-button (click)="emitNavigation('VIEW PROFILE')" i18n>My
+      <a class='titlecase' [class.active]='activePage === "/articles"' mat-button (click)="emitNavigation('ARTICLES')"
+        i18n>Articles</a>
+      <a class='titlecase' [class.active]='activePage === "/profile"' *ngIf="loggedIn" mat-button
+        (click)="emitNavigation('VIEW PROFILE')" i18n>My
         Account</a>
-      <a class='titlecase'  [class.active]='activePage === "/contact-us"' mat-button (click)="emitNavigation('CONTACT US')" i18n>Contact Us</a>
+      <a class='titlecase' [class.active]='activePage === "/contact-us"' mat-button
+        (click)="emitNavigation('CONTACT US')" i18n>Contact Us</a>
       <a class='titlecase' [class.active]='activePage === "/faqs"' mat-button (click)="emitNavigation('FAQs')" i18n>FAQs
       </a>
       <a mat-button *ngIf='loggedIn' class='titlecase' (click)="signOut()" i18n>sign out</a>
-
-
-
     </div>
   </div>
-
 </mat-toolbar>
