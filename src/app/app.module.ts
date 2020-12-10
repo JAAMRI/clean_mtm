@@ -2,25 +2,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DefaultUrlSerializer, UrlSerializer, UrlTree } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRouting } from './app.routing';
-import { ToolbarModule } from './components/toolbar/toolbar.module';
-import { AccountService } from './services/account/account.service';
-import { MealService } from './services/meal/meal.service';
-import { SharedModule } from './shared/shared.module';
-import { SharedService } from './shared/shared.service';
-import { HomeModule } from './modules/home/home.module';
-import { SeoService } from './services/seo.service';
-import { DynamicScriptLoaderService } from './services/dynamic-script-loader/dynamic-script-loader.service';
-import { FooterComponent } from './modules/footer/footer.component';
-import { CommonModule } from '@angular/common';
-import { RouterModule, UrlSerializer } from '@angular/router';
-// StandardUrlSerializer 
-import { DefaultUrlSerializer, UrlTree } from "@angular/router";
 import { AuthGuard } from './guards/auth.guard';
 import { FooterModule } from './modules/footer/footer.module';
+import { AccountService } from './services/account/account.service';
+import { DynamicScriptLoaderService } from './services/dynamic-script-loader/dynamic-script-loader.service';
+import { SeoService } from './services/seo.service';
 
 export class StandardUrlSerializer implements UrlSerializer {
     private _defaultUrlSerializer: DefaultUrlSerializer = new DefaultUrlSerializer();
@@ -40,26 +31,18 @@ export class StandardUrlSerializer implements UrlSerializer {
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    BrowserAnimationsModule,
+    BrowserModule,
     AppRouting,
-    CommonModule,
-    ToolbarModule,
-    HttpClientModule,
-    HomeModule,
-    ToolbarModule,
+    BrowserAnimationsModule,
     FooterModule,
-    SharedModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    MealService,
     SeoService,
     DynamicScriptLoaderService,
-    // AmplifyService,
     AccountService,
     AuthGuard,
-    SharedService,
       {
          provide: UrlSerializer,
          useClass: StandardUrlSerializer

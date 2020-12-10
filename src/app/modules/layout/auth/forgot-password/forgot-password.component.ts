@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
+import { AccountService } from 'src/app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../services/adobe_dtb_tracking.service';
 
 @Component({
@@ -13,7 +15,6 @@ import { AdobeDtbTracking } from '../../../../services/adobe_dtb_tracking.servic
 export class ForgotPasswordComponent implements OnInit {
 
   @Output() update = new EventEmitter();
-  @Output() validate = new EventEmitter();
   @Output() back = new EventEmitter();
   @Input() emailValidated: boolean;
   @Input() invalidEmail: boolean;
@@ -24,6 +25,9 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private fb: FormBuilder,
+    private accountService: AccountService,
+    private router: Router,
+    private route: ActivatedRoute,
     public adobeDtbTracking: AdobeDtbTracking
   ) { }
 
@@ -42,7 +46,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   goBack() {
-    this.back.emit();
+    this.router.navigate(['/auth/login'], { queryParamsHandling: 'preserve' });
   }
 
   // Used for password match validation
@@ -73,7 +77,9 @@ export class ForgotPasswordComponent implements OnInit {
     }
     Auth.forgotPassword(email)
       .then(data => {
-        this.validate.emit(email);
+        this.emailValidated = true;
+        this.snackBar.open($localize`A code has been sent to your email, please enter it for verification purposes!`, null, { duration: 3000 })
+
       })
       .catch(err => {
         console.log(err)
@@ -96,8 +102,52 @@ export class ForgotPasswordComponent implements OnInit {
     const email = this.forgotPasswordForm.get('email').value.toLowerCase();
     const code = this.forgotPasswordForm.get('code').value;
     const password = this.forgotPasswordForm.get('password').value;
-    this.update.emit({ email, code, password });
+    this.updatePassword({ email, code, password });
     this.adobeDtbTracking.passwordReset('Sign In popup');
   }
 
+  updatePassword(data: { email: string, code: string, password: string }) {
+    const { email: username, password: newPassword, code } = data;
+    Auth.forgotPasswordSubmit(username, code, newPassword)
+      .then(async (_) => {
+        this.snackBar.open($localize`Your password has been successfully updated`, null, { duration: 3000 })
+        //Automatically sign in User
+        await this.signIn({ username: username, password: newPassword })
+        //
+      })
+      .catch(err => {
+        console.log(err);
+        this.snackBar.open($localize`Sorry! An error has occured updating your password`, null, { duration: 2500 });
+      });
+  }
+
+  async signIn(credentials: {username: string, password: string, firstTime?: boolean}) {
+    try {
+      const { username, password, firstTime } = credentials;
+  
+      await Auth.signIn(username.toLowerCase(), password);
+      if (this.route.snapshot.queryParams && this.route.snapshot.queryParams['returnUrl']) {
+        // check if there is a redirectTo in the query params and redirect to this instead
+        const redirectRoute = this.route.snapshot.queryParams['returnUrl'];
+  
+        this.router.navigateByUrl(redirectRoute, { queryParamsHandling: "preserve" });
+      } else {
+  
+        this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
+      }
+  
+      // Update only if user is signing in for the first time right after signing up
+      if (firstTime) {
+        this.adobeDtbTracking.firstTimeUser('New Registration');
+      } else {
+        this.adobeDtbTracking.returningUser();
+      }
+      this.accountService.emitAuthStateChanged();
+      this.accountService.setLoggedIn(true);
+    } catch (err) {
+      console.log(err);
+      this.snackBar.open($localize`Sorry! We could not sign you in at this time. PLease try again later.`, null, { duration: 2500 });
+    }
+  
+  }
 }

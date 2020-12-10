@@ -225,12 +225,19 @@
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="fef5439ca3e708e3ec6b161e37f32a2af4bce653" datatype="html">
-        <source>sign
-        in</source>
+      <trans-unit id="2177c841bf548bc76db5b969b789f3a03c93c83f" datatype="html">
+        <source>sign in</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="e263273ccf7343280c3ef6841f6b0a3e25869d9a" datatype="html">
@@ -238,7 +245,7 @@
     </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="604071c1b98deffb6c26c8ce18c39ab882792994" datatype="html">
@@ -247,7 +254,7 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8964708b496aa9a5973e79afccd8368730bd576e" datatype="html">
@@ -257,9 +264,9 @@
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="66b81ee8288cd3b72b8acc9f75955722e7ff6e11" datatype="html">
+      <trans-unit id="d61f5226a52709e565b02397b19e37ffe0032a4d" datatype="html">
         <source>
-      Enjoy delicious recipe inspiration, personalized meal plans and delivery for a great cooking experience.
+      Enjoy delicious recipe inspiration, unique meal plans and personalized shopping lists today.
     </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/you-will-love-this/you-will-love-this.component.html</context>
@@ -336,40 +343,40 @@
         <source>create your meal plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="197c0d6deef94415b06b799cf56ee11f55042108" datatype="html">
-        <source>Add recipes from around the world to your personalized &apos;Meal Plan&apos;. Make cooking an adventure with deliciously
+      <trans-unit id="cb4f0135f1f28cd44c755322d6766534b95b4784" datatype="html">
+        <source>Add recipes from around the world to your personalized &apos;Meal Plan&apos;. Make cooking an adventure with
+        deliciously
         diverse meals.
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6a39e084e067da1e8b0abd86e027a80ac11b8007" datatype="html">
         <source>shop your meal plan</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2be842287fd4faf6caeb481fd318bcc70048c3a9" datatype="html">
+      <trans-unit id="938f3a4c2d72c10c893b266ae4ab9951692982ad" datatype="html">
         <source>Your chosen ingredients,
-        delivered to your door,
-        from your go-to grocery store.
+        personalized into a shopping list, to take to your go-to grocery store.
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="13515d0c961c189e81c036079262f608e150918f" datatype="html">
         <source>watch how to video</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c7580f51747559366d754aecab7ddf626956ced8" datatype="html">
@@ -926,17 +933,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
           <context context-type="linenumber">13</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2177c841bf548bc76db5b969b789f3a03c93c83f" datatype="html">
-        <source>sign in</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="bc4c71410a1244badba1d5e273ed60a96773fc9f" datatype="html">

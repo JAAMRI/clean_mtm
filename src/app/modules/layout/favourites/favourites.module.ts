@@ -22,7 +22,6 @@ import { FavouritesRouting } from './favourites.routing';
     MatDialogModule,
     MatSnackBarModule,
     ScrollingModule,
-    MealItemModule
   ]
 })
 

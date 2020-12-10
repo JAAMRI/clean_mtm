@@ -13,7 +13,7 @@
         <button mat-button color="primary" (click)='clear()' i18n>Clear Filter</button>
     </div>
     <div class="filters">
-        <div (click)='setActiveFilter(filter.id)' class="filter-wrapper" [class.active]='filter.active'
+        <div (click)='setActiveFilter(filter.id)' class="filter-wrapper" [class.active]='filter.active' [class.hidden]='locale === filter.hidden'
             *ngFor='let filter of filters'>
             <strong>
                 <span class='titlecase'>
@@ -23,7 +23,7 @@
             </strong>
         </div>
     </div>
-    <div class="disclaimers" #disclaimerWrapper>
+    <div class="disclaimers" #disclaimerWrapper *ngIf='locale !== "fr"'>
         <!-- <ul>
             <li > -->
         <!-- <strong>{{disclaimer.title}} <sup>{{disclaimer.disclaimerId}}</sup>

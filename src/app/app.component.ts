@@ -3,11 +3,10 @@ import { ChangeDetectorRef, Component, HostListener, Inject, OnInit, PLATFORM_ID
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
-import { env } from 'process';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { environment } from '../environments/environment';
-import { MTMPage, MTMPages } from './components/desktop-toolbar/desktop-toolbar.component';
+import { MTMPage, MTMPages } from './components/desktop-toolbar/desktop-pages';
 import { AccountService } from './services/account/account.service';
 import { DynamicScriptLoaderService } from './services/dynamic-script-loader/dynamic-script-loader.service';
 import { SeoService } from './services/seo.service';
@@ -29,7 +28,7 @@ export class AppComponent implements OnInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
     private dynamicScriptLoader: DynamicScriptLoaderService,
-    public accountService: AccountService,
+    private accountService: AccountService,
     private seoService: SeoService,
     private title: Title,
     private cdr: ChangeDetectorRef,
