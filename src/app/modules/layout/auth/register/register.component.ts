@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -47,7 +47,8 @@ export class RegisterComponent implements OnInit {
     private route: ActivatedRoute,
     private mealPlanService: MealPlanService,
     public adobeDtbTracking: AdobeDtbTracking,
-    public pinterestService: PinterestTrackingService
+    public pinterestService: PinterestTrackingService,
+    @Inject(LOCALE_ID) private locale: string
   ) {
     this.matIconRegistry.addSvgIcon('gender', this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/profile-icons/gender.svg'));
   }
@@ -92,7 +93,14 @@ export class RegisterComponent implements OnInit {
     (this.onProfilePage) ? this.update() : this.signUp();
   }
 
-
+  getLocale() {
+    // return a mapped locale on how MTM wants it
+    if (this.locale === 'fr') {
+      return 'fr-CA'
+    } else {
+      return 'en-CA'
+    }
+  }
 
   async signUp() {
     if (environment.production) {
@@ -107,7 +115,7 @@ export class RegisterComponent implements OnInit {
     let given_name = this.registerForm.controls.given_name.value;
     let family_name = this.registerForm.controls.family_name.value;
     let opt_in = this.registerForm.controls.opt_in.value;
-    let locale = "CA-en"
+    let locale = this.getLocale(); // get proper locale
     let website = "mealsthatmatter.com";
     let updated_at = new Date().getTime().toString();
     
