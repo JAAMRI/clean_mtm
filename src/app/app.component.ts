@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, Inject, LOCALE_ID, OnInit, PLATFORM_ID } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
@@ -10,6 +10,8 @@ import { MTMPage, MTMPages } from './components/desktop-toolbar/desktop-pages';
 import { AccountService } from './services/account/account.service';
 import { DynamicScriptLoaderService } from './services/dynamic-script-loader/dynamic-script-loader.service';
 import { SeoService } from './services/seo.service';
+
+declare var digitalData: any;
 
 @Component({
   selector: 'app-root',
@@ -27,6 +29,7 @@ export class AppComponent implements OnInit {
   loadPinterest = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
+    @Inject(LOCALE_ID) private locale: string,
     private dynamicScriptLoader: DynamicScriptLoaderService,
     private accountService: AccountService,
     private seoService: SeoService,
@@ -164,7 +167,13 @@ export class AppComponent implements OnInit {
     this.dynamicScriptLoader.load('adobe-tracking', 'adobe-tracking-min').then((data: any) => {
       console.log('Adobe tracking loaded successfully');
       // implements body hiding after adobe is loaded sinc eit depends on it
-      this.bodyhidingImplementation()
+      this.bodyhidingImplementation();
+      if (this.locale === 'fr') {
+        // set digital pageinfo language after adobe tracking has been set
+        digitalData.page.pageInfo.language = "FR";
+      } else {
+        digitalData.page.pageInfo.language = "EN";
+      }
 
     }).catch(console.error)
   }
