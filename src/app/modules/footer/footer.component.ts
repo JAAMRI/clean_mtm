@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Inject, LOCALE_ID } from '@angular/core';
 import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
 import { SocialFooterItems } from './footer.items';
 
@@ -10,8 +10,9 @@ import { SocialFooterItems } from './footer.items';
 export class FooterComponent {
   socialFooterItems = SocialFooterItems;
   isMobile = window.innerWidth < 1024;
-
+  isFrench = this.locale === 'fr';
   constructor(public adobeDtbTracking: AdobeDtbTracking,
+    @Inject(LOCALE_ID) private locale: string
   ) { }
 
   @HostListener('window:resize', ['$event'])

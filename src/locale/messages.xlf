@@ -8,7 +8,7 @@
             </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c4d0e1acb5ab7d17471ec7511944d06c66fb8460" datatype="html">
@@ -17,29 +17,29 @@
             </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="41203cc4d2278b2821469119010ee8ee66fe52b8" datatype="html">
         <source>adchoices</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="09022ea32dc02e1a0e223709320b7c4f812b4ac0" datatype="html">
         <source>© 2020 Unilever</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5a4bab30940a1835ca4b51684f7b606bebe42ec0" datatype="html">
@@ -48,7 +48,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="003cf50118cc7e15d3ffd80eb3e6136d4fdddbec" datatype="html">
@@ -57,28 +57,28 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="645b2c426c6a9d4d1c00653a78ede4673b1ec511" datatype="html">
         <source>terms of use</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7bd4803d5ae8090607e56125a4623e0cadd64820" datatype="html">
         <source>privacy notice</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">72</context>
+          <context context-type="linenumber">85</context>
         </context-group>
       </trans-unit>
       <trans-unit id="91ac5727fcb805f97f829d07a8b1af8925d8bc15" datatype="html">
         <source>faq</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">74</context>
+          <context context-type="linenumber">87</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3088d6e5a1198041af5fbde637c75b929fd72d18" datatype="html">
@@ -87,7 +87,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="linenumber">91</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cc21a5c8427b3308354203bb5c0f01b88b5c8fed" datatype="html">
@@ -96,7 +96,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">82</context>
+          <context context-type="linenumber">95</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c39b22b76add25401f3aa67f50b0576206cef8c6" datatype="html">
@@ -107,7 +107,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
-          <context context-type="linenumber">90</context>
+          <context context-type="linenumber">103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="612af120c77b52601251e6833cb9e3cfb55fe0fe" datatype="html">
@@ -996,6 +996,27 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
           <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8f4a6c42a48b8b79b0767875212cd892a1d71c92" datatype="html">
+        <source>If you live in Ontario, you may be able to purchase your meal plan online
+                    through Metro online grocery. Visit <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>www.metro.ca/en/online-grocery<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to find out if they have pickup or
+                    delivery in your area*
+                    <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
+                    If you live in BC, you may be able to purchase your meal plan online through Save on Foods online
+                    grocery. Visit
+                    <x id="START_LINK_1" ctype="x-a" equiv-text="&lt;a&gt;"/>
+                        https://www.saveonfoods.com/shop-online-how-it-works/#
+                    <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+                    To find out if they have pickup or delivery
+                    in your area*
+                    <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
+                    If you live outsite of Ontario or BC, stay tuned! We are always working on
+                    improving our service.
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="889ae9c5b45da59044081f074ce9143af9eb5b90" datatype="html">
