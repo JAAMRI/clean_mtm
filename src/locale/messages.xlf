@@ -110,73 +110,6 @@
           <context context-type="linenumber">90</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="911df1fb23fe26865e49fc041f885dda8fadd887" datatype="html">
-        <source>Select
-        Recipes</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="b592704f037c9ca8a3fe9657a1b3c983df5bc154" datatype="html">
-        <source>Meal
-          Plan</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1b0c99b950c8b76a8706a657265f5663b22c40ea" datatype="html">
-        <source>Grocery List</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="62ab0c2bf8d16ce7baf2c8b1da2c561d99522256" datatype="html">
-        <source>Favourites</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3b6143a528c6f4586e60e9af4ced8ac0fbe08251" datatype="html">
-        <source>Articles</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="9c1036948ed0fbdd0540cba8a36b868930aaa3ef" datatype="html">
-        <source>My
-        Account</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="02e9e69ddcbf93de9fd38bc4d0f312142658610d" datatype="html">
-        <source>Contact Us</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="9a3da01f228334580598f66c1272d119a9e84583" datatype="html">
-        <source>FAQs
-      </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="be394178ed48540a1665330866853faecea24c55" datatype="html">
-        <source>sign out</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">23</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="612af120c77b52601251e6833cb9e3cfb55fe0fe" datatype="html">
         <source>next</source>
         <context-group purpose="location">
@@ -215,7 +148,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="a21b4e4b7c48dc611c3774abf8d163519991638d" datatype="html">
@@ -233,11 +166,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">16</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="e263273ccf7343280c3ef6841f6b0a3e25869d9a" datatype="html">
@@ -384,6 +317,73 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/home.component.html</context>
           <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="911df1fb23fe26865e49fc041f885dda8fadd887" datatype="html">
+        <source>Select
+        Recipes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0296c233ab77f338cb9ee5f2f5ef6b86c3d14ca6" datatype="html">
+        <source>Meal
+        Plan</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1b0c99b950c8b76a8706a657265f5663b22c40ea" datatype="html">
+        <source>Grocery List</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="62ab0c2bf8d16ce7baf2c8b1da2c561d99522256" datatype="html">
+        <source>Favourites</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3b6143a528c6f4586e60e9af4ced8ac0fbe08251" datatype="html">
+        <source>Articles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9c1036948ed0fbdd0540cba8a36b868930aaa3ef" datatype="html">
+        <source>My
+        Account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="02e9e69ddcbf93de9fd38bc4d0f312142658610d" datatype="html">
+        <source>Contact Us</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9a3da01f228334580598f66c1272d119a9e84583" datatype="html">
+        <source>FAQs
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="be394178ed48540a1665330866853faecea24c55" datatype="html">
+        <source>sign out</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="65fa36c3fcd756bd22d6eed35208fa4b5b760360" datatype="html">
@@ -770,11 +770,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4f94eaa3c972a07aae0605dc6d98e780c2804d3a" datatype="html">
@@ -806,7 +806,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d9fe613f150fdf789a9b67dccec2f6da619101b3" datatype="html">
@@ -817,7 +817,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="0b15bf6fa1e5bdabc9fde97a14bee63a5d5e62f6" datatype="html">
@@ -828,15 +828,15 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">9</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/forgot-password/forgot-password.component.html</context>
@@ -851,7 +851,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="966ca7c5a5c2a131698322a3eaa54d88336950b2" datatype="html">
@@ -862,7 +862,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4dfbe8e9e0b5fd0f16d3d888ba2359495c7f996f" datatype="html">
@@ -870,10 +870,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/personal-info/personal-info.component.html</context>
           <context context-type="linenumber">63</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="437cda6f4c6acb01a417453b6547f30a9b339f7e" datatype="html">
@@ -932,46 +928,28 @@
         <source>create my account</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="bc4c71410a1244badba1d5e273ed60a96773fc9f" datatype="html">
         <source>processing</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6a6a5a45d7df5b7f0169fd2096d78910bb5d0b7d" datatype="html">
         <source>Forgot your password?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9bd96fcf50863e685c74d0490392f46689ffbdb6" datatype="html">
         <source>Required field</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="85c1a4cd231047c92c14da54a870ce1044324e3e" datatype="html">
-        <source>
-                            update information
-                        </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">121</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="d96670223d6053791c86b22183c73be94ccfa39c" datatype="html">
-        <source>
-                            sign out
-                        </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
-          <context context-type="linenumber">130</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="e2af3b485a0e9ea7c0cd6efad56f4b9a32372cd1" datatype="html">

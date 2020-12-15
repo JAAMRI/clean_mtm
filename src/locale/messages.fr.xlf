@@ -35,15 +35,16 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="b592704f037c9ca8a3fe9657a1b3c983df5bc154" datatype="html">
-        <source>Meal
-          Plan</source>
+      <trans-unit id="0296c233ab77f338cb9ee5f2f5ef6b86c3d14ca6" datatype="html">
+        <source>Meal Plan</source>
         <target>plan de repas</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
+
       <trans-unit id="1b0c99b950c8b76a8706a657265f5663b22c40ea" datatype="html">
         <source>Grocery List</source>
         <target>liste d’épicerie</target>
@@ -344,14 +345,14 @@
         <source>
             sitemap
         </source>
-        <target>sitemap</target>
+        <target>plan du site</target>
 
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
           <context context-type="linenumber">53</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/footer/footer.component.html</context>
+          <context cgit brontext-type="sourcefile">src/app/modules/footer/footer.component.html</context>
           <context context-type="linenumber">90</context>
         </context-group>
       </trans-unit>
@@ -545,15 +546,16 @@
           <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="197c0d6deef94415b06b799cf56ee11f55042108" datatype="html">
-        <source>Add recipes from around the world to your personalized &apos;Meal Plan&apos;. Make cooking an adventure with deliciously
+      <trans-unit id="cb4f0135f1f28cd44c755322d6766534b95b4784" datatype="html">
+        <source>Add recipes from around the world to your personalized &apos;Meal Plan&apos;. Make cooking an adventure with
+        deliciously
         diverse meals.
       </source>
         <target>Ajoutez des recettes du monde entier à votre plan de repas personnalisé. Faites de la cuisine une aventure avec des repas diversifiés. </target>
 
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/how-it-works/how-it-works.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6a39e084e067da1e8b0abd86e027a80ac11b8007" datatype="html">
@@ -2215,10 +2217,10 @@
       </trans-unit>
       <trans-unit id="66548a006dcae1795b3cfcc419cb7301e44c48ee" datatype="html">
         <source>create my account</source>
-        <source>créer mon compte</source>
+        <target>créer mon compte</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id='7204906941777080291'>
