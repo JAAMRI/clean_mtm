@@ -7,7 +7,8 @@ export const environment = {
     // host: 'mealthatmatter.com/api/v1'
     host: 'https://4w0hc7sglf.execute-api.us-east-1.amazonaws.com/UAT',
     baseHref: '/',
-    baseUrl: 'https://uat.mealsthatmatter.com',
+    englishBaseUrl: 'https://uat.mealsthatmatter.com',
+    frenchBaseUrl: 'https://uat.chaquerepascompte.com',
     devUrlKey: '',
     frenchImage: '/assets/static_images/mtm_french_logo.png',
     englishImage: '/assets/static_images/mtm_english_logo.svg',

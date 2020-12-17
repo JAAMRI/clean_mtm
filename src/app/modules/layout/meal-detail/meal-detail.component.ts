@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation, LOCALE_ID } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -56,6 +56,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     public adobeDtbTracking: AdobeDtbTracking,
     private seo: SeoService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(LOCALE_ID) public locale: string
   ) {
   }
 
@@ -166,7 +167,8 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   logMealLocation() {
-    const host = environment.baseUrl;
+
+    const host = this.locale === 'fr' ? environment.frenchBaseUrl : environment.englishBaseUrl;
     const mealTitle = this.meal.title.split(',').join('').split('(').join('').split(')').join('').split(' ').join('-').split('&').join('and');
     const location = `RECIPE LOCATION: ${host}/recipes/${mealTitle}-${this.mealId}`;
     console.log(location);
@@ -185,7 +187,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
   }
 
   getEmailContent() {
-    const host = environment.baseUrl;
+    const host = this.locale === 'fr' ? environment.frenchBaseUrl : environment.englishBaseUrl;
     const mealTitle = this.meal.title.split(',').join('').split('(').join('').split(')').join('').split(' ').join('-').split('&').join('and');
     const location = `${host}/recipes/${mealTitle}-${this.mealId}`;
     const body = "Hi, Thought you would love this recipe from Meals That Matter. " + encodeURIComponent(location);
