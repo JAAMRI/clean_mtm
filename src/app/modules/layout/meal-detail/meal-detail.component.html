@@ -51,17 +51,21 @@
             <p>{{meal.prepTime + meal.cookTime}} min {{meal.servings ? '- ' + meal.servings : ''}}</p>
           </div>
 
-          <p class='meal-description' *ngIf='meal.mainIngredient'>Main Ingredient:<strong>
-              {{ meal.mainIngredient }}</strong> </p>
+          <p class='meal-description' *ngIf='meal.mainIngredient' >
+            <strong i18n>
+              Main Ingredient
+            </strong>
+            <span>
+              {{ meal.mainIngredient }}</span> </p>
           <br>
           <p class='meal-description'>
             <ng-container *ngIf='meal.cookTime'>
-              <strong>Cook time:</strong>
+              <strong i18n>cook time</strong>
               {{meal.cookTime > 60 ? (meal.cookTime / 60 | floor )+ 'H ' + meal.cookTime % 60 : meal.cookTime}} Min -
             </ng-container>
             <br />
             <ng-container *ngIf='meal.prepTime'>
-              <strong>Prep time:</strong>
+              <strong i18n>prep time</strong>
               {{meal.prepTime}} Min
             </ng-container>
           </p>
@@ -82,7 +86,7 @@
             </button>
           </div>
           <div class="meal-subheader">
-            <a mat-stroked-button [href]='emailContent' (click)="adobeDtbTracking.sharingMealByEmail(meal.title)">
+            <a mat-stroked-button [href]='emailContent' (click)="adobeDtbTracking.sharingMealByEmail(meal.title)" i18n>
               EMAIL
             </a>
           </div>
@@ -92,17 +96,17 @@
     </div>
     <div class="meal-tabs-container">
       <mat-tab-group (selectedTabChange)="adobeDtbTracking.anchorLinkTab($event.index, 'meal detail',meal.title)">
-        <mat-tab label="INGREDIENTS">
+        <mat-tab i18n-label label="INGREDIENTS">
           <app-meal-tab [isMobile]='isMobile' [data]='meal.ingredients'>
 
           </app-meal-tab>
         </mat-tab>
-        <mat-tab label="INSTRUCTIONS">
+        <mat-tab i18n-label label="INSTRUCTIONS">
           <app-meal-tab [isMobile]='isMobile' [data]='meal.instructions'>
 
           </app-meal-tab>
         </mat-tab>
-        <mat-tab label="NUTRITION">
+        <mat-tab i18n-label label="NUTRITION">
           <app-nutrition-table [nutritionFacts]='meal.nutrition'></app-nutrition-table>
         </mat-tab>
       </mat-tab-group>

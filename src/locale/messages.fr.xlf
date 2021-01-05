@@ -340,6 +340,61 @@
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
+         <trans-unit id="be99b6259a10cb08728a70f793658bf048f9632f" datatype="html">
+        <source> WOULD YOU LIKE TO HEAR FROM US?
+            </source>
+            <target>AIMERIEZ-VOUS ENTENDRE PARLER DE NOUS</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3d592bfe7a73f6433f6c73d60a153382f4012596" datatype="html">
+        <source>
+                YES! I want to be among the first to learn about the exciting offers, product offers and more
+                from
+                Meals That Matter and other
+                <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>Unilever brands <x id="START_SUPERSCRIPT" ctype="x-sup" equiv-text="&lt;sup&gt;"/>*<x id="CLOSE_SUPERSCRIPT" ctype="x-sup" equiv-text="&lt;/sup&gt;"/><x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> by electronic messages and postal mail.
+
+                Occasionally, this may
+                include
+                co-promotions with carefully selected partners. For further information, please refer to our <x id="START_LINK_1" ctype="x-a" equiv-text="&lt;a&gt;"/>Privacy
+                    Notice<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. You
+                can unsubscribe at any time or update your email preferences <x id="START_LINK_2" ctype="x-a" equiv-text="&lt;a&gt;"/>here.<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+            </source>
+            <target>
+            OUI! Je veux être parmi les premiers à recevoir par courrier électronique et par la poste des offres emballantes, des offres de produits et d’autres nouvelles de Chaque repas compte et des autres 
+                <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>marques Unilever <x id="START_SUPERSCRIPT" ctype="x-sup" equiv-text="&lt;sup&gt;"/>*<x id="CLOSE_SUPERSCRIPT" ctype="x-sup" equiv-text="&lt;/sup&gt;"/><x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.
+De temps à autre, cela peut comprendre des promotions croisées avec des partenaires sélectionnés avec soin. Pour en savoir plus, consultez notre 
+ <x id="START_LINK_1" ctype="x-a" equiv-text="&lt;a&gt;"/>Politique de confidentialité<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. Vous pouvez vous désabonner en tout temps ou mettre à jour vos préférences de courriel  <x id="START_LINK_2" ctype="x-a" equiv-text="&lt;a&gt;"/>ici.<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+            </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0a8a37b7531943a6301f9fa0bb8db52defadf478" datatype="html">
+        <source>
+                    SUBMIT
+                </source>
+                <target>SOUMETTRE</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="66ea2fe42eb24cc42d351f8907355c57d5dee30f" datatype="html">
+        <source>
+                Your consent is sought by Unilever Canada Inc., privacy.canada@unilever.com | 1-888-568-7644 |
+                Unilever
+                Consumer Services Contact Centre, P.O. Box 38, Saint John, New Brunswick, E2L 3X1, CANADA
+            </source>
+            <target>Votre consentement est requis par Unilever Canada Inc., privacy.canada@unilever.com | 1-888-568-7644 | Centre de services aux consommateurs Unilever, P.O. Box 38, Saint John, Nouveau-Brunswick, E2L 3X1, CANADA</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/auth/register/register.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
 
       <trans-unit id="3088d6e5a1198041af5fbde637c75b929fd72d18" datatype="html">
         <source>
@@ -661,7 +716,7 @@
       </trans-unit>
       <trans-unit id="41462791cb4d5b05e9b57b8e04673c4663735c44" datatype="html">
         <source>other recommended recipes</source>
-        <target>other recommended recipes</target>
+        <target>Autres recettes recommandées</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
           <context context-type="linenumber">116</context>
@@ -687,7 +742,7 @@
       </trans-unit>
       <trans-unit id="3b4260c25a6ee8efeb691d8c2881eb3c5b90bea1" datatype="html">
         <source>select more meals</source>
-        <target>select more meals</target>
+        <target>Sélectionner d’autres repas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
           <context context-type="linenumber">141</context>
@@ -1080,8 +1135,7 @@
                     delivery times may be impacted through Metro &amp; Save on Foods.
                 </source>
         <target>
-                  *Due to COVID-19 there is higher than normal volume on grocery delivery right now, therefore
-                  delivery times may be impacted through Metro &amp; Save on Foods.
+                  *En raison de la COVID-19, le volume de livraison est plus élevé qu’à la normale; ainsi, les délais de livraison peuvent être retardés chez Metro.
               </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/faq/faq.component.html</context>
@@ -2299,6 +2353,68 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/meal-item/meal-item.component.html</context>
           <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="94ebf558ecffc2e60896cd0e91e6c5b724cd102e" datatype="html">
+        <source>
+              Main Ingredient
+            </source>
+            <target>Ingrédient principal</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7a8117c7a17f9a3dfc4b91c8ab2c57d11b778499" datatype="html">
+        <source>cook time</source>
+            <target>Temps de cuisson</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a5d55cbf69bc1510672353986e3179979947de3e" datatype="html">
+        <source>prep time</source>
+            <target>Temps de préparation</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dd8311ab9599b14468ae7b13467bb9ad39b7f77f" datatype="html">
+        <source>
+              EMAIL
+            </source>
+            <target>Courriel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5059b80b59716ed4f89e11396b92c1453c8b515d" datatype="html">
+        <source>INGREDIENTS</source>
+        <target>INGRÉDIENTS</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6abb7daf3d81b94ddfb245b1cdc5b8cf3ddb4a62" datatype="html">
+        <source>INSTRUCTIONS</source>
+        <target>INSTRUCTIONS</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ceb0de9c30334f874891ecfd8203ef17caaf3472" datatype="html">
+        <source>NUTRITION</source>
+        <target>NUTRITION</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/meal-detail/meal-detail.component.html</context>
+          <context context-type="linenumber">109</context>
         </context-group>
       </trans-unit>
       <trans-unit id="994d1be80049f0e4bc89ca3ed9e6db049e93e7ad" datatype="html">
