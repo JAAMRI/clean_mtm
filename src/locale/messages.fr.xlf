@@ -826,6 +826,15 @@ De temps à autre, cela peut comprendre des promotions croisées avec des parten
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="3da969d60ecabfd30506c233505ef1fa22e8cc04" datatype="html">
+        <source>It looks like you haven’t added
+        any recipes to your meal plan yet</source>
+        <target>Il semble que nous n’ayez pas encore ajouté de recettes à votre plan de repas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/my-meals/my-meals.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="1519933022c7248ffa973ee9fa7b08d44bfa7421" datatype="html">
         <source>It looks like you haven’t added
       any recipes to your favourites yet</source>
