@@ -9,7 +9,7 @@ export const environment = {
   englishBaseUrl: 'https://www.mealsthatmatter.com',
   frenchBaseUrl: 'https://www.chaquerepascompte.com',
   devUrlKey: '',
-  frenchImage: '/assets/static_images/mtm_french_logo.png',
-  englishImage: '/assets/static_images/mtm_english_logo.svg',
-  dropSecret: '2557749db3be79907ec7ec7a139f8b288eb948628955ae0942a59b61dfd8a97f'
+  frenchImage: '/assets/static_images/MTM_FINAL_LOGO_FR.png',
+  englishImage: '/assets/static_images/MTM_Final_LOGO.png',
+  dropSecret: '2557749db3be79907ec7ec7a139f8b288eb948628955ae0942a59b61dfd8a97f'  
 };
