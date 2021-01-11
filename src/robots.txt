@@ -2,6 +2,7 @@ User-agent: *
 
 # Sitemap files
 Sitemap: https://www.mealsthatmatter.com/sitemap.xml
+Sitemap: https://www.chaquerepascompte.com/sitemap.xml
 
 
 

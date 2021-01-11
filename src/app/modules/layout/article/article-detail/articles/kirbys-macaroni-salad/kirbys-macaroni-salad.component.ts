@@ -13,7 +13,7 @@ export class KirbysMacaroniSaladComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.generateTags({
-      title: 'Kimias Middle Eastern Meatball Wrap | Meals That Matter',
+      title: 'Kirbys Macaroni Salad | Meals That Matter',
       description: 'This Middle Eastern Meatball recipe is inspired by my childhood weeknight meals. It is wholesome, aromatic and a crowd pleaser!',
       slug: this.router.url
     })
