@@ -62,7 +62,7 @@ export class FavouritesComponent implements OnInit {
     }
     this.title.setTitle('Favourite Recipes & Dishes | Meals That Matter'); //updating page title
     this.seo.generateTags({
-      title: 'Favourite Recipes & Dishes | Meals That Matter',
+      title: $localize`Favourite Recipes & Dishes | Meals That Matter`,
       description: 'View your favourite recipes and dishes as selected by yourself here.',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/recipes/favourites'

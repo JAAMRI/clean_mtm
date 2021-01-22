@@ -53,7 +53,7 @@ export class GroceryListComponent implements OnInit {
     })
     this.title.setTitle('Grocery List – Your Ingredients | Meals That Matter'); //updating page title
     this.seo.generateTags({
-      title: 'Grocery List – Your Ingredients | Meals That Matter',
+      title: $localize`Grocery List – Your Ingredients | Meals That Matter`,
       description: 'View your weekly grocery list, tailored to you and based off your chosen meals.  Shop direct or SMS, email or print your groceries for added convenience!',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/recipes/grocery-list'

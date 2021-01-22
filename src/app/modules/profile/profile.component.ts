@@ -33,7 +33,7 @@ export class ProfileComponent {
     });
     this.title.setTitle('MealsThatMatter – Profile'); //updating page title
     this.seo.generateTags({
-      title: 'My Account | Meals That Matter',
+      title: $localize`My Account | Meals That Matter`,
       description: 'View your profile.',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '//profile'

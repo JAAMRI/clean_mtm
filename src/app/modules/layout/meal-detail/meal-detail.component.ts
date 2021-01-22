@@ -190,7 +190,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     const host = this.locale === 'fr' ? environment.frenchBaseUrl : environment.englishBaseUrl;
     const mealTitle = this.meal.title.split(',').join('').split('(').join('').split(')').join('').split(' ').join('-').split('&').join('and');
     const location = `${host}/recipes/${mealTitle}-${this.mealId}`;
-    const body = "Hi, Thought you would love this recipe from Meals That Matter. " + encodeURIComponent(location);
+    const body = $localize`Hi, Thought you would love this recipe from Meals That Matter. ` + encodeURIComponent(location);
     this.emailContent = `mailto:?body=${body}&subject=${this.meal.title}`;
   }
 

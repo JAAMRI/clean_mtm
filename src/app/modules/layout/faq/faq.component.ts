@@ -22,7 +22,7 @@ export class FaqComponent implements OnInit {
       5000);
     this.title.setTitle('FAQs - Meals That Matter'); //updating page title
     this.seo.generateTags({
-      title: 'FAQs - Meals That Matter',
+      title: $localize`FAQs - Meals That Matter`,
       description: 'Frequently Asked Questions MTM',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/faqs'

@@ -556,6 +556,15 @@
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="c881d95811fc7a5e214e175f424d1c9573cc6b56" datatype="html">
+        <source>
+      <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>info<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/> Sorry, we couldn&apos;t find any results matching &quot;<x id="INTERPOLATION" equiv-text="{{searchQuery}}"/>&quot;
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/discover-meals/discover-meals.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="8704879e76649f75451089c06361fbf9cadfd922" datatype="html">
         <source>Click <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/> to add a recipe to your &apos;Meal Plan&apos;. Click <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>
     favorite_border<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/> to save it to your favourites for later.</source>
@@ -1485,6 +1494,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
           <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="26ab99634ac779d8cb67c5386672588cb04275ef" datatype="html">
+        <source>mailto:Canada.english.meals.that.matter@unilever.com?subject=General Inquiry</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/contact-us/contact-us.component.html</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
     </body>

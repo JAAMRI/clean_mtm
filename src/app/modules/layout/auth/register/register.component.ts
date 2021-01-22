@@ -99,8 +99,9 @@ export class RegisterComponent implements OnInit {
     let family_name = this.registerForm.controls.family_name.value;
     let opt_in = this.registerForm.controls.opt_in.value;
     let locale = this.getLocale(); // get proper locale
-    let website = "mealsthatmatter.com";
     let updated_at = new Date().getTime().toString();
+    let language =  this.locale === 'fr' ? "FR" : "EN";
+    let website =  this.locale === 'fr' ? "chaquerepascompte.com" : "mealsthatmatter.com";
 
 
     Auth.signUp({
@@ -113,7 +114,8 @@ export class RegisterComponent implements OnInit {
         'custom:opt_in': opt_in ? opt_in.toString() : 'false',
         'website': website,
         'updated_at': updated_at,
-        'custom:postal_code': postal_code.toString()
+        'custom:postal_code': postal_code.toString(),
+        'custom:meal_plan_started': 'false'
       }
     })
       .then((data) => {
@@ -127,7 +129,7 @@ export class RegisterComponent implements OnInit {
       })
       .catch(err => {
         console.log(err)
-        this.snackBar.open(err.message, null, { duration: 2500 });
+        this.snackBar.open($localize`An account with the given email already exists.`, null, { duration: 2500 });
       });
   }//End signUp function
 
