@@ -54,7 +54,7 @@
 </trans-unit>
  <trans-unit id="26ab99634ac779d8cb67c5386672588cb04275ef" datatype="html">
         <source>mailto:Canada.english.meals.that.matter@unilever.com?subject=General Inquiry</source>
-        <target>mailto:canada.french.Meals.That.Matter@unilever.com</target>
+        <target>mailto:canada.french.Meals.That.Matter@unilever.com?subject=Demande de renseignements généraux</target>
 </trans-unit>
 <trans-unit id="c881d95811fc7a5e214e175f424d1c9573cc6b56" datatype="html">
     <source>
