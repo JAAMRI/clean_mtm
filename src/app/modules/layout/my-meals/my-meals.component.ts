@@ -54,7 +54,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     }
     this.title.setTitle('MealsThatMatter – My Meal Plan'); //updating page title
     this.seo.generateTags({
-      title: 'My Meal Plan | Meals That Matter',
+      title: $localize`My Meal Plan | Meals That Matter`,
       description: 'View my meal plan',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/recipes/my-meals'

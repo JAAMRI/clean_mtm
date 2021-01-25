@@ -37,7 +37,7 @@ export class ArticleComponent {
 
   setTags() {
     this.seoService.generateTags({
-      title: 'Articles | Meals That Matter',
+      title: $localize`Articles | Meals That Matter`,
       description: 'Welcome to the all-in-one meal preparation tool, where you can choose from a wide range of seasonal and flavorful recipes to take your meal prep for the week to a whole new level!',
       slug: this.router.url
     })

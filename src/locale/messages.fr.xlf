@@ -2,6 +2,76 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-CA" datatype="plaintext" original="ng2.template">
     <body>
+<trans-unit id="2286873420631619969" datatype="html">
+        <source>Meals That Matter | Plan. Prep. Plate.</source>
+        <target>Chaque repas compte | Planifier. Préparer. Mettre en assiette.</target>
+</trans-unit>
+<trans-unit id="4638255057404445504" datatype="html">
+        <source>Select Recipes | Meals That Matter</source>
+        <target>Sélectionnez les recettes | Chaque repas compte chaquerepascompte.com</target>
+</trans-unit>
+<trans-unit id="5364955532756964608" datatype="html">
+        <source>My Meal Plan | Meals That Matter</source>
+        <target>Mon plan de repas | Chaque repas compte chaquerepascompte.com
+</target>
+</trans-unit>
+<trans-unit id="2508416759824265151" datatype="html">
+        <source>Grocery List – Your Ingredients | Meals That Matter</source>
+        <target>Liste d’épicerie | Chaque repas compte chaquerepascompte.com
+</target>
+</trans-unit>
+<trans-unit id="3275429869972819011" datatype="html">
+        <source>Favourite Recipes & Dishes | Meals That Matter</source>
+        <target>Recettes et plats préférés | Chaque repas compte chaquerepascompte.com
+</target>
+</trans-unit>
+<trans-unit id="8686333871524230732" datatype="html">
+        <source>Articles | Meals That Matter</source>
+        <target>Articles | Chaque repas compte chaquerepascompte.com
+</target>
+</trans-unit>
+<trans-unit id="1316578365173664949" datatype="html">
+        <source>My Account | Meals That Matter</source>
+        <target>Mon compte | Chaque repas compte chaquerepascompte.com
+</target>
+</trans-unit>
+<trans-unit id="6178339621695105449" datatype="html">
+        <source>Contact Us | Meals That Matter</source>
+        <target>Contactez-nous | Chaque repas compte chaquerepascompte.com
+</target>
+</trans-unit>
+<trans-unit id="6009294179852091322" datatype="html">
+        <source>FAQs - Meals That Matter</source>
+        <target>FAQ | Chaque repas compte chaquerepascompte.com</target>
+</trans-unit>
+<trans-unit id="2599853012922890508" datatype="html">
+        <source>Password must be at least 8 characters</source>
+        <target>Le mot de passe doit avoir au moins 8 caractères.</target>
+</trans-unit>
+<trans-unit id="5661293115742432861" datatype="html">
+        <source>Password successfully changed!</source>
+        <target>Mot de passe modifié avec succès!</target>
+</trans-unit>
+ <trans-unit id="26ab99634ac779d8cb67c5386672588cb04275ef" datatype="html">
+        <source>mailto:Canada.english.meals.that.matter@unilever.com?subject=General Inquiry</source>
+        <target>mailto:canada.french.Meals.That.Matter@unilever.com?subject=Demande de renseignements généraux</target>
+</trans-unit>
+<trans-unit id="c881d95811fc7a5e214e175f424d1c9573cc6b56" datatype="html">
+    <source>
+      <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>info<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/> Sorry, we couldn&apos;t find any results matching &quot;<x id="INTERPOLATION" equiv-text="{{searchQuery}}"/>&quot;
+    </source>
+  <target>      
+    <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>info<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/> Désolé, aucun résultat ne correspond &quot;<x id="INTERPOLATION" equiv-text="{{searchQuery}}"/>&quot;
+  </target>
+</trans-unit>
+<trans-unit id="5675231905985920208" datatype="html">
+        <source>Hi, Thought you would love this recipe from Meals That Matter. </source>
+        <target>Bonjour, nous avons pensé que vous aimeriez cette recette de Chaque repas compte. </target>
+</trans-unit>
+<trans-unit id="6565101178994023751" datatype="html">
+        <source>An account with the given email already exists.</source>
+        <target>Un compte associé à l’adresse courriel fournie existe déjà.</target>
+</trans-unit>
       <trans-unit id="7398838431782174793" datatype="html">
         <source>
          select recipes

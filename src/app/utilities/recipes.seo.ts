@@ -16,7 +16,8 @@ export const RecipeSeo = {
         "totalTime": "PT30M",
         "keywords": "Fall, Spring, Winter,High in Vitamin C, Plant-Based, Better for You, Sensible Sodium, 1+ vegetable serving, 30 Minutes or Less",
         "recipeYield": 8,
-        "recipeCategory": "Side",
+        "recipeCategory": "Easy dishes",
+        "recipeCuisine": "French",
         "nutrition": {
             "@type": "NutritionInformation",
             "calories": 90,
@@ -70,6 +71,8 @@ export const RecipeSeo = {
         "totalTime": "PT8M",
         "keywords": "Favorites, Kid-friendly, The Big Game, Better for You, Sensible Sodium, 30 Minutes or Less",
         "recipeYield": 4,
+        "recipeCategory": "Appetizer",
+        "recipeCuisine": "Dips",
         "nutrition": {
             "@type": "NutritionInformation",
             "calories": 80,
@@ -120,7 +123,8 @@ export const RecipeSeo = {
         "totalTime": "PT30M",
         "keywords": "Fall, Winter,High in Vitamin A, High in Vitamin C, Favorites, Kid-friendly, Leftover, One dish meals, 1+ vegetable serving",
         "recipeYield": 6,
-        "recipeCategory": "EntrÈe",
+        "recipeCategory": "Entree",
+        "recipeCuisine": "English",
         "nutrition": {
             "@type": "NutritionInformation",
             "calories": 260,
@@ -177,7 +181,7 @@ export const RecipeSeo = {
         "totalTime": "PT395M",
         "keywords": "Fall, Spring, Winter,Favorites, Kid-friendly, 1+ vegetable serving",
         "recipeYield": 8,
-        "recipeCategory": "EntrÈe",
+        "recipeCategory": "Entree",
         "recipeCuisine": "French",
         "nutrition": {
             "@type": "NutritionInformation",
@@ -240,7 +244,8 @@ export const RecipeSeo = {
         "totalTime": "PT35M",
         "keywords": "Winter, Fall, Spring, Summer,",
         "recipeYield": 4,
-        "recipeCategory": "EntrÈe",
+        "recipeCategory": "Entree",
+        "recipeCuisine": "English",
         "nutrition": {
             "@type": "NutritionInformation",
             "calories": 360,
