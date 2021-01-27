@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -10,7 +9,7 @@ export class AccountService {
   public loggedIn = false;
   public authStateChanged = new Subject()
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   setLoggedIn(loggedIn: boolean){
     this.loggedIn = loggedIn;

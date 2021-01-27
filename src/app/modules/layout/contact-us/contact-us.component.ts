@@ -33,7 +33,7 @@ export class ContactUsComponent implements OnInit {
     }
     this.title.setTitle('Contact Us | Meals That Matter'); //updating page title
     this.seo.generateTags({
-      title: 'Contact Us | Meals That Matter',
+      title: $localize`Contact Us | Meals That Matter`,
       description: 'Get in touch with us, we’d love to hear from you!',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/contact-us'

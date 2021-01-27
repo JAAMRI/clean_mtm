@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, LOCALE_ID, OnInit, Output } from '@angular/core';
 import { CarouselData } from '../../../utilities/carousel-data';
 
 @Component({
@@ -13,7 +13,7 @@ export class YouWillLoveThisComponent implements OnInit {
   @Output() onGetStarted = new EventEmitter();
 
 
-  constructor(
+  constructor(@Inject(LOCALE_ID) public locale: string
   ) { }
 
   ngOnInit(): void {

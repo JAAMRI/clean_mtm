@@ -1,18 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { MatIconRegistry } from '@angular/material/icon';
+import { Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { AccountService } from '../../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
-import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
 import { environment } from '../../../../../environments/environment';
 import { ICredentials } from '../../../../interfaces/auth/credentials';
 import { PinterestTrackingService } from '../../../../services/pinterest-tracking.service';
-import { PasswordErrorMatcher } from '../auth.forms';
+import { ThirdPartyService } from '../../../../services/third-party.service';
+import { PasswordErrorMatcher, RegisterForm } from '../auth.forms';
 
 
 
@@ -26,32 +23,31 @@ export class RegisterComponent implements OnInit {
 
   passwordMatcher = new PasswordErrorMatcher();
 
-  @Output() signIn = new EventEmitter<ICredentials>();
   loadPinterestNoScript: boolean;
   unsubscribeAll = new Subject();
   loading = false;
-  viewMore = false;
-  // @Input() email: string;
-  @Input() onProfilePage: boolean;
-  @Input() isMobile: boolean;
-  @Input() registerForm: FormGroup;
-  @Output() back = new EventEmitter();
+  registerForm = RegisterForm;
+
   constructor(
-    private matIconRegistry: MatIconRegistry,
     private accountService: AccountService,
-    private sanitizer: DomSanitizer,
     private snackBar: MatSnackBar,
     private router: Router,
-    private mealPlanService: MealPlanService,
+    private thirdPartyService: ThirdPartyService,
+    private route: ActivatedRoute,
     public adobeDtbTracking: AdobeDtbTracking,
-    public pinterestService: PinterestTrackingService
+    public pinterestService: PinterestTrackingService,
+    @Inject(LOCALE_ID) private locale: string
   ) {
-    this.matIconRegistry.addSvgIcon('gender', this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/profile-icons/gender.svg'));
   }
 
   ngOnInit() {
-    if (this.onProfilePage) {
-      this.getUserAttributes();
+    this.patchRegisterFormWithEmail()
+  }
+
+  patchRegisterFormWithEmail() {
+    if (this.route.snapshot.queryParams['email']) {
+      const email = this.route.snapshot.queryParams['email'];
+      this.registerForm.patchValue({ email });
     }
   }
 
@@ -81,31 +77,32 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  setEmailFromStep1(emailFromLastStep: string) {
-    this.registerForm.controls.email.setValue(emailFromLastStep);
+
+  getLocale() {
+    // return a mapped locale on how MTM wants it
+    if (this.locale === 'fr') {
+      return 'fr-CA'
+    } else {
+      return 'en-CA'
+    }
   }
 
-  submitForm() {
-    (this.onProfilePage) ? this.update() : this.signUp();
-  }
-
-  async signUp() {
+  async signup() {
     if (environment.production) {
       this.loadPinterestNoScript = true;
       this.pinterestService.trackSignup();
     }
-    let currentMealPlan = await this.mealPlanService.getMealPlan();
-    let meal_plan_started = currentMealPlan && currentMealPlan.length ? 1 : 0; //Check wether the user signed up after having created a mealplan or before
     let username = this.registerForm.controls.email.value.toLowerCase();
     let password = this.registerForm.controls.password.value;
     let postal_code = this.registerForm.controls.postal_code.value;
     let given_name = this.registerForm.controls.given_name.value;
     let family_name = this.registerForm.controls.family_name.value;
     let opt_in = this.registerForm.controls.opt_in.value;
-    let locale = "CA-en"
-    let website = "mealsthatmatter.com";
+    let locale = this.getLocale(); // get proper locale
     let updated_at = new Date().getTime().toString();
-    
+    let language =  this.locale === 'fr' ? "FR" : "EN";
+    let website =  this.locale === 'fr' ? "chaquerepascompte.com" : "mealsthatmatter.com";
+
 
     Auth.signUp({
       username,
@@ -117,22 +114,65 @@ export class RegisterComponent implements OnInit {
         'custom:opt_in': opt_in ? opt_in.toString() : 'false',
         'website': website,
         'updated_at': updated_at,
-        'custom:meal_plan_started': meal_plan_started.toString(),
-        'custom:postal_code': postal_code.toString()
+        'custom:postal_code': postal_code.toString(),
+        'custom:meal_plan_started': 'false'
       }
     })
-      .then(data => {
+      .then((data) => {
         //Sign User Automatically
         const credentials: ICredentials = { username: username, password: password, firstTime: true };
-        this.signIn.emit(credentials);
+        this.signIn(credentials);
 
         this.snackBar.open($localize`Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!`, null, { duration: 4500 });
+        this.checkDrop();
         //End Sign user In automatically
       })
       .catch(err => {
-        this.snackBar.open($localize`Oops! An error has occured`, null, { duration: 2500 });
+        console.log(err)
+        this.snackBar.open($localize`An account with the given email already exists.`, null, { duration: 2500 });
       });
   }//End signUp function
+
+  async checkDrop() {
+    if (this.route.snapshot.queryParams['drop']) {
+      const dropSharedId = this.route.snapshot.queryParams['drop'];
+      this.thirdPartyService.handleDropAction(dropSharedId);
+    }
+
+  }
+
+  async signIn(credentials: ICredentials) {
+
+    try {
+      const { username, password, firstTime } = credentials;
+      this.loading = true;
+
+      await Auth.signIn(username.toLowerCase(), password);
+      if (this.route.snapshot.queryParams && this.route.snapshot.queryParams['returnUrl']) {
+        // check if there is a redirectTo in the query params and redirect to this instead
+        const redirectRoute = this.route.snapshot.queryParams['returnUrl'];
+
+        this.router.navigateByUrl(redirectRoute, { queryParamsHandling: "preserve" });
+      } else {
+
+        this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });
+      }
+      this.loading = false;
+
+      // Update only if user is signing in for the first time right after signing up
+      if (firstTime) {
+        this.adobeDtbTracking.firstTimeUser('New Registration');
+      } else {
+        this.adobeDtbTracking.returningUser();
+      }
+      this.accountService.emitAuthStateChanged();
+      this.accountService.setLoggedIn(true);
+    } catch (err) {
+      console.log(err);
+      this.snackBar.open($localize`Sorry! We could not sign you in at this time. PLease try again later.`, null, { duration: 2500 });
+      this.loading = false;
+    }
+  }
 
   async update() {
     let user = await Auth.currentAuthenticatedUser();
@@ -147,7 +187,7 @@ export class RegisterComponent implements OnInit {
     }
     if (this.registerForm.controls.birthdate.value) {
       const birthdate = new Date(this.registerForm.controls.birthdate.value)
-      attributes['birthdate'] = birthdate.toJSON().slice(0,10);;
+      attributes['birthdate'] = birthdate.toJSON().slice(0, 10);;
     }
     let result = await Auth.updateUserAttributes(user, attributes)
       .then(res => {
@@ -173,6 +213,6 @@ export class RegisterComponent implements OnInit {
   }
 
   goBack() {
-    this.back.emit();
+    this.router.navigate(['/auth/login'], { queryParamsHandling: 'preserve' });
   }
 }

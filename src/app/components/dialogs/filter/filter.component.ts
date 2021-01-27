@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild, ViewEncapsulation, Inject } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild, ViewEncapsulation, Inject, LOCALE_ID } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Disclaimers, Filters, IFilter } from './filter.data';
 import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
@@ -16,7 +16,9 @@ export class FilterComponent {
   hideScroll = false;
   @ViewChild('disclaimerWrapper') disclaimersRef: ElementRef;
 
-  constructor(public dialogRef: MatDialogRef<FilterComponent>, public adobeDtbTracking: AdobeDtbTracking, @Inject(MAT_DIALOG_DATA) public data: any,) { }
+  constructor(
+    @Inject(LOCALE_ID) public locale: string,
+    public dialogRef: MatDialogRef<FilterComponent>, public adobeDtbTracking: AdobeDtbTracking, @Inject(MAT_DIALOG_DATA) public data: any,) { }
 
   @HostListener('scroll', ['$event'])
   onElementScroll(event: any) {

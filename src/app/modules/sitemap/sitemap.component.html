@@ -1,17 +1,22 @@
 <div class="sitemap">
-    <h1 class='titlecase'>meals that matter sitemap</h1>
+    <h1 class='titlecase'
+             i18n>
+            sitemap
+        </h1>
+
     <div class="sitemap-grid">
         <div class="item">
-            <h2>Meals</h2>
-            <a queryParamsHandling='preserve' routerLink='/recipes/discover'>Discover</a>
-            <a queryParamsHandling='preserve' routerLink='/recipes/my-meals'>Meal Plan</a>
-            <a queryParamsHandling='preserve' routerLink='/recipes/grocery-list'>Grocery List</a>
+            <a class='titlecase' queryParamsHandling='preserve' routerLink='/recipes/discover' i18n>Select
+        Recipes</a>
+            <!-- <a >Select
+                Recipes</a> -->
+            <a class='titlecase' queryParamsHandling='preserve' routerLink='/recipes/my-meals' i18n>meal plan</a>
+            <a class='titlecase' queryParamsHandling='preserve' routerLink='/recipes/grocery-list' i18n>grocery list</a>
         </div>
         <div class="item">
-            <h2>About</h2>
-            <a queryParamsHandling='preserve' routerLink='/articles'>Articles</a>
-            <a queryParamsHandling='preserve' routerLink='/contact-us'>Contact Us</a>
-            <a queryParamsHandling='preserve' routerLink='/faqs'>FAQs</a>
+            <a class='titlecase' queryParamsHandling='preserve' routerLink='/articles' i18n>articles</a>
+            <a class='titlecase' queryParamsHandling='preserve' routerLink='/contact-us' i18n>contact us</a>
+            <a class='uppercase' queryParamsHandling='preserve' routerLink='/faqs' i18n>faq</a>
         </div>
     </div>
 </div>

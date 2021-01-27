@@ -11,7 +11,8 @@ export const CarouselData = [{
 {
     header: 'shopping made easy',
     body: $localize`Find products easily online and avoid lines by getting groceries delivered or ready for pick up.`,
-    img: `/assets/static_images/Product_Benefits/Shopping-made-easy.jpg`
+    img: `/assets/static_images/Product_Benefits/Shopping-made-easy.jpg`,
+    hidden: 'fr'
 },
 {
     header: 'less time prepping',

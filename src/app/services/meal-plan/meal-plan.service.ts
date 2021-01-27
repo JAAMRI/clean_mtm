@@ -1,12 +1,11 @@
-import { Inject, Injectable, LOCALE_ID } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Inject, Injectable, LOCALE_ID } from '@angular/core';
+import { Router } from '@angular/router';
+import Auth from '@aws-amplify/auth';
 import { catchError, map } from 'rxjs/operators';
 import { handleError } from '../../../app/utilities/helper-functions';
+import { environment } from '../../../environments/environment';
 import { AccountService } from '../account/account.service';
-import Auth from '@aws-amplify/auth';
-import { Router } from '@angular/router';
-import { of } from 'rxjs';
 
 
 @Injectable({
@@ -44,7 +43,6 @@ export class MealPlanService {
       "recipe_title": recipe.title,
       "recipe_image_path": recipe.image
     }
-    console.log(recipe.cookTime);
     //These values could be null
     payload['recipe_nutrition'] = (recipe.hasOwnProperty('nutrition')) ? recipe.nutrition : null;
     payload['recipe_main_ingredient'] = (recipe.hasOwnProperty('mainIngredient')) ? recipe.mainIngredient : null;
@@ -73,44 +71,6 @@ export class MealPlanService {
       alert('We could not save your meal plan, please try again later');
       console.log(err)
     })
-
-    //Save to server based on action (add | remove)
-    // async saveMealPlanToServer_BACKUP(mealPlan: any[], recipeId: string, action: string): Promise<any> {
-    //   const recipe = mealPlan.find(recipe => recipe.id == recipeId);
-    //   const payload = {
-    //     "recipe_id": recipe.id,
-    //     "recipe_title": recipe.title,
-    //     "recipe_image_path": recipe.image
-    //   }
-    //   //These values could be null
-    //   payload['recipe_nutrition'] = (recipe.hasOwnProperty('nutrition')) ? recipe.nutrition : null;
-    //   payload['recipe_main_ingredient'] = (recipe.hasOwnProperty('mainIngredient')) ? recipe.mainIngredient : null;
-    //   payload['recipe_cook_time'] = (recipe.hasOwnProperty('cookTime')) ? recipe.cookTime : null;
-    //   payload['recipe_prep_time'] = (recipe.hasOwnProperty('prepTime')) ? recipe.prepTime : null;
-    //   payload['recipe_servings'] = (recipe.hasOwnProperty('servings')) ? recipe.servings : null;
-
-    //   return await Auth.currentSession().then(res => {
-    //     let accessToken = res.getIdToken().getJwtToken()
-    //     const headers = {
-    //       headers: new HttpHeaders().set('Authorization', accessToken)
-    //         .set('Content-Type', 'application/json')
-    //     }
-    //     if (action === 'add') {
-    //       return this.http.post(this.apiHost + this.mealPlanUrl, payload, headers).pipe(catchError(handleError('saveMealPlan', []))).toPromise();
-    //     } 
-    //     if (action === 'remove') {
-    //       return this.http.delete(this.apiHost + this.mealPlanUrl + `/${recipeId}`, headers).pipe(catchError(handleError('saveMealPlan', []))).toPromise();
-    //     }
-    //   }).catch(err => {
-    //     alert('We could not save your meal plan, please try again later');
-    //     console.log(err)
-    //   })
-
-
-
-    // just send one meal with image, id, and title
-    // const meal = mealPlan.find((meal) => meal.id === mealId).map((meal) => ({id: meal.id, title: meal.title, image: meal.image}));
-    // return this.http.put(this.apiHost + this.mealPlanUrl, meal).pipe(catchError(handleError('saveMealPlan', []))).toPromise();
   }
 
   async saveMealPlanToLocalStorage(mealPlan: any[], mealId: string, action: string): Promise<any> {

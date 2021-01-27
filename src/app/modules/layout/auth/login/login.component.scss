@@ -1,5 +1,8 @@
 @import "../../../../../scss/variables.scss";
 
+.login-wrapper {
+  padding: 1em;
+}
 .header {
   width: 75%;
   margin: auto;
@@ -29,13 +32,9 @@
 }
 .register-container {
   margin: 2em 0 2em 0;
-  .register-form {
-    display: flex;
-    flex-direction: column;
-    mat-icon {
-      margin: 0 4px 4px 0;
-    }
-  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .gif-wrapper {
   display: flex;

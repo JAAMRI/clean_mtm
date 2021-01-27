@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MobileMenuComponent } from './mobile-menu.component';
+import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,7 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { UserFormModule } from '../dialogs/user-form/user-form.module';
+import { MobileMenuComponent } from './mobile-menu.component';
 
 @NgModule({
   declarations: [MobileMenuComponent],
@@ -21,7 +20,6 @@ import { UserFormModule } from '../dialogs/user-form/user-form.module';
     MatListModule,
     MatMenuModule,
     MatDialogModule, 
-    UserFormModule
   ],
   exports: [MobileMenuComponent]
 })

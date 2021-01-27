@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject, LOCALE_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { IArticle } from '../../../interfaces/article';
 import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 import { SeoService } from '../../../services/seo.service';
+import { EnglishArticles } from './english-articles';
+import { FrenchArticles } from './french-articles';
 
 @Component({
   selector: 'app-article',
@@ -11,20 +13,12 @@ import { SeoService } from '../../../services/seo.service';
 })
 export class ArticleComponent {
 
-  articles: IArticle[] = [
-    {
-      title: 'What and what not to freeze',
-      content: 'Freezing is a great way to retain the texture, flavour and colour of foods and can help you with your weekly menu planning so avoiding waste.',
-      readTime: '3min',
-      url: 'what-and-what-not-to-freeze',
-      image: '/assets/static_images/articles/what-and-what-not-to-freeze.jpg'
-    },
-
-  ]
+  articles: IArticle[] = []
 
   constructor(public adobeDtbTracking: AdobeDtbTracking,
     private seoService: SeoService,
-    private router: Router
+    private router: Router,
+    @Inject(LOCALE_ID) public locale: string
   ) {
 
   }
@@ -32,8 +26,18 @@ export class ArticleComponent {
   
 
   ngOnInit() {
+    this.setTags();
+    if (this.locale !== 'fr') {
+      this.articles = EnglishArticles;
+    } else {
+      this.articles = FrenchArticles;
+    }
+    
+  }
+
+  setTags() {
     this.seoService.generateTags({
-      title: 'Articles | Meals That Matter',
+      title: $localize`Articles | Meals That Matter`,
       description: 'Welcome to the all-in-one meal preparation tool, where you can choose from a wide range of seasonal and flavorful recipes to take your meal prep for the week to a whole new level!',
       slug: this.router.url
     })

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -63,7 +63,9 @@ export class PersonalInfoComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router,
     private mealPlanService: MealPlanService,
-    public adobeDtbTracking: AdobeDtbTracking
+    public adobeDtbTracking: AdobeDtbTracking,
+    @Inject(LOCALE_ID) private locale: string
+
   ) {
     this.matIconRegistry.addSvgIcon('gender', this.sanitizer.bypassSecurityTrustResourceUrl('assets/static_images/profile-icons/gender.svg'));
   }
@@ -109,18 +111,24 @@ export class PersonalInfoComponent implements OnInit {
     (this.onProfilePage) ? this.update() : this.signUp();
   }
 
+  getLocale() {
+    // return a mapped locale on how MTM wants it
+    if (this.locale === 'fr') {
+      return 'fr-CA'
+    } else {
+      return 'en-CA'
+    }
+  }
+
   async signUp() {
-    let currentMealPlan = await this.mealPlanService.getMealPlan();
-    let meal_plan_started = currentMealPlan && currentMealPlan.length ? 1 : 0; //Check wether the user signed up after having created a mealplan or before
     let username = this.userForm.controls.email.value.toLowerCase();
     let password = this.userForm.controls.password.value;
     let postal_code = this.userForm.controls.postal_code.value;
     let given_name = this.userForm.controls.given_name.value;
     let family_name = this.userForm.controls.family_name.value;
     let opt_in = this.userForm.controls.opt_in.value;
-    let locale = "CA-en"
-    let website = "mealsthatmatter.com";
-    let updated_at = new Date().getTime().toString();
+    let website =  this.locale === 'fr' ? "chaquerepascompte.com" : "mealsthatmatter.com";
+    let locale = this.getLocale(); // get proper locale
 
     Auth.signUp({
       username,
@@ -131,8 +139,7 @@ export class PersonalInfoComponent implements OnInit {
         'locale': locale,
         'custom:opt_in': opt_in ? opt_in.toString() : 'false',
         'website': website,
-        'updated_at': updated_at,
-        'custom:meal_plan_started': meal_plan_started.toString(),
+        'updated_at': new Date().getTime().toString(),
         'custom:postal_code': postal_code.toString()
       }
     })
@@ -144,7 +151,7 @@ export class PersonalInfoComponent implements OnInit {
         //End Sign user In automatically
       })
       .catch(err => {
-        this.snackBar.open($localize`Oops, an error has occured. Try again later`, null, { duration: 2500 });
+        this.snackBar.open($localize`Oops an error has occured`, null, { duration: 2500 });
       });
   }//End signUp function
 

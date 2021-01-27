@@ -54,7 +54,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     }
     this.title.setTitle('MealsThatMatter – My Meal Plan'); //updating page title
     this.seo.generateTags({
-      title: 'My Meal Plan | Meals That Matter',
+      title: $localize`My Meal Plan | Meals That Matter`,
       description: 'View my meal plan',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/recipes/my-meals'
@@ -96,7 +96,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   async removeFromMealPlan(mealId: any) {
     const status = await this.mealPlanService.saveMealPlan(this.mealPlan, mealId, 'remove');
     if (status !== 'Successfully deleted') {
-      this.snackbar.open($localize`Error removing from meal plan.`, null, { duration: 2000, verticalPosition: 'top' });
+      this.snackbar.open($localize`Error removing from meal plan`, null, { duration: 2000, verticalPosition: 'top' });
       return;
     }
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)

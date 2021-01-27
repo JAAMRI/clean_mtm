@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   updateSeoTags() {
     this.seoService.generateTags({
-      title: 'Meals That Matter | Plan. Prep. Plate.',
+      title: $localize`Meals That Matter | Plan. Prep. Plate.`,
       description: 'Welcome to the all-in-one meal preparation tool, where you can choose from a wide range of seasonal and flavorful recipes to take your meal prep for the week to a whole new level!',
       slug: this.router.url
     })
@@ -130,7 +130,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   scrollToHowItWorks() {
-   
     this.howItWorks.nativeElement.scrollIntoView({ behavior: 'smooth' });
     // scroll down to how it works when clicking on button
   }

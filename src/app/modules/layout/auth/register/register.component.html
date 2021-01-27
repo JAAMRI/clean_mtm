@@ -1,12 +1,10 @@
 <div class="register-page">
 
-    <button aria-label="Go back" *ngIf='!onProfilePage' class='register-back-button' mat-button (click)='goBack()'
-        type='button'>
+    <button aria-label="Go back" class='register-back-button' mat-button (click)='goBack()' type='button'>
         <mat-icon>chevron_left</mat-icon> Back
     </button>
-    <form [class]='onProfilePage ? "register-form" : "register-form account-dialog"' [formGroup]='registerForm'
-        (ngSubmit)='submitForm()'>
-    <h1 class='uppercase' i18n>register</h1>
+    <form class='register-form' [formGroup]='registerForm' (ngSubmit)='signup()'>
+        <h1 class='uppercase' i18n>register</h1>
 
         <div class="input-fields">
             <mat-form-field>
@@ -46,7 +44,7 @@
                 <mat-icon matSuffix matTooltip='This must be a valid canadian postal code - ex. H3N 3G6'>
                     info_outline</mat-icon>
             </mat-form-field>
-            <mat-form-field *ngIf='!onProfilePage'>
+            <mat-form-field>
                 <mat-icon matPrefix class='prefix-icon'>lock_open</mat-icon>
                 <input matInput type="password" i18n-placeholder placeholder='password' formControlName='password'
                     required>
@@ -55,7 +53,7 @@
                     info_outline</mat-icon>
 
             </mat-form-field>
-            <mat-form-field *ngIf='!onProfilePage'>
+            <mat-form-field>
                 <mat-icon matPrefix class='prefix-icon'>lock_open</mat-icon>
                 <input matInput type="password" i18n-placeholder placeholder='confirm password'
                     formControlName='confirm_password' [errorStateMatcher]="passwordMatcher" required>
@@ -66,24 +64,11 @@
                     <b class="passwordError">Passwords Do Not Match!</b>
                 </mat-error>
             </mat-form-field>
-            <mat-form-field *ngIf='onProfilePage'>
-                <input matInput (click)='picker.open()' [matDatepicker]="picker" i18n-placeholder placeholder="Date of birth"
-                    formControlName='birthdate'>
-                <mat-datepicker-toggle matPrefix [for]="picker">
-                    <mat-icon matDatepickerToggleIcon>cake</mat-icon>
-                </mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-            <!-- <mat-form-field *ngIf='onProfilePage'>
-          <mat-icon matPrefix svgIcon='gender'></mat-icon>
-          <input matInput type="text" placeholder='gender' formControlName='gender'>
-          <mat-error></mat-error>
-        </mat-form-field> -->
         </div>
-        <ng-container *ngIf='!onProfilePage'>
-            <p> WOULD YOU LIKE TO HEAR FROM US?
+        <ng-container>
+            <p i18n> WOULD YOU LIKE TO HEAR FROM US?
             </p>
-            <mat-checkbox color="primary" (change)="this.adobeDtbTracking.checkbox($event)" formControlName='opt_in'>
+            <mat-checkbox color="primary" (change)="this.adobeDtbTracking.checkbox($event)" formControlName='opt_in' i18n>
                 YES! I want to be among the first to learn about the exciting offers, product offers and more
                 from
                 Meals That Matter and other
@@ -100,39 +85,15 @@
                     target="_blank">here.</a>
             </mat-checkbox>
             <div class="action-buttons">
-                <button aria-label="Submit data" class='submit-button' matSuffix mat-flat-button>
-                    <div class="spinner-wrapper">
-                        <mat-spinner *ngIf='loading' class='spinner' diameter='20'></mat-spinner>
-                        SUBMIT
-                    </div>
+                <button aria-label="Submit data" class='submit-button' matSuffix mat-flat-button i18n>
+                    SUBMIT
                 </button>
             </div>
-            <small class='small-font'>
+            <small class='small-font' i18n>
                 Your consent is sought by Unilever Canada Inc., privacy.canada@unilever.com | 1-888-568-7644 |
                 Unilever
                 Consumer Services Contact Centre, P.O. Box 38, Saint John, New Brunswick, E2L 3X1, CANADA
             </small>
-        </ng-container>
-        <ng-container *ngIf='onProfilePage'>
-            <div class="action-buttons">
-                <button aria-label="Update information" class='save-button' matSuffix mat-flat-button>
-                    <div class="spinner-wrapper">
-                        <mat-spinner *ngIf='loading' class='spinner' diameter='20'></mat-spinner>
-                        <span i18n class='uppercase'>
-                            update information
-                        </span>
-
-                    </div>
-                </button>
-                <button aria-label="Sign out" class='signout-button' matSuffix mat-flat-button (click)="signOut()">
-                    <div class="spinner-wrapper">
-                        <mat-spinner *ngIf='loading' class='spinner' diameter='20'></mat-spinner>
-                        <span class='uppercase' i18n>
-                            sign out
-                        </span>
-                    </div>
-                </button>
-            </div>
         </ng-container>
     </form>
 </div>

@@ -12,7 +12,8 @@
       <h1 class='uppercase' i18n>browse our recipes</h1>
       <p i18n>Make every meal an adventure with 500+ chef curated dishes.</p>
     </div>
-    <app-mtm-slider [showArrows]='!isMobile' [scrollDistance]='291' [offset]='150' (onRightClicked)='pushEnd()' (onLeftClicked)='pushStart()'>
+    <app-mtm-slider [showArrows]='!isMobile' [scrollDistance]='291' [offset]='150' (onRightClicked)='pushEnd()'
+      (onLeftClicked)='pushStart()'>
       <div class='carousel-img-wrapper' *ngFor='let recipe of recipes; trackBy: trackByIndex; let i=index;'
         (click)='emitNavigation(recipe.link)'>
         <img class='carousel-image' [src]="recipe.image" [alt]="recipe + '_' + i">
@@ -23,12 +24,13 @@
     <div class="copy">
       <img class='number' src="/assets/static_images/home-page/two.png" alt="number two">
       <h1 i18n class='uppercase'>create your meal plan</h1>
-      <p i18n>Add recipes from around the world to your personalized 'Meal Plan'. Make cooking an adventure with deliciously
+      <p i18n>Add recipes from around the world to your personalized 'Meal Plan'. Make cooking an adventure with
+        deliciously
         diverse meals.
       </p>
     </div>
     <div class="img-wrapper">
-      <img src="/assets/static_images/home-page/Create_Meal_Image.jpg" alt="Create meal">
+      <img [src]="createMealImage" alt="Create meal">
     </div>
 
   </div>
@@ -39,18 +41,17 @@
 
       <h1 class='uppercase' i18n>shop your meal plan</h1>
       <p i18n>Your chosen ingredients,
-        delivered to your door,
-        from your go-to grocery store.
+        personalized into a shopping list, to take to your go-to grocery store.
       </p>
     </div>
     <div class="img-wrapper">
-      <img src="/assets/static_images/home-page/Shop_Meal_Image.jpg" alt="shop meals">
+      <img [src]="shopMealImage" alt="shop meals">
 
     </div>
   </div>
-  <div class="watch-how-to-video">
+  <div class="watch-how-to-video" *ngIf='!isFrench'>
     <h1 i18n class='uppercase'>watch how to video</h1>
-    <iframe width="420" title='how to video' height="315" src="https://www.youtube.com/embed/gVFtIzFRv00" frameborder="0" allowfullscreen></iframe>
+    <iframe width="420" title='how to video' height="315" preload src="https://www.youtube.com/embed/gVFtIzFRv00" frameborder="0" allowfullscreen></iframe>
 
   </div>
 

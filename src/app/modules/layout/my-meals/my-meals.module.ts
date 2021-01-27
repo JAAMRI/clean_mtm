@@ -6,7 +6,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SearchBarModule } from '../../../../app/components/search-bar/search-bar.module';
-import { UserFormModule } from '../../../components/dialogs/user-form/user-form.module';
 import { MealItemModule } from '../../../components/meal-item/meal-item.module';
 import { MyMealsComponent } from './my-meals.component';
 import { MyMealsRouting } from './my-meals.routing';
@@ -22,8 +21,7 @@ import { MyMealsRouting } from './my-meals.routing';
     SearchBarModule,
     MatDialogModule,
     MatSnackBarModule,
-    UserFormModule,
-    ScrollingModule,
+    ScrollingModule
   ],
 })
 export class MyMealsModule { }

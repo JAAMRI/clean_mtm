@@ -9,9 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
   declarations: [DesktopToolbarComponent],
   imports: [
     CommonModule,
-    MatToolbarModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
   ],
   exports: [DesktopToolbarComponent]
 })

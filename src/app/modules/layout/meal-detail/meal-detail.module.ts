@@ -6,15 +6,14 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
-import { UserFormModule } from '../../../../app/components/dialogs/user-form/user-form.module';
+import { RouterModule } from '@angular/router';
+import { MealTabModule } from '../../../../app/components/meal-tab/meal-tab.module';
 import { NutritionTableModule } from '../../../../app/components/nutrition-table/nutrition-table.module';
 import { SharedModule } from '../../../../app/shared/shared.module';
-import { MealTabModule } from '../../../../app/components/meal-tab/meal-tab.module';
+import { MealItemModule } from '../../../components/meal-item/meal-item.module';
+import { MtmSliderModule } from '../../../components/mtm-slider/mtm-slider.module';
 import { MealDetailComponent } from './meal-detail.component';
 import { MealDetailRouting } from './meal-detail.routing';
-import { MtmSliderModule } from '../../../components/mtm-slider/mtm-slider.module';
-import { MealItemModule } from '../../../components/meal-item/meal-item.module';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [MealDetailComponent],
@@ -29,14 +28,13 @@ import { RouterModule } from '@angular/router';
     MealTabModule,
     NutritionTableModule,
     MatProgressSpinnerModule,
-    UserFormModule,
     SharedModule,
     MtmSliderModule,
     MealItemModule,
-    RouterModule
+    RouterModule,
+    
   ],
   entryComponents: [MealDetailComponent],
-  exports: [MealDetailComponent],
   providers: [{ provide: MatDialogRef, useValue: {} },
     { provide: MAT_DIALOG_DATA, useValue: [] },]
 })

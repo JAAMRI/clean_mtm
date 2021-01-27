@@ -6,7 +6,6 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
 import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
-import { PreferencesService } from '../../services/preferences/preferences.service';
 import { SeoService } from '../../services/seo.service';
 import { ProfileIcons } from './profile-icons';
 
@@ -18,8 +17,6 @@ import { ProfileIcons } from './profile-icons';
 })
 export class ProfileComponent {
   profileIcons = ProfileIcons;
-  userPreferences: string;
-
   unsubscribeAll = new Subject();
   optInModify = false;
   isMobile = window.innerWidth < 768;
@@ -28,7 +25,6 @@ export class ProfileComponent {
   })
 
   constructor(private matIconRegistry: MatIconRegistry,
-    private preferencesService: PreferencesService,
     private snackBar: MatSnackBar,
     private sanitizer: DomSanitizer,
     private seo: SeoService, private title: Title, public adobeDtbTracking: AdobeDtbTracking) {
@@ -37,7 +33,7 @@ export class ProfileComponent {
     });
     this.title.setTitle('MealsThatMatter – Profile'); //updating page title
     this.seo.generateTags({
-      title: 'My Account | Meals That Matter',
+      title: $localize`My Account | Meals That Matter`,
       description: 'View your profile.',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '//profile'
@@ -73,12 +69,6 @@ export class ProfileComponent {
     })
       .catch(err => console.log(err.message));
   }
-
-  savePreferences(preferences: string) {
-    // save preferences in backend
-    this.preferencesService.savePreferences(preferences).then((_) => this.snackBar.open($localize`Preferences saved`, null, { duration: 3000 }))
-  }
-
 
   async optInUpdate() {
     let opt_in = this.notificationsForm.controls.opt_in.value;// the click happens before the value change, updated
