@@ -23,15 +23,6 @@ export class MealPlanService {
   ) { }
 
   saveMealPlan(mealPlan: any[], mealId?: string, action: string = 'add'): Promise<any> {
-    if (!this.accountService.loggedIn) {
-      const currentRoute = this.router.url;
-      this.router.navigate(['/auth/login'], {
-        queryParams: {
-          returnUrl: currentRoute
-        },
-        queryParamsHandling: "merge"
-      })
-    }
     return this.accountService.loggedIn ? this.saveMealPlanToServer(mealPlan, mealId, action) : this.saveMealPlanToLocalStorage(mealPlan, mealId, action);
 
   }
@@ -79,6 +70,7 @@ export class MealPlanService {
     const stringifiedMealPlan = action === 'remove' ? JSON.stringify(mealPlan.filter((meal) => meal.id !== mealId)) : JSON.stringify(mealPlan)
     return Promise.resolve().then(function () {
       localStorage.setItem('mealPlan', stringifiedMealPlan);
+      return action == "remove" ? "Successfully deleted" : "Successfully created";
     });
   }
 

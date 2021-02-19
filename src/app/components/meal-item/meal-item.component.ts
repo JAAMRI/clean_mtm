@@ -1,5 +1,7 @@
 import { Component, Input, EventEmitter, Output, OnInit, ViewEncapsulation } from '@angular/core';
+
 import { Meal } from '../../interfaces/meal/meal';
+import { AccountService } from '../../services/account/account.service';
 
 @Component({
   selector: 'app-meal-item',
@@ -19,7 +21,11 @@ export class MealItemComponent implements OnInit {
   @Input() parent: string;
   showDescription: boolean;
   mealMacros: any = {};
-  constructor() { }
+  constructor(private accountService: AccountService) { }
+  
+  get isLoggedIn(): boolean {
+      return this.accountService.loggedIn;
+  }
 
   ngOnInit() {
     this.updateMacros();
