@@ -59,6 +59,10 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     @Inject(LOCALE_ID) public locale: string
   ) {
   }
+  
+  get isLoggedIn(): boolean {
+      return this.accountService.loggedIn;
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
