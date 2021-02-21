@@ -22,10 +22,6 @@ export class MealItemComponent implements OnInit {
   showDescription: boolean;
   mealMacros: any = {};
   constructor(private accountService: AccountService) { }
-  
-  get isLoggedIn(): boolean {
-      return this.accountService.loggedIn;
-  }
 
   ngOnInit() {
     this.updateMacros();

@@ -7,8 +7,8 @@
       <mat-icon>remove</mat-icon>
     </button>
     <img [src]="mealItem.image" [alt]="mealItem.title">
-    <mat-icon class='favourite-button' *ngIf='isLoggedIn && favourited' (click)='toggleFavorite($event)'>favorite</mat-icon>
-    <button class='favourite-border-button' *ngIf="isLoggedIn" mat-mini-fab (click)='toggleFavorite($event)'>
+    <mat-icon class='favourite-button' *ngIf='favourited' (click)='toggleFavorite($event)'>favorite</mat-icon>
+    <button class='favourite-border-button' mat-mini-fab (click)='toggleFavorite($event)'>
       <mat-icon>favorite_border</mat-icon>
     </button>
 
