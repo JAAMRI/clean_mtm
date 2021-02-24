@@ -176,6 +176,10 @@ export class LayoutComponent {
 
   }
 
+  signIn() {
+    this.router.navigate(['/auth/login']);
+  }
+
   routeHome() {
     this.router.navigate(['/'], { queryParamsHandling: "preserve" });
   }

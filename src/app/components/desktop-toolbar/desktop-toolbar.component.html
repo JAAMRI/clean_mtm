@@ -14,10 +14,10 @@
         (click)="emitNavigation('GROCERY LIST')" i18n>Grocery List</a>
       <a class='titlecase' [class.active]='activePage === "/recipes/favourites"' mat-button
         (click)="emitNavigation('FAVOURITES')" i18n>Favourites</a>
-    </div>
-    <div class="actions">
       <a class='titlecase' [class.active]='activePage === "/articles"' mat-button (click)="emitNavigation('ARTICLES')"
         i18n>Articles</a>
+    </div>
+    <div class="actions">
       <a class='titlecase' [class.active]='activePage === "/profile"' *ngIf="loggedIn" mat-button
         (click)="emitNavigation('VIEW PROFILE')" i18n>My
         Account</a>
@@ -25,6 +25,7 @@
         (click)="emitNavigation('CONTACT US')" i18n>Contact Us</a>
       <a class='titlecase' [class.active]='activePage === "/faqs"' mat-button (click)="emitNavigation('FAQs')" i18n>FAQs
       </a>
+      <a mat-button *ngIf='!loggedIn' class='titlecase' (click)="signIn()" i18n>sign in</a>
       <a mat-button *ngIf='loggedIn' class='titlecase' (click)="signOut()" i18n>sign out</a>
     </div>
   </div>

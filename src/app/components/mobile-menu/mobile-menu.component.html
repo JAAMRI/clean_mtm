@@ -21,30 +21,13 @@
     <button mat-flat-button color='primary' routerLink='/profile' queryParamsHandling='preserve'
       (click)='closeMobileMenu("Profile", "/profile")' i18n class='uppercase'>my account
     </button>
-
   </div>
-  <mat-nav-list *ngIf='loggedIn' class='menu-list'>
-    <ng-container *ngFor="let page of authenticatedPages">
-      <mat-list-item class='page-item uppercase' mat-list-item [class.active]='page.active'
-        (click)="handlePageClick(page)">
-        {{page.name}}
-        <mat-icon *ngIf='page.subPages'>{{page.toggled ? 'expand_less' : 'expand_more' }}</mat-icon>
-      </mat-list-item>
-      <mat-nav-list class='sub-list' *ngIf='page.subPages && page.toggled'>
-        <mat-list-item *ngFor="let subPage of page.subPages; let last=last;" class='page-item uppercase' mat-list-item
-          [class.active]='subPage.active' [routerLink]='subPage.route' queryParamsHandling='preserve'
-          [class.pushDown]='last' (click)="closeMobileMenu(subPage.name, subPage.route)">
-          {{subPage.name}}
-
-        </mat-list-item>
-      </mat-nav-list>
-    </ng-container>
-  </mat-nav-list>
 
   <div class="bottom-wrapper">
     <mat-nav-list class='menu-list'>
       <a *ngFor="let page of menuPages" class='page-item uppercase' mat-list-item [class.active]='page.active'
         [routerLink]='page.route' queryParamsHandling='preserve'
+        [class.spacer]="page.route == '/articles'"
         [fragment]="page.route === '/about' ? 'howitworks' : ''" (click)="closeMobileMenu(page.name, page.route)">
         {{page.name}}
 

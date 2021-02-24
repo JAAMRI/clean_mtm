@@ -9,6 +9,7 @@ import { environment } from '../../../environments/environment';
 export class DesktopToolbarComponent implements OnInit {
   @Output() navigate = new EventEmitter<string>();
   @Output() onSignOutClicked = new EventEmitter<string>();
+  @Output() onSignInClicked = new EventEmitter<string>();
   @Input() activePage: string;
   @Input() loggedIn: boolean;
   mainImage = this.locale === 'fr' ? environment.frenchImage : environment.englishImage
@@ -27,4 +28,7 @@ export class DesktopToolbarComponent implements OnInit {
     this.onSignOutClicked.emit();
   }
 
+  signIn() {
+    this.onSignInClicked.emit();
+  }
 }

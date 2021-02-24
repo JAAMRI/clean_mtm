@@ -1,4 +1,4 @@
-export const AuthenticatedPages = [
+export const MenuPages = [
     {
         name: $localize `select recipes`,
         route: '/recipes/discover',
@@ -85,9 +85,6 @@ export const AuthenticatedPages = [
     { name: $localize `meal plan`, route: '/recipes/my-meals' },
     { name: $localize `grocery list`, route: '/recipes/grocery-list' },
     { name: $localize `favourites`, route: '/recipes/favourites', }, // TODO when favourites page is created
-];
-
-export const MenuPages = [
     { name: $localize `articles`, route: '/articles', },
     { name: $localize `about`, route: '/about', }, // TODO when favourites page is created
     { name: $localize `contact us`, route: '/contact-us' },

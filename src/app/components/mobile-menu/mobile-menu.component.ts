@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { MenuPage } from '../../../app/interfaces/menu-page';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';
-import { AuthenticatedPages, MenuPages } from './mobile-menu-pages';
+import { MenuPages } from './mobile-menu-pages';
 
 @Component({
   selector: 'app-mobile-menu',
@@ -15,7 +15,6 @@ import { AuthenticatedPages, MenuPages } from './mobile-menu-pages';
 export class MobileMenuComponent implements OnInit {
   @Output() close = new EventEmitter();
   currentRoute: string;
-  authenticatedPages: MenuPage[] = AuthenticatedPages;
   menuPages: MenuPage[] = MenuPages;
   unsubscribeAll = new Subject();
   @Input() loggedIn: boolean;
@@ -68,17 +67,6 @@ export class MobileMenuComponent implements OnInit {
 
   setActiveRoute(url: string) {
     this.currentRoute = url;
-    if (this.loggedIn) {
-      this.authenticatedPages.forEach((page) => {
-        page.active = url.includes(page.route);
-        if (page.subPages) {
-          page.subPages.forEach((subPage) => {
-            subPage.active = url.includes(subPage.route);
-          })
-
-        }
-      });
-    }
     this.menuPages.forEach((page) => {
       page.active = url.includes(page.route)
     });
