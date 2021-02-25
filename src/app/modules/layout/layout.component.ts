@@ -65,6 +65,7 @@ export class LayoutComponent {
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       this.activeRoute = event.url;
+      this.onAuthPage = this.activeRoute.includes('auth');
       this.activateBreadcrumb();
     });
   }
@@ -173,6 +174,10 @@ export class LayoutComponent {
         alert(err.message);
       });
 
+  }
+
+  signIn() {
+    this.router.navigate(['/auth/login']);
   }
 
   routeHome() {

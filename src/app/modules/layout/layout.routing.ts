@@ -10,8 +10,6 @@ const LayoutRoutes: Routes = [
 
             {
                 path: 'discover',
-                canActivate: [AuthGuard],
-
                 loadChildren: () => import('./discover-meals/discover-meals.module').then(m => m.DiscoverMealsModule)
             },
             {
@@ -22,14 +20,10 @@ const LayoutRoutes: Routes = [
             },
             {
                 path: 'my-meals',
-                canActivate: [AuthGuard],
-
                 loadChildren: () => import('./my-meals/my-meals.module').then(m => m.MyMealsModule)
             },
             {
                 path: 'grocery-list',
-                canActivate: [AuthGuard],
-
                 loadChildren: () => import('./grocery-list/grocery-list.module').then(m => m.GroceryListModule)
             },
 
