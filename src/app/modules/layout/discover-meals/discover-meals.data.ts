@@ -23,7 +23,12 @@ export const RecipeInformationByFilterName = {
         titleTag: $localize`90+ BBQ Recipes - Grilling | Meals That Matter`,
         seoDescription: $localize`Looking for some tasty BBQ recipes? Fire up the grill and try one of our recipes  here today.`,
         description: $localize`Out of backyard BBQ ideas? Turn up the heat and try our favourite BBQ recipes today.`
-
+    },
+    'bbqrecipes': {
+        title: $localize`BBQ Recipes`,
+        titleTag: $localize`90+ BBQ Recipes - Grilling | Meals That Matter`,
+        seoDescription: $localize`Looking for some tasty BBQ recipes? Fire up the grill and try one of our recipes  here today.`,
+        description: $localize`Out of backyard BBQ ideas? Turn up the heat and try our favourite BBQ recipes today.`
     },
     'pasta': {
         title: $localize`Pasta Recipes`,

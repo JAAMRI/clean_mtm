@@ -22,7 +22,7 @@ export const MenuPages = [
             },
             {
                 name: $localize `bbq`,
-                route: '/recipes/discover/bbq',
+                route: '/recipes/discover/bbqrecipes',
             },
             {
                 name: $localize `dinner`,

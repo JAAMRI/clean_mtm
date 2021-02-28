@@ -3,6 +3,7 @@ export const FilterIdsByName = {
     'chicken': '1503',
     'summer': '1544',
     'bbq': '1393',
+    'bbqrecipes': '1393',
     'pasta': '1047',
     'beef': '1499',
     'slow_cooker': '1390',
@@ -46,7 +47,7 @@ export const Filters: IFilter[] = [
     },
     {
         name: $localize`bbq`,
-        key: 'bbq',
+        key: 'bbqrecipes',
 
         id: 1393,
 
