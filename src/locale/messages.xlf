@@ -173,6 +173,10 @@
           <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
@@ -365,7 +369,7 @@
         <source>Articles</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9c1036948ed0fbdd0540cba8a36b868930aaa3ef" datatype="html">
@@ -395,7 +399,7 @@
         <source>sign out</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="65fa36c3fcd756bd22d6eed35208fa4b5b760360" datatype="html">
@@ -1002,7 +1006,7 @@
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="20544a08bd3803623ac305391a75ae25755e5dbf" datatype="html">
+      <trans-unit id="0911b761121cb50c88cc4073f1af6e5bb8f41d01" datatype="html">
         <source>Register to start saving your favourite recipes and to create easy grocery lists delivered straight to your door.
   </source>
         <context-group purpose="location">

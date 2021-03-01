@@ -137,7 +137,7 @@
 
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9c1036948ed0fbdd0540cba8a36b868930aaa3ef" datatype="html">
@@ -172,7 +172,7 @@
         <target>déconnexion</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8e93ff8a1cd4789ebe9fc6d17b54ce56b5b05e96" datatype="html">
@@ -489,6 +489,10 @@ De temps à autre, cela peut comprendre des promotions croisées avec des parten
           <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/desktop-toolbar/desktop-toolbar.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/layout/auth/login/login.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
@@ -513,6 +517,16 @@ De temps à autre, cela peut comprendre des promotions croisées avec des parten
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
           <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="604071c1b98deffb6c26c8ce18c39ab882792994" datatype="html">
+        <source>
+        sign out
+      </source>
+      <target>déconnexion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/mobile-menu/mobile-menu.component.html</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="247e26160249914515875ec199470eeb672529cb" datatype="html">
@@ -1075,7 +1089,7 @@ De temps à autre, cela peut comprendre des promotions croisées avec des parten
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="20544a08bd3803623ac305391a75ae25755e5dbf" datatype="html">
+      <trans-unit id="0911b761121cb50c88cc4073f1af6e5bb8f41d01" datatype="html">
         <source>Register to start saving your favourite recipes and to create easy grocery lists delivered straight to your door.
   </source>
         <target>Abonnez-vous pour commencer à enregistrer vos recettes préférées et créer de simples listes d’épicerie livrées directement à votre porte.</target>
