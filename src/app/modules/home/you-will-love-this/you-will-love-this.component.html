@@ -9,7 +9,7 @@
   <app-mtm-slider (onEndReached)='pushEnd()' (onStartReached)='pushStart()'>
     <div class='youll-love-this-meal-item' [class.hidden]='locale === item.hidden' *ngFor="let item of carouselData; trackBy: trackByIndex; let i=index;" (click)='emitNavigation()'>
       <div class="img-wrapper">
-        <img [alt]="item.header" [src]='item.img' [alt]='item.header' />
+        <img [alt]="item.header" loading="lazy" [src]='item.img' [alt]='item.header' />
 
       </div>
       <div class='content'>

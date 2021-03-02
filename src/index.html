@@ -38,6 +38,7 @@
   <meta property="og:image:height" content="384">
   <meta property="og:url" content="https://www.mealsthatmatter.com">
 
+  <link rel="preload" href="styles.css" as="style">
 
   <!-- Apple Splash Screen -->
   <link href="assets/splash_screens/iphone5_splash.png"
@@ -71,24 +72,46 @@
     media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
     rel="apple-touch-startup-image" />
   <!-- End Apple Splash Screen -->
-  <!-- Preload Fonts & Images -->
 
-  <!-- End preload fonts -->
   <link rel="preconnect" href="https://l.betrad.com" crossorigin>
   <link rel="preconnect" href="https://c.evidon.com" crossorigin>
   <link rel="preconnect" href="https://www.facebook.com" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 
-  <link rel="preload" href="https://www.youtube.com/embed/gVFtIzFRv00">
+  <link rel="preconnect" href="https://www.youtube.com/embed/gVFtIzFRv00">
 
 
   <!-- perforance enhancements -->
   <link rel="preconnect" href="http://unileverna.sc.omtrdc.net" crossorigin>
   <link rel="preconnect" href="http://l.betrad.com" crossorigin>
 
-
+  <link rel="stylesheet" href="styles.css">
 </head>
 <style>
+  @font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/materialicons/v70/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
+  }
+
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+
   @font-face {
     font-family: 'filson';
     font-style: normal;

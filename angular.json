@@ -7,8 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "bundleName": "lazyloadedstyles"
+          "style": "scss"
         }
       },
       "i18n": {
@@ -26,8 +25,9 @@
       "architect": {
         "build": {
           "localize": true,
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": { "path": "custom-webpack.config.js" },
             "sourceMap": {
               "scripts": true,
               "styles": true,
@@ -48,7 +48,7 @@
               "src/manifest.json"
             ],
             "styles": [
-              "src/scss/styles.scss"
+              { "input": "src/scss/styles.scss", "inject": false }
             ]
           },
           "configurations": {

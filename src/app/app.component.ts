@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
   unsubscribeAll = new Subject();
   activeRoute: string;
   loadScript: Promise<any>;
-  stylesToBeLoaded: boolean = false;
   loadNewRelic = false;
   loadLoyaltyAmazonPixel = false;
   loadAwarenessAmazonPixel = false;
@@ -76,24 +75,22 @@ export class AppComponent implements OnInit {
     }
   }
 
-  async ngAfterViewInit() {
-    // this.loadFooter();
-    
-    this.loadFontIcons();
+  ngAfterViewInit() {
     if (environment.uat || environment.production) {
-      this.adobeImplementation();
-      this.pinterestImplementation();
-      this.facebookImplementation();
-      this.newRelicImplementation();
-      // this.hotjarImplementation();
-      this.pixelImplementation();
-      this.amazonPixelImplementation();
+      setTimeout(() => {
+        this.adobeImplementation();
+        this.pinterestImplementation();
+        this.facebookImplementation();
+        this.newRelicImplementation();
+        // this.hotjarImplementation();
+        this.pixelImplementation();
+        this.amazonPixelImplementation();
+
+        this.dynamicScriptLoader.insertAdChoice();
+      }, 7000);
     }
 
-
-    // }//If production or uat, lazyload main css
     this.cdr.detectChanges()
-    this.dynamicScriptLoader.insertAdChoice();
   }
 
   watchRoute() {
@@ -107,12 +104,6 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
-  loadFontIcons() {
-    this.stylesToBeLoaded = true;
-    this.cdr.detectChanges();
-  }
-
 
   isLoggedIn() {
     Auth.currentAuthenticatedUser({
