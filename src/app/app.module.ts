@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRouting } from './app.routing';
 import { AuthGuard } from './guards/auth.guard';
-import { FooterModule } from './modules/footer/footer.module';
+import { FooterModule } from './modules/shared/footer/footer.module';
 import { AccountService } from './services/account/account.service';
 import { DynamicScriptLoaderService } from './services/dynamic-script-loader/dynamic-script-loader.service';
 import { SeoService } from './services/seo.service';

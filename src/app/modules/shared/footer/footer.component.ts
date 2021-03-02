@@ -1,5 +1,5 @@
 import { Component, HostListener, Inject, LOCALE_ID } from '@angular/core';
-import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
+import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 import { SocialFooterItems } from './footer.items';
 
 @Component({

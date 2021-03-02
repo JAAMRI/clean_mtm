@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import Auth from '@aws-amplify/auth';
 import { AccountService } from 'src/app/services/account/account.service';
-import { AdobeDtbTracking } from '../../../../services/adobe_dtb_tracking.service';
+import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 
 @Component({
   selector: 'app-forgot-password',
