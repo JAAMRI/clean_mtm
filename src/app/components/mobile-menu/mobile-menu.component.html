@@ -40,6 +40,9 @@
           </mat-list-item>
         </mat-nav-list>
       </ng-container>
+      <a *ngIf='loggedIn' class='page-item sign-out-item uppercase' mat-list-item (click)="signOut()" i18n>
+        sign out
+      </a>
     </mat-nav-list>
   </div>
 </div>
