@@ -105,16 +105,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  checkAuth(link?: string, comingFrom?: string) {
-    if (this.accountService.loggedIn) {
-      this.routeToRecipes(link, comingFrom);
-
-    } else {
-      this.promptUserForAuth()
-    }
-
-  }
-
   getStarted() {
     this.adobeDtbTracking.pageTracking('GET STARTED', '/recipes/discover');
     this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" })
