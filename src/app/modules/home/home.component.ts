@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import Auth from '@aws-amplify/auth';
+import { Auth } from 'aws-amplify';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { AdobeDtbTracking } from '../../../app/services/adobe_dtb_tracking.service';

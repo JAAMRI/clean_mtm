@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer, Title } from '@angular/platform-browser';
-import Auth from '@aws-amplify/auth';
+import { Auth } from 'aws-amplify';
 import { Subject } from 'rxjs';
 import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
 import { SeoService } from '../../services/seo.service';

@@ -1,6 +1,6 @@
 import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import Auth from '@aws-amplify/auth';
+import { Auth } from 'aws-amplify';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { MTMPage, MTMPageNames, MTMPages } from 'src/app/components/desktop-toolbar/desktop-pages';

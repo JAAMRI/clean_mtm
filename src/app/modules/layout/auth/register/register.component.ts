@@ -1,14 +1,14 @@
 import { Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from "@angular/router";
-import Auth from '@aws-amplify/auth';
+import { Auth } from 'aws-amplify';
 import { Subject } from 'rxjs';
-import { AccountService } from '../../../services/account/account.service';
-import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
-import { environment } from '../../../../environments/environment';
-import { ICredentials } from '../../../interfaces/auth/credentials';
-import { PinterestTrackingService } from '../../../services/pinterest-tracking.service';
-import { ThirdPartyService } from '../../../services/third-party.service';
+import { AccountService } from '../../../../services/account/account.service';
+import { AdobeDtbTracking } from '../../../../services/adobe_dtb_tracking.service';
+import { environment } from '../../../../../environments/environment';
+import { ICredentials } from '../../../../interfaces/auth/credentials';
+import { PinterestTrackingService } from '../../../../services/pinterest-tracking.service';
+import { ThirdPartyService } from '../../../../services/third-party.service';
 import { PasswordErrorMatcher, RegisterForm } from '../auth.forms';
 
 

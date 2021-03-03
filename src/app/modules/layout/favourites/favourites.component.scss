@@ -1,4 +1,4 @@
-@import "../../../../scss/variables.scss";
+@use "../../../../scss/variables";
 .cc-side-drawer-anchor {
   display: none;
 }
@@ -7,7 +7,7 @@
   min-height: calc(100vh - 64px); // height subrating toolbar (landscape)
   display: flex;
   flex-direction: column;
-  background-color: $mtm_white;
+  background-color: variables.$mtm_white;
   position: relative;
   z-index: 1;
 }
@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $mtm_white;
+  background-color: variables.$mtm_white;
 }
 .gif-wrapper {
   display: flex;
@@ -56,7 +56,7 @@
   }
   padding: 1em;
   mat-icon{
-    color: $mtm_dark_green_color;
+    color: variables.$mtm_dark_green_color;
     transform: scale(2)
   }
   p{
@@ -96,13 +96,13 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.5em;
   button{
-    color: $mtm_dark_green_color !important;
-    background-color: $mtm_grey !important;
+    color: variables.$mtm_dark_green_color !important;
+    background-color: variables.$mtm_grey !important;
   }
 }
 .save-meal-plan-button {
-  color: $mtm_dark_green_color !important;
-  background-color: $mtm_grey !important;
+  color: variables.$mtm_dark_green_color !important;
+  background-color: variables.$mtm_grey !important;
 }
 
 *:focus {

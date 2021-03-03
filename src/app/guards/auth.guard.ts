@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
-import Auth from '@aws-amplify/auth';
+import { Auth } from 'aws-amplify';
 
 @Injectable()
 export class AuthGuard implements CanActivate {

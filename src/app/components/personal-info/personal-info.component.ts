@@ -5,7 +5,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from "@angular/router";
-import Auth from '@aws-amplify/auth';
+import { Auth } from 'aws-amplify';
 import { Subject } from 'rxjs';
 import { AccountService } from '../../../app/services/account/account.service';
 import { MealPlanService } from '../../../app/services/meal-plan/meal-plan.service';

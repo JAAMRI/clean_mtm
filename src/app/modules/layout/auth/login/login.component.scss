@@ -1,4 +1,4 @@
-@import "../../../../scss/variables.scss";
+@use "../../../../../scss/variables";
 
 .login-wrapper {
   padding: 1em;
@@ -22,8 +22,8 @@
     margin-right: 0 4px 4px 0;
   }
   .sign-in-button {
-    background-color: $mtm_grey !important;
-    color: $mtm_dark_green_color !important;
+    background-color: variables.$mtm_grey !important;
+    color: variables.$mtm_dark_green_color !important;
   }
   .login-action-row{
     display: flex;

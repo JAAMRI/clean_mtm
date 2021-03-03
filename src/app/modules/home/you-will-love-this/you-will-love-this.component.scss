@@ -1,4 +1,4 @@
-@import "../../../../scss/variables.scss";
+@use "../../../../scss/variables";
 
 .product-benefits {
   .copy {
@@ -7,7 +7,7 @@
   .get-started-button {
     button {
       min-width: 300px;
-      color: $mtm_dark_green_color;
+      color: variables.$mtm_dark_green_color;
       font-size: 1.2em;
       font-family: 900;
     }
@@ -34,7 +34,7 @@
       }
     }
     .content {
-      background-color: $mtm_grey;
+      background-color: variables.$mtm_grey;
       text-align: center;
       padding: 1em;
       border-radius: 0 0 4px 4px;

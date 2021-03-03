@@ -1,4 +1,4 @@
-@import "../../../../scss/variables.scss";
+@use "../../../../scss/variables";
 app-discover-meals {
   flex: 1;
   .search {
@@ -8,7 +8,7 @@ app-discover-meals {
     text-align: center;
     padding: 1em 2em;
     mat-icon {
-      color: $mtm_dark_green_color;
+      color: variables.$mtm_dark_green_color;
       margin-bottom: 4px;
     }
   }
@@ -17,7 +17,7 @@ app-discover-meals {
     padding: 0 2em;
     .subheader {
       mat-icon {
-        color: $mtm_dark_green_color;
+        color: variables.$mtm_dark_green_color;
         margin-bottom: 4px;
       }
     }
@@ -57,10 +57,10 @@ app-discover-meals {
     justify-content: center;
     p {
       border-radius: 5%;
-      background-color: $mtm_grey;
+      background-color: variables.$mtm_grey;
       padding: 8px;
       mat-icon {
-        color: $mtm_dark_green_color;
+        color: variables.$mtm_dark_green_color;
       }
     }
   }
@@ -69,13 +69,13 @@ app-discover-meals {
     justify-content: center;
     p {
       border-radius: 5%;
-      background-color: $mtm_grey;
+      background-color: variables.$mtm_grey;
       padding: 8px;
     }
   }
   .loading-text {
     text-align: center;
-    color: $mtm_dark_green_color;
+    color: variables.$mtm_dark_green_color;
   }
 
   *:focus {

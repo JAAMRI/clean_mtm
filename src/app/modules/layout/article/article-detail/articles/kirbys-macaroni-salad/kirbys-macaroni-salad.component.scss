@@ -1,18 +1,18 @@
-@import "../../../../../../../scss/variables.scss";
+@use "../../../../../../../scss/variables";
 
 .article-page {
     .header {
-        border-top: 3em solid $mtm_dark_green_color;
+        border-top: 3em solid variables.$mtm_dark_green_color;
     }
     .sub-header {
-        border-top: 0.5em solid $mtm_dark_green_color;
+        border-top: 0.5em solid variables.$mtm_dark_green_color;
         margin-top: 0.5em;
     }
     .footer {
-        border-bottom: 0.5em solid $mtm_dark_green_color;
+        border-bottom: 0.5em solid variables.$mtm_dark_green_color;
     }
     .sub-footer {
-        border-bottom: 3em solid $mtm_dark_green_color;
+        border-bottom: 3em solid variables.$mtm_dark_green_color;
         margin-bottom: 0.5em;
     }
     .content {
@@ -26,7 +26,7 @@
                 font-size: 2em;
             }
             .underline {
-                border-bottom: 0.5em solid $mtm_dark_grey;
+                border-bottom: 0.5em solid variables.$mtm_dark_grey;
                 width: 10vw;
                 margin: 0.25em auto 1em auto;
             }
@@ -47,7 +47,7 @@
             }
         }
         .article-block {
-            border-top: 0.5em dotted $mtm_dark_green_color;
+            border-top: 0.5em dotted variables.$mtm_dark_green_color;
             padding-top: 2em;
             margin-top: 2em;
         }
@@ -56,8 +56,8 @@
                 padding: 0 2em;
             }
             .article-button {
-                background-color: $mtm_grey !important;
-                color: $mtm_dark_green_color !important;
+                background-color: variables.$mtm_grey !important;
+                color: variables.$mtm_dark_green_color !important;
                 padding: 4px !important;
                 @media (min-width: 768px) {
                     font-size: 1.5em;
@@ -74,13 +74,13 @@
                     font-size: 2em;
                 }
                 .servings-wrapper {
-                    border: 4px dotted $mtm_dark_green_color;
+                    border: 4px dotted variables.$mtm_dark_green_color;
                     padding: 4px;
                     border-radius: 6px;
                     margin: 1em;
                     font-size: 1.25em;
                     span {
-                        color: $mtm_dark_green_color;
+                        color: variables.$mtm_dark_green_color;
                     }
                 }
             }
@@ -94,7 +94,7 @@
                     align-items: center;
                     column-gap: 1em;
                     .ingredient-amount {
-                        color: $mtm_dark_green_color;
+                        color: variables.$mtm_dark_green_color;
                         justify-self: center;
                         align-self: center;
                     }
@@ -113,8 +113,8 @@
                     padding: 8px;
                     align-self: start;
                     background: #fff;
-                    border: 2px solid $mtm_grey;
-                    color: $mtm_dark_green_color;
+                    border: 2px solid variables.$mtm_grey;
+                    color: variables.$mtm_dark_green_color;
                     text-align: center;
 
                     font-size: 32px;
