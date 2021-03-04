@@ -96,7 +96,7 @@ export class PersonalInfoComponent implements OnInit {
         .catch(err => {
           console.log(err);
           this.accountService.loggedIn = false;
-          this.router.navigateByUrl("./", { queryParamsHandling: "preserve" });
+          this.router.navigateByUrl("./", /* Removed unsupported properties by Angular migration: queryParamsHandling. */ {});
         }
         );
     } catch (err) {

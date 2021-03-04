@@ -50,7 +50,7 @@ export class LoginComponent {
         // check if there is a redirectTo in the query params and redirect to this instead
         const redirectRoute = this.route.snapshot.queryParams['returnUrl'];
 
-        this.router.navigateByUrl(redirectRoute, { queryParamsHandling: "preserve" });
+        this.router.navigateByUrl(redirectRoute, /* Removed unsupported properties by Angular migration: queryParamsHandling. */ {});
       } else {
 
         this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });

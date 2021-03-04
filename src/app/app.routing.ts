@@ -17,4 +17,4 @@ const routes: Routes = [
   }
 ];
 
-export const routing = RouterModule.forRoot(routes, { preloadingStrategy: NoPreloading, initialNavigation: 'enabled', onSameUrlNavigation: 'reload', useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' });
+export const routing = RouterModule.forRoot(routes, { preloadingStrategy: NoPreloading, initialNavigation: 'enabled', onSameUrlNavigation: 'reload', useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled', relativeLinkResolution: 'legacy' });
