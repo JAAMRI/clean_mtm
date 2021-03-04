@@ -4,8 +4,7 @@ import { Component, ElementRef, ViewChild, HostListener, Output, EventEmitter, A
   selector: 'app-mtm-slider',
   templateUrl: './mtm-slider.component.html',
   styleUrls: ['./mtm-slider.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class MtmSliderComponent implements AfterViewInit, OnChanges {

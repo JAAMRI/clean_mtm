@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit, ViewEncapsulation, ChangeDetectionStrategy, OnChanges, ChangeDetectorRef } from '@angular/core';
 
 import { Meal } from '../../interfaces/meal/meal';
 import { AccountService } from '../../services/account/account.service';
@@ -7,10 +7,9 @@ import { AccountService } from '../../services/account/account.service';
   selector: 'app-meal-item',
   templateUrl: './meal-item.component.html',
   styleUrls: ['./meal-item.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MealItemComponent implements OnInit {
+export class MealItemComponent implements OnInit, OnChanges {
   @Input() mealItem: any; // actual recipe item
   @Input() recommendedMeal: boolean;
   @Input() inMealPlan: boolean; // check if in meal plan
@@ -22,13 +21,17 @@ export class MealItemComponent implements OnInit {
   @Input() parent: string;
   showDescription: boolean;
   mealMacros: any = {};
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.updateMacros();
-    this.showDescription= (this.parent !== "favourites" ) && (this.parent !== "recipe-detail")
+    this.showDescription= (this.parent !== "favourites" ) && (this.parent !== "recipe-detail");
+    this.cdr.detectChanges();
   }
 
+  ngOnChanges() {
+    this.cdr.detectChanges();
+  }
   
 
   updateMacros() {

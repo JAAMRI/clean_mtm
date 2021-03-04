@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, ViewEncapsulation, Inject, LOCALE_ID } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation, Inject, LOCALE_ID, ChangeDetectionStrategy } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { AccountService } from '../../../services/account/account.service';
 import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
@@ -7,6 +7,7 @@ import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
   selector: 'app-on-board',
   templateUrl: './on-board.component.html',
   styleUrls: ['./on-board.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class OnBoardComponent  {

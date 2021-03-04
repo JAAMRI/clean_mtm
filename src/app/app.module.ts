@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultUrlSerializer, UrlSerializer, UrlTree } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -33,7 +33,7 @@ export class StandardUrlSerializer implements UrlSerializer {
   imports: [
     BrowserModule,
     routing,
-    BrowserAnimationsModule,
+    NoopAnimationsModule,
     FooterModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
