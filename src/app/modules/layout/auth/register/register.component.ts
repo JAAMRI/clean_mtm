@@ -1,4 +1,4 @@
-import { Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from "@angular/router";
 import { Auth } from 'aws-amplify';
@@ -17,6 +17,7 @@ import { PasswordErrorMatcher, RegisterForm } from '../auth.forms';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {

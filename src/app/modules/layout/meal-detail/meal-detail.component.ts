@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation, LOCALE_ID } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation, LOCALE_ID, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -19,6 +19,7 @@ import { RecipeSeo } from '../../../utilities/recipes.seo';
   selector: 'app-meal-detail',
   templateUrl: './meal-detail.component.html',
   styleUrls: ['./meal-detail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class MealDetailComponent implements OnInit, OnDestroy {

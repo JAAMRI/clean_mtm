@@ -1,11 +1,13 @@
-import { Component, HostListener, Inject, LOCALE_ID } from '@angular/core';
-import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
+import { ChangeDetectionStrategy, Component, HostListener, Inject, LOCALE_ID, ViewEncapsulation } from '@angular/core';
+import { AdobeDtbTracking } from 'src/app/services/adobe_dtb_tracking.service';
 import { SocialFooterItems } from './footer.items';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class FooterComponent {
   socialFooterItems = SocialFooterItems;

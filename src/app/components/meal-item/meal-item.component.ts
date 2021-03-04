@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 import { Meal } from '../../interfaces/meal/meal';
 import { AccountService } from '../../services/account/account.service';
@@ -7,6 +7,7 @@ import { AccountService } from '../../services/account/account.service';
   selector: 'app-meal-item',
   templateUrl: './meal-item.component.html',
   styleUrls: ['./meal-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class MealItemComponent implements OnInit {
