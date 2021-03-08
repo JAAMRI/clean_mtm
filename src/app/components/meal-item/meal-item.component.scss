@@ -1,4 +1,4 @@
-@import "../../../scss/variables.scss";
+@use "../../../scss/variables";
 
 .meal-item {
   width: 250px;
@@ -9,7 +9,7 @@
   padding: unset;
   cursor: pointer;
   border-radius: 4px;
-  background-color: $mtm_light_grey;
+  background-color: variables.$mtm_light_grey;
 
   .img-wrapper {
     position: relative;
@@ -30,7 +30,7 @@
         height: 200px;
       }
       bottom: 0;
-      background-color: rgba($mtm_dark_grey, 0.5);
+      background-color: rgba(variables.$mtm_dark_grey, 0.5);
     }
 
     img {
@@ -47,15 +47,15 @@
       bottom: -13px;
       z-index: 2;
       left: 16px;
-      color: $mtm_light_green_color;
+      color: variables.$mtm_light_green_color;
       transform: scale(0.75);
     }
     .favourite-border-button {
       position: absolute;
       bottom: -20px;
       left: 8px;
-      background-color: $mtm_white !important;
-      color: $mtm_dark_green_color;
+      background-color: variables.$mtm_white !important;
+      color: variables.$mtm_dark_green_color;
       transform: scale(0.9);
       mat-icon {
         // transform: scale(1.1);
@@ -65,17 +65,17 @@
       position: absolute;
       top: -20px;
       right: 8px;
-      background-color: $mtm_white;
-      color: $mtm_dark_green_color;
+      background-color: variables.$mtm_white;
+      color: variables.$mtm_dark_green_color;
       transform: scale(0.8);
-      border: 1px solid rgba($mtm_light_grey, 0.7);
+      border: 1px solid rgba(variables.$mtm_light_grey, 0.7);
     }
     .remove-button {
       position: absolute;
       top: -20px;
       right: 8px;
-      background-color: $mtm_light_green_color;
-      color: $mtm_white;
+      background-color: variables.$mtm_light_green_color;
+      color: variables.$mtm_white;
       transform: scale(0.8);
     }
   }
@@ -86,7 +86,7 @@
       margin-bottom: unset;
       height: 36px;
       &.title-active {
-        color: $mtm_dark_green_color;
+        color: variables.$mtm_dark_green_color;
       }
     }
     .meal-description {
@@ -100,7 +100,7 @@
 
   .macros-container {
     h3 {
-      color: $mtm_dark_green_color;
+      color: variables.$mtm_dark_green_color;
       margin: 4px;
     }
     .macros-wrapper {
@@ -112,7 +112,7 @@
         justify-content: center;
         align-items: center;
         font-size: 10px;
-        color: $mtm_dark_green_color;
+        color: variables.$mtm_dark_green_color;
         mat-icon {
           margin-bottom: 1em;
           &.blob {

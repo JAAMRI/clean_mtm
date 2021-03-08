@@ -1,8 +1,8 @@
-@import "../../../../scss/variables.scss";
+@use "../../../../scss/variables";
 
 .how-it-works {
   text-align: center;
-  background-color: $mtm_white;
+  background-color: variables.$mtm_white;
   .copy {
     display: flex;
     align-items: center;
@@ -18,7 +18,7 @@
     margin-bottom: unset;
   }
   .how-it-works-bg {
-    background-color: $mtm_grey;
+    background-color: variables.$mtm_grey;
     padding: 2em;
   }
 

@@ -1,13 +1,13 @@
-@import "../../../scss/variables.scss";
+@use "../../../scss/variables";
 
 .slider-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     button {
-        color: $mtm_dark_green_color;
-        background-color: $mtm_white;
-        box-shadow: $mtm-box-shadow !important;
+        color: variables.$mtm_dark_green_color;
+        background-color: variables.$mtm_white;
+        box-shadow: variables.$mtm-box-shadow !important;
         margin: 0 1em;
     }
 

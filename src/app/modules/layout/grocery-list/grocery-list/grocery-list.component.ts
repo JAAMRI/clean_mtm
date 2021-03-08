@@ -1,4 +1,4 @@
-import { Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
@@ -13,6 +13,7 @@ import { DynamicScriptLoaderService } from '../../../../services/dynamic-script-
   selector: 'app-grocery-list',
   templateUrl: './grocery-list.component.html',
   styleUrls: ['./grocery-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 
 })
@@ -28,6 +29,7 @@ export class GroceryListComponent implements OnInit {
     private dynamicScriptLoader: DynamicScriptLoaderService,
     private seo: SeoService,
     private title: Title,
+    private cdr: ChangeDetectorRef,
     public adobeDtbTracking: AdobeDtbTracking,
     @Inject(LOCALE_ID) public locale: string
   ) {
@@ -50,6 +52,8 @@ export class GroceryListComponent implements OnInit {
       } else {
         this.isMealPlanEmpty = true;
       }
+
+      this.cdr.detectChanges();
     })
     this.title.setTitle('Grocery List – Your Ingredients | Meals That Matter'); //updating page title
     this.seo.generateTags({

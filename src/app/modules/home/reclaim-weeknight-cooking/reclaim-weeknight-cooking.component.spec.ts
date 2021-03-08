@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ReclaimWeeknightCookingComponent } from './reclaim-weeknight-cooking.component';
 
@@ -6,7 +6,7 @@ describe('ReclaimWeeknightCookingComponent', () => {
   let component: ReclaimWeeknightCookingComponent;
   let fixture: ComponentFixture<ReclaimWeeknightCookingComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ReclaimWeeknightCookingComponent ]
     })
