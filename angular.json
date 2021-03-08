@@ -45,7 +45,11 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               { "input": "src/scss/styles.scss", "inject": false },
-              "src/scss/customTheme.scss"
+              "src/scss/customTheme.scss",
+              "./node_modules/lite-youtube-embed/src/lite-yt-embed.css"
+            ],
+            "scripts": [
+              "./node_modules/lite-youtube-embed/src/lite-yt-embed.js"
             ]
           },
           "configurations": {
