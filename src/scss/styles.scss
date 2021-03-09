@@ -1,15 +1,17 @@
-@use "variables";
+@import "./fonts.scss";
+
+@import "./variables.scss";
 
 html,
 body {
-  background: variables.$mtm_white;
+  background: $mtm_white;
   font-family: Arial; 
   margin: unset;
   height: 100%;
-  color: variables.$mtm_body_color;
+  color: $mtm_body_color;
   h1, h2, h3, h4, h5, h6{
     font-family: filson-bold;
-    color: variables.$mtm_headline_color;
+    color: $mtm_headline_color;
   }
   p{
     line-height: 22px;
@@ -36,7 +38,7 @@ mat-icon {
 button {
   .mat-progress-spinner circle,
   .mat-spinner circle {
-    stroke: variables.$mtm_white;
+    stroke: $mtm_white;
   }
 }
 .mat-button{
@@ -53,7 +55,7 @@ mat-dialog-container{
 }
 
 .mat-drawer-container {
-  background-color: variables.$mtm_white !important;
+  background-color: $mtm_white !important;
 }
 
 .mat-menu-content {

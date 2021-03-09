@@ -1,11 +1,10 @@
-import { Component, OnInit, ViewEncapsulation, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { MULTIVITAMINS, DAILYVALUES, MACROPROPERTIES } from '../../utilities/nutrition-helper';
 
 @Component({
   selector: 'app-nutrition-table',
   templateUrl: './nutrition-table.component.html',
   styleUrls: ['./nutrition-table.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class NutritionTableComponent implements OnInit {

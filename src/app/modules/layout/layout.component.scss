@@ -1,4 +1,4 @@
-@use "../../../scss/variables";
+@import "../../../scss/variables.scss";
 
 .layout-container {
     height: 100%;
@@ -39,7 +39,7 @@
         z-index: 2;
         text-align: center;
         width: 100%;
-        background-color: variables.$mtm_grey;
+        background-color: $mtm_grey;
     }
     .nav-buttons-wrapper {
         display: flex;
@@ -58,9 +58,9 @@
             font-size: 14px;
         }
         .back {
-            background-color: variables.$mtm_white;
+            background-color: $mtm_white;
             mat-icon {
-                color: variables.$mtm_dark_green_color;
+                color: $mtm_dark_green_color;
             }
         }
     }

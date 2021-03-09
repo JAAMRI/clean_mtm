@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 import { AccountService } from 'src/app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../services/adobe_dtb_tracking.service';
 
@@ -10,7 +10,6 @@ import { AdobeDtbTracking } from '../../../../services/adobe_dtb_tracking.servic
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class ForgotPasswordComponent implements OnInit {
@@ -131,7 +130,7 @@ export class ForgotPasswordComponent implements OnInit {
         // check if there is a redirectTo in the query params and redirect to this instead
         const redirectRoute = this.route.snapshot.queryParams['returnUrl'];
   
-        this.router.navigateByUrl(redirectRoute, /* Removed unsupported properties by Angular migration: queryParamsHandling. */ {});
+        this.router.navigateByUrl(redirectRoute, { queryParamsHandling: "preserve" });
       } else {
   
         this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });

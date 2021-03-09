@@ -1,4 +1,4 @@
-@use "../../../../scss/variables";
+@import "../../../../scss/variables.scss";
 
 .download-page {
     display: flex;
@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    background-color: variables.$mtm_white;
+    background-color: $mtm_white;
     z-index: 1;
     .logo-desktop-wrapper {
         height: 20vh;
@@ -19,7 +19,7 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        color: variables.$mtm_light_green_color;
+        color: $mtm_light_green_color;
         padding: 2em 0;
         h1{
             margin: unset;

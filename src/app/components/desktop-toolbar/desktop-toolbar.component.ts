@@ -1,12 +1,10 @@
-import { Component, OnInit, Output, EventEmitter, Input, LOCALE_ID, Inject, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, LOCALE_ID, Inject } from '@angular/core';
 import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-desktop-toolbar',
   templateUrl: './desktop-toolbar.component.html',
-  styleUrls: ['./desktop-toolbar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./desktop-toolbar.component.scss']
 })
 export class DesktopToolbarComponent implements OnInit {
   @Output() navigate = new EventEmitter<string>();

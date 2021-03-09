@@ -1,4 +1,4 @@
-@use '../../../scss/variables';
+@import '../../../scss/variables.scss';
 
 .breadcrumbs-container{
     display: grid;
@@ -16,13 +16,13 @@
         text-align: center;
         .bar{
             margin: 8px;
-            box-shadow: variables.$mtm-box-shadow;
+            box-shadow: $mtm-box-shadow;
             width: 60px;
             height: 14px;
             border-radius: 10px;
-            background-color: variables.$mtm_white;
+            background-color: $mtm_white;
             &.active {
-                background-color: variables.$mtm_dark_grey;
+                background-color: $mtm_dark_grey;
             }
         }
     }

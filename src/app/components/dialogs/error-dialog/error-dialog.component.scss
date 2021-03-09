@@ -1,8 +1,8 @@
-@use '../../../../scss/variables';
+@import '../../../../scss/variables.scss';
 
 h1{
-    color: variables.$mtm_dark_green_color;
+    color: $mtm_dark_green_color;
 }
 p{
-    color: variables.$mtm_dark_green_color;
+    color: $mtm_dark_green_color;
 }

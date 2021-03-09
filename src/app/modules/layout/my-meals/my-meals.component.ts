@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -17,7 +17,6 @@ import { MealDetailComponent } from '../meal-detail/meal-detail.component';
   selector: 'app-my-meals',
   templateUrl: './my-meals.component.html',
   styleUrls: ['./my-meals.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 
 })
@@ -35,22 +34,21 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     public accountService: AccountService,
     private dialog: MatDialog,
     private seo: SeoService,
-    private cdr: ChangeDetectorRef,
     private title: Title,
     public adobeDtbTracking: AdobeDtbTracking) {
     this.registerIcons();
 
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     scrollToTop();
-    await this.getMealPlan();
+    this.getMealPlan();
     setTimeout(() => {
       this.adobeDtbTracking.pageLoad("meal plan page");
     },
       5000);
 
-    await this.getFavouriteMeals();
+    this.getFavouriteMeals();
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
     }
@@ -60,9 +58,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
       description: 'View my meal plan',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/recipes/my-meals'
-    });
-
-    this.cdr.detectChanges();
+    })
   }
 
   watchAuthState() {
@@ -106,7 +102,6 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     this.mealPlan = this.mealPlan.filter((meal) => meal.id !== mealId)
     this.snackbar.open($localize`Removed!`, null, { duration: 2000, verticalPosition: 'top' });
 
-    this.cdr.detectChanges();
   }
 
   async updateFavourites(favouriteMeal: any) {
@@ -133,7 +128,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     this.favouriteMealIds = this.favouriteMealIds.replace(mealId + '|', '');
     this.snackbar.open($localize`Removed from favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
-    this.cdr.detectChanges();
+
   }
 
   addFavourite(favouriteMeal: any) {
@@ -141,7 +136,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     this.favouriteMealIds += (favouriteMeal.id + '|');
     this.snackbar.open($localize`Added to favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
-    this.cdr.detectChanges();
+
   }
 
   visitMealDetailPage(meal: any) {

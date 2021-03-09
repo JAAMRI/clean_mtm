@@ -1,8 +1,8 @@
-@use "../../../scss/variables";
+@import "../../../scss/variables.scss";
 
 .home-page {
   height: 100%;
-  background-color: variables.$mtm_white;
+  background-color: $mtm_white;
   h1 {
     margin: 0 0 4px 0;
     font-size: 1.5em !important;
@@ -37,7 +37,7 @@
         position: absolute;
         top: 0;
         z-index: 2;
-        background-color: variables.$mtm_white;
+        background-color: $mtm_white;
         margin: 1em;
       }
     }
@@ -52,7 +52,7 @@
   z-index: 999;
   justify-content: center;
   align-items: center;
-  background-color: variables.$mtm_grey;
+  background-color: $mtm_grey;
   padding: 1em 4px 4px 4px;
   small{
     font-size: 10px;

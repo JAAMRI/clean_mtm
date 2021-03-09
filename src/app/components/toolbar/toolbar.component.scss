@@ -1,7 +1,7 @@
-@use "../../../scss/variables";
+@import "../../../scss/variables.scss";
 
 .toolbar-container {
-  background-color: variables.$mtm_grey;
+  background-color: $mtm_grey;
   padding-bottom: 1em;
   .toolbar {
     display: flex;
@@ -9,7 +9,7 @@
     justify-content: space-between;
 
     .edit-button {
-      color: variables.$mtm_dark_green_color;
+      color: $mtm_dark_green_color;
     }
     .deactivate {
       cursor: default;

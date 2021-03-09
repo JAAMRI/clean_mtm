@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from "@angular/router";
-import { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 import { Subject } from 'rxjs';
-import { AccountService } from '../../../../services/account/account.service';
-import { AdobeDtbTracking } from '../../../../services/adobe_dtb_tracking.service';
+import { AccountService } from '../../../../../app/services/account/account.service';
+import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
 import { environment } from '../../../../../environments/environment';
 import { ICredentials } from '../../../../interfaces/auth/credentials';
 import { PinterestTrackingService } from '../../../../services/pinterest-tracking.service';
@@ -17,7 +17,6 @@ import { PasswordErrorMatcher, RegisterForm } from '../auth.forms';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
@@ -70,7 +69,7 @@ export class RegisterComponent implements OnInit {
       })
         .catch(err => {
           this.accountService.loggedIn = false;
-          this.router.navigateByUrl("./", /* Removed unsupported properties by Angular migration: queryParamsHandling. */ {});
+          this.router.navigateByUrl("./", { queryParamsHandling: "preserve" });
         }
         );
     } catch (err) {
@@ -153,7 +152,7 @@ export class RegisterComponent implements OnInit {
         // check if there is a redirectTo in the query params and redirect to this instead
         const redirectRoute = this.route.snapshot.queryParams['returnUrl'];
 
-        this.router.navigateByUrl(redirectRoute, /* Removed unsupported properties by Angular migration: queryParamsHandling. */ {});
+        this.router.navigateByUrl(redirectRoute, { queryParamsHandling: "preserve" });
       } else {
 
         this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });

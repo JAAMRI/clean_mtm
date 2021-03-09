@@ -1,11 +1,11 @@
-@use "../../../../../scss/variables";
+@import "../../../../../scss/variables.scss";
 
 .register-page {
     padding: 1em;
     .register-back-button {
         top: 0;
         left: 0;
-        color: variables.$mtm_dark_grey;
+        color: $mtm_dark_grey;
         padding: unset;
     }
     .register-form {
@@ -24,12 +24,12 @@
                     margin-right: 1.5em;
                 }
                 .mat-button-wrapper {
-                    color: variables.$mtm_dark_green_color !important;
+                    color: $mtm_dark_green_color !important;
                 }
             }
         }
         mat-checkbox {
-            color: variables.$mtm_dark_grey;
+            color: $mtm_dark_grey;
             font-size: 12px;
 
             .view-more-button {
@@ -37,7 +37,7 @@
                 text-decoration: underline;
             }
             .mat-checkbox-frame {
-                border-color: variables.$mtm_dark_grey;
+                border-color: $mtm_dark_grey;
             }
             .mat-checkbox-label {
                 line-height: 20px;
@@ -48,11 +48,11 @@
             }
         }
         a {
-            color: variables.$mtm_dark_green_color;
+            color: $mtm_dark_green_color;
         }
 
         .small-font {
-            color: variables.$mtm_dark_grey;
+            color: $mtm_dark_grey;
             text-align: center;
             font-size: 12px;
         }
@@ -64,11 +64,11 @@
             .save-button {
                 min-width: 150px;
                 width: 70%;
-                background-color: variables.$mtm_grey;
-                color: variables.$mtm_dark_green_color;
+                background-color: $mtm_grey;
+                color: $mtm_dark_green_color;
                 margin: 1em auto;
                 mat-icon {
-                    color: variables.$mtm_dark_green_color;
+                    color: $mtm_dark_green_color;
                 }
                 .spinner-wrapper {
                     display: flex;
@@ -82,11 +82,11 @@
             .signout-button {
                 min-width: 150px;
                 width: 70%;
-                background-color: variables.$mtm_grey;
-                color: variables.$mtm_dark_green_color;
+                background-color: $mtm_grey;
+                color: $mtm_dark_green_color;
                 margin: 1em auto;
                 mat-icon {
-                    color: variables.$mtm_dark_green_color;
+                    color: $mtm_dark_green_color;
                 }
                 .spinner-wrapper {
                     display: flex;
@@ -98,10 +98,10 @@
                 }
             }
             .submit-button {
-                background-color: variables.$mtm_grey;
+                background-color: $mtm_grey;
                 margin: 1em;
                 mat-icon {
-                    color: variables.$mtm_dark_green_color;
+                    color: $mtm_dark_green_color;
                 }
                 .spinner-wrapper {
                     display: flex;

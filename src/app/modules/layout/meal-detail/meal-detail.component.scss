@@ -1,19 +1,19 @@
-@use "../../../../scss/variables";
+@import "../../../../scss/variables.scss";
 
 .favourite-button {
   position: absolute;
   bottom: -13px;
   z-index: 2;
   left: 16px;
-  color: variables.$mtm_light_green_color !important;
+  color: $mtm_light_green_color !important;
   transform: scale(0.75);
 }
 .favourite-border-button {
   position: absolute;
   bottom: -20px;
   left: 8px;
-  background-color: variables.$mtm_white !important;
-  color: variables.$mtm_dark_green_color !important;
+  background-color: $mtm_white !important;
+  color: $mtm_dark_green_color !important;
   transform: scale(0.9);
 
 }
@@ -34,7 +34,7 @@
   z-index: 1;
   font-family: Arial; 
   font-weight: regular;
-  background-color: variables.$mtm_white;
+  background-color: $mtm_white;
   &.dialog{
     max-width: 80vw;
     max-height: 80vh;
@@ -60,7 +60,7 @@
   z-index: 100;
   top: 0;
   right: 0;
-  color: variables.$mtm_dark_green_color;
+  color: $mtm_dark_green_color;
   //  width:100%;
 }
 
@@ -88,11 +88,11 @@
 
 .meal-recipe {
   padding: 2em 3em 1em 3em;
-  background-color: variables.$mtm_white;
+  background-color: $mtm_white;
 }
 .mobile-meal-recipe {
   padding: 0 4px;
-  background-color: variables.$mtm_white;
+  background-color: $mtm_white;
 }
 .meal-info{
   @media(max-width: 768px) {
@@ -132,7 +132,7 @@
     justify-content: flex-end;
     margin: 1em 0;
     .title{
-      color: variables.$mtm_dark_green_color;
+      color: $mtm_dark_green_color;
     }
     p {
       margin: unset;
@@ -143,7 +143,7 @@
     justify-self: start;
     text-align: right;
     .add-button {
-      color: variables.$mtm_dark_green_color;
+      color: $mtm_dark_green_color;
     }
     .added {
       opacity: 0.5;
@@ -157,7 +157,7 @@
     grid-template-columns: 1fr 2fr;
     .text-wrapper {
       h3 {
-        color: variables.$mtm_dark_green_color;
+        color: $mtm_dark_green_color;
         margin: unset;
       }
       .meal-description {
@@ -194,8 +194,8 @@
         justify-content: flex-end;
         margin-top: 8px;
         .send-to-email-button {
-          background-color: variables.$mtm_grey;
-          color: variables.$mtm_dark_green_color;
+          background-color: $mtm_grey;
+          color: $mtm_dark_green_color;
         }
         .cta-wrapper {
           display: flex;
@@ -210,8 +210,8 @@
             text-align: right;
             margin-left: 1em;
             .add-button {
-              color: variables.$mtm_dark_green_color;
-              border: 1px solid rgba(variables.$mtm_light_grey, 0.7);
+              color: $mtm_dark_green_color;
+              border: 1px solid rgba($mtm_light_grey, 0.7);
 
             }
             .added {
@@ -240,16 +240,16 @@
     font-size: 12px;
     font-weight: 600;
     border-radius: 4px 4px 0 0;
-    background-color: variables.$mtm_light_green_color;
-    color: variables.$mtm_white;
+    background-color: $mtm_light_green_color;
+    color: $mtm_white;
     margin: 0 4px;
   }
   .mat-tab-label-active {
-    background-color: variables.$mtm_dark_green_color;
-    color: variables.$mtm_white;
+    background-color: $mtm_dark_green_color;
+    color: $mtm_white;
   }
   .mat-tab-body-wrapper {
-    background-color: variables.$mtm_grey;
+    background-color: $mtm_grey;
     height: 100%;
   }
   .mat-ink-bar {
@@ -269,7 +269,7 @@
 }
 
 .other-recommended-meals {
-  background-color: variables.$mtm_white;
+  background-color: $mtm_white;
 
   h1{
     text-align: center;
@@ -292,7 +292,7 @@
       justify-content: center;
       align-items: center;
       .text-wrapper {
-        color: variables.$mtm_dark_grey;
+        color: $mtm_dark_grey;
         p {
           
           text-align: center;
@@ -312,13 +312,13 @@
         }
       }
       .meal-detail-action-button {
-        background-color: variables.$mtm_grey;
+        background-color: $mtm_grey;
         padding: 1em;
         width: 100%;
         text-align: center;
         button {
-          background-color: variables.$mtm_dark_green_color;
-          color: variables.$mtm_white;
+          background-color: $mtm_dark_green_color;
+          color: $mtm_white;
         }
       }
       .scroll-to-top-button-wrapper {
@@ -332,9 +332,9 @@
       }
     }
 .scroll-button {
-  color: variables.$mtm_light_green_color !important;
-  background-color: variables.$mtm_white !important;
-  border: 1px solid variables.$mtm_light_green_color !important;
+  color: $mtm_light_green_color !important;
+  background-color: $mtm_white !important;
+  border: 1px solid $mtm_light_green_color !important;
 }
 
 *:focus {
@@ -348,9 +348,9 @@ mat-spinner{
 
 .add-button {
 
-  background-color: variables.$mtm_white !important;
-  color: variables.$mtm_dark_green_color !important;
-  border: 1px solid rgba(variables.$mtm_light_grey, 0.7);
+  background-color: $mtm_white !important;
+  color: $mtm_dark_green_color !important;
+  border: 1px solid rgba($mtm_light_grey, 0.7);
   .mat-button-wrapper{
     padding: 6px 0;
   }
@@ -359,7 +359,7 @@ mat-spinner{
 }
 .remove-button {
   
-  background-color: variables.$mtm_dark_green_color !important;
-  color: variables.$mtm_white !important;
+  background-color: $mtm_dark_green_color !important;
+  color: $mtm_white !important;
 
 }

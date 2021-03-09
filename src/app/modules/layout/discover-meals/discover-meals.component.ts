@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -21,7 +21,6 @@ import { RecipeInformationByFilterName } from './discover-meals.data';
   selector: 'app-discover-meals',
   templateUrl: './discover-meals.component.html',
   styleUrls: ['./discover-meals.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -78,7 +77,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.watchParams();
     this.mealPlan = await this.mealPlanService.getMealPlan();
     await this.getFavouriteMeals();
-    this.cdr.detectChanges();
+
   }
 
   watchParams() {
@@ -99,7 +98,7 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
         this.resetSeo()
       }
 
-      this.getMeals(this.meals.length, this.pageSize, 'right', this.searchQuery);
+      this.getMeals(this.meals.length, this.pageSize, 'right', this.searchQuery)
     })
   }
 
@@ -174,7 +173,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
           // }
         }
         this.loading = false;
-        this.cdr.detectChanges();
 
       }, (err: string) => {
         this.loading = false;
@@ -327,7 +325,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
       this.snackBar.open($localize`Added to meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
     }
 
-    this.cdr.detectChanges();
   }
 
   async removeFromMealPlan(mealId: string) {
@@ -346,7 +343,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     const meal = this.meals.find((meal) => meal.id === mealId);
     this.adobeDtbTracking.anchorLinkMeal('Removing from Meal Plan: ', meal.title);
     this.snackBar.open($localize`Removed from meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
-    this.cdr.detectChanges();
   }
 
   updateFavourites(favouriteMeal: any) {
@@ -376,7 +372,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.adobeDtbTracking.anchorLinkMeal('Removing from Favourites: ', meal.title);
     this.snackBar.open($localize`Removed from favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
-    this.cdr.detectChanges();
   }
 
   async addToFavourites(favouriteMeal: any) {
@@ -394,7 +389,6 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     this.adobeDtbTracking.anchorLinkMeal('Adding to Favourites: ', meal.title);
     this.snackBar.open($localize`Added to favourites!`, null, { duration: 2000, verticalPosition: 'top' });
 
-    this.cdr.detectChanges();
   }
 
   ngOnDestroy() {

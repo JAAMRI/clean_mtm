@@ -1,4 +1,4 @@
-@use "../../../scss/variables";
+@import "../../../scss/variables";
 
 .desktop-nav {
     display: flex;
@@ -7,7 +7,7 @@
         justify-content: space-between;
         width: 100%;
     }
-    background-color: variables.$mtm_white;
+    background-color: $mtm_white;
     .tabs {
         img {
             height: 30px;
@@ -16,7 +16,7 @@
     }
     a {
         &.active {
-            color: variables.$mtm_dark_green_color;
+            color: $mtm_dark_green_color;
         }
         padding: 0 8px !important;
     }

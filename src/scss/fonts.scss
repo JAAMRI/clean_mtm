@@ -1,0 +1,18 @@
+$filson-font-path: '/assets/fonts/filson/filson.regular.otf';
+$font-family-filson: 'filson';
+
+$filson-bold-font-path: '/assets/fonts/filson/filson.bold.otf';
+$font-family-filson-bold: 'filson-bold';
+
+
+@font-face {
+    font-family: $font-family-filson;
+    font-display: swap;
+    src: url($filson-font-path) format("truetype");
+}
+
+@font-face {
+    font-family: $font-family-filson-bold;
+    font-display: swap;
+    src: url($filson-bold-font-path) format("truetype");
+}

@@ -1,4 +1,4 @@
-@use "../../../../scss/variables";
+@import "../../../../scss/variables.scss";
 
 .mat-dialog-container {
     padding: 16px;
@@ -68,8 +68,8 @@
                 padding: 1em;
                 cursor: pointer;
                 &.active {
-                    background-color: variables.$mtm_grey;
-                    color: variables.$mtm_dark_green_color;
+                    background-color: $mtm_grey;
+                    color: $mtm_dark_green_color;
                 }
             }
         }

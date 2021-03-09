@@ -1,13 +1,11 @@
-import { ChangeDetectionStrategy, Inject, LOCALE_ID, ViewEncapsulation } from '@angular/core';
+import { Inject, LOCALE_ID } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-download',
   templateUrl: './download.component.html',
-  styleUrls: ['./download.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./download.component.scss']
 })
 export class DownloadComponent implements OnInit {
 

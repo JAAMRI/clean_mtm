@@ -1,4 +1,4 @@
-@use "../../../scss/variables";
+@import "../../../scss/variables.scss";
 
 .mobile-menu {
   padding: 1em;
@@ -19,7 +19,7 @@
       height: 32px;
     }
     .active {
-      color: variables.$mtm_dark_green_color;
+      color: $mtm_dark_green_color;
     }
     .spacer {
       margin-bottom: 1em;
@@ -45,8 +45,8 @@
         font-size: 10px !important;
       }
       button {
-        background-color: variables.$mtm_grey;
-        color: variables.$mtm_dark_green_color;
+        background-color: $mtm_grey;
+        color: $mtm_dark_green_color;
       }
     }
     button {

@@ -1,4 +1,4 @@
-@use "../../../../scss/variables";
+@import "../../../../scss/variables.scss";
 
 app-my-meals{
   flex: 1;
@@ -9,10 +9,10 @@ app-my-meals{
       margin: unset;
     }
     strong {
-      color: variables.$mtm_dark_green_color;
+      color: $mtm_dark_green_color;
     }
     mat-icon {
-      color: variables.$mtm_dark_green_color;
+      color: $mtm_dark_green_color;
     }
   }
   .my-meals-container{
@@ -36,7 +36,7 @@ app-my-meals{
     grid-gap: 1em;
     justify-content: center;   
     .add-meal-item {
-      background-color: variables.$mtm_grey;
+      background-color: $mtm_grey;
       display: flex;
       height: 20vh;
       flex-direction: column;
@@ -71,7 +71,7 @@ app-my-meals{
   .sticky{
     position: sticky;
     top: 0;
-    background-color: variables.$mtm_white;
+    background-color: $mtm_white;
     z-index: 3;
   }
   .gif-wrapper {

@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild, ViewEncapsulation, Inject, LOCALE_ID, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild, ViewEncapsulation, Inject, LOCALE_ID } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Disclaimers, Filters, IFilter } from './filter.data';
 import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
@@ -7,7 +7,6 @@ import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class FilterComponent {

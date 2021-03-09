@@ -1,0 +1,76 @@
+@import "../../../scss/variables.scss";
+
+.app-footer {
+  display: grid;
+  z-index: 0;
+  padding: 1em;
+  background-color: $mtm_grey;
+  padding-bottom: 4em; // consider bottom button
+  .visit-brands{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  a {
+    text-decoration: unset;
+    color: $mtm_dark_grey;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .ad-logos{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .social-icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    margin: 1em 0;
+    
+  }
+  .collapse{
+    height: 34px;
+  }
+  .adchoices-logo{
+    height: 22px;
+  }
+  img {
+    height: 40px;
+  }
+  .desktop-wrapper{
+    display: flex;
+    justify-content: space-between;
+    
+    width: 75%;
+    margin: auto;
+    align-items: center;
+  }
+  .legal{
+    display: flex;
+    justify-content: center;
+    margin: 1em 0;
+    text-align: center;
+    a{
+      margin: 0 2em;
+    }
+
+
+  }
+  .accessibility{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    a{
+      margin: 0 2em;
+    }
+  }
+  .footer-text {
+    font-size: 10px;
+    text-align: center;
+  }
+  .unilever-logo{
+    display: flex;
+    align-items: center;
+  }
+}

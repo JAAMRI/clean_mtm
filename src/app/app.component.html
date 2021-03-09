@@ -13,6 +13,9 @@
 <!-- lazy load footer  -->
 <!-- <div #footerContainer></div> -->
 
+<!-- Load files -->
+<link *ngIf="stylesToBeLoaded" rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
 <!-- amazon img src tag -->
 <noscript *ngIf='loadLoyaltyAmazonPixel'>
         <img height='1' width='1' border='0' alt='amazon pixel'

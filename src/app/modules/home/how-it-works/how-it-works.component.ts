@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output } from '@angular/core';
 import { FeaturedRecipes, getFeaturedRecipes } from './featured-recipes';
 
 @Component({
   selector: 'app-how-it-works',
   templateUrl: './how-it-works.component.html',
-  styleUrls: ['./how-it-works.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./how-it-works.component.scss']
 })
 export class HowItWorksComponent implements OnInit {
   @Output() navigate = new EventEmitter();
