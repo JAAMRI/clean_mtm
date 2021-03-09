@@ -52,7 +52,7 @@ export class MtmSliderComponent implements AfterViewInit, OnChanges {
     const sliderWidth = this.slider.nativeElement.scrollWidth
     this.initialScrollWidth = sliderWidth;
     // scroll half way, but come back half way of the scroll bar to have it in the middle (16 accounted for the 1em grid gap)
-    //this.slider.nativeElement.scrollLeft = ((sliderWidth / 2) - (scrollbarWidth / 2) - 8 + (this.offset || 0));
+    this.slider.nativeElement.scrollLeft = ((sliderWidth / 2) - (scrollbarWidth / 2) - 8 + (this.offset || 0));
   }
 
   ngOnChanges(changes: SimpleChanges) {
