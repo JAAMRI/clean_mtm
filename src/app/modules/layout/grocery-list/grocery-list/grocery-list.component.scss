@@ -1,8 +1,8 @@
-@import '../../../../../scss/variables.scss';
+@use '../../../../../scss/variables';
 app-grocery-list{
     flex: 1;
     .grocery-list-page{
-        background-color: $mtm_white !important; //overwirting grocery list widget
+        background-color: variables.$mtm_white !important; //overwirting grocery list widget
         text-align: center;
     
         .title{

@@ -1,4 +1,4 @@
-@import "../../../../scss/variables.scss";
+@use "../../../../scss/variables";
 
 .on-board-content {
     height: calc(100vh - 76px);
@@ -40,8 +40,8 @@
         position: absolute;
         bottom: 2em;
         button {
-            background-color: $mtm_white;
-            color: $mtm_dark_green_color;
+            background-color: variables.$mtm_white;
+            color: variables.$mtm_dark_green_color;
         }
     }
 }

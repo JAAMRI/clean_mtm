@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from "@angular/router";
-import Auth from '@aws-amplify/auth';
+import { Auth } from 'aws-amplify';
 import { Subject } from 'rxjs';
 import { AccountService } from '../../../app/services/account/account.service';
 import { MealPlanService } from '../../../app/services/meal-plan/meal-plan.service';
@@ -22,6 +22,7 @@ class passwordErrorMatcher implements ErrorStateMatcher {
   selector: 'app-personal-info',
   templateUrl: './personal-info.component.html',
   styleUrls: ['./personal-info.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class PersonalInfoComponent implements OnInit {
@@ -95,7 +96,7 @@ export class PersonalInfoComponent implements OnInit {
         .catch(err => {
           console.log(err);
           this.accountService.loggedIn = false;
-          this.router.navigateByUrl("./", { queryParamsHandling: "preserve" });
+          this.router.navigateByUrl("./", /* Removed unsupported properties by Angular migration: queryParamsHandling. */ {});
         }
         );
     } catch (err) {

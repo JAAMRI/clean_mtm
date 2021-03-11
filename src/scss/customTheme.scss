@@ -1,5 +1,7 @@
-// MTM Brand Palette
-$MTMBrandPalette: (
+@import "~@angular/material/theming";
+@include mat-core();
+
+$mtmBrandPalette: (
   50: #023119,
   100: #414042,
   200: #86ae9a,
@@ -35,15 +37,10 @@ $MTMBrandPalette: (
   )
 );
 
-@import "~@angular/material/theming";
-@include mat-core();
-
-$primary: mat-palette($MTMBrandPalette, 700);
-$accent: mat-palette($MTMBrandPalette, 500);
+$primary: mat-palette($mtmBrandPalette, 700);
+$accent: mat-palette($mtmBrandPalette, 500);
 $warn: mat-palette($mat-red, 400);
 
 $customTheme: mat-light-theme($primary, $accent, $warn);
 
 @include angular-material-theme($customTheme);
-
-//Color Variables

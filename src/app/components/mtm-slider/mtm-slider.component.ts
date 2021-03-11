@@ -1,9 +1,10 @@
-import { Component, ElementRef, ViewChild, HostListener, Output, EventEmitter, AfterViewInit, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { Component, ElementRef, ViewChild, HostListener, Output, EventEmitter, AfterViewInit, OnChanges, SimpleChanges, Input, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-mtm-slider',
   templateUrl: './mtm-slider.component.html',
   styleUrls: ['./mtm-slider.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class MtmSliderComponent implements AfterViewInit, OnChanges {

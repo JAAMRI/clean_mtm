@@ -47,7 +47,7 @@ const LayoutRoutes: Routes = [
             },
             {
                 path: 'auth',
-                loadChildren: () => import('../layout/auth/auth.module').then(m => m.AuthModule)
+                loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
             },
 
             {

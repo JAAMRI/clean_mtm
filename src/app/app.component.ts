@@ -1,8 +1,8 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, Component, HostListener, Inject, LOCALE_ID, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, Inject, LOCALE_ID, OnInit, PLATFORM_ID, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import Auth from '@aws-amplify/auth';
+import { Auth } from 'aws-amplify';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { environment } from '../environments/environment';
@@ -16,13 +16,14 @@ declare var digitalData: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
   unsubscribeAll = new Subject();
   activeRoute: string;
   loadScript: Promise<any>;
-  stylesToBeLoaded: boolean = false;
   loadNewRelic = false;
   loadLoyaltyAmazonPixel = false;
   loadAwarenessAmazonPixel = false;
@@ -76,24 +77,22 @@ export class AppComponent implements OnInit {
     }
   }
 
-  async ngAfterViewInit() {
-    // this.loadFooter();
-    
-    this.loadFontIcons();
+  ngAfterViewInit() {
     if (environment.uat || environment.production) {
-      this.adobeImplementation();
-      this.pinterestImplementation();
-      this.facebookImplementation();
-      this.newRelicImplementation();
-      // this.hotjarImplementation();
-      this.pixelImplementation();
-      this.amazonPixelImplementation();
+      setTimeout(() => {
+        this.adobeImplementation();
+        this.pinterestImplementation();
+        this.facebookImplementation();
+        this.newRelicImplementation();
+        // this.hotjarImplementation();
+        this.pixelImplementation();
+        this.amazonPixelImplementation();
+
+        this.dynamicScriptLoader.insertAdChoice();
+      }, 7000);
     }
 
-
-    // }//If production or uat, lazyload main css
     this.cdr.detectChanges()
-    this.dynamicScriptLoader.insertAdChoice();
   }
 
   watchRoute() {
@@ -107,12 +106,6 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
-  loadFontIcons() {
-    this.stylesToBeLoaded = true;
-    this.cdr.detectChanges();
-  }
-
 
   isLoggedIn() {
     Auth.currentAuthenticatedUser({
