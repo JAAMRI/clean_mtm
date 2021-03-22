@@ -251,14 +251,14 @@ export class AdobeDtbTracking {
 
         if (environment.production || environment.uat) {
             if (value.checked) {
-                this.taggingOptin();
+                //this.taggingOptin();
             } else {
-                this.taggingOptout();
+                //this.taggingOptout();
             }
             // }
         }
     }
-    taggingOptin() {
+    completeReg() {
         //       this.adobeDtbTracking.anchorLink(`Routing to ${link || '/recipes/discover'} from ${comingFrom}`);
 
 

@@ -80,6 +80,7 @@ export class AppComponent implements OnInit {
   ngAfterViewInit() {
     if (environment.uat || environment.production) {
       setTimeout(() => {
+        this.adobeAnalyticsImplementation();
         this.adobeImplementation();
         this.pinterestImplementation();
         this.facebookImplementation();
@@ -87,7 +88,6 @@ export class AppComponent implements OnInit {
         // this.hotjarImplementation();
         this.pixelImplementation();
         this.amazonPixelImplementation();
-
         this.dynamicScriptLoader.insertAdChoice();
       }, 7000);
     }
@@ -153,6 +153,12 @@ export class AppComponent implements OnInit {
   facebookImplementation() {
     this.dynamicScriptLoader.load('facebook-pixel').then((data: any) => {
       console.log('Facebook pixel tracking loaded successfully');
+    }).catch(console.error)
+  }
+
+  adobeAnalyticsImplementation() {
+    this.dynamicScriptLoader.load('adobe-analytics').then((data: any) => {
+      console.log('Adobe Analytics loaded successfully');
     }).catch(console.error)
   }
 

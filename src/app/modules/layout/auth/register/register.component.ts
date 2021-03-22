@@ -125,6 +125,7 @@ export class RegisterComponent implements OnInit {
         this.signIn(credentials);
 
         this.snackBar.open($localize`Congrats! Your profile has been created. Now you can save your personalized meal plans after you build them. See you in the kitchen!`, null, { duration: 4500 });
+        this.adobeDtbTracking.completeReg();
         this.checkDrop();
         //End Sign user In automatically
       })

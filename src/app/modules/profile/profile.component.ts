@@ -76,9 +76,9 @@ export class ProfileComponent {
     let user = await Auth.currentAuthenticatedUser();
 
     if (opt_in) {
-      this.adobeDtbTracking.taggingOptin();
+      //this.adobeDtbTracking.taggingOptin();
     } else {
-      this.adobeDtbTracking.taggingOptout();
+      //this.adobeDtbTracking.taggingOptout();
     }
     let result = await Auth.updateUserAttributes(user, { 'custom:opt_in': opt_in.toString() })
       .then(res => {
