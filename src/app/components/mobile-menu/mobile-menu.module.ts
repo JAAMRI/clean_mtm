@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { LanguageSwitchModule } from '../language-switch/language-switch.module';
 import { MobileMenuComponent } from './mobile-menu.component';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MobileMenuComponent } from './mobile-menu.component';
     MatListModule,
     MatMenuModule,
     MatDialogModule, 
+    LanguageSwitchModule
   ],
   exports: [MobileMenuComponent]
 })

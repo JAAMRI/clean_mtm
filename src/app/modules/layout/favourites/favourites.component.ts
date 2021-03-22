@@ -2,8 +2,9 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { AccountService } from '../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
@@ -38,9 +39,17 @@ export class FavouritesComponent implements OnInit {
     private accountService: AccountService,
     private dialog: MatDialog,
     private router: Router,
+    private route: ActivatedRoute,
     private seo: SeoService,
     private title: Title,
     public adobeDtbTracking: AdobeDtbTracking) {
+
+      route.queryParams.pipe(takeUntil(this.unsubscribeAll)).subscribe(params => {
+        if (params['dialog']) {
+          const mealId = params["id"];
+          this.promptMealDetailComponent(mealId);
+        }
+      });
   }
 
   @HostListener('window:resize', ['$event'])

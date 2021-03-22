@@ -11,9 +11,10 @@ import { ToolbarModule } from '../../components/toolbar/toolbar.module';
 import { AuthGuard } from '../../guards/auth.guard';
 import { LayoutComponent } from './layout.component';
 import { LayoutRouting } from './layout.routing';
+import { MealDetailPopupComponent } from './meal-detail-popup/meal-detail-popup.component';
 
 @NgModule({
-  declarations: [LayoutComponent],
+  declarations: [LayoutComponent, MealDetailPopupComponent],
   imports: [
     CommonModule,
     RouterModule,

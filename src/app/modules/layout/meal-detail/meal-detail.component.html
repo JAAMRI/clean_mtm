@@ -89,6 +89,7 @@
             <a mat-stroked-button [href]='emailContent' (click)="adobeDtbTracking.sharingMealByEmail(meal.title)" i18n>
               EMAIL
             </a>
+            <mtm-language-switch *ngIf="inDialog" [isInPopup]="true" [idMeal]="meal.id"></mtm-language-switch>
           </div>
         </div>
 

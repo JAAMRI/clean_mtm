@@ -3,8 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer, Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { AccountService } from '../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
@@ -28,6 +29,7 @@ export class MyMealsComponent implements OnInit, OnDestroy {
   favouriteMealIds: string = '';
 
   constructor(private router: Router, private snackbar: MatSnackBar,
+    private route: ActivatedRoute,
     private mealPlanService: MealPlanService,
     private mealFavouritesService: MealFavouritesService,
     private matIconRegistry: MatIconRegistry, private sanitizer: DomSanitizer,
@@ -38,6 +40,12 @@ export class MyMealsComponent implements OnInit, OnDestroy {
     public adobeDtbTracking: AdobeDtbTracking) {
     this.registerIcons();
 
+    route.queryParams.pipe(takeUntil(this.unsubscribeAll)).subscribe(params => {
+      if (params['dialog']) {
+        const mealId = params["id"];
+        this.promptMealDetailComponent(mealId);
+      }
+    });
   }
 
   ngOnInit() {

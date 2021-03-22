@@ -1,0 +1,6 @@
+<mat-form-field>
+    <mat-select [(value)]="currentLanguage" (selectionChange)="languageChanged()">
+        <mat-option [value]="locale.EN">English</mat-option>
+        <mat-option [value]="locale.FR">French</mat-option>
+    </mat-select>
+</mat-form-field>

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
+import { LanguageSwitchModule } from 'src/app/components/language-switch/language-switch.module';
 import { MealTabModule } from '../../../../app/components/meal-tab/meal-tab.module';
 import { NutritionTableModule } from '../../../../app/components/nutrition-table/nutrition-table.module';
 import { SharedModule } from '../../../../app/shared/shared.module';
@@ -32,6 +33,7 @@ import { MealDetailRouting } from './meal-detail.routing';
     MtmSliderModule,
     MealItemModule,
     RouterModule,
+    LanguageSwitchModule
     
   ],
   entryComponents: [MealDetailComponent],

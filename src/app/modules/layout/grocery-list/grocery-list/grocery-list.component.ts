@@ -1,6 +1,8 @@
 import { Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { AdobeDtbTracking } from '../../../../../app/services/adobe_dtb_tracking.service';
 import { MealPlanService } from '../../../../../app/services/meal-plan/meal-plan.service';
 import { SeoService } from '../../../../../app/services/seo.service';
@@ -24,6 +26,7 @@ export class GroceryListComponent implements OnInit {
   // creating array of distinct category names
 
   constructor(private mealPlanService: MealPlanService,
+    private route: ActivatedRoute,
     private sharedService: SharedService,
     private dynamicScriptLoader: DynamicScriptLoaderService,
     private seo: SeoService,

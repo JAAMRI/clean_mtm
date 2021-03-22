@@ -27,6 +27,7 @@
       </a>
       <a mat-button *ngIf='!loggedIn' class='titlecase' (click)="signIn()" i18n>sign in</a>
       <a mat-button *ngIf='loggedIn' class='titlecase' (click)="signOut()" i18n>sign out</a>
+      <mtm-language-switch></mtm-language-switch>
     </div>
   </div>
 </mat-toolbar>

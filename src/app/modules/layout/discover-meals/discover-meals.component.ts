@@ -57,8 +57,14 @@ export class DiscoverMealsComponent implements OnInit, AfterViewInit, OnDestroy 
     private snackBar: MatSnackBar,
     private cdr: ChangeDetectorRef,
     private seoService: SeoService,
-    public adobeDtbTracking: AdobeDtbTracking
+    public adobeDtbTracking: AdobeDtbTracking,
   ) {
+    route.queryParams.pipe(takeUntil(this.unsubscribeAll)).subscribe(params => {
+      if (params['dialog']) {
+        const mealId = params["id"];
+        this.promptMealDetailComponent(mealId);
+      }
+    });
   }
 
   @HostListener('window:resize', ['$event'])
