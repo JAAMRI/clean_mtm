@@ -13,6 +13,7 @@ export const ScriptStore: Scripts[] = [
   { name: "awareness-amazon", src: '/assets/scripts/awareness-amazon.js' },
   { name: "loyalty-amazon", src: '/assets/scripts/loyalty-amazon.js' },
   { name: 'adobe-tracking', src: '/assets/scripts/adobe-tracking.js' },
+  { name: 'adobe-analytics', src: '/assets/scripts/adobe-analytics.js' },
   { name: 'hot-jar', src: '/assets/scripts/hot-jar.js' },
   { name: 'facebook-pixel', src: '/assets/scripts/facebook-pixel.js' },
   { name: 'bodyhiding', src: 'assets/scripts/bodyhiding.js' },

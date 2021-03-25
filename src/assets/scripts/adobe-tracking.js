@@ -51,7 +51,7 @@ digitalData.sitespeed = {},
   digitalData.siteInfo.channel = channelVal;
 digitalData.page.category.primaryCategory = channelVal;
 digitalData.trackingInfo = {};
-digitalData.trackingInfo.tool = [{}];
+digitalData.trackingInfo.tool = [{},{}];
 digitalData.privacy = {};
 digitalData.page.attributes = {};
 digitalData.privacy.accessCategories = [{}];
@@ -69,6 +69,7 @@ digitalData.page.attributes.country = 'CA';
 digitalData.page.attributes.globalBrand = 'Meals That Matter';
 digitalData.page.attributes.localBrand = 'Meals That Matter';
 digitalData.trackingInfo.tool[0].id = "UA-144474007-1";
+digitalData.trackingInfo.tool[1].id="unileverna-mtm-ca,unileverna-global-allbrands";
 digitalData.event * [];
 // digitalData.sitespeed.applicationID="563695753";
 // digitalData.sitespeed.licenseKey="NRJS-19deeb4a3c4c9f2dca5";        

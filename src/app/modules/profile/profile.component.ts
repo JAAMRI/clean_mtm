@@ -1,9 +1,9 @@
-import { Component, HostListener, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer, Title } from '@angular/platform-browser';
-import Auth from '@aws-amplify/auth';
+import { Auth } from 'aws-amplify';
 import { Subject } from 'rxjs';
 import { AdobeDtbTracking } from '../../services/adobe_dtb_tracking.service';
 import { SeoService } from '../../services/seo.service';
@@ -13,6 +13,7 @@ import { ProfileIcons } from './profile-icons';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class ProfileComponent {
@@ -75,9 +76,9 @@ export class ProfileComponent {
     let user = await Auth.currentAuthenticatedUser();
 
     if (opt_in) {
-      this.adobeDtbTracking.taggingOptin();
+      //this.adobeDtbTracking.taggingOptin();
     } else {
-      this.adobeDtbTracking.taggingOptout();
+      //this.adobeDtbTracking.taggingOptout();
     }
     let result = await Auth.updateUserAttributes(user, { 'custom:opt_in': opt_in.toString() })
       .then(res => {

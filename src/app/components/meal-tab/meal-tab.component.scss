@@ -1,4 +1,4 @@
-@import "../../../scss/variables.scss";
+@use "../../../scss/variables";
 
 .tab-container {
   display: flex;
@@ -23,7 +23,7 @@
     font-weight: bold;
     font-size: 1.25rem;
     margin-right: 1rem;
-    color: $mtm_dark_green_color;
+    color: variables.$mtm_dark_green_color;
   }
 }
 

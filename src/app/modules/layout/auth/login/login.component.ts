@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import Auth from '@aws-amplify/auth';
+import { Auth } from 'aws-amplify';
 import { AccountService } from 'src/app/services/account/account.service';
 import { AdobeDtbTracking } from 'src/app/services/adobe_dtb_tracking.service';
 import { ICredentials } from '../../../../interfaces/auth/credentials';
@@ -11,7 +11,9 @@ import { LoginForm } from '../auth.forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent {
   loginForm = LoginForm;
@@ -48,7 +50,7 @@ export class LoginComponent {
         // check if there is a redirectTo in the query params and redirect to this instead
         const redirectRoute = this.route.snapshot.queryParams['returnUrl'];
 
-        this.router.navigateByUrl(redirectRoute, { queryParamsHandling: "preserve" });
+        this.router.navigateByUrl(redirectRoute, /* Removed unsupported properties by Angular migration: queryParamsHandling. */ {});
       } else {
 
         this.router.navigate(['/recipes/discover'], { queryParamsHandling: "preserve" });

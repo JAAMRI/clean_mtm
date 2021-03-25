@@ -18,7 +18,7 @@
             <a matTooltip='Opens in a new tab' rel="noopener" *ngFor='let item of socialFooterItems'
                 (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'social')" target="_blank"
                 [href]="item.href">
-                <img [class]='item.name !== "pinterest" ? "collapse": ""' [src]="item.img" [alt]="item.name">
+                <img loading="lazy" [class]='item.name !== "pinterest" ? "collapse": ""' [src]="item.img" [alt]="item.name">
 
             </a>
         </div>
@@ -26,7 +26,7 @@
             <a class='adchoices-logo' href="https://www.unilever.ca" matTooltip='Opens in a new tab'
                 (click)="adobeDtbTracking.footerLinks('Adchoices', 
                 isFrench ? 'https://www.unilever.ca/fr/' : 'https://www.unilever.ca/', 'external')">
-                <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
+                <img loading="lazy" class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
                 <span i18n class='titlecase'>adchoices</span>
 
             </a>
@@ -34,7 +34,7 @@
                 (click)="adobeDtbTracking.footerLinks('Unilever', 
                 isFrench ? 'https://www.unilever.ca/fr/' : 'https://www.unilever.ca/'
                 , 'external')">
-                <img class='unilever-logo' src="/assets/static_images/footer/unilever-logo.svg" alt="Unilever logo">
+                <img loading="lazy" class='unilever-logo' src="/assets/static_images/footer/unilever-logo.svg" alt="Unilever logo">
                 <span i18n>© 2020 Unilever</span>
             </a>
         </div>
@@ -57,12 +57,12 @@
 
         <a rel="noopener" *ngFor='let item of socialFooterItems' matTooltip='Opens in a new tab'
             (click)="adobeDtbTracking.footerLinks(item.name, item.href, 'social')" target="_blank" [href]="item.href">
-            <img [class]='item.name !== "pinterest" ? "collapse": ""' [src]="item.img" [alt]="item.name">
+            <img loading="lazy" [class]='item.name !== "pinterest" ? "collapse": ""' [src]="item.img" [alt]="item.name">
 
         </a>
         <a class='adchoices-logo' [href]="isFrench ? 'https://www.unilever.ca/fr/' : 'https://www.unilever.ca'" matTooltip='Opens in a new tab'
             (click)="adobeDtbTracking.footerLinks('Adchoices', isFrench ? 'https://www.unilever.ca/fr/' : 'https://www.unilever.ca', 'external')">
-            <img class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
+            <img loading="lazy" class='adchoices-logo' src="/assets/static_images/footer/adchoice-logo.svg" alt="AdChoices logo">
             <span i18n class='titlecase'>adchoices</span>
         </a>
         <a class='unilever-logo' [href]="isFrench ? 'https://www.unilever.ca/fr/' : 'https://www.unilever.ca'" matTooltip='Opens in a new tab'

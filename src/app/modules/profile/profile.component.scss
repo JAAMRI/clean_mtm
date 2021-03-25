@@ -1,16 +1,16 @@
-@import "../../../scss/variables.scss";
+@use "../../../scss/variables";
 
 .profile-page {
   height: calc(100% - 64px); // height subtracting toolbar
   min-height: calc(100vh - 64px); // height subrating toolbar (landscape)
-  background-color: $mtm_white;
+  background-color: variables.$mtm_white;
   position: relative;
   z-index: 1;
 }
 .mobile-profile-page {
   height: calc(100% - 40px); // height subtracting mobil toolbar
   min-height: calc(100vh - 40px); // height subrating toolbar (landscape)
-  background-color: $mtm_white;
+  background-color: variables.$mtm_white;
 }
 
 .my-account-title{
@@ -61,8 +61,8 @@ mat-tab-group {
     .save-button {
       min-width: 150px;
       width:70%;
-      background-color: $mtm_grey;
-      color: $mtm_dark_green_color;
+      background-color: variables.$mtm_grey;
+      color: variables.$mtm_dark_green_color;
       margin: 1em auto;
     }
   }

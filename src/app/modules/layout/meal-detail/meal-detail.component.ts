@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation, LOCALE_ID } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, Optional, ViewChild, ViewEncapsulation, LOCALE_ID, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -19,6 +19,7 @@ import { RecipeSeo } from '../../../utilities/recipes.seo';
   selector: 'app-meal-detail',
   templateUrl: './meal-detail.component.html',
   styleUrls: ['./meal-detail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class MealDetailComponent implements OnInit, OnDestroy {
@@ -55,6 +56,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     private mealService: MealService,
     public adobeDtbTracking: AdobeDtbTracking,
     private seo: SeoService,
+    private cdr: ChangeDetectorRef,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
     @Inject(LOCALE_ID) public locale: string
   ) {
@@ -78,11 +80,13 @@ export class MealDetailComponent implements OnInit, OnDestroy {
       // if one of the recipes is part of the seo tags to add to the header
       this.addRecipeToHeader()
     }
-    this.getMealById()
+    await this.getMealById()
 
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
     }
+
+    this.cdr.detectChanges();
   }
 
 

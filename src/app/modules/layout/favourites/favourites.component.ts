@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ChangeDetectionStrategy, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
@@ -16,7 +16,9 @@ import { MealDetailComponent } from '../meal-detail/meal-detail.component';
 @Component({
   selector: 'app-favourites',
   templateUrl: './favourites.component.html',
-  styleUrls: ['./favourites.component.scss']
+  styleUrls: ['./favourites.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class FavouritesComponent implements OnInit {
 
@@ -40,6 +42,7 @@ export class FavouritesComponent implements OnInit {
     private router: Router,
     private seo: SeoService,
     private title: Title,
+    private cdr: ChangeDetectorRef,
     public adobeDtbTracking: AdobeDtbTracking) {
   }
 
@@ -49,13 +52,13 @@ export class FavouritesComponent implements OnInit {
     this.isMobile = (event.target.innerWidth < 1024);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     setTimeout(() => {
       this.adobeDtbTracking.pageLoad("favourite meals page");
     },
       5000);
-    this.getFavouriteMeals();
-    this.getMealPlan();
+    await this.getFavouriteMeals();
+    await this.getMealPlan();
     scrollToTop();
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
@@ -66,7 +69,9 @@ export class FavouritesComponent implements OnInit {
       description: 'View your favourite recipes and dishes as selected by yourself here.',
       image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
       slug: '/recipes/favourites'
-    })
+    });
+
+    this.cdr.detectChanges();
   }
 
   selectRecipes() {
@@ -107,6 +112,7 @@ export class FavouritesComponent implements OnInit {
     this.mealPlanIds[mealId] = true;
     this.snackbar.open($localize`Added to meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
 
+    this.cdr.detectChanges();
   }
 
   async removeFromMealPlan(mealId: any) {
@@ -120,6 +126,7 @@ export class FavouritesComponent implements OnInit {
     delete this.mealPlanIds[mealId];
     this.snackbar.open($localize`Removed from meal plan!`, null, { duration: 2000, verticalPosition: 'top' });
 
+    this.cdr.detectChanges();
   }
 
   async updateFavourites(favouriteMeal: any) {
@@ -140,6 +147,8 @@ export class FavouritesComponent implements OnInit {
       }
       this.addFavourite(favouriteMeal)
     }
+
+    this.cdr.detectChanges();
   }
 
 

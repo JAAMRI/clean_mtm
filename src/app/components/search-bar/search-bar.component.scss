@@ -1,20 +1,20 @@
-@import "../../../scss/variables.scss";
+@use "../../../scss/variables";
 .search-wrapper {
   mat-icon {
     vertical-align: middle;
-    color: $mtm_dark_green_color;
+    color: variables.$mtm_dark_green_color;
   }
   
   .mat-form-field-appearance-legacy .mat-form-field-underline {
-    background-color: $mtm_dark_green_color;
+    background-color: variables.$mtm_dark_green_color;
   }
 
   .mat-form-field-label {
-    color: $mtm_dark_green_color;
+    color: variables.$mtm_dark_green_color;
   }
 
   .mat-form-field-ripple {
-    background-color: $mtm_dark_green_color;
+    background-color: variables.$mtm_dark_green_color;
   }
   .mat-form-field-empty span{
    text-transform: uppercase;

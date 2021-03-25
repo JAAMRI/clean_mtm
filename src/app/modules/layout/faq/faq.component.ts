@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from '../../../shared/shared.service';
 import { SeoService } from '../../../services/seo.service';
@@ -8,7 +8,9 @@ import { AdobeDtbTracking } from '../../../services/adobe_dtb_tracking.service';
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
-  styleUrls: ['./faq.component.scss']
+  styleUrls: ['./faq.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class FaqComponent implements OnInit {
   panelOpenState = false;
