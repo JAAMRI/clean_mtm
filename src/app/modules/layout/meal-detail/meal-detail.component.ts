@@ -3,6 +3,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { AccountService } from '../../../../app/services/account/account.service';
 import { AdobeDtbTracking } from '../../../../app/services/adobe_dtb_tracking.service';
 import { MealFavouritesService } from '../../../../app/services/meal-favourites/meal-favourites.service';
@@ -12,7 +15,6 @@ import { scrollToTop } from '../../../../app/utilities/helper-functions';
 import { environment } from '../../../../environments/environment';
 import { Meal, RelatedRecipe } from '../../../interfaces/meal/meal';
 import { MealService } from '../../../services/meal/meal.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { RecipeSeo } from '../../../utilities/recipes.seo';
 
 @Component({
@@ -55,6 +57,7 @@ export class MealDetailComponent implements OnInit, OnDestroy {
     private mealService: MealService,
     public adobeDtbTracking: AdobeDtbTracking,
     private seo: SeoService,
+    private title: Title,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
     @Inject(LOCALE_ID) public locale: string
   ) {
@@ -72,13 +75,14 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
     scrollToTop();
-    this.updateSeoTag()
+    
     this.mealId = await this.getMealId();
     if (RecipeSeo[this.mealId]) {
       // if one of the recipes is part of the seo tags to add to the header
       this.addRecipeToHeader()
     }
-    this.getMealById()
+    await this.getMealById();
+    this.updateSeoTag();
 
     if (!this.accountService.loggedIn) {
       this.watchAuthState()
@@ -122,6 +126,14 @@ export class MealDetailComponent implements OnInit, OnDestroy {
 
   updateSeoTag(): void {
     this.seo.updateTag({ rel: 'canonical', href: 'https://www.mealsthatmatter.com' + this.router.url });
+
+    this.title.setTitle(this.meal.title + ' | Meals That Matter'); //updating page title
+    this.seo.generateTags({
+      title: $localize `${ this.meal.title } | Meals That Matter`,
+      description: this.meal.description,
+      image: 'https://mealsthatmatter-asset.s3.amazonaws.com/mealsthatmatter.com.assets/icons/icon-384x384.png',
+      slug: this.router.url
+    })
   }
 
   watchAuthState() {
